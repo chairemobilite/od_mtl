@@ -47,9 +47,6 @@ module.exports = (env) => {
         includeDirectories: includeDirectories,
         htmlPages,
         customStylesFilePath: customStylesFilePath,
-        projectLocalesFilePath: customLocalesFilePath,
-        extraEnvs: {
-            EV_VARIANT: process.env.EV_VARIANT
-        }
+        projectLocalesFilePath: customLocalesFilePath
     });
 };

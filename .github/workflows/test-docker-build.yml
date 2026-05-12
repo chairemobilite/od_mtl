@@ -5,7 +5,6 @@ on:
   pull_request:
     branches: 
       - "main"
-      - "2025"
 
 jobs:
   pr-build-check:

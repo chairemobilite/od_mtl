@@ -2,12 +2,12 @@
   "engines": {
     "node": ">=24.0.0"
   },
-  "name": "od_nationale_quebec",
-  "version": "0.5.0",
+  "name": "od_mtl",
+  "version": "0.6.0",
   "main": "index.js",
   "author": "Chaire Mobilité",
   "private": true,
-  "repository": "github.com/chairemobilite/od_qc",
+  "repository": "github.com/chairemobilite/od_mtl",
   "scripts": {
     "build:dev": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=4096 --openssl-legacy-provider\" webpack --watch --progress --color --node-env development --mode development",
     "build:prod": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=1024 --openssl-legacy-provider\" webpack --progress --color --node-env production --mode production",

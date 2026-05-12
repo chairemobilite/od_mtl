@@ -1,6 +1,4 @@
 const moment = require('moment');
-const survey = process.env.EV_VARIANT;
-const variantSpecificConfig = require('./configVariantSpecific')[survey];
 
 const holidays = ['2025-09-01', '2025-10-13', '2025-12-25', '2026-01-01'];
 
@@ -20,12 +18,12 @@ moment.updateLocale('en', {
     }
 });
 
-module.exports = Object.assign({
-    projectShortname: `od_${survey}_2025`,
+module.exports = {
+    projectShortname: `od_mtl_2026`,
     projectDirectory: `${__dirname}/runtime`,
     logoPaths: {
-        fr: `/dist/images/logo_od_${survey}_2025_fr.svg`,
-        en: `/dist/images/logo_od_${survey}_2025_en.svg`
+        fr: `/dist/images/logo_od_mtl_2026_fr.svg`,
+        en: `/dist/images/logo_od_mtl_2026_en.svg`
     },
     countryCode: 'CA',
     // FIXME See if those dates are still useful or if startDateTimeWithTimezoneOffset supercedes them
@@ -78,19 +76,19 @@ module.exports = Object.assign({
     captchaComponentType: 'capjs',
     mapDefaultZoom: 10,
     mapDefaultCenter: {
-        lat: 46.81289,
-        lon: -71.21461
+        lat: 45.503205,
+        lon: -73.569417
     },
-    mapAerialTilesUrl: undefined, // aerial imagery usually requires permission to use. Feel free to add your own url to this file in your local environment.
     mapMaxGeocodingResultsBounds: [
         {
-            lat: 47.033374,
-            lng: -70.8030445
+            lat: 45.2229,
+            lng: -74.3230
         },
         {
-            lat: 46.518331,
-            lng: -71.671425
+            lat: 46.1181,
+            lng: -72.9215
         }],
+    mapAerialTilesUrl: undefined, // aerial imagery usually requires permission to use. Feel free to add your own url to this file in your local environment.
     detectLanguage: false,
     detectLanguageFromUrl: true,
     languages: ['fr', 'en'],
@@ -103,8 +101,8 @@ module.exports = Object.assign({
         en: 'English'
     },
     title: {
-        fr: 'Enquête Nationale Origine-Destination 2025',
-        en: '2025 National Origin-Destination Survey'
+        fr: 'Perspectives Mobilité 2026',
+        en: '2026 Perspectives Mobilité'
     },
     defaultLocale: 'fr',
     timezone: 'America/Montreal',
@@ -126,4 +124,4 @@ module.exports = Object.assign({
     },
     auditChecksGroup: 'travelSurvey', // custom by default so older surveys work.
     surveyBase: 'householdBased'
-}, variantSpecificConfig);
+};

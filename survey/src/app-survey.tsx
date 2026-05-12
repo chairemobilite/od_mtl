@@ -15,4 +15,4 @@ setApplicationConfiguration({
     allowedUrlFields: ['source', 'accessCode']
 });
 
-runClientApp({ appContext: process.env.EV_VARIANT });
+runClientApp();
