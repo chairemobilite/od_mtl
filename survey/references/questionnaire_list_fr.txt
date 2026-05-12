@@ -1,0 +1,466 @@
+Section: Domicile
+
+Code d'accès
+Inscrit dans la lettre reçue.
+
+Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.
+- Oui
+- Non
+
+Veuillez saisir le courriel ou le numéro de téléphone pour vous recontacter.
+
+Adresse courriel
+
+Numéro de téléphone
+Format: 123-456-7890
+
+Adresse
+
+Ville ou municipalité
+
+Province
+
+Pays
+
+Code postal
+
+Positionnement de votre domicile
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
+
+Personnes habitant votre domicile ou logement
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.
+
+Automobiles, VUS, camions légers ou fourgonnettes, etc.
+À la disposition de votre ménage.
+
+Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
+Inclure seulement les vélos utilisables en bon état.
+
+Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?
+
+Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
+Y compris vous-même
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+Enregistrer et continuer
+
+
+
+Section: Ménage
+
+Âge (en années)
+
+Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
+Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
+
+Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+Sexe à la naissance
+Sexe assigné à la naissance ou inscrit dans les documents légaux.
+- Femme
+- Homme
+- Je préfère ne pas répondre
+
+Je préfère donner le genre
+- Femme
+- Homme
+- Cette personne s'identifie comme:
+- Je préfère ne pas répondre
+
+Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
+Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste.
+- Oui, à temps plein (30h et plus/semaine)
+- Oui, à temps partiel (moins de 30h/semaine)
+- Non
+
+Étudiant{{gender:/e/(e)/(e)}}
+- Oui, à temps plein
+- Oui, à temps partiel
+- Non
+
+Établissement d'enseignement
+- Garderie/CPE
+- École primaire
+- École secondaire
+- École à la maison
+- À la maison
+- CEGEP / Collège / DEP / AEP
+- Autre (spécifiez)
+
+Occupation principale
+- Travail à temps plein (30h et plus/semaine)
+- Travail à temps partiel (moins de 30h/semaine)
+- Travail et études
+- Études à temps plein
+- Études à temps partiel
+- À la retraite
+- À la maison
+- En chômage / en recherche d'emploi
+- Congé de maladie ou congé parental
+- Invalidité de longue durée
+- Bénévole
+- Autre
+- Préfère ne pas répondre
+
+Avant d’être en congé, est-ce que {{nickname}} travaillait?
+- Oui, à temps plein (30h et plus/semaine)
+- Oui, à temps partiel (moins de 30h/semaine)
+- Non
+
+Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours.
+- Aucun certificat, diplôme ou degré
+- Diplôme d'études secondaires ou attestation d'équivalence
+- Diplôme d'apprenti ou d'une école de métiers
+- Diplôme d'un cégep ou collège
+- Certificat ou diplôme universitaire inférieur au baccalauréat
+- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+- Je préfère ne pas répondre
+
+Permis de conduire
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+- Oui
+- Non
+- Je ne sais pas
+
+Membre Autopartage
+Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)
+- Oui
+- Non
+- Je ne sais pas
+
+Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
+- Non
+- Passe ou titre mensuel ou annuel
+- Titres ou billets individuels
+- Je ne sais pas
+
+Est-ce que {{nickname}} a un lieu d'emploi fixe?
+- Oui, travail au lieu fixe en présentiel en tout temps
+- Oui, travail en mode hybride (télétravail et en présentiel)
+- Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+- Non, travail sur la route avec départ du domicile
+- Non, travail à partir du domicile ou à distance
+
+Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?
+
+
+Est-ce que {{nickname}} a un lieu d'études fixe?
+- Oui, études au lieu fixe en présentiel en tout temps
+- Oui, études en mode hybride (télé-études et en présentiel)
+- Non, études à partir du domicile ou à distance
+
+Nom ou adresse du lieu habituel de travail de {{nickname}}
+
+Veuillez localiser le lieu de travail habituel de {{nickname}}
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu".
+
+Nom ou adresse du lieu habituel d’études de {{nickname}}
+
+Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+
+Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
+Pour se rendre au travail ou toute autre raison concernant le travail.
+
+
+Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du télétravail?
+
+
+Enregistrer et continuer
+
+
+
+Section: Sélection du membre du ménage
+
+Pour quelle personne désirez-vous poursuivre l'entrevue?
+
+Sélectionner cette personne et continuer
+
+
+
+Section: Introduction aux déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">Entrevue de {{nickname}}</p><p class="_center _pale">•</p>
+
+Changer de personne
+
+Nous allons vous demander de spécifier les déplacements de {{nickname}}.
+
+L’ordre des personnes interviewées est aléatoire.
+
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>
+
+Qui répond pour {{nickname}}?
+
+Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
+
+Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
+
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+
+<span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
+- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>
+
+Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit).
+
+Où était {{nickname}} à 4h du matin?
+- Domicile de l'autre parent ou tuteur
+- Travaillait de nuit
+- Résidence secondaire (chalet ou autre)
+- Passait la nuit chez ami, copine/copain ou famille
+- Était à un ou revenait d'un restaurant ou bar
+- Hôtel ou autre lieu pour une conférence / travail
+- Hôtel ou autre lieu en vacances
+- Écoles / lieu d’études: terminait des travaux ou y couchait
+- Autre
+
+Continuer
+
+Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles
+
+
+
+Section: Déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">Entrevue de {{nickname}}</p><p class="_center _pale">•</p>
+
+Changer de personne
+
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
+L'ordre chronologique doit être respecté.
+
+Carte des déplacements de {{nickname}} le {{assignedDate}}:
+
+Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
+
+À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
+
+
+Avez-vous déjà localisé ce lieu?
+Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
+- Oui
+- Non
+
+Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+
+Veuillez positionner le lieu sur la carte
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.
+
+À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+
+{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
+
+Après avoir été {{atPlace}}, {{nickname}} est…
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
+
+{{nickname}} a quitté {{place}} à:
+
+Confirmer
+
+Confirmer les lieux et continuer
+
+
+
+Section: Modes de transport
+
+Changer de personne
+
+Déplacements de {{nickname}} le {{assignedDate}}
+
+Carte des déplacements de {{nickname}} le {{assignedDate}}:
+
+Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
+
+Mode de transport
+
+Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
+Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.
+
+Stationnement payant?
+- Oui
+- Non
+- Je ne sais pas
+
+Personne(s) dans le véhicule
+Conducteur ou conductrice inclus(e).
+
+Qui conduisait ?
+
+Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
+Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.
+
+Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
+
+Est-ce un transport sur demande?
+
+
+Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte
+
+Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton "Chercher le lieu à partir du nom").
+
+Confirmer ce déplacement
+
+Confirmer les lieux et continuer
+
+
+
+Section: Mobilité
+
+Changer de personne
+
+Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
+
+Pour quelle raison?
+- Télétravail / travail à la maison
+- En grève
+- Congé (maladie, personnel, autre)
+- Pas de travail prévu
+- Autre
+- Je ne sais pas
+
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
+(Facultatif)
+
+Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+
+Pour quelle raison?
+- Cours à distance
+- École fermée
+- Congé (maladie, personnel, autre)
+- Pas de cours
+- Autre
+- Je ne sais pas
+
+Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
+(Facultatif)
+
+Continuer
+
+
+
+Section: Déplacements longue distance
+
+Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?
+- Oui
+- Non
+- Je ne sais pas
+
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
+
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
+
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+- Jamais (0)
+- Quelques fois durant la période (1 à 3)
+- Quelques fois par mois (4 à 12)
+- Une à plusieurs fois par semaine (13 ou plus)
+
+Seriez-vous intéressés à être recontactés pour une enquête plus approfondie sur les déplacements interurbains?
+- Oui
+- Non
+
+Veuillez fournir une adresse courriel de contact pour participer à une enquête sur les déplacements interurbains
+
+Continuer
+
+
+
+Section: Fin
+
+Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+- Locataire
+- Propriétaire
+- Autre
+- Je préfère ne pas répondre
+
+Tranche de revenu avant impôts (brut) du ménage, en 2024?
+Facultatif
+- Moins de 10 000 $
+- 10 000$ à 19 999$
+- 20 000$ à 29 999$
+- 30 000$ à 39 999$
+- 40 000$ à 49 999$
+- 50 000$ à 59 999$
+- 60 000$ à 69 999$
+- 70 000$ à 79 999$
+- 80 000$ à 89 999$
+- 90 000$ à 99 999$
+- 100 000$ à 149 999$
+- 150 000$ à 199 999$
+- 200 000 $ et plus
+- Je ne sais pas
+- Je préfère ne pas répondre
+
+Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal?
+- Oui
+- Non
+
+Veuillez fournir une adresse courriel de contact pour participer à d'autres études de la Chaire Mobilité.
+
+Vos commentaires et suggestions sur le questionnaire
+Facultatif
+
+Les questions suivantes sont facultatives et sont ajoutées à des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
+
+Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
+Facultatif
+
+Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques
+Facultatif
+
+Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Facultatif
+
+Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+Facultatif
+
+Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+Facultatif
+
+Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+Facultatif
+
+Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+Facultatif
+
+Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
+Facultatif
+- Oui
+- Non
+- Je ne sais pas
+
+Terminer l’entrevue
+
+
+
+Section: Questionnaire complété
+
+Merci pour votre participation!
+
+Nous vous remercions d'avoir pris le temps de remplir cette enquête. Vos réponses ont été enregistrées avec succès. Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.
+
+
+

@@ -1,0 +1,464 @@
+Section: Home
+
+Access code
+Printed on the letter you received.
+
+I consent to be contacted to continue the survey.
+If I do not complete it or if some of the information provided is incoherent.
+- Yes
+- No
+
+Please enter the email or phone number to get in contact
+
+Email address
+
+Phone number
+Format: 123-456-7890
+
+Address
+
+City or municipality
+
+Province
+
+Country
+
+Postal Code
+
+Positioning your home
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.
+
+Persons living in your home
+Including yourself and children in shared custody if they were at your home on {{assignedDate}}.
+
+Cars, SUVs, light-duty trucks or vans, etc.
+Available to one or more members of your household.
+
+Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
+Include only usable bicycles in good condition.
+
+Among these bicycles, how many are electric bicycles (e-bikes)?
+
+Is there at least one person in your household having a permanent disability that limits their daily travel?
+Including yourself
+- Yes
+- No
+- I prefer not to answer
+
+Save and continue
+
+
+
+Section: Household
+
+Age (in years)
+
+Name or nickname that will allow you to identify this person for the remainder of the interview
+Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+The name is only used to simplify the response process and will be removed from the final dataset.
+
+Permanent physical, intellectual or other disability which influences or limits their daily mobility?
+- Yes
+- No
+- I prefer not to answer
+
+Sex at birth
+Sex assigned at birth or that which appears on legal documents.
+- Female
+- Male
+- I prefer not to answer
+
+I prefer to give the gender
+- Woman
+- Man
+- This person identifies as:
+- I prefer not to answer
+
+Worker
+Including self-employed and artist.
+- Yes, full time (30h and more/week)
+- Yes, part time (less than 30h/week)
+- No
+
+Student
+- Yes, full time
+- Yes, part time
+- No
+
+Educational institution
+- Kindergarten/Childcare/CPE
+- Primary school
+- Secondary school
+- School at home
+- At home
+- CEGEP / College / DEP / AEP
+- Other (specify)
+
+Main occupation
+- Employed full-time (30h and more/week)
+- Employed part-time (less than 30h/week)
+- Work and studies
+- Full-time student
+- Part-time student
+- Retired
+- At home
+- Unemployed / searching for a job
+- Sick leave or parental leave
+- Long-term disability
+- Volunteer
+- Other
+- Prefer not to answer
+
+Before being on leave, did {{nickname}} work?
+- Yes, full time (30h and more/week)
+- Yes, part time (less than 30h/week)
+- No
+
+Highest level of educational attainment
+When in doubt, choose the level which seems to match best
+- No certificate, diploma or degree
+- High school (secondary) diploma or equivalency certificate
+- Apprenticeship or trades certificate or diploma
+- College, CEGEP or other non-university certificate or diploma
+- University certificate or diploma below bachelor level
+- Bachelor's degree or higher
+- I prefer not to answer
+
+Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
+- Yes
+- No
+- I don't know
+
+Carsharing member
+Subscription or pass to a carsharing service (ex. Communauto)
+- Yes
+- No
+- I don't know
+
+Does {{nickname}} currently have a valid transit pass or ticket?
+- No
+- Monthly or annual pass
+- Individual tickets or rides
+- I don't know
+
+Does {{nickname}} have a fixed work location?
+- Yes, always on-site at fixed location
+- Yes, hybrid work (remote and on-site)
+- Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+- No, work on the road departing from home
+- No, work from home or from elsewhere
+
+Before being on leave, did {{nickname}} have a fixed work location?
+
+
+Does {{nickname}} have a fixed study location?
+- Yes, always on-site at fixed location
+- Yes, hybrid studies (remote and on-site)
+- No, remote studies from home or from elsewhere
+
+Name or address of {{nickname}}'s usual place of work
+
+Please locate the usual place of work for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+Name or address of {{nickname}}'s school or main study location
+
+Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+During the last week, when did {{nickname}} travel for work?
+To get to or for any other reason concerning work.
+
+
+During the last week, when did {{nickname}} work remotely?
+
+
+Save and continue
+
+
+
+Section: Household member selection
+
+Who do you want to continue the interview for?
+
+Select this person and continue
+
+
+
+Section: Trips introduction
+
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+
+Change person
+
+We will ask you to specify {{nickname}}’s trips.
+
+The order of the interviewed persons was randomly selected.
+
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>
+
+Who is responding for {{nickname}}?
+
+Did {{nickname}} make any trips on {{assignedDate}}?
+Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
+
+You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
+
+Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
+
+<span class="_green">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- Include all places regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class="_red">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
+
+Did {{nickname}} start their day at home ({{address}})?
+Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
+
+Where was {{nickname}} at 4 AM?
+- Home of the other parent or guardian
+- Worked overnight
+- Secondary residence (cottage or other)
+- Stayed at a friend’s, partner’s or family’s home
+- Was at or was coming back from a restaurant or bar
+- Hotel or other venue for a conference / work
+- Hotel or other on vacation
+- School / place of study: studied or slept there
+- Other
+
+Continue
+
+Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential
+
+
+
+Section: Déplacements
+
+<p class="_center _em" style="margin-bottom: 0;">{{nickname}}’s interview</p><p class="_center _pale">•</p>
+
+Change person
+
+Places {{nickname}} went on {{assignedDate}}:
+Chronological order must be respected (i.e. sequence matters).
+
+Map of {{nickname}}’s trips on {{assignedDate}}:
+
+What was the departure place of {{nickname}}’s work trip on the road?
+
+Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
+
+
+Did you previously locate this place on the map?
+In {{nickname}}'s travel diary or that of another household member.
+- Yes
+- No
+
+Please select this place from the list of previously located places:
+
+Please locate this place on the map
+Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
+
+At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+
+{{nickname}} arrived {{atPlace}} at:
+
+After being {{atPlace}}, {{nickname}}…
+If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
+
+{{nickname}} left {{place}} at:
+
+Confirm
+
+Confirm locations and continue
+
+
+
+Section: Modes of transport
+
+Change person
+
+Trips made by {{nickname}} on {{assignedDate}}
+
+Map of {{nickname}}’s trips on {{assignedDate}}:
+
+Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
+
+Mode of transport
+
+How did {{nickname}} reach the transit stop?
+If the mode used is not present, create a first mode before the transit mode.
+
+Paid parking
+- Yes
+- No
+- I don't know
+
+Persons in the vehicle
+Including the driver.
+
+Who drove?
+
+Bus line(s) taken (in chronological order)
+For each line, begin by typing the number or name, then select it from the results shown.
+
+Some bus line(s) seem invalid for this trip. Please validate the lines.
+
+Is this an on-demand service?
+
+
+Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map
+
+Please locate the junction point (location where the change in mode of transport occurred).
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the name or address indicated above ("Find the place from the name" button).
+
+Confirm this trip
+
+Confirm locations and continue
+
+
+
+Section: Travel behavior
+
+Change person
+
+You didn't report any work trips by {{nickname}} on {{assignedDate}}
+
+Why?
+- Remote work / work from home
+- On strike
+- Leave (sick, personal, other)
+- No work planned
+- Other
+- I don't know
+
+Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
+
+You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+
+Why?
+- Distance learning
+- School was closed
+- Leave (sick, personal, other)
+- No classes
+- Other
+- I don't know
+
+Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
+
+Continue
+
+
+
+Section: Long distance trips
+
+In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?
+- Yes
+- No
+- I don't know
+
+How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+- Never (0)
+- A few times during the period (1 to 3)
+- A few times a month (4 to 12)
+- One to several times a week (13 or more)
+
+How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+- Never (0)
+- A few times during the period (1 to 3)
+- A few times a month (4 to 12)
+- One to several times a week (13 or more)
+
+How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+- Never (0)
+- A few times during the period (1 to 3)
+- A few times a month (4 to 12)
+- One to several times a week (13 or more)
+
+Would you be interested in being contacted again for a more in-depth survey on interurban travel?
+- Yes
+- No
+
+Please provide the email address where you can be reached to participate in a survey on interurban travel
+
+Continue
+
+
+
+Section: End
+
+Does your household rent or own your home?
+- Tenant
+- Owner
+- Other
+- I prefer not to respond
+
+What was your household's income range before taxes (gross income), in 2024?
+Optional
+- Less than $10,000
+- $10,000 to $19,999
+- $20,000 to $29,999
+- $30,000 to $39,999
+- $40,000 to $49,999
+- $50,000 to $59,999
+- $60,000 to $69,999
+- $70,000 to $79,999
+- $80,000 to $89,999
+- $90,000 to $99,999
+- $100,000 to $149,999
+- $150,000 to $199,999
+- $200,000 and more
+- I don't know
+- I prefer not to respond
+
+Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
+- Yes
+- No
+
+Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
+
+Your comments and suggestions about the survey
+Optional
+
+The next questions are optional and are added for research purposes. You can complete the interview without answering them.
+
+Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+Optional
+
+Among the vehicles owned by your household, how many are electric vehicles?
+Optional
+
+How interesting was this survey to you?
+Optional
+
+How much time do you think you spent answering this survey (in minutes)?
+Optional
+
+Do you feel that the length of the survey was too short, about right, or too long?
+Optional
+
+How easy or difficult was it for you to answer the questions in this survey?
+Optional
+
+How burdensome (demanding) did you find this survey to be?
+Optional
+
+Have you considered, at any point, abandoning the survey?
+Optional
+- Yes
+- No
+- I don't know
+
+Complete the interview
+
+
+
+Section: Survey completed
+
+Thank you for your participation!
+
+We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.
+
+
+

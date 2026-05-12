@@ -1,0 +1,713 @@
+""
+Section,Domicile
+Abréviation,h_
+""
+Champ,accessCode
+Type de question,Champ de texte
+Conditionnel,accessCodeIsSetCustomConditional
+Question,"Code d'accès
+Inscrit dans la lettre reçue."
+""
+Champ,acceptToBeContactedForHelp
+Type de question,Bouton radio
+Question,"Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Si je ne le termine pas ou si certains des renseignements fournis sont incohérents."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,contactEmail
+Type de question,Champ de texte
+Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,Adresse courriel
+""
+Champ,phoneNumber
+Type de question,Champ de texte
+Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,"Numéro de téléphone
+Format: 123-456-7890"
+""
+Champ,h_address
+Type de question,Champ de texte
+Question,Adresse
+""
+Champ,h_city
+Type de question,Champ de texte
+Question,Ville ou municipalité
+""
+Champ,h_region
+Type de question,Champ de texte
+Conditionnel,hiddenWithQuebecAsDefaultValueCustomConditional
+Question,Province
+""
+Champ,h_country
+Type de question,Champ de texte
+Conditionnel,hiddenWithCanadaAsDefaultValueCustomConditional
+Question,Pays
+""
+Champ,h_postalCode
+Type de question,Champ de texte
+Question,Code postal
+""
+Champ,h_geography
+Type de question,Entrée inconnue
+Question,"Positionnement de votre domicile
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision."
+""
+Champ,hh_size
+Type de question,Entrée inconnue
+Question,"Personnes habitant votre domicile ou logement
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
+""
+Champ,hh_carNumber
+Type de question,RadioNumber
+Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
+À la disposition de votre ménage."
+""
+Champ,hh_bicycleNumber
+Type de question,RadioNumber
+Question,"Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
+Inclure seulement les vélos utilisables en bon état."
+""
+Champ,hh_electricBicycleNumber
+Type de question,RadioNumber
+Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
+Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?"
+""
+Champ,hh_atLeastOnePersonWithDisability
+Type de question,Bouton radio
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
+Y compris vous-même"
+Valeurs,"yes : Oui
+no : Non
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+""
+""
+Section,Ménage
+Abréviation,hh_
+""
+Champ,age
+Type de question,Champ numérique
+Question,Âge (en années)
+""
+Champ,nickname
+Type de question,Champ de texte
+Conditionnel,hasPersonCount2OrMoreCustomConditional
+Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
+Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
+""
+Champ,hasDisability
+Type de question,Bouton radio
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?"
+Valeurs,"yes : Oui
+no : Non
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,sexAssignedAtBirth
+Type de question,Bouton radio
+Conditionnel,ifAge5orMoreConditional : age >= 5
+Question,"Sexe à la naissance
+Sexe assigné à la naissance ou inscrit dans les documents légaux."
+Valeurs,"female : Femme
+male : Homme
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,gender
+Type de question,Bouton radio
+Conditionnel,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
+Question,Je préfère donner le genre
+Valeurs,"female : Femme
+male : Homme
+custom : Cette personne s'identifie comme:
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,workerType
+Type de question,Bouton radio
+Conditionnel,ifAge14orMoreConditional : age >= 14
+Question,"Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
+Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste."
+Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
+partTime : Oui, à temps partiel (moins de 30h/semaine)
+no : Non"
+""
+Champ,studentType
+Type de question,Bouton radio
+Conditionnel,ifAge16OrMoreConditional : age >= 16
+Question,Étudiant{{gender:/e/(e)/(e)}}
+Valeurs,"fullTime : Oui, à temps plein
+partTime : Oui, à temps partiel
+no : Non"
+""
+Champ,schoolType
+Type de question,Entrée inconnue
+Conditionnel,ifAge15OrLessConditional : age <= 15 && age !== null
+Question,Établissement d'enseignement
+Valeurs,"kindergarten (ifAge5OrLessConditional : age <= 5) : Garderie/CPE
+primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : École primaire
+secondarySchool (ifAge11OrMoreConditional : age >= 11) : École secondaire
+schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : École à la maison
+atHome (ifAge5OrLessConditional : age <= 5) : À la maison
+collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / Collège / DEP / AEP
+other : Autre (spécifiez)"
+""
+Champ,occupation
+Type de question,Bouton radio
+Conditionnel,personOccupationCustomConditional
+Question,Occupation principale
+Valeurs,"fullTimeWorker : Travail à temps plein (30h et plus/semaine)
+partTimeWorker : Travail à temps partiel (moins de 30h/semaine)
+workerAndStudent : Travail et études
+fullTimeStudent : Études à temps plein
+partTimeStudent : Études à temps partiel
+retired (ifAge40OrMoreConditional : age >= 40) : À la retraite
+atHome : À la maison
+unemployed : En chômage / en recherche d'emploi
+parentalOrSickLeave : Congé de maladie ou congé parental
+longTermDisability : Invalidité de longue durée
+volunteer : Bénévole
+other : Autre
+preferNotToAnswer : Préfère ne pas répondre"
+""
+Champ,workerTypeBeforeLeave
+Type de question,Bouton radio
+Conditionnel,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Question,"Avant d’être en congé, est-ce que {{nickname}} travaillait?"
+Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
+partTime : Oui, à temps partiel (moins de 30h/semaine)
+no : Non"
+""
+Champ,educationalAttainment
+Type de question,Bouton radio
+Conditionnel,ifAge15OrMoreConditional : age >= 15
+Question,"Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours."
+Valeurs,"noneOrPrimaryEducation : Aucun certificat, diplôme ou degré
+secondaryEducation : Diplôme d'études secondaires ou attestation d'équivalence
+postSecondaryNonTertiaryEducation : Diplôme d'apprenti ou d'une école de métiers
+shortCycleTertiaryEducation : Diplôme d'un cégep ou collège
+diplomaBelowBachelor : Certificat ou diplôme universitaire inférieur au baccalauréat
+bachelorOrHigher : Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,drivingLicenseOwnership
+Type de question,Bouton radio
+Conditionnel,ifAge16OrMoreConditional : age >= 16
+Question,"Permis de conduire
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter."
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,carSharingMember
+Type de question,Bouton radio
+Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Question,"Membre Autopartage
+Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,transitPasses
+Type de question,Case à cocher
+Conditionnel,ifAge6OrMoreConditional : age >= 6
+Question,Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
+Valeurs,"no : Non
+transitPass : Passe ou titre mensuel ou annuel
+tickets : Titres ou billets individuels
+dontKnow : Je ne sais pas"
+""
+Champ,workPlaceType
+Type de question,Bouton radio
+Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Est-ce que {{nickname}} a un lieu d'emploi fixe?
+Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps
+hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
+onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
+remote : Non, travail à partir du domicile ou à distance"
+""
+Champ,workPlaceTypeBeforeLeave
+Type de question,Bouton radio
+Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
+Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
+""
+Champ,schoolPlaceType
+Type de question,Bouton radio
+Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Question,Est-ce que {{nickname}} a un lieu d'études fixe?
+Valeurs,"onLocation : Oui, études au lieu fixe en présentiel en tout temps
+hybrid : Oui, études en mode hybride (télé-études et en présentiel)
+remote : Non, études à partir du domicile ou à distance"
+""
+Champ,name
+Type de question,Champ de texte
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
+""
+Champ,geography
+Type de question,Entrée inconnue
+Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
+""
+Champ,name
+Type de question,Champ de texte
+Conditionnel,personUsualSchoolPlaceNameCustomConditional
+Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
+""
+Champ,geography
+Type de question,Entrée inconnue
+Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
+""
+Champ,travelToWorkDays
+Type de question,Case à cocher
+Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,"Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
+Pour se rendre au travail ou toute autre raison concernant le travail."
+""
+Champ,remoteWorkDays
+Type de question,Case à cocher
+Conditionnel,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Question,"Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du télétravail?"
+""
+""
+""
+Section,Sélection du membre du ménage
+Abréviation,sp_
+""
+Champ,_activePersonId
+Type de question,Entrée inconnue
+Question,Pour quelle personne désirez-vous poursuivre l'entrevue?
+""
+""
+""
+Section,Introduction aux déplacements
+Abréviation,ti_
+""
+Champ,activePersonTitle
+Type de question,Builtin
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
+""
+Champ,buttonSwitchPerson
+Type de question,Builtin
+Question,Changer de personne
+""
+Champ,_showNewPersonPopupButton
+Type de question,Entrée inconnue
+Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
+
+L’ordre des personnes interviewées est aléatoire.
+
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>"
+""
+Champ,whoAnswers
+Type de question,Entrée inconnue
+Question,Qui répond pour {{nickname}}?
+""
+Champ,personDidTrips
+Type de question,Entrée inconnue
+Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
+""
+Champ,personDidTripsConfirm
+Type de question,Entrée inconnue
+Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
+""
+Champ,didTripsIntro
+Type de question,Entrée inconnue
+Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+
+<span class=""_green"">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
+- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
+<span class=""_red"">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>"
+""
+Champ,departurePlaceIsHome
+Type de question,Entrée inconnue
+Question,"Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit)."
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
+Type de question,Bouton radio
+Conditionnel,departurePlaceOtherCustomConditional
+Question,Où était {{nickname}} à 4h du matin?
+Valeurs,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Domicile de l'autre parent ou tuteur
+workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Travaillait de nuit
+secondaryHome : Résidence secondaire (chalet ou autre)
+sleptAtFriends : Passait la nuit chez ami, copine/copain ou famille
+restaurant : Était à un ou revenait d'un restaurant ou bar
+hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hôtel ou autre lieu pour une conférence / travail
+hotelForVacation : Hôtel ou autre lieu en vacances
+studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
+other : Autre"
+""
+""
+""
+Section,Déplacements
+Abréviation,vp_
+""
+Champ,activePersonTitle
+Type de question,Builtin
+Conditionnel,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de {{nickname}}</p><p class=""_center _pale"">•</p>"
+""
+Champ,buttonSwitchPerson
+Type de question,Builtin
+Question,Changer de personne
+""
+Champ,personVisitedPlacesTitle
+Type de question,Builtin
+Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
+L'ordre chronologique doit être respecté."
+""
+Champ,visitedPlacesMap
+Type de question,Builtin
+Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+""
+Champ,onTheRoadDepartureType
+Type de question,Entrée inconnue
+Question,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
+""
+Champ,onTheRoadArrivalType
+Type de question,Bouton radio
+Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Question,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
+""
+Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
+Type de question,Builtin
+Conditionnel,alreadyVisitedPlaceCustomConditional
+Question,"Avez-vous déjà localisé ce lieu?
+Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,shortcut
+Type de question,Builtin
+Question,Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+""
+Champ,geography
+Type de question,Builtin
+Question,"Veuillez positionner le lieu sur la carte
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous."
+""
+Champ,_previousPreviousDepartureTime
+Type de question,Builtin
+Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+""
+Champ,arrivalTime
+Type de question,Builtin
+Question,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
+""
+Champ,nextPlaceCategory
+Type de question,Builtin
+Question,"Après avoir été {{atPlace}}, {{nickname}} est…
+Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée."
+""
+Champ,departureTime
+Type de question,Builtin
+Question,{{nickname}} a quitté {{place}} à:
+""
+Champ,visitedPlacesSave
+Type de question,Builtin
+Question,Confirmer
+""
+Champ,vp_save
+Type de question,Builtin
+Conditionnel,lastPlaceEnteredCustomConditional
+Question,Confirmer les lieux et continuer
+""
+""
+""
+Section,Modes de transport
+Abréviation,s_
+""
+Champ,buttonSwitchPerson
+Type de question,Builtin
+Question,Changer de personne
+""
+Champ,personTripsTitle
+Type de question,Builtin
+Question,Déplacements de {{nickname}} le {{assignedDate}}
+""
+Champ,segmentsMap
+Type de question,Builtin
+Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+""
+Champ,segmentsIntro
+Type de question,Builtin
+Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:"
+""
+Champ,segments
+Type de question,Builtin
+Question,Mode de transport
+""
+Champ,howToBus
+Type de question,Entrée inconnue
+Question,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
+Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif."
+""
+Champ,paidForParking
+Type de question,Bouton radio
+Conditionnel,isCarDriverAndDestinationWorkCustomConditional
+Question,Stationnement payant?
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,vehicleOccupancy
+Type de question,RadioNumber
+Conditionnel,isSelfDeclaredCarDriverCustomConditional
+Question,"Personne(s) dans le véhicule
+Conducteur ou conductrice inclus(e)."
+""
+Champ,driver
+Type de question,Builtin
+Question,Qui conduisait ?
+""
+Champ,busLines
+Type de question,Entrée inconnue
+Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
+Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats."
+""
+Champ,busLinesWarning
+Type de question,Entrée inconnue
+Question,Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
+""
+Champ,onDemandType
+Type de question,Bouton radio
+Conditionnel,shouldDisplayOnDemandTypeCustomConditional
+Question,Est-ce un transport sur demande?
+""
+Champ,tripJunctionQueryString
+Type de question,Champ de texte
+Conditionnel,shouldAskTripJunctionCustomConditional
+Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte"
+""
+Champ,junctionGeography
+Type de question,Entrée inconnue
+Question,"Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
+""
+Champ,save
+Type de question,Builtin
+Question,Confirmer ce déplacement
+""
+Champ,s_save
+Type de question,Builtin
+Conditionnel,lastPlaceEnteredCustomConditional
+Question,Confirmer les lieux et continuer
+""
+""
+""
+Section,Mobilité
+Abréviation,tb_
+""
+Champ,buttonSwitchPerson
+Type de question,Entrée inconnue
+Question,Changer de personne
+""
+Champ,personNoWorkTripIntro
+Type de question,Entrée inconnue
+Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
+Type de question,Liste déroulante
+Conditionnel,shouldAskForNoWorkTripReasonCustomConditional
+Question,Pour quelle raison?
+Valeurs,"remoteWorkOrWorkAtHome : Télétravail / travail à la maison
+onStrike : En grève
+leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
+noWork : Pas de travail prévu
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
+Type de question,Entrée inconnue
+Conditionnel,shouldAskPersonNoWorkTripSpecifyCustomConditional
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
+(Facultatif)"
+""
+Champ,personNoSchoolTripIntro
+Type de question,Entrée inconnue
+Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
+Type de question,Liste déroulante
+Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
+Question,Pour quelle raison?
+Valeurs,"distanceLearning : Cours à distance
+schoolWasClosed : École fermée
+leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
+noSchool : Pas de cours
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
+Type de question,Entrée inconnue
+Conditionnel,shouldAskForNoSchoolTripSpecifyCustomConditional
+Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
+(Facultatif)"
+""
+""
+""
+Section,Déplacements longue distance
+Abréviation,ld_
+""
+Champ,hh_madeLongDistanceTripsInLastYear
+Type de question,Bouton radio
+Question,"Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
+Champ,hh_longDistanceTripsSeptemberDecember
+Type de question,Bouton radio
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
+""
+Champ,hh_longDistanceTripsJanuaryApril
+Type de question,Bouton radio
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
+""
+Champ,hh_longDistanceTripsMayAugust
+Type de question,Bouton radio
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+Valeurs,"00_00 : Jamais (0)
+01_03 : Quelques fois durant la période (1 à 3)
+04_12 : Quelques fois par mois (4 à 12)
+13_99 : Une à plusieurs fois par semaine (13 ou plus)"
+""
+Champ,hh_wouldLikeToParticipateToLongDistanceSurvey
+Type de question,Bouton radio
+Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,Seriez-vous intéressés à être recontactés pour une enquête plus approfondie sur les déplacements interurbains?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,hh_wouldLikeToParticipateToLongDistanceSurveyContactEmail
+Type de question,Champ de texte
+Conditionnel,wantToParticipateInLongDistanceSurveyConditional : hh_wouldLikeToParticipateToLongDistanceSurvey === yes
+Question,Veuillez fournir une adresse courriel de contact pour participer à une enquête sur les déplacements interurbains
+""
+""
+""
+Section,Fin
+Abréviation,e_
+""
+Champ,hh_ownership
+Type de question,Bouton radio
+Question,Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+Valeurs,"tenant : Locataire
+owner : Propriétaire
+other : Autre
+preferNotToAnswer : Je préfère ne pas répondre"
+""
+Champ,hh_income
+Type de question,Liste déroulante
+Question,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
+Facultatif"
+Valeurs,"000000_009999 : Moins de 10 000 $
+010000_019999 : 10 000$ à 19 999$
+020000_029999 : 20 000$ à 29 999$
+030000_039999 : 30 000$ à 39 999$
+040000_049999 : 40 000$ à 49 999$
+050000_059999 : 50 000$ à 59 999$
+060000_069999 : 60 000$ à 69 999$
+070000_079999 : 70 000$ à 79 999$
+080000_089999 : 80 000$ à 89 999$
+090000_099999 : 90 000$ à 99 999$
+100000_149999 : 100 000$ à 149 999$
+150000_199999 : 150 000$ à 199 999$
+200000_999999 : 200 000 $ et plus
+dontKnow : Je ne sais pas
+refusal : Je préfère ne pas répondre"
+""
+Champ,e_wouldLikeToParticipateInOtherSurveysChaireMobilite
+Type de question,Bouton radio
+Question,Seriez-vous intéressés à participer à d'autres études menées par la Chaire Mobilité de Polytechnique Montréal?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,e_wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+Type de question,Champ de texte
+Conditionnel,wantToParticipateInOtherSurveysChaireMobiliteConditional : e_wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
+Question,Veuillez fournir une adresse courriel de contact pour participer à d'autres études de la Chaire Mobilité.
+""
+Champ,e_commentsOnSurvey
+Type de question,Zone de texte
+Question,"Vos commentaires et suggestions sur le questionnaire
+Facultatif"
+""
+Champ,hh_pluginHybridCarNumber
+Type de question,RadioNumber
+Conditionnel,householdHasCars : hh_carNumber >= 1
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
+Facultatif"
+""
+Champ,hh_electricCarNumber
+Type de question,RadioNumber
+Conditionnel,householdHasCars : hh_carNumber >= 1
+Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques
+Facultatif"
+""
+Champ,e_interestOfTheSurvey
+Type de question,Curseur de plage
+Question,"Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+Facultatif"
+Valeurs,"0 : Pas du tout
+50 : Neutre
+100 : Très intéressante"
+""
+Champ,e_timeSpentAnswering
+Type de question,Champ numérique
+Question,"Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+Facultatif"
+""
+Champ,e_durationOfTheSurvey
+Type de question,Curseur de plage
+Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+Facultatif"
+Valeurs,"0 : Trop court
+50 : Juste comme il faut
+100 : Trop long"
+""
+Champ,e_difficultyOfTheSurvey
+Type de question,Curseur de plage
+Question,"Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+Facultatif"
+Valeurs,"0 : Très facile
+50 : Modérément difficile
+100 : Très difficile"
+""
+Champ,e_burdenOfTheSurvey
+Type de question,Curseur de plage
+Question,"Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+Facultatif"
+Valeurs,"0 : Pas du tout
+50 : Modérément pénible
+100 : Très pénible"
+""
+Champ,e_consideredAbandoningSurvey
+Type de question,Bouton radio
+Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
+Facultatif"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"

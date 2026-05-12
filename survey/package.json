@@ -1,0 +1,70 @@
+{
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "name": "od_nationale_quebec",
+  "version": "0.5.0",
+  "main": "index.js",
+  "author": "Chaire Mobilité",
+  "private": true,
+  "repository": "github.com/chairemobilite/od_qc",
+  "scripts": {
+    "build:dev": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=4096 --openssl-legacy-provider\" webpack --watch --progress --color --node-env development --mode development",
+    "build:prod": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=1024 --openssl-legacy-provider\" webpack --progress --color --node-env production --mode production",
+    "build:admin:dev": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=4096 --openssl-legacy-provider\" webpack --config webpack.admin.config.js --watch --progress --color --node-env development --mode development",
+    "build:admin:prod": "cross-env NODE_OPTIONS=\"--trace-deprecation --max_old_space_size=1024 --openssl-legacy-provider\" webpack --config webpack.admin.config.js --progress --color --node-env production --mode production",
+    "clean": "rimraf lib/",
+    "cleanModules": "rimraf node_modules/",
+    "copy-files": "copyfiles -u 1 src/survey/*.json src/survey/config/*.json src/survey/*.geojson src/survey/geojson/*.geojson src/styles/*.scss ./lib/ && copyfiles -u 1 src/assets/icons/**/* src/assets/icons/**/**/* src/assets/images/**/* src/assets/images/**/**/* src/assets/documents/**/* src/assets/documents/**/**/* ./lib/ ",
+    "compile": "tsc && yarn copy-files",
+    "compile:dev": "yarn copy-files && tsc -w",
+    "start": "yarn node lib/server.js --max-old-space-size=4096",
+    "start:admin": "yarn node lib/admin/serverAdmin.js --max-old-space-size=4096",
+    "start:admin:debug": "cross-env DEBUG=express:* yarn node --trace-warnings lib/admin/serverAdmin.js --max-old-space-size=4096",
+    "start:tracing": "yarn node -r ../tracing.js lib/server.js --max-old-space-size=4096",
+    "start:admin:tracing": "yarn node -r ../tracing.js lib/admin/serverAdmin.js --max-old-space-size=4096",
+    "start:debug": "cross-env DEBUG=express:* yarn node --trace-warnings lib/server.js --max-old-space-size=4096",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.js",
+    "format": "prettier-eslint \"./**/*.{ts,tsx}\" --write",
+    "lint": "eslint .",
+    "unimported": "npx unimported",
+    "test:ui": "LOCALE_DIR=$(pwd)/locales TRANSITION_DOTENV='../.env' npx playwright test",
+    "reset:test:ui": "yarn node lib/tasks/removeUiTestParticipants.js"
+  },
+  "browser": {
+    "[module-name]": false
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "@turf/turf": "^7.3.5",
+    "chaire-lib-backend": "^0.2.2",
+    "chaire-lib-common": "^0.2.2",
+    "chaire-lib-frontend": "^0.2.2",
+    "evolution-backend": "^0.6.0",
+    "evolution-common": "^0.6.0",
+    "evolution-frontend": "^0.6.0",
+    "evolution-interviewer": "^0.6.0",
+    "i18next": "^26.0.6",
+    "moment": "^2.30.1",
+    "moment-business-days": "^1.2.0",
+    "moment-timezone": "^0.5.46",
+    "papaparse": "^5.5.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-i18next": "^16.5.6",
+    "react-router": "^7.12.0",
+    "recharts": "^3.2.1"
+  },
+  "devDependencies": {
+    "@alienfast/i18next-loader": "^2.0.2",
+    "@types/geojson": "^7946.0.16",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^24.10.4",
+    "cross-env": "^10.1.0",
+    "express": "^5.2.1",
+    "jest": "^30.2.0",
+    "jest-each": "^30.2.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,711 @@
+""
+Section,Home
+Abbreviation,h_
+""
+Field,accessCode
+Question type,Text input
+Conditional,accessCodeIsSetCustomConditional
+Question,"Access code
+Printed on the letter you received."
+""
+Field,acceptToBeContactedForHelp
+Question type,Radio input
+Question,"I consent to be contacted to continue the survey.
+If I do not complete it or if some of the information provided is incoherent."
+Values,"yes : Yes
+no : No"
+""
+Field,contactEmail
+Question type,Text input
+Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,Email address
+""
+Field,phoneNumber
+Question type,Text input
+Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Question,"Phone number
+Format: 123-456-7890"
+""
+Field,h_address
+Question type,Text input
+Question,Address
+""
+Field,h_city
+Question type,Text input
+Question,City or municipality
+""
+Field,h_region
+Question type,Text input
+Conditional,hiddenWithQuebecAsDefaultValueCustomConditional
+Question,Province
+""
+Field,h_country
+Question type,Text input
+Conditional,hiddenWithCanadaAsDefaultValueCustomConditional
+Question,Country
+""
+Field,h_postalCode
+Question type,Text input
+Question,Postal Code
+""
+Field,h_geography
+Question type,Unknown input
+Question,"Positioning your home
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision."
+""
+Field,hh_size
+Question type,Unknown input
+Question,"Persons living in your home
+Including yourself and children in shared custody if they were at your home on {{assignedDate}}."
+""
+Field,hh_carNumber
+Question type,RadioNumber
+Question,"Cars, SUVs, light-duty trucks or vans, etc.
+Available to one or more members of your household."
+""
+Field,hh_bicycleNumber
+Question type,RadioNumber
+Question,"Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
+Include only usable bicycles in good condition."
+""
+Field,hh_electricBicycleNumber
+Question type,RadioNumber
+Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
+Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
+""
+Field,hh_atLeastOnePersonWithDisability
+Question type,Radio input
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"Is there at least one person in your household having a permanent disability that limits their daily travel?
+Including yourself"
+Values,"yes : Yes
+no : No
+preferNotToAnswer : I prefer not to answer"
+""
+""
+""
+Section,Household
+Abbreviation,hh_
+""
+Field,age
+Question type,Number input
+Question,Age (in years)
+""
+Field,nickname
+Question type,Text input
+Conditional,hasPersonCount2OrMoreCustomConditional
+Question,"Name or nickname that will allow you to identify this person for the remainder of the interview
+Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+The name is only used to simplify the response process and will be removed from the final dataset."
+""
+Field,hasDisability
+Question type,Radio input
+Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
+Values,"yes : Yes
+no : No
+preferNotToAnswer : I prefer not to answer"
+""
+Field,sexAssignedAtBirth
+Question type,Radio input
+Conditional,ifAge5orMoreConditional : age >= 5
+Question,"Sex at birth
+Sex assigned at birth or that which appears on legal documents."
+Values,"female : Female
+male : Male
+preferNotToAnswer : I prefer not to answer"
+""
+Field,gender
+Question type,Radio input
+Conditional,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
+Question,I prefer to give the gender
+Values,"female : Woman
+male : Man
+custom : This person identifies as:
+preferNotToAnswer : I prefer not to answer"
+""
+Field,workerType
+Question type,Radio input
+Conditional,ifAge14orMoreConditional : age >= 14
+Question,"Worker
+Including self-employed and artist."
+Values,"fullTime : Yes, full time (30h and more/week)
+partTime : Yes, part time (less than 30h/week)
+no : No"
+""
+Field,studentType
+Question type,Radio input
+Conditional,ifAge16OrMoreConditional : age >= 16
+Question,Student
+Values,"fullTime : Yes, full time
+partTime : Yes, part time
+no : No"
+""
+Field,schoolType
+Question type,Unknown input
+Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
+Question,Educational institution
+Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
+primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
+secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
+schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : School at home
+atHome (ifAge5OrLessConditional : age <= 5) : At home
+collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / College / DEP / AEP
+other : Other (specify)"
+""
+Field,occupation
+Question type,Radio input
+Conditional,personOccupationCustomConditional
+Question,Main occupation
+Values,"fullTimeWorker : Employed full-time (30h and more/week)
+partTimeWorker : Employed part-time (less than 30h/week)
+workerAndStudent : Work and studies
+fullTimeStudent : Full-time student
+partTimeStudent : Part-time student
+retired (ifAge40OrMoreConditional : age >= 40) : Retired
+atHome : At home
+unemployed : Unemployed / searching for a job
+parentalOrSickLeave : Sick leave or parental leave
+longTermDisability : Long-term disability
+volunteer : Volunteer
+other : Other
+preferNotToAnswer : Prefer not to answer"
+""
+Field,workerTypeBeforeLeave
+Question type,Radio input
+Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
+Question,"Before being on leave, did {{nickname}} work?"
+Values,"fullTime : Yes, full time (30h and more/week)
+partTime : Yes, part time (less than 30h/week)
+no : No"
+""
+Field,educationalAttainment
+Question type,Radio input
+Conditional,ifAge15OrMoreConditional : age >= 15
+Question,"Highest level of educational attainment
+When in doubt, choose the level which seems to match best"
+Values,"noneOrPrimaryEducation : No certificate, diploma or degree
+secondaryEducation : High school (secondary) diploma or equivalency certificate
+postSecondaryNonTertiaryEducation : Apprenticeship or trades certificate or diploma
+shortCycleTertiaryEducation : College, CEGEP or other non-university certificate or diploma
+diplomaBelowBachelor : University certificate or diploma below bachelor level
+bachelorOrHigher : Bachelor's degree or higher
+preferNotToAnswer : I prefer not to answer"
+""
+Field,drivingLicenseOwnership
+Question type,Radio input
+Conditional,ifAge16OrMoreConditional : age >= 16
+Question,"Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,carSharingMember
+Question type,Radio input
+Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Question,"Carsharing member
+Subscription or pass to a carsharing service (ex. Communauto)"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,transitPasses
+Question type,Checkbox input
+Conditional,ifAge6OrMoreConditional : age >= 6
+Question,Does {{nickname}} currently have a valid transit pass or ticket?
+Values,"no : No
+transitPass : Monthly or annual pass
+tickets : Individual tickets or rides
+dontKnow : I don't know"
+""
+Field,workPlaceType
+Question type,Radio input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Does {{nickname}} have a fixed work location?
+Values,"onLocation : Yes, always on-site at fixed location
+hybrid : Yes, hybrid work (remote and on-site)
+onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+onTheRoadWithoutUsualPlace : No, work on the road departing from home
+remote : No, work from home or from elsewhere"
+""
+Field,workPlaceTypeBeforeLeave
+Question type,Radio input
+Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
+Question,"Before being on leave, did {{nickname}} have a fixed work location?"
+""
+Field,schoolPlaceType
+Question type,Radio input
+Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
+Question,Does {{nickname}} have a fixed study location?
+Values,"onLocation : Yes, always on-site at fixed location
+hybrid : Yes, hybrid studies (remote and on-site)
+remote : No, remote studies from home or from elsewhere"
+""
+Field,name
+Question type,Text input
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Question,Name or address of {{nickname}}'s usual place of work
+""
+Field,geography
+Question type,Unknown input
+Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
+Question,"Please locate the usual place of work for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
+""
+Field,name
+Question type,Text input
+Conditional,personUsualSchoolPlaceNameCustomConditional
+Question,Name or address of {{nickname}}'s school or main study location
+""
+Field,geography
+Question type,Unknown input
+Question,"Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
+""
+Field,travelToWorkDays
+Question type,Checkbox input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,"During the last week, when did {{nickname}} travel for work?
+To get to or for any other reason concerning work."
+""
+Field,remoteWorkDays
+Question type,Checkbox input
+Conditional,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Question,"During the last week, when did {{nickname}} work remotely?"
+""
+""
+""
+Section,Household member selection
+Abbreviation,sp_
+""
+Field,_activePersonId
+Question type,Unknown input
+Question,Who do you want to continue the interview for?
+""
+""
+""
+Section,Trips introduction
+Abbreviation,ti_
+""
+Field,activePersonTitle
+Question type,Builtin
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
+""
+Field,buttonSwitchPerson
+Question type,Builtin
+Question,Change person
+""
+Field,_showNewPersonPopupButton
+Question type,Unknown input
+Question,"We will ask you to specify {{nickname}}’s trips.
+
+The order of the interviewed persons was randomly selected.
+
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>"
+""
+Field,whoAnswers
+Question type,Unknown input
+Question,Who is responding for {{nickname}}?
+""
+Field,personDidTrips
+Question type,Unknown input
+Question,"Did {{nickname}} make any trips on {{assignedDate}}?
+Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
+""
+Field,personDidTripsConfirm
+Question type,Unknown input
+Question,You already declared trip. Do you confirm they are erroneous and that {{nickname}} did not make any trips on {{formattedTripsDate}}?
+""
+Field,didTripsIntro
+Question type,Unknown input
+Question,"Please specify the places {{nickname}} went on {{assignedDate}} (include all places visited until 4 AM the following morning)
+
+<span class=""_green"">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- Include all places regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+<span class=""_red"">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>"
+""
+Field,departurePlaceIsHome
+Question type,Unknown input
+Question,"Did {{nickname}} start their day at home ({{address}})?
+Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
+Question type,Radio input
+Conditional,departurePlaceOtherCustomConditional
+Question,Where was {{nickname}} at 4 AM?
+Values,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Home of the other parent or guardian
+workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Worked overnight
+secondaryHome : Secondary residence (cottage or other)
+sleptAtFriends : Stayed at a friend’s, partner’s or family’s home
+restaurant : Was at or was coming back from a restaurant or bar
+hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hotel or other venue for a conference / work
+hotelForVacation : Hotel or other on vacation
+studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
+other : Other"
+""
+""
+""
+Section,Déplacements
+Abbreviation,vp_
+""
+Field,activePersonTitle
+Question type,Builtin
+Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
+Question,"<p class=""_center _em"" style=""margin-bottom: 0;"">{{nickname}}’s interview</p><p class=""_center _pale"">•</p>"
+""
+Field,buttonSwitchPerson
+Question type,Builtin
+Question,Change person
+""
+Field,personVisitedPlacesTitle
+Question type,Builtin
+Question,"Places {{nickname}} went on {{assignedDate}}:
+Chronological order must be respected (i.e. sequence matters)."
+""
+Field,visitedPlacesMap
+Question type,Builtin
+Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+""
+Field,onTheRoadDepartureType
+Question type,Unknown input
+Question,What was the departure place of {{nickname}}’s work trip on the road?
+""
+Field,onTheRoadArrivalType
+Question type,Radio input
+Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Question,Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
+""
+Field,alreadyVisitedBySelfOrAnotherHouseholdMember
+Question type,Builtin
+Conditional,alreadyVisitedPlaceCustomConditional
+Question,"Did you previously locate this place on the map?
+In {{nickname}}'s travel diary or that of another household member."
+Values,"yes : Yes
+no : No"
+""
+Field,shortcut
+Question type,Builtin
+Question,Please select this place from the list of previously located places:
+""
+Field,geography
+Question type,Builtin
+Question,"Please locate this place on the map
+Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below."
+""
+Field,_previousPreviousDepartureTime
+Question type,Builtin
+Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+""
+Field,arrivalTime
+Question type,Builtin
+Question,{{nickname}} arrived {{atPlace}} at:
+""
+Field,nextPlaceCategory
+Question type,Builtin
+Question,"After being {{atPlace}}, {{nickname}}…
+If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
+""
+Field,departureTime
+Question type,Builtin
+Question,{{nickname}} left {{place}} at:
+""
+Field,visitedPlacesSave
+Question type,Builtin
+Question,Confirm
+""
+Field,vp_save
+Question type,Builtin
+Conditional,lastPlaceEnteredCustomConditional
+Question,Confirm locations and continue
+""
+""
+""
+Section,Modes of transport
+Abbreviation,s_
+""
+Field,buttonSwitchPerson
+Question type,Builtin
+Question,Change person
+""
+Field,personTripsTitle
+Question type,Builtin
+Question,Trips made by {{nickname}} on {{assignedDate}}
+""
+Field,segmentsMap
+Question type,Builtin
+Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+""
+Field,segmentsIntro
+Question type,Builtin
+Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:"
+""
+Field,segments
+Question type,Builtin
+Question,Mode of transport
+""
+Field,howToBus
+Question type,Unknown input
+Question,"How did {{nickname}} reach the transit stop?
+If the mode used is not present, create a first mode before the transit mode."
+""
+Field,paidForParking
+Question type,Radio input
+Conditional,isCarDriverAndDestinationWorkCustomConditional
+Question,Paid parking
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,vehicleOccupancy
+Question type,RadioNumber
+Conditional,isSelfDeclaredCarDriverCustomConditional
+Question,"Persons in the vehicle
+Including the driver."
+""
+Field,driver
+Question type,Builtin
+Question,Who drove?
+""
+Field,busLines
+Question type,Unknown input
+Question,"Bus line(s) taken (in chronological order)
+For each line, begin by typing the number or name, then select it from the results shown."
+""
+Field,busLinesWarning
+Question type,Unknown input
+Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
+""
+Field,onDemandType
+Question type,Radio input
+Conditional,shouldDisplayOnDemandTypeCustomConditional
+Question,Is this an on-demand service?
+""
+Field,tripJunctionQueryString
+Question type,Text input
+Conditional,shouldAskTripJunctionCustomConditional
+Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map"
+""
+Field,junctionGeography
+Question type,Unknown input
+Question,"Please locate the junction point (location where the change in mode of transport occurred).
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
+""
+Field,save
+Question type,Builtin
+Question,Confirm this trip
+""
+Field,s_save
+Question type,Builtin
+Conditional,lastPlaceEnteredCustomConditional
+Question,Confirm locations and continue
+""
+""
+""
+Section,Travel behavior
+Abbreviation,tb_
+""
+Field,buttonSwitchPerson
+Question type,Unknown input
+Question,Change person
+""
+Field,personNoWorkTripIntro
+Question type,Unknown input
+Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
+Question type,Select input
+Conditional,shouldAskForNoWorkTripReasonCustomConditional
+Question,Why?
+Values,"remoteWorkOrWorkAtHome : Remote work / work from home
+onStrike : On strike
+leaveSicknessPersonalReason : Leave (sick, personal, other)
+noWork : No work planned
+other : Other
+dontKnow : I don't know"
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
+Question type,Unknown input
+Conditional,shouldAskPersonNoWorkTripSpecifyCustomConditional
+Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
+""
+Field,personNoSchoolTripIntro
+Question type,Unknown input
+Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
+Question type,Select input
+Conditional,shouldAskForNoSchoolTripReasonCustomConditional
+Question,Why?
+Values,"distanceLearning : Distance learning
+schoolWasClosed : School was closed
+leaveSicknessPersonalReason : Leave (sick, personal, other)
+noSchool : No classes
+other : Other
+dontKnow : I don't know"
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
+Question type,Unknown input
+Conditional,shouldAskForNoSchoolTripSpecifyCustomConditional
+Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
+""
+""
+""
+Section,Long distance trips
+Abbreviation,ld_
+""
+Field,hh_madeLongDistanceTripsInLastYear
+Question type,Radio input
+Question,"In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,hh_longDistanceTripsSeptemberDecember
+Question type,Radio input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
+""
+Field,hh_longDistanceTripsJanuaryApril
+Question type,Radio input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
+""
+Field,hh_longDistanceTripsMayAugust
+Question type,Radio input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+Values,"00_00 : Never (0)
+01_03 : A few times during the period (1 to 3)
+04_12 : A few times a month (4 to 12)
+13_99 : One to several times a week (13 or more)"
+""
+Field,hh_wouldLikeToParticipateToLongDistanceSurvey
+Question type,Radio input
+Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
+Question,Would you be interested in being contacted again for a more in-depth survey on interurban travel?
+Values,"yes : Yes
+no : No"
+""
+Field,hh_wouldLikeToParticipateToLongDistanceSurveyContactEmail
+Question type,Text input
+Conditional,wantToParticipateInLongDistanceSurveyConditional : hh_wouldLikeToParticipateToLongDistanceSurvey === yes
+Question,Please provide the email address where you can be reached to participate in a survey on interurban travel
+""
+""
+""
+Section,End
+Abbreviation,e_
+""
+Field,hh_ownership
+Question type,Radio input
+Question,Does your household rent or own your home?
+Values,"tenant : Tenant
+owner : Owner
+other : Other
+preferNotToAnswer : I prefer not to respond"
+""
+Field,hh_income
+Question type,Select input
+Question,"What was your household's income range before taxes (gross income), in 2024?
+Optional"
+Values,"000000_009999 : Less than $10,000
+010000_019999 : $10,000 to $19,999
+020000_029999 : $20,000 to $29,999
+030000_039999 : $30,000 to $39,999
+040000_049999 : $40,000 to $49,999
+050000_059999 : $50,000 to $59,999
+060000_069999 : $60,000 to $69,999
+070000_079999 : $70,000 to $79,999
+080000_089999 : $80,000 to $89,999
+090000_099999 : $90,000 to $99,999
+100000_149999 : $100,000 to $149,999
+150000_199999 : $150,000 to $199,999
+200000_999999 : $200,000 and more
+dontKnow : I don't know
+refusal : I prefer not to respond"
+""
+Field,e_wouldLikeToParticipateInOtherSurveysChaireMobilite
+Question type,Radio input
+Question,Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
+Values,"yes : Yes
+no : No"
+""
+Field,e_wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
+Question type,Text input
+Conditional,wantToParticipateInOtherSurveysChaireMobiliteConditional : e_wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
+Question,Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
+""
+Field,e_commentsOnSurvey
+Question type,Text area input
+Question,"Your comments and suggestions about the survey
+Optional"
+""
+Field,hh_pluginHybridCarNumber
+Question type,RadioNumber
+Conditional,householdHasCars : hh_carNumber >= 1
+Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+Optional"
+""
+Field,hh_electricCarNumber
+Question type,RadioNumber
+Conditional,householdHasCars : hh_carNumber >= 1
+Question,"Among the vehicles owned by your household, how many are electric vehicles?
+Optional"
+""
+Field,e_interestOfTheSurvey
+Question type,Range input
+Question,"How interesting was this survey to you?
+Optional"
+Values,"0 : Not at all
+50 : Neutral
+100 : Very interesting"
+""
+Field,e_timeSpentAnswering
+Question type,Number input
+Question,"How much time do you think you spent answering this survey (in minutes)?
+Optional"
+""
+Field,e_durationOfTheSurvey
+Question type,Range input
+Question,"Do you feel that the length of the survey was too short, about right, or too long?
+Optional"
+Values,"0 : Too short
+50 : Just right
+100 : Too long"
+""
+Field,e_difficultyOfTheSurvey
+Question type,Range input
+Question,"How easy or difficult was it for you to answer the questions in this survey?
+Optional"
+Values,"0 : Very easy
+50 : Moderately difficult
+100 : Very difficult"
+""
+Field,e_burdenOfTheSurvey
+Question type,Range input
+Question,"How burdensome (demanding) did you find this survey to be?
+Optional"
+Values,"0 : Not at all
+50 : Moderately burdensome
+100 : Very burdensome"
+""
+Field,e_consideredAbandoningSurvey
+Question type,Radio input
+Question,"Have you considered, at any point, abandoning the survey?
+Optional"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
