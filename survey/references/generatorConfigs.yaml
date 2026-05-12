@@ -1,5 +1,5 @@
 survey_folder_path: ../../../survey
-excel_file_path: ../../../survey/references/OD_nationale_quebec_2025.xlsx
+excel_file_path: ../../../survey/references/OD_mtl_2026.xlsx
 
 enabled_scripts:
     generate_excel: false
