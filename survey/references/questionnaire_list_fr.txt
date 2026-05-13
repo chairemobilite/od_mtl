@@ -239,14 +239,12 @@ Section: Déplacements
 
 Changer de personne
 
-Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
 L'ordre chronologique doit être respecté.
 
 Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
-
-À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
 
 
 Avez-vous déjà localisé ce lieu?
@@ -261,10 +259,20 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 
 À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 
+À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent ({{visitedPlaceDescription}}) avant de débuter ses déplacements sur la route?
+
+À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+
 {{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
 
 Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
+
+À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
+- Domicile
+- Lieu de travail habituel
+- Autre lieu
+- {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
 
 {{nickname}} a quitté {{place}} à:
 

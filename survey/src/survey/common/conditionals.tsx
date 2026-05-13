@@ -532,3 +532,24 @@ export const madeLongDistanceTripsConditional: WidgetConditional = (interview) =
         ]
     });
 };
+
+export const workOnTheRoadConditional: WidgetConditional = (interview, path) => {
+    const relativePath = path.substring(0, path.lastIndexOf('.')); // Remove the last key from the path
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `${relativePath}.activity`,
+                comparisonOperator: '===',
+                value: 'workOnTheRoad'
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.workPlaceType`,
+                comparisonOperator: '===',
+                value: 'onTheRoadWithUsualPlace'
+            }
+        ]
+    });
+};

@@ -47,3 +47,5 @@ wasWorkerBeforeLeaveConditional,,${currentPerson}.workerTypeBeforeLeave,===,full
 wasWorkerBeforeLeaveConditional,||,${currentPerson}.workerTypeBeforeLeave,===,partTime,
 wantToParticipateInLongDistanceSurveyConditional,,household.wouldLikeToParticipateToLongDistanceSurvey,===,yes,
 madeLongDistanceTripsConditional,,household.madeLongDistanceTripsInLastYear,===,yes,
+workOnTheRoadConditional,,${relativePath}.activity,===,workOnTheRoad,
+workOnTheRoadConditional,&&,${currentPerson}.workPlaceType,===,onTheRoadWithUsualPlace,

@@ -239,14 +239,12 @@ Section: Déplacements
 
 Change person
 
-Places {{nickname}} went on {{assignedDate}}:
+Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters).
 
 Map of {{nickname}}’s trips on {{assignedDate}}:
 
-What was the departure place of {{nickname}}’s work trip on the road?
-
-Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
+Where did {{nickname}} begin their work trip on the road?
 
 
 Did you previously locate this place on the map?
@@ -257,14 +255,24 @@ In {{nickname}}'s travel diary or that of another household member.
 Please select this place from the list of previously located places:
 
 Please locate this place on the map
-Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
+Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
 
 At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+
+At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} on the road trips?
+
+At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 
 {{nickname}} arrived {{atPlace}} at:
 
 After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
+
+Where did {{nickname}} end their trips on the road?
+- Home
+- Usual work place
+- Other location
+- {{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day
 
 {{nickname}} left {{place}} at:
 

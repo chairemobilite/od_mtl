@@ -363,7 +363,7 @@ Question,Changer de personne
 ""
 Champ,personVisitedPlacesTitle
 Type de question,Builtin
-Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{assignedDate}}:
+Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
 L'ordre chronologique doit être respecté."
 ""
 Champ,visitedPlacesMap
@@ -372,12 +372,8 @@ Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
 Champ,onTheRoadDepartureType
 Type de question,Entrée inconnue
+Conditionnel,workOnTheRoadConditional : ${relativePath}.activity === workOnTheRoad && workPlaceType === onTheRoadWithUsualPlace
 Question,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
-""
-Champ,onTheRoadArrivalType
-Type de question,Bouton radio
-Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
 ""
 Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
 Type de question,Builtin
@@ -400,6 +396,14 @@ Champ,_previousPreviousDepartureTime
 Type de question,Builtin
 Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 ""
+Champ,_previousArrivalTime
+Type de question,Builtin
+Question,À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent ({{visitedPlaceDescription}}) avant de débuter ses déplacements sur la route?
+""
+Champ,_previousDepartureTime
+Type de question,Builtin
+Question,À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+""
 Champ,arrivalTime
 Type de question,Builtin
 Question,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
@@ -408,6 +412,15 @@ Champ,nextPlaceCategory
 Type de question,Builtin
 Question,"Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée."
+""
+Champ,onTheRoadArrivalType
+Type de question,Bouton radio
+Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Question,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
+Valeurs,"home : Domicile
+usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Lieu de travail habituel
+other : Autre lieu
+stayedThereUntilTheNextDay (isLastPlaceCustomConditional): {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain"
 ""
 Champ,departureTime
 Type de question,Builtin

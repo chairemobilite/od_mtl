@@ -31,6 +31,25 @@ import * as customChoices from './customChoices';
 
 export const visitedPlaceOnTheRoadDepartureType = customWidgets.visitedPlaceOnTheRoadDepartureType;
 
+// visitedPlaceAlreadyVisited
+
+// visitedPlaceShortcut
+
+// visitedPlaceName
+
+// visitedPlaceGeography
+
+// visitedPlacePreviousPreviousDepartureTime
+
+// visitedPlacePreviousArrivalTime
+
+// visitedPlacePreviousDepartureTime
+
+// Voir l'onglet libellés pour des traductions en lien avec l'activité (sur la route et promenade)
+// visitedPlaceArrivalTime
+
+// visitedPlaceNextPlaceCategory
+
 export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'onTheRoadArrivalType',
@@ -46,29 +65,12 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
         });
     },
-    choices: customChoices.onTheRoadArrivalTypeCustomChoices,
+    choices: choices.onTheRoadArrivalTypeChoices,
     conditional: customConditionals.currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional,
     validations: validations.requiredValidation
 };
 
-// visitedPlaceAlreadyVisited
-
-// visitedPlaceShortcut
-
-// visitedPlaceName
-
-// visitedPlaceGeography
-
-// visitedPlacePreviousPreviousDepartureTime
-
-// visitedPlacePreviousArrivalTime
-
-// visitedPlacePreviousDepartureTime
-
-// visitedPlaceArrivalTime
-
-// visitedPlaceNextPlaceCategory
-
+// Voir l'onglet libellés pour des traductions en lien avec l'activité (sur la route et promenade)
 // visitedPlaceDepartureTime
 
 // buttonSaveVisitedPlace

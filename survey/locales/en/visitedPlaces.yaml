@@ -7,41 +7,27 @@ activePersonTitle: >-
     interview</p><p class="_center _pale">•</p>
 buttonSwitchPerson: Change person
 personVisitedPlacesTitle: >-
-    Places {{nickname}} went on {{assignedDate}}:<br />Chronological order must be
+    Places {{nickname}} went on {{journeyDate}}:<br />Chronological order must be
     respected (i.e. sequence matters).
 personVisitedPlacesTitle_one: >-
-    Places you went on {{assignedDate}}:<br />Chronological order must be respected
+    Places you went on {{journeyDate}}:<br />Chronological order must be respected
     (i.e. sequence matters).
 personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
 personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
-visitedPlaceOnTheRoadDepartureType: What was the departure place of {{nickname}}’s
-    work trip on the road?
-visitedPlaceOnTheRoadDepartureType_one: Where did you start your work trip on the
-    road?
-visitedPlaceOnTheRoadArrivalType: Where did {{nickname}} end their work trip on the
-    road?
-visitedPlaceOnTheRoadArrivalType_male: Where did {{nickname}} end his work trip on
+visitedPlaceOnTheRoadDepartureType: Where did {{nickname}} begin their work trip on
     the road?
-visitedPlaceOnTheRoadArrivalType_female: Where did {{nickname}} end her work trip
-    on the road?
-visitedPlaceOnTheRoadArrivalType_one: Where did you end your work trip on the road
-    activity?
-visitedPlaceOnTheRoadArrivalType_male_one: Where did you end your work trip on the
-    road activity?
-visitedPlaceOnTheRoadArrivalType_female_one: Where did you end your work trip on the
-    road activity?
+visitedPlaceOnTheRoadDepartureType_one: Where did you begin your work trip on the
+    road?
 visitedPlaceAlreadyVisited: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
-visitedPlaceAlreadyVisited_one: >-
-    Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
-    your travel diary or that of another household member.</span>
+visitedPlaceAlreadyVisited_one: Did you previously locate this place on the map?
 visitedPlaceShortcut: 'Please select this place from the list of previously located
     places:'
 visitedPlaceGeography: >-
-    Please locate this place on the map<br /><span class="_pale _oblique">Pan, zoom
-    and click on map. Once a pin icon has been dropped, you will be able to drag the
-    icon to specify a more precise location. You can also search for a place using
+    Please locate this place on the map<br /><span class="_pale _oblique">Navigate,
+    zoom and click on map. Once a pin icon has been dropped, you will be able to drag
+    the icon to specify a more precise location. You can also search for a place using
     its name or address with the button below.</span>
 visitedPlacePreviousPreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
@@ -61,6 +47,28 @@ visitedPlacePreviousPreviousDepartureTime_male_one: >-
 visitedPlacePreviousPreviousDepartureTime_female_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
+visitedPlacePreviousArrivalTime: >-
+    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
+    before starting their on the road trips?
+visitedPlacePreviousArrivalTime_male: >-
+    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
+    before starting his on the road trips?
+visitedPlacePreviousArrivalTime_female: >-
+    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
+    before starting her on the road trips?
+visitedPlacePreviousArrivalTime_one: >-
+    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
+    before starting your on the road trips?
+visitedPlacePreviousArrivalTime_male_one: >-
+    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
+    before starting your on the road trips?
+visitedPlacePreviousArrivalTime_female_one: >-
+    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
+    before starting your on the road trips?
+visitedPlacePreviousDepartureTime: >-
+    At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
+visitedPlacePreviousDepartureTime_one: >-
+    At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?
 visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:'
 visitedPlaceArrivalTime_one: 'You arrived {{atPlace}} at:'
 visitedPlaceNextPlaceCategory: >-
@@ -72,56 +80,12 @@ visitedPlaceNextPlaceCategory_one: >-
     After being {{atPlace}}, you…<br /><span class="_pale _oblique">If you left this
     place after 4 AM the following day, please consider for the purposes of the survey
     that you stayed there until the next day and select the appropriate answer.</span>
+visitedPlaceOnTheRoadArrivalType: Where did {{nickname}} end their trips on the road?
+visitedPlaceOnTheRoadArrivalType_one: Where did you end your trips on the road?
 visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:'
 visitedPlaceDepartureTime_one: 'You left {{place}} at:'
 buttonSaveVisitedPlace: Confirm
 buttonVisitedPlacesConfirmNextSection: Confirm locations and continue
-PreviousDepartureTime: >-
-    At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
-PreviousDepartureTime_one: >-
-    At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?
-PreviousDepartureTime_home_workUsual: At what time did {{nickname}} leave home before
-    going to work?
-PreviousDepartureTime_home_workUsual_one: At what time did you leave home before going
-    to work?
-PreviousDepartureTime_home_schoolUsual: At what time did {{nickname}} leave home before
-    going to school?
-PreviousDepartureTime_home_schoolUsual_one: At what time did you leave home before
-    going to school?
-PreviousDepartureTime_home_other: >-
-    At what time did {{nickname}} leave home before going to this place ({{visitedPlaceDescription}})?
-PreviousDepartureTime_home_other_one: >-
-    At what time did you leave home before going to this place ({{visitedPlaceDescription}})?
-PreviousDepartureTime_home_workOnTheRoad: >-
-    At what time did {{nickname}} leave home before starting their on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_male: >-
-    At what time did {{nickname}} leave home before starting his on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_female: >-
-    At what time did {{nickname}} leave home before starting her on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_one: At what time did you leave home before
-    starting your on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_male_one: At what time did you leave home
-    before starting your on the road trips?
-PreviousDepartureTime_home_workOnTheRoad_female_one: At what time did you leave home
-    before starting your on the road trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
-    At what time did {{nickname}} leave their usual work place before starting their
-    on the road trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
-    At what time did {{nickname}} leave his usual work place before starting his on
-    the road trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
-    At what time did {{nickname}} leave her usual work place before starting her on
-    the road trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
-    At what time did you leave your usual work place before starting your on the road
-    trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_male_one: >-
-    At what time did you leave your usual work place before starting your on the road
-    trips?
-PreviousDepartureTime_usualWorkPlace_workOnTheRoad_female_one: >-
-    At what time did you leave your usual work place before starting your on the road
-    trips?
 Activity: 'Specify :'
 ActivityCategoryFirstLocation: Main activity carried out at the starting point of
     the day
@@ -164,74 +128,119 @@ LocationNameAddressExample_worship: >-
     Saint-Nicéphore church, de la Capitale mosque, Congregation Beth Israel Ohev Sholem
 LocationNameAddressExample_secondaryHome: Secondary home or cottage address
 LocationNameAddressExample_schoolNotStudent: language centre, Tecnic driving school
-_previousPreviousDepartureTimeHomeToUsualWorkplace: '{{nickname}} left home to go
-    to their usual work place?'
-_previousPreviousDepartureTimeHomeToUsualWorkplace_male: '{{nickname}} left home to
-    go to his usual work place?'
-_previousPreviousDepartureTimeHomeToUsualWorkplace_female: '{{nickname}} left home
-    to go to her usual work place?'
-_previousPreviousDepartureTimeHomeToUsualWorkplace_one: You left home to go to your
-    usual work place at?
-_previousPreviousDepartureTimeHomeToUsualWorkplace_male_one: You left home to go to
-    your usual work place at?
-_previousPreviousDepartureTimeHomeToUsualWorkplace_female_one: You left home to go
-    to your usual work place at?
-_previousArrivalTimeDepartureTypeHome: >-
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace: '{{nickname}} left
+    home to go to their usual work place?'
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_male: '{{nickname}}
+    left home to go to his usual work place?'
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_female: '{{nickname}}
+    left home to go to her usual work place?'
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_one: You left home to
+    go to your usual work place at?
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_male_one: You left home
+    to go to your usual work place at?
+visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_female_one: You left
+    home to go to your usual work place at?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace: >-
+    {{nickname}} left the previous location ({{previousPlaceDescription}}) to go to
+    their usual work place?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace_male: >-
+    {{nickname}} left the previous location ({{previousPlaceDescription}}) to go to
+    his usual work place?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace_female: >-
+    {{nickname}} left the previous location ({{previousPlaceDescription}}) to go to
+    her usual work place?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace_one: >-
+    You left the previous location ({{previousPlaceDescription}}) to go to your usual
+    work place at?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace_male_one: >-
+    You left the previous location ({{previousPlaceDescription}}) to go to your usual
+    work place at?
+visitedPlacePreviousPreviousDepartureTime_usualWorkPlace_female_one: >-
+    You left the previous location ({{previousPlaceDescription}}) to go to your usual
+    work place at?
+visitedPlacePreviousArrivalTime_home: >-
     At what time did {{nickname}} arrive home before starting their on the road trips?
-_previousArrivalTimeDepartureTypeHome_male: >-
+visitedPlacePreviousArrivalTime_home_male: >-
     At what time did {{nickname}} arrive home before starting his on the road trips?
-_previousArrivalTimeDepartureTypeHome_female: >-
+visitedPlacePreviousArrivalTime_home_female: >-
     At what time did {{nickname}} arrive home before starting her on the road trips?
-_previousArrivalTimeDepartureTypeHome_one: At what time did you arrive home before
+visitedPlacePreviousArrivalTime_home_one: At what time did you arrive home before
     starting your on the road trips?
-_previousArrivalTimeDepartureTypeHome_male_one: At what time did you arrive home before
+visitedPlacePreviousArrivalTime_home_male_one: At what time did you arrive home before
     starting your on the road trips?
-_previousArrivalTimeDepartureTypeHome_female_one: At what time did you arrive home
+visitedPlacePreviousArrivalTime_home_female_one: At what time did you arrive home
     before starting your on the road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace: >-
     At what time did {{nickname}} arrive at their usual work place before starting
     their on the road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_male: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace_male: >-
     At what time did {{nickname}} arrive at his usual work place before starting his
     on the road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_female: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace_female: >-
     At what time did {{nickname}} arrive at her usual work place before starting her
     on the road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_one: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_male_one: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace_male_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
-_previousArrivalTimeDepartureTypeUsualWorkPlace_female_one: >-
+visitedPlacePreviousArrivalTime_usualWorkPlace_female_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
-_previousArrivalTimeDepartureTypeOther: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting their on the road trips?
-_previousArrivalTimeDepartureTypeOther_male: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting his on the road trips?
-_previousArrivalTimeDepartureTypeOther_female: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting her on the road trips?
-_previousArrivalTimeDepartureTypeOther_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your on the road trips?
-_previousArrivalTimeDepartureTypeOther_male_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your on the road trips?
-_previousArrivalTimeDepartureTypeOther_female_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your on the road trips?
-arrivalTimeOnTheRoad: '{{nickname}} started their work trip on the road at:'
-arrivalTimeOnTheRoad_one: 'You started your work trip on the road at:'
-arrivalTimeStroll: '{{nickname}} started their stroll at:'
-arrivalTimeStroll_one: 'You started your stroll at:'
-departureTimeStroll: '{{nickname}} finished their stroll at:'
-departureTimeStroll_one: 'You finished your stroll at:'
-departureTimeOnTheRoad: '{{nickname}} finished their work on the road at:'
-departureTimeOnTheRoad_one: 'You finished your work on the road at:'
+visitedPlacePreviousDepartureTime_home_workUsual: At what time did {{nickname}} leave
+    home before going to work?
+visitedPlacePreviousDepartureTime_home_workUsual_one: At what time did you leave home
+    before going to work?
+visitedPlacePreviousDepartureTime_home_schoolUsual: At what time did {{nickname}}
+    leave home before going to school?
+visitedPlacePreviousDepartureTime_home_schoolUsual_one: At what time did you leave
+    home before going to school?
+visitedPlacePreviousDepartureTime_home_other: >-
+    At what time did {{nickname}} leave home before going to this place ({{visitedPlaceDescription}})?
+visitedPlacePreviousDepartureTime_home_other_one: >-
+    At what time did you leave home before going to this place ({{visitedPlaceDescription}})?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad: >-
+    At what time did {{nickname}} leave home before starting their on the road trips?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad_male: >-
+    At what time did {{nickname}} leave home before starting his on the road trips?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad_female: >-
+    At what time did {{nickname}} leave home before starting her on the road trips?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad_one: At what time did you leave
+    home before starting your on the road trips?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad_male_one: At what time did you
+    leave home before starting your on the road trips?
+visitedPlacePreviousDepartureTime_home_workOnTheRoad_female_one: At what time did
+    you leave home before starting your on the road trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad: >-
+    At what time did {{nickname}} leave their usual work place before starting their
+    on the road trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad_male: >-
+    At what time did {{nickname}} leave his usual work place before starting his on
+    the road trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad_female: >-
+    At what time did {{nickname}} leave her usual work place before starting her on
+    the road trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad_one: >-
+    At what time did you leave your usual work place before starting your on the road
+    trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad_male_one: >-
+    At what time did you leave your usual work place before starting your on the road
+    trips?
+visitedPlacePreviousDepartureTime_usualWorkPlace_workOnTheRoad_female_one: >-
+    At what time did you leave your usual work place before starting your on the road
+    trips?
+visitedPlaceArrivalTime_workOnTheRoad: '{{nickname}} started their trips on the road
+    at:'
+visitedPlaceArrivalTime_workOnTheRoad_one: 'You started your trips on the road at:'
+visitedPlaceArrivalTime_leisureStroll: '{{nickname}} started their stroll at:'
+visitedPlaceArrivalTime_leisureStroll_one: 'You started your stroll at:'
+visitedPlaceDepartureTime_leisureStroll: '{{nickname}} finished their stroll at:'
+visitedPlaceDepartureTime_leisureStroll_one: 'You finished your stroll at:'
+visitedPlaceDepartureTime_workOnTheRoad: '{{nickname}} finished their trips on the
+    road at:'
+visitedPlaceDepartureTime_workOnTheRoad_one: 'You finished your trips on the road
+    at:'
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location

@@ -363,7 +363,7 @@ Question,Change person
 ""
 Field,personVisitedPlacesTitle
 Question type,Builtin
-Question,"Places {{nickname}} went on {{assignedDate}}:
+Question,"Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap
@@ -372,12 +372,8 @@ Question,Map of {{nickname}}’s trips on {{assignedDate}}:
 ""
 Field,onTheRoadDepartureType
 Question type,Unknown input
-Question,What was the departure place of {{nickname}}’s work trip on the road?
-""
-Field,onTheRoadArrivalType
-Question type,Radio input
-Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
-Question,Where did {{nickname}} end {{gender:his/her/their/their}} work trip on the road?
+Conditional,workOnTheRoadConditional : ${relativePath}.activity === workOnTheRoad && workPlaceType === onTheRoadWithUsualPlace
+Question,Where did {{nickname}} begin their work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Builtin
@@ -394,11 +390,19 @@ Question,Please select this place from the list of previously located places:
 Field,geography
 Question type,Builtin
 Question,"Please locate this place on the map
-Pan, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below."
+Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below."
 ""
 Field,_previousPreviousDepartureTime
 Question type,Builtin
 Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+""
+Field,_previousArrivalTime
+Question type,Builtin
+Question,At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} on the road trips?
+""
+Field,_previousDepartureTime
+Question type,Builtin
+Question,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 ""
 Field,arrivalTime
 Question type,Builtin
@@ -408,6 +412,15 @@ Field,nextPlaceCategory
 Question type,Builtin
 Question,"After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
+""
+Field,onTheRoadArrivalType
+Question type,Radio input
+Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Question,Where did {{nickname}} end their trips on the road?
+Values,"home : Home
+usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Usual work place
+other : Other location
+stayedThereUntilTheNextDay (isLastPlaceCustomConditional): {{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day"
 ""
 Field,departureTime
 Question type,Builtin
