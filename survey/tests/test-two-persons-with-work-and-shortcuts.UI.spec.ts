@@ -126,7 +126,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
-        name: 'Bar Évasion',
+        name: 'Tabac Villeray',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: null, // Question won't show.

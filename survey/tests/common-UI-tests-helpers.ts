@@ -126,7 +126,7 @@ export const defaultPerson2: HouseholdMember = {
     workPlaceTypeBeforeLeave: null,
     schoolPlaceType: 'hybrid',
     usualWorkPlace: {
-        name: 'Bombardier'
+        name: 'Hôtel de ville de Brossard'
     },
     usualSchoolPlace: {
         name: 'Université de Montréal, Campus de la Montagne'

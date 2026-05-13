@@ -35,7 +35,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
-        name: 'Sports Expert place Ste-Foy',
+        name: 'Sports Expert Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM
@@ -50,7 +50,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
-        name: 'Tim Hortons Ste-Foy',
+        name: 'Marché Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: null, // Question won't show.
