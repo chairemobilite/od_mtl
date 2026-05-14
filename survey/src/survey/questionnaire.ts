@@ -59,7 +59,35 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 enabled: true,
                 tripDiaryMaxTimeOfDay: 28 * 60 * 60, // 28h in seconds (i.e. 4h the next day)
                 tripDiaryMinTimeOfDay: 4 * 60 * 60, // 4h in seconds
-                additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames
+                additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames,
+                activitiesIncludeOnly: [
+                    'home',
+                    'workUsual',
+                    'workNotUsual',
+                    'workOnTheRoad',
+                    'volunteering',
+                    'schoolUsual',
+                    'schoolNotUsual',
+                    'shopping',
+                    'restaurant',
+                    'service',
+                    'medical',
+                    'veterinarian',
+                    'worship',
+                    'pickClassifiedPurchase',
+                    'dropSomeone',
+                    'fetchSomeone',
+                    'accompanySomeone',
+                    'leisureStroll',
+                    'leisureSports',
+                    'leisureArtsMusicCulture',
+                    'leisureTourism',
+                    'visiting',
+                    'secondaryHome',
+                    'schoolNotStudent',
+                    'otherParentHome',
+                    'other'
+                ]
             }
         }
     }

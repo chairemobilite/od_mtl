@@ -384,6 +384,41 @@ visitedPlaceDepartureTime_workOnTheRoad: '{{nickname}} a terminé ses déplaceme
     sur la route à:'
 visitedPlaceDepartureTime_workOnTheRoad_one: 'Vous avez terminé vos déplacements sur
     la route à:'
+activityCategories:
+    work: Travail
+    school: École
+    shoppingServiceRestaurant: Magasinage, Service ou Restauration
+    dropFetchSomeone: Reconduire ou Aller chercher quelqu'un
+    leisure: Loisirs (sport, arts, promenade, etc.)
+    other: Autre
+    otherParentHome: Domicile de l'autre parent ou tuteur
+    home: Domicile
+activities:
+    workUsual: Travail au lieu habituel
+    workNotUsual: Travail dans un autre lieu
+    workOnTheRoad: Travail sur la route
+    volunteering: Bénévolat
+    schoolUsual: Études au lieu principal
+    schoolNotUsual: Études dans un autre lieu
+    shopping: Magasinage (achats, station-service, épicerie, etc.)
+    restaurant: Restaurant, café, bar
+    service: Service (coiffeur, réparations, avocat, banque, etc.)
+    medical: Santé (hôpital, clinique, physiothérapie, etc.)
+    veterinarian: Vétérinaire
+    worship: Lieu de culte
+    pickClassifiedPurchase: Récupérer un achat chez un particulier (petites annonces)
+    other: Autre
+    dropSomeone: Reconduire quelqu'un
+    fetchSomeone: Aller chercher quelqu'un
+    accompanySomeone: Accompagner quelqu'un
+    leisureStroll: 'Promenade sans destination fixe (ex. : aller courir, promener
+        le chien)'
+    leisureSports: Sport, entrainement, aller au parc (destination fixe)
+    leisureArtsMusicCulture: Arts, Musique ou culture
+    leisureTourism: Vacances, tourisme
+    visiting: Visite chez ami.e.s, copain.e ou famille
+    secondaryHome: Résidence secondaire
+    schoolNotStudent: Études
 onTheRoadArrivalTypeHome: Domicile
 onTheRoadArrivalTypeUsualWorkPlace: Lieu de travail habituel
 onTheRoadArrivalTypeOther: Autre lieu
