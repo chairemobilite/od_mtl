@@ -93,10 +93,11 @@ departurePlaceOtherChoices:
     otherParentHome: <strong>Home of the other parent or guardian</strong>
     workedOvernight: <strong>Worked overnight</strong>
     secondaryHome: <strong>Secondary residence</strong> (cottage or other)
-    sleptAtFriends: Stayed at a <strong>friend’s, partner’s or family’s home</strong>
-    restaurant: Was at or was coming back from a <strong>restaurant or bar</strong>
-    hotelForWork: Hotel or other venue for <strong>a conference / work</strong>
-    hotelForVacation: Hotel or other on <strong>vacation</strong>
+    sleptAtFriends: Stayed overnight at a <strong>friend’s, partner’s or family’s
+        home</strong>
+    restaurant: Was at or coming back from a <strong>restaurant or bar</strong>
+    hotelForWork: Hotel or other venue for a <strong>conference / work</strong>
+    hotelForVacation: Hotel or other place on <strong>vacation</strong>
     studying: '<strong>School / place of study</strong>: studied or slept there'
     other: Other
 onTheRoadArrivalTypeChoices:

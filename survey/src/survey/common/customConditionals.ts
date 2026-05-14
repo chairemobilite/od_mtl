@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import config from 'evolution-common/lib/config/project.config';
 import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
@@ -234,4 +235,53 @@ export const accessCodeIsSetCustomConditional: WidgetConditional = (interview, p
 export const hasPersonCount2OrMoreCustomConditional: WidgetConditional = (interview, path) => {
     const personCount = odSurveyHelper.countPersons({ interview });
     return [personCount >= 2, null];
+};
+
+// Custom conditional on the number of possible self-respondents
+export const if2OrMorePersons14OrMoreYearsOldCustomConditional: WidgetConditional = (interview, path) => {
+    const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
+    const canRespondPersons = interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge);
+    return [canRespondPersons.length > 1, canRespondPersons.length === 1 ? canRespondPersons[0]._uuid : null];
+};
+
+// Custom condition to see if a person declared trips, ie has visited places, but said they did not do trips
+export const personDeclaredTripsCustomConditional: WidgetConditional = (interview, path) => {
+    const activeJourney = odSurveyHelper.getActiveJourney({ interview });
+    if (activeJourney === null) {
+        return [false, null];
+    }
+    const personDidTrips = activeJourney.personDidTrips;
+    const visitedPlaces = odSurveyHelper.getVisitedPlacesArray({
+        journey: activeJourney
+    });
+    if (_isBlank(personDidTrips)) {
+        return [false, null];
+    }
+    return [_booleish(personDidTrips) === false && visitedPlaces.length > 1, null];
+};
+
+// Custon conditional validating that the person did trips, but there is yet no first place activity
+// FIXME Validate that this works as intended in the case where the participant changed his mind and needs to confirm
+export const personDidTripsAndDeparturePlaceNotSetCustomConditional: WidgetConditional = (interview, path) => {
+    const journeyContext = odSurveyHelper.getJourneyContextFromPath({ interview, path });
+    if (!journeyContext) {
+        throw new Error('personDidTripsAndDeparturePlaceNotSetCustomConditional: Journey context not found');
+    }
+    const { journey } = journeyContext;
+    const departurePlaceIsHome = journey.departurePlaceIsHome;
+    const firstVisitedPlace = odSurveyHelper.getVisitedPlacesArray({ journey })[0];
+    const personDidTrips = journey.personDidTrips;
+    const personDidTripsConfirm = journey.personDidTripsConfirm;
+    // Do not show if person did trips is not true, or if the confirmation is blank or false
+    // FIXME Why would the personDidTrips be blank, but not the personDidTripsConfirm? Was like that in od_nationale_quebec too (and probably before that)
+    if (
+        _booleish(personDidTrips) !== true ||
+        (_isBlank(personDidTrips) && _booleish(personDidTripsConfirm) === false)
+    ) {
+        return [false, null];
+    } else if (firstVisitedPlace && (firstVisitedPlace.activity || firstVisitedPlace.activityCategory)) {
+        // If there are places defined already, use its type to ask the activity, but do not show the question
+        return [false, firstVisitedPlace.activity === 'home' ? 'yes' : 'no'];
+    }
+    return [!_isBlank(personDidTrips), departurePlaceIsHome];
 };

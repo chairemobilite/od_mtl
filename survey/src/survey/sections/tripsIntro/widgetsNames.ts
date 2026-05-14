@@ -14,6 +14,8 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'visitedPlacesIntro',
     'personDeparturePlaceIsHome',
     'personDeparturePlaceOther',
+    'personOutOfTerritory',
+    'personOutOfTerritoryMembers',
     'tripsIntro_save',
     'tripsIntroOutro'
 ];

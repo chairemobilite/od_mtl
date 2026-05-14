@@ -12,23 +12,34 @@ personNewPerson: >-
     might the order of persons have been changed?</summary>The order of persons for
     whom we ask you to specify trips is randomized. This helps avoid any bias related
     to the reporting sequence and ensures consistent data quality.</details>
-personWhoWillAnswerForThisPerson: Who is responding for {{nickname}}?
+personWhoWillAnswerForThisPerson: >-
+    Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
+    is available, they can complete this section, or you may answer the following
+    questions on their behalf.</span>
+personWhoWillAnswerForThisPerson_male: >-
+    Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
+    is available, he can complete this section, or you may answer the following questions
+    on his behalf.</span>
+personWhoWillAnswerForThisPerson_female: >-
+    Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
+    is available, she can complete this section, or you may answer the following questions
+    on her behalf.</span>
 personDidTrips: >-
-    Did {{nickname}} make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
+    Did {{nickname}} make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
     all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
     work, or to pick up or drop someone off.</span>
 personDidTrips_one: >-
-    Did you make any trips on {{assignedDate}}?<br /><span class="_pale _oblique">Include
+    Did you make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
     all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
     work, or to pick up or drop someone off.</span>
 personDidTripsConfirm: >-
-    You already declared trip. Do you confirm they are erroneous and that {{nickname}}
-    did not make any trips on {{formattedTripsDate}}?
+    You previously reported trips. Can you confirm they were reported by mistake and
+    that {{nickname}} did not travel on {{journeyDate}}?
 personDidTripsConfirm_one: >-
-    You already declared trips. Do you confirm they are erroneous and that you did
-    not make any trips on {{formattedTripsDate}}?
+    You previously reported trips. Do you confirm they were reported by mistake and
+    that you did not travel on {{journeyDate}}?
 visitedPlacesIntro: >-
-    Please specify the <strong>places {{nickname}} went on {{assignedDate}}</strong>
+    Please specify the <strong>places {{nickname}} went on {{journeyDate}}</strong>
     (include all places visited until 4 AM the following morning)<br /><br /><span
     class="_green">- <strong>Include short stops and errands</strong> (gas station,
     daycare/school, convenience store or any place where {{nickname}} picked someone
@@ -38,7 +49,7 @@ visitedPlacesIntro: >-
     transfer locations</strong> (bus stops, train stations, terminals, parking lots,
     etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
 visitedPlacesIntro_one: >-
-    Please specify the <strong>places you went on {{assignedDate}}</strong> (include
+    Please specify the <strong>places you went on {{journeyDate}}</strong> (include
     all places visited until 4 AM the following morning)<br /><br /><span class="_green">-
     <strong>Include short stops and errands</strong> (gas station, daycare/school,
     convenience store or any place where you picked someone up or dropped someone
@@ -58,11 +69,36 @@ personDeparturePlaceIsHome_one: >-
     {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
 personDeparturePlaceOther: Where was {{nickname}} at 4 AM?
 personDeparturePlaceOther_one: Where were you at 4 AM?
+personOutOfTerritory: Has {{nickname}} returned home at {{address}} on {{journeyDate}}?
+personOutOfTerritory_one: Have you returned home at {{address}} on {{journeyDate}}?
+personOutOfTerritoryMembers: Were other household members with {{nickname}} all day?
+personOutOfTerritoryMembers_one: Were other household members with you all day?
 tripsIntro_save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess the use and traffic
     of the road and public transit networks and will remain entirely confidential</span>
-personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trip on {{assignedDate}}'
-personDidTripsConfirmChoiceNo_one: I did not make any trip on {{assignedDate}}
-personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{assignedDate}}'
-personDidTripsConfirmChoiceYes_one: I did make at least one trip on {{assignedDate}}
+WhyThisDate: Why this day?
+WhyThisDateExplanation: review text
+personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trip on {{journeyDate}}'
+personDidTripsConfirmChoiceNo_one: I did not make any trip on {{journeyDate}}
+personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{journeyDate}}'
+personDidTripsConfirmChoiceYes_one: I did make at least one trip on {{journeyDate}}
+outOfTerritoryChoiceNo: No, {{nickname}} stayed at this place until the next day
+outOfTerritoryChoiceNo_one: No, I stayed at this place until the next day
+outOfTerritoryChoiceNo_hotelForWork: No, {{nickname}} stayed away for work until the
+    next day
+outOfTerritoryChoiceNo_hotelForWork_one: No, I stayed away for work until the next
+    day
+outOfTerritoryChoiceNo_hotelForVacation: No, {{nickname}} stayed on vacation until
+    the next day
+outOfTerritoryChoiceNo_hotelForVacation_one: No, I stayed on vacation until the next
+    day
+outOfTerritoryChoiceYes: Yes, {{nickname}} returned home before the next day
+outOfTerritoryChoiceYes_one: Yes, I returned home before the next day
+outOfTerritoryMembersChoiceNone: '{{nickname}} was alone'
+outOfTerritoryMembersChoiceNone_one: I was alone
+errors:
+    personOutOfTerritoryMembersRequired: You must select at least one answer
+    selectNoneSingleChoice: >-
+        You cannot select other household members and the option to be alone at the
+        same time

@@ -299,39 +299,39 @@ Champ,buttonSwitchPerson
 Type de question,Builtin
 Question,Changer de personne
 ""
-Champ,_showNewPersonPopupButton
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}._showNewPersonPopupButton
 Type de question,Entrée inconnue
 Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
 L’ordre des personnes interviewées est aléatoire.
 
-<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>"
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet de diminuer l’influence de l’ordre de déclaration sur la qualité des réponses recueillies.</details>"
 ""
-Champ,whoAnswers
-Type de question,Entrée inconnue
-Question,Qui répond pour {{nickname}}?
+Champ,hh_persons.{_activePersonId}.whoWillAnswerForThisPerson
+Type de question,Bouton radio
+Conditionnel,if2OrMorePersons14OrMoreYearsOldCustomConditional
+Question,"Qui répond pour {{nickname}}?
+Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre aux prochaines questions pour {{gender:lui/elle/lui(-elle)}}"
 ""
-Champ,personDidTrips
-Type de question,Entrée inconnue
-Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
+Type de question,Bouton radio
+Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
+Valeurs,"yes : Oui
+no : Non"
 ""
-Champ,personDidTripsConfirm
-Type de question,Entrée inconnue
-Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm
+Type de question,Bouton radio
+Conditionnel,personDeclaredTripsCustomConditional
+Question,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 ""
-Champ,didTripsIntro
-Type de question,Entrée inconnue
-Question,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
-
-<span class=""_green"">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
-- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
-<span class=""_red"">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>"
-""
-Champ,departurePlaceIsHome
-Type de question,Entrée inconnue
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsHome
+Type de question,Bouton radio
+Conditionnel,personDidTripsAndDeparturePlaceNotSetCustomConditional
 Question,"Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
-Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit)."
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex. : travail de nuit)."
+Valeurs,"yes : Oui
+no : Non"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther
 Type de question,Bouton radio
@@ -346,6 +346,16 @@ hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation 
 hotelForVacation : Hôtel ou autre lieu en vacances
 studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
 other : Autre"
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory
+Type de question,Bouton radio
+Conditionnel,outOfTerritoryConditional : departurePlaceOther === hotelForWork || departurePlaceOther === hotelForVacation
+Question,Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile {{address}} la journée du {{journeyDate}}?
+""
+Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
+Type de question,Case à cocher
+Conditionnel,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && outOfTerritory === yes
+Question,D’autres membres du ménage étaient avec {{nickname}} toute la journée?
 ""
 ""
 ""

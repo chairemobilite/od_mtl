@@ -97,3 +97,9 @@ export const validateHouseholdAgesHelpPopup: ButtonWidgetConfig['confirmPopup'] 
         return allPersonsHaveAge && !atLeastOnePersonOlderThan16;
     }
 };
+
+export const assignedDateHelpPopup: HelpPopup = {
+    containsHtml: true,
+    title: (t: TFunction, interview) => t('tripsIntro:WhyThisDate'),
+    content: (t: TFunction, interview) => t('tripsIntro:WhyThisDateExplanation')
+};

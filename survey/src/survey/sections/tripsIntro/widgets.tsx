@@ -13,22 +13,81 @@ import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
+import * as customChoices from './customChoices';
+import * as customHelpPopup from '../../common/customHelpPopup';
+import * as customValidations from '../../common/customValidations';
+import * as customLabels from '../../common/customLabels';
 
 // activePersonTitle
 
 // buttonSwitchPerson
 
+// Custom because it's a popup and it has a condition on interviewable person count, not household
 export const personNewPerson = customWidgets.personNewPerson;
 
-export const personWhoWillAnswerForThisPerson = customWidgets.personWhoWillAnswerForThisPerson;
+export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.whoWillAnswerForThisPerson',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        return t('tripsIntro:personWhoWillAnswerForThisPerson', {
+            nickname,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+        });
+    },
+    choices: customChoices.whoAnswersCustomChoices,
+    conditional: customConditionals.if2OrMorePersons14OrMoreYearsOldCustomConditional,
+    validations: validations.requiredValidation
+};
 
-export const personDidTrips = customWidgets.personDidTrips;
+// Custom label because has journey date. This widget should be in Evolution
+export const personDidTrips: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.personDidTripsCustomLabel,
+    helpPopup: customHelpPopup.assignedDateHelpPopup,
+    choices: choices.yesNo,
+    conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
 
-export const personDidTripsConfirm = customWidgets.personDidTripsConfirm;
+// Custom choices because of the presence of the assigned date in the string, conditional depends on trip count and main label has dates. This widget should be in Evolution
+export const personDidTripsConfirm: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm',
+    twoColumns: false,
+    containsHtml: false,
+    label: customLabels.personDidTripsConfirmCustomLabel,
+    choices: customChoices.personDidTripsConfirmCustomChoices,
+    conditional: customConditionals.personDeclaredTripsCustomConditional,
+    validations: validations.requiredValidation
+};
 
-export const visitedPlacesIntro = customWidgets.visitedPlacesIntro;
+// Custom label because has journey date. This widget should be in Evolution
+export const visitedPlacesIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlacesIntro',
+    containsHtml: true,
+    text: customLabels.visitedPlacesIntroCustomLabel,
+    conditional: conditionals.personDidTripsConditional
+};
 
-export const personDeparturePlaceIsHome = customWidgets.personDeparturePlaceIsHome;
+// Custom label because has journey dates. This widget should be in Evolution
+export const personDeparturePlaceIsHome: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsHome',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.departurePlaceIsHomeCustomLabel,
+    choices: choices.yesNo,
+    conditional: customConditionals.personDidTripsAndDeparturePlaceNotSetCustomConditional,
+    validations: customValidations.personDeparturePlaceIsHomeRequiredWithSpecificTestCustomValidation
+};
 
 export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
@@ -47,6 +106,40 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
     choices: choices.departurePlaceOtherChoices,
     conditional: customConditionals.departurePlaceOtherCustomConditional,
     validations: validations.requiredValidation
+};
+
+// Custom choices because it has the departure place type in the labels
+//
+// FIXME: personOutOfTerritory : implication · Issue #45 · chairemobilite/od_mtl
+export const personOutOfTerritory: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory',
+    twoColumns: false,
+    containsHtml: false,
+    label: customLabels.personOutOfTerritoryCustomLabel,
+    choices: customChoices.outOfTerritoryCustomChoices,
+    conditional: conditionals.outOfTerritoryConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom choices because it is the household members
+export const personOutOfTerritoryMembers: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('tripsIntro:personOutOfTerritoryMembers', {
+            nickname,
+            count: countPersons
+        });
+    },
+    choices: customChoices.outOfTerritoryMembersCustomChoices,
+    conditional: conditionals.outOfTerritoryMembersConditional,
+    validations: customValidations.personOutOfTerritoryMembersCustomValidation
 };
 
 export const tripsIntro_save: WidgetConfig.ButtonWidgetConfig = {

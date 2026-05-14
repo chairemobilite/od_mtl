@@ -198,23 +198,30 @@ Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
 L’ordre des personnes interviewées est aléatoire.
 
-<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet d'éviter tout biais lié à la séquence de déclaration et d'assurer des données de qualité homogène.</details>
+<details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet de diminuer l’influence de l’ordre de déclaration sur la qualité des réponses recueillies.</details>
 
 Qui répond pour {{nickname}}?
+Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre aux prochaines questions pour {{gender:lui/elle/lui(-elle)}}
 
-Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}}?
+
+Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
+- Oui
+- Non
 
-Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{formattedTripsDate}}?
+Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 
-Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{assignedDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 
 <span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
 - Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
 <span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>
 
 Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
-Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex.: travail de nuit).
+Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex. : travail de nuit).
+- Oui
+- Non
 
 Où était {{nickname}} à 4h du matin?
 - Domicile de l'autre parent ou tuteur
@@ -226,6 +233,12 @@ Où était {{nickname}} à 4h du matin?
 - Hôtel ou autre lieu en vacances
 - Écoles / lieu d’études: terminait des travaux ou y couchait
 - Autre
+
+Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile {{address}} la journée du {{journeyDate}}?
+
+
+D’autres membres du ménage étaient avec {{nickname}} toute la journée?
+
 
 Continuer
 

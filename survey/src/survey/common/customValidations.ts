@@ -191,3 +191,23 @@ export const inaccessibleZoneGeographyCustomValidation: ValidationFunction = (ge
         }
     ];
 };
+
+// Custom because of the custom error message, but this is simply a required validation
+export const personDeparturePlaceIsHomeRequiredWithSpecificTestCustomValidation: ValidationFunction = (value) => [
+    {
+        validation: _isBlank(value),
+        errorMessage: (t: TFunction) => t('survey:visitedPlace:departurePlaceIsRequiredError')
+    }
+];
+
+// Custom because it's a multi-select validation, with a choice that needs unicity
+export const personOutOfTerritoryMembersCustomValidation: ValidationFunction = (value) => [
+    {
+        validation: _isBlank(value) || (Array.isArray(value) && value.length < 1),
+        errorMessage: (t: TFunction) => t('tripsIntro:errors.personOutOfTerritoryMembersRequired')
+    },
+    {
+        validation: !_isBlank(value) && Array.isArray(value) && value.length > 1 && value.includes('none'),
+        errorMessage: (t: TFunction) => t('tripsIntro:errors.selectNoneSingleChoice')
+    }
+];

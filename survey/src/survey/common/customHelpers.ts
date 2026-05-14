@@ -1,7 +1,9 @@
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { countPersons, getPersonsArray } from 'evolution-common/lib/services/odSurvey/helpers';
-import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import type { InterviewAttributes, Journey } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import i18n from 'evolution-frontend/lib/config/i18n.config';
+import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -32,4 +34,12 @@ export const updateHouseholdSizeFromPersonCount = (
         return { 'response.household.size': persons.length };
     }
     return undefined;
+};
+
+export const getFormattedTripDateFromJourney = (journey: Journey): string | undefined => {
+    const assignedDay = journey.startDate;
+    const journeyDate = !_isBlank(assignedDay)
+        ? getFormattedDate(assignedDay!, { withRelative: true, locale: i18n.language })
+        : undefined;
+    return journeyDate;
 };

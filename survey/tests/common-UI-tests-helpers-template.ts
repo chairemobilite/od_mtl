@@ -298,26 +298,50 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     // Test custom widget personNewPerson
     // Implement custom test
 
-    // Test custom widget personWhoWillAnswerForThisPerson
-    // Implement custom test
+    // Test radio widget personWhoWillAnswerForThisPerson with conditional if2OrMorePersons14OrMoreYearsOldCustomConditional with choices whoAnswersCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.whoWillAnswerForThisPerson', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.whoWillAnswerForThisPerson', value: '?' });
 
-    // Test custom widget personDidTrips
-    // Implement custom test
+    // Test radio widget personDidTrips with choices yesNo
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips', value: '?' });
 
-    // Test custom widget personDidTripsConfirm
-    // Implement custom test
+    // Test radio widget personDidTripsConfirm with conditional personDeclaredTripsCustomConditional with choices personDidTripsConfirmCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm', value: '?' });
 
-    // Test custom widget visitedPlacesIntro
-    // Implement custom test
+    // Test infotext widget visitedPlacesIntro with conditional personDidTripsConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlacesIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
 
-    // Test custom widget personDeparturePlaceIsHome
-    // Implement custom test
+    // Test radio widget personDeparturePlaceIsHome with conditional personDidTripsAndDeparturePlaceNotSetCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsHome', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsHome', value: '?' });
 
     // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', value: '?' });
+
+    // Test radio widget personOutOfTerritory with conditional outOfTerritoryConditional with choices outOfTerritoryCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory', value: '?' });
+
+    // Test checkbox widget personOutOfTerritoryMembers with conditional outOfTerritoryMembersConditional with choices outOfTerritoryMembersCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers', values: ['?'] });
 
     // Test nextbutton widget tripsIntro_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });

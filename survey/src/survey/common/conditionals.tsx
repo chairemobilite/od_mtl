@@ -553,3 +553,72 @@ export const workOnTheRoadConditional: WidgetConditional = (interview, path) => 
         ]
     });
 };
+
+export const personDidTripsConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.personDidTrips`,
+                comparisonOperator: '===',
+                value: 'yes'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.personDidTripsConfirm`,
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const outOfTerritoryConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.departurePlaceOther`,
+                comparisonOperator: '===',
+                value: 'hotelForWork'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.departurePlaceOther`,
+                comparisonOperator: '===',
+                value: 'hotelForVacation'
+            }
+        ]
+    });
+};
+
+export const outOfTerritoryMembersConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.departurePlaceOther`,
+                comparisonOperator: '===',
+                value: 'hotelForVacation'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.size',
+                comparisonOperator: '>=',
+                value: 2
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.outOfTerritory`,
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
