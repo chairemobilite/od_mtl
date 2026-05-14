@@ -110,6 +110,22 @@ Pour réécrire un historique de branche, par exemple pour ajouter à un commit 
 
 Pour plus d'information sur les outils de git pour réécrire l'historique, consulter le [manuel de git](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History).
 
+### Résoudre les conflits dans un fichier Excel lors d'un rebase
+
+Lorsque plusieurs PR modifient le fichier Excel en parallèle, cela _créera_ des conflits sur ce fichier, car c'est un fichier binaire. Il n'est pas possible de résoudre facilement ces conflits. Voici comment procéder:
+
+1. Fermer le fichier Excel pour éviter de modifier une version désuète
+2. Récupérer le fichier depuis la branche `base` pour l'utiliser comme base de modifications: `git checkout --ours survey/references/OD_mtl_2026.xlsx`
+3. Ouvrir le fichier Excel
+4. Les changements du commit en conflit devront ensuite être ajoutés au fichier Excel de l'une des 2 façons suivantes
+    1. **Manuellement**: si les changements sont simples et faciles à localiser (comme une faute de frappe dans une cellule précise), corrigez-les de nouveau puis enregistrez.
+
+    2. **À l'aide de csv**: avec l'option `copy_excel_to_csv`, des fichiers csv pour chaque feuille auront été créés dans le dossier `survey/references/OD_mtl_2026_csv/`. Il peut y avoir ou non des conflits dans ces fichiers. S'il y en a, résolvez-les manuellement: ils sont généralement plus faciles à résoudre que des données Excel binaires. Vérifiez quels fichiers ont changé dans le commit courant. Ouvrez le fichier csv puis copiez-collez les données modifiées, ou la feuille complète, dans la feuille Excel correspondante.
+
+5. Enregistrer le fichier Excel
+6. Exécuter `yarn generateSurvey` pour regénérer tous les changements
+7. Continuer le rebase en cours: ajouter les fichiers en conflit et les nouveaux changements: `git add survey/references/OD_mtl_2026.xlsx` ainsi que tous les autres fichiers modifiés, puis `git rebase --continue`.
+
 ## Utiliser Generator
 
 Ce projet utilise Evolution-Generator pour la création des enquêtes. Afin de générer une enquête, merci de suivre attentivement les instructions fournies dans la section `How to Run` du [README d'Evolution-Generator](https://github.com/chairemobilite/evolution/tree/main/packages/evolution-generator#how-to-run).
