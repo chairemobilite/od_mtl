@@ -241,6 +241,41 @@ visitedPlaceDepartureTime_workOnTheRoad: '{{nickname}} finished their trips on t
     road at:'
 visitedPlaceDepartureTime_workOnTheRoad_one: 'You finished your trips on the road
     at:'
+activityCategories:
+    work: Work
+    school: School
+    shoppingServiceRestaurant: Shopping, Services or Restaurant
+    dropFetchSomeone: Drop someone off or Pick someone up
+    leisure: Leisure (sport, arts, stroll, etc.)
+    other: Other
+    otherParentHome: Home of the other parent or guardian
+    home: Home
+activities:
+    workUsual: Work (out-of-home fixed location)
+    workNotUsual: Work (other place)
+    workOnTheRoad: Work on the road
+    volunteering: Volunteering
+    schoolUsual: Studies ([établissement scolaire]/high school, college, university)
+    schoolNotUsual: Studies (different location)
+    shopping: Shopping (store, gas station, grocery)
+    restaurant: Restaurant, coffee shop, bar
+    service: Service (hairdresser, repairs, lawyer, bank)
+    medical: Medical (clinic, hospital, physiotherapy)
+    veterinarian: Veterinary
+    worship: Place of worship
+    pickClassifiedPurchase: Pick up an item from a private seller (online marketplace/classifieds)
+    other: Other
+    dropSomeone: Drop someone off
+    fetchSomeone: Pick someone up
+    accompanySomeone: Accompany someone
+    leisureStroll: >-
+        Stroll with no fixed destination (ex: go running/jogging, walk with pet, etc.)
+    leisureSports: Sport, training, park
+    leisureArtsMusicCulture: Arts, Music ou culture
+    leisureTourism: Vacation, tourism
+    visiting: Visiting friends, partner or family
+    secondaryHome: Secondary residence
+    schoolNotStudent: Studies
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location
