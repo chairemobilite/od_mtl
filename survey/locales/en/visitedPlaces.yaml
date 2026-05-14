@@ -12,63 +12,70 @@ personVisitedPlacesTitle: >-
 personVisitedPlacesTitle_one: >-
     Places you went on {{assignedDate}}:<br />Chronological order must be respected
     (i.e. sequence matters).
-visitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
-visitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
-onTheRoadDepartureType: What was the departure place of {{nickname}}’s work trip on
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
+visitedPlaceOnTheRoadDepartureType: What was the departure place of {{nickname}}’s
+    work trip on the road?
+visitedPlaceOnTheRoadDepartureType_one: Where did you start your work trip on the
+    road?
+visitedPlaceOnTheRoadArrivalType: Where did {{nickname}} end their work trip on the
+    road?
+visitedPlaceOnTheRoadArrivalType_male: Where did {{nickname}} end his work trip on
     the road?
-onTheRoadDepartureType_one: Where did you start your work trip on the road?
-onTheRoadArrivalType: Where did {{nickname}} end their work trip on the road?
-onTheRoadArrivalType_male: Where did {{nickname}} end his work trip on the road?
-onTheRoadArrivalType_female: Where did {{nickname}} end her work trip on the road?
-onTheRoadArrivalType_one: Where did you end your work trip on the road activity?
-onTheRoadArrivalType_male_one: Where did you end your work trip on the road activity?
-onTheRoadArrivalType_female_one: Where did you end your work trip on the road activity?
-alreadyVisitedBySelfOrAnotherHouseholdMember: >-
+visitedPlaceOnTheRoadArrivalType_female: Where did {{nickname}} end her work trip
+    on the road?
+visitedPlaceOnTheRoadArrivalType_one: Where did you end your work trip on the road
+    activity?
+visitedPlaceOnTheRoadArrivalType_male_one: Where did you end your work trip on the
+    road activity?
+visitedPlaceOnTheRoadArrivalType_female_one: Where did you end your work trip on the
+    road activity?
+visitedPlaceAlreadyVisited: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
-alreadyVisitedBySelfOrAnotherHouseholdMember_one: >-
+visitedPlaceAlreadyVisited_one: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     your travel diary or that of another household member.</span>
-shortcut: 'Please select this place from the list of previously located places:'
-geography: >-
+visitedPlaceShortcut: 'Please select this place from the list of previously located
+    places:'
+visitedPlaceGeography: >-
     Please locate this place on the map<br /><span class="_pale _oblique">Pan, zoom
     and click on map. Once a pin icon has been dropped, you will be able to drag the
     icon to specify a more precise location. You can also search for a place using
     its name or address with the button below.</span>
-_previousPreviousDepartureTime: >-
+visitedPlacePreviousPreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to their usual work place?
-_previousPreviousDepartureTime_male: >-
+visitedPlacePreviousPreviousDepartureTime_male: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to his usual work place?
-_previousPreviousDepartureTime_female: >-
+visitedPlacePreviousPreviousDepartureTime_female: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to her usual work place?
-_previousPreviousDepartureTime_one: >-
+visitedPlacePreviousPreviousDepartureTime_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
-_previousPreviousDepartureTime_male_one: >-
+visitedPlacePreviousPreviousDepartureTime_male_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
-_previousPreviousDepartureTime_female_one: >-
+visitedPlacePreviousPreviousDepartureTime_female_one: >-
     At what time did you leave the previous location ({{visitedPlaceDescription}})
     before going to your usual work place?
-arrivalTime: '{{nickname}} arrived {{atPlace}} at:'
-arrivalTime_one: 'You arrived {{atPlace}} at:'
-nextPlaceCategory: >-
+visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:'
+visitedPlaceArrivalTime_one: 'You arrived {{atPlace}} at:'
+visitedPlaceNextPlaceCategory: >-
     After being {{atPlace}}, {{nickname}}…<br /><span class="_pale _oblique">If {{nickname}}
     left this place after 4 AM the following day, please consider for the purposes
     of the survey that they stayed there until the next day and select the appropriate
     answer.</span>
-nextPlaceCategory_one: >-
+visitedPlaceNextPlaceCategory_one: >-
     After being {{atPlace}}, you…<br /><span class="_pale _oblique">If you left this
     place after 4 AM the following day, please consider for the purposes of the survey
     that you stayed there until the next day and select the appropriate answer.</span>
-departureTime: '{{nickname}} left {{place}} at:'
-departureTime_one: 'You left {{place}} at:'
-visitedPlacesSave: Confirm
-visitedPlaces:
-    save: Confirm locations and continue
+visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:'
+visitedPlaceDepartureTime_one: 'You left {{place}} at:'
+buttonSaveVisitedPlace: Confirm
+buttonVisitedPlacesConfirmNextSection: Confirm locations and continue
 PreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
 PreviousDepartureTime_one: >-

@@ -100,7 +100,7 @@ export const personUsualWorkPlaceGeography: InputMapFindPlaceType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:usualWorkPlace.geography', {
+        return t('household:personUsualWorkPlaceGeography', {
             nickname,
             count: countPersons
         });
@@ -176,7 +176,7 @@ export const personUsualSchoolPlaceGeography: InputMapFindPlaceType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
         const nickname = activePerson?.nickname || t('survey:noNickname');
-        return t('household:usualSchoolPlace.geography', {
+        return t('household:personUsualSchoolPlaceGeography', {
             nickname,
             count: countPersons
         });

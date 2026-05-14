@@ -40,7 +40,7 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('visitedPlaces:onTheRoadArrivalType', {
+        return t('visitedPlaces:visitedPlaceOnTheRoadArrivalType', {
             nickname,
             count: countPersons,
             context: activePerson?.gender || activePerson?.sexAssignedAtBirth
