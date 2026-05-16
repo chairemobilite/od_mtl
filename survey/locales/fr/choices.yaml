@@ -149,3 +149,38 @@ workPlaceBeforeLeaveTypeChoices:
         domicile
     remote: Non, {{nickname}} travaillait à partir du domicile ou à distance
     remote_one: Non, je travaillais à partir du domicile ou à distance
+transitModesChoices:
+    walk: Marche
+    transitBus: Bus (STM, STL, RTL, exo, etc.)
+    transitOnDemand: Transport à la demande
+    carDriver: Auto en tant que conducteur
+    carPassenger: Auto en tant que passager
+intercityModesChoices:
+    walk: Marche
+    bicycle: Vélo
+    carDriver: Auto en tant que conducteur
+    carPassenger: Auto en tant que passager
+    taxi: 'Taxi ou équivalent (ex. : Uber)'
+    transit: Transport en commun
+paidForParkingChoices:
+    noWorker: <strong>Non</strong> (gratuit ou payé par l'employeur)
+    no: <strong>Non</strong> (gratuit)
+    yes: <strong>Oui</strong> (parcomètre, vignette, passe ou permis)
+    noPark: Le véhicule n'a pas été stationné
+subwayLineChoices:
+    stm_2: 2-Orange
+    stm_1: 1-Verte
+planeStationChoices:
+    YUL: Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
+    YHU: Aéroport Montréal Saint-Hubert (YHU)
+intercityRailStationChoices:
+    centralStation: Gare Centrale (Montréal)
+    dorvalStation: Dorval
+    coteauStation: Coteau
+    saintLambertStation: Saint-Lambert
+intercityBusStationChoices:
+    gareAutocarsMTL: Gare d'autocars de Montréal (1717 rue Berri)
+    terminusMegabus: Terminus Megabus (1000 de la Gauchetière)
+    YUL: Aéroport de Montréal (YUL)
+    terminusKirkland: Kirkland
+    terminusLongueuil: Terminus intermodal de Longueuil

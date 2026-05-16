@@ -60,15 +60,70 @@ export type Segment = {
     sameModeAsReverseTrip: boolean | null;
     modePre: string | null;
     mode: string | null;
-    howToBus: string | null;
     paidForParking: string | null;
     vehicleOccupancy: number | null;
     driver: string | null;
+    subwayStationStart: string | null;
+    subwayStationEnd: string | null;
+    subwayStationsTransfer: string[] | null;
+    subwayLine: string | null;
+    trainStationStart: string | null;
+    trainStationEnd: string | null;
+    remStationStart: string | null;
+    remStationEnd: string | null;
+    planeStationStart: string | null;
+    planeStationEnd: string | null;
+    intercityRailStationStart: string | null;
+    intercityRailStationEnd: string | null;
+    intercityBusStationStart: string | null;
+    intercityBusStationEnd: string | null;
     busLines: string[] | null;
     busLinesWarning: boolean | null;
+    transitAccessMode: string | null;
+    intercityAccessMode: string | null;
     onDemandType: string | null;
     tripJunctionQueryString: string | null;
+    transitEgressMode: string | null;
+    intercityEgressMode: string | null;
+    junctionPrivateBus: string | null;
+    junctionBusPrivate: string | null;
+    junctionPointPaidParking: string | null;
     hasNextMode: boolean | null;
+};
+
+/**
+ * Default segment with null values for all optional questions
+ */
+export const defaultSegmentNullValues: Omit<Segment, 'segmentIndex' | 'modePre' | 'mode' | 'hasNextMode'> = {
+    sameModeAsReverseTrip: null, // Question won't show.
+    paidForParking: null, // Question won't show.
+    vehicleOccupancy: null, // Question won't show.
+    driver: null, // Question won't show.
+    subwayStationStart: null, // Question won't show.
+    subwayStationEnd: null, // Question won't show.
+    subwayStationsTransfer: null, // Question won't show.
+    subwayLine: null, // Question won't show.
+    trainStationStart: null, // Question won't show.
+    trainStationEnd: null, // Question won't show.
+    remStationStart: null, // Question won't show.
+    remStationEnd: null, // Question won't show.
+    planeStationStart: null, // Question won't show.
+    planeStationEnd: null, // Question won't show.
+    intercityRailStationStart: null, // Question won't show.
+    intercityRailStationEnd: null, // Question won't show.
+    intercityBusStationStart: null, // Question won't show.
+    intercityBusStationEnd: null, // Question won't show.
+    busLines: null, // Question won't show.
+    busLinesWarning: null, // Question won't show.
+    transitAccessMode: null, // Question won't show.
+    intercityAccessMode: null, // Question won't show.
+    onDemandType: null, // Question won't show.
+    tripJunctionQueryString: null, // Question won't show.
+    transitEgressMode: null, // Question won't show.
+    intercityEgressMode: null, // Question won't show.
+    junctionBusPrivate: null, // Question won't show.
+    junctionPrivateBus: null, // Question won't show.
+    junctionPointPaidParking: null // Question won't show.
 };
 
 // TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
@@ -1157,21 +1212,6 @@ const fillOneSegmentTests = ({
         });
     }
 
-    // Test custom widget segmentHowToBus
-    if (segment.howToBus === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.howToBus`,
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.howToBus`,
-            value: segment.howToBus
-        });
-    }
-
     // Test radio widget segmentPaidForParking with conditional isCarDriverAndDestinationWorkCustomConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
@@ -1220,6 +1260,216 @@ const fillOneSegmentTests = ({
     }
 
     // Test custom widget segmentBusLines
+    if (segment.subwayStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
+            value: segment.subwayStationStart
+        });
+    }
+
+    // Test custom widget segmentBusLines
+    if (segment.subwayStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
+            value: segment.subwayStationEnd
+        });
+    }
+
+    // Test custom widget subwayStationsTransfer
+    if (segment.subwayStationsTransfer === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
+            values: segment.subwayStationsTransfer
+        });
+    }
+
+    // Test custom widget subwayLine
+    if (segment.subwayLine === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayLine`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayLine`,
+            value: segment.subwayLine
+        });
+    }
+
+    // Test custom widget trainStationStart
+    if (segment.trainStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
+            value: segment.trainStationStart
+        });
+    }
+
+    // Test custom widget trainStationEnd
+    if (segment.trainStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
+            value: segment.trainStationEnd
+        });
+    }
+
+    // Test custom widget remStationStart
+    if (segment.remStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
+            value: segment.remStationStart
+        });
+    }
+
+    // Test custom widget remStationEnd
+    if (segment.remStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
+            value: segment.remStationEnd
+        });
+    }
+
+    // Test custom widget segmentPlaneStationStart
+    if (segment.planeStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.planeStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.planeStationStart`,
+            value: segment.planeStationStart
+        });
+    }
+
+    // Test custom widget segmentPlaneStationEnd
+    if (segment.planeStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.planeStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.planeStationEnd`,
+            value: segment.planeStationEnd
+        });
+    }
+
+    // Test custom widget segmentIntercityRailStationStart
+    if (segment.intercityRailStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityRailStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityRailStationStart`,
+            value: segment.intercityRailStationStart
+        });
+    }
+
+    // Test custom widget segmentIntercityRailStationEnd
+    if (segment.intercityRailStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityRailStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityRailStationEnd`,
+            value: segment.intercityRailStationEnd
+        });
+    }
+
+    // Test custom widget segmentIntercityBusStationStart
+    if (segment.intercityBusStationStart === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityBusStationStart`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityBusStationStart`,
+            value: segment.intercityBusStationStart
+        });
+    }
+
+    // Test custom widget segmentIntercityBusStationEnd
+    if (segment.intercityBusStationEnd === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityBusStationEnd`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityBusStationEnd`,
+            value: segment.intercityBusStationEnd
+        });
+    }
+
+    // Test custom widget segmentBusLines
     if (segment.busLines === null) {
         testHelpers.inputVisibleTest({
             context,
@@ -1245,6 +1495,36 @@ const fillOneSegmentTests = ({
         // Implement custom test
     }
 
+    // Test custom widget transitAccessMode
+    if (segment.transitAccessMode === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitAccessMode`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitAccessMode`,
+            value: segment.transitAccessMode
+        });
+    }
+
+    // Test custom widget segmentIntercityAccessMode
+    if (segment.intercityAccessMode === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityAccessMode`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityAccessMode`,
+            value: segment.intercityAccessMode
+        });
+    }
+
     // Test radio widget segmentOnDemandType with conditional isTransitAndNotNationaleCustomConditional with choices onDemandCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
@@ -1262,24 +1542,80 @@ const fillOneSegmentTests = ({
         });
     }
 
-    // Test string widget tripJunctionQueryString with conditional shouldAskTripJunctionCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (segment.tripJunctionQueryString === null) {
+    // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
+    if (segment.transitEgressMode === null) {
         testHelpers.inputVisibleTest({
             context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.tripJunctionQueryString`,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitEgressMode`,
             isVisible: false
         });
     } else {
-        testHelpers.inputStringTest({
+        testHelpers.inputRadioTest({
             context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.tripJunctionQueryString`,
-            value: segment.tripJunctionQueryString
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitEgressMode`,
+            value: segment.transitEgressMode
         });
     }
 
-    // Test custom widget tripJunctionGeography
-    // Implement custom test
+    // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
+    if (segment.intercityEgressMode === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityEgressMode`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityEgressMode`,
+            value: segment.intercityEgressMode
+        });
+    }
+
+    // Test radio widget segmentJunctionPrivateBus with conditional junctionPrivateBusCustomConditional with choices tripJunctionCustomChoices
+    if (segment.junctionPrivateBus === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionPrivateBus`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionPrivateBus`,
+            value: segment.junctionPrivateBus
+        });
+    }
+
+    // Test radio widget segmentJunctionBusPrivate with conditional junctionBusPrivateCustomConditional with choices tripJunctionCustomChoices
+    if (segment.junctionBusPrivate === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionBusPrivate`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputSelectTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionBusPrivate`,
+            value: segment.junctionBusPrivate
+        });
+    }
+
+    // Test radio widget segmentJunctionPointPaidParking with conditional junctionPaidParkingCustomConditional with choices junctionPointPaidParkingChoices
+    if (segment.junctionPointPaidParking === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionPointPaidParking`,
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionPointPaidParking`,
+            value: segment.junctionPointPaidParking
+        });
+    }
 
     // TODO: Implement multiple segments to the same trip by changing this value to 'true'
     // Test custom widget segmentHasNextMode

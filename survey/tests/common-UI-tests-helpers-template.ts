@@ -451,10 +451,7 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
 
     // Test builtin widget segmentMode
 
-    // Test custom widget segmentHowToBus
-    // Implement custom test
-
-    // Test radio widget segmentPaidForParking with conditional isCarDriverAndDestinationWorkCustomConditional with choices yesNoDontKnow
+    // Test radio widget segmentPaidForParking with conditional isCarDriverAndShouldShowPaidParkingCustomConditional with choices paidForParkingChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.paidForParking', isVisible: true });
@@ -466,27 +463,139 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
 
     // Test builtin widget segmentDriver
 
-    // Test custom widget segmentBusLines
+    // Test select widget segmentSubwayStationStart with conditional subwayConditional with choices subwayStationStartCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.subwayStationStart', isVisible: true });
+
+    // Test select widget segmentSubwayStationEnd with conditional subwayConditional with choices subwayStationEndCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.subwayStationEnd', isVisible: true });
+
+    // Test checkbox widget segmentSubwayStationsTransfer with conditional subwayTransferCustomConditional with choices subwayStationsTransferCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.subwayStationsTransfer', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: '?.subwayStationsTransfer', values: ['?'] });
+
+    // Test radio widget segmentSubwayLine with conditional subwayLineConditional with choices subwayLineChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.subwayLine', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.subwayLine', value: '?' });
+
+    // Test select widget segmentTrainStationStart with conditional trainConditional with choices trainStationStartCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.trainStationStart', isVisible: true });
+
+    // Test select widget segmentTrainStationEnd with conditional trainConditional with choices trainStationEndCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.trainStationEnd', isVisible: true });
+
+    // Test select widget segmentRemStationStart with conditional remConditional with choices remStationStartCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.remStationStart', isVisible: true });
+
+    // Test select widget segmentRemStationEnd with conditional remConditional with choices remStationEndCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.remStationEnd', isVisible: true });
+
+    // Test radio widget segmentPlaneStationStart with conditional isPlaneAndSegmentOriginInTerritoryCustomConditional with choices planeStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.planeStationStart', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.planeStationStart', value: '?' });
+
+    // Test radio widget segmentIntercityRailStationStart with conditional isIntercityRailAndSegmentOriginInTerritoryCustomConditional with choices intercityRailStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityRailStationStart', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityRailStationStart', value: '?' });
+
+    // Test radio widget segmentIntercityBusStationStart with conditional isIntercityBusAndSegmentOriginInTerritoryCustomConditional with choices intercityBusStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityBusStationStart', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityBusStationStart', value: '?' });
+
+    // Test radio widget segmentPlaneStationEnd with conditional isPlaneAndSegmentDestinationInTerritoryCustomConditional with choices planeStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.planeStationEnd', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.planeStationEnd', value: '?' });
+
+    // Test radio widget segmentIntercityRailStationEnd with conditional isIntercityRailAndSegmentDestinationInTerritoryCustomConditional with choices intercityRailStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityRailStationEnd', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityRailStationEnd', value: '?' });
+
+    // Test radio widget segmentIntercityBusStationEnd with conditional isIntercityBusAndSegmentDestinationInTerritoryCustomConditional with choices intercityBusStationChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityBusStationEnd', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityBusStationEnd', value: '?' });
+
+    // Test custom widget segmentBusLines with conditional busConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.busLines', isVisible: true });
     // Implement custom test
 
     // Test custom widget segmentBusLinesWarning
-    // Implement custom test
+    // Widget not active
 
-    // Test radio widget segmentOnDemandType with conditional shouldDisplayOnDemandTypeCustomConditional with choices onDemandCustomChoices
+    // Test radio widget segmentTransitAccessMode with conditional isTransitModeAndDistanceFromOriginCustomConditional with choices transitModesChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.onDemandType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: '?.onDemandType', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: '?.transitAccessMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.transitAccessMode', value: '?' });
 
-    // Test string widget tripJunctionQueryString with conditional shouldAskTripJunctionCustomConditional
+    // Test radio widget segmentIntercityAccessMode with conditional isIntercityAndOriginInTerritoryCustomConditional with choices intercityModesChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.tripJunctionQueryString', isVisible: true });
-    testHelpers.inputStringTest({ context, path: '?.tripJunctionQueryString', value: '?' });
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityAccessMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityAccessMode', value: '?' });
 
-    // Test custom widget tripJunctionGeography
-    // Implement custom test
+    // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.transitEgressMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.transitEgressMode', value: '?' });
+
+    // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityEgressMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityEgressMode', value: '?' });
+
+    // Test select widget tripJunctionPrivateBus with conditional junctionPrivateBusCustomConditional with choices tripJunctionCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.junctionPrivateBus', isVisible: true });
+
+    // Test select widget tripJunctionBusPrivate with conditional junctionBusPrivateCustomConditional with choices tripJunctionCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.junctionBusPrivate', isVisible: true });
+
+    // Test radio widget tripJunctionPaidParking with conditional junctionPaidParkingCustomConditional with choices paidForParkingChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.junctionPointPaidParking', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.junctionPointPaidParking', value: '?' });
 
     // Test builtin widget segmentHasNextMode
+
+    // Test checkbox widget tripCommun with conditional tripCommunCustomConditional with choices tripCommunCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.tripCommun', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: '?.tripCommun', values: ['?'] });
 
     // Test builtin widget buttonSaveTrip
 

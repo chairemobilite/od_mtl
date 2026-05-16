@@ -470,53 +470,218 @@ Field,segments
 Question type,Builtin
 Question,Mode of transport
 ""
-Field,howToBus
-Question type,Unknown input
-Question,"How did {{nickname}} reach the transit stop?
-If the mode used is not present, create a first mode before the transit mode."
+Field,sameModeAsReverseTrip
+Question type,Builtin
+Question,Same mode as the previous trip ({{previousMode}})
 ""
 Field,paidForParking
 Question type,Radio input
-Conditional,isCarDriverAndDestinationWorkCustomConditional
+Conditional,isCarDriverAndShouldShowPaidParkingCustomConditional
 Question,Paid parking
-Values,"yes : Yes
-no : No
+Values,"noWorker (isDestinationWorkCustomConditional): No (free or paid by employer)
+no (isDestinationNotWorkCustomConditional): No (free)
+yes : Yes (parking meter, sticker, pass or permit)
+noPark : The vehicle was not parked
 dontKnow : I don't know"
 ""
 Field,vehicleOccupancy
 Question type,RadioNumber
 Conditional,isSelfDeclaredCarDriverCustomConditional
 Question,"Persons in the vehicle
-Including the driver."
+Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children)."
 ""
 Field,driver
 Question type,Builtin
 Question,Who drove?
 ""
+Field,subwayStationStart
+Question type,Select input
+Conditional,subwayConditional : mode === transitRRT
+Question,Boarding station(when entering the metro):
+""
+Field,subwayStationEnd
+Question type,Select input
+Conditional,subwayConditional : mode === transitRRT
+Question,Exit station (when leaving the metro):
+""
+Field,subwayStationsTransfer
+Question type,Checkbox input
+Conditional,subwayTransferCustomConditional
+Question,"Transfer station(s):
+Choose ‘none’ if no transfer was made"
+""
+Field,subwayLine
+Question type,Radio input
+Conditional,subwayLineConditional : subwayStationStart === berriUqam && subwayStationEnd === lionelGroulx || (subwayStationStart === lionelGroulx && subwayStationEnd === berriUqam) || (subwayStationStart === jeanDrapeau && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === jeanDrapeau) || (subwayStationStart === longueuilUniversiteDeSherbrooke && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === longueuilUniversiteDeSherbrooke)
+Question,Line taken between BerriUQAM and Lionel-Groulx
+Values,"stm_2 : 2-Orange
+stm_1 : 1-Green
+dontKnow : I don't know"
+""
+Field,trainStationStart
+Question type,Select input
+Conditional,trainConditional : mode === transitRegionalRail
+Question,Boarding station (when getting onto the train)
+""
+Field,trainStationEnd
+Question type,Select input
+Conditional,trainConditional : mode === transitRegionalRail
+Question,Exit station (when leaving the train)
+""
+Field,remStationStart
+Question type,Select input
+Conditional,remConditional : mode === transitLRRT
+Question,Boarding station (when entering the REM)
+""
+Field,remStationEnd
+Question type,Select input
+Conditional,remConditional : mode === transitLRRT
+Question,Exit station (when leaving the REM)
+""
+Field,planeStationStart
+Question type,Radio input
+Conditional,isPlaneAndSegmentOriginInTerritoryCustomConditional
+Question,Departure airport
+Values,"YUL : Montreal Pierre-Elliott-Trudeau International Airport (YUL)
+YHU : Montreal Saint-Hubert Airport (YHU)
+other : Other
+dontKnow : I don't know"
+""
+Field,intercityRailStationStart
+Question type,Radio input
+Conditional,isIntercityRailAndSegmentOriginInTerritoryCustomConditional
+Question,Boarding station (departure)
+Values,"centralStation : Gare Centrale (Montreal)
+dorvalStation : Dorval
+coteauStation : Coteau
+saintLambertStation : Saint-Lambert
+other : Other
+dontKnow : I don't know"
+""
+Field,intercityBusStationStart
+Question type,Radio input
+Conditional,isIntercityBusAndSegmentOriginInTerritoryCustomConditional
+Question,Boarding station (departure)
+Values,"gareAutocarsMTL : Montreal Central Bus Station (1717 Berri Street)
+terminusMegabus : Megabus Terminal (1000 de la Gauchetière)
+YUL : Montreal Airport (YUL)
+terminusKirkland : Kirkland
+terminusLongueuil : Longueuil Intermodal Terminal
+other : Other
+dontKnow : I don't know"
+""
+Field,planeStationEnd
+Question type,Radio input
+Conditional,isPlaneAndSegmentDestinationInTerritoryCustomConditional
+Question,Arrival airport
+Values,"YUL : Montreal Pierre-Elliott-Trudeau International Airport (YUL)
+YHU : Montreal Saint-Hubert Airport (YHU)
+other : Other
+dontKnow : I don't know"
+""
+Field,intercityRailStationEnd
+Question type,Radio input
+Conditional,isIntercityRailAndSegmentDestinationInTerritoryCustomConditional
+Question,Exit station (arrival)
+Values,"centralStation : Gare Centrale (Montreal)
+dorvalStation : Dorval
+coteauStation : Coteau
+saintLambertStation : Saint-Lambert
+other : Other
+dontKnow : I don't know"
+""
+Field,intercityBusStationEnd
+Question type,Radio input
+Conditional,isIntercityBusAndSegmentDestinationInTerritoryCustomConditional
+Question,Exit station (arrival)
+Values,"gareAutocarsMTL : Montreal Central Bus Station (1717 Berri Street)
+terminusMegabus : Megabus Terminal (1000 de la Gauchetière)
+YUL : Montreal Airport (YUL)
+terminusKirkland : Kirkland
+terminusLongueuil : Longueuil Intermodal Terminal
+other : Other
+dontKnow : I don't know"
+""
 Field,busLines
 Question type,Unknown input
+Conditional,busConditional : mode === transitBus
 Question,"Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown."
 ""
-Field,busLinesWarning
-Question type,Unknown input
-Question,Some bus line(s) seem invalid for this trip. Please validate the lines.
-""
-Field,onDemandType
+Field,transitAccessMode
 Question type,Radio input
-Conditional,shouldDisplayOnDemandTypeCustomConditional
-Question,Is this an on-demand service?
+Conditional,isTransitModeAndDistanceFromOriginCustomConditional
+Question,Mode of transportation to get from {{origin}} to {{stopType}}
+Values,"walk : Walking
+transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitOnDemand (stationServedByTADCustomConditional): On-demand transit
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+other : Other (specify)"
 ""
-Field,tripJunctionQueryString
-Question type,Text input
-Conditional,shouldAskTripJunctionCustomConditional
-Question,"Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map"
+Field,intercityAccessMode
+Question type,Radio input
+Conditional,isIntercityAndOriginInTerritoryCustomConditional
+Question,Mode of transportation to get from {{origin}} to {{stopType}}
+Values,"walk : Walking
+bicycle : Bicycle
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+taxi : Taxi or equivalent (e.g., Uber)
+transit : Public transit
+other : Other"
 ""
-Field,junctionGeography
-Question type,Unknown input
-Question,"Please locate the junction point (location where the change in mode of transport occurred).
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button)."
+Field,transitEgressMode
+Question type,Radio input
+Conditional,isTransitModeAndDistanceToDestinationCustomConditional
+Question,Mode of transportation to get {{stopType}} to {{destination}}
+Values,"walk : Walking
+transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitOnDemand (stationServedByTADCustomConditional): On-demand transit
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+other : Other (specify)"
+""
+Field,intercityEgressMode
+Question type,Radio input
+Conditional,isIntercityAndDestinationInTerritoryCustomConditional
+Question,Mode of transportation to get {{stopType}} to {{destination}}
+Values,"walk : Walking
+bicycle : Bicycle
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+taxi : Taxi or equivalent (e.g., Uber)
+transit : Public transit
+other : Other"
+""
+Field,junctionPrivateBus
+Question type,Select input
+Conditional,junctionPrivateBusCustomConditional
+Question,Boarding location (getting on the bus)
+""
+Field,junctionBusPrivate
+Question type,Select input
+Conditional,junctionBusPrivateCustomConditional
+Question,Exit location (getting off the bus)
+""
+Field,junctionPointPaidParking
+Question type,Radio input
+Conditional,junctionPaidParkingCustomConditional
+Question,Parking upon arrival at {{stopType}}
+Values,"noWorker (isDestinationWorkCustomConditional): No (free or paid by employer)
+no (isDestinationNotWorkCustomConditional): No (free)
+yes : Yes (parking meter, sticker, pass or permit)
+noPark : The vehicle was not parked
+dontKnow : I don't know"
+""
+Field,hasNextMode
+Question type,Builtin
+Question,Other mode of transportation used for the trip before arrival?
+""
+Field,tripCommun
+Question type,Checkbox input
+Conditional,tripCommunCustomConditional
+Question,Did {{nickname}} make this trip with another member of the household?
 ""
 Field,save
 Question type,Builtin

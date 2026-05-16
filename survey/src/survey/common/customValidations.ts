@@ -211,3 +211,24 @@ export const personOutOfTerritoryMembersCustomValidation: ValidationFunction = (
         errorMessage: (t: TFunction) => t('tripsIntro:errors.selectNoneSingleChoice')
     }
 ];
+
+// Validate that the declared transfer stations are coherent
+// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/19
+export const subwayTransferCustomValidation: ValidationFunction = (value, _customValue, interview, path) => {
+    return [];
+};
+
+// Validate that the declared transfer stations are coherent
+// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/19
+export const trainCustomValidation: ValidationFunction = (value, _customValue, interview, path) => {
+    const trainStationStart = surveyHelperNew.getResponse(interview, path, undefined, '../trainStationStart');
+    const trainStationEnd = value;
+    return [
+        ...requiredValidation(value, _customValue, interview, path),
+        {
+            // FIXME Implement with the transfer matrix
+            validation: false,
+            errorMessage: (t: TFunction) => t('segments:errors.trainStationsIncoherent')
+        }
+    ];
+};

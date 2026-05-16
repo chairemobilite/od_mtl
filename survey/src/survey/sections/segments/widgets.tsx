@@ -10,9 +10,12 @@ import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
+import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
+import * as customValidations from '../../common/customValidations';
+import * as customLabels from '../../common/customLabels';
 
 // activePersonTitle
 
@@ -28,23 +31,24 @@ import * as customChoices from './customChoices';
 
 // segments
 
+// segmentSameModeAsPreviousTrip : sameModeAsPreviousTripCustomConditional · Issue #15 · chairemobilite/od_mtl
+// segmentSameModeAsPreviousTrip : implication · Issue #43 · chairemobilite/od_mtl
 // segmentSameModeAsReverseTrip
 
+// FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
 // segmentModePre
 
 // segmentMode
 
-// Custom because of the icons in the choices
-export const segmentHowToBus = customWidgets.segmentHowToBus;
-
+// FIXME segmentPaidForParking : isCarDriverAndDestinationCustomConditional · Issue #17 · chairemobilite/od_mtl
 export const segmentPaidForParking: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'paidForParking',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('segments:segmentPaidForParking'),
-    choices: choices.yesNoDontKnow,
-    conditional: customConditionals.isCarDriverAndDestinationWorkCustomConditional,
+    choices: choices.paidForParkingChoices,
+    conditional: customConditionals.isCarDriverAndShouldShowPaidParkingCustomConditional,
     validations: validations.requiredValidation
 };
 
@@ -63,39 +67,299 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
     validations: validations.requiredValidation
 };
 
+// FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
 // segmentDriver
 
-// Custom because of the choices that include available bus routes
+// FIXME segmentSubwayStation: choix · Issue #21 · chairemobilite/od_mtl
+export const segmentSubwayStationStart: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'subwayStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayStationStart'),
+    choices: customChoices.subwayStationStartCustomChoices,
+    conditional: conditionals.subwayConditional,
+    validations: validations.requiredValidation
+};
+
+export const segmentSubwayStationEnd: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'subwayStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayStationEnd'),
+    choices: customChoices.subwayStationEndCustomChoices,
+    conditional: conditionals.subwayConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl
+// segmentSubwayStationsTransfert : subwayTransfertCustomConditional et choix custom · Issue #18 · chairemobilite/od_mtl
+export const segmentSubwayStationsTransfer: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'subwayStationsTransfer',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayStationsTransfer'),
+    choices: customChoices.subwayStationsTransferCustomChoices,
+    conditional: customConditionals.subwayTransferCustomConditional,
+    validations: customValidations.subwayTransferCustomValidation
+};
+
+export const segmentSubwayLine: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'subwayLine',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayLine'),
+    choices: choices.subwayLineChoices,
+    conditional: conditionals.subwayLineConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentTrainStation : choix · Issue #22 · chairemobilite/od_mtl
+export const segmentTrainStationStart: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'trainStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentTrainStationStart'),
+    choices: customChoices.trainStationStartCustomChoices,
+    conditional: conditionals.trainConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME Validations: segmentTrainStationEnd : trainValidation · Issue #20 · chairemobilite/od_mtl
+export const segmentTrainStationEnd: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'trainStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentTrainStationEnd'),
+    choices: customChoices.trainStationEndCustomChoices,
+    conditional: conditionals.trainConditional,
+    validations: customValidations.trainCustomValidation
+};
+
+// FIXME segmentRemStation : choix · Issue #23 · chairemobilite/od_mtl
+export const segmentRemStationStart: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'remStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentRemStationStart'),
+    choices: customChoices.remStationStartCustomChoices,
+    conditional: conditionals.remConditional,
+    validations: validations.requiredValidation
+};
+
+export const segmentRemStationEnd: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'remStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentRemStationEnd'),
+    choices: customChoices.remStationEndCustomChoices,
+    conditional: conditionals.remConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentPlaneStationStart : planeStationStartCustomConditional · Issue #26 · chairemobilite/od_mtl
+export const segmentPlaneStationStart: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'planeStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentPlaneStationStart'),
+    choices: choices.planeStationChoices,
+    conditional: customConditionals.isPlaneAndSegmentOriginInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentIntercityRailStationStart : intercityRailStationStartCustomConditional · Issue #27 · chairemobilite/od_mtl
+export const segmentIntercityRailStationStart: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityRailStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentIntercityRailStationStart'),
+    choices: choices.intercityRailStationChoices,
+    conditional: customConditionals.isIntercityRailAndSegmentOriginInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentIntercityBusStationStart : intercityBusStationStartCustomConditional · Issue #28 · chairemobilite/od_mtl
+export const segmentIntercityBusStationStart: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityBusStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentIntercityBusStationStart'),
+    choices: choices.intercityBusStationChoices,
+    conditional: customConditionals.isIntercityBusAndSegmentOriginInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentPlaneStationEnd : planeStationEndCustomConditional · Issue #30 · chairemobilite/od_mtl
+export const segmentPlaneStationEnd: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'planeStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentPlaneStationEnd'),
+    choices: choices.planeStationChoices,
+    conditional: customConditionals.isPlaneAndSegmentDestinationInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentIntercityRailStationEnd : intercityRailStationEndCustomConditional · Issue #31 · chairemobilite/od_mtl
+export const segmentIntercityRailStationEnd: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityRailStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentIntercityRailStationEnd'),
+    choices: choices.intercityRailStationChoices,
+    conditional: customConditionals.isIntercityRailAndSegmentDestinationInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME segmentIntercityBusStationEnd : intercityBusStationEndCustomConditional · Issue #32 · chairemobilite/od_mtl
+export const segmentIntercityBusStationEnd: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityBusStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentIntercityBusStationEnd'),
+    choices: choices.intercityBusStationChoices,
+    conditional: customConditionals.isIntercityBusAndSegmentDestinationInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom because of the choices that include available bus routes and it's a multiselect
+//
+// FIXME segmentBusLines : choix · Issue #24 · chairemobilite/od_mtl
+// segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl
 export const segmentBusLines = customWidgets.segmentBusLines;
 
 // Custom because of the color and size of the choices
 export const segmentBusLinesWarning = customWidgets.segmentBusLinesWarning;
 
-export const segmentOnDemandType: WidgetConfig.InputRadioType = {
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+//
+// FIXME segmentTransitAccessMode : transitAccessCustomConditional · Issue #25 · chairemobilite/od_mtl
+export const segmentTransitAccessMode: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'onDemandType',
+    path: 'transitAccessMode',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentOnDemandType'),
-    choices: customChoices.onDemandCustomChoices,
-    conditional: customConditionals.shouldDisplayOnDemandTypeCustomConditional,
+    label: customLabels.segmentTransitAccessModeCustomLabel,
+    choices: choices.transitModesChoices,
+    conditional: customConditionals.isTransitModeAndDistanceFromOriginCustomConditional,
     validations: validations.requiredValidation
 };
 
-export const tripJunctionQueryString: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'tripJunctionQueryString',
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+//
+// FIXME segmentIntercityAccessMode : intercityAccessCustomConditional · Issue #29 · chairemobilite/od_mtl
+export const segmentIntercityAccessMode: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityAccessMode',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('segments:tripJunctionQueryString'),
-    conditional: customConditionals.shouldAskTripJunctionCustomConditional,
-    validations: validations.optionalValidation
+    label: customLabels.segmentIntercityAccessModeCustomLabel,
+    choices: choices.intercityModesChoices,
+    conditional: customConditionals.isIntercityAndOriginInTerritoryCustomConditional,
+    validations: validations.requiredValidation
 };
 
-// Custom because it is a map
-export const tripJunctionGeography = customWidgets.tripJunctionGeography;
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+//
+//  FIXME Needs custom label because of interpolations and custom conditional because of distance calculations
+export const segmentTransitEgressMode: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'transitEgressMode',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.segmentTransitEgressModeCustomLabel,
+    choices: choices.transitModesChoices,
+    conditional: customConditionals.isTransitModeAndDistanceToDestinationCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+//
+// FIXME segmentIntercityEgressMode : intercityEgressCustomConditional · Issue #34 · chairemobilite/od_mtl
+export const segmentIntercityEgressMode: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityEgressMode',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.segmentIntercityEgressModeCustomLabel,
+    choices: choices.intercityModesChoices,
+    conditional: customConditionals.isIntercityAndDestinationInTerritoryCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME tripJunctionPrivateBus : choix · Issue #36 · chairemobilite/od_mtl
+export const tripJunctionPrivateBus: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'junctionPrivateBus',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:tripJunctionPrivateBus'),
+    choices: customChoices.tripJunctionCustomChoices,
+    conditional: customConditionals.junctionPrivateBusCustomConditional,
+    validations: validations.requiredValidation
+};
+
+export const tripJunctionBusPrivate: WidgetConfig.InputSelectType = {
+    ...defaultInputBase.inputSelectBase,
+    path: 'junctionBusPrivate',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:tripJunctionBusPrivate'),
+    choices: customChoices.tripJunctionCustomChoices,
+    conditional: customConditionals.junctionBusPrivateCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom label because of placeholders
+//
+// FIXME tripJunctionPaidParking : junctionPaidParkingCustomConditional · Issue #37 · chairemobilite/od_mtl
+export const tripJunctionPaidParking: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'junctionPointPaidParking',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.tripJunctionPaidParkingCustomLabel,
+    choices: choices.paidForParkingChoices,
+    conditional: customConditionals.junctionPaidParkingCustomConditional,
+    validations: validations.requiredValidation
+};
 
 // segmentHasNextMode
+
+// FIXME tripCommun : tripCommunCustomConditonal · Issue #38 · chairemobilite/od_mtl
+export const tripCommun: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'tripCommun',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('segments:tripCommun', {
+            nickname,
+            count: countPersons,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+        });
+    },
+    choices: customChoices.tripCommunCustomChoices,
+    conditional: customConditionals.tripCommunCustomConditional,
+    validations: validations.requiredValidation
+};
 
 // buttonSaveTrip
 

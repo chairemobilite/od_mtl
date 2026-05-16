@@ -190,33 +190,60 @@ personVisitedPlacesMap,Builtin,True,segments,,segmentsMap,Carte des déplacement
 personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.trips,,,,,,,,,,,,,,,,,,
 segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:","Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:",,,,,,,,,,,,,,,,
 segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,
-segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,,,,,,,,,,,,,,,,,,
-segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,
+segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,Même mode que le déplacement précédent ({{previousMode}}),Same mode as the previous trip ({{previousMode}}),,,,,,,,,,,,,,,,"segmentSameModeAsPreviousTrip : sameModeAsPreviousTripCustomConditional · Issue #15 · chairemobilite/od_mtl
+segmentSameModeAsPreviousTrip : implication · Issue #43 · chairemobilite/od_mtl"
+segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
 segmentMode,Builtin,1,segments,segments,mode,,,,,,,,,,,,,,,,,,
-segmentHowToBus,Custom,1,segments,segments,howToBus,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
-__Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.__","How did {{nickname}} reach the transit stop?
-__If the mode used is not present, create a first mode before the transit mode.__","Comment vous êtes-vous rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
-__Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.__","How did you reach the transit stop?
-__If the mode used is not present, create a first mode before the transit mode.__",,,,,,,,,,,,,,Custom because of the icons in the choices
-segmentPaidForParking,Radio,1,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndDestinationWorkCustomConditional,,yesNoDontKnow,,,,True,,,,,
-segmentVehicleOccupancy,RadioNumber,1,segments,segments,vehicleOccupancy,"Personne(s) dans le véhicule
-__Conducteur ou conductrice inclus(e).__","Persons in the vehicle
-__Including the driver.__",,,"min=1
+segmentPaidForParking,Radio,VRAI,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndShouldShowPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,FIXME segmentPaidForParking : isCarDriverAndDestinationCustomConditional · Issue #17 · chairemobilite/od_mtl
+segmentVehicleOccupancy,RadioNumber,VRAI,segments,segments,vehicleOccupancy,"Personne(s) dans le véhicule
+__Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).__","Persons in the vehicle
+__Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).__",,,"min=1
 max=5
 overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
-segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,
-segmentBusLines,Custom,1,segments,segments,busLines,"**Ligne(s) de bus utilisée(s)** (dans l'ordre chronologique)
+segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
+segmentSubwayStationStart,Select,1,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,subwayStationStartCustomChoices,,,,True,,,,,FIXME segmentSubwayStation: choix · Issue #21 · chairemobilite/od_mtl
+segmentSubwayStationEnd,Select,1,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,subwayStationEndCustomChoices,,,,True,,,,,
+segmentSubwayStationsTransfer,Checkbox,1,segments,segments,subwayStationsTransfer,"**Station(s) de transfert** :
+__Choisir ""aucune"" si aucun transfert n'a été effectué__","**Transfer station(s)**:
+__Choose ‘none’ if no transfer was made__",,,,,subwayTransferCustomConditional,subwayTransferCustomValidation,subwayStationsTransferCustomChoices,,,,True,,,,,"FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl
+segmentSubwayStationsTransfert : subwayTransfertCustomConditional et choix custom · Issue #18 · chairemobilite/od_mtl"
+segmentSubwayLine,Radio,1,segments,segments,subwayLine,**Ligne empruntée** entre BerriUQAM et LionelGroulx :,**Line taken** between BerriUQAM and Lionel-Groulx,,,,,subwayLineConditional,,subwayLineChoices,,,,True,,,,,
+segmentTrainStationStart,Select,1,segments,segments,trainStationStart,**Gare d'embarquement** (au départ) : ,**Boarding station** (when getting onto the train),,,,,trainConditional,,trainStationStartCustomChoices,,,,True,,,,,FIXME segmentTrainStation : choix · Issue #22 · chairemobilite/od_mtl
+segmentTrainStationEnd,Select,1,segments,segments,trainStationEnd,**Gare de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the train),,,,,trainConditional,trainCustomValidation,trainStationEndCustomChoices,,,,True,,,,,FIXME Validations: segmentTrainStationEnd : trainValidation · Issue #20 · chairemobilite/od_mtl
+segmentRemStationStart,Select,1,segments,segments,remStationStart,**Station d'embarquement** (au départ) : ,**Boarding station** (when entering the REM),,,,,remConditional,,remStationStartCustomChoices,,,,True,,,,,FIXME segmentRemStation : choix · Issue #23 · chairemobilite/od_mtl
+segmentRemStationEnd,Select,1,segments,segments,remStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the REM),,,,,remConditional,,remStationEndCustomChoices,,,,True,,,,,
+segmentPlaneStationStart,Radio,1,segments,segments,planeStationStart,Aéroport de départ,Departure airport,,,,,isPlaneAndSegmentOriginInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,FIXME segmentPlaneStationStart : planeStationStartCustomConditional · Issue #26 · chairemobilite/od_mtl
+segmentIntercityRailStationStart,Radio,1,segments,segments,intercityRailStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityRailAndSegmentOriginInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,FIXME segmentIntercityRailStationStart : intercityRailStationStartCustomConditional · Issue #27 · chairemobilite/od_mtl
+segmentIntercityBusStationStart,Radio,1,segments,segments,intercityBusStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityBusAndSegmentOriginInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,FIXME segmentIntercityBusStationStart : intercityBusStationStartCustomConditional · Issue #28 · chairemobilite/od_mtl
+segmentPlaneStationEnd,Radio,1,segments,segments,planeStationEnd,Aéroport d’arrivée,Arrival airport,,,,,isPlaneAndSegmentDestinationInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,FIXME segmentPlaneStationEnd : planeStationEndCustomConditional · Issue #30 · chairemobilite/od_mtl
+segmentIntercityRailStationEnd,Radio,1,segments,segments,intercityRailStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityRailAndSegmentDestinationInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,FIXME segmentIntercityRailStationEnd : intercityRailStationEndCustomConditional · Issue #31 · chairemobilite/od_mtl
+segmentIntercityBusStationEnd,Radio,1,segments,segments,intercityBusStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityBusAndSegmentDestinationInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,FIXME segmentIntercityBusStationEnd : intercityBusStationEndCustomConditional · Issue #32 · chairemobilite/od_mtl
+segmentBusLines,Custom,VRAI,segments,segments,busLines,"**Ligne(s) de bus utilisée(s)** (dans l'ordre chronologique)
 __Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.__","**Bus line(s) taken** (in chronological order)
-__For each line, begin by typing the number or name, then select it from the results shown.__",,,,,,,,,,,True,,,,,Custom because of the choices that include available bus routes
-segmentBusLinesWarning,Custom,1,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,True,,,,,Custom because of the color and size of the choices
-segmentOnDemandType,Radio,1,segments,segments,onDemandType,Est-ce un transport sur demande?,Is this an on-demand service?,,,,,shouldDisplayOnDemandTypeCustomConditional,,onDemandCustomChoices,,,,True,,,,,
-tripJunctionQueryString,String,1,segments,segments,tripJunctionQueryString,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte","Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map",,,,,shouldAskTripJunctionCustomConditional,optionalValidation,,,,,True,,,,,
-tripJunctionGeography,Custom,1,segments,segments,junctionGeography,"Veuillez localiser **le point de jonction** (lieu où s'est effectué le changement de mode de transport):
-__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"").__","Please locate the **junction point** (location where the change in mode of transport occurred).
-__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the name or address indicated above (""Find the place from the name"" button).__",,,,,,,,,,,,,,,,Custom because it is a map
-segmentHasNextMode,Builtin,1,segments,segments,,,,,,,,,,,,,,,,,,,
+__For each line, begin by typing the number or name, then select it from the results shown.__",,,,,busConditional,,,,,,True,,,,,"Custom because of the choices that include available bus routes and it's a multiselect
+
+FIXME segmentBusLines : choix · Issue #24 · chairemobilite/od_mtl
+segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl"
+segmentBusLinesWarning,Custom,0,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,True,,,,,Custom because of the color and size of the choices
+segmentTransitAccessMode,Radio,1,segments,segments,transitAccessMode,**Mode** pour se rendre de {{origin}} {{stopType}},Mode of transportation to get from {{origin}} to {{stopType}},,,customLabels={{segmentTransitAccessModeCustomLabel}},,isTransitModeAndDistanceFromOriginCustomConditional,,transitModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
+
+FIXME segmentTransitAccessMode : transitAccessCustomConditional · Issue #25 · chairemobilite/od_mtl"
+segmentIntercityAccessMode,Radio,1,segments,segments,intercityAccessMode,**Mode** pour se rendre de {{origin}} {{stopType}},Mode of transportation to get from {{origin}} to {{stopType}},,,customLabels={{segmentIntercityAccessModeCustomLabel}},,isIntercityAndOriginInTerritoryCustomConditional,,intercityModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
+
+FIXME segmentIntercityAccessMode : intercityAccessCustomConditional · Issue #29 · chairemobilite/od_mtl"
+segmentTransitEgressMode,Radio,1,segments,segments,transitEgressMode,**Mode** pour se rendre {{stopType}} à {{destination}},Mode of transportation to get {{stopType}} to {{destination}},,,customLabels={{segmentTransitEgressModeCustomLabel}},,isTransitModeAndDistanceToDestinationCustomConditional,,transitModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
+
+ FIXME Needs custom label because of interpolations and custom conditional because of distance calculations"
+segmentIntercityEgressMode,Radio,1,segments,segments,intercityEgressMode,**Mode** pour se rendre {{stopType}} à {{destination}},Mode of transportation to get {{stopType}} to {{destination}},,,customLabels={{segmentIntercityEgressModeCustomLabel}},,isIntercityAndDestinationInTerritoryCustomConditional,,intercityModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
+
+FIXME segmentIntercityEgressMode : intercityEgressCustomConditional · Issue #34 · chairemobilite/od_mtl"
+tripJunctionPrivateBus,Select,1,segments,segments,junctionPrivateBus,**Lieu d’embarquement** (montée dans le bus) ,**Boarding location** (getting on the bus),,,,,junctionPrivateBusCustomConditional,,tripJunctionCustomChoices,,,,True,,,,,FIXME tripJunctionPrivateBus : choix · Issue #36 · chairemobilite/od_mtl
+tripJunctionBusPrivate,Select,1,segments,segments,junctionBusPrivate,**Lieu de débarquement** (descente du bus) ,**Exit location** (getting off the bus),,,,,junctionBusPrivateCustomConditional,,tripJunctionCustomChoices,,,,True,,,,,
+tripJunctionPaidParking,Radio,1,segments,segments,junctionPointPaidParking,**Stationnement** en arrivant  {{stopType}},**Parking** upon arrival at {{stopType}},,,customLabels={{tripJunctionPaidParkingCustomLabel}},,junctionPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,"Custom label because of placeholders
+
+FIXME tripJunctionPaidParking : junctionPaidParkingCustomConditional · Issue #37 · chairemobilite/od_mtl"
+segmentHasNextMode,Builtin,1,segments,segments,hasNextMode,Autre mode utilisé pour le déplacement avant l'arrivée?,Other mode of transportation used for the trip before arrival?,,,,,,,,,,,,,,,,
+tripCommun,Checkbox,1,segments,personTrips,tripCommun,{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?,Did {{nickname}} make this trip with another member of the household?,Avez-vous réalisé ce déplacement avec une autre personne du ménage?,Did you make this trip with another member of the household?,,,tripCommunCustomConditional,,tripCommunCustomChoices,,,,True,,,,,FIXME tripCommun : tripCommunCustomConditonal · Issue #38 · chairemobilite/od_mtl
 buttonSaveTrip,Builtin,1,segments,personTrips,trip.save,Confirmer ce déplacement,Confirm this trip,,,,,,,,,,,,,,,,
 buttonConfirmNextSection,Builtin,1,segments,,segments.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
 activePersonTitle,Custom,1,travelBehavior,,,,,,,,,,,,,,,True,,,,,Custom because it uses the builtin widget

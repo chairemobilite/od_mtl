@@ -470,53 +470,218 @@ Champ,segments
 Type de question,Builtin
 Question,Mode de transport
 ""
-Champ,howToBus
-Type de question,Entrée inconnue
-Question,"Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
-Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif."
+Champ,sameModeAsReverseTrip
+Type de question,Builtin
+Question,Même mode que le déplacement précédent ({{previousMode}})
 ""
 Champ,paidForParking
 Type de question,Bouton radio
-Conditionnel,isCarDriverAndDestinationWorkCustomConditional
+Conditionnel,isCarDriverAndShouldShowPaidParkingCustomConditional
 Question,Stationnement payant?
-Valeurs,"yes : Oui
-no : Non
+Valeurs,"noWorker (isDestinationWorkCustomConditional): Non (gratuit ou payé par l'employeur)
+no (isDestinationNotWorkCustomConditional): Non (gratuit)
+yes : Oui (parcomètre, vignette, passe ou permis)
+noPark : Le véhicule n'a pas été stationné
 dontKnow : Je ne sais pas"
 ""
 Champ,vehicleOccupancy
 Type de question,RadioNumber
 Conditionnel,isSelfDeclaredCarDriverCustomConditional
 Question,"Personne(s) dans le véhicule
-Conducteur ou conductrice inclus(e)."
+Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus)."
 ""
 Champ,driver
 Type de question,Builtin
 Question,Qui conduisait ?
 ""
+Champ,subwayStationStart
+Type de question,Liste déroulante
+Conditionnel,subwayConditional : mode === transitRRT
+Question,Station d'embarquement (au départ) : 
+""
+Champ,subwayStationEnd
+Type de question,Liste déroulante
+Conditionnel,subwayConditional : mode === transitRRT
+Question,Station de débarquement (à l'arrivée) : 
+""
+Champ,subwayStationsTransfer
+Type de question,Case à cocher
+Conditionnel,subwayTransferCustomConditional
+Question,"Station(s) de transfert :
+Choisir ""aucune"" si aucun transfert n'a été effectué"
+""
+Champ,subwayLine
+Type de question,Bouton radio
+Conditionnel,subwayLineConditional : subwayStationStart === berriUqam && subwayStationEnd === lionelGroulx || (subwayStationStart === lionelGroulx && subwayStationEnd === berriUqam) || (subwayStationStart === jeanDrapeau && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === jeanDrapeau) || (subwayStationStart === longueuilUniversiteDeSherbrooke && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === longueuilUniversiteDeSherbrooke)
+Question,Ligne empruntée entre BerriUQAM et LionelGroulx :
+Valeurs,"stm_2 : 2-Orange
+stm_1 : 1-Verte
+dontKnow : Je ne sais pas"
+""
+Champ,trainStationStart
+Type de question,Liste déroulante
+Conditionnel,trainConditional : mode === transitRegionalRail
+Question,Gare d'embarquement (au départ) : 
+""
+Champ,trainStationEnd
+Type de question,Liste déroulante
+Conditionnel,trainConditional : mode === transitRegionalRail
+Question,Gare de débarquement (à l'arrivée) : 
+""
+Champ,remStationStart
+Type de question,Liste déroulante
+Conditionnel,remConditional : mode === transitLRRT
+Question,Station d'embarquement (au départ) : 
+""
+Champ,remStationEnd
+Type de question,Liste déroulante
+Conditionnel,remConditional : mode === transitLRRT
+Question,Station de débarquement (à l'arrivée) : 
+""
+Champ,planeStationStart
+Type de question,Bouton radio
+Conditionnel,isPlaneAndSegmentOriginInTerritoryCustomConditional
+Question,Aéroport de départ
+Valeurs,"YUL : Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
+YHU : Aéroport Montréal Saint-Hubert (YHU)
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,intercityRailStationStart
+Type de question,Bouton radio
+Conditionnel,isIntercityRailAndSegmentOriginInTerritoryCustomConditional
+Question,Gare de départ
+Valeurs,"centralStation : Gare Centrale (Montréal)
+dorvalStation : Dorval
+coteauStation : Coteau
+saintLambertStation : Saint-Lambert
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,intercityBusStationStart
+Type de question,Bouton radio
+Conditionnel,isIntercityBusAndSegmentOriginInTerritoryCustomConditional
+Question,Gare de départ
+Valeurs,"gareAutocarsMTL : Gare d'autocars de Montréal (1717 rue Berri)
+terminusMegabus : Terminus Megabus (1000 de la Gauchetière)
+YUL : Aéroport de Montréal (YUL)
+terminusKirkland : Kirkland
+terminusLongueuil : Terminus intermodal de Longueuil
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,planeStationEnd
+Type de question,Bouton radio
+Conditionnel,isPlaneAndSegmentDestinationInTerritoryCustomConditional
+Question,Aéroport d’arrivée
+Valeurs,"YUL : Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
+YHU : Aéroport Montréal Saint-Hubert (YHU)
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,intercityRailStationEnd
+Type de question,Bouton radio
+Conditionnel,isIntercityRailAndSegmentDestinationInTerritoryCustomConditional
+Question,Gare d'arrivée
+Valeurs,"centralStation : Gare Centrale (Montréal)
+dorvalStation : Dorval
+coteauStation : Coteau
+saintLambertStation : Saint-Lambert
+other : Autre
+dontKnow : Je ne sais pas"
+""
+Champ,intercityBusStationEnd
+Type de question,Bouton radio
+Conditionnel,isIntercityBusAndSegmentDestinationInTerritoryCustomConditional
+Question,Gare d'arrivée
+Valeurs,"gareAutocarsMTL : Gare d'autocars de Montréal (1717 rue Berri)
+terminusMegabus : Terminus Megabus (1000 de la Gauchetière)
+YUL : Aéroport de Montréal (YUL)
+terminusKirkland : Kirkland
+terminusLongueuil : Terminus intermodal de Longueuil
+other : Autre
+dontKnow : Je ne sais pas"
+""
 Champ,busLines
 Type de question,Entrée inconnue
+Conditionnel,busConditional : mode === transitBus
 Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
 Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats."
 ""
-Champ,busLinesWarning
-Type de question,Entrée inconnue
-Question,Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
-""
-Champ,onDemandType
+Champ,transitAccessMode
 Type de question,Bouton radio
-Conditionnel,shouldDisplayOnDemandTypeCustomConditional
-Question,Est-ce un transport sur demande?
+Conditionnel,isTransitModeAndDistanceFromOriginCustomConditional
+Question,Mode pour se rendre de {{origin}} {{stopType}}
+Valeurs,"walk : Marche
+transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitOnDemand (stationServedByTADCustomConditional): Transport à la demande
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
+carPassenger : Auto en tant que passager
+other : Autre (spécifiez)"
 ""
-Champ,tripJunctionQueryString
-Type de question,Champ de texte
-Conditionnel,shouldAskTripJunctionCustomConditional
-Question,"Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte"
+Champ,intercityAccessMode
+Type de question,Bouton radio
+Conditionnel,isIntercityAndOriginInTerritoryCustomConditional
+Question,Mode pour se rendre de {{origin}} {{stopType}}
+Valeurs,"walk : Marche
+bicycle : Vélo
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
+carPassenger : Auto en tant que passager
+taxi : Taxi ou équivalent (ex. : Uber)
+transit : Transport en commun
+other : Autre"
 ""
-Champ,junctionGeography
-Type de question,Entrée inconnue
-Question,"Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton ""Chercher le lieu à partir du nom"")."
+Champ,transitEgressMode
+Type de question,Bouton radio
+Conditionnel,isTransitModeAndDistanceToDestinationCustomConditional
+Question,Mode pour se rendre {{stopType}} à {{destination}}
+Valeurs,"walk : Marche
+transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitOnDemand (stationServedByTADCustomConditional): Transport à la demande
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
+carPassenger : Auto en tant que passager
+other : Autre (spécifiez)"
+""
+Champ,intercityEgressMode
+Type de question,Bouton radio
+Conditionnel,isIntercityAndDestinationInTerritoryCustomConditional
+Question,Mode pour se rendre {{stopType}} à {{destination}}
+Valeurs,"walk : Marche
+bicycle : Vélo
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
+carPassenger : Auto en tant que passager
+taxi : Taxi ou équivalent (ex. : Uber)
+transit : Transport en commun
+other : Autre"
+""
+Champ,junctionPrivateBus
+Type de question,Liste déroulante
+Conditionnel,junctionPrivateBusCustomConditional
+Question,Lieu d’embarquement (montée dans le bus) 
+""
+Champ,junctionBusPrivate
+Type de question,Liste déroulante
+Conditionnel,junctionBusPrivateCustomConditional
+Question,Lieu de débarquement (descente du bus) 
+""
+Champ,junctionPointPaidParking
+Type de question,Bouton radio
+Conditionnel,junctionPaidParkingCustomConditional
+Question,Stationnement en arrivant  {{stopType}}
+Valeurs,"noWorker (isDestinationWorkCustomConditional): Non (gratuit ou payé par l'employeur)
+no (isDestinationNotWorkCustomConditional): Non (gratuit)
+yes : Oui (parcomètre, vignette, passe ou permis)
+noPark : Le véhicule n'a pas été stationné
+dontKnow : Je ne sais pas"
+""
+Champ,hasNextMode
+Type de question,Builtin
+Question,Autre mode utilisé pour le déplacement avant l'arrivée?
+""
+Champ,tripCommun
+Type de question,Case à cocher
+Conditionnel,tripCommunCustomConditional
+Question,{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?
 ""
 Champ,save
 Type de question,Builtin

@@ -63,33 +63,17 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
 // Define the segments for this test scenario
 const segments: commonUITestsHelpers.Segment[] = [
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'taxi',
         mode: 'taxi',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
-        vehicleOccupancy: null, // Question won't show.
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'bicycle',
         mode: 'bicycle',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
-        vehicleOccupancy: null, // Question won't show.
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     }
 ];

@@ -307,32 +307,147 @@ Please indicate all modes of transport used for this trip (from {{originName}} t
 
 Mode of transport
 
-How did {{nickname}} reach the transit stop?
-If the mode used is not present, create a first mode before the transit mode.
+Same mode as the previous trip ({{previousMode}})
 
 Paid parking
-- Yes
-- No
+- No (free or paid by employer)
+- No (free)
+- Yes (parking meter, sticker, pass or permit)
+- The vehicle was not parked
 - I don't know
 
 Persons in the vehicle
-Including the driver.
+Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).
 
 Who drove?
+
+Boarding station(when entering the metro):
+
+
+Exit station (when leaving the metro):
+
+
+Transfer station(s):
+Choose ‘none’ if no transfer was made
+
+
+Line taken between BerriUQAM and Lionel-Groulx
+- 2-Orange
+- 1-Green
+- I don't know
+
+Boarding station (when getting onto the train)
+
+
+Exit station (when leaving the train)
+
+
+Boarding station (when entering the REM)
+
+
+Exit station (when leaving the REM)
+
+
+Departure airport
+- Montreal Pierre-Elliott-Trudeau International Airport (YUL)
+- Montreal Saint-Hubert Airport (YHU)
+- Other
+- I don't know
+
+Boarding station (departure)
+- Gare Centrale (Montreal)
+- Dorval
+- Coteau
+- Saint-Lambert
+- Other
+- I don't know
+
+Boarding station (departure)
+- Montreal Central Bus Station (1717 Berri Street)
+- Megabus Terminal (1000 de la Gauchetière)
+- Montreal Airport (YUL)
+- Kirkland
+- Longueuil Intermodal Terminal
+- Other
+- I don't know
+
+Arrival airport
+- Montreal Pierre-Elliott-Trudeau International Airport (YUL)
+- Montreal Saint-Hubert Airport (YHU)
+- Other
+- I don't know
+
+Exit station (arrival)
+- Gare Centrale (Montreal)
+- Dorval
+- Coteau
+- Saint-Lambert
+- Other
+- I don't know
+
+Exit station (arrival)
+- Montreal Central Bus Station (1717 Berri Street)
+- Megabus Terminal (1000 de la Gauchetière)
+- Montreal Airport (YUL)
+- Kirkland
+- Longueuil Intermodal Terminal
+- Other
+- I don't know
 
 Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown.
 
-Some bus line(s) seem invalid for this trip. Please validate the lines.
+Mode of transportation to get from {{origin}} to {{stopType}}
+- Walking
+- Bus (STM, STL, RTL, exo, etc.)
+- On-demand transit
+- Car as driver
+- Car as passenger
+- Other (specify)
 
-Is this an on-demand service?
+Mode of transportation to get from {{origin}} to {{stopType}}
+- Walking
+- Bicycle
+- Car as driver
+- Car as passenger
+- Taxi or equivalent (e.g., Uber)
+- Public transit
+- Other
+
+Mode of transportation to get {{stopType}} to {{destination}}
+- Walking
+- Bus (STM, STL, RTL, exo, etc.)
+- On-demand transit
+- Car as driver
+- Car as passenger
+- Other (specify)
+
+Mode of transportation to get {{stopType}} to {{destination}}
+- Walking
+- Bicycle
+- Car as driver
+- Car as passenger
+- Taxi or equivalent (e.g., Uber)
+- Public transit
+- Other
+
+Boarding location (getting on the bus)
 
 
-Please specify the address or the name of the location where the change in mode of transport occurred (terminal, transit stop, parking lot, etc.) or click directly on map
+Exit location (getting off the bus)
 
-Please locate the junction point (location where the change in mode of transport occurred).
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the name or address indicated above ("Find the place from the name" button).
+
+Parking upon arrival at {{stopType}}
+- No (free or paid by employer)
+- No (free)
+- Yes (parking meter, sticker, pass or permit)
+- The vehicle was not parked
+- I don't know
+
+Other mode of transportation used for the trip before arrival?
+
+Did {{nickname}} make this trip with another member of the household?
+
 
 Confirm this trip
 

@@ -12,35 +12,30 @@ segmentIntro: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement
     (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 segments: Mode de transport
-segmentHowToBus: >-
-    Comment est-ce que {{nickname}} s'est rendu(e) à l'arrêt/station de transport
-    collectif?<br /><span class="_pale _oblique">Si le mode de déplacement n'est pas
-    présent, créer un premier mode de transport avant le transport collectif.</span>
-segmentHowToBus_male: >-
-    Comment est-ce que {{nickname}} s'est rendu à l'arrêt/station de transport collectif?<br
-    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
-    un premier mode de transport avant le transport collectif.</span>
-segmentHowToBus_female: >-
-    Comment est-ce que {{nickname}} s'est rendue à l'arrêt/station de transport collectif?<br
-    /><span class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer
-    un premier mode de transport avant le transport collectif.</span>
-segmentHowToBus_one: >-
-    Comment vous êtes-vous rendu(e) à l'arrêt/station de transport collectif?<br /><span
-    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
-    mode de transport avant le transport collectif.</span>
-segmentHowToBus_male_one: >-
-    Comment vous êtes-vous rendu à l'arrêt/station de transport collectif?<br /><span
-    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
-    mode de transport avant le transport collectif.</span>
-segmentHowToBus_female_one: >-
-    Comment vous êtes-vous rendue à l'arrêt/station de transport collectif?<br /><span
-    class="_pale _oblique">Si le mode de déplacement n'est pas présent, créer un premier
-    mode de transport avant le transport collectif.</span>
+segmentSameModeAsReverseTrip: Même mode que le déplacement précédent ({{previousMode}})
 segmentPaidForParking: Stationnement payant?
 segmentVehicleOccupancy: >-
-    Personne(s) dans le véhicule<br /><span class="_pale _oblique">Conducteur ou conductrice
-    inclus(e).</span>
+    Personne(s) dans le véhicule<br /><span class="_pale _oblique">Inclure le ou la
+    conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre
+    ménage, peu importe leur âge (enfants inclus).</span>
 segmentDriver: Qui conduisait ?
+segmentSubwayStationStart: "<strong>Station d'embarquement</strong> (au départ) : "
+segmentSubwayStationEnd: "<strong>Station de débarquement</strong> (à l'arrivée) : "
+segmentSubwayStationsTransfer: >-
+    <strong>Station(s) de transfert</strong> :<br /><span class="_pale _oblique">Choisir
+    "aucune" si aucun transfert n'a été effectué</span>
+segmentSubwayLine: '<strong>Ligne empruntée</strong> entre BerriUQAM et LionelGroulx
+    :'
+segmentTrainStationStart: "<strong>Gare d'embarquement</strong> (au départ) : "
+segmentTrainStationEnd: "<strong>Gare de débarquement</strong> (à l'arrivée) : "
+segmentRemStationStart: "<strong>Station d'embarquement</strong> (au départ) : "
+segmentRemStationEnd: "<strong>Station de débarquement</strong> (à l'arrivée) : "
+segmentPlaneStationStart: Aéroport de départ
+segmentIntercityRailStationStart: Gare de départ
+segmentIntercityBusStationStart: Gare de départ
+segmentPlaneStationEnd: Aéroport d’arrivée
+segmentIntercityRailStationEnd: Gare d'arrivée
+segmentIntercityBusStationEnd: Gare d'arrivée
 segmentBusLines: >-
     <strong>Ligne(s) de bus utilisée(s)</strong> (dans l'ordre chronologique)<br /><span
     class="_pale _oblique">Pour chaque ligne utilisée, inscrivez le numéro de la ligne
@@ -48,18 +43,28 @@ segmentBusLines: >-
 segmentBusLinesWarning: >-
     Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures
     mentionnées. Veuillez valider les lignes.
-segmentOnDemandType: Est-ce un transport sur demande?
-tripJunctionQueryString: >-
-    Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de
-    transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la
-    carte
-tripJunctionGeography: >-
-    Veuillez localiser <strong>le point de jonction</strong> (lieu où s'est effectué
-    le changement de mode de transport):<br /><span class="_pale _oblique">Naviguez,
-    zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous
-    pourrez déplacer le point sur la carte pour davantage de précision.<br />Vous
-    pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse
-    (bouton "Chercher le lieu à partir du nom").</span>
+segmentTransitAccessMode: <strong>Mode</strong> pour se rendre de {{origin}} {{stopType}}
+segmentIntercityAccessMode: <strong>Mode</strong> pour se rendre de {{origin}} {{stopType}}
+segmentTransitEgressMode: <strong>Mode</strong> pour se rendre {{stopType}} à {{destination}}
+segmentIntercityEgressMode: <strong>Mode</strong> pour se rendre {{stopType}} à {{destination}}
+tripJunctionPrivateBus: '<strong>Lieu d’embarquement</strong> (montée dans le bus) '
+tripJunctionBusPrivate: '<strong>Lieu de débarquement</strong> (descente du bus) '
+tripJunctionPaidParking: <strong>Stationnement</strong> en arrivant  {{stopType}}
+segmentHasNextMode: Autre mode utilisé pour le déplacement avant l'arrivée?
+tripCommun: >-
+    {{nickname}} a-t-il(-elle) réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_male: >-
+    {{nickname}} a-t-il réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_female: >-
+    {{nickname}} a-t-elle réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_custom: >-
+    {{nickname}} a-t-iel réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_one: Avez-vous réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_male_one: Avez-vous réalisé ce déplacement avec une autre personne du ménage?
+tripCommun_female_one: Avez-vous réalisé ce déplacement avec une autre personne du
+    ménage?
+tripCommun_custom_one: Avez-vous réalisé ce déplacement avec une autre personne du
+    ménage?
 buttonSaveTrip: Confirmer ce déplacement
 buttonConfirmNextSection: Confirmer les lieux et continuer
 segmentsIntroOnTheRoad: >-
@@ -89,6 +94,34 @@ busLinesDontKnow: Ligne(s) inconnue(s)
 busLinesAreCorrect: Les lignes de bus sont correctes
 busLinesWarningRequired: >-
     Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.
+segmentIntro_workOnTheRoad: >-
+    Veuillez indiquer le mode principal utilisé pour effectuer les déplacements sur
+    la route :
+segmentIntro_leisureStroll: 'Veuillez indiquer le mode principal utilisé pour effectuer
+    la promenade :'
+segmentModePre_workOnTheRoad: Quel mode de transport a été utilisé pour les déplacements
+    sur la route?
+segmentModePre_leisureStroll: Quel mode de transport a été utilisé pour la promenade?
+toStopType_transitBus: à l'<strong>arrêt de bus</strong>
+toStopType_transitRRT: à la <strong>station de métro</strong>
+toStopType_transitLRRT: à la <strong>station de REM</strong>
+toStopType_transitRegionalRail: à la <strong>gare de train</strong>
+toStopType_transitStreetCar: à l'<strong>arrêt du tramway</strong>
+toStopType_intercityBus: à la <strong>gare d'autobus</strong>
+toStopType_transitFerry: au <strong>quai d'embarquement</strong>
+toStopType_intercityTrain: à la <strong>gare de train</strong>
+toStopType_plane: à l'<strong>aéroport</strong>
+toStopType: à l'<strong>arrêt</strong>
+fromStopType_transitBus: de l'<strong>arrêt de bus</strong>
+fromStopType_transitRRT: de la <strong>station de métro</strong>
+fromStopType_transitLRRT: de la <strong>station de REM</strong>
+fromStopType_transitRegionalRail: de la <strong>gare de train</strong>
+fromStopType_transitStreetCar: de l'<strong>arrêt du tramway</strong>
+fromStopType_intercityBus: de la <strong>gare d'autobus</strong>
+fromStopType_transitFerry: du <strong>quai d'embarquement</strong>
+fromStopType_intercityTrain: de la <strong>gare de train</strong>
+fromStopType_plane: de l'<strong>aéroport</strong>
+fromStopType: de l'<strong>arrêt</strong>
 mode:
     Walk: <strong>Marche</strong>
     Bicycle: <strong>Vélo</strong>
@@ -116,8 +149,25 @@ mode:
     FerryWithCar: <strong>Traversier avec véhicule</strong>
     IntercityTrain: <strong>Train interurbain</strong> (VIA Rail)
     CarPassenger: <strong>Passager</strong> (voiture/moto/scooter)
+    OtherActiveMode: Autre mobilité active (course, trottinette, skateboard)
     Paratransit: <strong>Transport adapté</strong>
     Plane: <strong>Avion</strong>
     Other: <strong>Autre</strong>
     Taxi: <strong>Taxi</strong> ou équivalent (ex. Uber)
     DontKnow: <strong>Je ne sais pas</strong> / Préfère ne pas répondre
+    CarDriver_workOnTheRoad: Conducteur (véhicule personnel)
+    CarDriverProfesionnal_workOnTheRoad: Conducteur (véhicule de travail ou commercial)
+    CarPassenger_workOnTheRoad: Passager (de véhicule personnel, de travail ou commercial)
+    Transit_workOnTheRoad: Transport en commun (bus, métro, REM, train de banlieue,
+        ...)
+    Walk_workOnTheRoad: Marche
+    Bicycle_workOnTheRoad: Vélo ou vélo électrique
+    Walk_leisureStroll: Marche
+    Bicycle_leisureStroll: Vélo ou vélo électrique
+    OtherActiveMode_leisureStroll: Autre mobilité active (course, trottinette, skateboard)
+    CarDriver_leisureStroll: Auto en tant que conducteur
+    CarPassenger_leisureStroll: Auto en tant que passager
+    Transit_leisureStroll: Transport en commun
+errors:
+    trainStationsIncoherent: La ou les station(s) de transfert semblent incohérentes
+        pour ce déplacement

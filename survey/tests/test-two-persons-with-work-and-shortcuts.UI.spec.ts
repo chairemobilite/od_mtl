@@ -154,63 +154,35 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
 // Define the segments for this test scenario
 const segmentsP1: commonUITestsHelpers.Segment[] = [
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'carDriver',
         mode: 'carDriver',
-        howToBus: null, // Question won't show.
-        paidForParking: 'no',
         vehicleOccupancy: 1,
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'carDriver',
         mode: 'carDriver',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
         vehicleOccupancy: 1,
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'carDriver',
         mode: 'carDriver',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
         vehicleOccupancy: 1,
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'carDriver',
         mode: 'carDriver',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
         vehicleOccupancy: 2,
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     }
 ];
@@ -270,48 +242,25 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
 // Define the segments for this test scenario
 const segmentsP2: commonUITestsHelpers.Segment[] = [
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'walk',
         mode: null, // Question won't show
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
-        vehicleOccupancy: null, // Question won't show.
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'taxi',
         mode: 'taxi',
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
-        vehicleOccupancy: null, // Question won't show.
-        driver: null, // Question won't show.
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     },
     {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        sameModeAsReverseTrip: null, // Question won't show.
         modePre: 'carPassenger',
         mode: null, // Question won't show
-        howToBus: null, // Question won't show.
-        paidForParking: null, // Question won't show.
-        vehicleOccupancy: null, // Question won't show.
         driver: '${tripDiary[0].personId}', // Set the driver of the carPassenger mode to be the first person
-        busLines: null, // Question won't show.
-        busLinesWarning: null, // Question won't show.
-        onDemandType: null, // Question won't show.
-        tripJunctionQueryString: null, // Question won't show.
         hasNextMode: false
     }
 ];

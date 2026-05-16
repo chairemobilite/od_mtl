@@ -307,32 +307,147 @@ Veuillez indiquer tous les modes de transport utilisés pour effectuer ce dépla
 
 Mode de transport
 
-Comment est-ce que {{nickname}} s'est rend{{gender :u/ue/u(e)/u(e)}} à l'arrêt/station de transport collectif?
-Si le mode de déplacement n'est pas présent, créer un premier mode de transport avant le transport collectif.
+Même mode que le déplacement précédent ({{previousMode}})
 
 Stationnement payant?
-- Oui
-- Non
+- Non (gratuit ou payé par l'employeur)
+- Non (gratuit)
+- Oui (parcomètre, vignette, passe ou permis)
+- Le véhicule n'a pas été stationné
 - Je ne sais pas
 
 Personne(s) dans le véhicule
-Conducteur ou conductrice inclus(e).
+Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).
 
 Qui conduisait ?
+
+Station d'embarquement (au départ) : 
+
+
+Station de débarquement (à l'arrivée) : 
+
+
+Station(s) de transfert :
+Choisir "aucune" si aucun transfert n'a été effectué
+
+
+Ligne empruntée entre BerriUQAM et LionelGroulx :
+- 2-Orange
+- 1-Verte
+- Je ne sais pas
+
+Gare d'embarquement (au départ) : 
+
+
+Gare de débarquement (à l'arrivée) : 
+
+
+Station d'embarquement (au départ) : 
+
+
+Station de débarquement (à l'arrivée) : 
+
+
+Aéroport de départ
+- Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
+- Aéroport Montréal Saint-Hubert (YHU)
+- Autre
+- Je ne sais pas
+
+Gare de départ
+- Gare Centrale (Montréal)
+- Dorval
+- Coteau
+- Saint-Lambert
+- Autre
+- Je ne sais pas
+
+Gare de départ
+- Gare d'autocars de Montréal (1717 rue Berri)
+- Terminus Megabus (1000 de la Gauchetière)
+- Aéroport de Montréal (YUL)
+- Kirkland
+- Terminus intermodal de Longueuil
+- Autre
+- Je ne sais pas
+
+Aéroport d’arrivée
+- Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
+- Aéroport Montréal Saint-Hubert (YHU)
+- Autre
+- Je ne sais pas
+
+Gare d'arrivée
+- Gare Centrale (Montréal)
+- Dorval
+- Coteau
+- Saint-Lambert
+- Autre
+- Je ne sais pas
+
+Gare d'arrivée
+- Gare d'autocars de Montréal (1717 rue Berri)
+- Terminus Megabus (1000 de la Gauchetière)
+- Aéroport de Montréal (YUL)
+- Kirkland
+- Terminus intermodal de Longueuil
+- Autre
+- Je ne sais pas
 
 Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
 Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.
 
-Certaines lignes de bus sélectionnés semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.
+Mode pour se rendre de {{origin}} {{stopType}}
+- Marche
+- Bus (STM, STL, RTL, exo, etc.)
+- Transport à la demande
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Autre (spécifiez)
 
-Est-ce un transport sur demande?
+Mode pour se rendre de {{origin}} {{stopType}}
+- Marche
+- Vélo
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Taxi ou équivalent (ex. : Uber)
+- Transport en commun
+- Autre
+
+Mode pour se rendre {{stopType}} à {{destination}}
+- Marche
+- Bus (STM, STL, RTL, exo, etc.)
+- Transport à la demande
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Autre (spécifiez)
+
+Mode pour se rendre {{stopType}} à {{destination}}
+- Marche
+- Vélo
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Taxi ou équivalent (ex. : Uber)
+- Transport en commun
+- Autre
+
+Lieu d’embarquement (montée dans le bus) 
 
 
-Indiquez l'adresse ou le nom du lieu où s'est effectué le changement de mode de transport (terminus, arrêt, stationnement etc.) ou cliquez directement sur la carte
+Lieu de débarquement (descente du bus) 
 
-Veuillez localiser le point de jonction (lieu où s'est effectué le changement de mode de transport):
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le nom ou l'adresse (bouton "Chercher le lieu à partir du nom").
+
+Stationnement en arrivant  {{stopType}}
+- Non (gratuit ou payé par l'employeur)
+- Non (gratuit)
+- Oui (parcomètre, vignette, passe ou permis)
+- Le véhicule n'a pas été stationné
+- Je ne sais pas
+
+Autre mode utilisé pour le déplacement avant l'arrivée?
+
+{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?
+
 
 Confirmer ce déplacement
 

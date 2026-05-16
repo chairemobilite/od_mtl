@@ -46,6 +46,8 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                     'intercityTrain',
                     'carPassenger',
                     'paratransit',
+                    'otherActiveMode',
+                    'transit',
                     'plane',
                     'other',
                     'taxi',

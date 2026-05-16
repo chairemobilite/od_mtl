@@ -622,3 +622,181 @@ export const outOfTerritoryMembersConditional: WidgetConditional = (interview, p
         ]
     });
 };
+
+export const isCurrentSegmentNotTransitBusConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
+                comparisonOperator: '!==',
+                value: 'transitBus'
+            }
+        ]
+    });
+};
+
+export const subwayConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
+                comparisonOperator: '===',
+                value: 'transitRRT'
+            }
+        ]
+    });
+};
+
+export const trainConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
+                comparisonOperator: '===',
+                value: 'transitRegionalRail'
+            }
+        ]
+    });
+};
+
+export const remConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
+                comparisonOperator: '===',
+                value: 'transitLRRT'
+            }
+        ]
+    });
+};
+
+export const busConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
+                comparisonOperator: '===',
+                value: 'transitBus'
+            }
+        ]
+    });
+};
+
+export const subwayLineConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
+    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'berriUqam'
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'berriUqam',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'jeanDrapeau',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'jeanDrapeau',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'longueuilUniversiteDeSherbrooke',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationStart`,
+                comparisonOperator: '===',
+                value: 'lionelGroulx',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.subwayStationEnd`,
+                comparisonOperator: '===',
+                value: 'longueuilUniversiteDeSherbrooke',
+                parentheses: ')'
+            }
+        ]
+    });
+};

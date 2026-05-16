@@ -156,3 +156,38 @@ workPlaceBeforeLeaveTypeChoices:
     onTheRoadWithoutUsualPlace_one: No, I worked on the road departing from home
     remote: No, {{nickname}} worked from home or from elsewhere
     remote_one: No, I worked from home or from elsewhere
+transitModesChoices:
+    walk: Walking
+    transitBus: Bus (STM, STL, RTL, exo, etc.)
+    transitOnDemand: On-demand transit
+    carDriver: Car as driver
+    carPassenger: Car as passenger
+intercityModesChoices:
+    walk: Walking
+    bicycle: Bicycle
+    carDriver: Car as driver
+    carPassenger: Car as passenger
+    taxi: Taxi or equivalent (e.g., Uber)
+    transit: Public transit
+paidForParkingChoices:
+    noWorker: <strong>No</strong> (free or paid by employer)
+    no: <strong>No</strong> (free)
+    yes: <strong>Yes</strong> (parking meter, sticker, pass or permit)
+    noPark: The vehicle was not parked
+subwayLineChoices:
+    stm_2: 2-Orange
+    stm_1: 1-Green
+planeStationChoices:
+    YUL: Montreal Pierre-Elliott-Trudeau International Airport (YUL)
+    YHU: Montreal Saint-Hubert Airport (YHU)
+intercityRailStationChoices:
+    centralStation: Gare Centrale (Montreal)
+    dorvalStation: Dorval
+    coteauStation: Coteau
+    saintLambertStation: Saint-Lambert
+intercityBusStationChoices:
+    gareAutocarsMTL: Montreal Central Bus Station (1717 Berri Street)
+    terminusMegabus: Megabus Terminal (1000 de la Gauchetière)
+    YUL: Montreal Airport (YUL)
+    terminusKirkland: Kirkland
+    terminusLongueuil: Longueuil Intermodal Terminal

@@ -92,13 +92,17 @@ export const outOfTerritoryCustomChoices: WidgetConfig.RadioChoiceType[] = [
 
 // Custom choices because it lists household members
 export const outOfTerritoryMembersCustomChoices: WidgetConfig.ParsingFunction<WidgetConfig.ChoiceType[]> = (
-    interview
+    interview,
+    path
 ) => {
+    const person = odHelpers.getPerson({ interview, path });
     const persons = odHelpers.getPersonsArray({ interview });
-    const choices: WidgetConfig.ChoiceType[] = persons.map((person) => ({
-        value: person._uuid,
-        label: person.nickname
-    }));
+    const choices: WidgetConfig.ChoiceType[] = persons
+        .filter((p) => p._uuid !== person._uuid)
+        .map((p) => ({
+            value: p._uuid,
+            label: p.nickname
+        }));
     choices.unshift({
         value: 'none',
         label: (t: TFunction) => t('tripsIntro:outOfTerritoryMembersChoiceNone')

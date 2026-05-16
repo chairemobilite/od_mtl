@@ -13,20 +13,42 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'buttonConfirmNextSection'
 ];
 
-export const personTripsWidgetsNames: SectionConfig['widgets'] = ['segmentIntro', 'segments', 'buttonSaveTrip'];
+export const personTripsWidgetsNames: SectionConfig['widgets'] = [
+    'segmentIntro',
+    'segments',
+    'tripCommun',
+    'buttonSaveTrip'
+];
 
 export const segmentsWidgetsNames: SectionConfig['widgets'] = [
     'segmentSameModeAsReverseTrip',
     'segmentModePre',
     'segmentMode',
-    'segmentHowToBus',
     'segmentPaidForParking',
     'segmentVehicleOccupancy',
     'segmentDriver',
+    'segmentSubwayStationStart',
+    'segmentSubwayStationEnd',
+    'segmentSubwayStationsTransfer',
+    'segmentSubwayLine',
+    'segmentTrainStationStart',
+    'segmentTrainStationEnd',
+    'segmentRemStationStart',
+    'segmentRemStationEnd',
+    'segmentPlaneStationStart',
+    'segmentIntercityRailStationStart',
+    'segmentIntercityBusStationStart',
+    'segmentPlaneStationEnd',
+    'segmentIntercityRailStationEnd',
+    'segmentIntercityBusStationEnd',
     'segmentBusLines',
-    'segmentBusLinesWarning',
-    'segmentOnDemandType',
-    'tripJunctionQueryString',
-    'tripJunctionGeography',
+    // 'segmentBusLinesWarning',
+    'segmentTransitAccessMode',
+    'segmentIntercityAccessMode',
+    'segmentTransitEgressMode',
+    'segmentIntercityEgressMode',
+    'tripJunctionPrivateBus',
+    'tripJunctionBusPrivate',
+    'tripJunctionPaidParking',
     'segmentHasNextMode'
 ];

@@ -136,19 +136,6 @@ export const alreadyVisitedPlaceCustomConditional: WidgetConditional = (intervie
     return [(lastAction === null || lastAction === 'shortcut') && shortcuts.length > 0, null];
 };
 
-export const isCarDriverAndDestinationWorkCustomConditional: WidgetConditional = (interview, path) => {
-    const segment: any = surveyHelper.getResponse(interview, path, null, '../');
-    const modePre = segment ? segment.modePre : null;
-
-    const person = odSurveyHelper.getPerson({ interview });
-    const trip = odSurveyHelper.getActiveTrip({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview, person });
-    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
-    const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
-
-    return [modePre === 'carDriver' && destination.activityCategory === 'work', null];
-};
-
 const peopleCountQuestionModes = ['carDriver', 'rentalCar', 'carDriverCarsharing'];
 export const isSelfDeclaredCarDriverCustomConditional: WidgetConditional = (interview, path) => {
     const segment: any = surveyHelper.getResponse(interview, path, null, '../');
@@ -284,4 +271,233 @@ export const personDidTripsAndDeparturePlaceNotSetCustomConditional: WidgetCondi
         return [false, firstVisitedPlace.activity === 'home' ? 'yes' : 'no'];
     }
     return [!_isBlank(personDidTrips), departurePlaceIsHome];
+};
+
+// Conditional to show if the station of the current segment is served by transport on demand.
+export const stationServedByTADCustomConditional: WidgetConditional = (interview, path) => {
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/101
+    return [false, null];
+};
+
+// Conditional to show if the current segment is a local transit trip and the distance is a certain threshold or more
+const localTransitModes = [
+    'transitBus',
+    'transitRRT',
+    'transitLRRT',
+    'transitRegionalRail',
+    'transitStreetCar',
+    'transitTaxi',
+    'transitFerry'
+];
+export const isTransitModeAndDistanceFromOriginCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isTransitModeAndDistanceFromOriginCustomConditional label: Segment context not found');
+    }
+    const { person, journey, trip, segment } = segmentContext;
+    const isTransitMode = localTransitModes.includes(segment.mode);
+    if (!isTransitMode) {
+        return [false, null];
+    }
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/25
+    return [false, null];
+};
+
+export const isTransitModeAndDistanceToDestinationCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isTransitModeAndDistanceToDestinationCustomConditional label: Segment context not found');
+    }
+    const { person, journey, trip, segment } = segmentContext;
+    const isTransitMode = localTransitModes.includes(segment.mode);
+    if (!isTransitMode) {
+        return [false, null];
+    }
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/33
+    return [false, null];
+};
+
+// Conditional to show if the current segment is an intercity mode and the origin is in the territory
+const intercityModes = ['intercityBus', 'intercityTrain', 'plane'];
+export const isIntercityAndOriginInTerritoryCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isIntercityAndOriginInTerritoryCustomConditional label: Segment context not found');
+    }
+    const { person, journey, trip, segment } = segmentContext;
+    const isIntercityMode = intercityModes.includes(segment.mode);
+    if (!isIntercityMode) {
+        return [false, null];
+    }
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/29
+    return [false, null];
+};
+
+// Conditional to show if the current segment is an intercity mode and the destination is in the territory
+export const isIntercityAndDestinationInTerritoryCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isIntercityAndDestinationInTerritoryCustomConditional label: Segment context not found');
+    }
+    const { person, journey, trip, segment } = segmentContext;
+    const isIntercityMode = intercityModes.includes(segment.mode);
+    if (!isIntercityMode) {
+        return [false, null];
+    }
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/34
+    return [false, null];
+};
+
+// Conditional to show if the current trip destination is a usual workplace
+export const isDestinationWorkCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isDestinationWorkCustomConditional label: Segment context not found');
+    }
+    const { journey, trip } = segmentContext;
+    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
+    const destination = odSurveyHelper.getDestination({ trip, visitedPlaces });
+    return destination.activity === 'workUsual';
+};
+
+// Conditional to show if the current trip destination is not a usual workplace
+export const isDestinationNotWorkCustomConditional: WidgetConditional = (interview, path) => {
+    const destinationIsWork = isDestinationWorkCustomConditional(interview, path);
+    return [!destinationIsWork, null];
+};
+
+// Condtional to show, for partial sample, if the current segment is car driver and is in the right zone to ask about paid parking
+export const isCarDriverAndShouldShowPaidParkingCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isCarDriverAndShouldShowPaidParkingCustomConditional label: Segment context not found');
+    }
+    const { journey, trip, segment } = segmentContext;
+    // Show for partial sample 'paidParking'
+    const epExclusif = surveyHelper.getResponse(interview, 'epExclusif', null);
+    if (segment.mode !== 'carDriver' && epExclusif === 'paidParking') {
+        return [false, null];
+    }
+    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/17
+    return [false, null];
+};
+
+const publicModesForJunctions = ['transitBus'];
+const privateModesForJunctions = ['carDriver', 'rentalCar', 'carDriverCarsharing', 'motorcycle', 'carPassenger'];
+export const junctionBusPrivateCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('junctionBusPrivateCustomConditional label: Segment context not found');
+    }
+    const { trip, segment } = segmentContext;
+    // Do not show if the current segment is not a private mode
+    if (_isBlank(segment.mode) || !privateModesForJunctions.includes(segment.mode)) {
+        return [false, null];
+    }
+    // Show if the previous segment is a public mode
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
+    return [
+        previousSegment && !_isBlank(previousSegment.mode) && publicModesForJunctions.includes(previousSegment.mode),
+        null
+    ];
+};
+
+export const junctionPrivateBusCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('junctionPrivateBusCustomConditional label: Segment context not found');
+    }
+    const { trip, segment } = segmentContext;
+    // Do not show if the current segment is not a public mode
+    if (_isBlank(segment.mode) || !publicModesForJunctions.includes(segment.mode)) {
+        return [false, null];
+    }
+    // Show if the previous segment is a private mode
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
+    return [
+        previousSegment && !_isBlank(previousSegment.mode) && privateModesForJunctions.includes(previousSegment.mode),
+        null
+    ];
+};
+
+// Custom conditional to show if current segment is transit and previous carDriver and no parking info yet
+// FIXME Validate current segment mode https://github.com/chairemobilite/od_mtl/issues/37
+export const junctionPaidParkingCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('isCarDriverAndShouldShowPaidParkingCustomConditional label: Segment context not found');
+    }
+    const { trip, segment } = segmentContext;
+    // Do not show if the current segment is not a transit mode
+    if (_isBlank(segment.mode) || !localTransitModes.includes(segment.mode)) {
+        return [false, null];
+    }
+    // Show if the previous segment is mode carDriver and doesn't have paid parking information already
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
+    if (previousSegment && previousSegment.mode === 'carDriver' && _isBlank(previousSegment.paidForParking)) {
+        return [true, null];
+    }
+    return [false, null];
+};
+
+// Custom conditional to show if the pair of segment entry/exit subway stations
+// requires a question about the subway transfer station
+// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/37
+export const subwayTransferCustomConditional: WidgetConditional = (interview, path) => {
+    const subwayStationStart = surveyHelper.getResponse(interview, path, null, '../subwayStationStart');
+    const subwayStationEnd = surveyHelper.getResponse(interview, path, null, '../subwayStationEnd');
+    if (_isBlank(subwayStationStart) || _isBlank(subwayStationEnd)) {
+        return [false, null];
+    }
+    // FIXME Implement the rest of the condition
+    return [false, null];
+};
+
+// Custom conditional to validate if a segment is of a certain mode and if the
+// nearest bound (segment origin or destination) is in the territory of the
+// survey
+//  FIXME Implement correctly. See https://github.com/chairemobilite/od_mtl/issues/26, 27, 28, 30, 31, 32
+export const isModeAndSegmentLocationInTerritoryCustomConditional =
+    (mode: string, location: 'origin' | 'destination'): WidgetConditional =>
+        (interview, path) => {
+            const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+            if (!segmentContext) {
+                throw new Error(
+                    'isModeAndSegmentLocationInTerritoryCustomConditional: Segment context not found for path ' + path
+                );
+            }
+            const { trip, segment } = segmentContext;
+            // Return false if the mode is not the expected one
+            if (segment.mode !== mode) {
+                return [false, null];
+            }
+            // FIXME Get the geography of the origin or destination
+            return [false, null];
+        };
+
+export const isPlaneAndSegmentOriginInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('plane', 'origin');
+
+export const isIntercityRailAndSegmentOriginInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('intercityTrain', 'origin');
+
+export const isIntercityBusAndSegmentOriginInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('intercityBus', 'origin');
+
+export const isPlaneAndSegmentDestinationInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('plane', 'destination');
+
+export const isIntercityRailAndSegmentDestinationInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('intercityTrain', 'destination');
+
+export const isIntercityBusAndSegmentDestinationInTerritoryCustomConditional: WidgetConditional =
+    isModeAndSegmentLocationInTerritoryCustomConditional('intercityBus', 'destination');
+
+// Custom conditional to decide whether to show the common trip question
+// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/38
+export const tripCommunCustomConditional: WidgetConditional = (interview, path) => {
+    return [false, null];
 };

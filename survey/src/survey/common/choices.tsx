@@ -592,3 +592,152 @@ export const workPlaceBeforeLeaveTypeChoices: ChoiceType[] = [
         }
     }
 ];
+
+export const transitModesChoices: ChoiceType[] = [
+    {
+        value: 'walk',
+        label: (t: TFunction) => t('choices:transitModesChoices.walk')
+    },
+    {
+        value: 'transitBus',
+        label: (t: TFunction) => t('choices:transitModesChoices.transitBus'),
+        conditional: conditionals.isCurrentSegmentNotTransitBusConditional
+    },
+    {
+        value: 'transitOnDemand',
+        label: (t: TFunction) => t('choices:transitModesChoices.transitOnDemand'),
+        conditional: customConditionals.stationServedByTADCustomConditional
+    },
+    {
+        value: 'carDriver',
+        label: (t: TFunction) => t('choices:transitModesChoices.carDriver'),
+        conditional: conditionals.hasDrivingLicenseConditional
+    },
+    {
+        value: 'carPassenger',
+        label: (t: TFunction) => t('choices:transitModesChoices.carPassenger')
+    },
+    ...other
+];
+
+export const intercityModesChoices: ChoiceType[] = [
+    {
+        value: 'walk',
+        label: (t: TFunction) => t('choices:intercityModesChoices.walk')
+    },
+    {
+        value: 'bicycle',
+        label: (t: TFunction) => t('choices:intercityModesChoices.bicycle')
+    },
+    {
+        value: 'carDriver',
+        label: (t: TFunction) => t('choices:intercityModesChoices.carDriver'),
+        conditional: conditionals.hasDrivingLicenseConditional
+    },
+    {
+        value: 'carPassenger',
+        label: (t: TFunction) => t('choices:intercityModesChoices.carPassenger')
+    },
+    {
+        value: 'taxi',
+        label: (t: TFunction) => t('choices:intercityModesChoices.taxi')
+    },
+    {
+        value: 'transit',
+        label: (t: TFunction) => t('choices:intercityModesChoices.transit')
+    },
+    ...otherWithoutSpecify
+];
+
+export const paidForParkingChoices: ChoiceType[] = [
+    {
+        value: 'noWorker',
+        label: (t: TFunction) => t('choices:paidForParkingChoices.noWorker'),
+        conditional: customConditionals.isDestinationWorkCustomConditional
+    },
+    {
+        value: 'no',
+        label: (t: TFunction) => t('choices:paidForParkingChoices.no'),
+        conditional: customConditionals.isDestinationNotWorkCustomConditional
+    },
+    {
+        value: 'yes',
+        label: (t: TFunction) => t('choices:paidForParkingChoices.yes')
+    },
+    {
+        value: 'noPark',
+        label: (t: TFunction) => t('choices:paidForParkingChoices.noPark')
+    },
+    ...dontKnow
+];
+
+export const subwayLineChoices: ChoiceType[] = [
+    {
+        value: 'stm_2',
+        label: (t: TFunction) => t('choices:subwayLineChoices.stm_2')
+    },
+    {
+        value: 'stm_1',
+        label: (t: TFunction) => t('choices:subwayLineChoices.stm_1')
+    },
+    ...dontKnow
+];
+
+export const planeStationChoices: ChoiceType[] = [
+    {
+        value: 'YUL',
+        label: (t: TFunction) => t('choices:planeStationChoices.YUL')
+    },
+    {
+        value: 'YHU',
+        label: (t: TFunction) => t('choices:planeStationChoices.YHU')
+    },
+    ...otherWithoutSpecify,
+    ...dontKnow
+];
+
+export const intercityRailStationChoices: ChoiceType[] = [
+    {
+        value: 'centralStation',
+        label: (t: TFunction) => t('choices:intercityRailStationChoices.centralStation')
+    },
+    {
+        value: 'dorvalStation',
+        label: (t: TFunction) => t('choices:intercityRailStationChoices.dorvalStation')
+    },
+    {
+        value: 'coteauStation',
+        label: (t: TFunction) => t('choices:intercityRailStationChoices.coteauStation')
+    },
+    {
+        value: 'saintLambertStation',
+        label: (t: TFunction) => t('choices:intercityRailStationChoices.saintLambertStation')
+    },
+    ...otherWithoutSpecify,
+    ...dontKnow
+];
+
+export const intercityBusStationChoices: ChoiceType[] = [
+    {
+        value: 'gareAutocarsMTL',
+        label: (t: TFunction) => t('choices:intercityBusStationChoices.gareAutocarsMTL')
+    },
+    {
+        value: 'terminusMegabus',
+        label: (t: TFunction) => t('choices:intercityBusStationChoices.terminusMegabus')
+    },
+    {
+        value: 'YUL',
+        label: (t: TFunction) => t('choices:intercityBusStationChoices.YUL')
+    },
+    {
+        value: 'terminusKirkland',
+        label: (t: TFunction) => t('choices:intercityBusStationChoices.terminusKirkland')
+    },
+    {
+        value: 'terminusLongueuil',
+        label: (t: TFunction) => t('choices:intercityBusStationChoices.terminusLongueuil')
+    },
+    ...otherWithoutSpecify,
+    ...dontKnow
+];

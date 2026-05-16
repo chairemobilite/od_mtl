@@ -11,33 +11,46 @@ segmentIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:
 segments: Mode of transport
-segmentHowToBus: >-
-    How did {{nickname}} reach the transit stop?<br /><span class="_pale _oblique">If
-    the mode used is not present, create a first mode before the transit mode.</span>
-segmentHowToBus_one: >-
-    How did you reach the transit stop?<br /><span class="_pale _oblique">If the mode
-    used is not present, create a first mode before the transit mode.</span>
+segmentSameModeAsReverseTrip: Same mode as the previous trip ({{previousMode}})
 segmentPaidForParking: Paid parking
 segmentVehicleOccupancy: >-
-    Persons in the vehicle<br /><span class="_pale _oblique">Including the driver.</span>
+    Persons in the vehicle<br /><span class="_pale _oblique">Include the driver and
+    any other person, whether or not they are part of your household, regardless of
+    their age (including children).</span>
 segmentDriver: Who drove?
+segmentSubwayStationStart: '<strong>Boarding station</strong>(when entering the metro):'
+segmentSubwayStationEnd: '<strong>Exit station</strong> (when leaving the metro):'
+segmentSubwayStationsTransfer: >-
+    <strong>Transfer station(s)</strong>:<br /><span class="_pale _oblique">Choose
+    ‘none’ if no transfer was made</span>
+segmentSubwayLine: <strong>Line taken</strong> between BerriUQAM and Lionel-Groulx
+segmentTrainStationStart: <strong>Boarding station</strong> (when getting onto the
+    train)
+segmentTrainStationEnd: <strong>Exit station</strong> (when leaving the train)
+segmentRemStationStart: <strong>Boarding station</strong> (when entering the REM)
+segmentRemStationEnd: <strong>Exit station</strong> (when leaving the REM)
+segmentPlaneStationStart: Departure airport
+segmentIntercityRailStationStart: Boarding station (departure)
+segmentIntercityBusStationStart: Boarding station (departure)
+segmentPlaneStationEnd: Arrival airport
+segmentIntercityRailStationEnd: Exit station (arrival)
+segmentIntercityBusStationEnd: Exit station (arrival)
 segmentBusLines: >-
     <strong>Bus line(s) taken</strong> (in chronological order)<br /><span class="_pale
     _oblique">For each line, begin by typing the number or name, then select it from
     the results shown.</span>
 segmentBusLinesWarning: Some bus line(s) seem invalid for this trip. Please validate
     the lines.
-segmentOnDemandType: Is this an on-demand service?
-tripJunctionQueryString: >-
-    Please specify the address or the name of the location where the change in mode
-    of transport occurred (terminal, transit stop, parking lot, etc.) or click directly
-    on map
-tripJunctionGeography: >-
-    Please locate the <strong>junction point</strong> (location where the change in
-    mode of transport occurred).<br /><span class="_pale _oblique">Navigate, zoom,
-    and click on the map to identify the location. Once located, you can move the
-    marker for greater precision.<br />You can also search for the place on the map
-    using the name or address indicated above ("Find the place from the name" button).</span>
+segmentTransitAccessMode: Mode of transportation to get from {{origin}} to {{stopType}}
+segmentIntercityAccessMode: Mode of transportation to get from {{origin}} to {{stopType}}
+segmentTransitEgressMode: Mode of transportation to get {{stopType}} to {{destination}}
+segmentIntercityEgressMode: Mode of transportation to get {{stopType}} to {{destination}}
+tripJunctionPrivateBus: <strong>Boarding location</strong> (getting on the bus)
+tripJunctionBusPrivate: <strong>Exit location</strong> (getting off the bus)
+tripJunctionPaidParking: <strong>Parking</strong> upon arrival at {{stopType}}
+segmentHasNextMode: Other mode of transportation used for the trip before arrival?
+tripCommun: Did {{nickname}} make this trip with another member of the household?
+tripCommun_one: Did you make this trip with another member of the household?
 buttonSaveTrip: Confirm this trip
 buttonConfirmNextSection: Confirm locations and continue
 segmentsIntroOnTheRoad: >-
@@ -65,6 +78,33 @@ busLinesOther: Other bus line(s)
 busLinesDontKnow: Unknown line(s)
 busLinesAreCorrect: Bus lines are correct
 busLinesWarningRequired: Please validate the bus lines or confirm that lines are correct.
+segmentIntro_workOnTheRoad: >-
+    Please specify the primary mode of transportation used for the trips on the road:
+segmentIntro_leisureStroll: 'Please specify the primary mode of transportation used
+    for the stroll:'
+segmentModePre_workOnTheRoad: What mode of transportation was used for the trips on
+    the road?
+segmentModePre_leisureStroll: What mode of transportation was used for the stroll?
+toStopType_transitBus: the <strong>bus stop</strong>
+toStopType_transitRRT: the <strong>metro station</strong>
+toStopType_transitLRRT: the <strong>REM station</strong>
+toStopType_transitRegionalRail: the <strong>train station</strong>
+toStopType_transitStreetCar: the <strong>tram station</strong>
+toStopType_intercityBus: the <strong>bus station</strong>
+toStopType_transitFerry: the <strong>ferry boarding</strong>
+toStopType_intercityTrain: the <strong>train station</strong>
+toStopType_plane: the <strong>airport</strong>
+toStopType: the <strong>stop</strong>
+fromStopType_transitBus: from the <strong>bus stop</strong>
+fromStopType_transitRRT: from the <strong>metro station</strong>
+fromStopType_transitLRRT: from the <strong>REM station</strong>
+fromStopType_transitRegionalRail: from the <strong>train station</strong>
+fromStopType_transitStreetCar: from the <strong>tram station</strong>
+fromStopType_intercityBus: from the <strong>bus station</strong>
+fromStopType_transitFerry: from the <strong>ferry boarding</strong>
+fromStopType_intercityTrain: from the <strong>train station</strong>
+fromStopType_plane: from the <strong>airport</strong>
+fromStopType: from the <strong>stop</strong>
 mode:
     Walk: <strong>Walking</strong>
     Bicycle: <strong>Bicycle</strong>
@@ -91,8 +131,24 @@ mode:
     FerryWithCar: <strong>Ferry with vehicles</strong>
     IntercityTrain: <strong>Intercity train</strong> (VIA Rail)
     CarPassenger: <strong>Passenger</strong> (car/motorcycle/moped)
+    OtherActiveMode: Other active modes (running, scooter, skateboard)
     Paratransit: <strong>Paratransit</strong>
     Plane: <strong>Airplane</strong>
     Other: <strong>Other</strong>
     Taxi: <strong>Taxi</strong> or equivalent (eg. Uber)
     DontKnow: <strong>I don't know</strong> / Prefer not to answer
+    CarDriver_workOnTheRoad: Driver (personal vehicle)
+    CarDriverProfesionnal_workOnTheRoad: Driver (work or commercial vehicle)
+    CarPassenger_workOnTheRoad: Passenger (in a personal, work, or commercial vehicle)
+    Transit_workOnTheRoad: Public transit (bus, metro, REM, commuter train, etc.)
+    Walk_workOnTheRoad: Walking
+    Bicycle_workOnTheRoad: Bicycle or electric bicycle
+    Walk_leisureStroll: Walking
+    Bicycle_leisureStroll: Bicycle or electric bicycle
+    OtherActiveMode_leisureStroll: Other active modes (running, scooter, skateboard)
+    CarDriver_leisureStroll: Car as driver
+    CarPassenger_leisureStroll: Car as passenger
+    Transit_leisureStroll: Public transit
+errors:
+    trainStationsIncoherent: The transfer station(s) do not seem coherent for this
+        trip
