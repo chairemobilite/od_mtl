@@ -5,22 +5,119 @@
 buttonSwitchPerson: Changer de personne
 personNoWorkTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour le travail</strong> pour {{nickname}}
-    le {{assignedDate}}
+    le {{journeyDate}}
+personNoWorkTripIntro_one: >-
+    Vous avez déclaré n'avoir fait <strong>aucun déplacement pour le travail</strong>
+    le {{journeyDate}}
 personNoWorkTripReason: Pour quelle raison?
-personNoWorkTripReasonSpecify: >-
-    Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement
-    pour le travail le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
-personNoWorkTripReasonSpecify_one: >-
-    Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement
-    pour le travail le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
+personUsualWorkPlaceIntro: >-
+    {{nickname}} n'a pas fait de déplacement vers son lieu de travail habituel. Pouvez-vous
+    le localiser?
+personUsualWorkPlaceIntro_one: >-
+    Vous n'avez pas fait de déplacement vers votre lieu de travail habituel. Pouvez-vous
+    le localiser?
+personUsualWorkPlaceName: >-
+    <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
+    {{nickname}}
+personUsualWorkPlaceName_one: >-
+    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel de travail</strong>
+personUsualWorkPlaceGeography: >-
+    Veuillez localiser le <strong>lieu de travail habituel</strong> de {{nickname}}<br
+    /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
+    localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte
+    pour davantage de précision.<br />Vous pouvez également chercher le lieu sur la
+    carte en utilisant le bouton "Chercher le lieu".</span>
+personUsualWorkPlaceGeography_one: >-
+    Veuillez localiser votre <strong>lieu de travail habituel</strong>.<br /><span
+    class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser
+    le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage
+    de précision.<br />Vous pouvez également chercher le lieu sur la carte en utilisant
+    le bouton "Chercher le lieu".</span>
+personUsualWorkPlaceCommuting: >-
+    Quel moyen de transport utilise habituellement {{nickname}} pour<strong> se rendre
+    à son lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux, répondre
+    en fonction du lieu le plus fréquemment visité.</span>
+personUsualWorkPlaceCommuting_one: >-
+    Quel moyen de transport utilisez-vous habituellement pour<strong> vous rendre
+    à votre lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si vous fréquentez plusieurs lieux, répondre en fonction
+    du lieu le plus fréquemment visité.</span>
 personNoSchoolTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour les études</strong> pour {{nickname}}
-    le {{assignedDate}}.
-personNoSchoolTripReason: Pour quelle raison?
-personNoSchoolTripReasonSpecify: >-
-    Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement
-    pour les études le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
-personNoSchoolTripReasonSpecify_one: >-
-    Veuillez préciser la raison pour laquelle vous n'avez effectué aucun déplacement
-    pour les études le {{assignedDate}}?<br /><span class="_pale _oblique">(Facultatif)</span>
+    le {{journeyDate}}
+personNoSchoolTripIntro_one: >-
+    Vous avez déclaré n'avoir fait <strong>aucun déplacement pour les études</strong>
+    le {{journeyDate}}
+personHasSchoolPlace: >-
+    Est-ce que {{nickname}} se rend dans un <strong>établissement scolaire</strong>
+    pour étudier?<br /><span class="_pale _oblique">Répondre ‘Non’ seulement si {{nickname}}
+    n’effectue que des cours à distance.</span>
+personHasSchoolPlace_one: >-
+    Est-ce que vous vous rendez dans un <strong>établissement scolaire</strong> pour
+    étudier?<br /><span class="_pale _oblique">Répondre ‘Non’ seulement si vous n’effectuez
+    que des cours à distance.</span>
+personUsualSchoolPlaceName: >-
+    <strong>Nom ou adresse</strong> du <strong>lieu habituel d’études</strong> de
+    {{nickname}}
+personUsualSchoolPlaceName_one: >-
+    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel d’études</strong>
+personUsualSchoolPlaceGeography: >-
+    Veuillez localiser le <strong>lieu habituel d’études</strong> de {{nickname}}.<br
+    /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
+    localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte
+    pour davantage de précision.<br />Vous pouvez également chercher le lieu sur la
+    carte en utilisant le bouton "Chercher le lieu").</span>
+personUsualSchoolPlaceGeography_one: >-
+    Veuillez localiser votre <strong>lieu habituel d’études</strong>.<br /><span class="_pale
+    _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une
+    fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.<br
+    />Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher
+    le lieu").</span>
+personNoSchoolTripReason: >-
+    Raison pour laquelle {{nickname}} n’a pas effectué de déplacement pour les études
+    le {{journeyDate}}?
+personNoSchoolTripReason_one: >-
+    Raison pour laquelle vous n'avez pas effectué de déplacement pour les études le
+    {{journeyDate}}?
 buttonTravelBehaviorConfirmNextSection: Continuer
+personHasSchoolPlace_schoolchildcare: >-
+    Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?
+workCommutingHelpPopup:
+    title: Pourquoi cette question?
+    content: >-
+        <strong>Pourquoi cette question?</strong><br />Inspirée du Recensement de
+        Statistique Canada, cette question permet de comparer les modes de navettage
+        entre enquêtes.
+personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace: >-
+    Quel moyen de transport utilise habituellement {{nickname}} pour<strong> se rendre
+    à son lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux, répondre
+    en fonction du lieu le plus fréquemment visité.<br />Répondre le mode utilisé
+    en quittant le domicile, pas celui utilisé pour les livraisons, tournées, patrouilles,
+    visites chez clients.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace_one: >-
+    Quel moyen de transport utilisez-vous habituellement pour<strong> vous rendre
+    à votre lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si vouz fréquentez plusieurs lieux, répondre en fonction
+    du lieu le plus fréquemment visité.<br />Répondre le mode utilisé en quittant
+    le domicile, pas celui utilisé pour les livraisons, tournées, patrouilles, visites
+    chez clients.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithoutUsualPlace: >-
+    Quel moyen de transport utilise habituellement {{nickname}} pour<strong> se rendre
+    à son lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux, répondre
+    en fonction du lieu le plus fréquemment visité.<br />Répondre le mode utilisé
+    en quittant le domicile.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithoutUsualPlace_one: >-
+    Quel moyen de transport utilisez-vous habituellement pour<strong> vous rendre
+    à votre lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
+    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
+    la distance parcourue.<br />Si vouz fréquentez plusieurs lieux, répondre en fonction
+    du lieu le plus fréquemment visité.<br />Répondre le mode utilisé en quittant
+    le domicile.</span>

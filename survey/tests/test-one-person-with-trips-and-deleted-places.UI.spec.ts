@@ -33,7 +33,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'shopping',
         onTheRoadDepartureType: null, // Question won't show.
         onTheRoadArrivalType: null, // Question won't show.
-        alreadyVisitedBySelfOrAnotherHouseholdMember: false,
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Sports Expert Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
@@ -48,7 +48,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'restaurant',
         onTheRoadDepartureType: null, // Question won't show.
         onTheRoadArrivalType: null, // Question won't show.
-        alreadyVisitedBySelfOrAnotherHouseholdMember: false,
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Marché Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
@@ -169,9 +169,7 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 });
 
 /********** Tests travelBehavior section **********/
-const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
-travelBehavior.noWorkTripReason = 'noWork';
-travelBehavior.noSchoolTripReason = 'distanceLearning';
+const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 1,

@@ -6,7 +6,12 @@ import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { getShortcutVisitedPlaces } from './customFrontendHelper';
-import { shouldAskForNoSchoolTripReason, shouldAskForNoWorkTripReason, shouldDisplayTripJunction } from './helper';
+import {
+    shouldAskForNoSchoolTripFollowup,
+    shouldAskForNoSchoolTripReason,
+    shouldAskForNoWorkTripReason,
+    shouldDisplayTripJunction
+} from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
 
 const isSchoolEnrolledTrueValues = [
@@ -500,4 +505,20 @@ export const isIntercityBusAndSegmentDestinationInTerritoryCustomConditional: Wi
 // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/38
 export const tripCommunCustomConditional: WidgetConditional = (interview, path) => {
     return [false, null];
+};
+
+export const shouldAskForNoSchoolTripFollowupCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview, path });
+    return [shouldAskForNoSchoolTripFollowup({ interview, person }), null];
+};
+
+// Custom conditional: same as shouldAskForNoWorkTripReasonCustomConditional, but additional check for work place type
+const workPlaceTypesWithFixedLocation = ['onLocation', 'hybrid', 'onTheRoadWithUsualPlace'];
+export const hasWorkingLocationNotSetCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview, path });
+    if (!person) {
+        return [false, null];
+    }
+    const shouldAskForNoWorkTripReasonValue = shouldAskForNoWorkTripReason({ interview, person });
+    return [shouldAskForNoWorkTripReasonValue && workPlaceTypesWithFixedLocation.includes(person.workPlaceType), null];
 };

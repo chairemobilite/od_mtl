@@ -1,112 +1,151 @@
 import { TFunction } from 'i18next';
 import _escape from 'lodash/escape';
-import i18n from 'evolution-frontend/lib/config/i18n.config';
-import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
+import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import { SwitchPersonWidgetsFactory } from 'evolution-common/lib/services/questionnaire/sections/common/widgetsSwitchPerson';
 import * as customConditionals from '../../common/customConditionals';
-import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
-import { getResponse } from 'evolution-common/lib/utils/helpers';
-import { widgetFactoryOptions } from '../../common/helper';
+import { formatGeocodingQueryStringFromMultipleFields, getResponse } from 'evolution-common/lib/utils/helpers';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
+import * as conditionals from '../../common/conditionals';
 
-// FIXME These widgets do not use the options to the constructors. Besides, as
-// more sections become builtin, this approach will be replaced
-const switchPersonWidgets = new SwitchPersonWidgetsFactory(widgetFactoryOptions).getWidgetConfigs();
-
-export const activePersonTitle: WidgetConfig.WidgetConfig = switchPersonWidgets.activePersonTitle;
-
-export const buttonSwitchPerson: WidgetConfig.WidgetConfig = switchPersonWidgets.buttonSwitchPerson;
-
-export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
-    type: 'text',
+export const personUsualWorkPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
+    type: 'question',
+    inputType: 'mapFindPlace',
+    path: 'household.persons.{_activePersonId}.usualWorkPlace.geography',
+    datatype: 'geojson',
     containsHtml: true,
-    text: (t: TFunction, interview) => {
-        const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = _escape(person.nickname);
-        const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
-            withRelative: false,
-            locale: i18n.language,
-            withDayOfWeek: false
-        });
-        return t('travelBehavior:personNoWorkTripIntro', {
-            nickname,
-            assignedDate,
-            count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
-        });
+    height: '32rem',
+    refreshGeocodingLabel: (t: TFunction) => t('customLabel:RefreshGeocodingLabel'),
+    geocodingQueryString: function (interview, path) {
+        return formatGeocodingQueryStringFromMultipleFields([getResponse(interview, path, null, '../name')]);
     },
-    conditional: customConditionals.shouldAskForNoWorkTripReasonCustomConditional
-};
-
-export const personNoWorkTripReasonSpecify: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify',
-    twoColumns: false,
-    containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
-            withRelative: false,
-            locale: i18n.language,
-            withDayOfWeek: false
-        });
-        return t(
-            'travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify',
-            {
-                nickname,
-                assignedDate,
-                count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
-            }
-        );
-    },
-    conditional: customConditionals.shouldAskPersonNoWorkTripSpecifyCustomConditional,
-    validations: validations.optionalValidation
-};
-
-export const personNoSchoolTripIntro: WidgetConfig.TextWidgetConfig = {
-    type: 'text',
-    containsHtml: true,
-    text: (t: TFunction, interview) => {
-        const person = odSurveyHelpers.getPerson({ interview });
-        const nickname = _escape(person.nickname);
-        const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
-            withRelative: false,
-            locale: i18n.language,
-            withDayOfWeek: false
-        });
-        return t('travelBehavior:personNoSchoolTripIntro', {
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        const nickname = activePerson?.nickname || t('survey:noNickname');
+        return t('travelBehavior:personUsualWorkPlaceGeography', {
             nickname,
-            assignedDate,
-            count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
+            count: countPersons
         });
     },
-    conditional: customConditionals.shouldAskForNoSchoolTripReasonCustomConditional
+    icon: {
+        url: getActivityMarkerIcon('workUsual'),
+        size: [70, 70]
+    },
+    placesIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle.svg',
+        size: [35, 35]
+    },
+    selectedIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
+        size: [35, 35]
+    },
+    defaultCenter: function (interview, path) {
+        const homeCoordinates: any = getResponse(interview, 'home.geography.geometry.coordinates', null);
+        return homeCoordinates
+            ? {
+                lat: homeCoordinates[1],
+                lon: homeCoordinates[0]
+            }
+            : config.mapDefaultCenter;
+    },
+    defaultValue: function (interview, path) {
+        return undefined;
+    },
+    resetToDefaultUnlessUserInteracted: true,
+    validations: function (value, _customValue, interview, path, _customPath) {
+        const geography: any = getResponse(interview, path, null, '../geography');
+        return [
+            {
+                validation: _isBlank(value),
+                errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsRequiredError')
+            },
+            {
+                validation:
+                    geography &&
+                    geography.properties.lastAction &&
+                    (geography.properties.lastAction === 'mapClicked' ||
+                        geography.properties.lastAction === 'markerDragged') &&
+                    geography.properties.zoom < 15,
+                errorMessage: {
+                    fr: 'Le positionnement du lieu n\'est pas assez précis. Utilisez le zoom + pour vous rapprocher davantage, puis précisez la localisation en déplaçant l\'icône.',
+                    en: 'Location is not precise enough. Please use the + zoom and drag the icon marker to confirm the precise location.'
+                }
+            },
+            ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path)
+        ];
+    },
+    conditional: customConditionals.hasWorkingLocationNotSetCustomConditional
 };
 
-export const personNoSchoolTripReasonSpecify: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify',
-    twoColumns: false,
+export const personUsualSchoolPlaceGeography: WidgetConfig.InputMapFindPlaceType = {
+    type: 'question',
+    inputType: 'mapFindPlace',
+    path: 'household.persons.{_activePersonId}.usualSchoolPlace.geography',
+    datatype: 'geojson',
     containsHtml: true,
+    height: '32rem',
+    refreshGeocodingLabel: (t: TFunction) => t('customLabel:RefreshGeocodingLabel'),
+    geocodingQueryString: function (interview, path) {
+        return formatGeocodingQueryStringFromMultipleFields([getResponse(interview, path, null, '../name')]);
+    },
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const assignedDate = getFormattedDate(getResponse(interview, '_assignedDay') as string, {
-            withRelative: false,
-            locale: i18n.language,
-            withDayOfWeek: false
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        const nickname = activePerson?.nickname || t('survey:noNickname');
+        return t('travelBehavior:personUsualSchoolPlaceGeography', {
+            nickname,
+            count: countPersons
         });
-        return t(
-            'travelBehavior:household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify',
-            {
-                nickname,
-                assignedDate,
-                count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person: activePerson })
-            }
-        );
     },
-    conditional: customConditionals.shouldAskForNoSchoolTripSpecifyCustomConditional,
-    validations: validations.optionalValidation
+    icon: {
+        url: getActivityMarkerIcon('schoolUsual'),
+        size: [70, 70]
+    },
+    placesIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle.svg',
+        size: [35, 35]
+    },
+    selectedIcon: {
+        url: (interview, path) => '/dist/icons/interface/markers/marker_round_with_small_circle_selected.svg',
+        size: [35, 35]
+    },
+    defaultCenter: function (interview, path) {
+        const homeCoordinates: any = getResponse(interview, 'home.geography.geometry.coordinates', null);
+        return homeCoordinates
+            ? {
+                lat: homeCoordinates[1],
+                lon: homeCoordinates[0]
+            }
+            : config.mapDefaultCenter;
+    },
+    defaultValue: function (interview, path) {
+        return undefined;
+    },
+    resetToDefaultUnlessUserInteracted: true,
+    validations: function (value, _customValue, interview, path, _customPath) {
+        const geography: any = getResponse(interview, path, null, '../geography');
+        return [
+            {
+                validation: _isBlank(value),
+                errorMessage: (t: TFunction) => t('survey:visitedPlace:locationIsRequiredError')
+            },
+            {
+                validation:
+                    geography &&
+                    geography.properties.lastAction &&
+                    (geography.properties.lastAction === 'mapClicked' ||
+                        geography.properties.lastAction === 'markerDragged') &&
+                    geography.properties.zoom < 15,
+                errorMessage: {
+                    fr: 'Le positionnement du lieu n\'est pas assez précis. Utilisez le zoom + pour vous rapprocher davantage, puis précisez la localisation en déplaçant l\'icône.',
+                    en: 'Location is not precise enough. Please use the + zoom and drag the icon marker to confirm the precise location.'
+                }
+            },
+            ...inaccessibleZoneGeographyCustomValidation(geography, undefined, interview, path)
+        ];
+    },
+    conditional: conditionals.hasSchoolLocationNotSetConditional
 };

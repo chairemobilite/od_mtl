@@ -44,13 +44,6 @@ export type HouseholdMember = {
     hasDisability: string | null;
     workPlaceType: string | null;
     workPlaceTypeBeforeLeave: string | null;
-    schoolPlaceType: string | null;
-    usualWorkPlace: {
-        name: string;
-    } | null;
-    usualSchoolPlace: {
-        name: string;
-    } | null;
     travelToWorkDays: string[] | null;
     remoteWorkDays: string[] | null;
 };
@@ -147,13 +140,6 @@ export const defaultPerson1: HouseholdMember = {
     hasDisability: 'no',
     workPlaceType: 'hybrid',
     workPlaceTypeBeforeLeave: null,
-    schoolPlaceType: 'hybrid',
-    usualWorkPlace: {
-        name: 'Bombardier'
-    },
-    usualSchoolPlace: {
-        name: 'Université de Montréal, Campus de la Montagne'
-    },
     travelToWorkDays: ['no'],
     remoteWorkDays: ['no']
 };
@@ -179,13 +165,6 @@ export const defaultPerson2: HouseholdMember = {
     hasDisability: 'yes',
     workPlaceType: 'hybrid',
     workPlaceTypeBeforeLeave: null,
-    schoolPlaceType: 'hybrid',
-    usualWorkPlace: {
-        name: 'Hôtel de ville de Brossard'
-    },
-    usualSchoolPlace: {
-        name: 'Université de Montréal, Campus de la Montagne'
-    },
     travelToWorkDays: ['no'],
     remoteWorkDays: ['no']
 };
@@ -208,16 +187,36 @@ export type VisitedPlace = {
 
 export type TravelBehavior = {
     noWorkTripReason: string | null;
-    noWorkTripReasonSpecify: string | null;
+    usualWorkPlace: {
+        name: string;
+    } | null;
+    usualWorkPlaceCommuting: string | null;
+    hasSchoolPlace: string | null;
+    usualSchoolPlace: {
+        name: string;
+    } | null;
     noSchoolTripReason: string | null;
-    noSchoolTripReasonSpecify: string | null;
 };
 
 export const defaultTravelBehavior: TravelBehavior = {
     noWorkTripReason: null,
-    noWorkTripReasonSpecify: null,
-    noSchoolTripReason: null,
-    noSchoolTripReasonSpecify: null
+    usualWorkPlace: null,
+    usualWorkPlaceCommuting: null,
+    hasSchoolPlace: null,
+    usualSchoolPlace: null,
+    noSchoolTripReason: null
+};
+
+// Default person is worker and student and no trips, so we will those values
+export const defaultTravelBehaviorWhenNoTrip: TravelBehavior = {
+    noWorkTripReason: 'noWork',
+    usualWorkPlace: { name: 'Bombardier' },
+    usualWorkPlaceCommuting: 'walk',
+    hasSchoolPlace: 'yes',
+    usualSchoolPlace: {
+        name: 'Université de Montréal, Campus de la Montagne'
+    },
+    noSchoolTripReason: 'distanceLearning'
 };
 
 export type LongDistanceSection = {
@@ -576,80 +575,6 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.workPlaceTypeBeforeLeave`,
                 value: person.workPlaceTypeBeforeLeave
-            });
-        }
-
-        // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (person.schoolPlaceType === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.schoolPlaceType`,
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.schoolPlaceType`,
-                value: person.schoolPlaceType
-            });
-        }
-
-        // Test the usual workplace, or its absence
-        if (person.usualWorkPlace === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.usualWorkPlace.name`,
-                isVisible: false
-            });
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.usualWorkPlace.geography`,
-                isVisible: false
-            });
-        } else {
-            // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
-            /* @link file://./../src/survey/common/conditionals.tsx */
-            testHelpers.inputStringTest({
-                context,
-                path: `household.persons.${personIdString}.usualWorkPlace.name`,
-                value: person.usualWorkPlace.name
-            });
-
-            // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
-            /* @link file://./../src/survey/common/conditionals.tsx */
-            testHelpers.inputMapFindPlaceTest({
-                context,
-                path: `household.persons.${personIdString}.usualWorkPlace.geography`
-            });
-        }
-
-        // Test the usual school place, or its absence
-        if (person.usualSchoolPlace === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.usualSchoolPlace.name`,
-                isVisible: false
-            });
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.usualSchoolPlace.geography`,
-                isVisible: false
-            });
-        } else {
-            // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
-            /* @link file://./../src/survey/common/conditionals.tsx */
-            testHelpers.inputStringTest({
-                context,
-                path: `household.persons.${personIdString}.usualSchoolPlace.name`,
-                value: person.usualSchoolPlace.name
-            });
-
-            // Test custom widget personUsualSchoolPlaceGeography
-            testHelpers.inputMapFindPlaceTest({
-                context,
-                path: `household.persons.${personIdString}.usualSchoolPlace.geography`
             });
         }
 
@@ -1665,21 +1590,97 @@ export const fillTravelBehaviorSectionTests = ({
         });
     }
 
-    // Test custom widget personNoWorkTripReasonSpecify with conditional shouldAskPersonNoWorkTripSpecifyCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (travelBehavior.noWorkTripReasonSpecify === null) {
+    // Test the usual workplace, or its absence in this section
+    if (travelBehavior.usualWorkPlace === null) {
         testHelpers.inputVisibleTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReasonSpecify',
+            path: 'household.persons.${activePersonId}.usualWorkPlace.name',
+            isVisible: false
+        });
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualWorkPlace.geography',
             isVisible: false
         });
     } else {
+        // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
         testHelpers.inputStringTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReasonSpecify',
-            value: travelBehavior.noWorkTripReasonSpecify!
+            path: 'household.persons.${activePersonId}.usualWorkPlace.name',
+            value: travelBehavior.usualWorkPlace!.name
+        });
+
+        // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputMapFindPlaceTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualWorkPlace.geography'
         });
     }
+
+    // Test radio widget personUsualWorkPlaceCommuting with conditional hasWorkingLocationNotSetCustomConditional with choices usualWorkPlaceCommutingModes
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (travelBehavior.usualWorkPlaceCommuting === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualWorkPlaceCommuting',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualWorkPlaceCommuting',
+            value: travelBehavior.usualWorkPlaceCommuting
+        });
+    }
+
+    // Test radio widget personHasSchoolPlace with conditional shouldAskForNoSchoolTripFollowupCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (travelBehavior.hasSchoolPlace === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.hasSchoolPlace',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.hasSchoolPlace',
+            value: travelBehavior.hasSchoolPlace
+        });
+    }
+
+    // Test the usual school place, or its absence
+    if (travelBehavior.usualSchoolPlace === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualSchoolPlace.name',
+            isVisible: false
+        });
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualSchoolPlace.geography',
+            isVisible: false
+        });
+    } else {
+        // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualSchoolPlace.name',
+            value: travelBehavior.usualSchoolPlace!.name
+        });
+
+        // Test custom widget personUsualSchoolPlaceGeography
+        testHelpers.inputMapFindPlaceTest({
+            context,
+            path: 'household.persons.${activePersonId}.usualSchoolPlace.geography'
+        });
+    }
+
     // Implement custom test
 
     // Test custom widget personNoSchoolTripIntro
@@ -1699,22 +1700,6 @@ export const fillTravelBehaviorSectionTests = ({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReason',
             value: travelBehavior.noSchoolTripReason
-        });
-    }
-
-    // Test custom widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripSpecifyCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (travelBehavior.noSchoolTripReasonSpecify === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReasonSpecify',
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputStringTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReasonSpecify',
-            value: travelBehavior.noSchoolTripReasonSpecify!
         });
     }
 

@@ -495,8 +495,8 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
         label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.leaveSicknessPersonalReason')
     },
     {
-        value: 'noSchool',
-        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.noSchool')
+        value: 'strike',
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.strike')
     },
     ...otherWithoutSpecify,
     ...dontKnow
@@ -740,4 +740,37 @@ export const intercityBusStationChoices: ChoiceType[] = [
     },
     ...otherWithoutSpecify,
     ...dontKnow
+];
+
+export const usualWorkPlaceCommutingModes: ChoiceType[] = [
+    {
+        value: 'carDriver',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.carDriver')
+    },
+    {
+        value: 'carPassenger',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.carPassenger')
+    },
+    {
+        value: 'transit',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.transit')
+    },
+    {
+        value: 'walk',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.walk')
+    },
+    {
+        value: 'bike',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.bike')
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.other'),
+        conditional: conditionals.householdWithoutTwoWheelConditional
+    },
+    {
+        value: 'otherMotor',
+        label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.otherMotor'),
+        conditional: conditionals.householdWithTwoWheelConditional
+    }
 ];

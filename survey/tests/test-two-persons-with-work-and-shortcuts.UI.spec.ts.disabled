@@ -52,9 +52,6 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     workPlaceType: 'onLocation',
     workPlaceTypeBeforeLeave: null,
     schoolPlaceType: null,
-    usualWorkPlace: {
-        name: 'Dépanneur Otis'
-    },
     usualSchoolPlace: null,
     travelToWorkDays: ['no'],
     remoteWorkDays: null
@@ -79,9 +76,6 @@ const person2: commonUITestsHelpers.HouseholdMember = {
     workPlaceType: 'onLocation',
     workPlaceTypeBeforeLeave: null,
     schoolPlaceType: null,
-    usualWorkPlace: {
-        name: 'Go Sport La Malbaie'
-    },
     usualSchoolPlace: null,
     travelToWorkDays: ['no'],
     remoteWorkDays: null // Question won't show
@@ -96,7 +90,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
-        name: null, // Question won't show.
+        name: 'Dépanneur Otis',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM
@@ -197,7 +191,7 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
-        name: null, // Question won't show.
+        name: 'Go Sport La Malbaie',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 10 * 60 * 60, // 10:00 AM

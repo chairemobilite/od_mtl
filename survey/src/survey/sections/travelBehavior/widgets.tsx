@@ -10,17 +10,24 @@ import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
+import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
+import * as customHelpPopup from '../../common/customHelpPopup';
+import * as customLabels from '../../common/customLabels';
 
-// Custom because it uses the builtin widget
-export const activePersonTitle = customWidgets.activePersonTitle;
+// activePersonTitle
 
-// Same as the one from tripsIntro
-export const buttonSwitchPerson = customWidgets.buttonSwitchPerson;
+// buttonSwitchPerson
 
-// Custom because of the label
-export const personNoWorkTripIntro = customWidgets.personNoWorkTripIntro;
+// Custom label because of the date placeholder
+export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoWorkTripIntro',
+    containsHtml: true,
+    text: customLabels.personNoWorkTripIntroCustomLabel,
+    conditional: customConditionals.shouldAskForNoWorkTripReasonCustomConditional
+};
 
 export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
     ...defaultInputBase.inputSelectBase,
@@ -33,25 +40,109 @@ export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
     validations: validations.requiredValidation
 };
 
-// Using custom conditional because it involves currentJourney and custom widget because of the label
-export const personNoWorkTripReasonSpecify = customWidgets.personNoWorkTripReasonSpecify;
+export const personUsualWorkPlaceIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.usualWorkPlaceIntro',
+    containsHtml: false,
+    text: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('travelBehavior:personUsualWorkPlaceIntro', {
+            nickname,
+            count: countPersons,
+            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+        });
+    },
+    conditional: customConditionals.hasWorkingLocationNotSetCustomConditional
+};
 
-// Custom because of the label
-export const personNoSchoolTripIntro = customWidgets.personNoSchoolTripIntro;
+export const personUsualWorkPlaceName: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'household.persons.{_activePersonId}.usualWorkPlace.name',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('travelBehavior:personUsualWorkPlaceName', {
+            nickname,
+            count: countPersons
+        });
+    },
+    conditional: customConditionals.hasWorkingLocationNotSetCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom because it's a map
+export const personUsualWorkPlaceGeography = customWidgets.personUsualWorkPlaceGeography;
+
+// Custom label for suffix by workplace type
+export const personUsualWorkPlaceCommuting: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.usualWorkPlaceCommuting',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.personUsualWorkPlaceCommutingCustomLabel,
+    helpPopup: customHelpPopup.usualWorkPlaceCommutingHelpPopup,
+    choices: choices.usualWorkPlaceCommutingModes,
+    conditional: customConditionals.hasWorkingLocationNotSetCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom label because of the date placeholder
+export const personNoSchoolTripIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoSchoolTripIntro',
+    containsHtml: true,
+    text: customLabels.personNoSchoolTripIntroCustomLabel,
+    conditional: customConditionals.shouldAskForNoSchoolTripFollowupCustomConditional
+};
+
+// Custom label to change label for 5 years old
+export const personHasSchoolPlace: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.persons.{_activePersonId}.hasSchoolPlace',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.personHasSchoolPlaceCustomLabel,
+    choices: choices.yesNo,
+    conditional: customConditionals.shouldAskForNoSchoolTripFollowupCustomConditional,
+    validations: validations.requiredValidation
+};
+
+export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'household.persons.{_activePersonId}.usualSchoolPlace.name',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('travelBehavior:personUsualSchoolPlaceName', {
+            nickname,
+            count: countPersons
+        });
+    },
+    conditional: conditionals.hasSchoolLocationNotSetConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom because it is a map
+export const personUsualSchoolPlaceGeography = customWidgets.personUsualSchoolPlaceGeography;
 
 export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
     ...defaultInputBase.inputSelectBase,
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason',
     twoColumns: false,
     containsHtml: false,
-    label: (t: TFunction) => t('travelBehavior:personNoSchoolTripReason'),
+    label: customLabels.personNoSchoolTripReasonCustomLabel,
     choices: choices.noSchoolTripReasonChoices,
-    conditional: customConditionals.shouldAskForNoSchoolTripReasonCustomConditional,
+    conditional: conditionals.hasSchoolLocationNotSetConditional,
     validations: validations.requiredValidation
 };
-
-// Using custom conditional because it involves currentJourney and custom widget because of the label
-export const personNoSchoolTripReasonSpecify = customWidgets.personNoSchoolTripReasonSpecify;
 
 export const buttonTravelBehaviorConfirmNextSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,

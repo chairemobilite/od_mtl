@@ -57,9 +57,7 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 });
 
 /********** Tests travelBehavior section **********/
-const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
-travelBehavior.noWorkTripReason = 'noWork';
-travelBehavior.noSchoolTripReason = 'distanceLearning';
+const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 1,

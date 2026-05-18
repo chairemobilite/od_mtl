@@ -159,3 +159,34 @@ segments,mode.CarDriver_leisureStroll,Auto en tant que conducteur,Car as driver,
 segments,mode.CarPassenger_leisureStroll,Auto en tant que passager,Car as passenger,,
 segments,mode.Transit_leisureStroll,Transport en commun,Public transit,,
 segments,errors.trainStationsIncoherent,La ou les station(s) de transfert semblent incohérentes pour ce déplacement,The transfer station(s) do not seem coherent for this trip,,
+travelBehavior,personHasSchoolPlace_schoolchildcare,"Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?","Does {{nickname}} attend a school, daycare or CPE?",,
+travelBehavior,workCommutingHelpPopup.title,Pourquoi cette question?,Why this question?,,
+travelBehavior,workCommutingHelpPopup.content,"**Pourquoi cette question?**
+Inspirée du Recensement de Statistique Canada, cette question permet de comparer les modes de navettage entre enquêtes.","**Why this question?**
+Inspired by Statistics Canada’s Census, this question allows for comparison of commuting modes across surveys.",,
+travelBehavior,personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace,"Quel moyen de transport utilise habituellement {{nickname}} pour** se rendre à son lieu de travail?** 
+__Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+Répondre le mode utilisé en quittant le domicile, pas celui utilisé pour les livraisons, tournées, patrouilles, visites chez clients.__","What mode of transportation does {{nickname}} usually use **to travel to their workplace?**
+__If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If {{nickname}} works at multiple locations, respond based on the location visited most frequently.
+Answer the mode used when leaving home, not the one used for deliveries, rounds, patrols, or customer visits.__","Quel moyen de transport utilisez-vous habituellement pour** vous rendre à votre lieu de travail?** 
+__Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si vouz fréquentez plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+Répondre le mode utilisé en quittant le domicile, pas celui utilisé pour les livraisons, tournées, patrouilles, visites chez clients.__","What mode of transportation do you usually use **to travel to your workplace?**
+__If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If you work at multiple locations, respond based on the location visited most frequently.
+Answer the mode used when leaving home, not the one used for deliveries, rounds, patrols, or customer visits.__"
+travelBehavior,personUsualWorkPlaceCommuting_onTheRoadWithoutUsualPlace,"Quel moyen de transport utilise habituellement {{nickname}} pour** se rendre à son lieu de travail?** 
+__Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+Répondre le mode utilisé en quittant le domicile.__","What mode of transportation does {{nickname}} usually use **to travel to their workplace?**
+__If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If {{nickname}} works at multiple locations, respond based on the location visited most frequently.
+Answer the mode used when leaving home.__","Quel moyen de transport utilisez-vous habituellement pour** vous rendre à votre lieu de travail?** 
+__Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si vouz fréquentez plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+Répondre le mode utilisé en quittant le domicile.__","What mode of transportation do you usually use **to travel to your workplace?**
+__If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If you work at multiple locations, respond based on the location visited most frequently.
+Answer the mode used when leaving home__"

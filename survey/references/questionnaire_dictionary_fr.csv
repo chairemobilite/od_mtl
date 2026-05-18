@@ -234,37 +234,6 @@ Type de question,Bouton radio
 Conditionnel,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?"
 ""
-Champ,schoolPlaceType
-Type de question,Bouton radio
-Conditionnel,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
-Question,Est-ce que {{nickname}} a un lieu d'études fixe?
-Valeurs,"onLocation : Oui, études au lieu fixe en présentiel en tout temps
-hybrid : Oui, études en mode hybride (télé-études et en présentiel)
-remote : Non, études à partir du domicile ou à distance"
-""
-Champ,name
-Type de question,Champ de texte
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
-""
-Champ,geography
-Type de question,Entrée inconnue
-Conditionnel,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
-""
-Champ,name
-Type de question,Champ de texte
-Conditionnel,personUsualSchoolPlaceNameCustomConditional
-Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
-""
-Champ,geography
-Type de question,Entrée inconnue
-Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
-""
 Champ,travelToWorkDays
 Type de question,Case à cocher
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
@@ -698,12 +667,8 @@ Section,Mobilité
 Abréviation,tb_
 ""
 Champ,buttonSwitchPerson
-Type de question,Entrée inconnue
+Type de question,Builtin
 Question,Changer de personne
-""
-Champ,personNoWorkTripIntro
-Type de question,Entrée inconnue
-Question,Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Type de question,Liste déroulante
@@ -716,32 +681,62 @@ noWork : Pas de travail prévu
 other : Autre
 dontKnow : Je ne sais pas"
 ""
-Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
-Type de question,Entrée inconnue
-Conditionnel,shouldAskPersonNoWorkTripSpecifyCustomConditional
-Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
-(Facultatif)"
+Champ,hh_persons.{_activePersonId}.usualWorkPlace.name
+Type de question,Champ de texte
+Conditionnel,hasWorkingLocationNotSetCustomConditional
+Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
-Champ,personNoSchoolTripIntro
+Champ,hh_persons.{_activePersonId}.usualWorkPlace.geography
 Type de question,Entrée inconnue
-Question,Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+Conditionnel,hasWorkingLocationNotSetCustomConditional
+Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
+""
+Champ,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
+Type de question,Bouton radio
+Conditionnel,hasWorkingLocationNotSetCustomConditional
+Question,"Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
+Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité."
+Valeurs,"carDriver : Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
+carPassenger : Passager (voiture/moto/scooter)
+transit : Transport en commun
+walk : Marche
+bike : Vélo
+other (householdWithoutTwoWheelConditional : hh_twoWheelNumber === 0) : Autre moyen
+otherMotor (householdWithTwoWheelConditional : hh_twoWheelNumber >= 1) : Autre moyen (incluant moto)"
+""
+Champ,hh_persons.{_activePersonId}.hasSchoolPlace
+Type de question,Bouton radio
+Conditionnel,shouldAskForNoSchoolTripFollowupCustomConditional
+Question,"Est-ce que {{nickname}} se rend dans un établissement scolaire pour étudier?
+Répondre ‘Non’ seulement si {{nickname}} n’effectue que des cours à distance."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,hh_persons.{_activePersonId}.usualSchoolPlace.name
+Type de question,Champ de texte
+Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
+""
+Champ,hh_persons.{_activePersonId}.usualSchoolPlace.geography
+Type de question,Entrée inconnue
+Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Type de question,Liste déroulante
-Conditionnel,shouldAskForNoSchoolTripReasonCustomConditional
-Question,Pour quelle raison?
+Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,Raison pour laquelle {{nickname}} n’a pas effectué de déplacement pour les études le {{journeyDate}}?
 Valeurs,"distanceLearning : Cours à distance
-schoolWasClosed : École fermée
+schoolWasClosed : École fermée ou pas de cours
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
-noSchool : Pas de cours
+strike : Grève
 other : Autre
 dontKnow : Je ne sais pas"
-""
-Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
-Type de question,Entrée inconnue
-Conditionnel,shouldAskForNoSchoolTripSpecifyCustomConditional
-Question,"Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
-(Facultatif)"
 ""
 ""
 ""

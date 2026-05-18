@@ -195,6 +195,33 @@ export const shouldAskForNoSchoolTripReason = ({
     return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0;
 };
 
+export const shouldAskForNoSchoolTripFollowup = ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) => {
+    // Ask only for full time students
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return false;
+    }
+    const studentType = person.studentType;
+    const personAge = person.age;
+    // Ask if the person is a student or is of school age and did not declare declare school trips on a business day
+    const personCouldHaveSchoolTrips =
+        ['fullTime', 'partTime'].includes(studentType) || (personAge >= 5 && personAge <= 15);
+    if (!personCouldHaveSchoolTrips) {
+        return false;
+    }
+
+    const tripsDate = getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+
+    return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0;
+};
+
 const travelBehaviorForPersonComplete = function ({
     person,
     interview

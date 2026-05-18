@@ -152,23 +152,6 @@ Est-ce que {{nickname}} a un lieu d'emploi fixe?
 Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?
 
 
-Est-ce que {{nickname}} a un lieu d'études fixe?
-- Oui, études au lieu fixe en présentiel en tout temps
-- Oui, études en mode hybride (télé-études et en présentiel)
-- Non, études à partir du domicile ou à distance
-
-Nom ou adresse du lieu habituel de travail de {{nickname}}
-
-Veuillez localiser le lieu de travail habituel de {{nickname}}
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu".
-
-Nom ou adresse du lieu habituel d’études de {{nickname}}
-
-Veuillez localiser le lieu habituel d’études de {{nickname}}.
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
-
 Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
 Pour se rendre au travail ou toute autre raison concernant le travail.
 
@@ -459,7 +442,7 @@ Section: Mobilité
 
 Changer de personne
 
-Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{assignedDate}}
+Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{journeyDate}}
 
 Pour quelle raison?
 - Télétravail / travail à la maison
@@ -469,21 +452,45 @@ Pour quelle raison?
 - Autre
 - Je ne sais pas
 
-Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour le travail le {{assignedDate}}?
-(Facultatif)
+{{nickname}} n'a pas fait de déplacement vers son lieu de travail habituel. Pouvez-vous le localiser?
 
-Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{assignedDate}}.
+Nom ou adresse du lieu habituel de travail de {{nickname}}
 
-Pour quelle raison?
+Veuillez localiser le lieu de travail habituel de {{nickname}}
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu".
+
+Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
+Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+- Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
+- Passager (voiture/moto/scooter)
+- Transport en commun
+- Marche
+- Vélo
+- Autre moyen
+- Autre moyen (incluant moto)
+
+Vous n'avez déclaré aucun déplacement pour les études pour {{nickname}} le {{journeyDate}}
+
+Est-ce que {{nickname}} se rend dans un établissement scolaire pour étudier?
+Répondre ‘Non’ seulement si {{nickname}} n’effectue que des cours à distance.
+- Oui
+- Non
+
+Nom ou adresse du lieu habituel d’études de {{nickname}}
+
+Veuillez localiser le lieu habituel d’études de {{nickname}}.
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+
+Raison pour laquelle {{nickname}} n’a pas effectué de déplacement pour les études le {{journeyDate}}?
 - Cours à distance
-- École fermée
+- École fermée ou pas de cours
 - Congé (maladie, personnel, autre)
-- Pas de cours
+- Grève
 - Autre
 - Je ne sais pas
-
-Veuillez préciser la raison pour laquelle {{nickname}} n'a effectué aucun déplacement pour les études le {{assignedDate}}?
-(Facultatif)
 
 Continuer
 

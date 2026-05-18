@@ -9,9 +9,14 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'buttonSwitchPerson',
     'personNoWorkTripIntro',
     'personNoWorkTripReason',
-    'personNoWorkTripReasonSpecify',
+    'personUsualWorkPlaceIntro',
+    'personUsualWorkPlaceName',
+    'personUsualWorkPlaceGeography',
+    'personUsualWorkPlaceCommuting',
     'personNoSchoolTripIntro',
+    'personHasSchoolPlace',
+    'personUsualSchoolPlaceName',
+    'personUsualSchoolPlaceGeography',
     'personNoSchoolTripReason',
-    'personNoSchoolTripReasonSpecify',
     'buttonTravelBehaviorConfirmNextSection'
 ];
