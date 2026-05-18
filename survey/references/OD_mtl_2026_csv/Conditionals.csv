@@ -73,3 +73,6 @@ subwayLineConditional,||,${currentSegment}.subwayStationStart,===,longueuilUnive
 subwayLineConditional,&&,${currentSegment}.subwayStationEnd,===,lionelGroulx,)
 subwayLineConditional,||,${currentSegment}.subwayStationStart,===,lionelGroulx,(
 subwayLineConditional,&&,${currentSegment}.subwayStationEnd,===,longueuilUniversiteDeSherbrooke,)
+householdWithTwoWheelConditional,,household.twoWheelNumber,>=,1,
+householdWithoutTwoWheelConditional,,household.twoWheelNumber,===,0,
+hasSchoolLocationNotSetConditional,,${currentPerson}.hasSchoolPlace,===,yes,

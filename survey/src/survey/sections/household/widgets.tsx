@@ -244,65 +244,6 @@ export const personWorkPlaceTypeBeforeLeave: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personSchoolPlaceType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'schoolPlaceType',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personSchoolPlaceType', {
-            nickname,
-            count: countPersons
-        });
-    },
-    choices: choices.schoolPlaceTypeChoices,
-    conditional: conditionals.isStudentConditional,
-    validations: validations.requiredValidation
-};
-
-export const personUsualWorkPlaceName: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'usualWorkPlace.name',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personUsualWorkPlaceName', {
-            nickname,
-            count: countPersons
-        });
-    },
-    conditional: conditionals.hasWorkingLocationConditional,
-    validations: validations.requiredValidation
-};
-
-export const personUsualWorkPlaceGeography = customWidgets.personUsualWorkPlaceGeography;
-
-export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'usualSchoolPlace.name',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personUsualSchoolPlaceName', {
-            nickname,
-            count: countPersons
-        });
-    },
-    conditional: customConditionals.personUsualSchoolPlaceNameCustomConditional,
-    validations: validations.requiredValidation
-};
-
-export const personUsualSchoolPlaceGeography = customWidgets.personUsualSchoolPlaceGeography;
-
 export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,
     path: 'travelToWorkDays',

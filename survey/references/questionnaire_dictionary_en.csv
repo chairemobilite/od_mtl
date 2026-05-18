@@ -234,37 +234,6 @@ Question type,Radio input
 Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
 Question,"Before being on leave, did {{nickname}} have a fixed work location?"
 ""
-Field,schoolPlaceType
-Question type,Radio input
-Conditional,isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent
-Question,Does {{nickname}} have a fixed study location?
-Values,"onLocation : Yes, always on-site at fixed location
-hybrid : Yes, hybrid studies (remote and on-site)
-remote : No, remote studies from home or from elsewhere"
-""
-Field,name
-Question type,Text input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,Name or address of {{nickname}}'s usual place of work
-""
-Field,geography
-Question type,Unknown input
-Conditional,hasWorkingLocationConditional : workPlaceType === onLocation || workPlaceType === hybrid || workPlaceType === onTheRoadWithUsualPlace || workPlaceTypeBeforeLeave === onLocation || workPlaceTypeBeforeLeave === hybrid || workPlaceTypeBeforeLeave === onTheRoadWithUsualPlace
-Question,"Please locate the usual place of work for {{nickname}}
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the ""Search location"" button."
-""
-Field,name
-Question type,Text input
-Conditional,personUsualSchoolPlaceNameCustomConditional
-Question,Name or address of {{nickname}}'s school or main study location
-""
-Field,geography
-Question type,Unknown input
-Question,"Please locate the usual place of study for {{nickname}}.
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the ""Search location"" button."
-""
 Field,travelToWorkDays
 Question type,Checkbox input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
@@ -698,12 +667,8 @@ Section,Travel behavior
 Abbreviation,tb_
 ""
 Field,buttonSwitchPerson
-Question type,Unknown input
+Question type,Builtin
 Question,Change person
-""
-Field,personNoWorkTripIntro
-Question type,Unknown input
-Question,You didn't report any work trips by {{nickname}} on {{assignedDate}}
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason
 Question type,Select input
@@ -716,30 +681,62 @@ noWork : No work planned
 other : Other
 dontKnow : I don't know"
 ""
-Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
-Question type,Unknown input
-Conditional,shouldAskPersonNoWorkTripSpecifyCustomConditional
-Question,Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
+Field,hh_persons.{_activePersonId}.usualWorkPlace.name
+Question type,Text input
+Conditional,hasWorkingLocationNotSetCustomConditional
+Question,Name or address of {{nickname}}'s usual workplace
 ""
-Field,personNoSchoolTripIntro
+Field,hh_persons.{_activePersonId}.usualWorkPlace.geography
 Question type,Unknown input
-Question,You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+Conditional,hasWorkingLocationNotSetCustomConditional
+Question,"Please locate the usual workplace for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
+""
+Field,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
+Question type,Radio input
+Conditional,hasWorkingLocationNotSetCustomConditional
+Question,"What mode of transportation does {{nickname}} usually use to travel to their workplace?
+If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If {{nickname}} works at multiple locations, respond based on the location visited most frequently."
+Values,"carDriver : Personal car (can belong to self, friend, family, etc)
+carPassenger : Passenger (car/motorcycle/moped)
+transit : Public transit
+walk : Walking
+bike : Bicycle
+other (householdWithoutTwoWheelConditional : hh_twoWheelNumber === 0) : Other mode
+otherMotor (householdWithTwoWheelConditional : hh_twoWheelNumber >= 1) : Other mode (including motorcycle)"
+""
+Field,hh_persons.{_activePersonId}.hasSchoolPlace
+Question type,Radio input
+Conditional,shouldAskForNoSchoolTripFollowupCustomConditional
+Question,"Does {{nickname}} attend a school or educational institution for studies?
+Answer “No” only if {{nickname}} takes courses exclusively online."
+Values,"yes : Yes
+no : No"
+""
+Field,hh_persons.{_activePersonId}.usualSchoolPlace.name
+Question type,Text input
+Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,Name or address of {{nickname}}'s school or main study location
+""
+Field,hh_persons.{_activePersonId}.usualSchoolPlace.geography
+Question type,Unknown input
+Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,"Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Question type,Select input
-Conditional,shouldAskForNoSchoolTripReasonCustomConditional
-Question,Why?
+Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Question,Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 Values,"distanceLearning : Distance learning
-schoolWasClosed : School was closed
+schoolWasClosed : School was closed or no classes
 leaveSicknessPersonalReason : Leave (sick, personal, other)
-noSchool : No classes
+strike : Strike
 other : Other
 dontKnow : I don't know"
-""
-Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
-Question type,Unknown input
-Conditional,shouldAskForNoSchoolTripSpecifyCustomConditional
-Question,Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
 ""
 ""
 ""

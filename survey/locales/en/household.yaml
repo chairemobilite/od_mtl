@@ -48,37 +48,6 @@ personWorkPlaceTypeBeforeLeave: >-
     location</strong>?
 personWorkPlaceTypeBeforeLeave_one: >-
     <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
-personSchoolPlaceType: Does {{nickname}} have a fixed <strong>study location</strong>?
-personSchoolPlaceType_one: Do you have a fixed <strong>study location</strong>?
-personUsualWorkPlaceName: >-
-    <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
-personUsualWorkPlaceName_one: >-
-    <strong>Name or address</strong> of your <strong>usual place of work</strong>
-personUsualWorkPlaceGeography: >-
-    Please locate the <strong>usual place of work</strong> for {{nickname}}<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-personUsualWorkPlaceGeography_one: >-
-    Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
-    _oblique">Navigate, zoom, and click on the map to identify the location. Once
-    located, you can move the marker for greater precision.<br />You can also search
-    for the place on the map using the "Search location" button.</span>
-personUsualSchoolPlaceName: >-
-    <strong>Name or address</strong> of {{nickname}}'s school or <strong>main study
-    location</strong>
-personUsualSchoolPlaceName_one: >-
-    <strong>Name or address</strong> of your school or <strong>main study location</strong>
-personUsualSchoolPlaceGeography: >-
-    Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-personUsualSchoolPlaceGeography_one: >-
-    Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
-    _oblique">Navigate, zoom, and click on the map to identify the location. Once
-    located, you can move the marker for greater precision.<br />You can also search
-    for the place on the map using the "Search location" button.</span>
 personTravelToWorkDays: >-
     During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
     for <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for

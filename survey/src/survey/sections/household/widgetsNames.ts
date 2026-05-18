@@ -23,11 +23,6 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personTransitPasses',
     'personWorkPlaceType',
     'personWorkPlaceTypeBeforeLeave',
-    'personSchoolPlaceType',
-    'personUsualWorkPlaceName',
-    'personUsualWorkPlaceGeography',
-    'personUsualSchoolPlaceName',
-    'personUsualSchoolPlaceGeography',
     'personTravelToWorkDays',
     'personRemoteWorkDays'
 ];

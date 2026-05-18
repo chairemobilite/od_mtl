@@ -220,30 +220,6 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', value: '?' });
 
-    // Test radio widget personSchoolPlaceType with conditional isStudentConditional with choices schoolPlaceTypeChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.schoolPlaceType', value: '?' });
-
-    // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.name', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.name', value: '?' });
-
-    // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualWorkPlace.geography', isVisible: true });
-    // Implement custom test
-
-    // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usualSchoolPlace.name', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.usualSchoolPlace.name', value: '?' });
-
-    // Test custom widget personUsualSchoolPlaceGeography
-    // Implement custom test
-
     // Test checkbox widget personTravelToWorkDays with conditional isWorkerConditional with choices lastWeekTravelToWorkDaysCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
@@ -612,37 +588,66 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     // Progress bar test for travelBehavior section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'travelBehavior', completionPercentage: 0 });
 
-    // Test custom widget activePersonTitle
-    // Implement custom test
+    // Test builtin widget activePersonTitle
 
-    // Test custom widget buttonSwitchPerson
-    // Implement custom test
+    // Test builtin widget buttonSwitchPerson
 
-    // Test custom widget personNoWorkTripIntro
-    // Implement custom test
+    // Test infotext widget personNoWorkTripIntro with conditional shouldAskForNoWorkTripReasonCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoWorkTripIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
 
     // Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional with choices noWorkTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', isVisible: true });
 
-    // Test custom widget personNoWorkTripReasonSpecify with conditional shouldAskPersonNoWorkTripSpecifyCustomConditional
+    // Test infotext widget personUsualWorkPlaceIntro with conditional hasWorkingLocationNotSetCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify', isVisible: true });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.usualWorkPlaceIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test string widget personUsualWorkPlaceName with conditional hasWorkingLocationNotSetCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualWorkPlace.name', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.{_activePersonId}.usualWorkPlace.name', value: '?' });
+
+    // Test custom widget personUsualWorkPlaceGeography with conditional hasWorkingLocationNotSetCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualWorkPlace.geography', isVisible: true });
     // Implement custom test
 
-    // Test custom widget personNoSchoolTripIntro
+    // Test radio widget personUsualWorkPlaceCommuting with conditional hasWorkingLocationNotSetCustomConditional with choices usualWorkPlaceCommutingModes
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualWorkPlaceCommuting', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.usualWorkPlaceCommuting', value: '?' });
+
+    // Test infotext widget personNoSchoolTripIntro with conditional shouldAskForNoSchoolTripFollowupCustomConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoSchoolTripIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget personHasSchoolPlace with conditional shouldAskForNoSchoolTripFollowupCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.hasSchoolPlace', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.hasSchoolPlace', value: '?' });
+
+    // Test string widget personUsualSchoolPlaceName with conditional hasSchoolLocationNotSetConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualSchoolPlace.name', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.{_activePersonId}.usualSchoolPlace.name', value: '?' });
+
+    // Test custom widget personUsualSchoolPlaceGeography with conditional hasSchoolLocationNotSetConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualSchoolPlace.geography', isVisible: true });
     // Implement custom test
 
-    // Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional with choices noSchoolTripReasonChoices
+    // Test select widget personNoSchoolTripReason with conditional hasSchoolLocationNotSetConditional with choices noSchoolTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', isVisible: true });
-
-    // Test custom widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripSpecifyCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify', isVisible: true });
-    // Implement custom test
 
     // Test nextbutton widget buttonTravelBehaviorConfirmNextSection
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });

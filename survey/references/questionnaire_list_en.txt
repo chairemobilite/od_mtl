@@ -152,23 +152,6 @@ Does {{nickname}} have a fixed work location?
 Before being on leave, did {{nickname}} have a fixed work location?
 
 
-Does {{nickname}} have a fixed study location?
-- Yes, always on-site at fixed location
-- Yes, hybrid studies (remote and on-site)
-- No, remote studies from home or from elsewhere
-
-Name or address of {{nickname}}'s usual place of work
-
-Please locate the usual place of work for {{nickname}}
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the "Search location" button.
-
-Name or address of {{nickname}}'s school or main study location
-
-Please locate the usual place of study for {{nickname}}.
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the "Search location" button.
-
 During the last week, when did {{nickname}} travel for work?
 To get to or for any other reason concerning work.
 
@@ -459,7 +442,7 @@ Section: Travel behavior
 
 Change person
 
-You didn't report any work trips by {{nickname}} on {{assignedDate}}
+You didn't report any work trips by {{nickname}} on {{journeyDate}}
 
 Why?
 - Remote work / work from home
@@ -469,19 +452,45 @@ Why?
 - Other
 - I don't know
 
-Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
+{{nickname}} has not traveled to {{gender: his/her/their/their}} usual workplace. Can you locate it?
 
-You didn't report any school trips by {{nickname}} on {{assignedDate}}.
+Name or address of {{nickname}}'s usual workplace
 
-Why?
+Please locate the usual workplace for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+What mode of transportation does {{nickname}} usually use to travel to their workplace?
+If multiple modes are used, indicate the one that represents the largest share of distance traveled.
+If {{nickname}} works at multiple locations, respond based on the location visited most frequently.
+- Personal car (can belong to self, friend, family, etc)
+- Passenger (car/motorcycle/moped)
+- Public transit
+- Walking
+- Bicycle
+- Other mode
+- Other mode (including motorcycle)
+
+You didn't report any study trips for {{nickname}} on {{journeyDate}}
+
+Does {{nickname}} attend a school or educational institution for studies?
+Answer “No” only if {{nickname}} takes courses exclusively online.
+- Yes
+- No
+
+Name or address of {{nickname}}'s school or main study location
+
+Please locate the usual place of study for {{nickname}}.
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
+Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 - Distance learning
-- School was closed
+- School was closed or no classes
 - Leave (sick, personal, other)
-- No classes
+- Strike
 - Other
 - I don't know
-
-Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
 
 Continue
 

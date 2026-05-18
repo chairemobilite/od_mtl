@@ -4,19 +4,114 @@
 
 buttonSwitchPerson: Change person
 personNoWorkTripIntro: >-
-    <strong>You didn't report any work trips</strong> by {{nickname}} on {{assignedDate}}
+    <strong>You didn't report any work trips</strong> by {{nickname}} on {{journeyDate}}
+personNoWorkTripIntro_one: <strong>You didn't report any work trips</strong> on {{journeyDate}}
 personNoWorkTripReason: Why?
-personNoWorkTripReasonSpecify: >-
-    Please specify the reason why {{nickname}} made no trip for work on {{assignedDate}}?
-personNoWorkTripReasonSpecify_one: >-
-    Please specify the reason why you made no trip for work on {{assignedDate}}?<br
-    /><span class="_pale _oblique">(Optional)</span>
+personUsualWorkPlaceIntro: '{{nickname}} has not traveled to their usual workplace.
+    Can you locate it?'
+personUsualWorkPlaceIntro_male: '{{nickname}} has not traveled to his usual workplace.
+    Can you locate it?'
+personUsualWorkPlaceIntro_female: '{{nickname}} has not traveled to her usual workplace.
+    Can you locate it?'
+personUsualWorkPlaceIntro_one: You have not traveled to your usual workplace. Can
+    you locate it?
+personUsualWorkPlaceIntro_male_one: You have not traveled to your usual workplace.
+    Can you locate it?
+personUsualWorkPlaceIntro_female_one: You have not traveled to your usual workplace.
+    Can you locate it?
+personUsualWorkPlaceName: >-
+    <strong>Name or address</strong> of {{nickname}}'s <strong>usual workplace</strong>
+personUsualWorkPlaceName_one: <strong>Name or address</strong> of your <strong>usual
+    workplace</strong>
+personUsualWorkPlaceGeography: >-
+    Please locate the <strong>usual workplace</strong> for {{nickname}}<br /><span
+    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
+    Once located, you can move the marker for greater precision.<br />You can also
+    search for the place on the map using the "Search location" button.</span>
+personUsualWorkPlaceGeography_one: >-
+    Please locate your <strong>usual workplace</strong>.<br /><span class="_pale _oblique">Navigate,
+    zoom, and click on the map to identify the location. Once located, you can move
+    the marker for greater precision.<br />You can also search for the place on the
+    map using the "Search location" button.</span>
+personUsualWorkPlaceCommuting: >-
+    What mode of transportation does {{nickname}} usually use <strong>to travel to
+    their workplace?</strong><br /><span class="_pale _oblique">If multiple modes
+    are used, indicate the one that represents the largest share of distance traveled.<br
+    />If {{nickname}} works at multiple locations, respond based on the location visited
+    most frequently.</span>
+personUsualWorkPlaceCommuting_one: >-
+    What mode of transportation do you usually use <strong>to travel to your workplace?</strong><br
+    /><span class="_pale _oblique">If multiple modes are used, indicate the one that
+    represents the largest share of distance traveled.<br />If you work at multiple
+    locations, respond based on the location visited most frequently.</span>
 personNoSchoolTripIntro: >-
-    <strong>You didn't report any school trips</strong> by {{nickname}} on {{assignedDate}}.
-personNoSchoolTripReason: Why?
-personNoSchoolTripReasonSpecify: >-
-    Please specify the reason why {{nickname}} made no trip for school on {{assignedDate}}?
-personNoSchoolTripReasonSpecify_one: >-
-    Please specify the reason why you made no trip for school on {{assignedDate}}?<br
-    /><span class="_pale _oblique">(Optional)</span>
+    <strong>You didn't report any study trips</strong> for {{nickname}} on {{journeyDate}}
+personNoSchoolTripIntro_one: <strong>You didn't report any study trips</strong> on
+    {{journeyDate}}
+personHasSchoolPlace: >-
+    Does {{nickname}} attend <strong>a school or educational institution for studies?</strong><br
+    /><span class="_pale _oblique">Answer “No” only if {{nickname}} takes courses
+    exclusively online.</span>
+personHasSchoolPlace_one: >-
+    Do you attend <strong>a school or educational institution for studies?</strong><br
+    /><span class="_pale _oblique">Answer “No” only if you take courses exclusively
+    online.</span>
+personUsualSchoolPlaceName: >-
+    <strong>Name or address</strong> of {{nickname}}'s school or <strong>main study
+    location</strong>
+personUsualSchoolPlaceName_one: >-
+    <strong>Name or address</strong> of your school or <strong>main study location</strong>
+personUsualSchoolPlaceGeography: >-
+    Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
+    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
+    Once located, you can move the marker for greater precision.<br />You can also
+    search for the place on the map using the "Search location" button.</span>
+personUsualSchoolPlaceGeography_one: >-
+    Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
+    _oblique">Navigate, zoom, and click on the map to identify the location. Once
+    located, you can move the marker for greater precision.<br />You can also search
+    for the place on the map using the "Search location" button.</span>
+personNoSchoolTripReason: Reason {{nickname}} did not travel for their studies on
+    {{journeyDate}}
+personNoSchoolTripReason_male: Reason {{nickname}} did not travel for his studies
+    on {{journeyDate}}
+personNoSchoolTripReason_female: Reason {{nickname}} did not travel for her studies
+    on {{journeyDate}}
+personNoSchoolTripReason_one: Reason you did not travel for your studies on {{journeyDate}}
+personNoSchoolTripReason_male_one: Reason you did not travel for your studies on {{journeyDate}}
+personNoSchoolTripReason_female_one: Reason you did not travel for your studies on
+    {{journeyDate}}
 buttonTravelBehaviorConfirmNextSection: Continue
+personHasSchoolPlace_schoolchildcare: Does {{nickname}} attend a school, daycare or
+    CPE?
+workCommutingHelpPopup:
+    title: Why this question?
+    content: >-
+        <strong>Why this question?</strong><br />Inspired by Statistics Canada’s Census,
+        this question allows for comparison of commuting modes across surveys.
+personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace: >-
+    What mode of transportation does {{nickname}} usually use <strong>to travel to
+    their workplace?</strong><br /><span class="_pale _oblique">If multiple modes
+    are used, indicate the one that represents the largest share of distance traveled.<br
+    />If {{nickname}} works at multiple locations, respond based on the location visited
+    most frequently.<br />Answer the mode used when leaving home, not the one used
+    for deliveries, rounds, patrols, or customer visits.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace_one: >-
+    What mode of transportation do you usually use <strong>to travel to your workplace?</strong><br
+    /><span class="_pale _oblique">If multiple modes are used, indicate the one that
+    represents the largest share of distance traveled.<br />If you work at multiple
+    locations, respond based on the location visited most frequently.<br />Answer
+    the mode used when leaving home, not the one used for deliveries, rounds, patrols,
+    or customer visits.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithoutUsualPlace: >-
+    What mode of transportation does {{nickname}} usually use <strong>to travel to
+    their workplace?</strong><br /><span class="_pale _oblique">If multiple modes
+    are used, indicate the one that represents the largest share of distance traveled.<br
+    />If {{nickname}} works at multiple locations, respond based on the location visited
+    most frequently.<br />Answer the mode used when leaving home.</span>
+personUsualWorkPlaceCommuting_onTheRoadWithoutUsualPlace_one: >-
+    What mode of transportation do you usually use <strong>to travel to your workplace?</strong><br
+    /><span class="_pale _oblique">If multiple modes are used, indicate the one that
+    represents the largest share of distance traveled.<br />If you work at multiple
+    locations, respond based on the location visited most frequently.<br />Answer
+    the mode used when leaving home</span>

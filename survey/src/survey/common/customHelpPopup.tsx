@@ -103,3 +103,8 @@ export const assignedDateHelpPopup: HelpPopup = {
     title: (t: TFunction, interview) => t('tripsIntro:WhyThisDate'),
     content: (t: TFunction, interview) => t('tripsIntro:WhyThisDateExplanation')
 };
+
+export const usualWorkPlaceCommutingHelpPopup: HelpPopup = {
+    title: (t: TFunction) => t('travelBehavior:workCommutingHelpPopup.title'),
+    content: (t: TFunction) => t('travelBehavior:workCommutingHelpPopup.content')
+};

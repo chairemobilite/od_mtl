@@ -129,9 +129,9 @@ noWorkTripReasonChoices:
     noWork: No work planned
 noSchoolTripReasonChoices:
     distanceLearning: Distance learning
-    schoolWasClosed: School was closed
+    schoolWasClosed: School was closed or no classes
     leaveSicknessPersonalReason: Leave (sick, personal, other)
-    noSchool: No classes
+    strike: Strike
 educationalAttainment:
     noneOrPrimaryEducation: No certificate, diploma or degree
     secondaryEducation: High school (secondary) diploma or equivalency certificate
@@ -191,3 +191,12 @@ intercityBusStationChoices:
     YUL: Montreal Airport (YUL)
     terminusKirkland: Kirkland
     terminusLongueuil: Longueuil Intermodal Terminal
+usualWorkPlaceCommutingModes:
+    carDriver: <strong>Personal car</strong> (can belong to self, friend, family,
+        etc)
+    carPassenger: <strong>Passenger</strong> (car/motorcycle/moped)
+    transit: Public <strong>transit</strong>
+    walk: <strong>Walking</strong>
+    bike: <strong>Bicycle</strong>
+    other: <strong>Other</strong> mode
+    otherMotor: <strong>Other</strong> mode (including motorcycle)

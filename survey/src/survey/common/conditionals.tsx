@@ -800,3 +800,43 @@ export const subwayLineConditional: WidgetConditional = (interview, path) => {
         ]
     });
 };
+
+export const householdWithTwoWheelConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.twoWheelNumber',
+                comparisonOperator: '>=',
+                value: 1
+            }
+        ]
+    });
+};
+
+export const householdWithoutTwoWheelConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.twoWheelNumber',
+                comparisonOperator: '===',
+                value: 0
+            }
+        ]
+    });
+};
+
+export const hasSchoolLocationNotSetConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.hasSchoolPlace`,
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};

@@ -61,9 +61,7 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 
 /********** Tests travelBehavior section for first person **********/
 // Clone the default values to avoid modifying the default object, but keep defaults for other fields
-const travelBehaviorP1 = _cloneDeep(commonUITestsHelpers.defaultTravelBehavior);
-travelBehaviorP1.noWorkTripReason = 'noWork';
-travelBehaviorP1.noSchoolTripReason = 'distanceLearning';
+const travelBehaviorP1 = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 2,
@@ -82,11 +80,10 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 
 /********** Tests travelBehavior section for second person **********/
 // Define travel behavior data
-const travelBehaviorP2 = {
-    noWorkTripReason: 'other',
-    noWorkTripReasonSpecify: 'too much traffic, went back home',
-    noSchoolTripReason: 'other',
-    noSchoolTripReasonSpecify: 'none of your business'
+const travelBehaviorP2 = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
+travelBehaviorP2.noWorkTripReason = 'other';
+travelBehaviorP2.usualWorkPlace = {
+    name: 'Hôtel de ville de Brossard'
 };
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,

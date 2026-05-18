@@ -150,3 +150,49 @@ export const tripJunctionPaidParkingCustomLabel: I18nData = (t: TFunction, inter
         stopType: t('segments:toStopType', { context: segment.mode })
     });
 };
+
+export const personNoWorkTripIntroCustomLabel: I18nData = labelWithJourneyDate('travelBehavior:personNoWorkTripIntro');
+
+export const personNoSchoolTripIntroCustomLabel: I18nData = labelWithJourneyDate(
+    'travelBehavior:personNoSchoolTripIntro'
+);
+
+export const personHasSchoolPlaceCustomLabel: I18nData = (t: TFunction, interview, path) => {
+    const person = odHelpers.getPerson({ interview, path });
+    if (!person) {
+        throw new Error('personHasSchoolPlaceCustomLabel label: Person context not found');
+    }
+    const labelKeys = ['travelBehavior:personHasSchoolPlace'];
+    if (person.age === 5) {
+        labelKeys.unshift('travelBehavior:personHasSchoolPlace_schoolchildcare');
+    }
+    return t(labelKeys, {
+        nickname: odHelpers.getPersonIdentificationString({ person, t }),
+        context: odHelpers.getPersonGenderContext({ person }),
+        count: odHelpers.getCountOrSelfDeclared({ interview, person })
+    });
+};
+
+export const personUsualWorkPlaceCommutingCustomLabel: I18nData = (t: TFunction, interview, path) => {
+    const person = odHelpers.getPerson({ interview, path });
+    if (!person) {
+        throw new Error('personUsualWorkPlaceCommutingCustomLabel: Person context not found');
+    }
+    const countPersons = odHelpers.countPersons({ interview });
+    const workPlaceType = person.workPlaceType;
+    return t(
+        [
+            `travelBehavior:personUsualWorkPlaceCommuting_${workPlaceType}`,
+            'travelBehavior:personUsualWorkPlaceCommuting'
+        ],
+        {
+            nickname: odHelpers.getPersonIdentificationString({ person, t }),
+            count: countPersons,
+            context: odHelpers.getPersonGenderContext({ person })
+        }
+    );
+};
+
+export const personNoSchoolTripReasonCustomLabel: I18nData = labelWithJourneyDate(
+    'travelBehavior:personNoSchoolTripReason'
+);
