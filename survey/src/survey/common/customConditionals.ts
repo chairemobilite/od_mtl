@@ -597,3 +597,9 @@ export const mostUsedMobilityAssistiveDeviceCustomConditional: WidgetConditional
     }
     return [false, Array.isArray(mobilityDevices) && mobilityDevices.length === 1 ? mobilityDevices[0] : null];
 };
+
+// Custom conditional to decide whether to show the toddler daycare question
+// TODO: Implement the conditional
+export const toddlerDaycareCustomConditional: WidgetConditional = (interview, path) => {
+    return [true, null];
+};

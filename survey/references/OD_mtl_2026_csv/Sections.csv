@@ -4,9 +4,10 @@ household,hh_,Ménage,Household,True,False,True,
 personsTrips,pt_,Déplacements,Trips introduction,True,False,True,
 selectPerson,sp_,Sélection du membre du ménage,Household member selection,False,False,True,personsTrips
 tripsIntro,ti_,Introduction aux déplacements,Trips introduction,False,False,True,personsTrips
-visitedPlaces,vp_,Déplacements,Déplacements,False,True,,personsTrips
-segments,s_,Modes de transport,Modes of transport,False,True,,personsTrips
+visitedPlaces,vp_,Déplacements,Déplacements,False,False,False,personsTrips
+segments,s_,Modes de transport,Modes of transport,False,False,False,personsTrips
 travelBehavior,tb_,Mobilité,Travel behavior,False,False,False,personsTrips
+omissions,o_,Oublis,Omissions,True,False,False,
 longDistance,ld_,Déplacements longue distance,Long distance trips,False,False,False,end
 end,e_,Fin,End,True,False,False,
 completed,c_,Questionnaire complété,Survey completed,False,False,True,end

@@ -999,3 +999,81 @@ export const paratransitFrequenciesTransit: ChoiceType[] = [
         label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.5to7daysPerWeek')
     }
 ];
+
+export const toddlerDaycareMode: ChoiceType[] = [
+    {
+        value: 'walk',
+        label: (t: TFunction) => t('choices:toddlerDaycareMode.walk')
+    },
+    {
+        value: 'bicycle',
+        label: (t: TFunction) => t('choices:toddlerDaycareMode.bicycle')
+    },
+    {
+        value: 'car',
+        label: (t: TFunction) => t('choices:toddlerDaycareMode.car')
+    },
+    {
+        value: 'transit',
+        label: (t: TFunction) => t('choices:toddlerDaycareMode.transit')
+    },
+    ...otherWithoutSpecify
+];
+
+export const hasOmittedTripsActivities: ChoiceType[] = [
+    {
+        value: 'work',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.work')
+    },
+    {
+        value: 'shopping',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.shopping')
+    },
+    {
+        value: 'pickupDropOff',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.pickupDropOff')
+    },
+    {
+        value: 'visitFriends',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.visitFriends')
+    },
+    {
+        value: 'leisure',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.leisure')
+    },
+    {
+        value: 'health',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.health')
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:hasOmittedTripsActivities.other')
+    }
+];
+
+export const hasOmittedTripsModes: ChoiceType[] = [
+    {
+        value: 'walk',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.walk')
+    },
+    {
+        value: 'bicycle',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.bicycle')
+    },
+    {
+        value: 'carDriver',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.carDriver')
+    },
+    {
+        value: 'carPassenger',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.carPassenger')
+    },
+    {
+        value: 'transit',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.transit')
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:hasOmittedTripsModes.other')
+    }
+];

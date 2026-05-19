@@ -737,6 +737,74 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'travelBehavior', buttonStatus: 'completed', isDisabled: false });
 };
 
+/********** Tests Omissions section **********/
+export const fillOmissionsSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the omissions navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'omissions', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for omissions section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'omissions', completionPercentage: 0 });
+
+    // Test radio widget toddlerDaycare with conditional toddlerDaycareCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycare', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: '?' });
+
+    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoff', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'omissions.toddlerDaycareDropoff', values: ['?'] });
+
+    // Test radio widget toddlerDaycareDropoffMode with conditional toddlerDaycareConditional with choices toddlerDaycareMode
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoffMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycareDropoffMode', value: '?' });
+
+    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycarePickup', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'omissions.toddlerDaycarePickup', values: ['?'] });
+
+    // Test radio widget toddlerDaycarePickupMode with conditional toddlerDaycareConditional with choices toddlerDaycareMode
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycarePickupMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycarePickupMode', value: '?' });
+
+    // Test radio widget hasOmittedTrips with conditional hasOmittedTripsConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTrips', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'omissions.hasOmittedTrips', value: '?' });
+
+    // Test infotext widget hasOmittedTripsIntro with conditional hasOmittedTripsSpecifyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test checkbox widget hasOmittedTripsActivity with conditional hasOmittedTripsSpecifyConditional with choices hasOmittedTripsActivities
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsActivity', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'omissions.hasOmittedTripsActivity', values: ['?'] });
+
+    // Test checkbox widget hasOmittedTripsMode with conditional hasOmittedTripsSpecifyConditional with choices hasOmittedTripsModes
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsMode', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'omissions.hasOmittedTripsMode', values: ['?'] });
+
+    // Test nextbutton widget buttonCompleteLongDistanceSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the omissions navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'omissions', buttonStatus: 'completed', isDisabled: false });
+};
+
 /********** Tests Longdistance section **********/
 export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the longDistance navigation is active

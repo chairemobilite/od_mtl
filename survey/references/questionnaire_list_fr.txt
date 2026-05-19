@@ -618,6 +618,64 @@ Continuer
 
 
 
+Section: Oublis
+
+Est-ce qu’au moins un de vos enfants ont fréquenté un lieu de garde (garderie ou CPE) le {{assignedDate}}? 
+- Oui
+- Non
+
+Qui a reconduit vos enfants à leur lieu de garde?
+- Oui
+- Non
+
+Par quel moyen de transport?
+- Marche
+- Vélo
+- Auto
+- Transport en commun (bus, métro, train, REM)
+- Autre
+
+Qui est allé chercher vos enfants à leur lieu de garde?
+- Oui
+- Non
+
+Par quel moyen de transport?
+- Marche
+- Vélo
+- Auto
+- Transport en commun (bus, métro, train, REM)
+- Autre
+
+Avez-vous ({{nickname}}) effectué au moins un déplacement le {{assignedDate}} que vous n'auriez pas rapporté?
+Par exemple, une marche au dépanneur, un café ou un souper avec amis, ou une balade santé avec le chien.
+Vous n’aurez pas à revenir en arrière. Nos voulons juste savoir à quelle fréquence des déplacements sont omis.
+Cette question n’est posée qu’à une seule personne du ménage dans l’objectif d’améliorer notre compréhension des limites des données.
+- Oui
+- Non
+
+Cocher tous les motifs de déplacements associés avec vos déplacements non-rapportés, ainsi que les modes utilisés pour les effectuer.
+
+Motifs:
+- Travail, Études ou Bénévolat
+- Magasinage, services ou restauration
+- Reconduire ou aller chercher quelqu’un
+- Visite d’ami(s) ou famille
+- Loisirs (promenade, sports, arts, tourisme, etc.)
+- Santé (clinique, hôpital, vétérinaire, etc.)
+- Autre motif
+
+Modes:
+- Marche
+- Vélo
+- Auto conducteur 
+- Auto passager
+- Transport en commun (bus, métro, train, REM)
+- Autre mode
+
+Continuer
+
+
+
 Section: Déplacements longue distance
 
 Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?
