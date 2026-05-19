@@ -1273,3 +1273,42 @@ export const transitFareConditional: WidgetConditional = (interview, path) => {
         ]
     });
 };
+
+export const toddlerDaycareConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'omissions.toddlerDaycare',
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const hasOmittedTripsConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'omission'
+            }
+        ]
+    });
+};
+
+export const hasOmittedTripsSpecifyConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'omissions.hasOmittedTrips',
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};

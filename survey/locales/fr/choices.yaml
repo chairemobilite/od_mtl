@@ -262,3 +262,23 @@ paratransitFrequenciesTransit:
     1to3daysPerMonth: 1 à 3 jours par mois
     1to4daysPerWeek: 1 à 4 jours par semaine
     5to7daysPerWeek: 5 à 7 jours par semaine
+toddlerDaycareMode:
+    walk: Marche
+    bicycle: Vélo
+    car: Auto
+    transit: Transport en commun (bus, métro, train, REM)
+hasOmittedTripsActivities:
+    work: Travail, Études ou Bénévolat
+    shopping: Magasinage, services ou restauration
+    pickupDropOff: Reconduire ou aller chercher quelqu’un
+    visitFriends: Visite d’ami(s) ou famille
+    leisure: Loisirs (promenade, sports, arts, tourisme, etc.)
+    health: Santé (clinique, hôpital, vétérinaire, etc.)
+    other: Autre motif
+hasOmittedTripsModes:
+    walk: Marche
+    bicycle: Vélo
+    carDriver: Auto conducteur 
+    carPassenger: Auto passager
+    transit: Transport en commun (bus, métro, train, REM)
+    other: Autre mode

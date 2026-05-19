@@ -905,6 +905,85 @@ dontKnow : Je ne sais pas"
 ""
 ""
 ""
+Section,Oublis
+Abréviation,o_
+""
+Champ,o_toddlerDaycare
+Type de question,Bouton radio
+Conditionnel,toddlerDaycareCustomConditional
+Question,Est-ce qu’au moins un de vos enfants ont fréquenté un lieu de garde (garderie ou CPE) le {{assignedDate}}? 
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,o_toddlerDaycareDropoff
+Type de question,Case à cocher
+Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
+Question,Qui a reconduit vos enfants à leur lieu de garde?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,o_toddlerDaycareDropoffMode
+Type de question,Bouton radio
+Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
+Question,Par quel moyen de transport?
+Valeurs,"walk : Marche
+bicycle : Vélo
+car : Auto
+transit : Transport en commun (bus, métro, train, REM)
+other : Autre"
+""
+Champ,o_toddlerDaycarePickup
+Type de question,Case à cocher
+Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
+Question,Qui est allé chercher vos enfants à leur lieu de garde?
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,o_toddlerDaycarePickupMode
+Type de question,Bouton radio
+Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
+Question,Par quel moyen de transport?
+Valeurs,"walk : Marche
+bicycle : Vélo
+car : Auto
+transit : Transport en commun (bus, métro, train, REM)
+other : Autre"
+""
+Champ,o_hasOmittedTrips
+Type de question,Bouton radio
+Conditionnel,hasOmittedTripsConditional : ep_exclusif === omission
+Question,"Avez-vous ({{nickname}}) effectué au moins un déplacement le {{assignedDate}} que vous n'auriez pas rapporté?
+Par exemple, une marche au dépanneur, un café ou un souper avec amis, ou une balade santé avec le chien.
+Vous n’aurez pas à revenir en arrière. Nos voulons juste savoir à quelle fréquence des déplacements sont omis.
+Cette question n’est posée qu’à une seule personne du ménage dans l’objectif d’améliorer notre compréhension des limites des données."
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,o_hasOmittedTripsActivity
+Type de question,Case à cocher
+Conditionnel,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
+Question,Motifs:
+Valeurs,"work : Travail, Études ou Bénévolat
+shopping : Magasinage, services ou restauration
+pickupDropOff : Reconduire ou aller chercher quelqu’un
+visitFriends : Visite d’ami(s) ou famille
+leisure : Loisirs (promenade, sports, arts, tourisme, etc.)
+health : Santé (clinique, hôpital, vétérinaire, etc.)
+other : Autre motif"
+""
+Champ,o_hasOmittedTripsMode
+Type de question,Case à cocher
+Conditionnel,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
+Question,Modes:
+Valeurs,"walk : Marche
+bicycle : Vélo
+carDriver : Auto conducteur 
+carPassenger : Auto passager
+transit : Transport en commun (bus, métro, train, REM)
+other : Autre mode"
+""
+""
+""
 Section,Déplacements longue distance
 Abréviation,ld_
 ""

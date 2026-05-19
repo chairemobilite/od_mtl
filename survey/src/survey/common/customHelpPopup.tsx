@@ -108,3 +108,19 @@ export const workerHelpPopup: HelpPopup = {
     containsHtml: true,
     content: (t: TFunction, interview) => t('household:popup.workerContent')
 };
+
+// TODO: Add the content of the help popup
+export const toddlerDaycareHelpPopup: HelpPopup = {
+    title: {
+        fr: 'TODO',
+        en: 'TODO'
+    },
+    content: {
+        fr: function (_interview, _path) {
+            return 'TODO';
+        },
+        en: function (_interview, _path) {
+            return 'TODO';
+        }
+    }
+};
