@@ -91,13 +91,10 @@ src/tasks/transition/exports/
 survey/lib
 survey/runtime
 
-# LibreOfficeL lock file
-originalTranslation/.~lock.LibellesQuestions.csv#
+# LibreOffice lock files
+.~lock.*#
 
 # playwright test output
 **/playwright-report/
 **/test-results/
 **/playwright.config.ts
-
-# Ignore this Excel lock file
-.~lock.OD_nationale_quebec_2025.xlsx#
