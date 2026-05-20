@@ -56,6 +56,10 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputRadioTest({ context, path: 'acceptToBeContactedForHelp', value: '?' });
 
+    // Test radio widget wantToParticipateToDraw with choices yesNo
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'wantToParticipateToDraw', value: '?' });
+
     // Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'contactInformationIntro', isVisible: true });
@@ -66,45 +70,67 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     testHelpers.inputVisibleTest({ context, path: 'contactEmail', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'contactEmail', value: '?' });
 
-    // Test string widget phoneNumber with conditional acceptsToBeContactedForHelp
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'phoneNumber', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '?' });
-
-    // Test string widget home_address
+    // Test string widget homeAddress
     testHelpers.inputStringTest({ context, path: 'home.address', value: '?' });
 
-    // Test string widget home_city
+    // Test string widget homeCity
     testHelpers.inputStringTest({ context, path: 'home.city', value: '?' });
 
-    // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'home.region', value: '?' });
-
-    // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'home.country', value: '?' });
-
-    // Test string widget home_postalCode
+    // Test string widget homePostalCode
     testHelpers.inputStringTest({ context, path: 'home.postalCode', value: '?' });
 
-    // Test custom widget home_geography
+    // Test custom widget homeGeography
     // Implement custom test
 
-    // Test custom widget household_size
-    // Implement custom test
+    // Test radio widget homeIsMain with conditional sdrWithSecondaryHousesCustomConditional with choices homeIsMain
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'home.isMain', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'home.isMain', value: '?' });
 
-    // Test radionumber widget household_carNumber
+    // Test radio widget householdOwnership with choices householdOwnershipChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: '?' });
 
-    // Test radionumber widget household_bicycleNumber
+    // Test radionumber widget householdSize
 
-    // Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional
+    // Test radionumber widget householdCarNumber
+
+    // Test radio widget householdTwoWheelNumber with choices zeroToTwoPlus
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.twoWheelNumber', value: '?' });
+
+    // Test checkbox widget homeCarParkingsAvailableVehicleHousehold with conditional carParkingHomeWithVehicleConditional with choices carParkingsHome
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'home.carParkingAvailableVehicleHousehold', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'home.carParkingAvailableVehicleHousehold', values: ['?'] });
+
+    // Test radio widget homeCarParkingsAvailableNoVehicleHousehold with conditional carParkingHomeWithoutVehicleConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'home.carParkingAvailableNoVehicleHousehold', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'home.carParkingAvailableNoVehicleHousehold', value: '?' });
+
+    // Test radio widget householdCarsharing with conditional sharingMobilitiesConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.carsharing', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.carsharing', value: '?' });
+
+    // Test radionumber widget householdBicycleNumber
+
+    // Test radionumber widget householdElectricBicycleNumber with conditional hasHouseholdBicycleConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.electricBicycleNumber', isVisible: true });
 
-    // Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotToAnswer
+    // Test radio widget householdBikesharing with conditional sharingMobilitiesConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.bikesharing', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.bikesharing', value: '?' });
+
+    // Test radio widget householdAtLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotToAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.atLeastOnePersonWithDisability', isVisible: true });
@@ -714,10 +740,6 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
 
     // Progress bar test for end section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'end', completionPercentage: 0 });
-
-    // Test radio widget householdOwnership with choices householdOwnershipChoices
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: '?' });
 
     // Test select widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */

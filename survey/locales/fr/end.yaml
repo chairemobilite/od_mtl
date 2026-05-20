@@ -2,8 +2,6 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-householdOwnership: Est-ce que votre ménage est locataire ou propriétaire de votre
-    logement?
 householdIncome: >-
     Tranche de revenu avant impôts (brut) du ménage, en 2024?<br /><span class="_pale
     _oblique">Facultatif</span>

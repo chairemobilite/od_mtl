@@ -8,25 +8,34 @@ Si je ne le termine pas ou si certains des renseignements fournis sont incohére
 - Oui
 - Non
 
-Veuillez saisir le courriel ou le numéro de téléphone pour vous recontacter.
+Je souhaite participer au tirage au sort
+Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))
+- Oui
+- Non
+
+Veuillez saisir le courriel pour vous recontacter.
 
 Adresse courriel
-
-Numéro de téléphone
-Format: 123-456-7890
 
 Adresse
 
 Ville ou municipalité
 
-Province
-
-Pays
-
 Code postal
 
 Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
+
+Le {{address}} est-elle la résidence principale de votre ménage?
+La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)
+- Oui, j'y habite plus de 50 % du temps
+- Non, c’est ma résidence secondaire et mon ménage habite majoritairement à une autre adresse
+
+Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+- Locataire
+- Propriétaire
+- Autre
+- Je préfère ne pas répondre
 
 Personnes habitant votre domicile ou logement
 Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.
@@ -34,10 +43,37 @@ Y compris vous-même et les enfants en garde partagée s'ils étaient à votre d
 Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage.
 
-Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
-Inclure seulement les vélos utilisables en bon état.
+Motocyclettes ou scooters nécessitant un permis 
+Aussi appelé cyclomoteur ou mobylette
+- 0
+- 1
+- 2+
 
-Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?
+Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
+Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation
+- Entrée privée, garage ou place de stationnement réservée
+- Possession d’une vignette résidentielle 
+
+Votre ménage a-t-il accès a une entrée privée, garage ou place de stationnement réservée?
+- Oui
+- Non
+
+Autopartage (ex. : Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
+Par au moins une personne du ménage
+- Oui
+- Non
+- Je ne sais pas
+
+Vélo(s) à la disposition de votre ménage 
+Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.
+
+Parmi ces vélos, combien sont des vélo(s) à assistance électrique
+
+Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
+Par au moins une personne du ménage
+- Oui
+- Non
+- Je ne sais pas
 
 Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
 Y compris vous-même
@@ -532,12 +568,6 @@ Continuer
 
 
 Section: Fin
-
-Est-ce que votre ménage est locataire ou propriétaire de votre logement?
-- Locataire
-- Propriétaire
-- Autre
-- Je préfère ne pas répondre
 
 Tranche de revenu avant impôts (brut) du ménage, en 2024?
 Facultatif

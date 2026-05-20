@@ -8,25 +8,34 @@ If I do not complete it or if some of the information provided is incoherent.
 - Yes
 - No
 
-Please enter the email or phone number to get in contact
+I would like to participate in the prize draw
+Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response([View rules](lien))
+- Yes
+- No
+
+Please enter the email so we can contact you.
 
 Email address
-
-Phone number
-Format: 123-456-7890
 
 Address
 
 City or municipality
 
-Province
-
-Country
-
 Postal Code
 
-Positioning your home
+Home location
 Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.
+
+Is {{address}} your usual place of residence?
+The usual place of residence is the dwelling where your household lives most of the time (at least 50%).
+- Yes, I live there more than 50% of the time
+- No, it is my secondary residence and my household mainly lives at another address
+
+Does your household rent or own your home?
+- Tenant
+- Owner
+- Other
+- I prefer not to respond
 
 Persons living in your home
 Including yourself and children in shared custody if they were at your home on {{assignedDate}}.
@@ -34,10 +43,37 @@ Including yourself and children in shared custody if they were at your home on {
 Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household.
 
-Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
-Include only usable bicycles in good condition.
+Motorcycles or scooters requiring a licence
+Also known as mopeds or motorized scooters
+- 0
+- 1
+- 2+
+
+Parking available at home for your household's vehicles
+You may leave this question blank if none of the options apply to your situation.
+- Private driveway, garage or reserved parking space
+- Residential parking permit
+
+Does your household have access to a private driveway, garage, or reserved parking space?
+- Yes
+- No
+
+Carshare (ex. : Communauto, Leo): used as driver in the past 6 months
+ by at least one household member
+- Yes
+- No
+- I don't know
+
+Bicycles owned by household members
+Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.
 
 Among these bicycles, how many are electric bicycles (e-bikes)?
+
+Bikeshare (BIXI): used in the last 30 days
+by at least one household member
+- Yes
+- No
+- I don't know
 
 Is there at least one person in your household having a permanent disability that limits their daily travel?
 Including yourself
@@ -532,12 +568,6 @@ Continue
 
 
 Section: End
-
-Does your household rent or own your home?
-- Tenant
-- Owner
-- Other
-- I prefer not to respond
 
 What was your household's income range before taxes (gross income), in 2024?
 Optional

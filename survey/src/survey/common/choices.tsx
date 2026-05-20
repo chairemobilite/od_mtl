@@ -57,6 +57,17 @@ export const yesNoDontKnow: ChoiceType[] = [...yesNo, ...dontKnow];
 
 export const yesNoPreferNotToAnswer: ChoiceType[] = [...yes, ...no, ...preferNotToAnswer];
 
+export const homeIsMain: ChoiceType[] = [
+    {
+        value: 'yes',
+        label: (t: TFunction) => t('choices:homeIsMain.yes')
+    },
+    {
+        value: 'no',
+        label: (t: TFunction) => t('choices:homeIsMain.no')
+    }
+];
+
 export const maleFemalePreferNotAnswer: ChoiceType[] = [
     {
         value: 'female',
@@ -772,5 +783,31 @@ export const usualWorkPlaceCommutingModes: ChoiceType[] = [
         value: 'otherMotor',
         label: (t: TFunction) => t('choices:usualWorkPlaceCommutingModes.otherMotor'),
         conditional: conditionals.householdWithTwoWheelConditional
+    }
+];
+
+export const carParkingsHome: ChoiceType[] = [
+    {
+        value: 'private',
+        label: (t: TFunction) => t('choices:carParkingsHome.private')
+    },
+    {
+        value: 'stickers',
+        label: (t: TFunction) => t('choices:carParkingsHome.stickers')
+    }
+];
+
+export const zeroToTwoPlus: ChoiceType[] = [
+    {
+        value: '0',
+        label: (t: TFunction) => t('choices:zeroToTwoPlus.0')
+    },
+    {
+        value: '1',
+        label: (t: TFunction) => t('choices:zeroToTwoPlus.1')
+    },
+    {
+        value: '2',
+        label: (t: TFunction) => t('choices:zeroToTwoPlus.2')
     }
 ];

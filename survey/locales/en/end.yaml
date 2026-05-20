@@ -2,7 +2,6 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-householdOwnership: Does your household rent or own your home?
 householdIncome: >-
     What was your household's income range before taxes (gross income), in 2024?<br
     /><span class="_pale _oblique">Optional</span>

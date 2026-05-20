@@ -14,6 +14,11 @@ dontKnow:
     dontKnow: I don't know
 preferNotToAnswer:
     preferNotToAnswer: I prefer not to answer
+homeIsMain:
+    yes: Yes, I live there more than 50% of the time
+    no: >-
+        No, it is my secondary residence and my household mainly lives at another
+        address
 maleFemalePreferNotAnswer:
     female: Female
     male: Male
@@ -200,3 +205,10 @@ usualWorkPlaceCommutingModes:
     bike: <strong>Bicycle</strong>
     other: <strong>Other</strong> mode
     otherMotor: <strong>Other</strong> mode (including motorcycle)
+carParkingsHome:
+    private: Private driveway, garage or reserved parking space
+    stickers: Residential parking permit
+zeroToTwoPlus:
+    '0': '0'
+    '1': '1'
+    '2': 2+

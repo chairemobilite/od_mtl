@@ -15,16 +15,17 @@ Si je ne le termine pas ou si certains des renseignements fournis sont incohére
 Valeurs,"yes : Oui
 no : Non"
 ""
+Champ,wantToParticipateToDraw
+Type de question,Bouton radio
+Question,"Je souhaite participer au tirage au sort
+Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))"
+Valeurs,"yes : Oui
+no : Non"
+""
 Champ,contactEmail
 Type de question,Champ de texte
-Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes || wantToParticipateToDraw === yes
 Question,Adresse courriel
-""
-Champ,phoneNumber
-Type de question,Champ de texte
-Conditionnel,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
-Question,"Numéro de téléphone
-Format: 123-456-7890"
 ""
 Champ,h_address
 Type de question,Champ de texte
@@ -33,16 +34,6 @@ Question,Adresse
 Champ,h_city
 Type de question,Champ de texte
 Question,Ville ou municipalité
-""
-Champ,h_region
-Type de question,Champ de texte
-Conditionnel,hiddenWithQuebecAsDefaultValueCustomConditional
-Question,Province
-""
-Champ,h_country
-Type de question,Champ de texte
-Conditionnel,hiddenWithCanadaAsDefaultValueCustomConditional
-Question,Pays
 ""
 Champ,h_postalCode
 Type de question,Champ de texte
@@ -53,8 +44,24 @@ Type de question,Entrée inconnue
 Question,"Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision."
 ""
+Champ,h_isMain
+Type de question,Bouton radio
+Conditionnel,sdrWithSecondaryHousesCustomConditional
+Question,"Le {{address}} est-elle la résidence principale de votre ménage?
+La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)"
+Valeurs,"yes : Oui, j'y habite plus de 50 % du temps
+no : Non, c’est ma résidence secondaire et mon ménage habite majoritairement à une autre adresse"
+""
+Champ,hh_ownership
+Type de question,Bouton radio
+Question,Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+Valeurs,"tenant : Locataire
+owner : Propriétaire
+other : Autre
+preferNotToAnswer : Je préfère ne pas répondre"
+""
 Champ,hh_size
-Type de question,Entrée inconnue
+Type de question,RadioNumber
 Question,"Personnes habitant votre domicile ou logement
 Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
 ""
@@ -63,15 +70,55 @@ Type de question,RadioNumber
 Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage."
 ""
+Champ,hh_twoWheelNumber
+Type de question,Bouton radio
+Question,"Motocyclettes ou scooters nécessitant un permis 
+Aussi appelé cyclomoteur ou mobylette"
+Valeurs,"1 : 1
+2 : 2+"
+""
+Champ,h_carParkingAvailableVehicleHousehold
+Type de question,Case à cocher
+Conditionnel,carParkingHomeWithVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
+Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation"
+Valeurs,"private : Entrée privée, garage ou place de stationnement réservée
+stickers : Possession d’une vignette résidentielle "
+""
+Champ,h_carParkingAvailableNoVehicleHousehold
+Type de question,Bouton radio
+Conditionnel,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Question,"Votre ménage a-t-il accès a une entrée privée, garage ou place de stationnement réservée?"
+Valeurs,"yes : Oui
+no : Non"
+""
+Champ,hh_carsharing
+Type de question,Bouton radio
+Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Question,"Autopartage (ex. : Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
+Par au moins une personne du ménage"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
+""
 Champ,hh_bicycleNumber
 Type de question,RadioNumber
-Question,"Vélos, vélos électriques ou trottinettes électriques possédés par les membres du ménage
-Inclure seulement les vélos utilisables en bon état."
+Question,"Vélo(s) à la disposition de votre ménage 
+Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants."
 ""
 Champ,hh_electricBicycleNumber
 Type de question,RadioNumber
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
-Question,"Parmi ces vélos, combien sont des vélos électriques ou à assistance électrique?"
+Question,"Parmi ces vélos, combien sont des vélo(s) à assistance électrique"
+""
+Champ,hh_bikesharing
+Type de question,Bouton radio
+Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Question,"Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
+Par au moins une personne du ménage"
+Valeurs,"yes : Oui
+no : Non
+dontKnow : Je ne sais pas"
 ""
 Champ,hh_atLeastOnePersonWithDisability
 Type de question,Bouton radio
@@ -793,14 +840,6 @@ Question,Veuillez fournir une adresse courriel de contact pour participer à une
 ""
 Section,Fin
 Abréviation,e_
-""
-Champ,hh_ownership
-Type de question,Bouton radio
-Question,Est-ce que votre ménage est locataire ou propriétaire de votre logement?
-Valeurs,"tenant : Locataire
-owner : Propriétaire
-other : Autre
-preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,hh_income
 Type de question,Liste déroulante

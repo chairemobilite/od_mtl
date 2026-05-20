@@ -15,6 +15,7 @@ import * as customConditionals from '../../common/customConditionals';
 import * as customWidgets from './customWidgets';
 import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
+import * as customLabels from '../../common/customLabels';
 
 export const accessCode: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
@@ -38,6 +39,17 @@ export const acceptToBeContactedForHelp: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+export const wantToParticipateToDraw: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'wantToParticipateToDraw',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:wantToParticipateToDraw'),
+    choices: choices.yesNo,
+    conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
+
 export const contactInformationIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'contactInformationIntro',
@@ -53,86 +65,94 @@ export const contactEmail: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction) => t('home:contactEmail'),
     conditional: conditionals.acceptsToBeContactedForHelp,
-    validations: customValidations.emailOptionalCustomValidation
+    validations: validations.emailValidation
 };
 
-export const phoneNumber: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'phoneNumber',
-    twoColumns: false,
-    containsHtml: true,
-    joinWith: 'contactEmail',
-    label: (t: TFunction) => t('home:phoneNumber'),
-    conditional: conditionals.acceptsToBeContactedForHelp,
-    validations: customValidations.phoneOptionalCustomValidation
-};
-
-export const home_address: WidgetConfig.InputStringType = {
+export const homeAddress: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
     path: 'home.address',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:home_address'),
+    label: (t: TFunction) => t('home:homeAddress'),
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
 
-export const home_city: WidgetConfig.InputStringType = {
+export const homeCity: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
     path: 'home.city',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:home_city'),
+    label: (t: TFunction) => t('home:homeCity'),
     conditional: defaultConditional,
     validations: validations.requiredValidation
 };
 
-export const home_region: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'home.region',
-    twoColumns: false,
-    containsHtml: true,
-    defaultValue: 'Québec',
-    label: (t: TFunction) => t('home:home_region'),
-    conditional: customConditionals.hiddenWithQuebecAsDefaultValueCustomConditional,
-    validations: validations.requiredValidation
-};
-
-export const home_country: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'home.country',
-    twoColumns: false,
-    containsHtml: true,
-    defaultValue: 'Canada',
-    label: (t: TFunction) => t('home:home_country'),
-    conditional: customConditionals.hiddenWithCanadaAsDefaultValueCustomConditional,
-    validations: validations.requiredValidation
-};
-
-export const home_postalCode: WidgetConfig.InputStringType = {
+export const homePostalCode: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
     path: 'home.postalCode',
     twoColumns: false,
     containsHtml: true,
     inputFilter: formatters.canadianPostalCodeFormatter,
-    label: (t: TFunction) => t('home:home_postalCode'),
+    label: (t: TFunction) => t('home:homePostalCode'),
     conditional: defaultConditional,
     validations: validations.postalCodeValidation
 };
 
-export const home_geography = customWidgets.home_geography;
+// FIXME home_geography : territoryValidation · Issue #8 · chairemobilite/od_mtl
+export const homeGeography = customWidgets.homeGeography;
 
-export const household_size = customWidgets.household_size;
+// Si réponse est non, terminer enquête (action à ajouter sur le serveur)
+// Custom label pour ajouter l'adresse au libellé
+export const homeIsMain: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'home.isMain',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.homeIsMainCustomLabel,
+    choices: choices.homeIsMain,
+    conditional: customConditionals.sdrWithSecondaryHousesCustomConditional,
+    validations: validations.requiredValidation
+};
 
-export const household_carNumber: WidgetConfig.InputRadioNumberType = {
+export const householdOwnership: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.ownership',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction) => t('home:householdOwnership'),
+    helpPopup: customHelpPopup.householdOwnershipHelpPopup,
+    choices: choices.householdOwnershipChoices,
+    conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom label because of the assigned date interpolation
+export const householdSize: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.size',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.householdSizeCustomLabel,
+    valueRange: {
+        min: 1,
+        max: 6
+    },
+    overMaxAllowed: true,
+    helpPopup: customHelpPopup.householdSizeHelpPopup,
+    conditional: defaultConditional,
+    validations: validations.householdSizeValidation
+};
+
+export const householdCarNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,
     path: 'household.carNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household_carNumber'),
+    label: (t: TFunction) => t('home:householdCarNumber'),
     valueRange: {
         min: 0,
-        max: 5
+        max: 4
     },
     overMaxAllowed: true,
     helpPopup: customHelpPopup.householdCarNumberHelpPopup,
@@ -140,27 +160,74 @@ export const household_carNumber: WidgetConfig.InputRadioNumberType = {
     validations: validations.carNumberValidation
 };
 
-export const household_bicycleNumber: WidgetConfig.InputRadioNumberType = {
+export const householdTwoWheelNumber: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.twoWheelNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdTwoWheelNumber'),
+    helpPopup: customHelpPopup.twoWheelNumberHelpPopup,
+    choices: choices.zeroToTwoPlus,
+    conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
+
+// Custom label because of the car number plural
+// home_carParkingsAvailableVehicleHousehold : label · Issue #7 · chairemobilite/od_mtl
+export const homeCarParkingsAvailableVehicleHousehold: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'home.carParkingAvailableVehicleHousehold',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.homeParkingAvailableCustomLabel,
+    choices: choices.carParkingsHome,
+    conditional: conditionals.carParkingHomeWithVehicleConditional,
+    validations: validations.requiredValidation
+};
+
+export const homeCarParkingsAvailableNoVehicleHousehold: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'home.carParkingAvailableNoVehicleHousehold',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:homeCarParkingsAvailableNoVehicleHousehold'),
+    choices: choices.yesNo,
+    conditional: conditionals.carParkingHomeWithoutVehicleConditional,
+    validations: validations.requiredValidation
+};
+
+export const householdCarsharing: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.carsharing',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdCarsharing'),
+    choices: choices.yesNoDontKnow,
+    conditional: conditionals.sharingMobilitiesConditional,
+    validations: validations.requiredValidation
+};
+
+export const householdBicycleNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,
     path: 'household.bicycleNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household_bicycleNumber'),
+    label: (t: TFunction) => t('home:householdBicycleNumber'),
     valueRange: {
         min: 0,
-        max: 5
+        max: 2
     },
     overMaxAllowed: true,
     conditional: defaultConditional,
     validations: validations.bicycleNumberValidation
 };
 
-export const household_electricBicycleNumber: WidgetConfig.InputRadioNumberType = {
+export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,
     path: 'household.electricBicycleNumber',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household_electricBicycleNumber'),
+    label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
     valueRange: {
         min: 0,
         max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
@@ -169,12 +236,23 @@ export const household_electricBicycleNumber: WidgetConfig.InputRadioNumberType 
     validations: validations.bicycleNumberValidation
 };
 
-export const household_atLeastOnePersonWithDisability: WidgetConfig.InputRadioType = {
+export const householdBikesharing: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.bikesharing',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdBikesharing'),
+    choices: choices.yesNoDontKnow,
+    conditional: conditionals.sharingMobilitiesConditional,
+    validations: validations.requiredValidation
+};
+
+export const householdAtLeastOnePersonWithDisability: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'household.atLeastOnePersonWithDisability',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('home:household_atLeastOnePersonWithDisability'),
+    label: (t: TFunction) => t('home:householdAtLeastOnePersonWithDisability'),
     choices: choices.yesNoPreferNotToAnswer,
     conditional: conditionals.hasHouseholdSize2OrMoreConditional,
     validations: validations.requiredValidation

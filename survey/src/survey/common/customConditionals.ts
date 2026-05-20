@@ -1,4 +1,5 @@
 import _get from 'lodash/get';
+import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
 import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
@@ -13,6 +14,7 @@ import {
     shouldDisplayTripJunction
 } from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
+import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -521,4 +523,26 @@ export const hasWorkingLocationNotSetCustomConditional: WidgetConditional = (int
     }
     const shouldAskForNoWorkTripReasonValue = shouldAskForNoWorkTripReason({ interview, person });
     return [shouldAskForNoWorkTripReasonValue && workPlaceTypesWithFixedLocation.includes(person.workPlaceType), null];
+};
+
+// Custom conditional to show if the home geography is in one of the SDR zones with secondary residences
+export const sdrWithSecondaryHousesCustomConditional: WidgetConditional = (interview, path) => {
+    const homeGeography = surveyHelper.getResponse(
+        interview,
+        path,
+        null,
+        '../geography'
+    ) as GeoJSON.Feature<GeoJSON.Point> | null;
+    if (homeGeography?.type === 'Feature') {
+        return [
+            sdrResidencesSecondaires.features.some((feature) =>
+                turfBooleanPointInPolygon(
+                    homeGeography,
+                    feature as GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon>
+                )
+            ),
+            null
+        ];
+    }
+    return [false, null];
 };

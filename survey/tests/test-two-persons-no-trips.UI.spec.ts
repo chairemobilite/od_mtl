@@ -42,7 +42,16 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 });
 
 /********** Tests home section **********/
-commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 2 });
+commonUITestsHelpers.fillHomeSectionTests({
+    context,
+    home: {
+        ...commonUITestsHelpers.defaultHome,
+        householdSize: 2,
+        householdCarSharing: 'yes',
+        householdBikesharing: 'yes',
+        householdAtLeastOnePersonWithDisability: 'yes'
+    }
+});
 
 /********** Tests household section **********/
 commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
