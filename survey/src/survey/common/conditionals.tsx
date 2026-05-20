@@ -408,6 +408,12 @@ export const acceptsToBeContactedForHelp: WidgetConditional = (interview) => {
                 path: 'acceptToBeContactedForHelp',
                 comparisonOperator: '===',
                 value: 'yes'
+            },
+            {
+                logicalOperator: '||',
+                path: 'wantToParticipateToDraw',
+                comparisonOperator: '===',
+                value: 'yes'
             }
         ]
     });
@@ -836,6 +842,117 @@ export const hasSchoolLocationNotSetConditional: WidgetConditional = (interview,
                 path: `household.persons.${currentPersonId}.hasSchoolPlace`,
                 comparisonOperator: '===',
                 value: 'yes'
+            }
+        ]
+    });
+};
+
+export const carParkingHomeWithVehicleConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'home.RA',
+                comparisonOperator: '<=',
+                value: 4
+            },
+            {
+                logicalOperator: '&&',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqAttitudinal',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqBrakes'
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqAttitudinalBrakes',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.carNumber',
+                comparisonOperator: '>=',
+                value: 1,
+                parentheses: '('
+            },
+            {
+                logicalOperator: '||',
+                path: 'household.twoWheelNumber',
+                comparisonOperator: '>=',
+                value: 1,
+                parentheses: ')'
+            }
+        ]
+    });
+};
+
+export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'home.RA',
+                comparisonOperator: '<=',
+                value: 4
+            },
+            {
+                logicalOperator: '&&',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqAttitudinal',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqBrakes'
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep_exclusif',
+                comparisonOperator: '===',
+                value: 'freqAttitudinalBrakes',
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.carNumber',
+                comparisonOperator: '===',
+                value: 0
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.twoWheelNumber',
+                comparisonOperator: '===',
+                value: 0
+            }
+        ]
+    });
+};
+
+export const sharingMobilitiesConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.size',
+                comparisonOperator: '>=',
+                value: 2
+            },
+            {
+                logicalOperator: '&&',
+                path: 'home.RA',
+                comparisonOperator: '<=',
+                value: 6
             }
         ]
     });

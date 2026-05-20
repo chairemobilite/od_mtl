@@ -5,37 +5,55 @@ __Printed on the letter you received.__",,,formatter=eightDigitsAccessCodeFormat
 acceptToBeContactedForHelp,Radio,True,home,,acceptToBeContactedForHelp,"Je consens à être contacté(e) pour **continuer ou préciser le questionnaire**. 
 __Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.__","I consent to be contacted to **continue the survey**.
 __If I do not complete it or if some of the information provided is incoherent.__",,,,,,,yesNo,,,,True,,,,,
-contactInformationIntro,InfoText,True,home,,contactInformationIntro,Veuillez saisir le courriel **ou** le numéro de téléphone pour vous recontacter.,Please enter the email **or** phone number to get in contact,,,,,acceptsToBeContactedForHelp,,,,,,True,,,,,
-contactEmail,String,True,home,,contactEmail,**Adresse courriel**,**Email address**,,,,,acceptsToBeContactedForHelp,emailOptionalCustomValidation,,,,,True,,,,,
-phoneNumber,String,True,home,,phoneNumber,"**Numéro de téléphone**
-__Format: 123-456-7890__","**Phone number**
-__Format: 123-456-7890__",,,,join_with=${contactEmail},acceptsToBeContactedForHelp,phoneOptionalCustomValidation,,,,,True,,,,,
-home_address,String,True,home,,home.address,**Adresse**,**Address**,,,,,,,,,,,True,,,,,
-home_city,String,True,home,,home.city,**Ville** ou **municipalité**,**City** or **municipality**,,,,,,,,,,,True,,,,,
-home_region,String,True,home,,home.region,**Province**,**Province**,,,,,hiddenWithQuebecAsDefaultValueCustomConditional,,,,,,True,,,Québec,,
-home_country,String,True,home,,home.country,**Pays**,**Country**,,,,,hiddenWithCanadaAsDefaultValueCustomConditional,,,,,,True,,,Canada,,
-home_postalCode,String,True,home,,home.postalCode,**Code postal**,**Postal Code**,,,formatter=canadianPostalCodeFormatter,,,postalCodeValidation,,,,,True,,,,,
-home_geography,Custom,True,home,,home.geography,"**Positionnement de votre domicile**
-Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.","**Positioning your home**
-Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.",,,,,,,,,,,True,,,,,
-household_size,Custom,True,home,,household.size,"**Personnes habitant votre domicile** ou logement
+wantToParticipateToDraw,Radio,True,home,,wantToParticipateToDraw,"Je souhaite participer au **tirage au sort**
+__Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))__","I would like to participate in the **prize draw**
+__Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response([View rules](lien))__",,,,,,,yesNo,,,,True,,,,,
+contactInformationIntro,InfoText,True,home,,contactInformationIntro,Veuillez saisir le courriel pour vous recontacter.,Please enter the email so we can contact you.,,,,,acceptsToBeContactedForHelp,,,,,,True,,,,,
+contactEmail,String,True,home,,contactEmail,**Adresse courriel**,**Email address**,,,,,acceptsToBeContactedForHelp,emailValidation,,,,,True,,,,,
+homeAddress,String,True,home,,home.address,**Adresse**,**Address**,,,,,,,,,,,True,,,,,
+homeCity,String,True,home,,home.city,**Ville** ou **municipalité**,**City** or **municipality**,,,,,,,,,,,True,,,,,
+homePostalCode,String,True,home,,home.postalCode,**Code postal**,**Postal Code**,,,formatter=canadianPostalCodeFormatter,,,postalCodeValidation,,,,,True,,,,,
+homeGeography,Custom,True,home,,home.geography,"**Positionnement de votre domicile**
+Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.","**Home location**
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.",,,,,,homeInTerritoryCustomValidation,,,,,True,,,,,FIXME home_geography : territoryValidation · Issue #8 · chairemobilite/od_mtl
+homeIsMain,Radio,True,home,,home.isMain,"Le {{address}} est-elle la **résidence principale** de votre ménage?
+__La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)__","Is {{address}} your usual place of residence?
+The usual place of residence is the dwelling where your household lives most of the time (at least 50%).",,,customLabels={{homeIsMainCustomLabel}},,sdrWithSecondaryHousesCustomConditional,,homeIsMain,,,,True,,,,,"Si réponse est non, terminer enquête (action à ajouter sur le serveur)
+Custom label pour ajouter l'adresse au libellé"
+householdOwnership,Radio,1,home,,household.ownership,Est-ce que votre ménage est locataire ou propriétaire de votre logement?,Does your household rent or own your home?,,,,,,,householdOwnershipChoices,householdOwnershipHelpPopup,,,,,,,,
+householdSize,RadioNumber,True,home,,household.size,"**Personnes habitant votre domicile** ou logement
 __Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.__","**Persons living in your home**
 __Including yourself and children in shared custody if they were at your home on {{assignedDate}}.__",,,"min=1
 max=6
-overMaxAllowed",,,householdSizeValidation,,householdSizeHelpPopup,,,True,,,,,
-household_carNumber,RadioNumber,True,home,,household.carNumber,"**Automobiles**, VUS, camions légers ou fourgonnettes, etc.
+OverMaxAllowed
+customLabels={{householdSizeCustomLabel}}",,,householdSizeValidation,,householdSizeHelpPopup,,,True,,,,,Custom label because of the assigned date interpolation
+householdCarNumber,RadioNumber,True,home,,household.carNumber,"**Automobiles**, VUS, camions légers ou fourgonnettes, etc.
 __À la disposition de votre ménage.__","**Cars**, SUVs, light-duty trucks or vans, etc.
 __Available to one or more members of your household.__",,,"min=0
-max=5
+Max=4
 overMaxAllowed",,,carNumberValidation,,householdCarNumberHelpPopup,,,True,,,,,
-household_bicycleNumber,RadioNumber,True,home,,household.bicycleNumber,"**Vélos**, vélos électriques ou trottinettes électriques possédés par les membres du ménage
-__Inclure seulement les vélos utilisables en bon état.__","**Bicycles**, electric bicycles (e-bikes), or electric scooters owned by household members
-__Include only usable bicycles in good condition.__",,,"min=0
-max=5
+householdTwoWheelNumber,Radio,True,home,,household.twoWheelNumber,"**Motocyclettes ou scooters** nécessitant un permis 
+__Aussi appelé cyclomoteur ou mobylette__","**Motorcycles or scooters** requiring a licence
+__Also known as mopeds or motorized scooters__",,,,,,,zeroToTwoPlus,twoWheelNumberHelpPopup,,,True,,,,,
+homeCarParkingsAvailableVehicleHousehold,Checkbox,True,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
+__Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation__","**Parking** available at home for your household's vehicles
+__You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,True,,,,,"Custom label because of the car number plural
+home_carParkingsAvailableVehicleHousehold : label · Issue #7 · chairemobilite/od_mtl"
+homeCarParkingsAvailableNoVehicleHousehold,Radio,True,home,,home.carParkingAvailableNoVehicleHousehold,"Votre ménage a-t-il accès a une **entrée privée, garage ou place de stationnement réservée**?","Does your household have access to a **private driveway, garage, or reserved parking space?**",,,,,carParkingHomeWithoutVehicleConditional,,yesNo,,,,True,,,,,
+householdCarsharing,Radio,True,home,,household.carsharing,"**Autopartage** (ex. : Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
+__Par au moins une personne du ménage__","**Carshare** (ex. : Communauto, Leo): used as driver in the past 6 months
+ __by at least one household member__",,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
+householdBicycleNumber,RadioNumber,True,home,,household.bicycleNumber,"**Vélo(s)** à la disposition de votre ménage 
+__Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.__","**Bicycles** owned by household members
+__Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.__",,,"min=0
+Max=2
 overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
-household_electricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos électriques** ou à assistance électrique?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
+householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélo(s) à assistance électrique**","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
 max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
-household_atLeastOnePersonWithDisability,Radio,True,home,,household.atLeastOnePersonWithDisability,"Y a-t-il au moins une personne dans votre ménage avec une **incapacité permanente qui limite ses déplacements quotidiens**?
+householdBikesharing,Radio,True,home,,household.bikesharing,"**Vélo en libre-service** (ex. BIXI) : utilisation dans les 30 derniers jours
+__Par au moins une personne du ménage__","**Bikeshare** (BIXI): used in the last 30 days
+__by at least one household member__",,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
+householdAtLeastOnePersonWithDisability,Radio,True,home,,household.atLeastOnePersonWithDisability,"Y a-t-il au moins une personne dans votre ménage avec une **incapacité permanente qui limite ses déplacements quotidiens**?
 __Y compris vous-même__","Is there at least one person in your household having a **permanent disability that limits their daily travel?**
 __Including yourself__",,,,,hasHouseholdSize2OrMoreConditional,,yesNoPreferNotToAnswer,,,,True,,,,,
 home_save,NextButton,True,home,,home.save,Enregistrer et continuer,Save and continue,,,,,,,,,,,True,,,,,
@@ -275,7 +293,6 @@ householdLongDistanceTripsMayAugust,Radio,1,longDistance,,household.longDistance
 wouldLikeToParticipateToLongDistanceSurvey,Radio,1,longDistance,,household.wouldLikeToParticipateToLongDistanceSurvey,Seriez-vous intéressés à **être recontactés** pour une enquête plus approfondie sur les **déplacements interurbains**?,Would you be interested in **being contacted again** for a more in-depth survey on **interurban travel**?,,,,,madeLongDistanceTripsConditional,,yesNo,,,,1,,,,,
 wouldLikeToParticipateToLongDistanceSurveyContactEmail,String,1,longDistance,,household.wouldLikeToParticipateToLongDistanceSurveyContactEmail,Veuillez fournir une **adresse courriel** de contact pour participer à une enquête sur les **déplacements interurbains**,Please provide the **email address** where you can be reached to participate in a survey on **interurban travel**,,,,,wantToParticipateInLongDistanceSurveyConditional,emailValidation,,,,,1,,,,,
 buttonCompleteLongDistanceSection,NextButton,1,longDistance,,buttonCompleteLongDistanceSection,Continuer,Continue,,,,,,,,,,,,,,,,
-householdOwnership,Radio,1,end,,household.ownership,Est-ce que votre ménage est locataire ou propriétaire de votre logement?,Does your household rent or own your home?,,,,,,,householdOwnershipChoices,,,,,,,,,
 householdIncome,Select,1,end,,household.income,"Tranche de revenu avant impôts (brut) du ménage, en 2024?
 __Facultatif__","What was your household's income range before taxes (gross income), in 2024?
 __Optional__",,,,,,,householdIncomeChoices,,,,1,,,,,

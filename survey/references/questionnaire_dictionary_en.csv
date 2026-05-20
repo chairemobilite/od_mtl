@@ -15,16 +15,17 @@ If I do not complete it or if some of the information provided is incoherent."
 Values,"yes : Yes
 no : No"
 ""
+Field,wantToParticipateToDraw
+Question type,Radio input
+Question,"I would like to participate in the prize draw
+Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response([View rules](lien))"
+Values,"yes : Yes
+no : No"
+""
 Field,contactEmail
 Question type,Text input
-Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
+Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes || wantToParticipateToDraw === yes
 Question,Email address
-""
-Field,phoneNumber
-Question type,Text input
-Conditional,acceptsToBeContactedForHelp : acceptToBeContactedForHelp === yes
-Question,"Phone number
-Format: 123-456-7890"
 ""
 Field,h_address
 Question type,Text input
@@ -34,27 +35,33 @@ Field,h_city
 Question type,Text input
 Question,City or municipality
 ""
-Field,h_region
-Question type,Text input
-Conditional,hiddenWithQuebecAsDefaultValueCustomConditional
-Question,Province
-""
-Field,h_country
-Question type,Text input
-Conditional,hiddenWithCanadaAsDefaultValueCustomConditional
-Question,Country
-""
 Field,h_postalCode
 Question type,Text input
 Question,Postal Code
 ""
 Field,h_geography
 Question type,Unknown input
-Question,"Positioning your home
+Question,"Home location
 Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision."
 ""
+Field,h_isMain
+Question type,Radio input
+Conditional,sdrWithSecondaryHousesCustomConditional
+Question,"Is {{address}} your usual place of residence?
+The usual place of residence is the dwelling where your household lives most of the time (at least 50%)."
+Values,"yes : Yes, I live there more than 50% of the time
+no : No, it is my secondary residence and my household mainly lives at another address"
+""
+Field,hh_ownership
+Question type,Radio input
+Question,Does your household rent or own your home?
+Values,"tenant : Tenant
+owner : Owner
+other : Other
+preferNotToAnswer : I prefer not to respond"
+""
 Field,hh_size
-Question type,Unknown input
+Question type,RadioNumber
 Question,"Persons living in your home
 Including yourself and children in shared custody if they were at your home on {{assignedDate}}."
 ""
@@ -63,15 +70,55 @@ Question type,RadioNumber
 Question,"Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household."
 ""
+Field,hh_twoWheelNumber
+Question type,Radio input
+Question,"Motorcycles or scooters requiring a licence
+Also known as mopeds or motorized scooters"
+Values,"1 : 1
+2 : 2+"
+""
+Field,h_carParkingAvailableVehicleHousehold
+Question type,Checkbox input
+Conditional,carParkingHomeWithVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Question,"Parking available at home for your household's vehicles
+You may leave this question blank if none of the options apply to your situation."
+Values,"private : Private driveway, garage or reserved parking space
+stickers : Residential parking permit"
+""
+Field,h_carParkingAvailableNoVehicleHousehold
+Question type,Radio input
+Conditional,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Question,"Does your household have access to a private driveway, garage, or reserved parking space?"
+Values,"yes : Yes
+no : No"
+""
+Field,hh_carsharing
+Question type,Radio input
+Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Question,"Carshare (ex. : Communauto, Leo): used as driver in the past 6 months
+ by at least one household member"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
 Field,hh_bicycleNumber
 Question type,RadioNumber
-Question,"Bicycles, electric bicycles (e-bikes), or electric scooters owned by household members
-Include only usable bicycles in good condition."
+Question,"Bicycles owned by household members
+Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles."
 ""
 Field,hh_electricBicycleNumber
 Question type,RadioNumber
 Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
+""
+Field,hh_bikesharing
+Question type,Radio input
+Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Question,"Bikeshare (BIXI): used in the last 30 days
+by at least one household member"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
 ""
 Field,hh_atLeastOnePersonWithDisability
 Question type,Radio input
@@ -793,14 +840,6 @@ Question,Please provide the email address where you can be reached to participat
 ""
 Section,End
 Abbreviation,e_
-""
-Field,hh_ownership
-Question type,Radio input
-Question,Does your household rent or own your home?
-Values,"tenant : Tenant
-owner : Owner
-other : Other
-preferNotToAnswer : I prefer not to respond"
 ""
 Field,hh_income
 Question type,Select input

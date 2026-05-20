@@ -14,6 +14,11 @@ dontKnow:
     dontKnow: Je ne sais pas
 preferNotToAnswer:
     preferNotToAnswer: Je préfère ne pas répondre
+homeIsMain:
+    yes: Oui, j'y habite plus de 50 % du temps
+    no: >-
+        Non, c’est ma résidence secondaire et mon ménage habite majoritairement à
+        une autre adresse
 maleFemalePreferNotAnswer:
     female: Femme
     male: Homme
@@ -194,3 +199,10 @@ usualWorkPlaceCommutingModes:
     bike: <strong>Vélo</strong>
     other: <strong>Autre</strong> moyen
     otherMotor: <strong>Autre</strong> moyen (incluant moto)
+carParkingsHome:
+    private: Entrée privée, garage ou place de stationnement réservée
+    stickers: Possession d’une vignette résidentielle 
+zeroToTwoPlus:
+    '0': '0'
+    '1': '1'
+    '2': 2+

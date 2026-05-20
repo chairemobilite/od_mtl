@@ -1,6 +1,55 @@
 namespace,key,label::fr,label::en,label_one::fr,label_one::en
 household,addGroupedObject,Ajouter une personne manquante,Add a missing person,,
 household,deleteThisGroupedObject,Supprimer cette personne,Delete this person,,
+home,popup.homeOwnershipTitle,Pourquoi cette question?,Why this question?,,
+home,popup.homeOwnershipContent,"**Pourquoi cette question?**
+Le statut d’occupation du logement (locataire ou propriétaire) est associé à des comportements de mobilité différents. Cette information nous permet de mieux interpréter les résultats de l’enquête et de nous assurer que les données recueillies sont représentatives de l’ensemble des ménages de la région.","**Why this question?**
+Housing occupancy status (renter or homeowner) is associated with different mobility behaviors. This information allows us to better interpret the survey results and ensures that the collected data is representative of all households in the region.",,
+home,popup.householdSizeTitle,Qui inclure dans ce nombre?,Who should be included in this number?,,
+home,popup.householdSizeContent,"**Qui inclure dans ce nombre?**
+<span class=""_green"">Inclure :</span>
+- Vous-même
+- Les enfants en garde partagée s'ils étaient présents à votre domicile le <span class=""_green"">{{assignedDate}}</span>
+Les chambreuses, les chambreurs et colocataires, ainsi que tous ceux et celles qui vivent en communauté domestique","**Who should be included in this number?**
+<span class=""_green"">Include :</span>
+- Yourself
+- Children in shared custody if they were present at your home on <span class=""_green"">{{assignedDate}}</span>
+- Roommates and housemates, as well as all people living in a shared household community",,
+home,home_carParkingsAvailableVehicleHousehold_one,"**Stationnement(s) disponible(s) au domicile** pour le véhicule de votre ménage. 
+__Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation__","**Parking** available at home for your household's vehicle
+__You may leave this question blank if none of the options apply to your situation.__",,
+home,popup.householdCarNumberTitle,Quels véhicules inclure dans ce nombre?,Which vehicles should be included in this number?,,
+home,popup.householdCarNumberContent,"**Quels véhicules inclure?**
+<span class=""_green"">Inclure :</span> 
+- Les automobiles, VUS, camions légers, camions et fourgonnettes
+- Les véhicules fournis ou loués par un employeur que les membres de votre ménage utilisent pour aller au travail ou pour des raisons personnelles
+<span class=""_red"">Ne pas inclure :</span> 
+- Les mobylettes, scooters et motos (à essence ou électriques)
+- Les véhicules d’autopartage
+- Un véhicule stationné au lieu de travail utilisé exclusivement pour le travail
+- Les véhicules remisés ou de collection utilisés rarement","**Which vehicles should be included?**
+<span class=""_green"">Include:</span>
+- Cars, SUVs, light trucks, trucks, and vans
+- Vehicles provided or leased by an employer that members of your household use for commuting or personal reasons
+<span class=""_red"">Do not include:</span>
+- Mopeds, scooters, and motorcycles (gas or electric)
+- Car-sharing vehicles
+- A vehicle parked at the workplace and used exclusively for work
+- Stored or collector vehicles used rarely",,
+home,popup.householdTwoWheelTitle,Quels véhicules inclure dans ce nombre?,Which vehicles should be included in this number?,,
+home,popup.householdTwoWheelContent,"**Quels véhicules inclure?**
+<span class=""_green"">Inclure :</span> 
+- Les mobylettes, scooters et motos (à essence ou électriques)
+<span class=""_red"">Ne pas inclure :</span> 
+- Les automobiles, VUS, camions légers, camions et fourgonnettes
+- Les vélos ou vélos électriques
+- Les trottinettes ou trottinettes électriques","**Which vehicles should be included?**
+<span class=""_green"">Include:</span>
+- Mopeds, and motorcycles (gas or electric)
+<span class=""_red"">Do not include:</span>
+- Cars, SUVs, light trucks, trucks, and vans
+- Bicycles or electric bicycles
+- Scooters or electric scooters",,
 segments,segmentsIntroOnTheRoad,"Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements sur la route, dans l'ordre chronologique:","Please indicate all modes of transport used to complete work trip on the road, in chronological order:",,
 segments,segmentsIntroStroll,"Veuillez indiquer tous les modes de transport utilisés pour effectuer la promenade, dans l'ordre chronologique:","Please indicate all modes of transport used to complete the stroll, in chronological order:",,
 segments,junctionGeographyRefreshGeocodingLabel,Chercher le lieu de jonction à partir du nom ou de l'adresse,Search the junction location using the place name or address,,

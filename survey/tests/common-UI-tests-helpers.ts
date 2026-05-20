@@ -21,6 +21,11 @@ export type HouseholdTestParameters = testHelpers.CommonTestParameters & {
     householdMembers: HouseholdMember[];
 };
 
+export type HomeTestParameters = testHelpers.CommonTestParameters & {
+    addressIsFilled?: boolean;
+    home?: HomeSection;
+};
+
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
 export const generateRandomAccessCode = () =>
     `${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
@@ -46,6 +51,46 @@ export type HouseholdMember = {
     workPlaceTypeBeforeLeave: string | null;
     travelToWorkDays: string[] | null;
     remoteWorkDays: string[] | null;
+};
+
+export type HomeSection = {
+    acceptToBeContactedForHelp: string;
+    wantToParticipateToDraw: string;
+    contactEmail: string | null;
+    householdOwnership: string;
+    householdSize: number;
+    householdCarNumber: string;
+    householdTwoWheelNumber: number;
+    carParkingAvailableVehicleHousehold: string[] | null;
+    carParkingAvailableNoVehicleHousehold: string | null;
+    householdCarSharing: string | null;
+    householdBicycleNumber: string;
+    householdElectricBicycleNumber: string | null;
+    householdBikesharing: string | null;
+    householdAtLeastOnePersonWithDisability: string | null;
+    address: string;
+    city: string;
+    postalCode: string;
+};
+
+export const defaultHome: HomeSection = {
+    acceptToBeContactedForHelp: 'yes',
+    wantToParticipateToDraw: 'yes',
+    contactEmail: 'test@test.com',
+    householdOwnership: 'tenant',
+    householdSize: 1,
+    householdCarNumber: '2',
+    householdTwoWheelNumber: 1,
+    carParkingAvailableVehicleHousehold: null,
+    carParkingAvailableNoVehicleHousehold: null,
+    householdCarSharing: null,
+    householdBicycleNumber: '2',
+    householdElectricBicycleNumber: '1',
+    householdBikesharing: null,
+    householdAtLeastOnePersonWithDisability: null,
+    address: '4898 Avenue du Parc',
+    city: 'Montréal',
+    postalCode: 'H2V 4E6'
 };
 
 export type Segment = {
@@ -238,11 +283,9 @@ export const defaultLongDistance: LongDistanceSection = {
 };
 
 /********** Tests home section **********/
-export const fillHomeSectionTests = ({
-    context,
-    householdSize = 1,
-    addressIsFilled = true
-}: CommonTestParametersModify) => {
+export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFilled = true }: HomeTestParameters) => {
+    const householdSize = home.householdSize;
+
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
 
@@ -252,37 +295,47 @@ export const fillHomeSectionTests = ({
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'acceptToBeContactedForHelp', value: 'yes' });
+    testHelpers.inputRadioTest({ context, path: 'acceptToBeContactedForHelp', value: home.acceptToBeContactedForHelp });
 
-    // Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.waitTextVisible({ context, text: 'Please enter the email or phone number to get in contact' });
+    // Test radio widget wantToParticipateToDraw with choices yesNo
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'wantToParticipateToDraw', value: home.wantToParticipateToDraw });
 
     // Test string widget contactEmail with conditional acceptsToBeContactedForHelp
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputStringTest({ context, path: 'contactEmail', value: 'test@test.com' });
-
-    // Test string widget phoneNumber with conditional acceptsToBeContactedForHelp
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputStringTest({ context, path: 'phoneNumber', value: '438-456-7890' });
+    if (home.contactEmail === null) {
+        // Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.waitTextVisible({
+            context,
+            text: 'Please enter the email so we can contact you',
+            isVisible: false
+        });
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'contactEmail',
+            isVisible: false
+        });
+    } else {
+        // Test infotext widget contactInformationIntro with conditional acceptsToBeContactedForHelp
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        testHelpers.waitTextVisible({ context, text: 'Please enter the email so we can contact you' });
+        testHelpers.inputStringTest({
+            context,
+            path: 'contactEmail',
+            value: home.contactEmail
+        });
+    }
 
     if (!addressIsFilled) {
         // Test string widget home_address
-        testHelpers.inputStringTest({ context, path: 'home.address', value: '4898 Avenue du Parc' });
+        testHelpers.inputStringTest({ context, path: 'home.address', value: home.address });
 
         // Test string widget home_city
-        testHelpers.inputStringTest({ context, path: 'home.city', value: 'Montréal' });
-
-        // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: false });
-
-        // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: false });
+        testHelpers.inputStringTest({ context, path: 'home.city', value: home.city });
 
         // Test string widget home_postalCode
-        testHelpers.inputStringTest({ context, path: 'home.postalCode', value: 'H2V 4E6' });
+        testHelpers.inputStringTest({ context, path: 'home.postalCode', value: home.postalCode });
 
         // Test custom widget home_geography
         testHelpers.inputMapFindPlaceTest({ context, path: 'home.geography' });
@@ -295,36 +348,103 @@ export const fillHomeSectionTests = ({
         testHelpers.inputVisibleTest({ context, path: 'home.address', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.city', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.postalCode', isVisible: true });
-
-        // Test string widget home_region with conditional hiddenWithQuebecAsDefaultValueCustomConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'home.region', isVisible: false });
-
-        // Test string widget home_country with conditional hiddenWithCanadaAsDefaultValueCustomConditional
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        testHelpers.inputVisibleTest({ context, path: 'home.country', isVisible: false });
     }
+
+    // Test radio widget householdOwnership with choices householdOwnershipChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: home.householdOwnership });
 
     // Test radionumber widget household_size
     testHelpers.inputRadioTest({ context, path: 'household.size', value: String(householdSize) });
 
     // Test radionumber widget household_carNumber
-    testHelpers.inputRadioTest({ context, path: 'household.carNumber', value: '2' });
+    testHelpers.inputRadioTest({ context, path: 'household.carNumber', value: home.householdCarNumber });
+
+    // Test radio widget household_twoWheelNumber
+    testHelpers.inputRadioTest({
+        context,
+        path: 'household.twoWheelNumber',
+        value: String(home.householdTwoWheelNumber)
+    });
+
+    // Test checkbox widget home_carParkingsAvailableVehicleHousehold with conditional carParkingHomeWithVehicleConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (home.carParkingAvailableVehicleHousehold === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'home.carParkingAvailableVehicleHousehold',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'home.carParkingAvailableVehicleHousehold',
+            values: home.carParkingAvailableVehicleHousehold
+        });
+    }
+
+    // Test radio widget home_carParkingsAvailableNoVehicleHousehold with conditional carParkingHomeWithoutVehicleConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (home.carParkingAvailableNoVehicleHousehold === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'home.carParkingAvailableNoVehicleHousehold',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'home.carParkingAvailableNoVehicleHousehold',
+            value: home.carParkingAvailableNoVehicleHousehold
+        });
+    }
+
+    // Test radio widget household_carsharing with conditional sharingMobilitiesConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (home.householdCarSharing === null) {
+        testHelpers.inputVisibleTest({ context, path: 'household.carsharing', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({ context, path: 'household.carsharing', value: home.householdCarSharing });
+    }
 
     // Test radionumber widget household_bicycleNumber
-    testHelpers.inputRadioTest({ context, path: 'household.bicycleNumber', value: '2' });
+    testHelpers.inputRadioTest({ context, path: 'household.bicycleNumber', value: home.householdBicycleNumber });
 
     // Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.electricBicycleNumber', value: '1' });
+    if (home.householdElectricBicycleNumber === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.electricBicycleNumber',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.electricBicycleNumber',
+            value: home.householdElectricBicycleNumber
+        });
+    }
+
+    // Test radio widget household_bikesharing with conditional sharingMobilitiesConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (home.householdBikesharing === null) {
+        testHelpers.inputVisibleTest({ context, path: 'household.bikesharing', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({ context, path: 'household.bikesharing', value: home.householdBikesharing });
+    }
 
     // Test radio widget household_atLeastOnePersonWithDisability with conditional hasHouseholdSize2OrMoreConditional with choices yesNoPreferNotToAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    if (householdSize === 1) {
+    if (householdSize === 1 || home.householdAtLeastOnePersonWithDisability === null) {
         testHelpers.inputVisibleTest({ context, path: 'household.atLeastOnePersonWithDisability', isVisible: false });
     } else {
-        testHelpers.inputRadioTest({ context, path: 'household.atLeastOnePersonWithDisability', value: 'yes' });
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.atLeastOnePersonWithDisability',
+            value: home.householdAtLeastOnePersonWithDisability
+        });
     }
 
     // Test nextbutton widget home_save
@@ -1817,10 +1937,6 @@ export const fillLongDistanceSectionTests = ({
 export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
     // Verify the end navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'end', buttonStatus: 'active', isDisabled: false });
-
-    // Test radio widget householdOwnership with choices householdOwnershipChoices
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'household.ownership', value: 'tenant' });
 
     // Test select widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */

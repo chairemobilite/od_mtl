@@ -9,39 +9,94 @@ acceptToBeContactedForHelp: >-
     Je consens à être contacté(e) pour <strong>continuer ou préciser le questionnaire</strong>.
     <br /><span class="_pale _oblique">Si je ne le termine pas ou si certains des
     renseignements fournis sont incohérents.</span>
-contactInformationIntro: >-
-    Veuillez saisir le courriel <strong>ou</strong> le numéro de téléphone pour vous
-    recontacter.
+wantToParticipateToDraw: >-
+    Je souhaite participer au <strong>tirage au sort</strong><br /><span class="_pale
+    _oblique">Seuls les gagnants seront contactés. Il est nécessaire de terminer le
+    questionnaire pour être retenu ([Voir règlement](lien))</span>
+contactInformationIntro: Veuillez saisir le courriel pour vous recontacter.
 contactEmail: <strong>Adresse courriel</strong>
-phoneNumber: >-
-    <strong>Numéro de téléphone</strong><br /><span class="_pale _oblique">Format:
-    123-456-7890</span>
-home_address: <strong>Adresse</strong>
-home_city: <strong>Ville</strong> ou <strong>municipalité</strong>
-home_region: <strong>Province</strong>
-home_country: <strong>Pays</strong>
-home_postalCode: <strong>Code postal</strong>
-home_geography: >-
+homeAddress: <strong>Adresse</strong>
+homeCity: <strong>Ville</strong> ou <strong>municipalité</strong>
+homePostalCode: <strong>Code postal</strong>
+homeGeography: >-
     <strong>Positionnement de votre domicile</strong><br />Recherchez votre domicile
     en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous,
     ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant.
     Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
-household_size: >-
+homeIsMain: >-
+    Le {{address}} est-elle la <strong>résidence principale</strong> de votre ménage?<br
+    /><span class="_pale _oblique">La résidence principale est le logement où votre
+    ménage vit la majorité du temps (au moins 50 %)</span>
+householdOwnership: Est-ce que votre ménage est locataire ou propriétaire de votre
+    logement?
+householdSize: >-
     <strong>Personnes habitant votre domicile</strong> ou logement<br /><span class="_pale
     _oblique">Y compris vous-même et les enfants en garde partagée s'ils étaient à
     votre domicile le {{assignedDate}}.</span>
-household_carNumber: >-
+householdCarNumber: >-
     <strong>Automobiles</strong>, VUS, camions légers ou fourgonnettes, etc.<br /><span
     class="_pale _oblique">À la disposition de votre ménage.</span>
-household_bicycleNumber: >-
-    <strong>Vélos</strong>, vélos électriques ou trottinettes électriques possédés
-    par les membres du ménage<br /><span class="_pale _oblique">Inclure seulement
-    les vélos utilisables en bon état.</span>
-household_electricBicycleNumber: >-
-    Parmi ces vélos, combien sont des <strong>vélos électriques</strong> ou à assistance
-    électrique?
-household_atLeastOnePersonWithDisability: >-
+householdTwoWheelNumber: >-
+    <strong>Motocyclettes ou scooters</strong> nécessitant un permis <br /><span class="_pale
+    _oblique">Aussi appelé cyclomoteur ou mobylette</span>
+homeCarParkingsAvailableVehicleHousehold: >-
+    <strong>Stationnement(s) disponible(s) au domicile</strong> pour les véhicules
+    de votre ménage. <br /><span class="_pale _oblique">Vous pouvez laisser cette
+    question vide si aucun choix ne s’applique à votre situation</span>
+homeCarParkingsAvailableNoVehicleHousehold: >-
+    Votre ménage a-t-il accès a une <strong>entrée privée, garage ou place de stationnement
+    réservée</strong>?
+householdCarsharing: >-
+    <strong>Autopartage</strong> (ex. : Communauto, Léo) : utilisation comme conducteur(-rice)
+    dans les 6 derniers mois<br /><span class="_pale _oblique">Par au moins une personne
+    du ménage</span>
+householdBicycleNumber: >-
+    <strong>Vélo(s)</strong> à la disposition de votre ménage <br /><span class="_pale
+    _oblique">Indiquer seulement les vélos des ados ou adultes dans un état utilisable,
+    incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.</span>
+householdElectricBicycleNumber: >-
+    Parmi ces vélos, combien sont des <strong>vélo(s) à assistance électrique</strong>
+householdBikesharing: >-
+    <strong>Vélo en libre-service</strong> (ex. BIXI) : utilisation dans les 30 derniers
+    jours<br /><span class="_pale _oblique">Par au moins une personne du ménage</span>
+householdAtLeastOnePersonWithDisability: >-
     Y a-t-il au moins une personne dans votre ménage avec une <strong>incapacité permanente
     qui limite ses déplacements quotidiens</strong>?<br /><span class="_pale _oblique">Y
     compris vous-même</span>
 home_save: Enregistrer et continuer
+popup:
+    homeOwnershipTitle: Pourquoi cette question?
+    homeOwnershipContent: >-
+        <strong>Pourquoi cette question?</strong><br />Le statut d’occupation du logement
+        (locataire ou propriétaire) est associé à des comportements de mobilité différents.
+        Cette information nous permet de mieux interpréter les résultats de l’enquête
+        et de nous assurer que les données recueillies sont représentatives de l’ensemble
+        des ménages de la région.
+    householdSizeTitle: Qui inclure dans ce nombre?
+    householdSizeContent: >-
+        <strong>Qui inclure dans ce nombre?</strong><br /><span class="_green">Inclure
+        :</span><br />- Vous-même<br />- Les enfants en garde partagée s'ils étaient
+        présents à votre domicile le <span class="_green">{{assignedDate}}</span><br
+        />Les chambreuses, les chambreurs et colocataires, ainsi que tous ceux et
+        celles qui vivent en communauté domestique
+    householdCarNumberTitle: Quels véhicules inclure dans ce nombre?
+    householdCarNumberContent: >-
+        <strong>Quels véhicules inclure?</strong><br /><span class="_green">Inclure
+        :</span> <br />- Les automobiles, VUS, camions légers, camions et fourgonnettes<br
+        />- Les véhicules fournis ou loués par un employeur que les membres de votre
+        ménage utilisent pour aller au travail ou pour des raisons personnelles<br
+        /><span class="_red">Ne pas inclure :</span> <br />- Les mobylettes, scooters
+        et motos (à essence ou électriques)<br />- Les véhicules d’autopartage<br
+        />- Un véhicule stationné au lieu de travail utilisé exclusivement pour le
+        travail<br />- Les véhicules remisés ou de collection utilisés rarement
+    householdTwoWheelTitle: Quels véhicules inclure dans ce nombre?
+    householdTwoWheelContent: >-
+        <strong>Quels véhicules inclure?</strong><br /><span class="_green">Inclure
+        :</span> <br />- Les mobylettes, scooters et motos (à essence ou électriques)<br
+        /><span class="_red">Ne pas inclure :</span> <br />- Les automobiles, VUS,
+        camions légers, camions et fourgonnettes<br />- Les vélos ou vélos électriques<br
+        />- Les trottinettes ou trottinettes électriques
+home_carParkingsAvailableVehicleHousehold_one: >-
+    <strong>Stationnement(s) disponible(s) au domicile</strong> pour le véhicule de
+    votre ménage. <br /><span class="_pale _oblique">Vous pouvez laisser cette question
+    vide si aucun choix ne s’applique à votre situation</span>

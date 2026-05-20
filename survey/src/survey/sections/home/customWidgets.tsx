@@ -11,34 +11,11 @@ import * as customValidations from '../../common/customValidations';
 import { defaultInvalidGeocodingResultTypes } from '../../common/customGeoData';
 import * as customHelpPopup from '../../common/customHelpPopup';
 
-export const household_size: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.size',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview) => {
-        const assignedDay = surveyHelperNew.getResponse(interview, '_assignedDay') as string;
-        const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
-
-        return t('home:household_size', {
-            assignedDate
-        });
-    },
-    valueRange: {
-        min: 1,
-        max: 6
-    },
-    overMaxAllowed: true,
-    helpPopup: customHelpPopup.householdSizeHelpPopup,
-    conditional: defaultConditional,
-    validations: validations.householdSizeValidation
-};
-
-export const home_geography: WidgetConfig.InputMapFindPlaceType = {
+export const homeGeography: WidgetConfig.InputMapFindPlaceType = {
     ...defaultInputBase.inputMapFindPlaceBase,
     path: 'home.geography',
     label: (t: TFunction, _interview, _path) => {
-        return t('home:home_geography');
+        return t('home:homeGeography');
     },
     icon: {
         url: getActivityMarkerIcon('home'),

@@ -13,17 +13,6 @@ import * as conditionals from '../../common/conditionals';
 import * as inputRange from '../../common/inputRange';
 import * as customValidations from '../../common/customValidations';
 
-export const householdOwnership: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'household.ownership',
-    twoColumns: false,
-    containsHtml: false,
-    label: (t: TFunction) => t('end:householdOwnership'),
-    choices: choices.householdOwnershipChoices,
-    conditional: defaultConditional,
-    validations: validations.requiredValidation
-};
-
 export const householdIncome: WidgetConfig.InputSelectType = {
     ...defaultInputBase.inputSelectBase,
     path: 'household.income',

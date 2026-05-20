@@ -6,6 +6,8 @@ import { I18nData } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 
 const labelWithJourneyDate =
     (translationKey: string): I18nData =>
@@ -196,3 +198,23 @@ export const personUsualWorkPlaceCommutingCustomLabel: I18nData = (t: TFunction,
 export const personNoSchoolTripReasonCustomLabel: I18nData = labelWithJourneyDate(
     'travelBehavior:personNoSchoolTripReason'
 );
+
+export const homeParkingAvailableCustomLabel: I18nData = (t: TFunction, interview) => {
+    const vehicleCount = getResponse(interview, 'household.carNumber', 0) as number | null;
+    return t('home:homeCarParkingsAvailableVehicleHousehold', { count: vehicleCount });
+};
+
+export const householdSizeCustomLabel: I18nData = (t: TFunction, interview) => {
+    const assignedDay = getResponse(interview, '_assignedDay') as string;
+    const assignedDate = getFormattedDate(assignedDay, { withDayOfWeek: true, withRelative: true });
+
+    return t('home:householdSize', {
+        assignedDate
+    });
+};
+
+// Interpolate the address in the label
+export const homeIsMainCustomLabel: I18nData = (t: TFunction, interview) => {
+    const homeAddress = odHelpers.getHomeAddressOneLine({ interview }); // Just to check if home address is available, as it's required for the label. It will throw an error if not available.
+    return t('home:homeIsMain', { address: homeAddress });
+};
