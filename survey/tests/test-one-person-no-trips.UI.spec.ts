@@ -13,7 +13,8 @@ const context = {
     widgetTestCounters: {}
 };
 
-// Survey credentials
+// Survey credentials, no long distance section, no trips, one person in the
+// household, should go directly to end section after travel behavior.
 const postalCode = 'G1R 5H1';
 const accessCode = '7357-1111';
 
@@ -42,7 +43,7 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 });
 
 /********** Tests home section **********/
-commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillHomeSectionTests({ context });
 
 /********** Tests household section **********/
 commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
@@ -61,13 +62,9 @@ const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhen
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 1,
-    nextSection: 'longDistance',
+    nextSection: 'end',
     travelBehavior
 });
-
-/********** Tests longDistance section **********/
-// No long distance trips
-commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1 });
 
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });

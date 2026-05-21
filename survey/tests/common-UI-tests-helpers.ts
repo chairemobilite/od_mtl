@@ -1830,7 +1830,7 @@ export const fillTravelBehaviorSectionTests = ({
     testHelpers.verifyNavBarButtonStatus({
         context,
         buttonText: 'trips',
-        buttonStatus: expectedNextSection === 'longDistance' ? 'completed' : 'active', // Trips section is still active if the next section is not 'end'
+        buttonStatus: expectedNextSection === 'longDistance' || expectedNextSection === 'end' ? 'completed' : 'active', // Trips section is still active if the next section is not one of 'longDistance' or 'end'
         isDisabled: false
     });
 };
