@@ -7,6 +7,7 @@ import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types
 import { widgetsNames } from './widgetsNames';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
@@ -36,7 +37,12 @@ export const sectionConfig: SectionConfig = {
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: nextSectionName });
     },
-    onSectionEntry: updateHouseholdSizeFromPersonCount
+    onSectionEntry: updateHouseholdSizeFromPersonCount,
+    isSectionVisible: (interview) => {
+        // Section visible seulement si ep exclusif est mtmd
+        const exclusiveEP = getResponse(interview, 'ep.exclusive');
+        return exclusiveEP === 'mtmd';
+    }
 };
 
 export default sectionConfig;

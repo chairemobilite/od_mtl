@@ -6,6 +6,8 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { allPersonsTripDiariesCompleted } from '../../common/helper';
 
 export const currentSectionName: string = 'end';
 const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
@@ -26,7 +28,16 @@ export const sectionConfig: SectionConfig = {
     widgets: widgetsNames,
     // Allow to click on the section menu
     enableConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: previousSectionName });
+        // Conditional depends on the partial sample, some have sections between
+        // tripDiary and end, others don't, in which case we wait for all trip
+        // diaries to be completed.
+        const exclusiveEP = getResponse(interview, 'ep.exclusive');
+        // FIXME add other previous sections as they are implemented
+        const actualPreviousSection = exclusiveEP === 'mtmd' ? 'longDistance' : undefined;
+        if (actualPreviousSection === undefined) {
+            return allPersonsTripDiariesCompleted(interview);
+        }
+        return isSectionCompleted({ interview, sectionName: actualPreviousSection });
     },
     // Allow to click on the section menu
     completionConditional: function (interview) {

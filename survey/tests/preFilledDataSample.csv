@@ -1,5 +1,5 @@
 AccessCode,PostalCode,Address,AptNumber,City,Province,AddrLat,AddrLon,Strate,Lot,testCase,ep.exclusive,ep.commonTrip,ep.sameMode
-7357-1111,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,1,one-person-no-trips,mtmd,FALSE,FALSE
+7357-1111,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,1,one-person-no-trips,paidParking,FALSE,FALSE
 7357-1112,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,2,one-person-with-trips,mtmd,FALSE,FALSE
 7357-1113,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,3,one-person-with-trips-and-deleted-places,mtmd,FALSE,FALSE
 7357-1114,G5A 1E7,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,1,two-persons-no-trips,mtmd,FALSE,FALSE
