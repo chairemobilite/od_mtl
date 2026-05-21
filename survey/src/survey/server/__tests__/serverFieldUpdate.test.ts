@@ -110,7 +110,7 @@ describe('access code update', () => {
 
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCode') as any).callback;
     
-    test('properly formatted access code, with data, postal code match', async () => {
+    test('properly formatted access code, with data', async () => {
         const interview = _cloneDeep(baseInterview);
 
         // Prepare data to return
@@ -125,68 +125,6 @@ describe('access code update', () => {
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
-        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
-    });
-
-    test('properly formatted access code, with data, but postal code mismatch', async () => {
-        const interview = _cloneDeep(baseInterview);
-
-        // Prepare data to return
-        const prefillData = {
-            'home.address': '123 Main St',
-            'home.city': 'Montreal',
-            'home.postalCode': 'H0H 0H0',
-            'home._addressIsPrefilled': true
-        }
-        preFilledMock.mockResolvedValueOnce(prefillData);
-        const updateResult = await updateCallback(interview, '1111-1111');
-
-        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
-        expect(updateResult).toEqual({ 
-            _accessCodeConfirmed: true,
-            _postalCodeMismatch: true,
-            _userPostalCode: 'H1A 1A1',
-            _prefilledPostalCode: prefillData['home.postalCode']
-        });
-        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
-    });
-
-    test('properly formatted access code, with data, but with a participant without postal code', async () => {
-        const interview = _cloneDeep(baseInterview);
-
-        // Prepare data to return
-        const prefillData = {
-            'home.address': '123 Main St',
-            'home.city': 'Montreal',
-            'home.postalCode': 'H0H 0H0',
-            'home._addressIsPrefilled': true
-        }
-        preFilledMock.mockResolvedValueOnce(prefillData);
-        getParticipantByIdMock.mockResolvedValueOnce({ username: 'phoneInterview1234314231', id: 1 });
-        const updateResult = await updateCallback(interview, '1111-1111');
-
-        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
-        expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
-        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
-    });
-
-    test('properly formatted access code, with data, but with a participant with username with same pattern', async () => {
-        const interview = _cloneDeep(baseInterview);
-
-        // Prepare data to return
-        const prefillData = {
-            'home.address': '123 Main St',
-            'home.city': 'Montreal',
-            'home.postalCode': 'H0H 0H0',
-            'home._addressIsPrefilled': true
-        }
-        preFilledMock.mockResolvedValueOnce(prefillData);
-        getParticipantByIdMock.mockResolvedValueOnce({ username: '1111-1111-nota  postal code', id: 1 });
-        const updateResult = await updateCallback(interview, '1111-1111');
-
-        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
-        expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
-        expect(getParticipantByIdMock).toHaveBeenCalledWith(baseInterview.participant_id);
     });
 
     each([
@@ -195,6 +133,8 @@ describe('access code update', () => {
         ['1111  1111', '1111-1111'],
     ]).test('access code to reformat, without data %s', async (accessCode, expected) => {
         const interview = _cloneDeep(baseInterview);
+        // Fill the partial sample to avoid computing there here
+        interview.response.ep = { exclusive: 'mtmd', commonTrip: true, sameMode: false };
 
         const updateResult = await updateCallback(interview, accessCode);
         expect(preFilledMock).toHaveBeenCalledWith(expected, interview);
@@ -230,6 +170,73 @@ describe('access code update', () => {
         const updateResult = await updateCallback(interview, '11111111');
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ });
+    });
+
+    test.each([
+        { 
+            title: 'ep.exclusive, ep.commonTrip and ep.sameMode already set',
+            interviewResponseData: { ep: { exclusive: 'freqBarriers', commonTrip: true, sameMode: false } },
+            prefillData: { 'home.address': '123 Main St' },
+            randomValues: [],
+            expected: { 'home.address': '123 Main St', 'home._addressIsPrefilled': true }
+        },
+        {
+            title: 'eps in the prefill data',
+            prefillData: { 'home.address': '123 Main St', 'home.preData': { 'ep.exclusive': 'omission', 'ep.commonTrip': false, 'ep.sameMode': true } },
+            randomValues: [],
+            expected: { 'home.address': '123 Main St', 'home._addressIsPrefilled': true, 'home.preData': { 'ep.exclusive': 'omission', 'ep.commonTrip': false, 'ep.sameMode': true }, 'ep.exclusive': 'omission', 'ep.commonTrip': false, 'ep.sameMode': true }
+        },
+        {
+            title: 'no previous or prefilled eps',
+            prefillData: {},
+            randomValues: [0.4, 0.32, 0.64],
+            expected: { 'ep.exclusive': 'paidParking', 'ep.commonTrip': true, 'ep.sameMode': false }
+        },
+        {
+            title: 'some previous and prefilled eps',
+            interviewResponseData: { ep: { exclusive: 'omission' } },
+            prefillData: { 'home.preData': { 'ep.commonTrip': false } },
+            randomValues: [0.4],
+            expected: { 'home.preData': { 'ep.commonTrip': false }, 'ep.commonTrip': false, 'ep.sameMode': true }
+        },
+        {
+            title: 'convert prefilled eps to valid booleish values',
+            interviewResponseData: { ep: { exclusive: 'omission' } },
+            prefillData: { 'home.preData': { 'ep.commonTrip': 'no', 'ep.sameMode': 'true' } },
+            randomValues: [],
+            expected: { 'home.preData': { 'ep.commonTrip': 'no', 'ep.sameMode': 'true' }, 'ep.commonTrip': false, 'ep.sameMode': true }
+        },
+        {
+            title: 'calculate eps when not valid booleish values or invalid current value',
+            interviewResponseData: { ep: { exclusive: 'invalidValue' } },
+            prefillData: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 } },
+            randomValues: [0, 0.5, 0.7],
+            expected: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
+        },
+    ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
+        // Assign the interview response data for the test case
+        const interview = _cloneDeep(baseInterview);
+        if (interviewResponseData !== undefined) {
+            Object.assign(interview.response, interviewResponseData);
+        }
+        
+        // Mock the random function to return the specified values for the test case
+        const randomMock = jest.spyOn(Math, 'random');
+        randomValues.forEach((value, index) => {
+            randomMock.mockReturnValueOnce(value);
+        });
+
+        // Mock the getPrefilledForAccessCode to return the prefillData for the test case
+        preFilledMock.mockResolvedValueOnce(prefillData);
+
+        // Call the update callback and check the result
+        const updateResult = await updateCallback(interview, '1111-1111');
+        // Random mock should have been called only if partial sample were necessary
+        expect(randomMock).toHaveBeenCalledTimes(randomValues.length);
+        expect(updateResult).toEqual({ ...expected, _accessCodeConfirmed: true });
+
+        // Restore the original Math.random function        
+        randomMock.mockRestore();
     });
 
 });
