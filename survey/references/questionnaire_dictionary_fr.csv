@@ -79,7 +79,7 @@ Valeurs,"1 : 1
 ""
 Champ,h_carParkingAvailableVehicleHousehold
 Type de question,Case à cocher
-Conditionnel,carParkingHomeWithVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Conditionnel,carParkingHomeWithVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
 Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation"
 Valeurs,"private : Entrée privée, garage ou place de stationnement réservée
@@ -87,7 +87,7 @@ stickers : Possession d’une vignette résidentielle "
 ""
 Champ,h_carParkingAvailableNoVehicleHousehold
 Type de question,Bouton radio
-Conditionnel,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Conditionnel,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
 Question,"Votre ménage a-t-il accès a une entrée privée, garage ou place de stationnement réservée?"
 Valeurs,"yes : Oui
 no : Non"

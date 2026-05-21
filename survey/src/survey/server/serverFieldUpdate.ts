@@ -116,29 +116,6 @@ const validatePostalCode = (postalCode: string, interview: InterviewAttributes):
     }
     return true;
 };
-// Get the postal code from the participant username. If the username does not have a "accessCode-postalCode" pattern, it will return undefined.
-const getPostalCodeFromParticipant = async (interview: InterviewAttributes): Promise<string | undefined> => {
-    const participant = await participantsDbQueries.getById(interview.participant_id);
-    if (!participant) {
-        return undefined;
-    }
-    // The postal code is the last part of the username, after the second '-'
-    const postalCode = participant.username.split('-', 3).slice(-1)[0];
-    if (_isBlank(postalCode)) {
-        return undefined;
-    }
-    // The login form already checked the format and the validity of the postal
-    // code, so if it's valid, we can return it. If it's invalid, it's a
-    // participant username that does not contain a postal code and that
-    // happened to use a similar pattern, we return undefined so it falls in the
-    // default case. This is really custom to this specific survey where byField
-    // is the only auth method and some interviews may be started by
-    // interviewers. Not to be copied lightly to other surveys.
-    if (!_isBlank(postalCode) && validatePostalCode(postalCode, interview)) {
-        return postalCode;
-    }
-    return undefined;
-};
 
 // Calculate the assigned day from the previous day, using the distribution of
 // assigned days so far to balance the assigned days. Exported for unit tests
@@ -179,6 +156,80 @@ export const calculateAssignedDayFromPreviousDay = (previousDay: string): string
     return formattedAssignedDay;
 };
 
+// An array of probabilities with exclusive options. The first element of the
+// array is the upper bound of the probability (the lower bound is the previous
+// element), while the second element is the name of the sample. With a random
+// value between 0 and 1, the first sample whose upper bound is higher than the
+// random value will be selected. The upper bounds should be in increasing order
+// and the last upper bound should be 1 or more.
+const epExclusiveProbabilities: [number, string][] = [
+    [0.05, 'householdType'],
+    [0.1, 'omission'],
+    [0.47, 'paidParking'],
+    [0.5, 'respect'],
+    [0.6, 'freqAttitudinal'],
+    [0.7, 'freqBarriers'],
+    [0.8, 'freqAttitudinalBarriers'],
+    [1, 'mtmd']
+];
+const possibleExclusiveSamples = epExclusiveProbabilities.map((item) => item[1]);
+const commonTripProbability = 0.5;
+const sameModeProbability = 0.5;
+/**
+ * Set partial samples for interview once if it is not already set and the
+ * prefilled values do not contain a value for them (additional values are
+ * stored in home.preData).
+ *
+ * This function mutates and returns the currentAdditionalData object with the
+ * new values to set
+ *
+ * ```
+ * `ep.exclusive` is a string field corresponding to the name of the exclusive sample
+ * `ep.commonTrip` is a boolean field
+ * `ep.sameMode` is a boolean field
+ * ```
+ */
+const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData: Record<string, unknown>) => {
+    // Set the current exclusive if it is not set or if not a valid value
+    const currentExclusiveSample = getResponse(interview, 'ep.exclusive', null);
+    if (typeof currentExclusiveSample !== 'string' || !possibleExclusiveSamples.includes(currentExclusiveSample)) {
+        let exclusiveSample = currentAdditionalData['home.preData']?.['ep.exclusive'];
+        if (typeof exclusiveSample !== 'string' || !possibleExclusiveSamples.includes(exclusiveSample)) {
+            const randomValue = Math.random();
+            for (let i = 0; i < epExclusiveProbabilities.length; i++) {
+                if (randomValue <= epExclusiveProbabilities[i][0]) {
+                    exclusiveSample = epExclusiveProbabilities[i][1];
+                    break;
+                }
+            }
+        }
+        currentAdditionalData['ep.exclusive'] = exclusiveSample;
+    }
+    // Set the common trip and same mode samples if not set. If there are
+    // prefilled values for them, use them after making sure to convert it to
+    // booleish values
+    const currentCommonTrip = getResponse(interview, 'ep.commonTrip', null);
+    if (currentCommonTrip === null) {
+        const prefilledCommonTrip = _booleish(currentAdditionalData['home.preData']?.['ep.commonTrip']);
+        if (prefilledCommonTrip !== null) {
+            currentAdditionalData['ep.commonTrip'] = prefilledCommonTrip;
+        } else {
+            currentAdditionalData['ep.commonTrip'] = _booleish(Math.random() <= commonTripProbability);
+        }
+    }
+
+    const currentSameMode = getResponse(interview, 'ep.sameMode', null);
+    if (currentSameMode === null) {
+        const prefilledSameMode = _booleish(currentAdditionalData['home.preData']?.['ep.sameMode']);
+        if (prefilledSameMode !== null) {
+            currentAdditionalData['ep.sameMode'] = prefilledSameMode;
+        } else {
+            currentAdditionalData['ep.sameMode'] = _booleish(Math.random() <= sameModeProbability);
+        }
+    }
+    return currentAdditionalData;
+};
+
 export default [
     {
         field: '_previousDay',
@@ -205,6 +256,8 @@ export default [
         field: 'accessCode',
         callback: async (interview: InterviewAttributes, value) => {
             try {
+                // FIXME In od_mtl, prefilling data should come after confirming access code, but it is not implemented yet. See https://github.com/chairemobilite/od_mtl/issues/110
+
                 const properlyFormattedAccessCode =
                     typeof value === 'string' ? eightDigitsAccessCodeFormatter(value) : value;
                 // Only valid access codes should be processed
@@ -218,30 +271,15 @@ export default [
                 }
 
                 // Get prefilled responses for this access code
-                const prefilledResponsesForAccessCode = await getPrefilledForAccessCode(
-                    properlyFormattedAccessCode,
-                    interview
-                );
-
-                // Do not prefill answers if the postal code is not the same as the one used in this survey
-                const postalCode = await getPostalCodeFromParticipant(interview);
-                const prefilledResponses =
-                    postalCode !== undefined &&
-                    prefilledResponsesForAccessCode['home.postalCode'] &&
-                    prefilledResponsesForAccessCode['home.postalCode'] !== postalCode
-                        ? {
-                            _postalCodeMismatch: true,
-                            _userPostalCode: postalCode,
-                            _prefilledPostalCode: prefilledResponsesForAccessCode['home.postalCode']
-                        }
-                        : prefilledResponsesForAccessCode;
+                const prefilledResponses = await getPrefilledForAccessCode(properlyFormattedAccessCode, interview);
 
                 if (properlyFormattedAccessCode !== value) {
                     prefilledResponses['accessCode'] = properlyFormattedAccessCode;
                 }
                 // Set the access code as confirmed
                 prefilledResponses['_accessCodeConfirmed'] = true;
-                return prefilledResponses;
+
+                return setPartialSamples(interview, prefilledResponses);
             } catch (error) {
                 console.error('error getting server update fields for accessCode', error);
                 return {};

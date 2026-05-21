@@ -858,20 +858,20 @@ export const carParkingHomeWithVehicleConditional: WidgetConditional = (intervie
             },
             {
                 logicalOperator: '&&',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqAttitudinal',
                 parentheses: '('
             },
             {
                 logicalOperator: '||',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqBrakes'
             },
             {
                 logicalOperator: '||',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqAttitudinalBrakes',
                 parentheses: ')'
@@ -905,20 +905,20 @@ export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (inter
             },
             {
                 logicalOperator: '&&',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqAttitudinal',
                 parentheses: '('
             },
             {
                 logicalOperator: '||',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqBrakes'
             },
             {
                 logicalOperator: '||',
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'freqAttitudinalBrakes',
                 parentheses: ')'

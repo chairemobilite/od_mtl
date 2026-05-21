@@ -79,7 +79,7 @@ Values,"1 : 1
 ""
 Field,h_carParkingAvailableVehicleHousehold
 Question type,Checkbox input
-Conditional,carParkingHomeWithVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Conditional,carParkingHomeWithVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Parking available at home for your household's vehicles
 You may leave this question blank if none of the options apply to your situation."
 Values,"private : Private driveway, garage or reserved parking space
@@ -87,7 +87,7 @@ stickers : Residential parking permit"
 ""
 Field,h_carParkingAvailableNoVehicleHousehold
 Question type,Radio input
-Conditional,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (ep_exclusif === freqAttitudinal || ep_exclusif === freqBrakes || ep_exclusif === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Conditional,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
 Question,"Does your household have access to a private driveway, garage, or reserved parking space?"
 Values,"yes : Yes
 no : No"
