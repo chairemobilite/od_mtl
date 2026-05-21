@@ -44,7 +44,7 @@
         "format": "yarn workspace od_mtl run format",
         "generate-migration": "knex migrate:make",
         "reset-submodules": "rimraf evolution/ && git submodule update --init --recursive",
-        "generateSurvey": "yarn workspace evolution-generator run generateSurvey --config_path ../../../survey/references/generatorConfigs.yaml && yarn format",
+        "generateSurvey": "sh -c 'yarn workspace evolution-generator run generateSurvey --config_path ../../../survey/references/generatorConfigs.yaml \"$@\" && yarn format' --",
         "reset:test:ui": "yarn workspace od_mtl run reset:test:ui"
     },
     "dependencies": {},

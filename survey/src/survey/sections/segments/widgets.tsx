@@ -242,8 +242,7 @@ export const segmentIntercityBusStationEnd: WidgetConfig.InputRadioType = {
 // segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl
 export const segmentBusLines = customWidgets.segmentBusLines;
 
-// Custom because of the color and size of the choices
-export const segmentBusLinesWarning = customWidgets.segmentBusLinesWarning;
+// Note: segmentBusLinesWarning widget is not active. This widget will not be displayed in the survey.
 
 // Needs custom label because of interpolations and custom conditional because of distance calculations
 //
