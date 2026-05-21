@@ -4,11 +4,10 @@ import { widgetsNames } from './widgetsNames';
 import {
     householdMembersSectionComplete,
     tripDiaryAndTravelBehaviorForPersonComplete,
-    tripsForPersonComplete,
-    tripsIntroForPersonComplete
+    tripsForPersonComplete
 } from '../../common/helper';
 import { checkConditional } from 'evolution-frontend/lib/actions/utils/Conditional';
-import { personNoWorkTripReason, personNoSchoolTripReason } from './widgets';
+import { personNoWorkTripReason, personNoSchoolTripReason, personNoSchoolTripIntro } from './widgets';
 
 export const currentSectionName: string = 'travelBehavior';
 const previousSectionName: SectionConfig['previousSection'] = 'segments';
@@ -43,14 +42,14 @@ export const sectionConfig: SectionConfig = {
             personId: iterationContext[iterationContext.length - 1]
         }) as any;
         const journey = odSurveyHelper.getJourneysArray({ person })[0];
-        // Check the conditional of the personNoWorkTripReason, personNoSchoolTripReason and personWhoAnsweredForThisPerson widgets
+        // Check the conditional of the personNoWorkTripReason, personNoSchoolTripIntro and personWhoAnsweredForThisPerson widgets
         const [personNoWorkTripConditional] = checkConditional(
             personNoWorkTripReason.conditional as any,
             interview,
             `household.persons.${person._uuid}.journeys.${journey._uuid}.noWorkTripReason`
         );
         const [personNoSchoolTripConditional] = checkConditional(
-            personNoSchoolTripReason.conditional as any,
+            personNoSchoolTripIntro.conditional as any,
             interview,
             `household.persons.${person._uuid}.journeys.${journey._uuid}.noSchoolTripReason`
         );
