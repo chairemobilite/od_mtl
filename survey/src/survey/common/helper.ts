@@ -238,7 +238,7 @@ const travelBehaviorForPersonComplete = function ({
         return true;
     }
     // Make sure the no trip reasons are answered if required
-    const shouldAskNoSchoolTrip = shouldAskForNoSchoolTripReason({ person, interview });
+    const shouldAskNoSchoolTrip = shouldAskForNoSchoolTripFollowup({ person, interview });
     const shouldAskNoWorkTrip = shouldAskForNoWorkTripReason({ person, interview });
     if (!shouldAskNoSchoolTrip && !shouldAskNoWorkTrip) {
         return true;

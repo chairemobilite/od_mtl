@@ -6,8 +6,9 @@ import { I18nData } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
-import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
+import { transitFareType } from './choices';
 
 const labelWithJourneyDate =
     (translationKey: string): I18nData =>
@@ -217,4 +218,33 @@ export const householdSizeCustomLabel: I18nData = (t: TFunction, interview) => {
 export const homeIsMainCustomLabel: I18nData = (t: TFunction, interview) => {
     const homeAddress = odHelpers.getHomeAddressOneLine({ interview }); // Just to check if home address is available, as it's required for the label. It will throw an error if not available.
     return t('home:homeIsMain', { address: homeAddress });
+};
+
+// Interpolate transit fare name and price in the label
+const transitFarePrices = {
+    A: { regular: 110, reduced: 66 },
+    AB: { regular: 170, reduced: 102 },
+    ABC: { regular: 206, reduced: 123.5 },
+    ABCD: { regular: 281, reduced: 168.5 },
+    bus: { regular: 119, reduced: 71.5 },
+    busCD: { regular: 119, reduced: 71.5 }
+};
+export const personTransitFareWarningCustomLabel: I18nData = (t: TFunction, interview, path) => {
+    const transitFare = getResponse(interview, path, null, '../transitFare');
+    if (typeof transitFare !== 'string' || transitFarePrices[transitFare] === undefined) {
+        throw new Error(
+            `personTransitFareWarningCustomLabel: Transit fare ${transitFare} not found in transitFarePrices`
+        );
+    }
+    const selectedTransitFare = transitFareType.find((fare) => fare.value === transitFare);
+    const selectedTransitFareName = selectedTransitFare
+        ? translateString(selectedTransitFare.label, i18n, interview, path)
+        : '';
+    const selectedTransitFarePrice = transitFarePrices[transitFare].regular;
+    const selectedTransitFarePriceReduced = transitFarePrices[transitFare].reduced;
+    return t('household:personTransitFareWarning', {
+        transitFare: selectedTransitFareName,
+        transitFarePrice: selectedTransitFarePrice,
+        transitFarePriceReduced: selectedTransitFarePriceReduced
+    });
 };

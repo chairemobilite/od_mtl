@@ -120,40 +120,6 @@ export const participationStatusStudent: ChoiceType[] = [
     ...no
 ];
 
-export const schoolType: ChoiceType[] = [
-    {
-        value: 'kindergarten',
-        label: (t: TFunction) => t('choices:schoolType.kindergarten'),
-        conditional: conditionals.ifAge5OrLessConditional
-    },
-    {
-        value: 'primarySchool',
-        label: (t: TFunction) => t('choices:schoolType.primarySchool'),
-        conditional: conditionals.ifAge4to13Conditional
-    },
-    {
-        value: 'secondarySchool',
-        label: (t: TFunction) => t('choices:schoolType.secondarySchool'),
-        conditional: conditionals.ifAge11OrMoreConditional
-    },
-    {
-        value: 'schoolAtHome',
-        label: (t: TFunction) => t('choices:schoolType.schoolAtHome'),
-        conditional: conditionals.ifAge4to15Conditional
-    },
-    {
-        value: 'atHome',
-        label: (t: TFunction) => t('choices:schoolType.atHome'),
-        conditional: conditionals.ifAge5OrLessConditional
-    },
-    {
-        value: 'collegeCegepDepAep',
-        label: (t: TFunction) => t('choices:schoolType.collegeCegepDepAep'),
-        conditional: conditionals.ifAge15OrMoreConditional
-    },
-    ...other
-];
-
 export const personOccupation: ChoiceType[] = [
     {
         value: 'fullTimeWorker',
@@ -205,27 +171,98 @@ export const personOccupation: ChoiceType[] = [
         value: 'volunteer',
         label: (t: TFunction) => t('choices:personOccupation.volunteer')
     },
-    {
-        value: 'other',
-        label: (t: TFunction) => t('choices:personOccupation.other')
-    },
-    {
-        value: 'preferNotToAnswer',
-        label: (t: TFunction) => t('choices:personOccupation.preferNotToAnswer')
-    }
+    ...otherWithoutSpecify,
+    ...preferNotToAnswer
 ];
 
-export const transitFareType: ChoiceType[] = [
-    ...no,
+export const jobTypes: ChoiceType[] = [
     {
-        value: 'transitPass',
-        label: (t: TFunction) => t('choices:transitFareType.transitPass')
+        value: 'professional',
+        label: (t: TFunction) => t('choices:jobTypes.professional')
+    },
+    {
+        value: 'administration',
+        label: (t: TFunction) => t('choices:jobTypes.administration')
+    },
+    {
+        value: 'salesAndServices',
+        label: (t: TFunction) => t('choices:jobTypes.salesAndServices')
+    },
+    {
+        value: 'manufacturing',
+        label: (t: TFunction) => t('choices:jobTypes.manufacturing')
+    },
+    ...dontKnow
+];
+
+export const transitPassType: ChoiceType[] = [
+    {
+        value: 'transitPassARTM',
+        label: (t: TFunction) => t('choices:transitPassType.transitPassARTM'),
+        conditional: conditionals.ifAge64OrLessConditional
+    },
+    {
+        value: 'transitPassARTMWithElderly',
+        label: (t: TFunction) => t('choices:transitPassType.transitPassARTMWithElderly'),
+        conditional: conditionals.ifAge65OrMoreConditional
     },
     {
         value: 'tickets',
-        label: (t: TFunction) => t('choices:transitFareType.tickets')
+        label: (t: TFunction) => t('choices:transitPassType.tickets')
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:transitPassType.other')
     },
     ...dontKnow
+];
+
+export const transitFareType: ChoiceType[] = [
+    {
+        value: 'A',
+        label: (t: TFunction) => t('choices:transitFareType.A')
+    },
+    {
+        value: 'AB',
+        label: (t: TFunction) => t('choices:transitFareType.AB')
+    },
+    {
+        value: 'ABC',
+        label: (t: TFunction) => t('choices:transitFareType.ABC')
+    },
+    {
+        value: 'ABCD',
+        label: (t: TFunction) => t('choices:transitFareType.ABCD')
+    },
+    {
+        value: 'bus',
+        label: (t: TFunction) => t('choices:transitFareType.bus')
+    },
+    {
+        value: 'busCD',
+        label: (t: TFunction) => t('choices:transitFareType.busCD')
+    },
+    {
+        value: 'opusWithTicketsOnly',
+        label: (t: TFunction) => t('choices:transitFareType.opusWithTicketsOnly')
+    },
+    {
+        value: 'otherTerritory',
+        label: (t: TFunction) => t('choices:transitFareType.otherTerritory')
+    },
+    ...other,
+    {
+        value: 'none',
+        label: (t: TFunction) => t('choices:transitFareType.none')
+    },
+    ...dontKnow
+];
+
+export const transitFareWarning: ChoiceType[] = [
+    {
+        value: 'yes',
+        label: (t: TFunction) => t('choices:transitFareWarning.yes')
+    }
 ];
 
 export const workPlaceTypeChoices: ChoiceType[] = [
@@ -248,21 +285,6 @@ export const workPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'remote',
         label: (t: TFunction) => t('choices:workPlaceTypeChoices.remote')
-    }
-];
-
-export const schoolPlaceTypeChoices: ChoiceType[] = [
-    {
-        value: 'onLocation',
-        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.onLocation')
-    },
-    {
-        value: 'hybrid',
-        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.hybrid')
-    },
-    {
-        value: 'remote',
-        label: (t: TFunction) => t('choices:schoolPlaceTypeChoices.remote')
     }
 ];
 
@@ -809,5 +831,171 @@ export const zeroToTwoPlus: ChoiceType[] = [
     {
         value: '2',
         label: (t: TFunction) => t('choices:zeroToTwoPlus.2')
+    }
+];
+
+export const bikesharingMembership: ChoiceType[] = [
+    {
+        value: 'yes',
+        label: (t: TFunction) => t('choices:bikesharingMembership.yes')
+    },
+    {
+        value: 'no',
+        label: (t: TFunction) => t('choices:bikesharingMembership.no')
+    },
+    ...dontKnow
+];
+
+export const disabilities: ChoiceType[] = [
+    {
+        value: 'hearing',
+        label: (t: TFunction) => t('choices:disabilities.hearing'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'visual',
+        label: (t: TFunction) => t('choices:disabilities.visual'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'cognitiveOrPsychic',
+        label: (t: TFunction) => t('choices:disabilities.cognitiveOrPsychic'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'mentalHealth',
+        label: (t: TFunction) => t('choices:disabilities.mentalHealth'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'intellectualOrTSA',
+        label: (t: TFunction) => t('choices:disabilities.intellectualOrTSA'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'motor',
+        label: (t: TFunction) => t('choices:disabilities.motor'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'chronicIllness',
+        label: (t: TFunction) => t('choices:disabilities.chronicIllness'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'speechOrLanguageDisorder',
+        label: (t: TFunction) => t('choices:disabilities.speechOrLanguageDisorder'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'fineMotorSkills',
+        label: (t: TFunction) => t('choices:disabilities.fineMotorSkills'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:disabilities.other'),
+        conditional: conditionals.personDisabilityIsNotPreferNotToAnswer
+    },
+    ...preferNotToAnswer
+];
+
+export const mobilityAssistiveDevices: ChoiceType[] = [
+    {
+        value: 'crutchOrCane',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.crutchOrCane'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'whiteCane',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.whiteCane'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'serviceOrGuideDog',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.serviceOrGuideDog'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'manualWheelchair',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.manualWheelchair'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'motorisedWheelchair',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.motorisedWheelchair'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'walkerOrRollator',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.walkerOrRollator'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'threeOrFourwheeledScooter',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.threeOrFourwheeledScooter'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'noSpecificDevice',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.noSpecificDevice'),
+        conditional: conditionals.personMobilityDeviceNotPreferNotToAnswer
+    },
+    {
+        value: 'other',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.other'),
+        conditional: conditionals.personMobilityDeviceNotExclusiveAnswer
+    },
+    {
+        value: 'preferNotToAnswer',
+        label: (t: TFunction) => t('choices:mobilityAssistiveDevices.preferNotToAnswer'),
+        conditional: conditionals.personMobilityDeviceNotNone
+    }
+];
+
+export const paratransitFrequencies: ChoiceType[] = [
+    {
+        value: 'never',
+        label: (t: TFunction) => t('choices:paratransitFrequencies.never')
+    },
+    {
+        value: '1orMorePerYear',
+        label: (t: TFunction) => t('choices:paratransitFrequencies.1orMorePerYear')
+    },
+    {
+        value: '1to3daysPerMonth',
+        label: (t: TFunction) => t('choices:paratransitFrequencies.1to3daysPerMonth')
+    },
+    {
+        value: '1to4daysPerWeek',
+        label: (t: TFunction) => t('choices:paratransitFrequencies.1to4daysPerWeek')
+    },
+    {
+        value: '5to7daysPerWeek',
+        label: (t: TFunction) => t('choices:paratransitFrequencies.5to7daysPerWeek')
+    }
+];
+
+export const paratransitFrequenciesTransit: ChoiceType[] = [
+    {
+        value: 'never',
+        label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.never'),
+        conditional: conditionals.doesNotUseTransitConditional
+    },
+    {
+        value: '1orMorePerYear',
+        label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.1orMorePerYear')
+    },
+    {
+        value: '1to3daysPerMonth',
+        label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.1to3daysPerMonth')
+    },
+    {
+        value: '1to4daysPerWeek',
+        label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.1to4daysPerWeek')
+    },
+    {
+        value: '5to7daysPerWeek',
+        label: (t: TFunction) => t('choices:paratransitFrequenciesTransit.5to7daysPerWeek')
     }
 ];

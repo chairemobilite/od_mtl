@@ -32,13 +32,6 @@ participationStatusWorker:
 participationStatusStudent:
     fullTime: Yes, full time
     partTime: Yes, part time
-schoolType:
-    kindergarten: Kindergarten/Childcare/CPE
-    primarySchool: Primary school
-    secondarySchool: Secondary school
-    schoolAtHome: School at home
-    atHome: At home
-    collegeCegepDepAep: CEGEP / College / DEP / AEP
 personOccupation:
     fullTimeWorker: Employed full-time (30h and more/week)
     partTimeWorker: Employed part-time (less than 30h/week)
@@ -51,11 +44,36 @@ personOccupation:
     parentalOrSickLeave: Sick leave or parental leave
     longTermDisability: Long-term disability
     volunteer: Volunteer
-    other: Other
-    preferNotToAnswer: Prefer not to answer
+jobTypes:
+    professional: >-
+        Professional<br /><span class="_pale _oblique">engineer, analyst, teacher,
+        researcher, health professional…</span>
+    administration: >-
+        Office work / administration<br /><span class="_pale _oblique">clerk, administrative
+        assistant, secretariat, administrative support…</span>
+    salesAndServices: >-
+        Sales and services<br /><span class="_pale _oblique">retail, customer service,
+        food services, personal services…</span>
+    manufacturing: >-
+        Manufacturing, trades and other jobs<br /><span class="_pale _oblique">factory,
+        construction, skilled trades, transportation, warehousing…</span>
+transitPassType:
+    transitPassARTM: ARTM monthly or annual pass
+    transitPassARTMWithElderly: ARTM monthly or annual pass (including senior passes)
+    tickets: ARTM individual tickets or fares
+    other: Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 transitFareType:
-    transitPass: Monthly or annual pass
-    tickets: Individual tickets or rides
+    A: All modes A
+    AB: All modes AB
+    ABC: All modes ABC
+    ABCD: All modes ABCD
+    bus: Bus
+    busCD: Out-of-territory bus (CD)
+    opusWithTicketsOnly: OPUS card with individual fares only
+    otherTerritory: Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+    none: None for the current month
+transitFareWarning:
+    yes: I confirm
 workPlaceTypeChoices:
     onLocation: Yes, always on-site at fixed location
     hybrid: Yes, hybrid work (remote and on-site)
@@ -64,10 +82,6 @@ workPlaceTypeChoices:
         station, restaurant, etc.)
     onTheRoadWithoutUsualPlace: No, work on the road departing from home
     remote: No, work from home or from elsewhere
-schoolPlaceTypeChoices:
-    onLocation: Yes, always on-site at fixed location
-    hybrid: Yes, hybrid studies (remote and on-site)
-    remote: No, remote studies from home or from elsewhere
 longDistanceFrequencyChoices:
     '00_00': Never (0)
     '01_03': A few times during the period (1 to 3)
@@ -212,3 +226,44 @@ zeroToTwoPlus:
     '0': '0'
     '1': '1'
     '2': 2+
+bikesharingMembership:
+    yes: Yes (monthly, seasonal)
+    no: No (pay per trip)
+disabilities:
+    hearing: Hearing
+    visual: Visual
+    cognitiveOrPsychic: Cognitive (e.g. memory, attention, comprehension, learning
+        difficulty, etc.)
+    mentalHealth: Mental health (e.g. anxiety, depression, mental health disorder,
+        etc.)
+    intellectualOrTSA: Intellectual disability or autism spectrum disorder (ASD)
+    motor: Motor (e.g. reduced mobility, flexibility, paralysis, amputation, etc.)
+    chronicIllness: >-
+        Limitation related to a chronic illness or health condition (e.g. cardiac,
+        respiratory, pain, etc.)
+    speechOrLanguageDisorder: Speech or language disorder
+    fineMotorSkills: Fine motor skills (e.g. dexterity, agility, etc.)
+    other: Other (specify)
+mobilityAssistiveDevices:
+    crutchOrCane: Crutches or cane
+    whiteCane: White cane
+    serviceOrGuideDog: Assistance dog or guide dog
+    manualWheelchair: Manual wheelchair (with or without electric assistance)
+    motorisedWheelchair: Powered wheelchair
+    walkerOrRollator: Walker or rollator
+    threeOrFourwheeledScooter: Three- or four-wheeled scooter
+    noSpecificDevice: No specific mobility aids
+    other: Other (specify)
+    preferNotToAnswer: I prefer not to answer
+paratransitFrequencies:
+    never: Never in the last 12 months
+    1orMorePerYear: 1 to a few days in the last 12 months
+    1to3daysPerMonth: 1 to 3 days per month
+    1to4daysPerWeek: 1 to 4 days per week
+    5to7daysPerWeek: 5 to 7 days per week
+paratransitFrequenciesTransit:
+    never: Never in the last 12 months
+    1orMorePerYear: 1 to a few days in the last 12 months
+    1to3daysPerMonth: 1 to 3 days per month
+    1to4daysPerWeek: 1 to 4 days per week
+    5to7daysPerWeek: 5 to 7 days per week

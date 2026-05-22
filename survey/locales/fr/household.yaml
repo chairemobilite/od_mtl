@@ -2,45 +2,17 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-personAge: <strong>Âge</strong> (en années)
-personAge_one: Votre <strong>âge</strong> (en années)
 personNickname: >-
     <strong>Nom ou surnom</strong> pour identifier cette personne pour la suite de
     l'entrevue<br /><span class="_pale _oblique">Peut être un surnom, des initiales,
-    ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').<br
+    ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').<br
     />Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.</span>
-personHasDisability: >-
-    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite ses déplacements quotidiens?
-personHasDisability_one: >-
-    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite vos déplacements quotidiens?
-personSexAssignedAtBirth: >-
-    <strong>Sexe à la naissance</strong><br /><span class="_pale _oblique">Sexe assigné
-    à la naissance ou inscrit dans les documents légaux.</span>
-personGender: Je préfère donner le <strong>genre</strong>
-personWorkerType: >-
-    <strong>Travailleur(-euse)</strong><br /><span class="_pale _oblique">Incluant
-    travailleur(-euse) autonome et artiste.</span>
-personWorkerType_male: >-
-    <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
-    autonome et artiste.</span>
-personWorkerType_female: >-
-    <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
-    autonome et artiste.</span>
-personStudentType: <strong>Étudiant(e)</strong>
-personStudentType_male: <strong>Étudiant</strong>
-personStudentType_female: <strong>Étudiante</strong>
-personSchoolType: <strong>Établissement d'enseignement</strong>
-personOccupation: <strong>Occupation principale</strong>
-personWorkerTypeBeforeLeave: <strong>Avant d’être en congé</strong>, est-ce que {{nickname}}
-    travaillait?
-personWorkerTypeBeforeLeave_one: <strong>Avant d’être en congé</strong>, est-ce que
-    vous travailliez?
-personEducationalAttainment: >-
-    Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En
-    cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de
-    votre parcours.</span>
+personAge: >-
+    <strong>Âge</strong> (en années)<br /><span class="_pale _oblique">Inscrire 0
+    pour les bébés de moins de 1 an</span>
+personGender: >-
+    <strong>Genre</strong><br /><span class="_pale _oblique">Peut différer du sexe
+    assigné à la naissance ou inscrit dans les documents légaux</span>
 personDrivingLicenseOwnership: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur(-rice) et probatoires, mais ne pas inclure les
@@ -53,79 +25,186 @@ personDrivingLicenseOwnership_female: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprentie conductrice et probatoires, mais ne pas inclure les permis
     de cyclomoteur/scooter.</span>
-personCarSharingMember: >-
-    Membre <strong>Autopartage</strong><br /><span class="_pale _oblique">Abonnement
-    ou laissez-passer à un service d'autopartage (ex. Communauto)</span>
-personTransitPasses: >-
-    Est-ce que {{nickname}} détient présentement <strong>un laissez-passer ou un abonnement</strong>
-    de transport en commun valide?
-personTransitPasses_one: >-
-    Détenez-vous présentement <strong>un laissez-passer ou un abonnement</strong>
-    de transport en commun valide?
+personCarsharingMember: >-
+    <strong>Autopartage</strong> (ex. Communauto, Léo) : utilisation comme conducteur(-rice)
+    dans les 6 derniers mois
+personBikesharingUsage: >-
+    <strong>Vélo en libre-service</strong> (ex. BIXI) : utilisation dans les 30 derniers
+    jours
+personBikesharingMembership: >-
+    <strong>Abonnement BIXI</strong><br /><span class="_pale _oblique">Valide pour
+    le mois en cours</span>
+personUsedTransitInLast30Days: >-
+    <strong>Transports en commun</strong> : utilisation dans les 30 derniers jours<br
+    /><span class="_pale _oblique">Inclure métro, REM, train de banlieue, les autobus
+    (ex. : STM, STL, RTL, exo …)</span>
+personTransitPass: >-
+    <strong>Type de passe, abonnement</strong> utilisés pour le transport en commun
+    dans les 30 derniers jours<br /><span class="_pale _oblique">Inclure les abonnements
+    gratuits.<br />Les titres de l’ARTM permettent de prendre les services de la STM
+    (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.</span>
+personTransitFare: >-
+    <strong>Type de passe</strong> utilisé en tant qu’<strong>abonnement</strong>
+    valide pour le mois en cours<br /><span class="_pale _oblique">A, AB, ABC et ABCD
+    font référence aux zones tarifaires de l'ARTM</span>
+personTransitFareWarning: >-
+    Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre
+    lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.<br /><strong>Le
+    prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency:
+    CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif
+    réduit).</strong>
+personHasDisability: >-
+    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
+    qui influence ou limite les déplacements quotidiens de {{nickname}}?<br /><span
+    class="_pale _oblique">Ex. : motrice, visuelle, autre, etc.</span>
+personHasDisability_one: >-
+    <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
+    qui influence ou limite vos déplacements quotidiens?
+personDisabilities: >-
+    …<strong> la ou lesquelles</strong>? <br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesSpecify: 'Spécifiez:'
+personMobilityAssistiveDevices: >-
+    <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour les déplacements
+    de {{nickname}} en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
+personMobilityAssistiveDevices_one: >-
+    <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour vos déplacements
+    en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
+personMobilityAssistiveDevicesSpecify: 'Spécifiez:'
+personMostUsedMobilityAssistiveDevice: >-
+    <strong>Le plus utilisé?</strong><br /><span class="_pale _oblique">Facultatif</span>
+personUseParatransit: >-
+    {{nickname}} est-iel admis.e au <strong>transport adapté</strong>? <br /><span
+    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personUseParatransit_male: >-
+    {{nickname}} est-il admis au <strong>transport adapté</strong>? <br /><span class="_pale
+    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personUseParatransit_female: >-
+    {{nickname}} est-elle admise au <strong>transport adapté</strong>? <br /><span
+    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personUseParatransit_one: >-
+    Êtes-vous admis.e au <strong>transport adapté</strong>? <br /><span class="_pale
+    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personUseParatransit_male_one: >-
+    Êtes-vous admis au <strong>transport adapté</strong>? <br /><span class="_pale
+    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personUseParatransit_female_one: >-
+    Êtes-vous admise au <strong>transport adapté</strong>? <br /><span class="_pale
+    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+personDisabilitiesFrequenciesParatransit: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-iel utilisé
+    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesParatransit_male: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-il utilisé
+    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesParatransit_female: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-elle utilisé
+    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesParatransit_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
+    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesParatransit_male_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
+    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesParatransit_female_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
+    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesFrequenciesTransit: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-iel utilisé
+    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
+    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
+    RTL, exo …)<br />Facultatif</span>
+personDisabilitiesFrequenciesTransit_male: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-il utilisé
+    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
+    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
+    RTL, exo …)<br />Facultatif</span>
+personDisabilitiesFrequenciesTransit_female: >-
+    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-elle utilisé
+    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
+    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
+    RTL, exo …)<br />Facultatif</span>
+personDisabilitiesFrequenciesTransit_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
+    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
+    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+personDisabilitiesFrequenciesTransit_male_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
+    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
+    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+personDisabilitiesFrequenciesTransit_female_one: >-
+    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
+    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
+    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+personStudentType: <strong>Étudiant(e)</strong>
+personStudentType_male: <strong>Étudiant</strong>
+personStudentType_female: <strong>Étudiante</strong>
+personWorkerType: >-
+    <strong>Travailleur(-euse)</strong><br /><span class="_pale _oblique">Incluant
+    travailleur(-euse) autonome, artiste ou en congé de longue durée.</span>
+personWorkerType_male: >-
+    <strong>Travailleur</strong><br /><span class="_pale _oblique">Incluant travailleur
+    autonome, artiste ou en congé de longue durée.</span>
+personWorkerType_female: >-
+    <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
+    autonome, artiste ou en congé de longue durée.</span>
+personJobType: <strong>Type d’emploi</strong> de {{nickname}}
 personWorkPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?
 personWorkPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe?
-personWorkPlaceTypeBeforeLeave: >-
-    <strong>Avant d’être en congé</strong>, est-ce que {{nickname}} avait un <strong>lieu
-    d'emploi</strong> fixe?
-personWorkPlaceTypeBeforeLeave_one: >-
-    <strong>Avant d’être en congé</strong>, aviez-vous un <strong>lieu d'emploi</strong>
-    fixe?
+personWorkDays: >-
+    Nombre de jour(s) par semaine où {{nickname}} travaille<br /><span class="_pale
+    _oblique">Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.</span>
+personWorkDays_one: >-
+    Nombre de jour(s) par semaine où vous travaillez<br /><span class="_pale _oblique">Dans
+    une semaine typique. Qu’il y ait déplacement ou non pour le travail.</span>
 personTravelToWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il(-elle)
-    <strong>déplacé(e)</strong> pour le <strong>travail</strong>?<br /><span class="_pale
-    _oblique">Pour se rendre au travail ou toute autre raison concernant le travail.</span>
-personTravelToWorkDays_male: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-il <strong>déplacé</strong>
-    pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
-    au travail ou toute autre raison concernant le travail.</span>
-personTravelToWorkDays_female: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-elle <strong>déplacée</strong>
-    pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
-    au travail ou toute autre raison concernant le travail.</span>
-personTravelToWorkDays_custom: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} s'est-iel <strong>déplacé(e)</strong>
-    pour le <strong>travail</strong>?<br /><span class="_pale _oblique">Pour se rendre
-    au travail ou toute autre raison concernant le travail.</span>
+    Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le
+    travail<br /><span class="_pale _oblique">Dans une semaine typique. Indiquer 0
+    si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile</span>
 personTravelToWorkDays_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé(e)</strong>
-    pour le <strong>travail</strong>?
-personTravelToWorkDays_male_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé</strong>
-    pour le <strong>travail</strong>?
-personTravelToWorkDays_female_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacée</strong>
-    pour le <strong>travail</strong>?
-personTravelToWorkDays_custom_one: >-
-    Durant la <strong>semaine dernière</strong>, quand vous êtes-vous <strong>déplacé(e)</strong>
-    pour le <strong>travail</strong>?
-personRemoteWorkDays: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il(-elle)
-    fait du <strong>télétravail</strong>?
-personRemoteWorkDays_male: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-il fait du
-    <strong>télétravail</strong>?
-personRemoteWorkDays_female: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-elle fait
-    du <strong>télétravail</strong>?
-personRemoteWorkDays_custom: >-
-    Durant la <strong>semaine dernière</strong>, quand {{nickname}} a-t-iel fait du
-    <strong>télétravail</strong>?
-personRemoteWorkDays_one: >-
-    Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
-personRemoteWorkDays_male_one: >-
-    Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
-personRemoteWorkDays_female_one: >-
-    Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
-personRemoteWorkDays_custom_one: >-
-    Durant la <strong>semaine dernière</strong>, quand avez-vous fait du <strong>télétravail</strong>?
+    Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail<br
+    /><span class="_pale _oblique">Dans une semaine typique. Indiquer 0 si vous n'avez
+    pas de lieu de travail ou ne travaillez que depuis votre domicile</span>
+personEducationalAttainment: >-
+    Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En
+    cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du
+    parcours.</span>
+personOccupation: <strong>Occupation principale</strong>
 household_save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
+popup:
+    studentTitle: Qui inclure?
+    studentContent: >-
+        <strong>Qui considérer comme étudiant?</strong> <br /><span class="_green">Inclure
+        :</span><br />- Tous les étudiants et élèves à partir de 15 ans, indépendamment
+        du niveau d'enseignement.<br />- Toute personne suivant des cours de façon
+        régulière via un établissement.<br />- Toute personne actuellement en stage
+        / alternance / apprentissage, mais inscrite dans un établissement d'enseignement.<br
+        /><span class="_red">Ne pas inclure</span> les formations ponctuelles ou en
+        ligne, les cours particuliers, etc.
+    workerTitle: Qui inclure?
+    workerContent: >-
+        <strong>Qui considérer comme travailleur?</strong> <br /><span class="_green">Inclure
+        </span> toute personne avec un emploi ou une entreprise, même si temporairement
+        absente au moment de répondre (par exemple : congé de maladie, congé parental,
+        vacances, mise à pied temporaire). <br /><span class="_green">Inclure </span>  le
+        travail salarié ou à son compte.<br /><span class="_red">Ne pas inclure</span>
+        les personnes sans emploi et ne cherchant pas de travail.
+    validateHouseholdAgesHelp: >-
+        Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre
+        à ce questionnaire. Veuillez vérifier les âges.
+    validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
+        à ce questionnaire.
+    transitFareTitle: Zones tarifaires?
+    transitFareContent: Carte + tableau des tarifs
 errors:
     selectDontKnowWhenNoOtherChoiceSelected: >-
         Sélectionnez "Je ne sais pas" seulement si aucun autre choix n'est sélectionné.
     selectNoWhenNoOtherChoiceSelected: Sélectionnez "Non" seulement si aucun autre
         choix n'est sélectionné.
+    selectNoneWhenNoOtherChoiceSelected: >-
+        Sélectionnez "Aucun pour le mois en cours" seulement si aucun autre choix
+        n'est sélectionné.
     selectPreferNotToAnswerWhenNoOtherChoiceSelected: >-
         Sélectionnez "Préfère ne pas répondre" seulement si aucun autre choix n'est
         sélectionné.
@@ -136,12 +215,7 @@ errors:
         Sélectionnez "Pas de télé-travail" seulement si aucun autre choix n'est sélectionné.
     selectNoRemoteStudyWhenNoOtherChoiceSelected: >-
         Sélectionnez "Pas de télé-études" seulement si aucun autre choix n'est sélectionné.
-popup:
-    validateHouseholdAgesHelp: >-
-        Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre
-        à ce questionnaire. Veuillez vérifier les âges.
-    validateHouseholdAgesHelp_one: Vous devez avoir au moins 16 ans pour répondre
-        à ce questionnaire.
+    nicknameMustBeUnique: Le nom ou surnom doit être unique
 schoolTypeLessThan4: <strong>Type de garde</strong>
 schoolTypeBetween4And15: <strong>Type d'école</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe

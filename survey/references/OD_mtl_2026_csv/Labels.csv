@@ -50,6 +50,30 @@ home,popup.householdTwoWheelContent,"**Quels véhicules inclure?**
 - Cars, SUVs, light trucks, trucks, and vans
 - Bicycles or electric bicycles
 - Scooters or electric scooters",,
+household,popup.studentTitle,Qui inclure?,Who should be included?,,
+household,popup.studentContent,"**Qui considérer comme étudiant?** 
+<span class=""_green"">Inclure :</span>
+- Tous les étudiants et élèves à partir de 15 ans, indépendamment du niveau d'enseignement.
+- Toute personne suivant des cours de façon régulière via un établissement.
+- Toute personne actuellement en stage / alternance / apprentissage, mais inscrite dans un établissement d'enseignement.
+<span class=""_red"">Ne pas inclure</span> les formations ponctuelles ou en ligne, les cours particuliers, etc.","**Who should be considered a student?**
+<span class=""_green"">Include:</span>
+- All students and pupils aged 15 and over, regardless of level of education
+- Anyone taking regular courses through an educational institution
+- Anyone currently in an internship, apprenticeship, or co-op program, but enrolled in an educational institution
+<span class=""_red"">Do not include:</span>
+- One-time or online training courses
+- Private lessons, etc.",,
+household,popup.workerTitle,Qui inclure?,Who should be included?,,
+household,popup.workerContent,"**Qui considérer comme travailleur?** 
+<span class=""_green"">Inclure </span> toute personne avec un emploi ou une entreprise, même si temporairement absente au moment de répondre (par exemple : congé de maladie, congé parental, vacances, mise à pied temporaire). 
+<span class=""_green"">Inclure </span>  le travail salarié ou à son compte.
+<span class=""_red"">Ne pas inclure</span> les personnes sans emploi et ne cherchant pas de travail.","**Who should be considered a worker?**
+<span class=""_green"">Include:</span>
+- Anyone with a job or a business, even if temporarily absent at the time of responding (e.g., sick leave, parental leave, vacation, temporary layoff)
+- Both salaried employees and self-employed workers
+<span class=""_red"">Do not include:</span>
+- People without a job and not looking for work",,
 segments,segmentsIntroOnTheRoad,"Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements sur la route, dans l'ordre chronologique:","Please indicate all modes of transport used to complete work trip on the road, in chronological order:",,
 segments,segmentsIntroStroll,"Veuillez indiquer tous les modes de transport utilisés pour effectuer la promenade, dans l'ordre chronologique:","Please indicate all modes of transport used to complete the stroll, in chronological order:",,
 segments,junctionGeographyRefreshGeocodingLabel,Chercher le lieu de jonction à partir du nom ou de l'adresse,Search the junction location using the place name or address,,
@@ -137,6 +161,7 @@ visitedPlaces,activities.secondaryHome,Résidence secondaire,Secondary residence
 visitedPlaces,activities.schoolNotStudent,Études,Studies,,
 household,errors.selectDontKnowWhenNoOtherChoiceSelected,"Sélectionnez ""Je ne sais pas"" seulement si aucun autre choix n'est sélectionné.","Select ""I don't know"" only if no other choice is selected.",,
 household,errors.selectNoWhenNoOtherChoiceSelected,"Sélectionnez ""Non"" seulement si aucun autre choix n'est sélectionné.","Select ""no"" only if no other choice is selected.",,
+household,errors.selectNoneWhenNoOtherChoiceSelected,"Sélectionnez ""Aucun pour le mois en cours"" seulement si aucun autre choix n'est sélectionné.","Select ""None for the current month"" only if no other choice is selected.",,
 household,errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected,"Sélectionnez ""Préfère ne pas répondre"" seulement si aucun autre choix n'est sélectionné.","Select ""Prefer not to answer"" only if no other choice is selected.",,
 household,errors.selectNoTravelWhenNoOtherChoiceSelected,"Sélectionnez ""Pas de déplacement"" seulement si aucun autre choix n'est sélectionné.","Select ""No Travel"" only if no other choice is selected.",,
 household,errors.selectOneOrMoreAnswer,Sélectionnez une ou des réponses.,Select one or multiple choices.,,
@@ -145,6 +170,9 @@ household,errors.selectNoRemoteStudyWhenNoOtherChoiceSelected,"Sélectionnez ""P
 household,popup.validateHouseholdAgesHelp,Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre à ce questionnaire. Veuillez vérifier les âges.,At least one member of your household must be 16 years old or older to respond to this survey. Please verify ages.,Vous devez avoir au moins 16 ans pour répondre à ce questionnaire.,You must be at least 16 years old to respond to this survey.
 household,schoolTypeLessThan4,**Type de garde**,**Childcare type**,,
 household,schoolTypeBetween4And15,**Type d'école**,**School type**,,
+household,errors.nicknameMustBeUnique,Le nom ou surnom doit être unique,The name or nickname must be unique,,
+household,popup.transitFareTitle,Zones tarifaires?,Fare zones?,,
+household,popup.transitFareContent,Carte + tableau des tarifs,Carte + tableau des tarifs,,
 visitedPlaces,onTheRoadArrivalTypeHome,Domicile,Home,,
 visitedPlaces,onTheRoadArrivalTypeUsualWorkPlace,Lieu de travail habituel,Usual work place,,
 visitedPlaces,onTheRoadArrivalTypeOther,Autre lieu,Other location,,

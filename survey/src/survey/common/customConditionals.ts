@@ -15,6 +15,7 @@ import {
 } from './helper';
 import { isStudentFromEnrolled } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
+import transitZones from '../geojson/zones_tarifaires.json';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -39,27 +40,30 @@ export const hiddenWithCanadaAsDefaultValueCustomConditional: WidgetConditional 
 export const personOccupationCustomConditional: WidgetConditional = (interview, path) => {
     const person = surveyHelper.getResponse(interview, path, null, '../') as Person;
     const age: any = surveyHelper.getResponse(interview, path, null, '../age');
-    const schoolType: any = surveyHelper.getResponse(interview, path, null, '../schoolType');
     const isStudent: boolean = person.studentType === 'fullTime' || person.studentType === 'partTime';
+    const isYouthStudent: boolean = typeof age === 'number' && age < 16;
     const isWorker: boolean = person.workerType === 'fullTime' || person.workerType === 'partTime';
 
-    if (_isBlank(age) || _isBlank(person.workerType) || _isBlank(person.studentType)) {
+    if (typeof age !== 'number' || _isBlank(person.workerType) || (!isYouthStudent && _isBlank(person.studentType))) {
         return [false, null];
-    } else if (isStudent && isWorker) {
+    } else if (age < 14) {
+        // Person is too young for occupation tracking
+        return [false, null];
+    } else if ((isStudent || isYouthStudent) && isWorker) {
         return [false, 'workerAndStudent'];
     } else if (isStudent && person.studentType === 'fullTime') {
         return [false, 'fullTimeStudent'];
     } else if (isStudent && person.studentType === 'partTime') {
         return [false, 'partTimeStudent'];
+    } else if (isYouthStudent) {
+        return [false, 'fullTimeStudent'];
     } else if (isWorker && person.workerType === 'fullTime') {
         return [false, 'fullTimeWorker'];
     } else if (isWorker && person.workerType === 'partTime') {
         return [false, 'partTimeWorker'];
-    } else if (schoolType && !isSchoolEnrolledTrueValues.includes(schoolType)) {
-        return [false, 'other'];
     }
-    //condition if not hidden choices
-    return [!_isBlank(age) && age >= 14 && !isStudent && !isWorker, null];
+    // condition if not hidden choices
+    return [!_isBlank(age) && age >= 16 && age <= 69 && !isStudent && !isWorker, null];
 };
 
 export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (interview, path) => {
@@ -545,4 +549,51 @@ export const sdrWithSecondaryHousesCustomConditional: WidgetConditional = (inter
         ];
     }
     return [false, null];
+};
+
+type TransitZoneProperties = {
+    OBJECTID: number;
+    a_ZT: 'A' | 'B' | 'C' | 'D';
+    a_NOMZT: string;
+};
+const transitFareToZT = {
+    A: ['A'],
+    AB: ['B'],
+    ABC: ['C'],
+    ABCD: ['D'],
+    bus: ['B', 'C'],
+    busCD: ['D']
+} as const;
+export const transitFareWarningCustomConditional: WidgetConditional = (interview, path) => {
+    const homeGeography = surveyHelper.getResponse(
+        interview,
+        'home.geography'
+    ) as GeoJSON.Feature<GeoJSON.Point> | null;
+    const selectedTransitFare = surveyHelper.getResponse(interview, path, null, '../transitFare');
+    // See if the home location is in a transit zone that is not included in the selected fare.
+    if (
+        homeGeography?.type === 'Feature' &&
+        typeof selectedTransitFare === 'string' &&
+        transitFareToZT[selectedTransitFare] !== undefined
+    ) {
+        const transitZone = transitZones.features.find((zone) =>
+            turfBooleanPointInPolygon(
+                homeGeography,
+                zone as GeoJSON.Feature<GeoJSON.MultiPolygon | GeoJSON.Polygon, TransitZoneProperties>
+            )
+        );
+        if (transitZone && !transitFareToZT[selectedTransitFare].includes(transitZone.properties.a_ZT)) {
+            return [true, null];
+        }
+    }
+    return [false, null];
+};
+
+// Custom because needs an array of 2 or more for the mobility assistive devices question
+export const mostUsedMobilityAssistiveDeviceCustomConditional: WidgetConditional = (interview, path) => {
+    const mobilityDevices = surveyHelper.getResponse(interview, path, null, '../mobilityAssistiveDevices');
+    if (Array.isArray(mobilityDevices) && mobilityDevices.length > 1) {
+        return [true, null];
+    }
+    return [false, Array.isArray(mobilityDevices) && mobilityDevices.length === 1 ? mobilityDevices[0] : null];
 };

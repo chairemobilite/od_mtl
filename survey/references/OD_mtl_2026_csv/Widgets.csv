@@ -58,41 +58,104 @@ __Y compris vous-même__","Is there at least one person in your household having
 __Including yourself__",,,,,hasHouseholdSize2OrMoreConditional,,yesNoPreferNotToAnswer,,,,True,,,,,
 home_save,NextButton,True,home,,home.save,Enregistrer et continuer,Save and continue,,,,,,,,,,,True,,,,,
 householdMembers,Custom,True,household,,,,,,,,,,,,,,,True,,,,,
-personAge,Number,True,household,householdMembers,age,**Âge** (en années),**Age** (in years),Votre **âge** (en années),Your **age** (in years),,,,ageValidation,,,,,True,,,,,
 personNickname,String,True,household,householdMembers,nickname,"**Nom ou surnom** pour identifier cette personne pour la suite de l'entrevue
-__Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+__Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.__","**Name or nickname** that will allow you to identify this person for the remainder of the interview
 __Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
-The name is only used to simplify the response process and will be removed from the final dataset.__",,,,,hasPersonCount2OrMoreCustomConditional,,,,,,True,,,,,
-personHasDisability,Radio,True,household,householdMembers,hasDisability,"**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite ses déplacements quotidiens?","**Permanent physical, intellectual or other disability** which influences or limits their daily mobility?","**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite vos déplacements quotidiens?","**Permanent physical, intellectual or other disability** which influences or limits your daily mobility?",,,hasOnePersonWithDisabilityOrHhSize1Conditional,,yesNoPreferNotToAnswer,,,,True,,,,,
-personSexAssignedAtBirth,Radio,True,household,householdMembers,sexAssignedAtBirth,"**Sexe à la naissance**
-__Sexe assigné à la naissance ou inscrit dans les documents légaux.__","**Sex at birth**
-__Sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreConditional,,maleFemalePreferNotAnswer,,,,True,,,,,
-personGender,Radio,True,household,householdMembers,gender,Je préfère donner le **genre**,I prefer to give the **gender**,,,,,hasPreferNotToAnswerToSexAssignedConditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
-personWorkerType,Radio,True,household,householdMembers,workerType,"**Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}**
-__Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste.__","**Worker**
-__Including self-employed and artist.__",,,,,ifAge14orMoreConditional,,participationStatusWorker,,,,True,,,,,
-personStudentType,Radio,True,household,householdMembers,studentType,**Étudiant{{gender:/e/(e)/(e)}}**,**Student**,,,,,ifAge16OrMoreConditional,,participationStatusStudent,,,,True,,,,,
-personSchoolType,Custom,True,household,householdMembers,schoolType,**Établissement d'enseignement**,**Educational institution**,,,,,ifAge15OrLessConditional,,schoolType,,,,True,schoolTypeOther,other,,,
-personOccupation,Radio,True,household,householdMembers,occupation,**Occupation principale**,**Main occupation**,,,,,personOccupationCustomConditional,,personOccupation,,,,True,,,,,
-personWorkerTypeBeforeLeave,Radio,True,household,householdMembers,workerTypeBeforeLeave,"**Avant d’être en congé**, est-ce que {{nickname}} travaillait?","**Before being on leave**, did {{nickname}} work?","**Avant d’être en congé**, est-ce que vous travailliez?","**Before being on leave**, did you work?",,,parentalOrSickLeaveConditional,,participationStatusWorker,,,,True,,,,,
-personEducationalAttainment,Radio,True,household,householdMembers,educationalAttainment,"Plus haut **niveau de scolarité**
-__En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours.__","Highest level of **educational attainment**
-__When in doubt, choose the level which seems to match best__",,,,,ifAge15OrMoreConditional,,educationalAttainment,,,,True,,,,,
+The name is only used to simplify the response process and will be removed from the final dataset.__",,,,,hasPersonCount2OrMoreCustomConditional,uniqueNicknameCustomValidation,,,,,True,,,,,
+personAge,Number,True,household,householdMembers,age,"**Âge** (en années)
+__Inscrire 0 pour les bébés de moins de 1 an__","**Age** (in years)
+__Enter 0 for babies under the age of 1 year__",,,,,,ageValidation,,,,,True,,,,,
+personGender,Radio,True,household,householdMembers,gender,"**Genre**
+__Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux__","**Gender**
+__May differ from the sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreConditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
 personDrivingLicenseOwnership,Radio,True,household,householdMembers,drivingLicenseOwnership,"**Permis de conduire**
 __Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.__","**Driver's licence**
 __Include learner's and probationary permits, but do not include moped (motorized scooter) permits.__",,,,,ifAge16OrMoreConditional,,yesNoDontKnow,,,,True,,,,,
-personCarSharingMember,Radio,True,household,householdMembers,carSharingMember,"Membre **Autopartage**
-__Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)__","**Carsharing** member
-__Subscription or pass to a carsharing service (ex. Communauto)__",,,,,hasDrivingLicenseConditional,,yesNoDontKnow,,,,True,,,,,
-personTransitPasses,Checkbox,True,household,householdMembers,transitPasses,Est-ce que {{nickname}} détient présentement **un laissez-passer ou un abonnement** de transport en commun valide?,Does {{nickname}} currently have a valid transit **pass or ticket**?,Détenez-vous présentement **un laissez-passer ou un abonnement** de transport en commun valide?,Do you currently have a valid transit **pass or ticket**?,,,ifAge6OrMoreConditional,transitFareCustomValidation,transitFareType,,,,True,,,,,
-personWorkPlaceType,Radio,True,household,householdMembers,workPlaceType,Est-ce que {{nickname}} a un **lieu d'emploi** fixe?,Does {{nickname}} have a fixed **work location**?,Avez-vous un **lieu d'emploi** fixe?,Do you have a fixed **work location**?,,,isWorkerConditional,,workPlaceTypeChoices,,,,True,,,,,
-personWorkPlaceTypeBeforeLeave,Radio,True,household,householdMembers,workPlaceTypeBeforeLeave,"**Avant d’être en congé**, est-ce que {{nickname}} avait un **lieu d'emploi** fixe?","**Before being on leave**, did {{nickname}} have a fixed **work location**?","**Avant d’être en congé**, aviez-vous un **lieu d'emploi** fixe?","**Before being on leave**, did you have a fixed **work location**?",,,wasWorkerBeforeLeaveConditional,,workPlaceBeforeLeaveTypeCustomChoices,,,,True,,,,,
-personTravelToWorkDays,Checkbox,1,household,householdMembers,travelToWorkDays,"Durant la **semaine dernière**, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} **déplacé{{gender:/e/(e)/(e)}}** pour le **travail**?
-__Pour se rendre au travail ou toute autre raison concernant le travail.__","During the **last week**, when did {{nickname}} **travel** for **work**?
-__To get to or for any other reason concerning work.__","Durant la **semaine dernière**, quand vous êtes-vous **déplacé{{gender:/e/(e)/(e)}}** pour le **travail**?","During the **last week**, when did you **travel** for **work**?
-__To get to or for any other reason concerning work.__",,,isWorkerConditional,travelToPlaceCustomValidation,lastWeekTravelToWorkDaysCustomChoices,,,,1,,,,,
-personRemoteWorkDays,Checkbox,1,household,householdMembers,remoteWorkDays,"Durant la **semaine dernière**, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du **télétravail**?","During the **last week**, when did {{nickname}} **work remotely**?","Durant la **semaine dernière**, quand avez-vous fait du **télétravail**?","During the **last week**, when did you **work remotely**?",,,personRemoteWorkDaysConditional,remoteWorkDaysCustomValidation,lastWeekRemoteWorkDaysCustomChoices,,,,1,,,,,
+personCarsharingMember,Radio,True,household,householdMembers,carsharingMember,"**Autopartage** (ex. Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois","**Carshare** (ex. Communauto, Leo): used 
+as driver in the past 6 months",,,,,carsharingConditional,,yesNoDontKnow,,,,True,,,,,
+personBikesharingUsage,Radio,True,household,householdMembers,bikesharingUsage,**Vélo en libre-service** (ex. BIXI) : utilisation dans les 30 derniers jours,"**Bikeshare** (ex. BIXI): used in the last 30 days
+",,,,,bikesharingConditional,,yesNoDontKnow,,,,True,,,,,
+personBikesharingMembership,Radio,True,household,householdMembers,bikesharingMembership,"**Abonnement BIXI**
+__Valide pour le mois en cours__","**BIXI membership**
+__Valid for the current month__",,,,,bikesharingMembershipConditional,,bikesharingMembership,,,,True,,,,,
+personUsedTransitInLast30Days,Radio,True,household,householdMembers,usedTransitInLast30Days,"**Transports en commun** : utilisation dans les 30 derniers jours
+__Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)__","**Public transit**: used in the past 30 days 
+__Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)__",,,,,ifAge5orMoreConditional,,yesNoDontKnow,,,,True,,,,,
+personTransitPass,Checkbox,True,household,householdMembers,transitPass,"**Type de passe, abonnement** utilisés pour le transport en commun dans les 30 derniers jours
+__Inclure les abonnements gratuits.
+Les titres de l’ARTM permettent de prendre les services de la STM (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.__","**Type of pass or subscription** used for public transit in the past 30 days
+__Include free passes.
+ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM.__",,,,,transitPassConditional,,transitPassType,,,,True,,,,,
+personTransitFare,Radio,True,household,householdMembers,transitFare,"**Type de passe** utilisé en tant qu’**abonnement** valide pour le mois en cours
+__A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM__","**Type of pass** used as a valid **monthly subscription** for the current month
+__A, AB, ABC, and ABCD refer to ARTM fare zones.__",,,,,transitFareConditional,,transitFareType,transitFareHelpPopup,,,True,transitFareSpecify,other,,,personTransitFare : transitFareValidation · Issue #10 · chairemobilite/od_mtl
+personTransitFareWarning,Checkbox,True,household,householdMembers,transitFareWarning,"Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.
+**Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif réduit).**","You selected a transit pass that extends beyond the fare zone of your place of residence.
+**The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price).**",,,customLabels={{personTransitFareWarningCustomLabel}},,transitFareWarningCustomConditional,optionalValidation,transitFareWarning,,,,True,,,,,
+personHasDisability,Radio,True,household,householdMembers,hasDisability,"**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite les déplacements quotidiens de {{nickname}}?
+__Ex. : motrice, visuelle, autre, etc.__","**Permanent physical, intellectual or other disability** that affects or limits {{nickname}}’s daily travel?
+__Ex: mobility-related, visual, other…__","**Incapacité permanente d'ordre physique, intellectuelle ou autre** qui influence ou limite vos déplacements quotidiens?","**Permanent physical, intellectual or other disability** which influences or limits your daily travel?",,,hasOnePersonWithDisabilityOrHhSize1Conditional,,yesNoPreferNotToAnswer,,,,True,,,,,
+personDisabilities,Checkbox,True,household,householdMembers,disabilities,"…** la ou lesquelles**? 
+__Facultatif__","… which one(s)?
+__Optional__",,,,join_with=${personDisabilitiesSpecify},hasDisabilityConditional,optionalValidation,disabilities,,,,True,disabilitiesSpecify,other,,,
+personDisabilitiesSpecify,String,True,household,householdMembers,disabilitiesSpecify,Spécifiez:,Specify:,,,,,personDisabilityIsOtherConditional,optionalValidation,,,,,,,,,,Exists because checkbox does not handle specify the same way as radio buttons
+personMobilityAssistiveDevices,Checkbox,True,household,householdMembers,mobilityAssistiveDevices,"**Type(s) d’aide à la mobilité utilisé(s)** pour les déplacements de {{nickname}} en dehors de la maison
+__Facultatif__","**Type(s) of mobility aid(s)**, if any, used for {{nickname}}’s travel outside the home
+__Optional__","**Type(s) d’aide à la mobilité utilisé(s)** pour vos déplacements en dehors de la maison
+__Facultatif__","**Type(s) of mobility aid(s)**, if any, used for your travel outside the home
+__Optional__",,join_with=${personMobilityAssistiveDevicesSpecify},hasDisabilityConditional,optionalValidation,mobilityAssistiveDevices,,,,True,mobilityAssistiveDevicesSpecify,other,,,
+personMobilityAssistiveDevicesSpecify,String,True,household,householdMembers,mobilityAssistiveDevicesSpecify,Spécifiez:,Specify:,,,,,personAssistiveDevicesIsOtherConditional,optionalValidation,,,,,,,,,,Exists because checkbox does not handle specify the same way as radio buttons
+personMostUsedMobilityAssistiveDevice,Radio,True,household,householdMembers,mostUsedMobilityAssistiveDevice,"**Le plus utilisé?**
+__Facultatif__","**Most used**
+__Optional__",,,,,mostUsedMobilityAssistiveDeviceCustomConditional,optionalValidation,mostUsedMobilityAssistiveDeviceCustomChoices,,,,True,,,,,"personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomConditional · Issue #42 · chairemobilite/od_mtl
+personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomChoices · Issue #48 · chairemobilite/od_mtl"
+personUseParatransit,Radio,True,household,householdMembers,useParatransit,"{{nickname}} est-{{gender:il/elle/iel}} admis{{gender:/e/.e}} au **transport adapté**? 
+__STM, RTL, STL, exo, etc.
+Facultatif__","Is {{nickname}} registered for **paratransit services?**
+__STM, RTL, STL, exo, etc.
+Optional__","Êtes-vous admis{{gender:/e/.e}} au **transport adapté**? 
+__STM, RTL, STL, exo, etc.
+Facultatif__","Are you registered for **paratransit services?**
+__STM, RTL, STL, exo, etc.
+Optional__",,,hasDisabilityConditional,optionalValidation,yesNoPreferNotToAnswer,,,,True,,,,,
+personDisabilitiesFrequenciesParatransit,Radio,True,household,householdMembers,disabilitiesFrequenciesParatransit,"Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé le **transport adapté**?
+__Facultatif__","In the past 12 months, how often has {{nickname}} used **paratransit services?**
+__Optional__","Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le **transport adapté**?
+__Facultatif__","In the past 12 months, how often have you used **paratransit services?**
+__Optional__",,,paratransitFrequenciesConditional,optionalValidation,paratransitFrequencies,,,,True,,,,,
+personDisabilitiesFrequenciesTransit,Radio,True,household,householdMembers,disabilitiesFrequenciesTransit,"Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé les **transport en commun** (service régulier)?
+__Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
+Facultatif__","In the past 12 months, how often has {{nickname}} used **public transit** (regular service)?
+__Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
+Optional__","Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les **transports en commun** (service régulier)?
+__Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
+Facultatif__","In the past 12 months, how often have you used **public transit** (regular service)?
+__Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
+Optional__",,,paratransitFrequenciesConditional,optionalValidation,paratransitFrequenciesTransit,,,,True,,,,,
+personStudentType,Radio,True,household,householdMembers,studentType,**Étudiant{{gender:/e/(e)/(e)}}**,**Student**,,,,,ifAge16OrMoreConditional,,participationStatusStudent,studentHelpPopup,,,True,,,,,
+personWorkerType,Radio,True,household,householdMembers,workerType,"**Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}**
+__Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste ou en congé de longue durée.__","**Worker**
+__Including self-employed workers, artists, or those on long-term leave.__",,,,,ifAge14orMoreConditional,,participationStatusWorker,workerHelpPopup,,,True,,,,,
+personJobType,Radio,True,household,householdMembers,jobType,**Type d’emploi** de {{nickname}},**Type of employment** of {{nickname}},,,,,isWorkerConditional,,jobTypes,,,,True,,,,,
+personWorkPlaceType,Radio,True,household,householdMembers,workPlaceType,Est-ce que {{nickname}} a un **lieu d'emploi** fixe?,Does {{nickname}} have a fixed **workplace**?,Avez-vous un **lieu d'emploi** fixe?,Do you have a fixed **workplace**?,,,isWorkerConditional,,workPlaceTypeChoices,,,,True,,,,,
+personWorkDays,RadioNumber,True,household,householdMembers,workDays,"Nombre de jour(s) par semaine où {{nickname}} travaille
+__Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.__","Number of days per week {{nickname}} works
+__In a typical week. Whether or not travel is required for work.__
+","Nombre de jour(s) par semaine où vous travaillez
+__Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.__","Number of days per week you work
+__In a typical week. Whether or not travel is required for work.__","min=0
+max=7",,personWorkDaysConditional,,,,,,True,,,,,
+personTravelToWorkDays,Custom,True,household,householdMembers,travelToWorkDays,"Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
+__Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile__","Number of days per week {{nickname}} travels outside the home for work
+__In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home.__","Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail
+__Dans une semaine typique. Indiquer 0 si vous n'avez pas de lieu de travail ou ne travaillez que depuis votre domicile__","Number of days per week you travel outside the home for work
+__In a typical week. Enter 0 if you do not have a workplace or you work exclusively from home.__","min=0
+max=${currentPerson}.travelToWorkDays",,personHybridWorkDaysConditional,,,,,,True,,,,,Custom because max of RadioNumber does not accept a path with ${currentPerson}
+personEducationalAttainment,Radio,True,household,householdMembers,educationalAttainment,"Plus haut **niveau de scolarité**
+__En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.__","Highest level of **educational attainment**
+__If in doubt, select the education level that most closely matches the academic background.__",,,,,isWorkerConditional,,educationalAttainment,,,,True,,,,,
+personOccupation,Radio,True,household,householdMembers,occupation,**Occupation principale**,**Main occupation**,,,,,personOccupationCustomConditional,,personOccupation,,,,True,,,,,Custom conditional to set the default value depending on previous answers
 household_save,NextButton,1,household,,household.save,Enregistrer et continuer,Save and continue,,,,,,,,,,validateHouseholdAgesHelpPopup,1,,,,,
 selectPerson,Custom,1,selectPerson,,_activePersonId,Pour quelle personne désirez-vous poursuivre l'entrevue?,Who do you want to continue the interview for?,,,,,,,,,,,,,,,,
 buttonSelectPersonConfirm,NextButton,1,selectPerson,,buttonSelectPersonConfirm,Sélectionner cette personne et continuer,Select this person and continue,,,,,,,,,,,,,,,,
@@ -106,15 +169,15 @@ L’ordre des personnes interviewées est aléatoire.
 
 The order of the interviewed persons was randomly selected.
 
-<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>",,,,,,,,,,,True,,,,,"Custom because it's a popup and it has a condition on interviewable person count, not household"
+<details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>",,,,,,,,,,,1,,,,,"Custom because it's a popup and it has a condition on interviewable person count, not household"
 personWhoWillAnswerForThisPerson,Radio,1,tripsIntro,,household.persons.{_activePersonId}.whoWillAnswerForThisPerson,"Qui répond pour {{nickname}}?
 __Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre aux prochaines questions pour {{gender:lui/elle/lui(-elle)}}__","Who is responding for {{nickname}}?
-__If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer the following questions on {{gender:his/her/their}} behalf.__",,,,,if2OrMorePersons14OrMoreYearsOldCustomConditional,,whoAnswersCustomChoices,,,,True,,,,,
+__If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer the following questions on {{gender:his/her/their}} behalf.__",,,,,if2OrMorePersons14OrMoreYearsOldCustomConditional,,whoAnswersCustomChoices,,,,1,,,,,
 personDidTrips,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 __Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.__","Did {{nickname}} make any trips on {{journeyDate}}?
 __Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.__","Vous êtes-vous déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 __Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.__","Did you make any trips on {{journeyDate}}?
-__Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.__",customLabels={{personDidTripsCustomLabel}},,,,yesNo,assignedDateHelpPopup,,,True,,,,,Custom label because has journey date. This widget should be in Evolution
+__Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.__",customLabels={{personDidTripsCustomLabel}},,,,yesNo,assignedDateHelpPopup,,,1,,,,,Custom label because has journey date. This widget should be in Evolution
 personDidTripsConfirm,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?,You previously reported trips. Can you confirm they were reported by mistake and that {{nickname}} did not travel on {{journeyDate}}?,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que vous n'avez fait aucun déplacement le {{journeyDate}}?,You previously reported trips. Do you confirm they were reported by mistake and that you did not travel on {{journeyDate}}?,customLabels={{personDidTripsConfirmCustomLabel}},,personDeclaredTripsCustomConditional,,personDidTripsConfirmCustomChoices,,,,,,,,,"Custom choices because of the presence of the assigned date in the string, conditional depends on trip count and main label has dates. This widget should be in Evolution"
 visitedPlacesIntro,InfoText,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlacesIntro,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
 

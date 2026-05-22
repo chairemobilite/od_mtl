@@ -35,7 +35,7 @@ export const personWhoWillAnswerForThisPerson: WidgetConfig.InputRadioType = {
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         return t('tripsIntro:personWhoWillAnswerForThisPerson', {
             nickname,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            context: activePerson?.gender
         });
     },
     choices: customChoices.whoAnswersCustomChoices,

@@ -90,3 +90,21 @@ export const usualWorkPlaceCommutingHelpPopup: HelpPopup = {
     title: (t: TFunction) => t('travelBehavior:workCommutingHelpPopup.title'),
     content: (t: TFunction) => t('travelBehavior:workCommutingHelpPopup.content')
 };
+
+export const transitFareHelpPopup: HelpPopup = {
+    title: (t: TFunction) => t('household:popup.transitFareTitle'),
+    containsHtml: true,
+    content: (t: TFunction, interview) => t('household:popup.transitFareContent')
+};
+
+export const studentHelpPopup: HelpPopup = {
+    title: (t: TFunction) => t('household:popup.studentTitle'),
+    containsHtml: true,
+    content: (t: TFunction, interview) => t('household:popup.studentContent')
+};
+
+export const workerHelpPopup: HelpPopup = {
+    title: (t: TFunction) => t('household:popup.workerTitle'),
+    containsHtml: true,
+    content: (t: TFunction, interview) => t('household:popup.workerContent')
+};

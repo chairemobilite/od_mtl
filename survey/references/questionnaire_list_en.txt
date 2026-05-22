@@ -87,48 +87,187 @@ Save and continue
 
 Section: Household
 
-Age (in years)
-
 Name or nickname that will allow you to identify this person for the remainder of the interview
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset.
 
-Permanent physical, intellectual or other disability which influences or limits their daily mobility?
-- Yes
-- No
-- I prefer not to answer
+Age (in years)
+Enter 0 for babies under the age of 1 year
 
-Sex at birth
-Sex assigned at birth or that which appears on legal documents.
-- Female
-- Male
-- I prefer not to answer
-
-I prefer to give the gender
+Gender
+May differ from the sex assigned at birth or that which appears on legal documents.
 - Woman
 - Man
 - This person identifies as:
 - I prefer not to answer
 
-Worker
-Including self-employed and artist.
-- Yes, full time (30h and more/week)
-- Yes, part time (less than 30h/week)
+Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
+- Yes
 - No
+- I don't know
+
+Carshare (ex. Communauto, Leo): used 
+as driver in the past 6 months
+- Yes
+- No
+- I don't know
+
+Bikeshare (ex. BIXI): used in the last 30 days
+
+- Yes
+- No
+- I don't know
+
+BIXI membership
+Valid for the current month
+- Yes (monthly, seasonal)
+- No (pay per trip)
+- I don't know
+
+Public transit: used in the past 30 days 
+Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)
+- Yes
+- No
+- I don't know
+
+Type of pass or subscription used for public transit in the past 30 days
+Include free passes.
+ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM.
+- ARTM monthly or annual pass
+- ARTM monthly or annual pass (including senior passes)
+- ARTM individual tickets or fares
+- Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+- I don't know
+
+Type of pass used as a valid monthly subscription for the current month
+A, AB, ABC, and ABCD refer to ARTM fare zones.
+- All modes A
+- All modes AB
+- All modes ABC
+- All modes ABCD
+- Bus
+- Out-of-territory bus (CD)
+- OPUS card with individual fares only
+- Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+- Other (specify)
+- None for the current month
+- I don't know
+
+You selected a transit pass that extends beyond the fare zone of your place of residence.
+The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price).
+- I confirm
+
+Permanent physical, intellectual or other disability that affects or limits {{nickname}}’s daily travel?
+Ex: mobility-related, visual, other…
+- Yes
+- No
+- I prefer not to answer
+
+… which one(s)?
+Optional
+- Hearing
+- Visual
+- Cognitive (e.g. memory, attention, comprehension, learning difficulty, etc.)
+- Mental health (e.g. anxiety, depression, mental health disorder, etc.)
+- Intellectual disability or autism spectrum disorder (ASD)
+- Motor (e.g. reduced mobility, flexibility, paralysis, amputation, etc.)
+- Limitation related to a chronic illness or health condition (e.g. cardiac, respiratory, pain, etc.)
+- Speech or language disorder
+- Fine motor skills (e.g. dexterity, agility, etc.)
+- Other (specify)
+- I prefer not to answer
+
+Specify:
+
+Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
+Optional
+- Crutches or cane
+- White cane
+- Assistance dog or guide dog
+- Manual wheelchair (with or without electric assistance)
+- Powered wheelchair
+- Walker or rollator
+- Three- or four-wheeled scooter
+- No specific mobility aids
+- Other (specify)
+- I prefer not to answer
+
+Specify:
+
+Most used
+Optional
+
+
+Is {{nickname}} registered for paratransit services?
+STM, RTL, STL, exo, etc.
+Optional
+- Yes
+- No
+- I prefer not to answer
+
+In the past 12 months, how often has {{nickname}} used paratransit services?
+Optional
+- Never in the last 12 months
+- 1 to a few days in the last 12 months
+- 1 to 3 days per month
+- 1 to 4 days per week
+- 5 to 7 days per week
+
+In the past 12 months, how often has {{nickname}} used public transit (regular service)?
+Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
+Optional
+- Never in the last 12 months
+- 1 to a few days in the last 12 months
+- 1 to 3 days per month
+- 1 to 4 days per week
+- 5 to 7 days per week
 
 Student
 - Yes, full time
 - Yes, part time
 - No
 
-Educational institution
-- Kindergarten/Childcare/CPE
-- Primary school
-- Secondary school
-- School at home
-- At home
-- CEGEP / College / DEP / AEP
-- Other (specify)
+Worker
+Including self-employed workers, artists, or those on long-term leave.
+- Yes, full time (30h and more/week)
+- Yes, part time (less than 30h/week)
+- No
+
+Type of employment of {{nickname}}
+- Professional
+engineer, analyst, teacher, researcher, health professional…
+- Office work / administration
+clerk, administrative assistant, secretariat, administrative support…
+- Sales and services
+retail, customer service, food services, personal services…
+- Manufacturing, trades and other jobs
+factory, construction, skilled trades, transportation, warehousing…
+- I don't know
+
+Does {{nickname}} have a fixed workplace?
+- Yes, always on-site at fixed location
+- Yes, hybrid work (remote and on-site)
+- Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+- No, work on the road departing from home
+- No, work from home or from elsewhere
+
+Number of days per week {{nickname}} works
+In a typical week. Whether or not travel is required for work.
+
+
+Number of days per week {{nickname}} travels outside the home for work
+In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home.
+
+Highest level of educational attainment
+If in doubt, select the education level that most closely matches the academic background.
+- No certificate, diploma or degree
+- High school (secondary) diploma or equivalency certificate
+- Apprenticeship or trades certificate or diploma
+- College, CEGEP or other non-university certificate or diploma
+- University certificate or diploma below bachelor level
+- Bachelor's degree or higher
+- I prefer not to answer
 
 Main occupation
 - Employed full-time (30h and more/week)
@@ -143,57 +282,7 @@ Main occupation
 - Long-term disability
 - Volunteer
 - Other
-- Prefer not to answer
-
-Before being on leave, did {{nickname}} work?
-- Yes, full time (30h and more/week)
-- Yes, part time (less than 30h/week)
-- No
-
-Highest level of educational attainment
-When in doubt, choose the level which seems to match best
-- No certificate, diploma or degree
-- High school (secondary) diploma or equivalency certificate
-- Apprenticeship or trades certificate or diploma
-- College, CEGEP or other non-university certificate or diploma
-- University certificate or diploma below bachelor level
-- Bachelor's degree or higher
 - I prefer not to answer
-
-Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
-- Yes
-- No
-- I don't know
-
-Carsharing member
-Subscription or pass to a carsharing service (ex. Communauto)
-- Yes
-- No
-- I don't know
-
-Does {{nickname}} currently have a valid transit pass or ticket?
-- No
-- Monthly or annual pass
-- Individual tickets or rides
-- I don't know
-
-Does {{nickname}} have a fixed work location?
-- Yes, always on-site at fixed location
-- Yes, hybrid work (remote and on-site)
-- Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
-- No, work on the road departing from home
-- No, work from home or from elsewhere
-
-Before being on leave, did {{nickname}} have a fixed work location?
-
-
-During the last week, when did {{nickname}} travel for work?
-To get to or for any other reason concerning work.
-
-
-During the last week, when did {{nickname}} work remotely?
-
 
 Save and continue
 

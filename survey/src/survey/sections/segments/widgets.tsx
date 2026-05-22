@@ -352,7 +352,7 @@ export const tripCommun: WidgetConfig.InputCheckboxType = {
         return t('segments:tripCommun', {
             nickname,
             count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            context: activePerson?.gender
         });
     },
     choices: customChoices.tripCommunCustomChoices,

@@ -54,7 +54,24 @@ commonUITestsHelpers.fillHomeSectionTests({
 });
 
 /********** Tests household section **********/
-commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 2 });
+// Add transit data for both persons to test the conditional visibilities of transit-related questions
+// Person1 has transit pass outside tariff zone
+const person1: commonUITestsHelpers.HouseholdMember = {
+    ...commonUITestsHelpers.defaultPerson1,
+    usedTransitInLast30Days: 'yes',
+    transitPass: ['transitPassARTM'],
+    transitFare: 'ABC',
+    transitFareWarning: []
+};
+// person 2 has tickets only
+const person2: commonUITestsHelpers.HouseholdMember = {
+    ...commonUITestsHelpers.defaultPerson2,
+    usedTransitInLast30Days: 'yes',
+    transitPass: ['tickets'],
+    transitFare: null,
+    transitFareWarning: null
+};
+commonUITestsHelpers.fillHouseholdSectionWithMembersTests({ context, householdMembers: [person1, person2] });
 
 /********** Tests selectPerson section **********/
 // Skipped in normal workflow

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
-import { preferNotToAnswer } from '../../common/choices';
+import { mobilityAssistiveDevices, preferNotToAnswer } from '../../common/choices';
 import { TFunction } from 'i18next';
 import { countPersons, getPerson } from 'evolution-common/lib/services/odSurvey/helpers';
 import { ChoiceType } from 'evolution-common/lib/services/questionnaire/types';
@@ -127,3 +127,16 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         }
     }
 ];
+
+// Custom choices, as it is a subset of the selected choices from other question
+export const mostUsedMobilityAssistiveDeviceCustomChoices = (interview, path) => {
+    const mobilityDevices = getResponse(interview, path, null, '../mobilityAssistiveDevices');
+    if (!Array.isArray(mobilityDevices) || mobilityDevices.length === 0) {
+        throw new Error(
+            'mobilityAssistiveDevices should be an array with at least one value for mostUsedMobilityAssistiveDeviceCustomChoices'
+        );
+    }
+    return mobilityAssistiveDevices.filter(
+        (device) => mobilityDevices.includes(device.value) || device.value === 'preferNotToAnswer'
+    );
+};

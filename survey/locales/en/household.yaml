@@ -2,71 +2,143 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-personAge: <strong>Age</strong> (in years)
-personAge_one: Your <strong>age</strong> (in years)
 personNickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
     for the remainder of the interview<br /><span class="_pale _oblique">Can be a
     nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').<br
     />The name is only used to simplify the response process and will be removed from
     the final dataset.</span>
-personHasDisability: >-
-    <strong>Permanent physical, intellectual or other disability</strong> which influences
-    or limits their daily mobility?
-personHasDisability_one: >-
-    <strong>Permanent physical, intellectual or other disability</strong> which influences
-    or limits your daily mobility?
-personSexAssignedAtBirth: >-
-    <strong>Sex at birth</strong><br /><span class="_pale _oblique">Sex assigned at
-    birth or that which appears on legal documents.</span>
-personGender: I prefer to give the <strong>gender</strong>
-personWorkerType: >-
-    <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
-    and artist.</span>
-personStudentType: <strong>Student</strong>
-personSchoolType: <strong>Educational institution</strong>
-personOccupation: <strong>Main occupation</strong>
-personWorkerTypeBeforeLeave: <strong>Before being on leave</strong>, did {{nickname}}
-    work?
-personWorkerTypeBeforeLeave_one: <strong>Before being on leave</strong>, did you work?
-personEducationalAttainment: >-
-    Highest level of <strong>educational attainment</strong><br /><span class="_pale
-    _oblique">When in doubt, choose the level which seems to match best</span>
+personAge: >-
+    <strong>Age</strong> (in years)<br /><span class="_pale _oblique">Enter 0 for
+    babies under the age of 1 year</span>
+personGender: >-
+    <strong>Gender</strong><br /><span class="_pale _oblique">May differ from the
+    sex assigned at birth or that which appears on legal documents.</span>
 personDrivingLicenseOwnership: >-
     <strong>Driver's licence</strong><br /><span class="_pale _oblique">Include learner's
     and probationary permits, but do not include moped (motorized scooter) permits.</span>
-personCarSharingMember: >-
-    <strong>Carsharing</strong> member<br /><span class="_pale _oblique">Subscription
-    or pass to a carsharing service (ex. Communauto)</span>
-personTransitPasses: >-
-    Does {{nickname}} currently have a valid transit <strong>pass or ticket</strong>?
-personTransitPasses_one: Do you currently have a valid transit <strong>pass or ticket</strong>?
-personWorkPlaceType: Does {{nickname}} have a fixed <strong>work location</strong>?
-personWorkPlaceType_one: Do you have a fixed <strong>work location</strong>?
-personWorkPlaceTypeBeforeLeave: >-
-    <strong>Before being on leave</strong>, did {{nickname}} have a fixed <strong>work
-    location</strong>?
-personWorkPlaceTypeBeforeLeave_one: >-
-    <strong>Before being on leave</strong>, did you have a fixed <strong>work location</strong>?
+personCarsharingMember: >-
+    <strong>Carshare</strong> (ex. Communauto, Leo): used <br />as driver in the past
+    6 months
+personBikesharingUsage: '<strong>Bikeshare</strong> (ex. BIXI): used in the last 30
+    days<br />'
+personBikesharingMembership: >-
+    <strong>BIXI membership</strong><br /><span class="_pale _oblique">Valid for the
+    current month</span>
+personUsedTransitInLast30Days: >-
+    <strong>Public transit</strong>: used in the past 30 days <br /><span class="_pale
+    _oblique">Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL,
+    exo, etc.)</span>
+personTransitPass: >-
+    <strong>Type of pass or subscription</strong> used for public transit in the past
+    30 days<br /><span class="_pale _oblique">Include free passes.<br />ARTM fare
+    products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and
+    the REM.</span>
+personTransitFare: >-
+    <strong>Type of pass</strong> used as a valid <strong>monthly subscription</strong>
+    for the current month<br /><span class="_pale _oblique">A, AB, ABC, and ABCD refer
+    to ARTM fare zones.</span>
+personTransitFareWarning: >-
+    You selected a transit pass that extends beyond the fare zone of your place of
+    residence.<br /><strong>The monthly price of the {{transitFare}} is {{transitFarePrice,
+    currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}}
+    for reduced price).</strong>
+personHasDisability: >-
+    <strong>Permanent physical, intellectual or other disability</strong> that affects
+    or limits {{nickname}}’s daily travel?<br /><span class="_pale _oblique">Ex: mobility-related,
+    visual, other…</span>
+personHasDisability_one: >-
+    <strong>Permanent physical, intellectual or other disability</strong> which influences
+    or limits your daily travel?
+personDisabilities: … which one(s)?<br /><span class="_pale _oblique">Optional</span>
+personDisabilitiesSpecify: 'Specify:'
+personMobilityAssistiveDevices: >-
+    <strong>Type(s) of mobility aid(s)</strong>, if any, used for {{nickname}}’s travel
+    outside the home<br /><span class="_pale _oblique">Optional</span>
+personMobilityAssistiveDevices_one: >-
+    <strong>Type(s) of mobility aid(s)</strong>, if any, used for your travel outside
+    the home<br /><span class="_pale _oblique">Optional</span>
+personMobilityAssistiveDevicesSpecify: 'Specify:'
+personMostUsedMobilityAssistiveDevice: <strong>Most used</strong><br /><span class="_pale
+    _oblique">Optional</span>
+personUseParatransit: >-
+    Is {{nickname}} registered for <strong>paratransit services?</strong><br /><span
+    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Optional</span>
+personUseParatransit_one: >-
+    Are you registered for <strong>paratransit services?</strong><br /><span class="_pale
+    _oblique">STM, RTL, STL, exo, etc.<br />Optional</span>
+personDisabilitiesFrequenciesParatransit: >-
+    In the past 12 months, how often has {{nickname}} used <strong>paratransit services?</strong><br
+    /><span class="_pale _oblique">Optional</span>
+personDisabilitiesFrequenciesParatransit_one: >-
+    In the past 12 months, how often have you used <strong>paratransit services?</strong><br
+    /><span class="_pale _oblique">Optional</span>
+personDisabilitiesFrequenciesTransit: >-
+    In the past 12 months, how often has {{nickname}} used <strong>public transit</strong>
+    (regular service)?<br /><span class="_pale _oblique">Include metro, REM, commuter
+    train, and buses (e.g., STM, STL, RTL, exo, etc.).<br />Optional</span>
+personDisabilitiesFrequenciesTransit_one: >-
+    In the past 12 months, how often have you used <strong>public transit</strong>
+    (regular service)?<br /><span class="_pale _oblique">Include metro, REM, commuter
+    train, and buses (e.g., STM, STL, RTL, exo, etc.).<br />Optional</span>
+personStudentType: <strong>Student</strong>
+personWorkerType: >-
+    <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
+    workers, artists, or those on long-term leave.</span>
+personJobType: <strong>Type of employment</strong> of {{nickname}}
+personWorkPlaceType: Does {{nickname}} have a fixed <strong>workplace</strong>?
+personWorkPlaceType_one: Do you have a fixed <strong>workplace</strong>?
+personWorkDays: >-
+    Number of days per week {{nickname}} works<br /><span class="_pale _oblique">In
+    a typical week. Whether or not travel is required for work.</span><br />
+personWorkDays_one: >-
+    Number of days per week you work<br /><span class="_pale _oblique">In a typical
+    week. Whether or not travel is required for work.</span>
 personTravelToWorkDays: >-
-    During the <strong>last week</strong>, when did {{nickname}} <strong>travel</strong>
-    for <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for
-    any other reason concerning work.</span>
+    Number of days per week {{nickname}} travels outside the home for work<br /><span
+    class="_pale _oblique">In a typical week. Enter 0 if the person does not have
+    a workplace or works exclusively from home.</span>
 personTravelToWorkDays_one: >-
-    During the <strong>last week</strong>, when did you <strong>travel</strong> for
-    <strong>work</strong>?<br /><span class="_pale _oblique">To get to or for any
-    other reason concerning work.</span>
-personRemoteWorkDays: >-
-    During the <strong>last week</strong>, when did {{nickname}} <strong>work remotely</strong>?
-personRemoteWorkDays_one: >-
-    During the <strong>last week</strong>, when did you <strong>work remotely</strong>?
+    Number of days per week you travel outside the home for work<br /><span class="_pale
+    _oblique">In a typical week. Enter 0 if you do not have a workplace or you work
+    exclusively from home.</span>
+personEducationalAttainment: >-
+    Highest level of <strong>educational attainment</strong><br /><span class="_pale
+    _oblique">If in doubt, select the education level that most closely matches the
+    academic background.</span>
+personOccupation: <strong>Main occupation</strong>
 household_save: Save and continue
 addGroupedObject: Add a missing person
 deleteThisGroupedObject: Delete this person
+popup:
+    studentTitle: Who should be included?
+    studentContent: >-
+        <strong>Who should be considered a student?</strong><br /><span class="_green">Include:</span><br
+        />- All students and pupils aged 15 and over, regardless of level of education<br
+        />- Anyone taking regular courses through an educational institution<br />-
+        Anyone currently in an internship, apprenticeship, or co-op program, but enrolled
+        in an educational institution<br /><span class="_red">Do not include:</span><br
+        />- One-time or online training courses<br />- Private lessons, etc.
+    workerTitle: Who should be included?
+    workerContent: >-
+        <strong>Who should be considered a worker?</strong><br /><span class="_green">Include:</span><br
+        />- Anyone with a job or a business, even if temporarily absent at the time
+        of responding (e.g., sick leave, parental leave, vacation, temporary layoff)<br
+        />- Both salaried employees and self-employed workers<br /><span class="_red">Do
+        not include:</span><br />- People without a job and not looking for work
+    validateHouseholdAgesHelp: >-
+        At least one member of your household must be 16 years old or older to respond
+        to this survey. Please verify ages.
+    validateHouseholdAgesHelp_one: You must be at least 16 years old to respond to
+        this survey.
+    transitFareTitle: Fare zones?
+    transitFareContent: Carte + tableau des tarifs
 errors:
     selectDontKnowWhenNoOtherChoiceSelected: Select "I don't know" only if no other
         choice is selected.
     selectNoWhenNoOtherChoiceSelected: Select "no" only if no other choice is selected.
+    selectNoneWhenNoOtherChoiceSelected: Select "None for the current month" only
+        if no other choice is selected.
     selectPreferNotToAnswerWhenNoOtherChoiceSelected: Select "Prefer not to answer"
         only if no other choice is selected.
     selectNoTravelWhenNoOtherChoiceSelected: Select "No Travel" only if no other choice
@@ -76,12 +148,7 @@ errors:
         other choice is selected.
     selectNoRemoteStudyWhenNoOtherChoiceSelected: Select "No remote studies" only
         if no other choice is selected.
-popup:
-    validateHouseholdAgesHelp: >-
-        At least one member of your household must be 16 years old or older to respond
-        to this survey. Please verify ages.
-    validateHouseholdAgesHelp_one: You must be at least 16 years old to respond to
-        this survey.
+    nicknameMustBeUnique: The name or nickname must be unique
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
 workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
