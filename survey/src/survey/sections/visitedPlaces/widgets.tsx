@@ -62,7 +62,7 @@ export const visitedPlaceOnTheRoadArrivalType: WidgetConfig.InputRadioType = {
         return t('visitedPlaces:visitedPlaceOnTheRoadArrivalType', {
             nickname,
             count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            context: activePerson?.gender
         });
     },
     choices: choices.onTheRoadArrivalTypeChoices,

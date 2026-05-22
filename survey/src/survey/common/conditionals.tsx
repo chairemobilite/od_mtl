@@ -290,6 +290,34 @@ export const ifAge40OrMoreConditional: WidgetConditional = (interview, path) => 
     });
 };
 
+export const ifAge64OrLessConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '<=',
+                value: 64
+            }
+        ]
+    });
+};
+
+export const ifAge65OrMoreConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '>=',
+                value: 65
+            }
+        ]
+    });
+};
+
 export const hasDrivingLicenseConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
@@ -400,6 +428,122 @@ export const hasWorkingLocationConditional: WidgetConditional = (interview, path
     });
 };
 
+export const personDisabilityIsNotPreferNotToAnswer: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.disabilities`,
+                comparisonOperator: '===',
+                value: null
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.disabilities`,
+                comparisonOperator: '!==',
+                value: 'preferNotToAnswer'
+            }
+        ]
+    });
+};
+
+export const personDisabilityIsOtherConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.disabilities`,
+                comparisonOperator: '===',
+                value: 'other'
+            }
+        ]
+    });
+};
+
+export const personMobilityDeviceNotExclusiveAnswer: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '===',
+                value: null
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '!==',
+                value: 'noSpecificDevice',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '!==',
+                value: 'preferNotToAnswer',
+                parentheses: ')'
+            }
+        ]
+    });
+};
+
+export const personMobilityDeviceNotPreferNotToAnswer: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '===',
+                value: null
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '!==',
+                value: 'preferNotToAnswer'
+            }
+        ]
+    });
+};
+
+export const personMobilityDeviceNotNone: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '===',
+                value: null
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '!==',
+                value: 'noSpecificDevice'
+            }
+        ]
+    });
+};
+
+export const personAssistiveDevicesIsOtherConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.mobilityAssistiveDevices`,
+                comparisonOperator: '===',
+                value: 'other'
+            }
+        ]
+    });
+};
+
 export const acceptsToBeContactedForHelp: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,
@@ -459,7 +603,7 @@ export const onTheRoadUsualWorkplace: WidgetConditional = (interview, path) => {
     });
 };
 
-export const personRemoteWorkDaysConditional: WidgetConditional = (interview, path) => {
+export const personWorkDaysConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
         interview,
@@ -479,35 +623,90 @@ export const personRemoteWorkDaysConditional: WidgetConditional = (interview, pa
     });
 };
 
-export const parentalOrSickLeaveConditional: WidgetConditional = (interview, path) => {
+export const personHybridWorkDaysConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
         interview,
         conditionals: [
             {
-                path: `household.persons.${currentPersonId}.occupation`,
+                path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
-                value: 'parentalOrSickLeave'
+                value: 'hybrid'
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.workDays`,
+                comparisonOperator: '>',
+                value: 0
             }
         ]
     });
 };
 
-export const wasWorkerBeforeLeaveConditional: WidgetConditional = (interview, path) => {
+export const hasDisabilityConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
         interview,
         conditionals: [
             {
-                path: `household.persons.${currentPersonId}.workerTypeBeforeLeave`,
+                path: `household.persons.${currentPersonId}.hasDisability`,
                 comparisonOperator: '===',
-                value: 'fullTime'
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const paratransitFrequenciesConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        valueWhenHidden: 'si EP question d\'incapacit\u00e9',
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.useParatransit`,
+                comparisonOperator: '===',
+                value: 'yes'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'householdType',
+                parentheses: '('
             },
             {
                 logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workerTypeBeforeLeave`,
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
-                value: 'partTime'
+                value: 'omission'
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'paidParking'
+            },
+            {
+                logicalOperator: '||',
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'respect',
+                parentheses: ')'
+            }
+        ]
+    });
+};
+
+export const doesNotUseTransitConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.usedTransitInLast30Days`,
+                comparisonOperator: '===',
+                value: 'no'
             }
         ]
     });
@@ -942,6 +1141,7 @@ export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (inter
 export const sharingMobilitiesConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,
+        valueWhenHidden: 'no',
         conditionals: [
             {
                 path: 'household.size',
@@ -953,6 +1153,122 @@ export const sharingMobilitiesConditional: WidgetConditional = (interview) => {
                 path: 'home.RA',
                 comparisonOperator: '<=',
                 value: 6
+            }
+        ]
+    });
+};
+
+export const carsharingConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.drivingLicenseOwnership`,
+                comparisonOperator: '===',
+                value: 'yes'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.carsharing',
+                comparisonOperator: '===',
+                value: 'yes',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '||',
+                path: 'home.RA',
+                comparisonOperator: '<=',
+                value: 6
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.size',
+                comparisonOperator: '===',
+                value: 1,
+                parentheses: ')'
+            }
+        ]
+    });
+};
+
+export const bikesharingConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '>=',
+                value: 14
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.bikesharing',
+                comparisonOperator: '===',
+                value: 'yes',
+                parentheses: '('
+            },
+            {
+                logicalOperator: '||',
+                path: 'home.RA',
+                comparisonOperator: '<=',
+                value: 6
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.size',
+                comparisonOperator: '===',
+                value: 1,
+                parentheses: ')'
+            }
+        ]
+    });
+};
+
+export const bikesharingMembershipConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.bikesharingUsage`,
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const transitPassConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '>=',
+                value: 12
+            },
+            {
+                logicalOperator: '&&',
+                path: `household.persons.${currentPersonId}.usedTransitInLast30Days`,
+                comparisonOperator: '===',
+                value: 'yes'
+            }
+        ]
+    });
+};
+
+export const transitFareConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.transitPass`,
+                comparisonOperator: '===',
+                value: 'transitPassARTM'
             }
         ]
     });

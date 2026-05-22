@@ -16,23 +16,9 @@ import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
 import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
+import * as customLabels from '../../common/customLabels';
 
 export const householdMembers = customWidgets.householdMembers;
-
-export const personAge: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputNumberBase,
-    path: 'age',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personAge', {
-            count: countPersons
-        });
-    },
-    conditional: defaultConditional,
-    validations: validations.ageValidation
-};
 
 export const personNickname: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
@@ -41,34 +27,17 @@ export const personNickname: WidgetConfig.InputStringType = {
     containsHtml: true,
     label: (t: TFunction) => t('household:personNickname'),
     conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
-    validations: validations.requiredValidation
+    validations: customValidations.uniqueNicknameCustomValidation
 };
 
-export const personHasDisability: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'hasDisability',
+export const personAge: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputNumberBase,
+    path: 'age',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personHasDisability', {
-            count: countPersons
-        });
-    },
-    choices: choices.yesNoPreferNotToAnswer,
-    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
-    validations: validations.requiredValidation
-};
-
-export const personSexAssignedAtBirth: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'sexAssignedAtBirth',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personSexAssignedAtBirth'),
-    choices: choices.maleFemalePreferNotAnswer,
-    conditional: conditionals.ifAge5orMoreConditional,
-    validations: validations.requiredValidation
+    label: (t: TFunction) => t('household:personAge'),
+    conditional: defaultConditional,
+    validations: validations.ageValidation
 };
 
 // If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender
@@ -81,82 +50,7 @@ export const personGender: WidgetConfig.InputRadioType = {
     customChoice: 'custom',
     label: (t: TFunction) => t('household:personGender'),
     choices: choices.maleFemaleCustomPreferNotToAnswer,
-    conditional: conditionals.hasPreferNotToAnswerToSexAssignedConditional,
-    validations: validations.requiredValidation
-};
-
-export const personWorkerType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'workerType',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        return t('household:personWorkerType', {
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-        });
-    },
-    choices: choices.participationStatusWorker,
-    conditional: conditionals.ifAge14orMoreConditional,
-    validations: validations.requiredValidation
-};
-
-export const personStudentType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'studentType',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        return t('household:personStudentType', {
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-        });
-    },
-    choices: choices.participationStatusStudent,
-    conditional: conditionals.ifAge16OrMoreConditional,
-    validations: validations.requiredValidation
-};
-
-export const personSchoolType = customWidgets.personSchoolType;
-
-export const personOccupation: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'occupation',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personOccupation'),
-    choices: choices.personOccupation,
-    conditional: customConditionals.personOccupationCustomConditional,
-    validations: validations.requiredValidation
-};
-
-export const personWorkerTypeBeforeLeave: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'workerTypeBeforeLeave',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personWorkerTypeBeforeLeave', {
-            nickname,
-            count: countPersons
-        });
-    },
-    choices: choices.participationStatusWorker,
-    conditional: conditionals.parentalOrSickLeaveConditional,
-    validations: validations.requiredValidation
-};
-
-export const personEducationalAttainment: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'educationalAttainment',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personEducationalAttainment'),
-    choices: choices.educationalAttainment,
-    conditional: conditionals.ifAge15OrMoreConditional,
+    conditional: conditionals.ifAge5orMoreConditional,
     validations: validations.requiredValidation
 };
 
@@ -168,7 +62,7 @@ export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         return t('household:personDrivingLicenseOwnership', {
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            context: activePerson?.gender
         });
     },
     choices: choices.yesNoDontKnow,
@@ -176,34 +70,282 @@ export const personDrivingLicenseOwnership: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personCarSharingMember: WidgetConfig.InputRadioType = {
+export const personCarsharingMember: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'carSharingMember',
+    path: 'carsharingMember',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:personCarSharingMember'),
+    label: (t: TFunction) => t('household:personCarsharingMember'),
     choices: choices.yesNoDontKnow,
-    conditional: conditionals.hasDrivingLicenseConditional,
+    conditional: conditionals.carsharingConditional,
     validations: validations.requiredValidation
 };
 
-export const personTransitPasses: WidgetConfig.InputCheckboxType = {
+export const personBikesharingUsage: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'bikesharingUsage',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personBikesharingUsage'),
+    choices: choices.yesNoDontKnow,
+    conditional: conditionals.bikesharingConditional,
+    validations: validations.requiredValidation
+};
+
+export const personBikesharingMembership: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'bikesharingMembership',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personBikesharingMembership'),
+    choices: choices.bikesharingMembership,
+    conditional: conditionals.bikesharingMembershipConditional,
+    validations: validations.requiredValidation
+};
+
+export const personUsedTransitInLast30Days: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'usedTransitInLast30Days',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personUsedTransitInLast30Days'),
+    choices: choices.yesNoDontKnow,
+    conditional: conditionals.ifAge5orMoreConditional,
+    validations: validations.requiredValidation
+};
+
+export const personTransitPass: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,
-    path: 'transitPasses',
+    path: 'transitPass',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personTransitPass'),
+    choices: choices.transitPassType,
+    conditional: conditionals.transitPassConditional,
+    validations: validations.requiredValidation
+};
+
+// personTransitFare : transitFareValidation · Issue #10 · chairemobilite/od_mtl
+export const personTransitFare: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'transitFare',
+    twoColumns: false,
+    containsHtml: true,
+    customPath: 'transitFareSpecify',
+    customChoice: 'other',
+    label: (t: TFunction) => t('household:personTransitFare'),
+    helpPopup: customHelpPopup.transitFareHelpPopup,
+    choices: choices.transitFareType,
+    conditional: conditionals.transitFareConditional,
+    validations: validations.requiredValidation
+};
+
+export const personTransitFareWarning: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'transitFareWarning',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.personTransitFareWarningCustomLabel,
+    choices: choices.transitFareWarning,
+    conditional: customConditionals.transitFareWarningCustomConditional,
+    validations: validations.optionalValidation
+};
+
+export const personHasDisability: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'hasDisability',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personTransitPasses', {
+        return t('household:personHasDisability', {
             nickname,
             count: countPersons
         });
     },
-    choices: choices.transitFareType,
-    conditional: conditionals.ifAge6OrMoreConditional,
-    validations: customValidations.transitFareCustomValidation
+    choices: choices.yesNoPreferNotToAnswer,
+    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
+    validations: validations.requiredValidation
+};
+
+export const personDisabilities: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'disabilities',
+    twoColumns: false,
+    containsHtml: true,
+    joinWith: 'personDisabilitiesSpecify',
+    label: (t: TFunction) => t('household:personDisabilities'),
+    choices: choices.disabilities,
+    conditional: conditionals.hasDisabilityConditional,
+    validations: validations.optionalValidation
+};
+
+// Exists because checkbox does not handle specify the same way as radio buttons
+export const personDisabilitiesSpecify: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'disabilitiesSpecify',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction) => t('household:personDisabilitiesSpecify'),
+    conditional: conditionals.personDisabilityIsOtherConditional,
+    validations: validations.optionalValidation
+};
+
+export const personMobilityAssistiveDevices: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'mobilityAssistiveDevices',
+    twoColumns: false,
+    containsHtml: true,
+    joinWith: 'personMobilityAssistiveDevicesSpecify',
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personMobilityAssistiveDevices', {
+            nickname,
+            count: countPersons
+        });
+    },
+    choices: choices.mobilityAssistiveDevices,
+    conditional: conditionals.hasDisabilityConditional,
+    validations: validations.optionalValidation
+};
+
+// Exists because checkbox does not handle specify the same way as radio buttons
+export const personMobilityAssistiveDevicesSpecify: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'mobilityAssistiveDevicesSpecify',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction) => t('household:personMobilityAssistiveDevicesSpecify'),
+    conditional: conditionals.personAssistiveDevicesIsOtherConditional,
+    validations: validations.optionalValidation
+};
+
+// personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomConditional · Issue #42 · chairemobilite/od_mtl
+// personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomChoices · Issue #48 · chairemobilite/od_mtl
+export const personMostUsedMobilityAssistiveDevice: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'mostUsedMobilityAssistiveDevice',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personMostUsedMobilityAssistiveDevice'),
+    choices: customChoices.mostUsedMobilityAssistiveDeviceCustomChoices,
+    conditional: customConditionals.mostUsedMobilityAssistiveDeviceCustomConditional,
+    validations: validations.optionalValidation
+};
+
+export const personUseParatransit: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'useParatransit',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personUseParatransit', {
+            nickname,
+            count: countPersons,
+            context: activePerson?.gender
+        });
+    },
+    choices: choices.yesNoPreferNotToAnswer,
+    conditional: conditionals.hasDisabilityConditional,
+    validations: validations.optionalValidation
+};
+
+export const personDisabilitiesFrequenciesParatransit: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'disabilitiesFrequenciesParatransit',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personDisabilitiesFrequenciesParatransit', {
+            nickname,
+            count: countPersons,
+            context: activePerson?.gender
+        });
+    },
+    choices: choices.paratransitFrequencies,
+    conditional: conditionals.paratransitFrequenciesConditional,
+    validations: validations.optionalValidation
+};
+
+export const personDisabilitiesFrequenciesTransit: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'disabilitiesFrequenciesTransit',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personDisabilitiesFrequenciesTransit', {
+            nickname,
+            count: countPersons,
+            context: activePerson?.gender
+        });
+    },
+    choices: choices.paratransitFrequenciesTransit,
+    conditional: conditionals.paratransitFrequenciesConditional,
+    validations: validations.optionalValidation
+};
+
+export const personStudentType: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'studentType',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        return t('household:personStudentType', {
+            context: activePerson?.gender
+        });
+    },
+    helpPopup: customHelpPopup.studentHelpPopup,
+    choices: choices.participationStatusStudent,
+    conditional: conditionals.ifAge16OrMoreConditional,
+    validations: validations.requiredValidation
+};
+
+export const personWorkerType: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'workerType',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        return t('household:personWorkerType', {
+            context: activePerson?.gender
+        });
+    },
+    helpPopup: customHelpPopup.workerHelpPopup,
+    choices: choices.participationStatusWorker,
+    conditional: conditionals.ifAge14orMoreConditional,
+    validations: validations.requiredValidation
+};
+
+export const personJobType: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'jobType',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        return t('household:personJobType', {
+            nickname
+        });
+    },
+    choices: choices.jobTypes,
+    conditional: conditionals.isWorkerConditional,
+    validations: validations.requiredValidation
 };
 
 export const personWorkPlaceType: WidgetConfig.InputRadioType = {
@@ -225,63 +367,52 @@ export const personWorkPlaceType: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personWorkPlaceTypeBeforeLeave: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'workPlaceTypeBeforeLeave',
+export const personWorkDays: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'workDays',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personWorkPlaceTypeBeforeLeave', {
+        return t('household:personWorkDays', {
             nickname,
             count: countPersons
         });
     },
-    choices: customChoices.workPlaceBeforeLeaveTypeCustomChoices,
-    conditional: conditionals.wasWorkerBeforeLeaveConditional,
+    valueRange: {
+        min: 0,
+        max: 7
+    },
+    conditional: conditionals.personWorkDaysConditional,
     validations: validations.requiredValidation
 };
 
-export const personTravelToWorkDays: WidgetConfig.InputCheckboxType = {
-    ...defaultInputBase.inputCheckboxBase,
-    path: 'travelToWorkDays',
+// Custom because max of RadioNumber does not accept a path with ${currentPerson}
+export const personTravelToWorkDays = customWidgets.personTravelToWorkDays;
+
+export const personEducationalAttainment: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'educationalAttainment',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personTravelToWorkDays', {
-            nickname,
-            count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-        });
-    },
-    choices: customChoices.lastWeekTravelToWorkDaysCustomChoices,
+    label: (t: TFunction) => t('household:personEducationalAttainment'),
+    choices: choices.educationalAttainment,
     conditional: conditionals.isWorkerConditional,
-    validations: customValidations.travelToPlaceCustomValidation
+    validations: validations.requiredValidation
 };
 
-export const personRemoteWorkDays: WidgetConfig.InputCheckboxType = {
-    ...defaultInputBase.inputCheckboxBase,
-    path: 'remoteWorkDays',
+// Custom conditional to set the default value depending on previous answers
+export const personOccupation: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'occupation',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personRemoteWorkDays', {
-            nickname,
-            count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
-        });
-    },
-    choices: customChoices.lastWeekRemoteWorkDaysCustomChoices,
-    conditional: conditionals.personRemoteWorkDaysConditional,
-    validations: customValidations.remoteWorkDaysCustomValidation
+    label: (t: TFunction) => t('household:personOccupation'),
+    choices: choices.personOccupation,
+    conditional: customConditionals.personOccupationCustomConditional,
+    validations: validations.requiredValidation
 };
 
 export const household_save: WidgetConfig.ButtonWidgetConfig = {

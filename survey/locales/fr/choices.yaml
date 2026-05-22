@@ -32,13 +32,6 @@ participationStatusWorker:
 participationStatusStudent:
     fullTime: Oui, à temps plein
     partTime: Oui, à temps partiel
-schoolType:
-    kindergarten: Garderie/CPE
-    primarySchool: École primaire
-    secondarySchool: École secondaire
-    schoolAtHome: École à la maison
-    atHome: À la maison
-    collegeCegepDepAep: CEGEP / Collège / DEP / AEP
 personOccupation:
     fullTimeWorker: Travail à temps plein (30h et plus/semaine)
     partTimeWorker: Travail à temps partiel (moins de 30h/semaine)
@@ -51,11 +44,38 @@ personOccupation:
     parentalOrSickLeave: Congé de maladie ou congé parental
     longTermDisability: Invalidité de longue durée
     volunteer: Bénévole
-    other: Autre
-    preferNotToAnswer: Préfère ne pas répondre
+jobTypes:
+    professional: >-
+        Professionnel(le)<br /><span class="_pale _oblique">ingénieur·e, analyste,
+        enseignant·e, chercheur·e, professionnel de la santé…</span>
+    administration: >-
+        Travail de bureau / administration<br /><span class="_pale _oblique">commis,
+        adjoint·e administratif·ve, secrétariat, soutien administratif…</span>
+    salesAndServices: >-
+        Vente et services<br /><span class="_pale _oblique">commerce de détail, service
+        à la clientèle, restauration, soins personnels…</span>
+    manufacturing: >-
+        Fabrication, métiers et autres emplois<br /><span class="_pale _oblique">usine,
+        construction, métiers spécialisés, transport, entreposage…</span>
+transitPassType:
+    transitPassARTM: Passe / abonnement mensuel ou annuel de l’ARTM
+    transitPassARTMWithElderly: >-
+        Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
+    tickets: Titres ou billets individuels de l’ARTM
+    other: Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
 transitFareType:
-    transitPass: Passe ou titre mensuel ou annuel
-    tickets: Titres ou billets individuels
+    A: Tous modes A
+    AB: Tous modes AB
+    ABC: Tous modes ABC
+    ABCD: Tous modes ABCD
+    bus: Bus
+    busCD: Bus hors territoire (CD)
+    opusWithTicketsOnly: Carte OPUS avec titres individuels seulement
+    otherTerritory: Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc.
+        …)
+    none: Aucun pour le mois en cours
+transitFareWarning:
+    yes: Je confirme
 workPlaceTypeChoices:
     onLocation: Oui, travail au lieu fixe en présentiel en tout temps
     hybrid: Oui, travail en mode hybride (télétravail et en présentiel)
@@ -64,10 +84,6 @@ workPlaceTypeChoices:
         poste, restaurant, etc.)
     onTheRoadWithoutUsualPlace: Non, travail sur la route avec départ du domicile
     remote: Non, travail à partir du domicile ou à distance
-schoolPlaceTypeChoices:
-    onLocation: Oui, études au lieu fixe en présentiel en tout temps
-    hybrid: Oui, études en mode hybride (télé-études et en présentiel)
-    remote: Non, études à partir du domicile ou à distance
 longDistanceFrequencyChoices:
     '00_00': Jamais (0)
     '01_03': Quelques fois durant la période (1 à 3)
@@ -206,3 +222,43 @@ zeroToTwoPlus:
     '0': '0'
     '1': '1'
     '2': 2+
+bikesharingMembership:
+    yes: Oui (mensuel, saison)
+    no: Non (paiement au déplacement)
+disabilities:
+    hearing: Auditive 
+    visual: Visuelle
+    cognitiveOrPsychic: >-
+        Cognitive (ex. mémoire, attention, compréhension, défi d’apprentissage, etc.)
+    mentalHealth: Santé mentale (ex. anxiété, dépression, trouble psychique, etc.)
+    intellectualOrTSA: Intellectuelle ou trouble du spectre de l’autisme (TSA) 
+    motor: Motrice (ex. mobilité réduite, flexibilité, paralysie, amputation, etc.)
+    chronicIllness: >-
+        Limitation liée à une maladie chronique ou à l’état de santé (ex. cardiaque,
+        respiratoire, douleur, etc.)
+    speechOrLanguageDisorder: Trouble de la parole ou du langage
+    fineMotorSkills: Motricité fine (ex. dextérité, agilité, etc.)
+    other: Autre (spécifiez)
+mobilityAssistiveDevices:
+    crutchOrCane: Béquilles ou Canne
+    whiteCane: Canne blanche
+    serviceOrGuideDog: Chien d'assistance ou chien guide
+    manualWheelchair: Fauteuil roulant manuel (avec ou sans assistance électrique)
+    motorisedWheelchair: Fauteuil roulant motorisé
+    walkerOrRollator: Marchette ou déambulateur
+    threeOrFourwheeledScooter: Triporteur ou quadriporteur
+    noSpecificDevice: Aucun matériel spécifique
+    other: Autre (spécifiez)
+    preferNotToAnswer: Je préfère ne pas répondre
+paratransitFrequencies:
+    never: Jamais au cours des 12 derniers mois
+    1orMorePerYear: 1 à quelques jours au cours des 12 derniers mois
+    1to3daysPerMonth: 1 à 3 jours par mois
+    1to4daysPerWeek: 1 à 4 jours par semaine
+    5to7daysPerWeek: 5 à 7 jours par semaine
+paratransitFrequenciesTransit:
+    never: Jamais au cours des 12 derniers mois
+    1orMorePerYear: 1 à quelques jours au cours des 12 derniers mois
+    1to3daysPerMonth: 1 à 3 jours par mois
+    1to4daysPerWeek: 1 à 4 jours par semaine
+    5to7daysPerWeek: 5 à 7 jours par semaine

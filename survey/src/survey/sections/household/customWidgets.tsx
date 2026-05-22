@@ -1,13 +1,11 @@
 import { TFunction } from 'i18next';
-import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
-import { GroupConfig, InputRadioType } from 'evolution-common/lib/services/questionnaire/types';
+import * as surveyHelper from 'evolution-common/lib/utils/helpers';
+import { GroupConfig, InputRadioNumberType } from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
-import * as conditionals from '../../common/conditionals';
 import { householdMembersWidgetsNames } from './widgetsNames';
-import * as choices from '../../common/choices';
+import { inputRadioNumberBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
+import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import { personHybridWorkDaysConditional } from '../../common/conditionals';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -19,7 +17,7 @@ export const householdMembers: GroupConfig = {
     },
     name: {
         fr: function (groupedObject: any, sequence, interview) {
-            const householdSize = surveyHelperNew.getResponse(interview, 'household.size', 1);
+            const householdSize = surveyHelper.getResponse(interview, 'household.size', 1);
             if (householdSize === 1) {
                 return 'Veuillez entrer les informations suivantes:';
             }
@@ -28,7 +26,7 @@ export const householdMembers: GroupConfig = {
             }`;
         },
         en: function (groupedObject: any, sequence, interview) {
-            const householdSize = surveyHelperNew.getResponse(interview, 'household.size', 1);
+            const householdSize = surveyHelper.getResponse(interview, 'household.size', 1);
             if (householdSize === 1) {
                 return 'Please enter the following information:';
             }
@@ -39,7 +37,7 @@ export const householdMembers: GroupConfig = {
     },
     showGroupedObjectDeleteButton: function (interview, path) {
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        const householdSize = surveyHelperNew.getResponse(interview, 'household.size', null);
+        const householdSize = surveyHelper.getResponse(interview, 'household.size', null);
         const householdSizeNum = householdSize ? Number(householdSize) : undefined;
         return householdSizeNum ? countPersons > householdSizeNum : false;
     },
@@ -52,29 +50,27 @@ export const householdMembers: GroupConfig = {
     widgets: householdMembersWidgetsNames
 };
 
-export const personSchoolType: InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'schoolType',
+// Custom because of the max value that depends on another question
+export const personTravelToWorkDays: InputRadioNumberType = {
+    ...inputRadioNumberBase,
+    path: 'travelToWorkDays',
     twoColumns: false,
     containsHtml: true,
-    customPath: 'schoolTypeOther',
-    customChoice: 'other',
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
-
-        // Different label based on age
-        if (activePerson?.age < 4) {
-            // For children under 4
-            return t('household:schoolTypeLessThan4');
-        } else if (activePerson?.age <= 15) {
-            // For children between 4 and 15
-            return t('household:schoolTypeBetween4And15');
-        } else {
-            // For people over 15
-            return t('household:schoolType');
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personTravelToWorkDays', {
+            nickname: odSurveyHelpers.getPersonIdentificationString({ person: activePerson, t }),
+            count: countPersons
+        });
+    },
+    valueRange: {
+        min: 0,
+        max: (interview, path) => {
+            const workDays = surveyHelper.getResponse(interview, path, null, '../workDays');
+            return workDays ? Number(workDays) : 0;
         }
     },
-    choices: choices.schoolType,
-    conditional: conditionals.ifAge15OrLessConditional,
-    validations: validations.requiredValidation
+    conditional: personHybridWorkDaysConditional,
+    validations: requiredValidation
 };

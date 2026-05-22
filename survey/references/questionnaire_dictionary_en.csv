@@ -134,10 +134,6 @@ preferNotToAnswer : I prefer not to answer"
 Section,Household
 Abbreviation,hh_
 ""
-Field,age
-Question type,Number input
-Question,Age (in years)
-""
 Field,nickname
 Question type,Text input
 Conditional,hasPersonCount2OrMoreCustomConditional
@@ -145,40 +141,192 @@ Question,"Name or nickname that will allow you to identify this person for the r
 Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
 ""
-Field,hasDisability
-Question type,Radio input
-Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
-Question,"Permanent physical, intellectual or other disability which influences or limits their daily mobility?"
-Values,"yes : Yes
-no : No
-preferNotToAnswer : I prefer not to answer"
-""
-Field,sexAssignedAtBirth
-Question type,Radio input
-Conditional,ifAge5orMoreConditional : age >= 5
-Question,"Sex at birth
-Sex assigned at birth or that which appears on legal documents."
-Values,"female : Female
-male : Male
-preferNotToAnswer : I prefer not to answer"
+Field,age
+Question type,Number input
+Question,"Age (in years)
+Enter 0 for babies under the age of 1 year"
 ""
 Field,gender
 Question type,Radio input
-Conditional,hasPreferNotToAnswerToSexAssignedConditional : sexAssignedAtBirth === preferNotToAnswer
-Question,I prefer to give the gender
+Conditional,ifAge5orMoreConditional : age >= 5
+Question,"Gender
+May differ from the sex assigned at birth or that which appears on legal documents."
 Values,"female : Woman
 male : Man
 custom : This person identifies as:
 preferNotToAnswer : I prefer not to answer"
 ""
-Field,workerType
+Field,drivingLicenseOwnership
 Question type,Radio input
-Conditional,ifAge14orMoreConditional : age >= 14
-Question,"Worker
-Including self-employed and artist."
-Values,"fullTime : Yes, full time (30h and more/week)
-partTime : Yes, part time (less than 30h/week)
-no : No"
+Conditional,ifAge16OrMoreConditional : age >= 16
+Question,"Driver's licence
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,carsharingMember
+Question type,Radio input
+Conditional,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_RA <= 6 && hh_size === 1)
+Question,"Carshare (ex. Communauto, Leo): used 
+as driver in the past 6 months"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,bikesharingUsage
+Question type,Radio input
+Conditional,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_RA <= 6 && hh_size === 1)
+Question,"Bikeshare (ex. BIXI): used in the last 30 days
+"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,bikesharingMembership
+Question type,Radio input
+Conditional,bikesharingMembershipConditional : bikesharingUsage === yes
+Question,"BIXI membership
+Valid for the current month"
+Values,"yes : Yes (monthly, seasonal)
+no : No (pay per trip)
+dontKnow : I don't know"
+""
+Field,usedTransitInLast30Days
+Question type,Radio input
+Conditional,ifAge5orMoreConditional : age >= 5
+Question,"Public transit: used in the past 30 days 
+Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)"
+Values,"yes : Yes
+no : No
+dontKnow : I don't know"
+""
+Field,transitPass
+Question type,Checkbox input
+Conditional,transitPassConditional : age >= 12 && usedTransitInLast30Days === yes
+Question,"Type of pass or subscription used for public transit in the past 30 days
+Include free passes.
+ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM."
+Values,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : ARTM monthly or annual pass
+transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : ARTM monthly or annual pass (including senior passes)
+tickets : ARTM individual tickets or fares
+other : Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+dontKnow : I don't know"
+""
+Field,transitFare
+Question type,Radio input
+Conditional,transitFareConditional : transitPass === transitPassARTM
+Question,"Type of pass used as a valid monthly subscription for the current month
+A, AB, ABC, and ABCD refer to ARTM fare zones."
+Values,"A : All modes A
+AB : All modes AB
+ABC : All modes ABC
+ABCD : All modes ABCD
+bus : Bus
+busCD : Out-of-territory bus (CD)
+opusWithTicketsOnly : OPUS card with individual fares only
+otherTerritory : Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+other : Other (specify)
+none : None for the current month
+dontKnow : I don't know"
+""
+Field,transitFareWarning
+Question type,Checkbox input
+Conditional,transitFareWarningCustomConditional
+Question,"You selected a transit pass that extends beyond the fare zone of your place of residence.
+The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price)."
+Values,yes : I confirm
+""
+Field,hasDisability
+Question type,Radio input
+Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Question,"Permanent physical, intellectual or other disability that affects or limits {{nickname}}’s daily travel?
+Ex: mobility-related, visual, other…"
+Values,"yes : Yes
+no : No
+preferNotToAnswer : I prefer not to answer"
+""
+Field,disabilities
+Question type,Checkbox input
+Conditional,hasDisabilityConditional : hasDisability === yes
+Question,"… which one(s)?
+Optional"
+Values,"hearing (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Hearing
+visual (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Visual
+cognitiveOrPsychic (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Cognitive (e.g. memory, attention, comprehension, learning difficulty, etc.)
+mentalHealth (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Mental health (e.g. anxiety, depression, mental health disorder, etc.)
+intellectualOrTSA (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Intellectual disability or autism spectrum disorder (ASD)
+motor (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Motor (e.g. reduced mobility, flexibility, paralysis, amputation, etc.)
+chronicIllness (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Limitation related to a chronic illness or health condition (e.g. cardiac, respiratory, pain, etc.)
+speechOrLanguageDisorder (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Speech or language disorder
+fineMotorSkills (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Fine motor skills (e.g. dexterity, agility, etc.)
+other (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Other (specify)
+preferNotToAnswer : I prefer not to answer"
+""
+Field,disabilitiesSpecify
+Question type,Text input
+Conditional,personDisabilityIsOtherConditional : disabilities === other
+Question,Specify:
+""
+Field,mobilityAssistiveDevices
+Question type,Checkbox input
+Conditional,hasDisabilityConditional : hasDisability === yes
+Question,"Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
+Optional"
+Values,"crutchOrCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Crutches or cane
+whiteCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : White cane
+serviceOrGuideDog (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Assistance dog or guide dog
+manualWheelchair (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Manual wheelchair (with or without electric assistance)
+motorisedWheelchair (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Powered wheelchair
+walkerOrRollator (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Walker or rollator
+threeOrFourwheeledScooter (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Three- or four-wheeled scooter
+noSpecificDevice (personMobilityDeviceNotPreferNotToAnswer : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== preferNotToAnswer) : No specific mobility aids
+other (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Other (specify)
+preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : I prefer not to answer"
+""
+Field,mobilityAssistiveDevicesSpecify
+Question type,Text input
+Conditional,personAssistiveDevicesIsOtherConditional : mobilityAssistiveDevices === other
+Question,Specify:
+""
+Field,mostUsedMobilityAssistiveDevice
+Question type,Radio input
+Conditional,mostUsedMobilityAssistiveDeviceCustomConditional
+Question,"Most used
+Optional"
+""
+Field,useParatransit
+Question type,Radio input
+Conditional,hasDisabilityConditional : hasDisability === yes
+Question,"Is {{nickname}} registered for paratransit services?
+STM, RTL, STL, exo, etc.
+Optional"
+Values,"yes : Yes
+no : No
+preferNotToAnswer : I prefer not to answer"
+""
+Field,disabilitiesFrequenciesParatransit
+Question type,Radio input
+Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
+Question,"In the past 12 months, how often has {{nickname}} used paratransit services?
+Optional"
+Values,"never : Never in the last 12 months
+1orMorePerYear : 1 to a few days in the last 12 months
+1to3daysPerMonth : 1 to 3 days per month
+1to4daysPerWeek : 1 to 4 days per week
+5to7daysPerWeek : 5 to 7 days per week"
+""
+Field,disabilitiesFrequenciesTransit
+Question type,Radio input
+Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
+Question,"In the past 12 months, how often has {{nickname}} used public transit (regular service)?
+Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
+Optional"
+Values,"never (doesNotUseTransitConditional : usedTransitInLast30Days === no) : Never in the last 12 months
+1orMorePerYear : 1 to a few days in the last 12 months
+1to3daysPerMonth : 1 to 3 days per month
+1to4daysPerWeek : 1 to 4 days per week
+5to7daysPerWeek : 5 to 7 days per week"
 ""
 Field,studentType
 Question type,Radio input
@@ -188,17 +336,64 @@ Values,"fullTime : Yes, full time
 partTime : Yes, part time
 no : No"
 ""
-Field,schoolType
+Field,workerType
+Question type,Radio input
+Conditional,ifAge14orMoreConditional : age >= 14
+Question,"Worker
+Including self-employed workers, artists, or those on long-term leave."
+Values,"fullTime : Yes, full time (30h and more/week)
+partTime : Yes, part time (less than 30h/week)
+no : No"
+""
+Field,jobType
+Question type,Radio input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Type of employment of {{nickname}}
+Values,"professional : Professional
+engineer, analyst, teacher, researcher, health professional…
+administration : Office work / administration
+clerk, administrative assistant, secretariat, administrative support…
+salesAndServices : Sales and services
+retail, customer service, food services, personal services…
+manufacturing : Manufacturing, trades and other jobs
+factory, construction, skilled trades, transportation, warehousing…
+dontKnow : I don't know"
+""
+Field,workPlaceType
+Question type,Radio input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,Does {{nickname}} have a fixed workplace?
+Values,"onLocation : Yes, always on-site at fixed location
+hybrid : Yes, hybrid work (remote and on-site)
+onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
+onTheRoadWithoutUsualPlace : No, work on the road departing from home
+remote : No, work from home or from elsewhere"
+""
+Field,workDays
+Question type,RadioNumber
+Conditional,personWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Question,"Number of days per week {{nickname}} works
+In a typical week. Whether or not travel is required for work.
+"
+""
+Field,travelToWorkDays
 Question type,Unknown input
-Conditional,ifAge15OrLessConditional : age <= 15 && age !== null
-Question,Educational institution
-Values,"kindergarten (ifAge5OrLessConditional : age <= 5) : Kindergarten/Childcare/CPE
-primarySchool (ifAge4to13Conditional : age >= 4 && age <= 13) : Primary school
-secondarySchool (ifAge11OrMoreConditional : age >= 11) : Secondary school
-schoolAtHome (ifAge4to15Conditional : age >= 4 && age <= 15) : School at home
-atHome (ifAge5OrLessConditional : age <= 5) : At home
-collegeCegepDepAep (ifAge15OrMoreConditional : age >= 15) : CEGEP / College / DEP / AEP
-other : Other (specify)"
+Conditional,personHybridWorkDaysConditional : workPlaceType === hybrid && workDays > 0
+Question,"Number of days per week {{nickname}} travels outside the home for work
+In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home."
+""
+Field,educationalAttainment
+Question type,Radio input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,"Highest level of educational attainment
+If in doubt, select the education level that most closely matches the academic background."
+Values,"noneOrPrimaryEducation : No certificate, diploma or degree
+secondaryEducation : High school (secondary) diploma or equivalency certificate
+postSecondaryNonTertiaryEducation : Apprenticeship or trades certificate or diploma
+shortCycleTertiaryEducation : College, CEGEP or other non-university certificate or diploma
+diplomaBelowBachelor : University certificate or diploma below bachelor level
+bachelorOrHigher : Bachelor's degree or higher
+preferNotToAnswer : I prefer not to answer"
 ""
 Field,occupation
 Question type,Radio input
@@ -216,81 +411,7 @@ parentalOrSickLeave : Sick leave or parental leave
 longTermDisability : Long-term disability
 volunteer : Volunteer
 other : Other
-preferNotToAnswer : Prefer not to answer"
-""
-Field,workerTypeBeforeLeave
-Question type,Radio input
-Conditional,parentalOrSickLeaveConditional : occupation === parentalOrSickLeave
-Question,"Before being on leave, did {{nickname}} work?"
-Values,"fullTime : Yes, full time (30h and more/week)
-partTime : Yes, part time (less than 30h/week)
-no : No"
-""
-Field,educationalAttainment
-Question type,Radio input
-Conditional,ifAge15OrMoreConditional : age >= 15
-Question,"Highest level of educational attainment
-When in doubt, choose the level which seems to match best"
-Values,"noneOrPrimaryEducation : No certificate, diploma or degree
-secondaryEducation : High school (secondary) diploma or equivalency certificate
-postSecondaryNonTertiaryEducation : Apprenticeship or trades certificate or diploma
-shortCycleTertiaryEducation : College, CEGEP or other non-university certificate or diploma
-diplomaBelowBachelor : University certificate or diploma below bachelor level
-bachelorOrHigher : Bachelor's degree or higher
 preferNotToAnswer : I prefer not to answer"
-""
-Field,drivingLicenseOwnership
-Question type,Radio input
-Conditional,ifAge16OrMoreConditional : age >= 16
-Question,"Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
-Values,"yes : Yes
-no : No
-dontKnow : I don't know"
-""
-Field,carSharingMember
-Question type,Radio input
-Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
-Question,"Carsharing member
-Subscription or pass to a carsharing service (ex. Communauto)"
-Values,"yes : Yes
-no : No
-dontKnow : I don't know"
-""
-Field,transitPasses
-Question type,Checkbox input
-Conditional,ifAge6OrMoreConditional : age >= 6
-Question,Does {{nickname}} currently have a valid transit pass or ticket?
-Values,"no : No
-transitPass : Monthly or annual pass
-tickets : Individual tickets or rides
-dontKnow : I don't know"
-""
-Field,workPlaceType
-Question type,Radio input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Does {{nickname}} have a fixed work location?
-Values,"onLocation : Yes, always on-site at fixed location
-hybrid : Yes, hybrid work (remote and on-site)
-onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
-onTheRoadWithoutUsualPlace : No, work on the road departing from home
-remote : No, work from home or from elsewhere"
-""
-Field,workPlaceTypeBeforeLeave
-Question type,Radio input
-Conditional,wasWorkerBeforeLeaveConditional : workerTypeBeforeLeave === fullTime || workerTypeBeforeLeave === partTime
-Question,"Before being on leave, did {{nickname}} have a fixed work location?"
-""
-Field,travelToWorkDays
-Question type,Checkbox input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"During the last week, when did {{nickname}} travel for work?
-To get to or for any other reason concerning work."
-""
-Field,remoteWorkDays
-Question type,Checkbox input
-Conditional,personRemoteWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
-Question,"During the last week, when did {{nickname}} work remotely?"
 ""
 ""
 ""

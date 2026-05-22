@@ -51,7 +51,7 @@ export const personUsualWorkPlaceIntro: WidgetConfig.TextWidgetConfig = {
         return t('travelBehavior:personUsualWorkPlaceIntro', {
             nickname,
             count: countPersons,
-            context: activePerson?.gender || activePerson?.sexAssignedAtBirth
+            context: activePerson?.gender
         });
     },
     conditional: customConditionals.hasWorkingLocationNotSetCustomConditional

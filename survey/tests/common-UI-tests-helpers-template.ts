@@ -154,67 +154,19 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test custom widget householdMembers
     // Implement custom test
 
-    // Test number widget personAge
-    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '?' });
-
     // Test string widget personNickname with conditional hasPersonCount2OrMoreCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.nickname', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.nickname', value: '?' });
 
-    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
+    // Test number widget personAge
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.age', value: '?' });
 
-    // Test radio widget personSexAssignedAtBirth with conditional ifAge5orMoreConditional with choices maleFemalePreferNotAnswer
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.sexAssignedAtBirth', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.sexAssignedAtBirth', value: '?' });
-
-    // Test radio widget personGender with conditional hasPreferNotToAnswerToSexAssignedConditional with choices maleFemaleCustomPreferNotToAnswer
+    // Test radio widget personGender with conditional ifAge5orMoreConditional with choices maleFemaleCustomPreferNotToAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.gender', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.gender', value: '?' });
-
-    // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatusWorker
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: '?' });
-
-    // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatusStudent
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.studentType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.studentType', value: '?' });
-
-    // Test custom widget personSchoolType with conditional ifAge15OrLessConditional with choices schoolType
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.schoolType', isVisible: true });
-    // Implement custom test
-
-    // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
-
-    // Test radio widget personWorkerTypeBeforeLeave with conditional parentalOrSickLeaveConditional with choices participationStatusWorker
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerTypeBeforeLeave', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerTypeBeforeLeave', value: '?' });
-
-    // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', value: '?' });
 
     // Test radio widget personDrivingLicenseOwnership with conditional ifAge16OrMoreConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -222,17 +174,117 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.drivingLicenseOwnership', value: '?' });
 
-    // Test radio widget personCarSharingMember with conditional hasDrivingLicenseConditional with choices yesNoDontKnow
+    // Test radio widget personCarsharingMember with conditional carsharingConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carSharingMember', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.carsharingMember', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.carsharingMember', value: '?' });
 
-    // Test checkbox widget personTransitPasses with conditional ifAge6OrMoreConditional with choices transitFareType
+    // Test radio widget personBikesharingUsage with conditional bikesharingConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitPasses', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitPasses', values: ['?'] });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.bikesharingUsage', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.bikesharingUsage', value: '?' });
+
+    // Test radio widget personBikesharingMembership with conditional bikesharingMembershipConditional with choices bikesharingMembership
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.bikesharingMembership', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.bikesharingMembership', value: '?' });
+
+    // Test radio widget personUsedTransitInLast30Days with conditional ifAge5orMoreConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.usedTransitInLast30Days', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.usedTransitInLast30Days', value: '?' });
+
+    // Test checkbox widget personTransitPass with conditional transitPassConditional with choices transitPassType
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitPass', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitPass', values: ['?'] });
+
+    // Test radio widget personTransitFare with conditional transitFareConditional with choices transitFareType
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFare', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.transitFare', value: '?' });
+
+    // Test checkbox widget personTransitFareWarning with conditional transitFareWarningCustomConditional with choices transitFareWarning
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFareWarning', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitFareWarning', values: ['?'] });
+
+    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.hasDisability', value: '?' });
+
+    // Test checkbox widget personDisabilities with conditional hasDisabilityConditional with choices disabilities
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.disabilities', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.disabilities', values: ['?'] });
+
+    // Test string widget personDisabilitiesSpecify with conditional personDisabilityIsOtherConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.disabilitiesSpecify', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.disabilitiesSpecify', value: '?' });
+
+    // Test checkbox widget personMobilityAssistiveDevices with conditional hasDisabilityConditional with choices mobilityAssistiveDevices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.mobilityAssistiveDevices', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.mobilityAssistiveDevices', values: ['?'] });
+
+    // Test string widget personMobilityAssistiveDevicesSpecify with conditional personAssistiveDevicesIsOtherConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.mobilityAssistiveDevicesSpecify', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.mobilityAssistiveDevicesSpecify', value: '?' });
+
+    // Test radio widget personMostUsedMobilityAssistiveDevice with conditional mostUsedMobilityAssistiveDeviceCustomConditional with choices mostUsedMobilityAssistiveDeviceCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.mostUsedMobilityAssistiveDevice', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.mostUsedMobilityAssistiveDevice', value: '?' });
+
+    // Test radio widget personUseParatransit with conditional hasDisabilityConditional with choices yesNoPreferNotToAnswer
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.useParatransit', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.useParatransit', value: '?' });
+
+    // Test radio widget personDisabilitiesFrequenciesParatransit with conditional paratransitFrequenciesConditional with choices paratransitFrequencies
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.disabilitiesFrequenciesParatransit', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.disabilitiesFrequenciesParatransit', value: '?' });
+
+    // Test radio widget personDisabilitiesFrequenciesTransit with conditional paratransitFrequenciesConditional with choices paratransitFrequenciesTransit
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.disabilitiesFrequenciesTransit', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.disabilitiesFrequenciesTransit', value: '?' });
+
+    // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatusStudent
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.studentType', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.studentType', value: '?' });
+
+    // Test radio widget personWorkerType with conditional ifAge14orMoreConditional with choices participationStatusWorker
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerType', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: '?' });
+
+    // Test radio widget personJobType with conditional isWorkerConditional with choices jobTypes
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.jobType', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.jobType', value: '?' });
 
     // Test radio widget personWorkPlaceType with conditional isWorkerConditional with choices workPlaceTypeChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -240,23 +292,26 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceType', value: '?' });
 
-    // Test radio widget personWorkPlaceTypeBeforeLeave with conditional wasWorkerBeforeLeaveConditional with choices workPlaceBeforeLeaveTypeCustomChoices
+    // Test radionumber widget personWorkDays with conditional personWorkDaysConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workPlaceTypeBeforeLeave', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workDays', isVisible: true });
 
-    // Test checkbox widget personTravelToWorkDays with conditional isWorkerConditional with choices lastWeekTravelToWorkDaysCustomChoices
+    // Test custom widget personTravelToWorkDays with conditional personHybridWorkDaysConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', values: ['?'] });
+    // Implement custom test
 
-    // Test checkbox widget personRemoteWorkDays with conditional personRemoteWorkDaysConditional with choices lastWeekRemoteWorkDaysCustomChoices
+    // Test radio widget personEducationalAttainment with conditional isWorkerConditional with choices educationalAttainment
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.remoteWorkDays', values: ['?'] });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', value: '?' });
+
+    // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
 
     // Test nextbutton widget household_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });

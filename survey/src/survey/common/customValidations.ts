@@ -2,6 +2,7 @@ import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import { phoneValidation, emailValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import { TFunction } from 'i18next';
@@ -124,18 +125,6 @@ export const householdHybridCarCountCustomValidation = (value, _customValue, int
     ];
 };
 
-export const transitFareCustomValidation = (value, customValue, interview, path, customPath, user) => [
-    ...requiredValidation(value, customValue, interview, path, customPath, user),
-    {
-        validation: !_isBlank(value) && value.length && value.length > 1 && value.includes('dontKnow'),
-        errorMessage: (t) => t('household:errors.selectDontKnowWhenNoOtherChoiceSelected')
-    },
-    {
-        validation: !_isBlank(value) && value.length && value.length > 1 && value.includes('no'),
-        errorMessage: (t) => t('household:errors.selectNoWhenNoOtherChoiceSelected')
-    }
-];
-
 const oneOrMoreAndPreferNotToAnswerValidation = (value) => [
     {
         validation: _isBlank(value) || !value.length || value.length < 1,
@@ -229,6 +218,22 @@ export const trainCustomValidation: ValidationFunction = (value, _customValue, i
             // FIXME Implement with the transfer matrix
             validation: false,
             errorMessage: (t: TFunction) => t('segments:errors.trainStationsIncoherent')
+        }
+    ];
+};
+
+// Make sure there is only one person with the nickname the same as the current value.
+export const uniqueNicknameCustomValidation: ValidationFunction = (value, _customValue, interview, path) => {
+    const sameNickname = odSurveyHelper
+        .getPersonsArray({ interview })
+        .filter((person) => typeof person.nickname === 'string')
+        .map((person) => person.nickname as string);
+
+    return [
+        ...requiredValidation(value, _customValue, interview, path),
+        {
+            validation: typeof value === 'string' && sameNickname.filter((nickname) => nickname === value).length > 1,
+            errorMessage: (t: TFunction) => t('household:errors.nicknameMustBeUnique')
         }
     ];
 };

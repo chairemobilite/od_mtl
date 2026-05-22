@@ -87,48 +87,184 @@ Enregistrer et continuer
 
 Section: Ménage
 
-Âge (en années)
-
 Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
-Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex: 'Moi', 'Toto', 'Maman', 'PN').
+Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
 
-Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite ses déplacements quotidiens?
-- Oui
-- Non
-- Je préfère ne pas répondre
+Âge (en années)
+Inscrire 0 pour les bébés de moins de 1 an
 
-Sexe à la naissance
-Sexe assigné à la naissance ou inscrit dans les documents légaux.
-- Femme
-- Homme
-- Je préfère ne pas répondre
-
-Je préfère donner le genre
+Genre
+Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux
 - Femme
 - Homme
 - Cette personne s'identifie comme:
 - Je préfère ne pas répondre
 
-Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
-Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome et artiste.
-- Oui, à temps plein (30h et plus/semaine)
-- Oui, à temps partiel (moins de 30h/semaine)
+Permis de conduire
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+- Oui
 - Non
+- Je ne sais pas
+
+Autopartage (ex. Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
+- Oui
+- Non
+- Je ne sais pas
+
+Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
+- Oui
+- Non
+- Je ne sais pas
+
+Abonnement BIXI
+Valide pour le mois en cours
+- Oui (mensuel, saison)
+- Non (paiement au déplacement)
+- Je ne sais pas
+
+Transports en commun : utilisation dans les 30 derniers jours
+Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
+- Oui
+- Non
+- Je ne sais pas
+
+Type de passe, abonnement utilisés pour le transport en commun dans les 30 derniers jours
+Inclure les abonnements gratuits.
+Les titres de l’ARTM permettent de prendre les services de la STM (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.
+- Passe / abonnement mensuel ou annuel de l’ARTM
+- Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
+- Titres ou billets individuels de l’ARTM
+- Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
+- Je ne sais pas
+
+Type de passe utilisé en tant qu’abonnement valide pour le mois en cours
+A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM
+- Tous modes A
+- Tous modes AB
+- Tous modes ABC
+- Tous modes ABCD
+- Bus
+- Bus hors territoire (CD)
+- Carte OPUS avec titres individuels seulement
+- Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
+- Autre (spécifiez)
+- Aucun pour le mois en cours
+- Je ne sais pas
+
+Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.
+Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif réduit).
+- Je confirme
+
+Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite les déplacements quotidiens de {{nickname}}?
+Ex. : motrice, visuelle, autre, etc.
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+… la ou lesquelles? 
+Facultatif
+- Auditive 
+- Visuelle
+- Cognitive (ex. mémoire, attention, compréhension, défi d’apprentissage, etc.)
+- Santé mentale (ex. anxiété, dépression, trouble psychique, etc.)
+- Intellectuelle ou trouble du spectre de l’autisme (TSA) 
+- Motrice (ex. mobilité réduite, flexibilité, paralysie, amputation, etc.)
+- Limitation liée à une maladie chronique ou à l’état de santé (ex. cardiaque, respiratoire, douleur, etc.)
+- Trouble de la parole ou du langage
+- Motricité fine (ex. dextérité, agilité, etc.)
+- Autre (spécifiez)
+- Je préfère ne pas répondre
+
+Spécifiez:
+
+Type(s) d’aide à la mobilité utilisé(s) pour les déplacements de {{nickname}} en dehors de la maison
+Facultatif
+- Béquilles ou Canne
+- Canne blanche
+- Chien d'assistance ou chien guide
+- Fauteuil roulant manuel (avec ou sans assistance électrique)
+- Fauteuil roulant motorisé
+- Marchette ou déambulateur
+- Triporteur ou quadriporteur
+- Aucun matériel spécifique
+- Autre (spécifiez)
+- Je préfère ne pas répondre
+
+Spécifiez:
+
+Le plus utilisé?
+Facultatif
+
+
+{{nickname}} est-{{gender:il/elle/iel}} admis{{gender:/e/.e}} au transport adapté? 
+STM, RTL, STL, exo, etc.
+Facultatif
+- Oui
+- Non
+- Je préfère ne pas répondre
+
+Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé le transport adapté?
+Facultatif
+- Jamais au cours des 12 derniers mois
+- 1 à quelques jours au cours des 12 derniers mois
+- 1 à 3 jours par mois
+- 1 à 4 jours par semaine
+- 5 à 7 jours par semaine
+
+Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé les transport en commun (service régulier)?
+Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
+Facultatif
+- Jamais au cours des 12 derniers mois
+- 1 à quelques jours au cours des 12 derniers mois
+- 1 à 3 jours par mois
+- 1 à 4 jours par semaine
+- 5 à 7 jours par semaine
 
 Étudiant{{gender:/e/(e)/(e)}}
 - Oui, à temps plein
 - Oui, à temps partiel
 - Non
 
-Établissement d'enseignement
-- Garderie/CPE
-- École primaire
-- École secondaire
-- École à la maison
-- À la maison
-- CEGEP / Collège / DEP / AEP
-- Autre (spécifiez)
+Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}
+Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste ou en congé de longue durée.
+- Oui, à temps plein (30h et plus/semaine)
+- Oui, à temps partiel (moins de 30h/semaine)
+- Non
+
+Type d’emploi de {{nickname}}
+- Professionnel(le)
+ingénieur·e, analyste, enseignant·e, chercheur·e, professionnel de la santé…
+- Travail de bureau / administration
+commis, adjoint·e administratif·ve, secrétariat, soutien administratif…
+- Vente et services
+commerce de détail, service à la clientèle, restauration, soins personnels…
+- Fabrication, métiers et autres emplois
+usine, construction, métiers spécialisés, transport, entreposage…
+- Je ne sais pas
+
+Est-ce que {{nickname}} a un lieu d'emploi fixe?
+- Oui, travail au lieu fixe en présentiel en tout temps
+- Oui, travail en mode hybride (télétravail et en présentiel)
+- Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+- Non, travail sur la route avec départ du domicile
+- Non, travail à partir du domicile ou à distance
+
+Nombre de jour(s) par semaine où {{nickname}} travaille
+Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.
+
+Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
+Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile
+
+Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.
+- Aucun certificat, diplôme ou degré
+- Diplôme d'études secondaires ou attestation d'équivalence
+- Diplôme d'apprenti ou d'une école de métiers
+- Diplôme d'un cégep ou collège
+- Certificat ou diplôme universitaire inférieur au baccalauréat
+- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+- Je préfère ne pas répondre
 
 Occupation principale
 - Travail à temps plein (30h et plus/semaine)
@@ -143,57 +279,7 @@ Occupation principale
 - Invalidité de longue durée
 - Bénévole
 - Autre
-- Préfère ne pas répondre
-
-Avant d’être en congé, est-ce que {{nickname}} travaillait?
-- Oui, à temps plein (30h et plus/semaine)
-- Oui, à temps partiel (moins de 30h/semaine)
-- Non
-
-Plus haut niveau de scolarité
-En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus de votre parcours.
-- Aucun certificat, diplôme ou degré
-- Diplôme d'études secondaires ou attestation d'équivalence
-- Diplôme d'apprenti ou d'une école de métiers
-- Diplôme d'un cégep ou collège
-- Certificat ou diplôme universitaire inférieur au baccalauréat
-- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
 - Je préfère ne pas répondre
-
-Permis de conduire
-Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
-- Oui
-- Non
-- Je ne sais pas
-
-Membre Autopartage
-Abonnement ou laissez-passer à un service d'autopartage (ex. Communauto)
-- Oui
-- Non
-- Je ne sais pas
-
-Est-ce que {{nickname}} détient présentement un laissez-passer ou un abonnement de transport en commun valide?
-- Non
-- Passe ou titre mensuel ou annuel
-- Titres ou billets individuels
-- Je ne sais pas
-
-Est-ce que {{nickname}} a un lieu d'emploi fixe?
-- Oui, travail au lieu fixe en présentiel en tout temps
-- Oui, travail en mode hybride (télétravail et en présentiel)
-- Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
-- Non, travail sur la route avec départ du domicile
-- Non, travail à partir du domicile ou à distance
-
-Avant d’être en congé, est-ce que {{nickname}} avait un lieu d'emploi fixe?
-
-
-Durant la semaine dernière, quand {{nickname}} s'est-{{gender:il/elle/iel/il(-elle)}} déplacé{{gender:/e/(e)/(e)}} pour le travail?
-Pour se rendre au travail ou toute autre raison concernant le travail.
-
-
-Durant la semaine dernière, quand {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} fait du télétravail?
-
 
 Enregistrer et continuer
 
