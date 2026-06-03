@@ -1133,3 +1133,12 @@ Optional"
 Values,"yes : Yes
 no : No
 dontKnow : I don't know"
+""
+""
+""
+Section,Survey completed
+Abbreviation,c_
+""
+Field,buttonARTMPanel
+Question type,Unknown input
+Question,Go to « Let's talk mobility » panel

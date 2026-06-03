@@ -777,7 +777,16 @@ Section: Questionnaire complété
 
 Merci pour votre participation!
 
-Nous vous remercions d'avoir pris le temps de remplir cette enquête. Vos réponses ont été enregistrées avec succès. Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.
+Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.
+Nous vous remercions d'avoir pris le temps de remplir ce questionnaire. Vos réponses ont été enregistrées avec succès. Si vous avez fourni un courriel et coché la boite indiquant votre intérêt à participer au concours, vous êtes admissible au tirage de prix de participation.
+
+Les données que vous nous avez fournies contribueront aux efforts de planification de l'ARTM et de ses partenaires ainsi qu’à favoriser une meilleure compréhension des enjeux d'accès et de mobilité dans la grande région de Montréal.
+
+Vous vivez dans le territoire de l’ARTM et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (500 $) sont à gagner parmi les participants chaque mois et 1 000 $ par année. Veuillez cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité de l’ARTM :
+
+Allez au panel « Parlons mobilité »
+
+ <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" alt="Territoire ARTM" style="max-width:1000px;width:100%;height:auto;" /></div>
 
 
 

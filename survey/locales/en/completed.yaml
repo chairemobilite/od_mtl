@@ -3,7 +3,19 @@
 # Any changes made to this file will be overwritten.
 
 completedText: >-
-    <strong>Thank you for your participation!</strong><br /><br />We thank you for
-    taking the time to fill out this survey. Your answers have been recorded. You
-    can edit your answers by clicking on any of the sections in the menu at the top
-    of the page.
+    <strong>Thank you for your participation!</strong><br /><br /><span class="_pale
+    _oblique">You can modify your answers by clicking on the sections in the menu
+    above.</span><br />Thank you for taking the time to complete this questionnaire.
+    <strong>Your responses have been successfully recorded</strong>. If you provided
+    an email address and checked the box indicating your interest in participating
+    in the contest, you are eligible for the prize draw.<br /><br />The data you have
+    provided will support the planning efforts of the ARTM and its partners, and help
+    improve understanding of accessibility and mobility issues in the Greater Montréal
+    area.<br /><br />Do you live within the ARTM territory and are you interested
+    in helping improve mobility by sharing your opinion on a regular basis? You could
+    win <strong>$500</strong> each month and <strong>$1,000</strong> annually. Please
+    click the button below to sign up for the ARTM’s <strong>Let's talk mobility panel</strong>.
+buttonARTMPanel: Go to « Let's talk mobility » panel
+mapARTMImage: >2-
+     <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"
+    alt="ARTM territory" style="max-width:1000px;width:100%;height:auto;" /></div>

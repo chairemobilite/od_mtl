@@ -4,4 +4,4 @@
 
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 
-export const widgetsNames: SectionConfig['widgets'] = ['completedText'];
+export const widgetsNames: SectionConfig['widgets'] = ['completedText', 'buttonARTMPanel', 'mapARTMImage'];

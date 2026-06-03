@@ -7,11 +7,22 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as customWidgets from './customWidgets';
 
 export const completedText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'completedText',
     containsHtml: true,
     text: (t: TFunction) => t('completed:completedText'),
+    conditional: defaultConditional
+};
+
+export const buttonARTMPanel = customWidgets.buttonARTMPanel;
+
+export const mapARTMImage: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'mapARTMImage',
+    containsHtml: true,
+    text: (t: TFunction) => t('completed:mapARTMImage'),
     conditional: defaultConditional
 };

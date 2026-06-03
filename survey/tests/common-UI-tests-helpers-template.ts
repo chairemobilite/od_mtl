@@ -926,4 +926,10 @@ export const fillCompletedSectionTests = ({ context, householdSize }: CommonTest
 
     // Test infotext widget completedText
     testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test custom widget buttonARTMPanel
+    // Implement custom test
+
+    // Test infotext widget mapARTMImage
+    testHelpers.waitTextVisible({ context, text: '?' });
 };

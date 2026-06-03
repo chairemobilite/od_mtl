@@ -780,7 +780,16 @@ Section: Survey completed
 
 Thank you for your participation!
 
-We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.
+You can modify your answers by clicking on the sections in the menu above.
+Thank you for taking the time to complete this questionnaire. Your responses have been successfully recorded. If you provided an email address and checked the box indicating your interest in participating in the contest, you are eligible for the prize draw.
+
+The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of accessibility and mobility issues in the Greater Montréal area.
+
+Do you live within the ARTM territory and are you interested in helping improve mobility by sharing your opinion on a regular basis? You could win $500 each month and $1,000 annually. Please click the button below to sign up for the ARTM’s Let's talk mobility panel.
+
+Go to « Let's talk mobility » panel
+
+ <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" alt="ARTM territory" style="max-width:1000px;width:100%;height:auto;" /></div>
 
 
 
