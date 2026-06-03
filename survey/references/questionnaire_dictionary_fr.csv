@@ -1130,3 +1130,12 @@ Facultatif"
 Valeurs,"yes : Oui
 no : Non
 dontKnow : Je ne sais pas"
+""
+""
+""
+Section,Questionnaire complété
+Abréviation,c_
+""
+Champ,buttonARTMPanel
+Type de question,Entrée inconnue
+Question,Allez au panel « Parlons mobilité »

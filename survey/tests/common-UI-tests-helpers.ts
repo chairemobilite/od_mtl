@@ -1,4 +1,6 @@
 import knex from 'chaire-lib-backend/lib/config/shared/db.config';
+// eslint-disable-next-line n/no-extraneous-import
+import { test, expect } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
@@ -2451,12 +2453,41 @@ export const fillEndSectionTests = ({ context, householdSize = 1 }: CommonTestPa
     });
 };
 
+const artmPanelButtonLabelEn = 'Go to « Let\'s talk mobility » panel';
+const artmPanelUrlEn = 'https://parlonsmobilite.quebec/en';
+const artmPanelTitleEn = /Let['\u2019]s talk mobility/i;
+
+/** Opens the ARTM panel link in a new tab and checks the external page loads correctly. */
+export const buttonARTMPanelTest = ({ context }: CommonTestParametersModify) => {
+    test(`Click "${artmPanelButtonLabelEn}" opens ARTM panel in a new tab`, async () => {
+        const button = context.page.getByRole('button', { name: artmPanelButtonLabelEn });
+        await button.scrollIntoViewIfNeeded();
+
+        const popupPromise = context.page.waitForEvent('popup');
+        await button.click();
+        const popup = await popupPromise;
+
+        await popup.waitForURL(/parlonsmobilite\.quebec\/en\/?/, { timeout: 45000 });
+        await popup.waitForLoadState('domcontentloaded');
+
+        const documentResponse = await context.page.request.get(artmPanelUrlEn);
+        expect(documentResponse.status()).toBe(200);
+
+        await expect(popup).toHaveTitle(artmPanelTitleEn);
+
+        await popup.close();
+    });
+};
+
 /********** Tests completed section **********/
 export const fillCompletedSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
     // Test infotext widget completedText
     testHelpers.waitTextVisible({ context, text: 'Thank you for your participation!' });
     testHelpers.waitTextVisible({
         context,
-        text: 'We thank you for taking the time to fill out this survey. Your answers have been recorded. You can edit your answers by clicking on any of the sections in the menu at the top of the page.'
+        text: 'Thank you for taking the time to complete this questionnaire.'
     });
+
+    // Test custom widget buttonARTMPanel (opens external site in a new tab)
+    buttonARTMPanelTest({ context });
 };
