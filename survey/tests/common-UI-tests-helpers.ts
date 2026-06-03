@@ -305,6 +305,31 @@ export type LongDistanceSection = {
     wantToParticipateInSurveyEmail: string | null;
 };
 
+export type OmissionsSection = {
+    toddlerDaycare: 'yes' | 'no';
+    toddlerDaycareDropoff: string[] | null;
+    toddlerDaycareDropoffMode: string | null;
+    toddlerDaycarePickup: string[] | null;
+    toddlerDaycarePickupMode: string | null;
+    hasOmittedTrips: 'yes' | 'no' | null;
+    hasOmittedTripsIntro: string | null; // Text that appears in the info text
+    hasOmittedTripsActivity: string[] | null;
+    hasOmittedTripsMode: string[] | null;
+};
+
+// Trying to fill the more fields as possible, to cover all the conditional checks.
+export const defaultOmissionsSectionFillingMostFields: OmissionsSection = {
+    toddlerDaycare: 'yes',
+    toddlerDaycareDropoff: ['yes', 'no'], // FIXME: This should be filled with the actual values.
+    toddlerDaycareDropoffMode: 'walk',
+    toddlerDaycarePickup: ['yes', 'no'], // FIXME: This should be filled with the actual values.
+    toddlerDaycarePickupMode: 'walk',
+    hasOmittedTrips: 'yes',
+    hasOmittedTripsIntro: 'for your unreported trips',
+    hasOmittedTripsActivity: ['work', 'shopping', 'leisure'],
+    hasOmittedTripsMode: ['walk']
+};
+
 export const defaultLongDistance: LongDistanceSection = {
     madeLongDistanceTrips: 'no',
     frequencySeptemberDecember: null,
@@ -2099,11 +2124,144 @@ export const fillTravelBehaviorSectionTests = ({
     // Test nextbutton widget
     testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
 
-    // Verify the travel behavior navigation is completed if next section is longDistance
+    // Verify the trips navigation is completed when leaving the trips flow
     testHelpers.verifyNavBarButtonStatus({
         context,
         buttonText: 'trips',
-        buttonStatus: expectedNextSection === 'longDistance' || expectedNextSection === 'end' ? 'completed' : 'active', // Trips section is still active if the next section is not one of 'longDistance' or 'end'
+        // Trips section is still active if the next section is not one of 'longDistance', 'end', or 'omissions'
+        buttonStatus:
+            expectedNextSection === 'longDistance' ||
+            expectedNextSection === 'end' ||
+            expectedNextSection === 'omissions'
+                ? 'completed'
+                : 'active',
+        isDisabled: false
+    });
+};
+
+/********** Tests Omissions section **********/
+export const fillOmissionsSectionTests = ({
+    context,
+    householdSize = 1,
+    omissions = defaultOmissionsSectionFillingMostFields,
+    nextSection: expectedNextSection = 'end'
+}: CommonTestParametersModify & { omissions?: OmissionsSection; nextSection?: string }) => {
+    // Verify the omissions navigation is active
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'omissions',
+        buttonStatus: 'active',
+        isDisabled: false
+    });
+
+    // Test radio widget toddlerDaycare with conditional toddlerDaycareCustomConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: omissions.toddlerDaycare });
+
+    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.toddlerDaycareDropoff === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoff', isVisible: false });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'omissions.toddlerDaycareDropoff',
+            values: omissions.toddlerDaycareDropoff
+        });
+    }
+
+    // Test radio widget toddlerDaycareDropoffMode with conditional toddlerDaycareConditional with choices toddlerDaycareMode
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.toddlerDaycareDropoffMode === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoffMode', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'omissions.toddlerDaycareDropoffMode',
+            value: omissions.toddlerDaycareDropoffMode
+        });
+    }
+
+    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.toddlerDaycarePickup === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycarePickup', isVisible: false });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'omissions.toddlerDaycarePickup',
+            values: omissions.toddlerDaycarePickup
+        });
+    }
+
+    // Test radio widget toddlerDaycarePickupMode with conditional toddlerDaycareConditional with choices toddlerDaycareMode
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.toddlerDaycarePickupMode === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycarePickupMode', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'omissions.toddlerDaycarePickupMode',
+            value: omissions.toddlerDaycarePickupMode
+        });
+    }
+
+    // Test radio widget hasOmittedTrips with conditional hasOmittedTripsConditional with choices yesNo
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.hasOmittedTrips === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTrips', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({ context, path: 'omissions.hasOmittedTrips', value: omissions.hasOmittedTrips });
+    }
+
+    // Test infotext widget hasOmittedTripsIntro with conditional hasOmittedTripsSpecifyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (omissions.hasOmittedTripsIntro === null) {
+        testHelpers.waitTextVisible({ context, text: 'for your unreported trips', isVisible: false });
+    } else {
+        testHelpers.waitTextVisible({ context, text: omissions.hasOmittedTripsIntro });
+    }
+
+    // Test checkbox widget hasOmittedTripsActivity with conditional hasOmittedTripsSpecifyConditional with choices hasOmittedTripsActivities
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.hasOmittedTripsActivity === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsActivity', isVisible: false });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'omissions.hasOmittedTripsActivity',
+            values: omissions.hasOmittedTripsActivity
+        });
+    }
+
+    // Test checkbox widget hasOmittedTripsMode with conditional hasOmittedTripsSpecifyConditional with choices hasOmittedTripsModes
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (omissions.hasOmittedTripsMode === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsMode', isVisible: false });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'omissions.hasOmittedTripsMode',
+            values: omissions.hasOmittedTripsMode
+        });
+    }
+
+    // Test nextbutton widget buttonCompleteLongDistanceSection
+    testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
+
+    // Verify the omissions navigation is completed if next section is longDistance or end
+    testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'omissions',
+        buttonStatus: 'completed',
         isDisabled: false
     });
 };
