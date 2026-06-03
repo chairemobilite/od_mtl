@@ -1292,7 +1292,7 @@ export const hasOmittedTripsConditional: WidgetConditional = (interview) => {
         interview,
         conditionals: [
             {
-                path: 'ep_exclusif',
+                path: 'ep.exclusive',
                 comparisonOperator: '===',
                 value: 'omission'
             }

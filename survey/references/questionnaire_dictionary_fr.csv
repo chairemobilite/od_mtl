@@ -951,7 +951,7 @@ other : Autre"
 ""
 Champ,o_hasOmittedTrips
 Type de question,Bouton radio
-Conditionnel,hasOmittedTripsConditional : ep_exclusif === omission
+Conditionnel,hasOmittedTripsConditional : exclusive === omission
 Question,"Avez-vous ({{nickname}}) effectué au moins un déplacement le {{assignedDate}} que vous n'auriez pas rapporté?
 Par exemple, une marche au dépanneur, un café ou un souper avec amis, ou une balade santé avec le chien.
 Vous n’aurez pas à revenir en arrière. Nos voulons juste savoir à quelle fréquence des déplacements sont omis.

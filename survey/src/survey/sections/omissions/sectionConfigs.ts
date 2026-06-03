@@ -4,10 +4,12 @@
 
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
 
 export const currentSectionName: string = 'omissions';
-const previousSectionName: SectionConfig['previousSection'] = 'travelBehavior';
+const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
 const nextSectionName: SectionConfig['nextSection'] = 'longDistance';
 
 // Config for the section
@@ -29,12 +31,16 @@ export const sectionConfig: SectionConfig = {
     // Do some actions before the section is loaded
     // Allow to click on the section menu
     enableConditional: function (interview) {
-        // return isSectionCompleted({ interview, sectionName: previousSectionName });
-        return true;
+        return allPersonsTripDiariesCompleted(interview);
     },
     // Determine if the current section is completed
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
+    },
+    isSectionVisible: (interview) => {
+        // Section visible seulement si ep exclusif est omission
+        const exclusiveEP = getResponse(interview, 'ep.exclusive');
+        return exclusiveEP === 'omission';
     }
 };
 
