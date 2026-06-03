@@ -962,7 +962,7 @@ no : Non"
 Champ,o_hasOmittedTripsActivity
 Type de question,Case à cocher
 Conditionnel,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
-Question,Motifs:
+Question,Activités:
 Valeurs,"work : Travail, Études ou Bénévolat
 shopping : Magasinage, services ou restauration
 pickupDropOff : Reconduire ou aller chercher quelqu’un

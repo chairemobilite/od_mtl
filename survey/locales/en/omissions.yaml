@@ -25,7 +25,15 @@ hasOmittedTrips_one: >-
     are missed.<br />This question is only asked to one person in the household in
     order to improve our understanding of the limitations of the data.</span>
 hasOmittedTripsIntro: >-
-    <span class="_pale _oblique">Check all the <strong>purposes</strong> for your
+    <span class="_pale _oblique">Check all the <strong>activities</strong> for your
     unreported trips, as well as the <strong>modes of transportation</strong> used
     to make them.</span>
-buttonCompleteLongDistanceSection: Continue
+hasOmittedTripsActivity: 'Activities:'
+hasOmittedTripsMode: 'Modes:'
+buttonCompleteOmissionsSection: Continue
+popup:
+    toddlerDaycareTitle: Why this question?
+    toddlerDaycareContent: >-
+        <strong>Why this question?</strong><br />This question is asked when no trips
+        for the reason "Drop-off" or "Pick-up" are recorded near a listed kindergarten,
+        daycare, or CPE.

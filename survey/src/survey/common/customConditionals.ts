@@ -599,7 +599,7 @@ export const mostUsedMobilityAssistiveDeviceCustomConditional: WidgetConditional
 };
 
 // Custom conditional to decide whether to show the toddler daycare question
-// TODO: Implement the conditional
+// FIXME: Fix issue https://github.com/chairemobilite/od_mtl/issues/130
 export const toddlerDaycareCustomConditional: WidgetConditional = (interview, path) => {
     return [true, null];
 };

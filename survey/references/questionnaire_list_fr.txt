@@ -653,9 +653,9 @@ Cette question n’est posée qu’à une seule personne du ménage dans l’obj
 - Oui
 - Non
 
-Cocher tous les motifs de déplacements associés avec vos déplacements non-rapportés, ainsi que les modes utilisés pour les effectuer.
+Cocher toutes les activités de déplacements associés avec vos déplacements non-rapportés, ainsi que les modes utilisés pour les effectuer.
 
-Motifs:
+Activités:
 - Travail, Études ou Bénévolat
 - Magasinage, services ou restauration
 - Reconduire ou aller chercher quelqu’un

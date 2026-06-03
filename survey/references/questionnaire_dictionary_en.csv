@@ -962,6 +962,29 @@ This question is only asked to one person in the household in order to improve o
 Values,"yes : Yes
 no : No"
 ""
+Field,o_hasOmittedTripsActivity
+Question type,Checkbox input
+Conditional,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
+Question,Activities:
+Values,"work : Work, Studies or Volunteering
+shopping : Shopping, services or restaurants
+pickupDropOff : Dropping off or picking up someone
+visitFriends : Visiting friends or family
+leisure : Leisure (walking, sports, arts, tourism, etc.)
+health : Health (clinic, hospital, veterinary, etc.)
+other : Other reason"
+""
+Field,o_hasOmittedTripsMode
+Question type,Checkbox input
+Conditional,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
+Question,Modes:
+Values,"walk : Walking
+bicycle : Bicycle
+carDriver : Car driver
+carPassenger : Car passenger
+transit : Public transit (bus, metro, train, REM)
+other : Other mode"
+""
 ""
 ""
 Section,Long distance trips

@@ -13,6 +13,7 @@ import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
 import * as customHelpPopup from '../../common/customHelpPopup';
+import * as customLabels from '../../common/customLabels';
 
 // Adapter la phrase si un seul enfant de 0-4ans avec le nickname et age.
 // Pour les conditions SI EP garderie ET au moins un enfant de 0-4ans ET aucun dép. reconduire/aller chercher à une garderie/CPE (shp)
@@ -21,7 +22,7 @@ export const toddlerDaycare: WidgetConfig.InputRadioType = {
     path: 'omissions.toddlerDaycare',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('omissions:toddlerDaycare'),
+    label: customLabels.toddlerDaycareCustomLabel,
     helpPopup: customHelpPopup.toddlerDaycareHelpPopup,
     choices: choices.yesNo,
     conditional: customConditionals.toddlerDaycareCustomConditional,
@@ -81,15 +82,7 @@ export const hasOmittedTrips: WidgetConfig.InputRadioType = {
     path: 'omissions.hasOmittedTrips',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('omissions:hasOmittedTrips', {
-            nickname,
-            count: countPersons
-        });
-    },
+    label: customLabels.hasOmittedTripsCustomLabel,
     choices: choices.yesNo,
     conditional: conditionals.hasOmittedTripsConditional,
     validations: validations.requiredValidation
@@ -125,9 +118,9 @@ export const hasOmittedTripsMode: WidgetConfig.InputCheckboxType = {
     validations: validations.requiredValidation
 };
 
-export const buttonCompleteLongDistanceSection: WidgetConfig.ButtonWidgetConfig = {
+export const buttonCompleteOmissionsSection: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
-    path: 'buttonCompleteLongDistanceSection',
-    label: (t: TFunction) => t('omissions:buttonCompleteLongDistanceSection'),
+    path: 'buttonCompleteOmissionsSection',
+    label: (t: TFunction) => t('omissions:buttonCompleteOmissionsSection'),
     conditional: defaultConditional
 };

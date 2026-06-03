@@ -798,7 +798,7 @@ export const fillOmissionsSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'omissions.hasOmittedTripsMode', isVisible: true });
     testHelpers.inputCheckboxTest({ context, path: 'omissions.hasOmittedTripsMode', values: ['?'] });
 
-    // Test nextbutton widget buttonCompleteLongDistanceSection
+    // Test nextbutton widget buttonCompleteOmissionsSection
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
 
     // Verify the omissions navigation is completed

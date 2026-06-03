@@ -317,17 +317,16 @@ export type OmissionsSection = {
     hasOmittedTripsMode: string[] | null;
 };
 
-// Trying to fill the more fields as possible, to cover all the conditional checks.
-export const defaultOmissionsSectionFillingMostFields: OmissionsSection = {
-    toddlerDaycare: 'yes',
-    toddlerDaycareDropoff: ['yes', 'no'], // FIXME: This should be filled with the actual values.
-    toddlerDaycareDropoffMode: 'walk',
-    toddlerDaycarePickup: ['yes', 'no'], // FIXME: This should be filled with the actual values.
-    toddlerDaycarePickupMode: 'walk',
-    hasOmittedTrips: 'yes',
-    hasOmittedTripsIntro: 'for your unreported trips',
-    hasOmittedTripsActivity: ['work', 'shopping', 'leisure'],
-    hasOmittedTripsMode: ['walk']
+export const defaultOmissionsSection: OmissionsSection = {
+    toddlerDaycare: 'no',
+    toddlerDaycareDropoff: null,
+    toddlerDaycareDropoffMode: null,
+    toddlerDaycarePickup: null,
+    toddlerDaycarePickupMode: null,
+    hasOmittedTrips: 'no',
+    hasOmittedTripsIntro: null,
+    hasOmittedTripsActivity: null,
+    hasOmittedTripsMode: null
 };
 
 export const defaultLongDistance: LongDistanceSection = {
@@ -2143,7 +2142,7 @@ export const fillTravelBehaviorSectionTests = ({
 export const fillOmissionsSectionTests = ({
     context,
     householdSize = 1,
-    omissions = defaultOmissionsSectionFillingMostFields,
+    omissions = defaultOmissionsSection,
     nextSection: expectedNextSection = 'end'
 }: CommonTestParametersModify & { omissions?: OmissionsSection; nextSection?: string }) => {
     // Verify the omissions navigation is active
@@ -2254,10 +2253,10 @@ export const fillOmissionsSectionTests = ({
         });
     }
 
-    // Test nextbutton widget buttonCompleteLongDistanceSection
+    // Test nextbutton widget buttonCompleteOmissionsSection
     testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
 
-    // Verify the omissions navigation is completed if next section is longDistance or end
+    // Verify the omissions navigation is completed
     testHelpers.verifyNavBarButtonStatus({
         context,
         buttonText: 'omissions',
