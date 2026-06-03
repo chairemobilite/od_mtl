@@ -14,5 +14,5 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'hasOmittedTripsIntro',
     'hasOmittedTripsActivity',
     'hasOmittedTripsMode',
-    'buttonCompleteLongDistanceSection'
+    'buttonCompleteOmissionsSection'
 ];

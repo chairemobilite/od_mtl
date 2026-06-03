@@ -301,3 +301,7 @@ Répondre le mode utilisé en quittant le domicile.__","What mode of transportat
 __If multiple modes are used, indicate the one that represents the largest share of distance traveled.
 If you work at multiple locations, respond based on the location visited most frequently.
 Answer the mode used when leaving home__"
+omissions,popup.toddlerDaycareTitle,Pourquoi cette question?,Why this question?,,
+omissions,popup.toddlerDaycareContent,"**Pourquoi cette question?**
+Cette question est posée quand aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré à proximité d’une maternelle, garderie ou CPE répertoriée. ","**Why this question?**
+This question is asked when no trips for the reason ""Drop-off"" or ""Pick-up"" are recorded near a listed kindergarten, daycare, or CPE.",,

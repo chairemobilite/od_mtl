@@ -25,9 +25,15 @@ hasOmittedTrips_one: >-
     sont omis.<br />Cette question n’est posée qu’à une seule personne du ménage dans
     l’objectif d’améliorer notre compréhension des limites des données.</span>
 hasOmittedTripsIntro: >-
-    <span class="_pale _oblique">Cocher tous les <strong>motifs</strong> de déplacements
+    <span class="_pale _oblique">Cocher toutes les <strong>activités</strong> de déplacements
     associés avec vos déplacements non-rapportés, ainsi que les <strong>modes</strong>
     utilisés pour les effectuer.</span>
-hasOmittedTripsActivity: 'Motifs:'
+hasOmittedTripsActivity: 'Activités:'
 hasOmittedTripsMode: 'Modes:'
-buttonCompleteLongDistanceSection: Continuer
+buttonCompleteOmissionsSection: Continuer
+popup:
+    toddlerDaycareTitle: Pourquoi cette question?
+    toddlerDaycareContent: >-
+        <strong>Pourquoi cette question?</strong><br />Cette question est posée quand
+        aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré
+        à proximité d’une maternelle, garderie ou CPE répertoriée. 

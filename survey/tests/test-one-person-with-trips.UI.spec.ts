@@ -93,7 +93,7 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 });
 
 /********** Tests home section **********/
-commonUITestsHelpers.fillHomeSectionTests({ context, householdSize: 1 });
+commonUITestsHelpers.fillHomeSectionTests({ context });
 
 /********** Tests household section **********/
 commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });

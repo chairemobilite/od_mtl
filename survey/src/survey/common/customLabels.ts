@@ -2,7 +2,7 @@ import { TFunction } from 'i18next';
 import moment from 'moment';
 
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { I18nData } from 'evolution-common/lib/services/questionnaire/types';
+import { I18nData, UserInterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
@@ -246,5 +246,37 @@ export const personTransitFareWarningCustomLabel: I18nData = (t: TFunction, inte
         transitFare: selectedTransitFareName,
         transitFarePrice: selectedTransitFarePrice,
         transitFarePriceReduced: selectedTransitFarePriceReduced
+    });
+};
+
+// Omissions widgets are not under a journey path; use the interview assigned day instead.
+const getOmissionsSectionDates = (interview: UserInterviewAttributes) => {
+    const assignedDay = getResponse(interview, '_assignedDay') as string;
+    if (_isBlank(assignedDay)) {
+        throw new Error('Omissions section labels: Assigned day not found');
+    }
+    return getFormattedDate(assignedDay, { withRelative: true, locale: i18n.language });
+};
+
+// Custom because of the presence of the journey date in the label
+export const toddlerDaycareCustomLabel: I18nData = (t, interview) => {
+    const assignedDate = getOmissionsSectionDates(interview);
+    const person = odHelpers.getActivePerson({ interview });
+    const count = odHelpers.getCountOrSelfDeclared({ interview, person });
+
+    return t('omissions:toddlerDaycare', { assignedDate, count });
+};
+
+// Custom because of the presence of the journey date in the label
+export const hasOmittedTripsCustomLabel: I18nData = (t, interview, path) => {
+    const assignedDate = getOmissionsSectionDates(interview);
+    const person = odHelpers.getActivePerson({ interview });
+    const nickname = odHelpers.getPersonIdentificationString({ person, t });
+    const count = odHelpers.getCountOrSelfDeclared({ interview, person });
+
+    return t('omissions:hasOmittedTrips', {
+        assignedDate,
+        nickname,
+        count
     });
 };
