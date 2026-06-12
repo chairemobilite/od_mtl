@@ -114,3 +114,9 @@ export const toddlerDaycareHelpPopup: HelpPopup = {
     containsHtml: true,
     content: (t: TFunction, interview) => t('omissions:popup.toddlerDaycareContent')
 };
+
+export const incomeHelpPopup: HelpPopup = {
+    title: (t: TFunction) => t('end:popup.incomeHelpPopupTitle'),
+    containsHtml: true,
+    content: (t: TFunction, interview) => t('end:popup.incomeHelpPopupContent')
+};

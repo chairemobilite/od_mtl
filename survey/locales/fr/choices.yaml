@@ -282,3 +282,37 @@ hasOmittedTripsModes:
     carPassenger: Auto passager
     transit: Transport en commun (bus, métro, train, REM)
     other: Autre mode
+householdType:
+    oneFamilyOnly: Ménage comprenant <strong>une seule famille, sans autre personne</strong>
+    multigenerationalFamily: >-
+        Ménage <strong>multigénérationnel</strong> (ex. : parents, enfants et grands-parents
+        vivant ensemble)
+    manyFamilies: >-
+        Ménage comprenant <strong>plusieurs familles</strong> (ex. : deux couples
+        vivant ensemble)
+    oneFamilyWithOther: >-
+        Ménage comprenant <strong>une seule famille et autre(s) personne(s)</strong>
+        (ex. : couple avec enfant vivant avec un oncle)
+    noFamily: >-
+        Ménage de <strong>deux personnes ou plus sans lien familial</strong> (ex.
+        : deux frères ou sœurs vivant ensemble)
+householdTypeSpecify:
+    coupleWithChild: Ménage formé d’un <strong>couple avec enfant(s)</strong>
+    coupleWithoutChild: Ménage formé d’un <strong>couple sans enfant</strong>
+    parentWithChild: Ménage formé d’un <strong>parent seul avec enfant(s)</strong>
+didRespondForCorrectAssignedDateChoices:
+    yes: >-
+        Oui, les réponses fournies décrivent bien les déplacements du {{assignedDate}}
+    no: >-
+        Non, les réponses fournies décrivent les déplacements d’une journée typique
+        ou d'une autre journée
+didNotRespondForCorrectAssignedDateReasons:
+    didNotNoticeAssignedDate: Je n'avais pas vu la date 
+    onVacationOrOutsideMontrealRegion: Au moins une personne du ménage était en dehors
+        du territoire 
+    didNotKnowTripsForAtLeastOneHouseholdMember: La mobilité d'une personne au moins
+        était inconnue 
+    tripsNotRepresentativeOfUsualTravelHabits: Déplacements ou modes non représentatifs 
+    atLeastOneHouseholdMemberDidNotMakeAnyTrip: Au moins une personne ne s'était pas
+        déplacée 
+    tooManyTripsToDeclareTooLong: Trop long pour tout déclarer 

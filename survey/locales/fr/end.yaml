@@ -2,27 +2,40 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+householdType: Laquelle des situations suivantes décrit le mieux votre ménage?
+householdTypeSpecify: Plus spécifiquement?
+householdPluginHybridCarNumber: >-
+    Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
+    hybrides rechargeables</strong>?<br /><span class="_pale _oblique">Facultatif</span><br
+    /><span class="_pale _oblique">Ne pas inclure les véhicules hybrides avec moteur
+    à combustion</span>
+householdElectricCarNumber: >-
+    Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
+    électriques</strong>?<br /><span class="_pale _oblique">Facultatif</span>
 householdIncome: >-
-    Tranche de revenu avant impôts (brut) du ménage, en 2024?<br /><span class="_pale
+    Tranche de revenu avant impôts (brut) du ménage, en 2025?<br /><span class="_pale
     _oblique">Facultatif</span>
+didRespondForCorrectAssignedDate: >-
+    Les déplacements rapportés dans les sections précédentes représentent-ils la mobilité
+    de votre ménage le {{assignedDate}}?<br /><span class="_pale _oblique">Cette question
+    n’est posée que pour des fins statistiques. Si vous répondez Non, on ne vous demandera
+    ni de revenir en arrière ni de corriger ce qui est inscrit. De plus, votre éligibilité
+    au tirage ne sera pas affectée.</span>
+didNotRespondForCorrectAssignedDateReasons: >-
+    <strong>Pourquoi</strong> n’avez-vous pas rapporté les déplacements du {{assignedDate}}?
+
 wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     Seriez-vous intéressés à <strong>participer à d'autres études</strong> menées
-    par la <strong>Chaire Mobilité de Polytechnique Montréal</strong>?
+    par l'ARTM et la Chaire Mobilité de Polytechnique Montréal?
 wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
     Veuillez fournir une <strong>adresse courriel</strong> de contact pour participer
-    à d'autres études de la Chaire Mobilité.
+    à ces études
 householdCommentsOnSurvey: >-
     Vos <strong>commentaires et suggestions</strong> sur le questionnaire<br /><span
     class="_pale _oblique">Facultatif</span>
 optionalIntroText: >-
     Les <strong>questions suivantes sont facultatives</strong> et sont ajoutées à
     des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
-householdPluginHybridCarNumber: >-
-    Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
-    hybrides rechargeables</strong>?<br /><span class="_pale _oblique">Facultatif</span>
-householdElectricCarNumber: >-
-    Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
-    électriques</strong><br /><span class="_pale _oblique">Facultatif</span>
 endInterestOfTheSurvey: >-
     Dans quelle mesure cette enquête a-t-elle été <strong>intéressante</strong> pour
     vous?<br /><span class="_pale _oblique">Facultatif</span>
@@ -45,3 +58,9 @@ buttonCompleteInterviewWithCompleteSection: Terminer l’entrevue
 errors:
     inputRangeMustBePositiveOrZero: Veuillez placer le bouton à l'intérieur de la
         plage de réponse.
+popup:
+    incomeHelpPopupTitle: Pourquoi cette question?
+    incomeHelpPopupContent: >-
+        <strong>Pourquoi cette question?</strong><br />La tranche de revenu du ménage
+        nous permet de comprendre certains enjeux d'équité en mobilité. Cela permet
+        aussi d'identifier s'il y a une bonne représentativité parmi nos répondants.

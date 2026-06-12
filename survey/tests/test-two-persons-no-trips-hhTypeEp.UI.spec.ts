@@ -114,16 +114,17 @@ travelBehaviorP2.usualWorkPlace = {
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 2,
-    nextSection: 'longDistance',
+    nextSection: 'end',
     travelBehavior: travelBehaviorP2
 });
 
-/********** Tests longDistance section **********/
-// No long distance trips
-commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 2 });
-
 /********** Tests end section **********/
-commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
+const endSection = {
+    ...commonUITestsHelpers.defaultEnd,
+    householdType: 'oneFamilyOnly',
+    householdTypeSpecify: 'coupleWithoutChild'
+};
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2, endSection });
 
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });

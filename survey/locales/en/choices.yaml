@@ -287,3 +287,34 @@ hasOmittedTripsModes:
     carPassenger: Car passenger
     transit: Public transit (bus, metro, train, REM)
     other: Other mode
+householdType:
+    oneFamilyOnly: >-
+        Household consisting of <strong>one single family, with no other person</strong>
+    multigenerationalFamily: >-
+        <strong>Multigenerational</strong> household (e.g. parents, children and grandparents
+        living together)
+    manyFamilies: >-
+        Household consisting of <strong>multiple families</strong> (e.g. two couples
+        living together)
+    oneFamilyWithOther: >-
+        Household consisting of <strong>one family and other person(s)</strong> (e.g.
+        couple with a child living with an uncle)
+    noFamily: >-
+        Household of <strong>two or more people with no family relationship</strong>
+        (e.g. two siblings living together)
+householdTypeSpecify:
+    coupleWithChild: Household formed by a <strong>couple with child(ren)</strong>
+    coupleWithoutChild: Household formed by a <strong>couple without children</strong>
+    parentWithChild: Household formed by a <strong>single parent with child(ren)</strong>
+didRespondForCorrectAssignedDateChoices:
+    yes: Yes, the responses provided accurately describe travel on {{assignedDate}}
+    no: No, the responses describe travel on a typical day or another day
+didNotRespondForCorrectAssignedDateReasons:
+    didNotNoticeAssignedDate: I did not notice the date
+    onVacationOrOutsideMontrealRegion: At least one household member was outside the
+        territory
+    didNotKnowTripsForAtLeastOneHouseholdMember: At least one person’s mobility was
+        unknown
+    tripsNotRepresentativeOfUsualTravelHabits: Trips or modes were not representative
+    atLeastOneHouseholdMemberDidNotMakeAnyTrip: At least one person did not travel
+    tooManyTripsToDeclareTooLong: Too long to report everything

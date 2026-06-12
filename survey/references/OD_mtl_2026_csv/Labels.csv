@@ -305,3 +305,7 @@ omissions,popup.toddlerDaycareTitle,Pourquoi cette question?,Why this question?,
 omissions,popup.toddlerDaycareContent,"**Pourquoi cette question?**
 Cette question est posée quand aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré à proximité d’une maternelle, garderie ou CPE répertoriée. ","**Why this question?**
 This question is asked when no trips for the reason ""Drop-off"" or ""Pick-up"" are recorded near a listed kindergarten, daycare, or CPE.",,
+end,popup.incomeHelpPopupTitle,Pourquoi cette question?,Why this question?,,
+end,popup.incomeHelpPopupContent,"**Pourquoi cette question?**
+La tranche de revenu du ménage nous permet de comprendre certains enjeux d'équité en mobilité. Cela permet aussi d'identifier s'il y a une bonne représentativité parmi nos répondants.","**Why this question?**
+The household income bracket helps us understand certain equity issues in mobility. It also helps identify whether our respondents are well represented.",,

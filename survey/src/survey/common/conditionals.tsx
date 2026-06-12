@@ -32,6 +32,32 @@ export const hasHouseholdSize2OrMoreConditional: WidgetConditional = (interview)
     });
 };
 
+export const hasHouseholdSize2Conditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.size',
+                comparisonOperator: '===',
+                value: 2
+            }
+        ]
+    });
+};
+
+export const hasHouseholdSize3OrMoreConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.size',
+                comparisonOperator: '>=',
+                value: 3
+            }
+        ]
+    });
+};
+
 export const hasOnePersonWithDisabilityOrHhSize1Conditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,
@@ -661,7 +687,6 @@ export const paratransitFrequenciesConditional: WidgetConditional = (interview, 
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
         interview,
-        valueWhenHidden: 'si EP question d\'incapacit\u00e9',
         conditionals: [
             {
                 path: `household.persons.${currentPersonId}.useParatransit`,
@@ -1308,6 +1333,64 @@ export const hasOmittedTripsSpecifyConditional: WidgetConditional = (interview) 
                 path: 'omissions.hasOmittedTrips',
                 comparisonOperator: '===',
                 value: 'yes'
+            }
+        ]
+    });
+};
+
+export const householdTypeConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'householdType'
+            },
+            {
+                logicalOperator: '&&',
+                path: 'household.size',
+                comparisonOperator: '>=',
+                value: 2
+            }
+        ]
+    });
+};
+
+export const householdTypeSpecifyConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'household.type',
+                comparisonOperator: '===',
+                value: 'oneFamilyOnly'
+            }
+        ]
+    });
+};
+
+export const didRespondForCorrectAssignedDateConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'respect'
+            }
+        ]
+    });
+};
+
+export const didNotRespondForCorrectAssignedDateConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'end.didRespondForCorrectAssignedDate',
+                comparisonOperator: '===',
+                value: 'no'
             }
         ]
     });
