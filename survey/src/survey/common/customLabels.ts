@@ -249,34 +249,30 @@ export const personTransitFareWarningCustomLabel: I18nData = (t: TFunction, inte
     });
 };
 
-// Omissions widgets are not under a journey path; use the interview assigned day instead.
-const getOmissionsSectionDates = (interview: UserInterviewAttributes) => {
-    const assignedDay = getResponse(interview, '_assignedDay') as string;
-    if (_isBlank(assignedDay)) {
-        throw new Error('Omissions section labels: Assigned day not found');
-    }
-    return getFormattedDate(assignedDay, { withRelative: true, locale: i18n.language });
-};
+// Get a label with the assigned date, outside of the journey context
+export const labelWithAssignedDate =
+    (translationKey: string): I18nData =>
+        (t: TFunction, interview, path) => {
+            const assignedDay = getResponse(interview, '_assignedDay') as string;
+            if (_isBlank(assignedDay)) {
+                throw new Error('labelWithAssignedDate: Assigned day not found');
+            }
+            const assignedDate = getFormattedDate(assignedDay, { withRelative: true, locale: i18n.language });
+            return t(translationKey, {
+                assignedDate
+            });
+        };
 
 // Custom because of the presence of the journey date in the label
-export const toddlerDaycareCustomLabel: I18nData = (t, interview) => {
-    const assignedDate = getOmissionsSectionDates(interview);
-    const person = odHelpers.getActivePerson({ interview });
-    const count = odHelpers.getCountOrSelfDeclared({ interview, person });
-
-    return t('omissions:toddlerDaycare', { assignedDate, count });
-};
+export const toddlerDaycareCustomLabel: I18nData = labelWithAssignedDate('omissions:toddlerDaycare');
 
 // Custom because of the presence of the journey date in the label
-export const hasOmittedTripsCustomLabel: I18nData = (t, interview, path) => {
-    const assignedDate = getOmissionsSectionDates(interview);
-    const person = odHelpers.getActivePerson({ interview });
-    const nickname = odHelpers.getPersonIdentificationString({ person, t });
-    const count = odHelpers.getCountOrSelfDeclared({ interview, person });
+export const hasOmittedTripsCustomLabel: I18nData = labelWithAssignedDate('omissions:hasOmittedTrips');
 
-    return t('omissions:hasOmittedTrips', {
-        assignedDate,
-        nickname,
-        count
-    });
-};
+export const didRespondForCorrectDateCustomLabel: I18nData = labelWithAssignedDate(
+    'end:didRespondForCorrectAssignedDate'
+);
+
+export const didNotRespondForCorrectDateReasonCustomLabel: I18nData = labelWithAssignedDate(
+    'end:didNotRespondForCorrectAssignedDateReasons'
+);

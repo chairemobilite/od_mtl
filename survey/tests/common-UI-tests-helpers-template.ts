@@ -864,8 +864,40 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     // Progress bar test for end section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'end', completionPercentage: 0 });
 
+    // Test radio widget householdType with conditional householdTypeConditional with choices householdType
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.type', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.type', value: '?' });
+
+    // Test radio widget householdTypeSpecify with conditional householdTypeSpecifyConditional with choices householdTypeSpecify
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.typeSpecify', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.typeSpecify', value: '?' });
+
+    // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.pluginHybridCarNumber', isVisible: true });
+
+    // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
+
     // Test select widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */
+
+    // Test radio widget didRespondForCorrectAssignedDate with conditional didRespondForCorrectAssignedDateConditional with choices didRespondForCorrectAssignedDateCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.didRespondForCorrectAssignedDate', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'end.didRespondForCorrectAssignedDate', value: '?' });
+
+    // Test checkbox widget didNotRespondForCorrectAssignedDateReasons with conditional didNotRespondForCorrectAssignedDateConditional with choices didNotRespondForCorrectAssignedDateReasons
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.didNotRespondForCorrectAssignedDateReasons', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'end.didNotRespondForCorrectAssignedDateReasons', values: ['?'] });
 
     // Test radio widget wouldLikeToParticipateInOtherSurveysChaireMobilite with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
@@ -881,14 +913,6 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
 
     // Test infotext widget optionalIntroText
     testHelpers.waitTextVisible({ context, text: '?' });
-
-    // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.pluginHybridCarNumber', isVisible: true });
-
-    // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
 
     // Test range widget endInterestOfTheSurvey
     testHelpers.inputRangeTest({ context, path: 'end.interestOfTheSurvey', value: 0, sliderColor: '?' });

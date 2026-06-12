@@ -2,12 +2,29 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-householdIncome: >-
-    What was your household's income range before taxes (gross income), in 2024?<br
+householdType: Which of the following situations best describes your household?
+householdTypeSpecify: More specifically?
+householdPluginHybridCarNumber: >-
+    Among the vehicles owned by your household, how many are <strong>plug-in hybrid
+    vehicles</strong>?<br /><span class="_pale _oblique">Optional</span><br /><span
+    class="_pale _oblique">Do not include hybrid vehicles powered by an internal combustion
+    engine</span>
+householdElectricCarNumber: >-
+    Among the vehicles owned by your household, how many are <strong>electric vehicles</strong>?<br
     /><span class="_pale _oblique">Optional</span>
+householdIncome: >-
+    What was your household's income range before taxes (gross income), in 2025?<br
+    /><span class="_pale _oblique">Optional</span>
+didRespondForCorrectAssignedDate: >-
+    Do the trips reported in the previous sections reflect your household’s travel
+    on {{assignedDate}}?<br /><span class="_pale _oblique">This question is for statistical
+    purposes only. If you answer No, you will not be asked to go back or correct your
+    responses. Your eligibility for the draw will not be affected.</span>
+didNotRespondForCorrectAssignedDateReasons: <strong>Why</strong> did you not report
+    your trips for {{assignedDate}}?
 wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     Would you be interested in <strong>participating in other studies</strong> conducted
-    by the <strong>Chaire Mobilite at Polytechnique Montreal</strong>?
+    by the ARTM and the Chaire Mobilité of Polytechnique Montreal?
 wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
     Please provide the <strong>email address</strong> where you can be reached to
     participate in other studies by the Chaire Mobilite.
@@ -17,12 +34,6 @@ householdCommentsOnSurvey: >-
 optionalIntroText: >-
     The <strong>next questions are optional</strong> and are added for research purposes.
     You can complete the interview without answering them.
-householdPluginHybridCarNumber: >-
-    Among the vehicles owned by your household, how many are <strong>plug-in hybrid
-    vehicles</strong>?<br /><span class="_pale _oblique">Optional</span>
-householdElectricCarNumber: >-
-    Among the vehicles owned by your household, how many are <strong>electric vehicles</strong>?<br
-    /><span class="_pale _oblique">Optional</span>
 endInterestOfTheSurvey: >-
     How <strong>interesting</strong> was this survey to you?<br /><span class="_pale
     _oblique">Optional</span>
@@ -44,3 +55,9 @@ endConsideredAbandoningSurvey: >-
 buttonCompleteInterviewWithCompleteSection: Complete the interview
 errors:
     inputRangeMustBePositiveOrZero: Make sure your slider button is inside the range.
+popup:
+    incomeHelpPopupTitle: Why this question?
+    incomeHelpPopupContent: >-
+        <strong>Why this question?</strong><br />The household income bracket helps
+        us understand certain equity issues in mobility. It also helps identify whether
+        our respondents are well represented.

@@ -649,7 +649,7 @@ What mode of transportation was used?
 - Public transit (bus, metro, train, REM)
 - Other
 
-Did you ({{nickname}}) make at least one trip on {{assignedDate}} that you did not report?
+Did you make at least one trip on {{assignedDate}} that you did not report?
 For example, a walk to the convenience store, going out for coffee or dinner with friends, or a health walk with the dog.
 You will not need to go back and update anything. We just want to know how often trips are missed.
 This question is only asked to one person in the household in order to improve our understanding of the limitations of the data.
@@ -716,7 +716,26 @@ Continue
 
 Section: End
 
-What was your household's income range before taxes (gross income), in 2024?
+Which of the following situations best describes your household?
+- Household consisting of one single family, with no other person
+- Multigenerational household (e.g. parents, children and grandparents living together)
+- Household consisting of multiple families (e.g. two couples living together)
+- Household consisting of one family and other person(s) (e.g. couple with a child living with an uncle)
+- Household of two or more people with no family relationship (e.g. two siblings living together)
+
+More specifically?
+- Household formed by a couple with child(ren)
+- Household formed by a couple without children
+- Household formed by a single parent with child(ren)
+
+Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
+Optional
+Do not include hybrid vehicles powered by an internal combustion engine
+
+Among the vehicles owned by your household, how many are electric vehicles?
+Optional
+
+What was your household's income range before taxes (gross income), in 2025?
 Optional
 - Less than $10,000
 - $10,000 to $19,999
@@ -734,7 +753,20 @@ Optional
 - I don't know
 - I prefer not to respond
 
-Would you be interested in participating in other studies conducted by the Chaire Mobilite at Polytechnique Montreal?
+Do the trips reported in the previous sections reflect your household’s travel on {{assignedDate}}?
+This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses. Your eligibility for the draw will not be affected.
+
+
+Why did you not report your trips for {{assignedDate}}?
+- I did not notice the date
+- At least one household member was outside the territory
+- At least one person’s mobility was unknown
+- Trips or modes were not representative
+- At least one person did not travel
+- Too long to report everything
+- Other
+
+Would you be interested in participating in other studies conducted by the ARTM and the Chaire Mobilité of Polytechnique Montreal?
 - Yes
 - No
 
@@ -744,12 +776,6 @@ Your comments and suggestions about the survey
 Optional
 
 The next questions are optional and are added for research purposes. You can complete the interview without answering them.
-
-Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
-Optional
-
-Among the vehicles owned by your household, how many are electric vehicles?
-Optional
 
 How interesting was this survey to you?
 Optional

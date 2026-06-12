@@ -11,7 +11,60 @@ import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as inputRange from '../../common/inputRange';
+import * as customChoices from './customChoices';
+import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
+import * as customLabels from '../../common/customLabels';
+
+export const householdType: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.type',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('end:householdType'),
+    choices: choices.householdType,
+    conditional: conditionals.householdTypeConditional,
+    validations: validations.requiredValidation
+};
+
+export const householdTypeSpecify: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'household.typeSpecify',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('end:householdTypeSpecify'),
+    choices: choices.householdTypeSpecify,
+    conditional: conditionals.householdTypeSpecifyConditional,
+    validations: validations.requiredValidation
+};
+
+export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.pluginHybridCarNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('end:householdPluginHybridCarNumber'),
+    valueRange: {
+        min: 0,
+        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
+    },
+    conditional: conditionals.householdHasCars,
+    validations: customValidations.householdHybridCarCountCustomValidation
+};
+
+export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.electricCarNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('end:householdElectricCarNumber'),
+    valueRange: {
+        min: 0,
+        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
+    },
+    conditional: conditionals.householdHasCars,
+    validations: customValidations.householdElectricCarCountCustomValidation
+};
 
 export const householdIncome: WidgetConfig.InputSelectType = {
     ...defaultInputBase.inputSelectBase,
@@ -21,6 +74,28 @@ export const householdIncome: WidgetConfig.InputSelectType = {
     label: (t: TFunction) => t('end:householdIncome'),
     choices: choices.householdIncomeChoices,
     conditional: defaultConditional,
+    validations: validations.requiredValidation
+};
+
+export const didRespondForCorrectAssignedDate: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'end.didRespondForCorrectAssignedDate',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.didRespondForCorrectDateCustomLabel,
+    choices: customChoices.didRespondForCorrectAssignedDateCustomChoices,
+    conditional: conditionals.didRespondForCorrectAssignedDateConditional,
+    validations: validations.requiredValidation
+};
+
+export const didNotRespondForCorrectAssignedDateReasons: WidgetConfig.InputCheckboxType = {
+    ...defaultInputBase.inputCheckboxBase,
+    path: 'end.didNotRespondForCorrectAssignedDateReasons',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.didNotRespondForCorrectDateReasonCustomLabel,
+    choices: choices.didNotRespondForCorrectAssignedDateReasons,
+    conditional: conditionals.didNotRespondForCorrectAssignedDateConditional,
     validations: validations.requiredValidation
 };
 
@@ -61,34 +136,6 @@ export const optionalIntroText: WidgetConfig.TextWidgetConfig = {
     containsHtml: true,
     text: (t: TFunction) => t('end:optionalIntroText'),
     conditional: defaultConditional
-};
-
-export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.pluginHybridCarNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('end:householdPluginHybridCarNumber'),
-    valueRange: {
-        min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
-    },
-    conditional: conditionals.householdHasCars,
-    validations: customValidations.householdHybridCarCountCustomValidation
-};
-
-export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.electricCarNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('end:householdElectricCarNumber'),
-    valueRange: {
-        min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
-    },
-    conditional: conditionals.householdHasCars,
-    validations: customValidations.householdElectricCarCountCustomValidation
 };
 
 export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {

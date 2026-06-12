@@ -1077,3 +1077,89 @@ export const hasOmittedTripsModes: ChoiceType[] = [
         label: (t: TFunction) => t('choices:hasOmittedTripsModes.other')
     }
 ];
+
+export const householdType: ChoiceType[] = [
+    {
+        value: 'oneFamilyOnly',
+        label: (t: TFunction) => t('choices:householdType.oneFamilyOnly')
+    },
+    {
+        value: 'multigenerationalFamily',
+        label: (t: TFunction) => t('choices:householdType.multigenerationalFamily'),
+        conditional: conditionals.hasHouseholdSize3OrMoreConditional
+    },
+    {
+        value: 'manyFamilies',
+        label: (t: TFunction) => t('choices:householdType.manyFamilies'),
+        conditional: conditionals.hasHouseholdSize3OrMoreConditional
+    },
+    {
+        value: 'oneFamilyWithOther',
+        label: (t: TFunction) => t('choices:householdType.oneFamilyWithOther'),
+        conditional: conditionals.hasHouseholdSize3OrMoreConditional
+    },
+    {
+        value: 'noFamily',
+        label: (t: TFunction) => t('choices:householdType.noFamily')
+    }
+];
+
+export const householdTypeSpecify: ChoiceType[] = [
+    {
+        value: 'coupleWithChild',
+        label: (t: TFunction) => t('choices:householdTypeSpecify.coupleWithChild'),
+        conditional: conditionals.hasHouseholdSize3OrMoreConditional
+    },
+    {
+        value: 'coupleWithoutChild',
+        label: (t: TFunction) => t('choices:householdTypeSpecify.coupleWithoutChild'),
+        conditional: conditionals.hasHouseholdSize2Conditional
+    },
+    {
+        value: 'parentWithChild',
+        label: (t: TFunction) => t('choices:householdTypeSpecify.parentWithChild')
+    }
+];
+
+export const didRespondForCorrectAssignedDateChoices: ChoiceType[] = [
+    {
+        value: 'yes',
+        label: (t: TFunction) => t('choices:didRespondForCorrectAssignedDateChoices.yes')
+    },
+    {
+        value: 'no',
+        label: (t: TFunction) => t('choices:didRespondForCorrectAssignedDateChoices.no')
+    }
+];
+
+export const didNotRespondForCorrectAssignedDateReasons: ChoiceType[] = [
+    {
+        value: 'didNotNoticeAssignedDate',
+        label: (t: TFunction) => t('choices:didNotRespondForCorrectAssignedDateReasons.didNotNoticeAssignedDate')
+    },
+    {
+        value: 'onVacationOrOutsideMontrealRegion',
+        label: (t: TFunction) =>
+            t('choices:didNotRespondForCorrectAssignedDateReasons.onVacationOrOutsideMontrealRegion')
+    },
+    {
+        value: 'didNotKnowTripsForAtLeastOneHouseholdMember',
+        label: (t: TFunction) =>
+            t('choices:didNotRespondForCorrectAssignedDateReasons.didNotKnowTripsForAtLeastOneHouseholdMember')
+    },
+    {
+        value: 'tripsNotRepresentativeOfUsualTravelHabits',
+        label: (t: TFunction) =>
+            t('choices:didNotRespondForCorrectAssignedDateReasons.tripsNotRepresentativeOfUsualTravelHabits')
+    },
+    {
+        value: 'atLeastOneHouseholdMemberDidNotMakeAnyTrip',
+        label: (t: TFunction) =>
+            t('choices:didNotRespondForCorrectAssignedDateReasons.atLeastOneHouseholdMemberDidNotMakeAnyTrip')
+    },
+    {
+        value: 'tooManyTripsToDeclareTooLong',
+        label: (t: TFunction) => t('choices:didNotRespondForCorrectAssignedDateReasons.tooManyTripsToDeclareTooLong')
+    },
+    ...otherWithoutSpecify
+];
