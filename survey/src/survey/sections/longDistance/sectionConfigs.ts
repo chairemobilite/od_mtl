@@ -6,12 +6,12 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
-import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
 const nextSectionName: SectionConfig['nextSection'] = 'end';
+const parentSection = 'end';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -22,11 +22,8 @@ export const sectionConfig: SectionConfig = {
         en: 'End'
     },
     navMenu: {
-        type: 'inNav',
-        menuName: {
-            fr: 'Fin',
-            en: 'End'
-        }
+        type: 'hidden',
+        parentSection: parentSection
     },
     widgets: widgetsNames,
     // Allow to click on the section menu
@@ -35,13 +32,13 @@ export const sectionConfig: SectionConfig = {
     },
     // Allow to click on the section menu, completed when the 'end' child section is completed
     completionConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: nextSectionName });
+        // Completed if ep is not mtmd or actually completed
+        return !isPartialSample(interview, 'mtmd') || isSectionCompleted({ interview, sectionName: nextSectionName });
     },
     onSectionEntry: updateHouseholdSizeFromPersonCount,
     isSectionVisible: (interview) => {
         // Section visible seulement si ep exclusif est mtmd
-        const exclusiveEP = getResponse(interview, 'ep.exclusive');
-        return exclusiveEP === 'mtmd';
+        return isPartialSample(interview, 'mtmd');
     }
 };
 
