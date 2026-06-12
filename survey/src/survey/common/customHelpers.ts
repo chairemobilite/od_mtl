@@ -44,7 +44,8 @@ export const getFormattedTripDateFromJourney = (journey: Journey): string | unde
     return journeyDate;
 };
 
-export const isPartialSample = (interview: InterviewAttributes, partialSample: string) => {
+export const isPartialSample = (interview: InterviewAttributes, partialSample: string | string[]) => {
+    const partialSamples = typeof partialSample === 'string' ? [partialSample] : partialSample;
     const epExclusive = getResponse(interview, 'ep.exclusive', null);
-    return epExclusive === partialSample;
+    return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
 };

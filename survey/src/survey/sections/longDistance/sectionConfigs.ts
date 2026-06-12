@@ -10,7 +10,7 @@ import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../commo
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
-const nextSectionName: SectionConfig['nextSection'] = 'end';
+const nextSectionName: SectionConfig['nextSection'] = 'frequencies';
 const parentSection = 'end';
 
 // Config for the section
@@ -32,12 +32,14 @@ export const sectionConfig: SectionConfig = {
     },
     // Allow to click on the section menu, completed when the 'end' child section is completed
     completionConditional: function (interview) {
-        // Completed if ep is not mtmd or actually completed
-        return !isPartialSample(interview, 'mtmd') || isSectionCompleted({ interview, sectionName: nextSectionName });
+        // Completed if partial sample is not mtmd or actually completed
+        return (
+            !isPartialSample(interview, 'mtmd') || isSectionCompleted({ interview, sectionName: currentSectionName })
+        );
     },
     onSectionEntry: updateHouseholdSizeFromPersonCount,
     isSectionVisible: (interview) => {
-        // Section visible seulement si ep exclusif est mtmd
+        // Section visible seulement si échantillon partiel exclusif est mtmd
         return isPartialSample(interview, 'mtmd');
     }
 };

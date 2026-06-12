@@ -13,6 +13,7 @@ import segmentsConfigs from './sections/segments/sectionConfigs';
 import travelBehaviorConfigs from './sections/travelBehavior/sectionConfigs';
 import omissionsConfigs from './sections/omissions/sectionConfigs';
 import longDistanceConfigs from './sections/longDistance/sectionConfigs';
+import frequenciesConfigs from './sections/frequencies/sectionConfigs';
 import endConfigs from './sections/end/sectionConfigs';
 import completedConfigs from './sections/completed/sectionConfigs';
 
@@ -28,6 +29,7 @@ const sectionsConfigs: SurveySectionsConfig = {
     travelBehavior: travelBehaviorConfigs,
     omissions: omissionsConfigs,
     longDistance: longDistanceConfigs,
+    frequencies: frequenciesConfigs,
     end: endConfigs,
     completed: completedConfigs
 };

@@ -2372,6 +2372,98 @@ export const fillLongDistanceSectionTests = ({
     // testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'End', buttonStatus: 'active', isDisabled: false });
 };
 
+/********** Tests for frequencies section **********/
+export type FrequenciesSection = {
+    anyTripModeFrequenciesWalk: string;
+    anyTripModeFrequenciesBicycle: string;
+    anyTripModeFrequenciesTransit: string;
+    anyTripModeFrequenciesCarPassenger: string;
+    anyTripModeFrequenciesCarDriver: string | null;
+};
+
+// Set defaults if set, with car driver invisible by default
+export const defaultFrequencies: FrequenciesSection = {
+    anyTripModeFrequenciesWalk: '2to4daysPerWeek',
+    anyTripModeFrequenciesBicycle: '2to4daysPerWeek',
+    anyTripModeFrequenciesTransit: '2to4daysPerWeek',
+    anyTripModeFrequenciesCarPassenger: '2to4daysPerWeek',
+    anyTripModeFrequenciesCarDriver: null
+};
+
+export type FrequenciesTestParameters = CommonTestParametersModify & {
+    frequencySection?: FrequenciesSection;
+};
+
+export const fillFrequenciesSectionTests = ({
+    context,
+    householdSize,
+    frequencySection = defaultFrequencies
+}: FrequenciesTestParameters) => {
+    // Verify the end navigation is active as it is this section's parent
+    // FIXME Enable this test once it works see https://github.com/chairemobilite/od_mtl/issues/132
+    /* testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'end',
+        buttonStatus: 'active',
+        isDisabled: false
+    }); */
+
+    // Test infotext widget anyTripModeFrequenciesIntro
+    testHelpers.waitTextVisible({
+        context,
+        text: 'For your trips, for all purposes combined, such as commuting to work or school, accessing leisure activities or services, grocery shopping, accompanying someone, etc'
+    });
+
+    // Test radio widget anyTripModeFrequenciesWalk with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.anyTripModeFrequenciesWalk',
+        value: frequencySection.anyTripModeFrequenciesWalk
+    });
+
+    // Test radio widget anyTripModeFrequenciesBicycle with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.anyTripModeFrequenciesBicycle',
+        value: frequencySection.anyTripModeFrequenciesBicycle
+    });
+
+    // Test radio widget anyTripModeFrequenciesTransit with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.anyTripModeFrequenciesTransit',
+        value: frequencySection.anyTripModeFrequenciesTransit
+    });
+
+    // Test radio widget anyTripModeFrequenciesCarPassenger with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.anyTripModeFrequenciesCarPassenger',
+        value: frequencySection.anyTripModeFrequenciesCarPassenger
+    });
+
+    // Test radio widget anyTripModeFrequenciesCarDriver with conditional hasDrivingLicenseConditional with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (frequencySection.anyTripModeFrequenciesCarDriver === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver',
+            value: frequencySection.anyTripModeFrequenciesCarDriver
+        });
+    }
+};
+
 /********** Tests end section **********/
 export type EndSection = {
     householdType: string | null;

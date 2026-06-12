@@ -1163,3 +1163,26 @@ export const didNotRespondForCorrectAssignedDateReasons: ChoiceType[] = [
     },
     ...otherWithoutSpecify
 ];
+
+export const anyTripModeFrequenciesChoices: ChoiceType[] = [
+    {
+        value: 'neverOrRarely',
+        label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.neverOrRarely')
+    },
+    {
+        value: '1to3daysPerMonth',
+        label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.1to3daysPerMonth')
+    },
+    {
+        value: '1dayPerWeek',
+        label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.1dayPerWeek')
+    },
+    {
+        value: '2to4daysPerWeek',
+        label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.2to4daysPerWeek')
+    },
+    {
+        value: '5DaysOrMorePerWeek',
+        label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.5DaysOrMorePerWeek')
+    }
+];
