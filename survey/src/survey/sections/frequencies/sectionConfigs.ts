@@ -4,44 +4,47 @@
 
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
-import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
-import { isPartialSample } from '../../common/customHelpers';
+import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { allPersonsTripDiariesCompleted } from '../../common/helper';
 
-export const currentSectionName: string = 'omissions';
-const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
-const nextSectionName: SectionConfig['nextSection'] = 'longDistance';
-const parentSection = 'end';
+export const currentSectionName: string = 'frequencies';
+const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
+const nextSectionName: SectionConfig['nextSection'] = 'end';
+
+const visibleEps = ['freqAttitudinal', 'freqBarriers', 'freqAttitudinalBarriers'];
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Oublis',
-        en: 'Omissions'
+        fr: 'Fréquences par mode',
+        en: 'Mode frequencies'
     },
     navMenu: {
         type: 'hidden',
-        parentSection: parentSection
+        parentSection: 'end'
     },
     widgets: widgetsNames,
     // Do some actions before the section is loaded
     // Allow to click on the section menu
     enableConditional: function (interview) {
+        // FIXME Wrong condition but it works for now. Evolution should support blocks of optional sections See https://github.com/chairemobilite/evolution/issues/1634
         return allPersonsTripDiariesCompleted(interview);
     },
     // Determine if the current section is completed
     completionConditional: function (interview) {
-        // Complété si échantillon partiel n'est pas omission ou effectivement complété
+        // Completed if ep is not mtmd or actually completed
         return (
-            !isPartialSample(interview, 'omission') ||
+            !isPartialSample(interview, visibleEps) ||
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
     },
+    onSectionEntry: updateHouseholdSizeFromPersonCount,
     isSectionVisible: (interview) => {
-        // Visible seulement si échantillon partiel est omission
-        return isPartialSample(interview, 'omission');
+        // Section visible seulement si ep exclusif est est l'un des 3 avec freq
+        return isPartialSample(interview, visibleEps);
     }
 };
 

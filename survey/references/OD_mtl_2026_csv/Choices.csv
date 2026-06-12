@@ -257,3 +257,8 @@ didNotRespondForCorrectAssignedDateReasons,tripsNotRepresentativeOfUsualTravelHa
 didNotRespondForCorrectAssignedDateReasons,atLeastOneHouseholdMemberDidNotMakeAnyTrip,Au moins une personne ne s'était pas déplacée ,At least one person did not travel,,,,,
 didNotRespondForCorrectAssignedDateReasons,tooManyTripsToDeclareTooLong,Trop long pour tout déclarer ,Too long to report everything,,,,,
 didNotRespondForCorrectAssignedDateReasons,,,,,,otherWithoutSpecify,,
+anyTripModeFrequenciesChoices,neverOrRarely,Jamais/Rarement,Never/Rarely,,,,,
+anyTripModeFrequenciesChoices,1to3daysPerMonth,1 à 3 jours/mois,1 to 3 days/month,,,,,
+anyTripModeFrequenciesChoices,1dayPerWeek,1 jour/sem.,1 day/week,,,,,
+anyTripModeFrequenciesChoices,2to4daysPerWeek,2 à 4 jours/sem.,2 to 4 days/week,,,,,
+anyTripModeFrequenciesChoices,5DaysOrMorePerWeek,5+ jours/sem.,5+ days/week,,,,,

@@ -714,6 +714,49 @@ Continue
 
 
 
+Section: Mode frequencies
+
+How often do you use the following modes of transportation?
+For your trips, for all purposes combined, such as commuting to work or school, accessing leisure activities or services, grocery shopping, accompanying someone, etc.
+Think about the current month, excluding major storms.
+
+Frequency of use of the mode: Walk (for most of the trip)
+- Never/Rarely
+- 1 to 3 days/month
+- 1 day/week
+- 2 to 4 days/week
+- 5+ days/week
+
+Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboards)
+- Never/Rarely
+- 1 to 3 days/month
+- 1 day/week
+- 2 to 4 days/week
+- 5+ days/week
+
+Frequency of use of the mode: Public transit (bus, metro, REM, train)
+- Never/Rarely
+- 1 to 3 days/month
+- 1 day/week
+- 2 to 4 days/week
+- 5+ days/week
+
+Frequency of use of the mode: Car passenger
+- Never/Rarely
+- 1 to 3 days/month
+- 1 day/week
+- 2 to 4 days/week
+- 5+ days/week
+
+Frequency of use of the mode: Car driver
+- Never/Rarely
+- 1 to 3 days/month
+- 1 day/week
+- 2 to 4 days/week
+- 5+ days/week
+
+
+
 Section: End
 
 Which of the following situations best describes your household?

@@ -318,3 +318,9 @@ didNotRespondForCorrectAssignedDateReasons:
     tripsNotRepresentativeOfUsualTravelHabits: Trips or modes were not representative
     atLeastOneHouseholdMemberDidNotMakeAnyTrip: At least one person did not travel
     tooManyTripsToDeclareTooLong: Too long to report everything
+anyTripModeFrequenciesChoices:
+    neverOrRarely: Never/Rarely
+    1to3daysPerMonth: 1 to 3 days/month
+    1dayPerWeek: 1 day/week
+    2to4daysPerWeek: 2 to 4 days/week
+    5DaysOrMorePerWeek: 5+ days/week

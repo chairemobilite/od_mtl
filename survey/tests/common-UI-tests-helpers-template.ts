@@ -856,6 +856,40 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'longDistance', buttonStatus: 'completed', isDisabled: false });
 };
 
+/********** Tests Frequencies section **********/
+export const fillFrequenciesSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the frequencies navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'frequencies', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for frequencies section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'frequencies', completionPercentage: 0 });
+
+    // Test infotext widget anyTripModeFrequenciesIntro
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget anyTripModeFrequenciesWalk with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesWalk', value: '?' });
+
+    // Test radio widget anyTripModeFrequenciesBicycle with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesBicycle', value: '?' });
+
+    // Test radio widget anyTripModeFrequenciesTransit with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesTransit', value: '?' });
+
+    // Test radio widget anyTripModeFrequenciesCarPassenger with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesCarPassenger', value: '?' });
+
+    // Test radio widget anyTripModeFrequenciesCarDriver with conditional hasDrivingLicenseConditional with choices anyTripModeFrequenciesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver', value: '?' });
+};
+
 /********** Tests End section **********/
 export const fillEndSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the end navigation is active

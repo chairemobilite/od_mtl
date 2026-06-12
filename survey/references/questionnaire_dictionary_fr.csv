@@ -1035,6 +1035,57 @@ Question,Veuillez fournir une adresse courriel de contact pour participer à une
 ""
 ""
 ""
+Section,Fréquences par mode
+Abréviation,freq_
+""
+Champ,anyTripModeFrequenciesWalk
+Type de question,Bouton radio
+Question,Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
+Valeurs,"neverOrRarely : Jamais/Rarement
+1to3daysPerMonth : 1 à 3 jours/mois
+1dayPerWeek : 1 jour/sem.
+2to4daysPerWeek : 2 à 4 jours/sem.
+5DaysOrMorePerWeek : 5+ jours/sem."
+""
+Champ,anyTripModeFrequenciesBicycle
+Type de question,Bouton radio
+Question,"Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planches à roulettes)"
+Valeurs,"neverOrRarely : Jamais/Rarement
+1to3daysPerMonth : 1 à 3 jours/mois
+1dayPerWeek : 1 jour/sem.
+2to4daysPerWeek : 2 à 4 jours/sem.
+5DaysOrMorePerWeek : 5+ jours/sem."
+""
+Champ,anyTripModeFrequenciesTransit
+Type de question,Bouton radio
+Question,"Fréquence d'utilisation du mode : Transport en commun (bus, métro, REM, train)"
+Valeurs,"neverOrRarely : Jamais/Rarement
+1to3daysPerMonth : 1 à 3 jours/mois
+1dayPerWeek : 1 jour/sem.
+2to4daysPerWeek : 2 à 4 jours/sem.
+5DaysOrMorePerWeek : 5+ jours/sem."
+""
+Champ,anyTripModeFrequenciesCarPassenger
+Type de question,Bouton radio
+Question,Fréquence d'utilisation du mode : Auto-passager
+Valeurs,"neverOrRarely : Jamais/Rarement
+1to3daysPerMonth : 1 à 3 jours/mois
+1dayPerWeek : 1 jour/sem.
+2to4daysPerWeek : 2 à 4 jours/sem.
+5DaysOrMorePerWeek : 5+ jours/sem."
+""
+Champ,anyTripModeFrequenciesCarDriver
+Type de question,Bouton radio
+Conditionnel,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Question,Fréquence d'utilisation du mode : Auto-conducteur
+Valeurs,"neverOrRarely : Jamais/Rarement
+1to3daysPerMonth : 1 à 3 jours/mois
+1dayPerWeek : 1 jour/sem.
+2to4daysPerWeek : 2 à 4 jours/sem.
+5DaysOrMorePerWeek : 5+ jours/sem."
+""
+""
+""
 Section,Fin
 Abréviation,e_
 ""

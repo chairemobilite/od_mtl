@@ -711,6 +711,49 @@ Continuer
 
 
 
+Section: Fréquences par mode
+
+À quelle fréquence utilisez-vous les modes de transport suivants?
+Pour les déplacements, tous motifs confondus, donc se rendre au travail ou aux études, pour accéder aux loisirs ou services, faire ses courses, accompagnement, etc. 
+Pensez au mois en cours, hors tempêtes majeures.
+
+Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
+- Jamais/Rarement
+- 1 à 3 jours/mois
+- 1 jour/sem.
+- 2 à 4 jours/sem.
+- 5+ jours/sem.
+
+Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planches à roulettes)
+- Jamais/Rarement
+- 1 à 3 jours/mois
+- 1 jour/sem.
+- 2 à 4 jours/sem.
+- 5+ jours/sem.
+
+Fréquence d'utilisation du mode : Transport en commun (bus, métro, REM, train)
+- Jamais/Rarement
+- 1 à 3 jours/mois
+- 1 jour/sem.
+- 2 à 4 jours/sem.
+- 5+ jours/sem.
+
+Fréquence d'utilisation du mode : Auto-passager
+- Jamais/Rarement
+- 1 à 3 jours/mois
+- 1 jour/sem.
+- 2 à 4 jours/sem.
+- 5+ jours/sem.
+
+Fréquence d'utilisation du mode : Auto-conducteur
+- Jamais/Rarement
+- 1 à 3 jours/mois
+- 1 jour/sem.
+- 2 à 4 jours/sem.
+- 5+ jours/sem.
+
+
+
 Section: Fin
 
 Laquelle des situations suivantes décrit le mieux votre ménage?

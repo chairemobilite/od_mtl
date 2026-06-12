@@ -316,3 +316,9 @@ didNotRespondForCorrectAssignedDateReasons:
     atLeastOneHouseholdMemberDidNotMakeAnyTrip: Au moins une personne ne s'était pas
         déplacée 
     tooManyTripsToDeclareTooLong: Trop long pour tout déclarer 
+anyTripModeFrequenciesChoices:
+    neverOrRarely: Jamais/Rarement
+    1to3daysPerMonth: 1 à 3 jours/mois
+    1dayPerWeek: 1 jour/sem.
+    2to4daysPerWeek: 2 à 4 jours/sem.
+    5DaysOrMorePerWeek: 5+ jours/sem.

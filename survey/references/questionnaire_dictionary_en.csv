@@ -1038,6 +1038,57 @@ Question,Please provide the email address where you can be reached to participat
 ""
 ""
 ""
+Section,Mode frequencies
+Abbreviation,freq_
+""
+Field,anyTripModeFrequenciesWalk
+Question type,Radio input
+Question,Frequency of use of the mode: Walk (for most of the trip)
+Values,"neverOrRarely : Never/Rarely
+1to3daysPerMonth : 1 to 3 days/month
+1dayPerWeek : 1 day/week
+2to4daysPerWeek : 2 to 4 days/week
+5DaysOrMorePerWeek : 5+ days/week"
+""
+Field,anyTripModeFrequenciesBicycle
+Question type,Radio input
+Question,"Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboards)"
+Values,"neverOrRarely : Never/Rarely
+1to3daysPerMonth : 1 to 3 days/month
+1dayPerWeek : 1 day/week
+2to4daysPerWeek : 2 to 4 days/week
+5DaysOrMorePerWeek : 5+ days/week"
+""
+Field,anyTripModeFrequenciesTransit
+Question type,Radio input
+Question,"Frequency of use of the mode: Public transit (bus, metro, REM, train)"
+Values,"neverOrRarely : Never/Rarely
+1to3daysPerMonth : 1 to 3 days/month
+1dayPerWeek : 1 day/week
+2to4daysPerWeek : 2 to 4 days/week
+5DaysOrMorePerWeek : 5+ days/week"
+""
+Field,anyTripModeFrequenciesCarPassenger
+Question type,Radio input
+Question,Frequency of use of the mode: Car passenger
+Values,"neverOrRarely : Never/Rarely
+1to3daysPerMonth : 1 to 3 days/month
+1dayPerWeek : 1 day/week
+2to4daysPerWeek : 2 to 4 days/week
+5DaysOrMorePerWeek : 5+ days/week"
+""
+Field,anyTripModeFrequenciesCarDriver
+Question type,Radio input
+Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Question,Frequency of use of the mode: Car driver
+Values,"neverOrRarely : Never/Rarely
+1to3daysPerMonth : 1 to 3 days/month
+1dayPerWeek : 1 day/week
+2to4daysPerWeek : 2 to 4 days/week
+5DaysOrMorePerWeek : 5+ days/week"
+""
+""
+""
 Section,End
 Abbreviation,e_
 ""
