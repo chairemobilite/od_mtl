@@ -13,7 +13,7 @@ import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 export const currentSectionName: string = 'completed';
 const previousSectionName: SectionConfig['previousSection'] = 'end';
 const nextSectionName: SectionConfig['nextSection'] = null;
-const parentSection = 'longDistance';
+const parentSection = 'end';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {

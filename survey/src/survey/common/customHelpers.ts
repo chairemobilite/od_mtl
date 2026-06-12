@@ -43,3 +43,8 @@ export const getFormattedTripDateFromJourney = (journey: Journey): string | unde
         : undefined;
     return journeyDate;
 };
+
+export const isPartialSample = (interview: InterviewAttributes, partialSample: string) => {
+    const epExclusive = getResponse(interview, 'ep.exclusive', null);
+    return epExclusive === partialSample;
+};

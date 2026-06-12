@@ -4,13 +4,14 @@
 
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
-import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
+import { isPartialSample } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'omissions';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
 const nextSectionName: SectionConfig['nextSection'] = 'longDistance';
+const parentSection = 'end';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -21,11 +22,8 @@ export const sectionConfig: SectionConfig = {
         en: 'Omissions'
     },
     navMenu: {
-        type: 'inNav',
-        menuName: {
-            fr: 'Oublis',
-            en: 'Omissions'
-        }
+        type: 'hidden',
+        parentSection: parentSection
     },
     widgets: widgetsNames,
     // Do some actions before the section is loaded
@@ -35,12 +33,15 @@ export const sectionConfig: SectionConfig = {
     },
     // Determine if the current section is completed
     completionConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: currentSectionName });
+        // Complété si ep n'est pas omission ou effectivement complété
+        return (
+            !isPartialSample(interview, 'omission') ||
+            isSectionCompleted({ interview, sectionName: currentSectionName })
+        );
     },
     isSectionVisible: (interview) => {
-        // Section visible seulement si ep exclusif est omission
-        const exclusiveEP = getResponse(interview, 'ep.exclusive');
-        return exclusiveEP === 'omission';
+        // Visible seulement is ep est omission
+        return isPartialSample(interview, 'omission');
     }
 };
 

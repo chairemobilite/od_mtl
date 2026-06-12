@@ -22,8 +22,11 @@ export const sectionConfig: SectionConfig = {
         en: 'End'
     },
     navMenu: {
-        type: 'hidden',
-        parentSection: previousSectionName
+        type: 'inNav',
+        menuName: {
+            fr: 'Fin',
+            en: 'End'
+        }
     },
     widgets: widgetsNames,
     // Allow to click on the section menu
@@ -33,7 +36,8 @@ export const sectionConfig: SectionConfig = {
         // diaries to be completed.
         const exclusiveEP = getResponse(interview, 'ep.exclusive');
         // FIXME add other previous sections as they are implemented
-        const actualPreviousSection = exclusiveEP === 'mtmd' ? 'longDistance' : undefined;
+        const actualPreviousSection =
+            exclusiveEP === 'mtmd' ? 'longDistance' : exclusiveEP === 'omission' ? 'omissions' : undefined;
         if (actualPreviousSection === undefined) {
             return allPersonsTripDiariesCompleted(interview);
         }
