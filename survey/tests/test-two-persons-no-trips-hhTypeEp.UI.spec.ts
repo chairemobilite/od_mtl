@@ -63,13 +63,22 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     transitFare: 'ABC',
     transitFareWarning: []
 };
-// person 2 has tickets only
+// person 2 has tickets only, with disabilities with some questions left unanswered
 const person2: commonUITestsHelpers.HouseholdMember = {
     ...commonUITestsHelpers.defaultPerson2,
     usedTransitInLast30Days: 'yes',
     transitPass: ['tickets'],
     transitFare: null,
-    transitFareWarning: null
+    transitFareWarning: null,
+    hasDisability: 'yes',
+    disabilities: ['hearing', 'cognitiveOrPsychic'],
+    disabilitiesSpecify: null,
+    mobilityAssistiveDevices: undefined,
+    mobilityAssistiveDevicesSpecify: null,
+    mostUsedMobilityAssistiveDevice: null,
+    useParatransit: 'yes',
+    useParatransitFrequency: undefined,
+    useParatransitTransitFrequency: undefined // Question won't show, need special ep
 };
 commonUITestsHelpers.fillHouseholdSectionWithMembersTests({ context, householdMembers: [person1, person2] });
 

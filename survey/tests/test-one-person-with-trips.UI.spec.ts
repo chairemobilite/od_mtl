@@ -44,7 +44,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         departureTime: 39600 // 11:00 AM
     },
     {
-        activityCategory: null, // Question won't show.
+        activityCategory: 'home',
         activity: null, // Question won't show.
         onTheRoadDepartureType: null, // Question won't show.
         onTheRoadArrivalType: null, // Question won't show.
