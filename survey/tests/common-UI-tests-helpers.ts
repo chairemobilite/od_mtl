@@ -32,6 +32,8 @@ export type HomeTestParameters = testHelpers.CommonTestParameters & {
 export const generateRandomAccessCode = () =>
     `${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
 
+// For fields values: `null` means the widget is not visible, an undefined value
+// means the widget is visible, but should be left untouched.
 export type HouseholdMember = {
     personIndex: number;
     nickname: string;
@@ -47,14 +49,14 @@ export type HouseholdMember = {
     transitFare: string | null;
     transitFareWarning: string[] | null;
     hasDisability: string | null;
-    disabilities: string[] | null;
-    disabilitiesSpecify: string | null;
-    mobilityAssistiveDevices: string[] | null;
-    mobilityAssistiveDevicesSpecify: string | null;
-    mostUsedMobilityAssistiveDevice: string | null;
-    useParatransit: string | null;
-    useParatransitFrequency: string | null;
-    useParatransitTransitFrequency: string | null;
+    disabilities?: string[] | null;
+    disabilitiesSpecify?: string | null;
+    mobilityAssistiveDevices?: string[] | null;
+    mobilityAssistiveDevicesSpecify?: string | null;
+    mostUsedMobilityAssistiveDevice?: string | null;
+    useParatransit?: string | null;
+    useParatransitFrequency?: string | null;
+    useParatransitTransitFrequency?: string | null;
     studentType: string | null;
     workerType: string | null;
     jobType: string | null;
@@ -249,7 +251,7 @@ export const defaultPerson2: HouseholdMember = {
 };
 
 export type VisitedPlace = {
-    activityCategory: string | null;
+    activityCategory?: string | null;
     activity: string | null;
     onTheRoadDepartureType: string | null;
     onTheRoadArrivalType: string | null;
@@ -719,12 +721,11 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                     values: person.transitFareWarning
                 });
             } else {
-                // FIXME Check visibility, but needs https://github.com/chairemobilite/evolution/issues/1622
-                /* testHelpers.inputVisibleTest({
+                testHelpers.inputVisibleTest({
                     context,
                     path: `household.persons.${personIdString}.transitFareWarning`,
                     isVisible: true
-                }); */
+                });
             }
         }
 
@@ -755,19 +756,18 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            if (person.disabilities.length > 0) {
+            if (person.disabilities !== undefined && person.disabilities.length > 0) {
                 testHelpers.inputCheckboxTest({
                     context,
                     path: `household.persons.${personIdString}.disabilities`,
                     values: person.disabilities
                 });
             } else {
-                // FIXME Check visibility, but needs https://github.com/chairemobilite/evolution/issues/1622
-                /* testHelpers.inputVisibleTest({
+                testHelpers.inputVisibleTest({
                     context,
                     path: `household.persons.${personIdString}.disabilities`,
                     isVisible: true
-                }); */
+                });
             }
         }
 
@@ -780,11 +780,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputStringTest({
-                context,
-                path: `household.persons.${personIdString}.disabilitiesSpecify`,
-                value: person.disabilitiesSpecify
-            });
+            if (person.disabilitiesSpecify !== undefined) {
+                testHelpers.inputStringTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesSpecify`,
+                    value: person.disabilitiesSpecify
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesSpecify`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test checkbox widget personMobilityAssistiveDevices with conditional hasDisabilityConditional with choices mobilityAssistiveDevices
@@ -797,19 +805,18 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            if (person.mobilityAssistiveDevices.length > 0) {
+            if (person.mobilityAssistiveDevices !== undefined && person.mobilityAssistiveDevices.length > 0) {
                 testHelpers.inputCheckboxTest({
                     context,
                     path: `household.persons.${personIdString}.mobilityAssistiveDevices`,
                     values: person.mobilityAssistiveDevices
                 });
             } else {
-                // FIXME Check visibility, but needs https://github.com/chairemobilite/evolution/issues/1622
-                /* testHelpers.inputVisibleTest({
+                testHelpers.inputVisibleTest({
                     context,
                     path: `household.persons.${personIdString}.mobilityAssistiveDevices`,
                     isVisible: true
-                }); */
+                });
             }
         }
 
@@ -822,11 +829,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputStringTest({
-                context,
-                path: `household.persons.${personIdString}.mobilityAssistiveDevicesSpecify`,
-                value: person.mobilityAssistiveDevicesSpecify
-            });
+            if (person.mobilityAssistiveDevicesSpecify !== undefined) {
+                testHelpers.inputStringTest({
+                    context,
+                    path: `household.persons.${personIdString}.mobilityAssistiveDevicesSpecify`,
+                    value: person.mobilityAssistiveDevicesSpecify
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.mobilityAssistiveDevicesSpecify`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test radio widget personMostUsedMobilityAssistiveDevice with conditional mostUsedMobilityAssistiveDeviceCustomConditional with choices mostUsedMobilityAssistiveDeviceCustomChoices
@@ -839,11 +854,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.mostUsedMobilityAssistiveDevice`,
-                value: person.mostUsedMobilityAssistiveDevice
-            });
+            if (person.mostUsedMobilityAssistiveDevice !== undefined) {
+                testHelpers.inputRadioTest({
+                    context,
+                    path: `household.persons.${personIdString}.mostUsedMobilityAssistiveDevice`,
+                    value: person.mostUsedMobilityAssistiveDevice
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.mostUsedMobilityAssistiveDevice`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test radio widget personUseParatransit with conditional hasDisabilityConditional with choices yesNoPreferNotToAnswer
@@ -856,11 +879,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.useParatransit`,
-                value: person.useParatransit
-            });
+            if (person.useParatransit !== undefined) {
+                testHelpers.inputRadioTest({
+                    context,
+                    path: `household.persons.${personIdString}.useParatransit`,
+                    value: person.useParatransit
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.useParatransit`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test radio widget personDisabilitiesFrequenciesParatransit with conditional paratransitFrequenciesConditional with choices paratransitFrequencies
@@ -873,11 +904,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.disabilitiesFrequenciesParatransit`,
-                value: person.useParatransitFrequency
-            });
+            if (person.useParatransitFrequency !== undefined) {
+                testHelpers.inputRadioTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesFrequenciesParatransit`,
+                    value: person.useParatransitFrequency
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesFrequenciesParatransit`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test radio widget personDisabilitiesFrequenciesTransit with conditional paratransitFrequenciesConditional with choices paratransitFrequenciesTransit
@@ -890,11 +929,19 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.disabilitiesFrequenciesTransit`,
-                value: person.useParatransitTransitFrequency
-            });
+            if (person.useParatransitTransitFrequency !== undefined) {
+                testHelpers.inputRadioTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesFrequenciesTransit`,
+                    value: person.useParatransitTransitFrequency
+                });
+            } else {
+                testHelpers.inputVisibleTest({
+                    context,
+                    path: `household.persons.${personIdString}.disabilitiesFrequenciesTransit`,
+                    isVisible: true
+                });
+            }
         }
 
         // Test radio widget personStudentType with conditional ifAge16OrMoreConditional with choices participationStatusStudent
@@ -1269,11 +1316,19 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
             isVisible: false
         });
     } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
-            value: place.activityCategory
-        });
+        if (place.activityCategory !== undefined) {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+                value: place.activityCategory
+            });
+        } else {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityCategory',
+                isVisible: true
+            });
+        }
     }
 
     // Test custom widget visitedPlaceActivity
@@ -2592,8 +2647,8 @@ export const defaultEnd: EndSection = {
     householdType: null,
     householdTypeSpecify: null,
     householdIncome: '100000_149999',
-    householdPluginHybridCarNumber: null,
-    householdElectricCarNumber: null,
+    householdPluginHybridCarNumber: '2',
+    householdElectricCarNumber: '0',
     didRespondForCorrectAssignedDate: null,
     didNotRespondForCorrectAssignedDateReasons: null,
     wouldLikeToParticipateInOtherSurveysChaireMobilite: 'yes',
