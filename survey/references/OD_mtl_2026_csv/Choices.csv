@@ -262,3 +262,8 @@ anyTripModeFrequenciesChoices,1to3daysPerMonth,1 à 3 jours/mois,1 to 3 days/mon
 anyTripModeFrequenciesChoices,1dayPerWeek,1 jour/sem.,1 day/week,,,,,
 anyTripModeFrequenciesChoices,2to4daysPerWeek,2 à 4 jours/sem.,2 to 4 days/week,,,,,
 anyTripModeFrequenciesChoices,5DaysOrMorePerWeek,5+ jours/sem.,5+ days/week,,,,,
+attitudinalChoices,-2,Pas du tout d'accord,Strongly disagree,,,,,
+attitudinalChoices,-1,Plutôt pas d'accord,Somewhat disagree,,,,,
+attitudinalChoices,0,Ni d'accord ni pas d'accord,Neither agree nor disagree,,,,,
+attitudinalChoices,1,Plutôt d'accord,Somewhat agree,,,,,
+attitudinalChoices,2,Tout à fait d'accord,Strongly agree,,,,,

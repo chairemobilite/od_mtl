@@ -72,3 +72,10 @@ export const anyTripModeFrequenciesCarDriver: WidgetConfig.InputRadioType = {
     conditional: conditionals.hasDrivingLicenseConditional,
     validations: validations.requiredValidation
 };
+
+export const buttonCompleteFrequenciesSection: WidgetConfig.ButtonWidgetConfig = {
+    ...defaultInputBase.buttonNextBase,
+    path: 'buttonCompleteFrequenciesSection',
+    label: (t: TFunction) => t('frequencies:buttonCompleteFrequenciesSection'),
+    conditional: defaultConditional
+};

@@ -8,19 +8,19 @@ import { widgetsNames } from './widgetsNames';
 import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 
-export const currentSectionName: string = 'frequencies';
-const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
-const nextSectionName: SectionConfig['nextSection'] = 'attitudinal';
+export const currentSectionName: string = 'attitudinal';
+const previousSectionName: SectionConfig['previousSection'] = 'frequencies';
+const nextSectionName: SectionConfig['nextSection'] = 'end';
 
-const visibleEps = ['freqAttitudinal', 'freqBarriers', 'freqAttitudinalBarriers'];
+const visibleEps = ['freqAttitudinal', 'freqAttitudinalBarriers'];
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Fréquences par mode',
-        en: 'Mode frequencies'
+        fr: 'Questions attitudinales',
+        en: 'Attitudinal questions'
     },
     navMenu: {
         type: 'hidden',

@@ -2133,7 +2133,8 @@ export const fillTravelBehaviorSectionTests = ({
         buttonStatus:
             expectedNextSection === 'longDistance' ||
             expectedNextSection === 'end' ||
-            expectedNextSection === 'omissions'
+            expectedNextSection === 'omissions' ||
+            expectedNextSection === 'frequencies'
                 ? 'completed'
                 : 'active',
         isDisabled: false
@@ -2462,6 +2463,109 @@ export const fillFrequenciesSectionTests = ({
             value: frequencySection.anyTripModeFrequenciesCarDriver
         });
     }
+};
+
+/********** Tests for attitudinal section **********/
+export type AttitudinalSection = {
+    attitudinalOpinion: string;
+    attitudinalCar: string;
+    attitudinalTransitGoodQuality: string;
+    attitudinalFamiliarWithTransit: string;
+    attitudinalRequireHighLevel: string;
+    attitudinalEasyWithoutCar: string;
+    attitudinalGoodAccessImportant: string;
+};
+
+// Set defaults if set, with car driver invisible by default
+export const defaultAttitudinal: AttitudinalSection = {
+    attitudinalOpinion: '-2',
+    attitudinalCar: '-1',
+    attitudinalTransitGoodQuality: '0',
+    attitudinalFamiliarWithTransit: '1',
+    attitudinalRequireHighLevel: '2',
+    attitudinalEasyWithoutCar: '2',
+    attitudinalGoodAccessImportant: '-2'
+};
+
+export type AttitudinalTestParameters = CommonTestParametersModify & {
+    attitudinalSection?: AttitudinalSection;
+};
+
+export const fillAttitudinalSectionTests = ({
+    context,
+    householdSize,
+    attitudinalSection = defaultAttitudinal
+}: AttitudinalTestParameters) => {
+    // Verify the end navigation is active as it is this section's parent
+    // FIXME Enable this test once it works see https://github.com/chairemobilite/od_mtl/issues/132
+    /* testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'end',
+        buttonStatus: 'active',
+        isDisabled: false
+    }); */
+
+    // Test infotext widget attitudinalIntro
+    testHelpers.waitTextVisible({
+        context,
+        text: 'For this set of questions, we ask you to indicate how much you agree or disagree with a specific statement.'
+    });
+
+    // Test radio widget attitudinalOpinion with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalOpinion',
+        value: attitudinalSection.attitudinalOpinion
+    });
+
+    // Test radio widget attitudinalCar with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalCar',
+        value: attitudinalSection.attitudinalCar
+    });
+
+    // Test radio widget attitudinalTransitGoodQuality with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalTransitGoodQuality',
+        value: attitudinalSection.attitudinalTransitGoodQuality
+    });
+
+    // Test radio widget attitudinalFamiliarWithTransit with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalFamiliarWithTransit',
+        value: attitudinalSection.attitudinalFamiliarWithTransit
+    });
+
+    // Test radio widget attitudinalRequiereHightLevel with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalRequireHighLevel',
+        value: attitudinalSection.attitudinalRequireHighLevel
+    });
+
+    // Test radio widget attitudinalEasyWithoutCar with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalEasyWithoutCar',
+        value: attitudinalSection.attitudinalEasyWithoutCar
+    });
+
+    // Test radio widget attitudinalGoodAccessImportant with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({
+        context,
+        path: 'freqAttitudinal.attitudinalGoodAccessImportant',
+        value: attitudinalSection.attitudinalGoodAccessImportant
+    });
 };
 
 /********** Tests end section **********/

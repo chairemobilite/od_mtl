@@ -752,6 +752,65 @@ Fréquence d'utilisation du mode : Auto-conducteur
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
+Continuer
+
+
+
+Section: Questions attitudinales
+
+Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique 
+
+L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). 
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. 
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.
+- Pas du tout d'accord
+- Plutôt pas d'accord
+- Ni d'accord ni pas d'accord
+- Plutôt d'accord
+- Tout à fait d'accord
+
+Continuer
+
 
 
 Section: Fin

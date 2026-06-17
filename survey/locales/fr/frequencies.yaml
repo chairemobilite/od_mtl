@@ -19,3 +19,4 @@ anyTripModeFrequenciesTransit: >-
     REM, train)
 anyTripModeFrequenciesCarPassenger: "Fréquence d'utilisation du mode : <strong>Auto-passager</strong>"
 anyTripModeFrequenciesCarDriver: "Fréquence d'utilisation du mode : <strong>Auto-conducteur</strong>"
+buttonCompleteFrequenciesSection: Continuer
