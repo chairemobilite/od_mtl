@@ -40,7 +40,6 @@ import * as customLabels from '../../common/customLabels';
 
 // segmentMode
 
-// FIXME segmentPaidForParking : isCarDriverAndDestinationCustomConditional · Issue #17 · chairemobilite/od_mtl
 export const segmentPaidForParking: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'paidForParking',

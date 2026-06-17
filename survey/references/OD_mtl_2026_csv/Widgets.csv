@@ -254,7 +254,7 @@ segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,M
 segmentSameModeAsPreviousTrip : implication · Issue #43 · chairemobilite/od_mtl"
 segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
 segmentMode,Builtin,1,segments,segments,mode,,,,,,,,,,,,,,,,,,
-segmentPaidForParking,Radio,VRAI,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndShouldShowPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,FIXME segmentPaidForParking : isCarDriverAndDestinationCustomConditional · Issue #17 · chairemobilite/od_mtl
+segmentPaidForParking,Radio,VRAI,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndShouldShowPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,
 segmentVehicleOccupancy,RadioNumber,VRAI,segments,segments,vehicleOccupancy,"Personne(s) dans le véhicule
 __Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).__","Persons in the vehicle
 __Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).__",,,"min=1
