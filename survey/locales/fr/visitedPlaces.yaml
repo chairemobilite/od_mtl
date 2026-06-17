@@ -386,7 +386,7 @@ visitedPlaceDepartureTime_workOnTheRoad_one: 'Vous avez terminé vos déplacemen
     la route à:'
 activityCategories:
     work: Travail
-    school: École
+    schoolStudies_interval: (1-15)[École];(15-inf)[Études];
     shoppingServiceRestaurant: Magasinage, Service ou Restauration
     dropFetchSomeone: Reconduire ou Aller chercher quelqu'un
     leisure: Loisirs (sport, arts, promenade, etc.)

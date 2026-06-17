@@ -126,8 +126,7 @@ visitedPlaces,visitedPlaceArrivalTime_leisureStroll,{{nickname}} a commencé sa 
 visitedPlaces,visitedPlaceDepartureTime_leisureStroll,{{nickname}} a terminé sa promenade à:,{{nickname}} finished their stroll at:,Vous avez terminé votre promenade à:,You finished your stroll at:
 visitedPlaces,visitedPlaceDepartureTime_workOnTheRoad,{{nickname}} a terminé ses déplacements sur la route à:,{{nickname}} finished their trips on the road at:,Vous avez terminé vos déplacements sur la route à:,You finished your trips on the road at:
 visitedPlaces,activityCategories.work,Travail,Work,,
-visitedPlaces,activityCategories.school,École,School,,
-visitedPlaces,activityCategories.school,Études,Studies,,
+visitedPlaces,activityCategories.schoolStudies_interval,(1-15)[École];(15-inf)[Études];,(1-15)[School];(15-inf)[Studies];,,
 visitedPlaces,activityCategories.shoppingServiceRestaurant,"Magasinage, Service ou Restauration","Shopping, Services or Restaurant",,
 visitedPlaces,activityCategories.dropFetchSomeone,Reconduire ou Aller chercher quelqu'un,Drop someone off or Pick someone up,,
 visitedPlaces,activityCategories.leisure,"Loisirs (sport, arts, promenade, etc.)","Leisure (sport, arts, stroll, etc.)",,
