@@ -1186,3 +1186,26 @@ export const anyTripModeFrequenciesChoices: ChoiceType[] = [
         label: (t: TFunction) => t('choices:anyTripModeFrequenciesChoices.5DaysOrMorePerWeek')
     }
 ];
+
+export const attitudinalChoices: ChoiceType[] = [
+    {
+        value: '-2',
+        label: (t: TFunction) => t('choices:attitudinalChoices.-2')
+    },
+    {
+        value: '-1',
+        label: (t: TFunction) => t('choices:attitudinalChoices.-1')
+    },
+    {
+        value: '0',
+        label: (t: TFunction) => t('choices:attitudinalChoices.0')
+    },
+    {
+        value: '1',
+        label: (t: TFunction) => t('choices:attitudinalChoices.1')
+    },
+    {
+        value: '2',
+        label: (t: TFunction) => t('choices:attitudinalChoices.2')
+    }
+];

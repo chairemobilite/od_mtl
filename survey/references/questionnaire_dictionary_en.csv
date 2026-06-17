@@ -1089,6 +1089,67 @@ Values,"neverOrRarely : Never/Rarely
 ""
 ""
 ""
+Section,Attitudinal questions
+Abbreviation,att_
+""
+Field,attitudinalOpinion
+Question type,Radio input
+Question,"The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips"
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalCar
+Question type,Radio input
+Question,A personal car represents independence and autonomy for me.
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalTransitGoodQuality
+Question type,Radio input
+Question,"Overall, public transportation in the region where I live is useful and of good quality."
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalFamiliarWithTransit
+Question type,Radio input
+Question,"I am familiar with the public transportation services that serve my home and my usual activity locations (lines, main stops, frequencies)"
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalRequireHighLevel
+Question type,Radio input
+Question,"My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalEasyWithoutCar
+Question type,Radio input
+Question,"It would be easy for me to make most of my trips without a personal car, using public transportation or active modes."
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+Field,attitudinalGoodAccessImportant
+Question type,Radio input
+Question,"When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
+Values,"-2 : Strongly disagree
+-1 : Somewhat disagree
+1 : Somewhat agree
+2 : Strongly agree"
+""
+""
+""
 Section,End
 Abbreviation,e_
 ""

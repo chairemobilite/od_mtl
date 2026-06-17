@@ -322,3 +322,9 @@ anyTripModeFrequenciesChoices:
     1dayPerWeek: 1 jour/sem.
     2to4daysPerWeek: 2 à 4 jours/sem.
     5DaysOrMorePerWeek: 5+ jours/sem.
+attitudinalChoices:
+    '-2': Pas du tout d'accord
+    '-1': Plutôt pas d'accord
+    '0': Ni d'accord ni pas d'accord
+    '1': Plutôt d'accord
+    '2': Tout à fait d'accord

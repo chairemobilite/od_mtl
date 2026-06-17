@@ -888,6 +888,58 @@ export const fillFrequenciesSectionTests = ({ context, householdSize }: CommonTe
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.anyTripModeFrequenciesCarDriver', value: '?' });
+
+    // Test nextbutton widget buttonCompleteFrequenciesSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the frequencies navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'frequencies', buttonStatus: 'completed', isDisabled: false });
+};
+
+/********** Tests Attitudinal section **********/
+export const fillAttitudinalSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the attitudinal navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'attitudinal', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for attitudinal section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'attitudinal', completionPercentage: 0 });
+
+    // Test infotext widget attitudinalIntro
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget attitudinalOpinion with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalOpinion', value: '?' });
+
+    // Test radio widget attitudinalCar with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalCar', value: '?' });
+
+    // Test radio widget attitudinalTransitGoodQuality with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalTransitGoodQuality', value: '?' });
+
+    // Test radio widget attitudinalFamiliarWithTransit with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalFamiliarWithTransit', value: '?' });
+
+    // Test radio widget attitudinalRequireHighLevel with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalRequireHighLevel', value: '?' });
+
+    // Test radio widget attitudinalEasyWithoutCar with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalEasyWithoutCar', value: '?' });
+
+    // Test radio widget attitudinalGoodAccessImportant with choices attitudinalChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: 'freqAttitudinal.attitudinalGoodAccessImportant', value: '?' });
+
+    // Test nextbutton widget buttonCompleteAttitudinalSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the attitudinal navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'attitudinal', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests End section **********/

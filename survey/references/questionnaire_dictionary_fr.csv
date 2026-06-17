@@ -1086,6 +1086,67 @@ Valeurs,"neverOrRarely : Jamais/Rarement
 ""
 ""
 ""
+Section,Questions attitudinales
+Abréviation,att_
+""
+Champ,attitudinalOpinion
+Type de question,Bouton radio
+Question,"L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels."
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalCar
+Type de question,Bouton radio
+Question,La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalTransitGoodQuality
+Type de question,Bouton radio
+Question,"Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité."
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalFamiliarWithTransit
+Type de question,Bouton radio
+Question,"Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences)."
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalRequireHighLevel
+Type de question,Bouton radio
+Question,"Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). "
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalEasyWithoutCar
+Type de question,Bouton radio
+Question,"Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. "
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+Champ,attitudinalGoodAccessImportant
+Type de question,Bouton radio
+Question,"Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi."
+Valeurs,"-2 : Pas du tout d'accord
+-1 : Plutôt pas d'accord
+1 : Plutôt d'accord
+2 : Tout à fait d'accord"
+""
+""
+""
 Section,Fin
 Abréviation,e_
 ""

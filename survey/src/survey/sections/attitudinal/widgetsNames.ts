@@ -5,11 +5,13 @@
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 
 export const widgetsNames: SectionConfig['widgets'] = [
-    'anyTripModeFrequenciesIntro',
-    'anyTripModeFrequenciesWalk',
-    'anyTripModeFrequenciesBicycle',
-    'anyTripModeFrequenciesTransit',
-    'anyTripModeFrequenciesCarPassenger',
-    'anyTripModeFrequenciesCarDriver',
-    'buttonCompleteFrequenciesSection'
+    'attitudinalIntro',
+    'attitudinalOpinion',
+    'attitudinalCar',
+    'attitudinalTransitGoodQuality',
+    'attitudinalFamiliarWithTransit',
+    'attitudinalRequireHighLevel',
+    'attitudinalEasyWithoutCar',
+    'attitudinalGoodAccessImportant',
+    'buttonCompleteAttitudinalSection'
 ];

@@ -18,3 +18,4 @@ anyTripModeFrequenciesTransit: >-
     train)
 anyTripModeFrequenciesCarPassenger: 'Frequency of use of the mode: <strong>Car passenger</strong>'
 anyTripModeFrequenciesCarDriver: 'Frequency of use of the mode: <strong>Car driver</strong>'
+buttonCompleteFrequenciesSection: Continue
