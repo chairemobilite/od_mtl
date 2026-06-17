@@ -244,7 +244,7 @@ visitedPlaceDepartureTime_workOnTheRoad_one: 'You finished your trips on the roa
     at:'
 activityCategories:
     work: Work
-    school: School
+    schoolStudies_interval: (1-15)[School];(15-inf)[Studies];
     shoppingServiceRestaurant: Shopping, Services or Restaurant
     dropFetchSomeone: Drop someone off or Pick someone up
     leisure: Leisure (sport, arts, stroll, etc.)
