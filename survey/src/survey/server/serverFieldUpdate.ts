@@ -1,4 +1,6 @@
 import moment from 'moment-business-days';
+import { booleanPointInPolygon } from '@turf/turf';
+import { isFeature, isPoint } from 'geojson-validation';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { validateAccessCode } from 'evolution-backend/lib/services/accessCode';
 import { getPath, getResponse } from 'evolution-common/lib/utils/helpers';
@@ -12,6 +14,7 @@ import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
+import { getPointZone } from '../common/commonHelpers';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -279,9 +282,37 @@ export default [
                 // Set the access code as confirmed
                 prefilledResponses['_accessCodeConfirmed'] = true;
 
+                // Set the home RA is the prefilled response contains a home geography
+                if (
+                    prefilledResponses['home.geography'] &&
+                    isFeature(prefilledResponses['home.geography']) &&
+                    isPoint((prefilledResponses['home.geography'] as GeoJSON.Feature).geometry)
+                ) {
+                    prefilledResponses['home.RA'] = getPointZone(
+                        prefilledResponses['home.geography'] as GeoJSON.Feature<GeoJSON.Point>
+                    );
+                }
+
                 return setPartialSamples(interview, prefilledResponses);
             } catch (error) {
                 console.error('error getting server update fields for accessCode', error);
+                return {};
+            }
+        }
+    },
+    {
+        field: 'home.geography',
+        callback: async (interview: InterviewAttributes, value) => {
+            try {
+                // Set the correct RA for the home geography
+
+                // If the point is not a feature, set to null
+                if (_isBlank(value) || !isFeature(value) || !isPoint(value.geometry)) {
+                    return { 'home.RA': null };
+                }
+                return { 'home.RA': getPointZone(value) };
+            } catch (error) {
+                console.error('error getting server update fields for home geography', error);
                 return {};
             }
         }

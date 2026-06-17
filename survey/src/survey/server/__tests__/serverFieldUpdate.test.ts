@@ -239,6 +239,50 @@ describe('access code update', () => {
         randomMock.mockRestore();
     });
 
+    test.each([
+        { title: 'RA1', expected: 1, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expected: 8, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
+    ])('test home region assignation with geometry $title', async ({ expected, geography }) => {
+        const interview = _cloneDeep(baseInterview);
+
+        // Prepare data to return
+        const prefillData = {
+            'home.address': '123 Main St',
+            'home.city': 'Montreal',
+            'home.postalCode': 'H1A 1A1',
+            'home._addressIsPrefilled': true,
+            'home.geography': geography
+        }
+        preFilledMock.mockResolvedValueOnce(prefillData);
+        const updateResult = await updateCallback(interview, '1111-1111');
+
+        expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
+        expect(updateResult['home.RA']).toEqual(expected);
+    });
+
+});
+
+describe('home geography update', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === 'home.geography') as any).callback;
+
+    test.each([
+        { title: 'RA1', expected: 1, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expected: 8, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'not a point', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
+        { title: 'not a geojson feature', expected: null, geography: 'a string value' },
+        { title: 'undefined', expected: null, geography: undefined }
+    ])('test home geography update: $title', async ({ expected, geography }) => {
+        const interview = _cloneDeep(baseInterview);
+
+        const updateResult = await updateCallback(interview, geography);
+
+        expect(updateResult['home.RA']).toEqual(expected);
+    });
 });
 
 describe('test survey day assignation', function () {
