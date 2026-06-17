@@ -13,9 +13,10 @@ import {
     shouldAskForNoWorkTripReason,
     shouldDisplayTripJunction
 } from './helper';
-import { isStudentFromEnrolled } from './customHelpers';
+import { isPartialSample, isStudentFromEnrolled } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
+import { getPointZone } from './commonHelpers';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -384,12 +385,49 @@ export const isCarDriverAndShouldShowPaidParkingCustomConditional: WidgetConditi
         throw new Error('isCarDriverAndShouldShowPaidParkingCustomConditional label: Segment context not found');
     }
     const { journey, trip, segment } = segmentContext;
-    // Show for partial sample 'paidParking'
-    const epExclusif = surveyHelper.getResponse(interview, 'epExclusif', null);
-    if (segment.mode !== 'carDriver' && epExclusif === 'paidParking') {
+    // Show for partial sample 'paidParking' and car driver
+    if (segment.mode !== 'carDriver' || !isPartialSample(interview, 'paidParking')) {
         return [false, null];
     }
-    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/17
+
+    // Validation de la région d'analyse + motifs
+    const tripDestination = odSurveyHelper.getDestination({
+        trip,
+        visitedPlaces: odSurveyHelper.getVisitedPlaces({ journey })
+    });
+    if (tripDestination && tripDestination.geography) {
+        const destinationRegion = getPointZone(tripDestination.geography);
+        if (destinationRegion === null) {
+            return [false, null];
+        }
+        /*
+        ```
+        RA x motifs spécifiés:
+            (usualSchoolPlace || norUsualSchoolPlace) && RA8 IN 1:8
+            usualWorkPlace && RA8 IN 1:6
+            leisure && RA8 IN 1:2
+            helth && RA8 IN 1:2
+            notUsualWorkPlace && RA IN 1:2
+            visit && RA8 == 1
+            shopping && RA8 == 1
+        ```
+        */
+        if (tripDestination.activity === 'schoolUsual' || tripDestination.activity === 'schoolNotUsual') {
+            return [true, null];
+        } else if (tripDestination.activity === 'workUsual') {
+            return [destinationRegion <= 6, null];
+        } else if (
+            tripDestination.activityCategory === 'leisure' ||
+            tripDestination.activity === 'medical' ||
+            tripDestination.activity === 'workNotUsual'
+        ) {
+            return [destinationRegion <= 2, null];
+        } else if (tripDestination.activity === 'visiting') {
+            return [destinationRegion === 1, null];
+        } else if (tripDestination.activity === 'shopping') {
+            return [destinationRegion === 1, null];
+        }
+    }
     return [false, null];
 };
 
