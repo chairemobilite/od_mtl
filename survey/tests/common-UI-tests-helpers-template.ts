@@ -856,6 +856,28 @@ export const fillLongdistanceSectionTests = ({ context, householdSize }: CommonT
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'longDistance', buttonStatus: 'completed', isDisabled: false });
 };
 
+/********** Tests Selectfreqperson section **********/
+export const fillSelectfreqpersonSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the selectFreqPerson navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectFreqPerson', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for selectFreqPerson section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'selectFreqPerson', completionPercentage: 0 });
+
+    // Test infotext widget selectFreqPersonIntro
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget selectFreqPerson with choices hhAge16PlusCustomChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: '_freqPersonId', value: '?' });
+
+    // Test nextbutton widget buttonCompleteSelectFreqPersonSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the selectFreqPerson navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'selectFreqPerson', buttonStatus: 'completed', isDisabled: false });
+};
+
 /********** Tests Frequencies section **********/
 export const fillFrequenciesSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the frequencies navigation is active
@@ -940,6 +962,137 @@ export const fillAttitudinalSectionTests = ({ context, householdSize }: CommonTe
 
     // Verify the attitudinal navigation is completed
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'attitudinal', buttonStatus: 'completed', isDisabled: false });
+};
+
+/********** Tests Barriers section **********/
+export const fillBarriersSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the barriers navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'barriers', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for barriers section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'barriers', completionPercentage: 0 });
+
+    // Test infotext widget barriersTrip with conditional hasBarrierTripConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersTrip', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test infotext widget barriersIntro with conditional hasBarrierTripConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget barriersFrequency with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersFrequency', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersFrequency', value: '?' });
+
+    // Test radio widget barriersReliability with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersReliability', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersReliability', value: '?' });
+
+    // Test radio widget barriersWalk with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersWalk', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersWalk', value: '?' });
+
+    // Test radio widget barriersTime with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersTime', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersTime', value: '?' });
+
+    // Test radio widget barriersTransfer with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersTransfer', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersTransfer', value: '?' });
+
+    // Test radio widget barriersSecurity with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersSecurity', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersSecurity', value: '?' });
+
+    // Test radio widget barriersPlanning with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersPlanning', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersPlanning', value: '?' });
+
+    // Test infotext widget barriersDisabilityTrip with conditional hasBarrierDisabilityTripConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTrip', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test infotext widget barriersDisabilityIntro with conditional hasBarrierDisabilityTripConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test radio widget barriersDisabilityFrequency with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityFrequency', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityFrequency', value: '?' });
+
+    // Test radio widget barriersDisabilityReliability with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityReliability', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityReliability', value: '?' });
+
+    // Test radio widget barriersDisabilityWalk with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityWalk', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityWalk', value: '?' });
+
+    // Test radio widget barriersDisabilityTime with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTime', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityTime', value: '?' });
+
+    // Test radio widget barriersDisabilityTransfer with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTransfer', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityTransfer', value: '?' });
+
+    // Test radio widget barriersDisabilitySecurity with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilitySecurity', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilitySecurity', value: '?' });
+
+    // Test radio widget barriersDisabilityUniversalAccessibility with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityUniversalAccessibility', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityUniversalAccessibility', value: '?' });
+
+    // Test radio widget barriersDisabilityPlanning with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityPlanning', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityPlanning', value: '?' });
+
+    // Test radio widget barriersDisabilityCourtesy with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityCourtesy', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'barriersDisabilityCourtesy', value: '?' });
+
+    // Test nextbutton widget buttonCompleteBarriersSection
+    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
+
+    // Verify the barriers navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'barriers', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests End section **********/

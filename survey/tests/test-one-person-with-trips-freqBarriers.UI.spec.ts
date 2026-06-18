@@ -13,11 +13,6 @@ const context = {
     widgetTestCounters: {}
 };
 
-// Survey credentials, no long distance section, no trips, one person in the
-// household, should go to frequency section.
-const postalCode = 'J6A 8G4';
-const accessCode = '7357-1119';
-
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });
 
@@ -31,8 +26,64 @@ test.afterAll(async () => {
     await commonUITestsHelpers.deleteParticipantInterview(accessCode);
 });
 
+// Define the visited places for this test scenario
+const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
+    {
+        activityCategory: 'shoppingServiceRestaurant',
+        activity: 'shopping',
+        onTheRoadDepartureType: null, // Question won't show.
+        onTheRoadArrivalType: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
+        shortcut: null, // Question won't show.
+        name: 'Sports Experts Atwater',
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: 32400, // 9:00 AM
+        arrivalTime: 34200, // 9:30 AM
+        nextPlaceCategory: 'wentBackHome',
+        departureTime: 39600 // 11:00 AM
+    },
+    {
+        activityCategory: 'home',
+        activity: null, // Question won't show.
+        onTheRoadDepartureType: null, // Question won't show.
+        onTheRoadArrivalType: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
+        shortcut: null, // Question won't show.
+        name: null, // Question won't show.
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: null, // Question won't show.
+        arrivalTime: 41400, // 11:30 AM
+        nextPlaceCategory: 'stayedThereUntilTheNextDay',
+        departureTime: null // Question won't show.
+    }
+];
+
+// Define the segments for this test scenario, second trip should be selected for barriers
+const segments: commonUITestsHelpers.Segment[] = [
+    {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
+        segmentIndex: 0,
+        modePre: 'taxi',
+        mode: 'taxi',
+        hasNextMode: false
+    },
+    {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
+        segmentIndex: 0,
+        modePre: 'carDriver',
+        mode: 'carDriver',
+        vehicleOccupancy: 2,
+        hasNextMode: false
+    }
+];
+
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination
+// Start the survey using an access code and postal code combination that does not exist in the database.
+// The survey should still start a new interview with these credentials.
+const postalCode = 'J6A 8G4';
+const accessCode = '7357-1120';
 surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
     context,
     title: 'Perspectives Mobilité 2026',
@@ -59,8 +110,24 @@ commonUITestsHelpers.fillHouseholdSectionWithMembersTests({ context, householdMe
 commonUITestsHelpers.fillTripsintroSectionTests({
     context,
     householdSize: 1,
-    hasTrips: false,
+    hasTrips: true,
     expectPopup: false,
+    expectedNextSection: 'visitedPlaces'
+});
+
+/********** Tests visited places section **********/
+commonUITestsHelpers.fillVisitedPlacesSectionTests({
+    context,
+    householdSize: 1,
+    visitedPlaces,
+    journeyStartsAtHome: true
+});
+
+/********** Tests segments section **********/
+commonUITestsHelpers.fillSegmentsSectionTests({
+    context,
+    householdSize: 1,
+    segments,
     expectedNextSection: 'travelBehavior'
 });
 
@@ -87,37 +154,25 @@ commonUITestsHelpers.fillFrequenciesSectionTests({
     frequencySection: frequencies
 });
 
-// Go to the next section by clicking the next button
-testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/attitudinal' });
+// Go to the next section by clicking the next button, should be the barrier one
+testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/barriers' });
 
-/********** Tests attitudinal section **********/
-const attitudinal = _cloneDeep(commonUITestsHelpers.defaultAttitudinal);
-commonUITestsHelpers.fillAttitudinalSectionTests({
+/********** Tests barriers section **********/
+// There is a trip with carDriver that should be used for barrier questions
+// TODO Validate the trip's data
+const barriers = _cloneDeep(commonUITestsHelpers.defaultBarriers);
+barriers.barriersTripText = 'Sports Experts Atwater to Home at 11:00';
+commonUITestsHelpers.fillBarriersSectionTests({
     context,
     householdSize: 1,
-    attitudinalSection: attitudinal
+    barriersSection: barriers
 });
 
 // Go to the next section by clicking the next button, should be the end section
 // as there is no trips for barriers
 testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: '/survey/end' });
-
 /********** Tests end section **********/
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
 
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
-
-// Logout and log back in with same credentials, shoud log in directly
-testHelpers.logoutTest({ context });
-testHelpers.hasConsentTest({ context });
-testHelpers.startSurveyTest({ context });
-testHelpers.registerWithAccessPostalCodeTest({
-    context,
-    postalCode,
-    accessCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/completed'
-});
-
-// FIXME Validate the survey re-entry

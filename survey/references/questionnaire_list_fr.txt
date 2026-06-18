@@ -711,6 +711,18 @@ Continuer
 
 
 
+Section: Sélection du répondant aux fréquences
+
+Les questions suivantes visent à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà déclarés.
+Elles sont posées à un seul répondant du ménage.
+
+Qui répondra à ces questions?
+
+
+Confirmer
+
+
+
 Section: Fréquences par mode
 
 À quelle fréquence utilisez-vous les modes de transport suivants?
@@ -808,6 +820,148 @@ Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes)
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
+
+Continuer
+
+
+
+Section: Barrières
+
+Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+
+Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun (bus, métro, train ou REM), pour ce déplacement.
+
+La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+
+Pour le déplacement indiqué ci-dessus, vous avez utilisé le transport adapté. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun service régulier (bus, métro, train ou REM), pour ce déplacement.
+
+La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+Le manque d’accessibilité (ascenseurs, rampes, sièges réservés, bancs, affichage visuel, information sonore, etc.)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
+
+Le manque de civilité (céder son siège, enlever son sac, gens qui bloquent l’accès à un poteau pour se tenir ou devant les portes) et/ou la présence d’attitude discriminatoire (regard hostile) 
+- Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
+- Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+- Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+- Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+- Frein décisif - J’ai évité le TC principalement pour cette raison.
+- Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
 Continuer
 

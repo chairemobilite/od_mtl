@@ -9,7 +9,9 @@ segments,s_,Modes de transport,Modes of transport,0,0,0,personsTrips
 travelBehavior,tb_,Mobilité,Travel behavior,0,0,0,personsTrips
 omissions,o_,Oublis,Omissions,0,0,0,end
 longDistance,ld_,Déplacements longue distance,Long distance trips,0,0,0,end
+selectFreqPerson,sfp_,Sélection du répondant aux fréquences,Frequencies respondent selection,0,0,0,end
 frequencies,freq_,Fréquences par mode,Mode frequencies,0,0,0,end
 attitudinal,att_,Questions attitudinales,Attitudinal questions,0,0,0,end
+barriers,barr_,Barrières,Barriers,0,0,0,end
 end,e_,Fin,End,1,0,0,
 completed,c_,Questionnaire complété,Survey completed,0,0,1,end
