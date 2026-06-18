@@ -16,7 +16,7 @@ const context = {
 // Survey credentials, no long distance section, no trips, one person in the
 // household, should go to omissions section.
 const postalCode = 'H3B 0A7';
-const accessCode = '7357-1116';
+const accessCode = '7357-3116';
 
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });
@@ -43,10 +43,89 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 });
 
 /********** Tests home section **********/
-commonUITestsHelpers.fillHomeSectionTests({ context });
+commonUITestsHelpers.fillHomeSectionTests({
+    context,
+    home: {
+        ...commonUITestsHelpers.defaultHome,
+        householdSize: 3,
+        householdCarSharing: 'yes',
+        householdBikesharing: 'yes',
+        householdAtLeastOnePersonWithDisability: 'no'
+    }
+});
 
 /********** Tests household section **********/
-commonUITestsHelpers.fillHouseholdSectionTests({ context, householdSize: 1 });
+// A parent and 2 children
+const parent = {
+    ...commonUITestsHelpers.defaultPerson1,
+    nickname: 'Serge',
+    hasDisability: null
+};
+const child1 = {
+    personIndex: 0,
+    nickname: 'Oliver',
+    age: 2,
+    gender: null,
+    genderCustom: null,
+    drivingLicenseOwnership: null,
+    carSharingMember: null,
+    usedTransitInLast30Days: null,
+    transitPass: null,
+    transitFare: null,
+    transitFareWarning: null,
+    hasDisability: null,
+    disabilities: null,
+    disabilitiesSpecify: null,
+    mobilityAssistiveDevices: null,
+    mobilityAssistiveDevicesSpecify: null,
+    mostUsedMobilityAssistiveDevice: null,
+    useParatransit: null,
+    useParatransitFrequency: null,
+    useParatransitTransitFrequency: null,
+    workerType: null,
+    studentType: null,
+    jobType: null,
+    workPlaceType: null,
+    workDays: null,
+    travelToWorkDays: null,
+    educationalAttainment: null,
+    occupation: null, // Question won't show.
+    bikesharingUsage: null,
+    bikesharingMembership: null
+};
+const child2 = {
+    personIndex: 0,
+    nickname: 'Olivia',
+    age: 2,
+    gender: null,
+    genderCustom: null,
+    drivingLicenseOwnership: null,
+    carSharingMember: null,
+    usedTransitInLast30Days: null,
+    transitPass: null,
+    transitFare: null,
+    transitFareWarning: null,
+    hasDisability: null,
+    disabilities: null,
+    disabilitiesSpecify: null,
+    mobilityAssistiveDevices: null,
+    mobilityAssistiveDevicesSpecify: null,
+    mostUsedMobilityAssistiveDevice: null,
+    useParatransit: null,
+    useParatransitFrequency: null,
+    useParatransitTransitFrequency: null,
+    workerType: null,
+    studentType: null,
+    jobType: null,
+    workPlaceType: null,
+    workDays: null,
+    travelToWorkDays: null,
+    educationalAttainment: null,
+    occupation: null, // Question won't show.
+    bikesharingUsage: null,
+    bikesharingMembership: null
+};
+commonUITestsHelpers.fillHouseholdSectionWithMembersTests({ context, householdMembers: [parent, child1, child2] });
 
 /********** Tests tripsIntro section **********/
 commonUITestsHelpers.fillTripsintroSectionTests({
@@ -68,12 +147,17 @@ commonUITestsHelpers.fillTravelBehaviorSectionTests({
 
 /********** Tests omissions section **********/
 const omissions = _cloneDeep(commonUITestsHelpers.defaultOmissionsSection);
-// The toddler daycare should not be present as there is no child in the household
-omissions.toddlerDaycare = null;
-omissions.hasOmittedTrips = 'yes';
-omissions.hasOmittedTripsIntro = 'for your unreported trips';
-omissions.hasOmittedTripsActivity = ['work', 'shopping', 'leisure'];
-omissions.hasOmittedTripsMode = ['walk'];
+// Filling the most fields as possible, to cover all the conditional checks.
+omissions.toddlerDaycare = 'yes';
+omissions.toddlerDaycareDropoff = ['yes', 'no']; // FIXME: This should be filled with the actual values.
+omissions.toddlerDaycareDropoffMode = 'walk';
+omissions.toddlerDaycarePickup = ['yes', 'no']; // FIXME: This should be filled with the actual values.
+omissions.toddlerDaycarePickupMode = 'walk';
+// Omission block is not shown for this case
+omissions.hasOmittedTrips = null;
+omissions.hasOmittedTripsIntro = null;
+omissions.hasOmittedTripsActivity = null;
+omissions.hasOmittedTripsMode = null;
 commonUITestsHelpers.fillOmissionsSectionTests({
     context,
     householdSize: 1,

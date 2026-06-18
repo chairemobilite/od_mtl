@@ -6,12 +6,17 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
-import { isPartialSample } from '../../common/customHelpers';
+import { isPartialSample, shouldShowToddlerDayCareQuestions } from '../../common/customHelpers';
 
 export const currentSectionName: string = 'omissions';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
 const nextSectionName: SectionConfig['nextSection'] = 'longDistance';
 const parentSection = 'end';
+
+const isSectionVisible = (interview) => {
+    // Visible seulement si échantillon partiel est omission ou s'il faut montrer les questions de daycare
+    return isPartialSample(interview, 'omission') || shouldShowToddlerDayCareQuestions(interview);
+};
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
@@ -33,16 +38,10 @@ export const sectionConfig: SectionConfig = {
     },
     // Determine if the current section is completed
     completionConditional: function (interview) {
-        // Complété si échantillon partiel n'est pas omission ou effectivement complété
-        return (
-            !isPartialSample(interview, 'omission') ||
-            isSectionCompleted({ interview, sectionName: currentSectionName })
-        );
+        // Complété si échantillon partiel n'est pas omission, ni si les questions d'omission de déplacement garderie ne doivent pas être montrées ou effectivement complété
+        return !isSectionVisible(interview) || isSectionCompleted({ interview, sectionName: currentSectionName });
     },
-    isSectionVisible: (interview) => {
-        // Visible seulement si échantillon partiel est omission
-        return isPartialSample(interview, 'omission');
-    }
+    isSectionVisible
 };
 
 export default sectionConfig;

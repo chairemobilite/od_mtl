@@ -149,3 +149,37 @@ export const getBarriersTripPath = (interview: InterviewAttributes) =>
 
 export const getBarriersDisabilityTripPath = (interview: InterviewAttributes) =>
     getBarriersTripPathForType('_barriersDisabilityTripPath', interview, validateTripForBarrierDisabilityQuestions);
+
+// Function to decide whether to show the toddler daycare questions
+const toddlerDaycarePartialSamples = ['paidParking', 'householdType', 'respect'];
+export const shouldShowToddlerDayCareQuestions = (interview: InterviewAttributes): boolean => {
+    // Do not show if partial sample is not a valid one
+    if (!isPartialSample(interview, toddlerDaycarePartialSamples)) {
+        return false;
+    }
+    const allPersons = odSurveyHelpers.getPersonsArray({ interview });
+
+    // Make sure the household has children
+    const children = allPersons.filter(
+        (person) => typeof person.age === 'number' && person.age >= 1 && person.age <= 4
+    );
+    if (children.length === 0) {
+        // No children
+        return false;
+    }
+
+    // For all interviewable, see if there are trips for activity 'dropSomeone' or 'fetchSomeone'
+    const compatibleTrips = odSurveyHelpers
+        .getInterviewablePersonsArray({ interview })
+        .flatMap((person) =>
+            odSurveyHelpers
+                .getJourneysArray({ person })
+                .flatMap((journey) =>
+                    odSurveyHelpers
+                        .getVisitedPlacesArray({ journey })
+                        .filter((vp) => ['dropSomeone', 'fetchSomeone'].includes(vp.activity))
+                )
+        );
+    // Make visible if there are no trips to drop/fetch someone
+    return compatibleTrips.length === 0;
+};

@@ -127,6 +127,8 @@ commonUITestsHelpers.fillTravelBehaviorSectionTests({
     travelBehavior: travelBehaviorP2
 });
 
+// Omission section is skipped as there are no children to have toddler daycare trips.
+
 /********** Tests end section **********/
 const endSection = {
     ...commonUITestsHelpers.defaultEnd,

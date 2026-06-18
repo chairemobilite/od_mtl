@@ -310,7 +310,7 @@ export type LongDistanceSection = {
 };
 
 export type OmissionsSection = {
-    toddlerDaycare: 'yes' | 'no';
+    toddlerDaycare: 'yes' | 'no' | null;
     toddlerDaycareDropoff: string[] | null;
     toddlerDaycareDropoffMode: string | null;
     toddlerDaycarePickup: string[] | null;
@@ -2215,7 +2215,11 @@ export const fillOmissionsSectionTests = ({
     // Test radio widget toddlerDaycare with conditional toddlerDaycareCustomConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: omissions.toddlerDaycare });
+    if (omissions.toddlerDaycare === null) {
+        testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycare', isVisible: false });
+    } else {
+        testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: omissions.toddlerDaycare });
+    }
 
     // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
