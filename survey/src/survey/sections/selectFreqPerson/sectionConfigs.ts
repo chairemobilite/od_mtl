@@ -5,22 +5,26 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import {
+    hasMoreThanOnePersonOfDrivingAge,
+    isPartialSample,
+    updateHouseholdSizeFromPersonCount
+} from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 
-export const currentSectionName: string = 'attitudinal';
-const previousSectionName: SectionConfig['previousSection'] = 'frequencies';
-const nextSectionName: SectionConfig['nextSection'] = 'barriers';
+export const currentSectionName: string = 'selectFreqPerson';
+const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
+const nextSectionName: SectionConfig['nextSection'] = 'frequencies';
 
-const visibleEps = ['freqAttitudinal', 'freqAttitudinalBarriers'];
+const visibleEps = ['freqAttitudinal', 'freqAttitudinalBarriers', 'freqBarriers'];
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Questions attitudinales',
-        en: 'Attitudinal questions'
+        fr: 'Sélection du répondant aux fréquences',
+        en: 'Frequencies respondent selection'
     },
     navMenu: {
         type: 'hidden',
@@ -35,16 +39,19 @@ export const sectionConfig: SectionConfig = {
     },
     // Determine if the current section is completed
     completionConditional: function (interview) {
-        // Completed if ep is not mtmd or actually completed
+        // Completed if partial sample is not one of the frequencies or actually
+        // completed or if the household has only one person of driving age
         return (
             !isPartialSample(interview, visibleEps) ||
+            !hasMoreThanOnePersonOfDrivingAge(interview) ||
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
     },
     onSectionEntry: updateHouseholdSizeFromPersonCount,
     isSectionVisible: (interview) => {
-        // Section visible seulement si ep exclusif est est l'un des 3 avec freq
-        return isPartialSample(interview, visibleEps);
+        // Section visible seulement si échantillon partiel exclusif est est
+        // l'un des 3 avec freq et qu'il y a plus d'un membre en âge de conduire (16 ans)
+        return isPartialSample(interview, visibleEps) && hasMoreThanOnePersonOfDrivingAge(interview);
     }
 };
 

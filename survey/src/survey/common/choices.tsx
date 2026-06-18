@@ -1209,3 +1209,30 @@ export const attitudinalChoices: ChoiceType[] = [
         label: (t: TFunction) => t('choices:attitudinalChoices.2')
     }
 ];
+
+export const barriersChoices: ChoiceType[] = [
+    {
+        value: '0',
+        label: (t: TFunction) => t('choices:barriersChoices.0')
+    },
+    {
+        value: '1',
+        label: (t: TFunction) => t('choices:barriersChoices.1')
+    },
+    {
+        value: '2',
+        label: (t: TFunction) => t('choices:barriersChoices.2')
+    },
+    {
+        value: '3',
+        label: (t: TFunction) => t('choices:barriersChoices.3')
+    },
+    {
+        value: '4',
+        label: (t: TFunction) => t('choices:barriersChoices.4')
+    },
+    {
+        value: '-1',
+        label: (t: TFunction) => t('choices:barriersChoices.-1')
+    }
+];

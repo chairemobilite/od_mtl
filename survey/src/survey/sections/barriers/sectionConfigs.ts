@@ -5,22 +5,27 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import {
+    getBarriersDisabilityTripPath,
+    getBarriersTripPath,
+    isPartialSample,
+    updateHouseholdSizeFromPersonCount
+} from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 
-export const currentSectionName: string = 'attitudinal';
-const previousSectionName: SectionConfig['previousSection'] = 'frequencies';
-const nextSectionName: SectionConfig['nextSection'] = 'barriers';
+export const currentSectionName: string = 'barriers';
+const previousSectionName: SectionConfig['previousSection'] = 'attitudinal';
+const nextSectionName: SectionConfig['nextSection'] = 'end';
 
-const visibleEps = ['freqAttitudinal', 'freqAttitudinalBarriers'];
+const visibleEps = ['freqBarriers', 'freqAttitudinalBarriers'];
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Questions attitudinales',
-        en: 'Attitudinal questions'
+        fr: 'Freins au TC',
+        en: 'Barriers to transit'
     },
     navMenu: {
         type: 'hidden',
@@ -41,10 +46,22 @@ export const sectionConfig: SectionConfig = {
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
     },
-    onSectionEntry: updateHouseholdSizeFromPersonCount,
+    onSectionEntry: (interview) => {
+        const barrierTripPath = getBarriersTripPath(interview);
+        const barrierDisabilityTripPath = getBarriersDisabilityTripPath(interview);
+        return {
+            'response._barriersTripPath': barrierTripPath,
+            'response._barriersDisabilityTripPath': barrierDisabilityTripPath
+        };
+    },
     isSectionVisible: (interview) => {
         // Section visible seulement si ep exclusif est est l'un des 3 avec freq
-        return isPartialSample(interview, visibleEps);
+        if (!isPartialSample(interview, visibleEps)) {
+            return false;
+        }
+        const barrierTripPath = getBarriersTripPath(interview);
+        const barrierDisabilityTripPath = getBarriersDisabilityTripPath(interview);
+        return barrierTripPath !== null || barrierDisabilityTripPath !== null;
     }
 };
 

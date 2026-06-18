@@ -35,7 +35,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         onTheRoadArrivalType: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
-        name: 'Sports Expert Atwater',
+        name: 'Sports Experts Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM

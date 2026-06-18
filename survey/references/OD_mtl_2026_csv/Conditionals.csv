@@ -132,3 +132,5 @@ householdTypeConditional,&&,household.size,>=,2,,,si EP question typologie de m√
 householdTypeSpecifyConditional,,household.type,===,oneFamilyOnly,,,
 didRespondForCorrectAssignedDateConditional,,ep.exclusive,===,respect,,,si EP question respect jour assign√©
 didNotRespondForCorrectAssignedDateConditional,,end.didRespondForCorrectAssignedDate,===,no,,,
+hasBarrierTripConditional,,_barriersTripPath,!==,null,,,
+hasBarrierDisabilityTripConditional,,_barriersDisabilityTripPath,!==,null,,,

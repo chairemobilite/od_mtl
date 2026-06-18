@@ -1035,6 +1035,15 @@ Question,Veuillez fournir une adresse courriel de contact pour participer à une
 ""
 ""
 ""
+Section,Sélection du répondant aux fréquences
+Abréviation,sfp_
+""
+Champ,_freqPersonId
+Type de question,Bouton radio
+Question,Qui répondra à ces questions?
+""
+""
+""
 Section,Fréquences par mode
 Abréviation,freq_
 ""
@@ -1144,6 +1153,171 @@ Valeurs,"-2 : Pas du tout d'accord
 -1 : Plutôt pas d'accord
 1 : Plutôt d'accord
 2 : Tout à fait d'accord"
+""
+""
+""
+Section,Barrières
+Abréviation,barr_
+""
+Champ,barriersFrequency
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,"La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersReliability
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,"La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersWalk
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersTime
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,"La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersTransfer
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersSecurity
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,"La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersPlanning
+Type de question,Bouton radio
+Conditionnel,hasBarrierTripConditional : _barriersTripPath !== null
+Question,"La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityFrequency
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityReliability
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityWalk
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityTime
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityTransfer
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilitySecurity
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityUniversalAccessibility
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"Le manque d’accessibilité (ascenseurs, rampes, sièges réservés, bancs, affichage visuel, information sonore, etc.)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityPlanning
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)"
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
+""
+Champ,barriersDisabilityCourtesy
+Type de question,Bouton radio
+Conditionnel,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
+Question,"Le manque de civilité (céder son siège, enlever son sac, gens qui bloquent l’accès à un poteau pour se tenir ou devant les portes) et/ou la présence d’attitude discriminatoire (regard hostile) "
+Valeurs,"1 : Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
+2 : Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
+3 : Frein fort - Cette raison m’a fortement conduit à éviter le TC.
+4 : Frein décisif - J’ai évité le TC principalement pour cette raison.
+-1 : Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement."
 ""
 ""
 ""

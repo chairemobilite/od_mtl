@@ -328,3 +328,22 @@ attitudinalChoices:
     '0': Ni d'accord ni pas d'accord
     '1': Plutôt d'accord
     '2': Tout à fait d'accord
+barriersChoices:
+    '0': >-
+        <strong>Pas du tout un frein</strong> - Je n’ai pas évité le TC pour cette
+        raison.
+    '1': >-
+        <strong>Frein léger</strong> - Cette raison a un peu contribué à ce que je
+        n’utilise pas le TC, sans changer mon choix.
+    '2': >-
+        <strong>Frein modéré</strong> - Cette raison a compté dans ma décision d’éviter
+        le TC, parmi d’autres facteurs.
+    '3': >-
+        <strong>Frein fort</strong> - Cette raison m’a fortement conduit à éviter
+        le TC.
+    '4': >-
+        <strong>Frein décisif</strong> - J’ai évité le TC principalement pour cette
+        raison.
+    '-1': >-
+        <strong>Je ne sais pas</strong> - Je ne peux pas dire si cette raison m’a
+        amené à éviter le TC pour ce déplacement.

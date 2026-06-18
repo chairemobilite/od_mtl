@@ -10,7 +10,7 @@ import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../commo
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
-const nextSectionName: SectionConfig['nextSection'] = 'frequencies';
+const nextSectionName: SectionConfig['nextSection'] = 'selectFreqPerson';
 const parentSection = 'end';
 
 // Config for the section

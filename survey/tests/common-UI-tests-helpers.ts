@@ -2623,6 +2623,277 @@ export const fillAttitudinalSectionTests = ({
     });
 };
 
+/********** Tests for attitudinal section **********/
+export type BarriersSection = {
+    barriersVisible: boolean;
+    barriersTripText: string | null; // Null won't check the text, otherwise validate the text here
+    barriersFrequency: string | null;
+    barriersReliability: string | null;
+    barriersWalk: string | null;
+    barriersTime: string | null;
+    barriersTransfer: string | null;
+    barriersSecurity: string | null;
+    barriersPlanning: string | null;
+    barriersDisabilityVisible: boolean;
+    barriersDisabilityTripText: string | null; // Null won't check the text, otherwise validate the text here
+    barriersDisabilityFrequency: string | null;
+    barriersDisabilityReliability: string | null;
+    barriersDisabilityWalk: string | null;
+    barriersDisabilityTime: string | null;
+    barriersDisabilityTransfer: string | null;
+    barriersDisabilitySecurity: string | null;
+    barriersDisabilityUniversalAccessibility: string | null;
+    barriersDisabilityPlanning: string | null;
+    barriersDisabilityCourtesy: string | null;
+};
+
+// Set defaults, with values for barriers and disability invisible
+export const defaultBarriers: BarriersSection = {
+    barriersVisible: true,
+    barriersTripText: null,
+    barriersFrequency: '0',
+    barriersReliability: '1',
+    barriersWalk: '2',
+    barriersTime: '3',
+    barriersTransfer: '4',
+    barriersSecurity: '0',
+    barriersPlanning: '-1',
+    barriersDisabilityVisible: false,
+    barriersDisabilityTripText: null,
+    barriersDisabilityFrequency: null,
+    barriersDisabilityReliability: null,
+    barriersDisabilityWalk: null,
+    barriersDisabilityTime: null,
+    barriersDisabilityTransfer: null,
+    barriersDisabilitySecurity: null,
+    barriersDisabilityUniversalAccessibility: null,
+    barriersDisabilityPlanning: null,
+    barriersDisabilityCourtesy: null
+};
+
+export type BarriersTestParameters = CommonTestParametersModify & {
+    barriersSection?: BarriersSection;
+};
+
+export const fillBarriersSectionTests = ({
+    context,
+    householdSize,
+    barriersSection = defaultBarriers
+}: BarriersTestParameters) => {
+    // Verify the end navigation is active as it is this section's parent
+    // FIXME Enable this test once it works see https://github.com/chairemobilite/od_mtl/issues/132
+    /* testHelpers.verifyNavBarButtonStatus({
+        context,
+        buttonText: 'end',
+        buttonStatus: 'active',
+        isDisabled: false
+    }); */
+
+    // Test the visibility of the barriers questions
+    if (!barriersSection.barriersVisible) {
+        testHelpers.inputVisibleTest({ context, path: 'barriersFrequency', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersReliability', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersWalk', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersTime', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersTransfer', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersSecurity', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersPlanning', isVisible: false });
+    } else {
+        if (barriersSection.barriersTripText !== null) {
+            testHelpers.waitTextVisible({ context, text: barriersSection.barriersTripText });
+        }
+        testHelpers.inputVisibleTest({ context, path: 'barriersFrequency', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersReliability', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersWalk', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersTime', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersTransfer', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersSecurity', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersPlanning', isVisible: true });
+    }
+
+    // Fill all non-null values for the widgets of the barrier block
+
+    // Test radio widget barriersFrequency with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersFrequency !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersFrequency', value: barriersSection.barriersFrequency });
+    }
+
+    // Test radio widget barriersReliability with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersReliability !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersReliability',
+            value: barriersSection.barriersReliability
+        });
+    }
+
+    // Test radio widget barriersWalk with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersWalk !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersWalk', value: barriersSection.barriersWalk });
+    }
+
+    // Test radio widget barriersTime with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersTime !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersTime', value: barriersSection.barriersTime });
+    }
+
+    // Test radio widget barriersTransfer with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersTransfer !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersTransfer', value: barriersSection.barriersTransfer });
+    }
+
+    // Test radio widget barriersSecurity with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersSecurity !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersSecurity', value: barriersSection.barriersSecurity });
+    }
+
+    // Test radio widget barriersPlanning with conditional hasBarrierTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersPlanning !== null) {
+        testHelpers.inputRadioTest({ context, path: 'barriersPlanning', value: barriersSection.barriersPlanning });
+    }
+
+    // Test the visibility of the disability barriers questions
+    if (!barriersSection.barriersDisabilityVisible) {
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityFrequency', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityReliability', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityWalk', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTime', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTransfer', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilitySecurity', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityUniversalAccessibility', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityPlanning', isVisible: false });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityCourtesy', isVisible: false });
+    } else {
+        if (barriersSection.barriersDisabilityTripText !== null) {
+            testHelpers.waitTextVisible({ context, text: barriersSection.barriersDisabilityTripText });
+        }
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityFrequency', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityReliability', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityWalk', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTime', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTransfer', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilitySecurity', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityUniversalAccessibility', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityPlanning', isVisible: true });
+        testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityCourtesy', isVisible: true });
+    }
+
+    // Fill all non-null widgets for the disability block
+
+    // Test radio widget barriersDisabilityFrequency with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityFrequency !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityFrequency',
+            value: barriersSection.barriersDisabilityFrequency
+        });
+    }
+
+    // Test radio widget barriersDisabilityReliability with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityReliability !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityReliability',
+            value: barriersSection.barriersDisabilityReliability
+        });
+    }
+
+    // Test radio widget barriersDisabilityWalk with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityWalk !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityWalk',
+            value: barriersSection.barriersDisabilityWalk
+        });
+    }
+
+    // Test radio widget barriersDisabilityTime with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityTime !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityTime',
+            value: barriersSection.barriersDisabilityTime
+        });
+    }
+
+    // Test radio widget barriersDisabilityTransfer with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityTransfer !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityTransfer',
+            value: barriersSection.barriersDisabilityTransfer
+        });
+    }
+
+    // Test radio widget barriersDisabilitySecurity with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilitySecurity !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilitySecurity',
+            value: barriersSection.barriersDisabilitySecurity
+        });
+    }
+
+    // Test radio widget barriersDisabilityUniversalAccessibility with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityUniversalAccessibility !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityUniversalAccessibility',
+            value: barriersSection.barriersDisabilityUniversalAccessibility
+        });
+    }
+
+    // Test radio widget barriersDisabilityPlanning with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityPlanning !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityPlanning',
+            value: barriersSection.barriersDisabilityPlanning
+        });
+    }
+
+    // Test radio widget barriersDisabilityCourtesy with conditional hasBarrierDisabilityTripConditional with choices barriersChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (barriersSection.barriersDisabilityCourtesy !== null) {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'barriersDisabilityCourtesy',
+            value: barriersSection.barriersDisabilityCourtesy
+        });
+    }
+};
+
 /********** Tests end section **********/
 export type EndSection = {
     householdType: string | null;

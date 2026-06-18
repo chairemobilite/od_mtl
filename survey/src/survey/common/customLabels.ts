@@ -7,7 +7,10 @@ import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
-import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
+import {
+    getFormattedDate,
+    secondsSinceMidnightToTimeStrWithSuffix
+} from 'evolution-frontend/lib/services/display/frontendHelper';
 import { transitFareType } from './choices';
 
 const labelWithJourneyDate =
@@ -275,4 +278,54 @@ export const didRespondForCorrectDateCustomLabel: I18nData = labelWithAssignedDa
 
 export const didNotRespondForCorrectDateReasonCustomLabel: I18nData = labelWithAssignedDate(
     'end:didNotRespondForCorrectAssignedDateReasons'
+);
+
+// Get a label with the details of a trip, from a trip's path available in some field
+const placeDescriptionOption = {
+    withTimes: false,
+    withActivity: false,
+    withPersonIdentification: false,
+    allowHtml: false
+};
+export const labelWithTripData =
+    (translationKey: string, tripPathKey: string): I18nData =>
+        (t: TFunction, interview, path) => {
+            const tripPath = getResponse(interview, tripPathKey) as string;
+            if (_isBlank(tripPath)) {
+                throw new Error('labelWithTripData: The requested trip path does not exist');
+            }
+            const tripContext = odHelpers.getTripContextFromPath({ interview, path: tripPath });
+            if (tripContext === null) {
+                throw new Error('labelWithTripData: There is no trip for path ' + tripPath);
+            }
+            const { person, journey, trip } = tripContext;
+            const visitedPlaces = odHelpers.getVisitedPlaces({ journey });
+            const origin = odHelpers.getOrigin({ trip, visitedPlaces });
+            const destination = odHelpers.getDestination({ trip, visitedPlaces });
+
+            return t(translationKey, {
+                activity: t(`visitedPlaces:activities.${destination.activity}`),
+                origin: odHelpers.getVisitedPlaceDescription({
+                    visitedPlace: origin,
+                    interview,
+                    person,
+                    t,
+                    options: placeDescriptionOption
+                }),
+                destination: odHelpers.getVisitedPlaceDescription({
+                    visitedPlace: destination,
+                    interview,
+                    person,
+                    t,
+                    options: placeDescriptionOption
+                }),
+                originDepartureTime: secondsSinceMidnightToTimeStrWithSuffix(origin.departureTime)
+            });
+        };
+
+export const barriersTripCustomLabel: I18nData = labelWithTripData('barriers:barriersTrip', '_barriersTripPath');
+
+export const barriersDisabilityTripCustomLabel: I18nData = labelWithTripData(
+    'barriers:barriersDisabilityTrip',
+    '_barriersDisabilityTripPath'
 );

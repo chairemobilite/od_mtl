@@ -1395,3 +1395,29 @@ export const didNotRespondForCorrectAssignedDateConditional: WidgetConditional =
         ]
     });
 };
+
+export const hasBarrierTripConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: '_barriersTripPath',
+                comparisonOperator: '!==',
+                value: null
+            }
+        ]
+    });
+};
+
+export const hasBarrierDisabilityTripConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: '_barriersDisabilityTripPath',
+                comparisonOperator: '!==',
+                value: null
+            }
+        ]
+    });
+};
