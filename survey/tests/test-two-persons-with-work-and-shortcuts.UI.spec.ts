@@ -36,49 +36,65 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     personIndex: 0,
     nickname: 'Martha',
     age: 30,
-    sexAssignedAtBirth: 'female',
-    gender: null,
+    gender: 'female',
     genderCustom: null,
-    workerType: 'fullTime',
-    studentType: 'no',
-    schoolType: null, // Question won't show.
-    occupation: null, // Question won't show.
-    workerTypeBeforeLeave: null, // Question won't show.
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
     drivingLicenseOwnership: 'yes',
     carSharingMember: 'yes',
-    transitPasses: ['no'],
+    usedTransitInLast30Days: 'no',
+    transitPass: null,
+    transitFare: null,
+    transitFareWarning: null,
     hasDisability: 'no',
+    disabilities: null,
+    disabilitiesSpecify: null,
+    mobilityAssistiveDevices: null,
+    mobilityAssistiveDevicesSpecify: null,
+    mostUsedMobilityAssistiveDevice: null,
+    useParatransit: null,
+    useParatransitFrequency: null,
+    useParatransitTransitFrequency: null,
+    workerType: 'fullTime',
+    studentType: 'no',
+    jobType: 'administration',
     workPlaceType: 'onLocation',
-    workPlaceTypeBeforeLeave: null,
-    schoolPlaceType: null,
-    usualSchoolPlace: null,
-    travelToWorkDays: ['no'],
-    remoteWorkDays: null
+    workDays: null,
+    travelToWorkDays: null,
+    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    occupation: null, // Question won't show.
+    bikesharingUsage: 'no',
+    bikesharingMembership: null
 };
 const person2: commonUITestsHelpers.HouseholdMember = {
     personIndex: 1,
     nickname: 'Angela',
     age: 30,
-    sexAssignedAtBirth: 'female',
-    gender: null,
+    gender: 'female',
     genderCustom: null,
-    workerType: 'fullTime',
-    studentType: 'no',
-    schoolType: null, // Question won't show.
-    occupation: null, // Question won't show.
-    workerTypeBeforeLeave: null, // Question won't show.
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
     drivingLicenseOwnership: 'yes',
     carSharingMember: 'yes',
-    transitPasses: ['no'],
+    usedTransitInLast30Days: 'no',
+    transitPass: null,
+    transitFare: null,
+    transitFareWarning: null,
     hasDisability: 'no',
-    workPlaceType: 'onLocation',
-    workPlaceTypeBeforeLeave: null,
-    schoolPlaceType: null,
-    usualSchoolPlace: null,
-    travelToWorkDays: ['no'],
-    remoteWorkDays: null // Question won't show
+    disabilities: null,
+    disabilitiesSpecify: null,
+    mobilityAssistiveDevices: null,
+    mobilityAssistiveDevicesSpecify: null,
+    mostUsedMobilityAssistiveDevice: null,
+    useParatransit: null,
+    useParatransitFrequency: null,
+    useParatransitTransitFrequency: null,
+    workerType: 'fullTime',
+    studentType: 'no',
+    jobType: 'administration',
+    workPlaceType: 'hybrid',
+    workDays: '4',
+    travelToWorkDays: '3',
+    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    occupation: null, // Question won't show.
+    bikesharingUsage: 'no',
+    bikesharingMembership: null
 };
 
 // P1 goes to work, then stops at the SAQ and goes to a restaurant to wait for P2. Then both go back home together later
@@ -86,11 +102,11 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'work',
         activity: 'workUsual',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
-        name: 'Dépanneur Otis',
+        name: 'McCord Steward Museum',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 32400, // 9:00 AM
@@ -101,11 +117,11 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'shopping',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
-        alreadyVisitedBySelfOrAnotherHouseholdMember: false,
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show, still no place to show
         shortcut: null, // Question won't show.
-        name: 'SAQ',
+        name: 'SAQ Beaubien',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: null, // Question won't show.
@@ -116,8 +132,8 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'restaurant',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
         name: 'Tabac Villeray',
@@ -129,10 +145,10 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         departureTime: 22 * 60 * 60 // 22:00
     },
     {
-        activityCategory: null, // Question won't show.
+        activityCategory: undefined, // Question already has 'home' set
         activity: null, // Question won't show.
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.
@@ -187,11 +203,11 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'work',
         activity: 'workUsual',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
-        name: 'Go Sport La Malbaie',
+        name: 'Sports Experts Atwater',
         _previousPreviousDepartureTime: null, // Question won't show.
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: 10 * 60 * 60, // 10:00 AM
@@ -203,8 +219,8 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'restaurant',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: true,
         // Set the shortcut to one of the places from p1
         shortcut: '${tripDiary[0]}.visitedPlaces.${tripDiary[0].visitedPlaces[3]}',
@@ -217,10 +233,10 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
         departureTime: 22 * 60 * 60 // 22:00
     },
     {
-        activityCategory: null, // Question won't show.
+        activityCategory: undefined, // Question already has 'home' set
         activity: null, // Question won't show.
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.
@@ -271,7 +287,8 @@ surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
 });
 
 /********** Tests home section **********/
-commonUITestsHelpers.fillHomeSectionTests({ context,
+commonUITestsHelpers.fillHomeSectionTests({
+    context,
     home: {
         ...commonUITestsHelpers.defaultHome,
         householdSize: 2,

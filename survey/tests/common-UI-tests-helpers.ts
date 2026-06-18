@@ -1356,7 +1356,7 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
     } else {
         testHelpers.inputRadioTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadPreviousPlaceActivity',
             value: place.onTheRoadPreviousPlaceActivity
         });
     }
@@ -1497,7 +1497,7 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
     } else {
         testHelpers.inputRadioTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadNextPlaceCategory',
             value: place.onTheRoadNextPlaceCategory
         });
     }
