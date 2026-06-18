@@ -253,8 +253,8 @@ export const defaultPerson2: HouseholdMember = {
 export type VisitedPlace = {
     activityCategory?: string | null;
     activity: string | null;
-    onTheRoadDepartureType: string | null;
-    onTheRoadArrivalType: string | null;
+    onTheRoadPreviousPlaceActivity: string | null;
+    onTheRoadNextPlaceCategory: string | null;
     alreadyVisitedBySelfOrAnotherHouseholdMember: boolean | null;
     shortcut: string | null;
     name: string | null;
@@ -1347,11 +1347,17 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
     }
 
     // Test custom widget visitedPlaceOnTheRoadDepartureType
-    if (place.onTheRoadDepartureType === null) {
+    if (place.onTheRoadPreviousPlaceActivity === null) {
         testHelpers.inputVisibleTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadDepartureType',
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadPreviousPlaceActivity',
             isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
+            value: place.onTheRoadPreviousPlaceActivity
         });
     }
 
@@ -1482,11 +1488,17 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
     // Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    if (place.onTheRoadArrivalType === null) {
+    if (place.onTheRoadNextPlaceCategory === null) {
         testHelpers.inputVisibleTest({
             context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadArrivalType',
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadNextPlaceCategory',
             isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.nextPlaceCategory',
+            value: place.onTheRoadNextPlaceCategory
         });
     }
 

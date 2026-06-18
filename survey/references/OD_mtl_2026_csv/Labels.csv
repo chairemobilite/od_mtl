@@ -159,6 +159,10 @@ visitedPlaces,activities.visiting,"Visite chez ami.e.s, copain.e ou famille","Vi
 visitedPlaces,activities.volunteering,Bénévolat,Volunteering,,
 visitedPlaces,activities.secondaryHome,Résidence secondaire,Secondary residence,,
 visitedPlaces,activities.schoolNotStudent,Études,Studies,,
+visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentBackHome,Domicile,Home,,
+visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentToUsualWorkPlace,Lieu de travail habituel,Usual work place,,
+visitedPlaces,onTheRoadNextPlaceCategoryChoices.visitedAnotherPlace,Autre lieu,Other location,,
+visitedPlaces,onTheRoadNextPlaceCategoryChoices.stayedThereUntilTheNextDay,{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain,{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day,J'ai complété mes déplacements sur la route après 4:00 du matin le lendemain,I completed my work on the road trips after 4AM the next day
 household,errors.selectDontKnowWhenNoOtherChoiceSelected,"Sélectionnez ""Je ne sais pas"" seulement si aucun autre choix n'est sélectionné.","Select ""I don't know"" only if no other choice is selected.",,
 household,errors.selectNoWhenNoOtherChoiceSelected,"Sélectionnez ""Non"" seulement si aucun autre choix n'est sélectionné.","Select ""no"" only if no other choice is selected.",,
 household,errors.selectNoneWhenNoOtherChoiceSelected,"Sélectionnez ""Aucun pour le mois en cours"" seulement si aucun autre choix n'est sélectionné.","Select ""None for the current month"" only if no other choice is selected.",,

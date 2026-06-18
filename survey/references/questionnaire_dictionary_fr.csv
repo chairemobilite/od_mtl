@@ -514,9 +514,8 @@ Champ,visitedPlacesMap
 Type de question,Builtin
 Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
-Champ,onTheRoadDepartureType
-Type de question,Entrée inconnue
-Conditionnel,workOnTheRoadConditional : ${relativePath}.activity === workOnTheRoad && workPlaceType === onTheRoadWithUsualPlace
+Champ,onTheRoadPreviousPlaceActivity
+Type de question,Builtin
 Question,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 ""
 Champ,alreadyVisitedBySelfOrAnotherHouseholdMember
@@ -557,14 +556,9 @@ Type de question,Builtin
 Question,"Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée."
 ""
-Champ,onTheRoadArrivalType
-Type de question,Bouton radio
-Conditionnel,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Champ,onTheRoadNextPlaceCategory
+Type de question,Builtin
 Question,À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
-Valeurs,"home : Domicile
-usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Lieu de travail habituel
-other : Autre lieu
-stayedThereUntilTheNextDay (isLastPlaceCustomConditional): {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain"
 ""
 Champ,departureTime
 Type de question,Builtin

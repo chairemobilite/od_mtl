@@ -14,10 +14,10 @@ personVisitedPlacesTitle_one: >-
     (i.e. sequence matters).
 personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
 personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
-visitedPlaceOnTheRoadDepartureType: Where did {{nickname}} begin their work trip on
-    the road?
-visitedPlaceOnTheRoadDepartureType_one: Where did you begin your work trip on the
-    road?
+visitedPlaceOnTheRoadPreviousPlaceActivity: Where did {{nickname}} begin their work
+    trip on the road?
+visitedPlaceOnTheRoadPreviousPlaceActivity_one: Where did you begin your work trip
+    on the road?
 visitedPlaceAlreadyVisited: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
@@ -80,8 +80,9 @@ visitedPlaceNextPlaceCategory_one: >-
     After being {{atPlace}}, you…<br /><span class="_pale _oblique">If you left this
     place after 4 AM the following day, please consider for the purposes of the survey
     that you stayed there until the next day and select the appropriate answer.</span>
-visitedPlaceOnTheRoadArrivalType: Where did {{nickname}} end their trips on the road?
-visitedPlaceOnTheRoadArrivalType_one: Where did you end your trips on the road?
+visitedPlaceOnTheRoadNextPlaceCategory: Where did {{nickname}} end their trips on
+    the road?
+visitedPlaceOnTheRoadNextPlaceCategory_one: Where did you end your trips on the road?
 visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:'
 visitedPlaceDepartureTime_one: 'You left {{place}} at:'
 buttonSaveVisitedPlace: Confirm
@@ -276,6 +277,22 @@ activities:
     visiting: Visiting friends, partner or family
     secondaryHome: Secondary residence
     schoolNotStudent: Studies
+onTheRoadNextPlaceCategoryChoices:
+    wentBackHome: Home
+    wentToUsualWorkPlace: Usual work place
+    visitedAnotherPlace: Other location
+    stayedThereUntilTheNextDay: '{{nickname}} completed their work on the road trips
+        after 4AM the next day'
+    stayedThereUntilTheNextDay_male: '{{nickname}} completed his work on the road
+        trips after 4AM the next day'
+    stayedThereUntilTheNextDay_female: '{{nickname}} completed her work on the road
+        trips after 4AM the next day'
+    stayedThereUntilTheNextDay_one: I completed my work on the road trips after 4AM
+        the next day
+    stayedThereUntilTheNextDay_male_one: I completed my work on the road trips after
+        4AM the next day
+    stayedThereUntilTheNextDay_female_one: I completed my work on the road trips after
+        4AM the next day
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location
