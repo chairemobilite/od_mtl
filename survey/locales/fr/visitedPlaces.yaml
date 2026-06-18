@@ -27,10 +27,10 @@ personVisitedPlacesTitle_female_one: >-
 personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
     {{assignedDate}}:'
 personVisitedPlacesMap_one: 'Carte de vos déplacements le {{assignedDate}}:'
-visitedPlaceOnTheRoadDepartureType: >-
+visitedPlaceOnTheRoadPreviousPlaceActivity: >-
     Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
-visitedPlaceOnTheRoadDepartureType_one: Quel endroit était le point de départ de vos
-    déplacements sur la route?
+visitedPlaceOnTheRoadPreviousPlaceActivity_one: Quel endroit était le point de départ
+    de vos déplacements sur la route?
 visitedPlaceAlreadyVisited: >-
     Avez-vous déjà localisé ce lieu?<br /><span class="_pale _oblique">Dans l'entrevue
     de {{nickname}} ou dans celles des autres membres du ménage.</span>
@@ -147,22 +147,22 @@ visitedPlaceNextPlaceCategory_custom_one: >-
     Après avoir été {{atPlace}}, vous êtes…<br /><span class="_pale _oblique">Si vous
     avez quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête
     que vous y êtes resté(e) jusqu'au lendemain et de sélectionner la réponse adaptée.</span>
-visitedPlaceOnTheRoadArrivalType: >-
+visitedPlaceOnTheRoadNextPlaceCategory: >-
     À quel endroit {{nickname}} a-t-il(-elle) terminé ses déplacements sur la route?
-visitedPlaceOnTheRoadArrivalType_male: À quel endroit {{nickname}} a-t-il terminé
+visitedPlaceOnTheRoadNextPlaceCategory_male: À quel endroit {{nickname}} a-t-il terminé
     ses déplacements sur la route?
-visitedPlaceOnTheRoadArrivalType_female: À quel endroit {{nickname}} a-t-elle terminé
-    ses déplacements sur la route?
-visitedPlaceOnTheRoadArrivalType_custom: À quel endroit {{nickname}} a-t-iel terminé
-    ses déplacements sur la route?
-visitedPlaceOnTheRoadArrivalType_one: À quel endroit avez-vous terminé vos déplacements
+visitedPlaceOnTheRoadNextPlaceCategory_female: À quel endroit {{nickname}} a-t-elle
+    terminé ses déplacements sur la route?
+visitedPlaceOnTheRoadNextPlaceCategory_custom: À quel endroit {{nickname}} a-t-iel
+    terminé ses déplacements sur la route?
+visitedPlaceOnTheRoadNextPlaceCategory_one: À quel endroit avez-vous terminé vos déplacements
     sur la route?
-visitedPlaceOnTheRoadArrivalType_male_one: À quel endroit avez-vous terminé vos déplacements
-    sur la route?
-visitedPlaceOnTheRoadArrivalType_female_one: À quel endroit avez-vous terminé vos
-    déplacements sur la route?
-visitedPlaceOnTheRoadArrivalType_custom_one: À quel endroit avez-vous terminé vos
-    déplacements sur la route?
+visitedPlaceOnTheRoadNextPlaceCategory_male_one: À quel endroit avez-vous terminé
+    vos déplacements sur la route?
+visitedPlaceOnTheRoadNextPlaceCategory_female_one: À quel endroit avez-vous terminé
+    vos déplacements sur la route?
+visitedPlaceOnTheRoadNextPlaceCategory_custom_one: À quel endroit avez-vous terminé
+    vos déplacements sur la route?
 visitedPlaceDepartureTime: '{{nickname}} a quitté {{place}} à:'
 visitedPlaceDepartureTime_one: 'Vous avez quitté {{place}} à:'
 buttonSaveVisitedPlace: Confirmer
@@ -419,6 +419,15 @@ activities:
     visiting: Visite chez ami.e.s, copain.e ou famille
     secondaryHome: Résidence secondaire
     schoolNotStudent: Études
+onTheRoadNextPlaceCategoryChoices:
+    wentBackHome: Domicile
+    wentToUsualWorkPlace: Lieu de travail habituel
+    visitedAnotherPlace: Autre lieu
+    stayedThereUntilTheNextDay: >-
+        {{nickname}} a complété ses déplacements sur la route après 4:00 du matin
+        le lendemain
+    stayedThereUntilTheNextDay_one: J'ai complété mes déplacements sur la route après
+        4:00 du matin le lendemain
 onTheRoadArrivalTypeHome: Domicile
 onTheRoadArrivalTypeUsualWorkPlace: Lieu de travail habituel
 onTheRoadArrivalTypeOther: Autre lieu

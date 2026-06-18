@@ -517,9 +517,8 @@ Field,visitedPlacesMap
 Question type,Builtin
 Question,Map of {{nickname}}’s trips on {{assignedDate}}:
 ""
-Field,onTheRoadDepartureType
-Question type,Unknown input
-Conditional,workOnTheRoadConditional : ${relativePath}.activity === workOnTheRoad && workPlaceType === onTheRoadWithUsualPlace
+Field,onTheRoadPreviousPlaceActivity
+Question type,Builtin
 Question,Where did {{nickname}} begin their work trip on the road?
 ""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
@@ -560,14 +559,9 @@ Question type,Builtin
 Question,"After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
 ""
-Field,onTheRoadArrivalType
-Question type,Radio input
-Conditional,currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional
+Field,onTheRoadNextPlaceCategory
+Question type,Builtin
 Question,Where did {{nickname}} end their trips on the road?
-Values,"home : Home
-usualWorkPlace (onTheRoadUsualWorkplace : workPlaceType === onTheRoadWithUsualPlace) : Usual work place
-other : Other location
-stayedThereUntilTheNextDay (isLastPlaceCustomConditional): {{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day"
 ""
 Field,departureTime
 Question type,Builtin

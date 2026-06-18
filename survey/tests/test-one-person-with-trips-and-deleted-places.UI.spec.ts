@@ -31,8 +31,8 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'shopping',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Sports Experts Atwater',
@@ -46,8 +46,8 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: 'shoppingServiceRestaurant',
         activity: 'restaurant',
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Marché Atwater',
@@ -61,8 +61,8 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
     {
         activityCategory: undefined, // Should be prefilled with 'home'
         activity: null, // Question won't show.
-        onTheRoadDepartureType: null, // Question won't show.
-        onTheRoadArrivalType: null, // Question won't show.
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.

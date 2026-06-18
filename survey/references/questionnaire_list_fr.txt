@@ -364,7 +364,6 @@ Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
-
 Avez-vous déjà localisé ce lieu?
 Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
 - Oui
@@ -387,10 +386,6 @@ Après avoir été {{atPlace}}, {{nickname}} est…
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
 
 À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
-- Domicile
-- Lieu de travail habituel
-- Autre lieu
-- {{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain
 
 {{nickname}} a quitté {{place}} à:
 

@@ -434,11 +434,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceActivity
 
-    // Test custom widget visitedPlaceOnTheRoadDepartureType with conditional workOnTheRoadConditional with choices onTheRoadDepartureTypeCustomChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.onTheRoadDepartureType', isVisible: true });
-    // Implement custom test
+    // Test builtin widget visitedPlaceOnTheRoadPreviousPlaceActivity
 
     // Test builtin widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -461,11 +457,7 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceNextPlaceCategory
 
-    // Test radio widget visitedPlaceOnTheRoadArrivalType with conditional currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional with choices onTheRoadArrivalTypeChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.onTheRoadArrivalType', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: '?.onTheRoadArrivalType', value: '?' });
+    // Test builtin widget visitedPlaceOnTheRoadNextPlaceCategory
 
     // Test builtin widget visitedPlaceDepartureTime
 

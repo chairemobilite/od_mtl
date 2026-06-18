@@ -367,7 +367,6 @@ Map of {{nickname}}’s trips on {{assignedDate}}:
 
 Where did {{nickname}} begin their work trip on the road?
 
-
 Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member.
 - Yes
@@ -390,10 +389,6 @@ After being {{atPlace}}, {{nickname}}…
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
 
 Where did {{nickname}} end their trips on the road?
-- Home
-- Usual work place
-- Other location
-- {{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day
 
 {{nickname}} left {{place}} at:
 
