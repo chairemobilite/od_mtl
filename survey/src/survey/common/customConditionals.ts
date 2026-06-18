@@ -13,7 +13,7 @@ import {
     shouldAskForNoWorkTripReason,
     shouldDisplayTripJunction
 } from './helper';
-import { isPartialSample, isStudentFromEnrolled } from './customHelpers';
+import { isPartialSample, isStudentFromEnrolled, shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
 import { getPointZone } from './commonHelpers';
@@ -637,7 +637,7 @@ export const mostUsedMobilityAssistiveDeviceCustomConditional: WidgetConditional
 };
 
 // Custom conditional to decide whether to show the toddler daycare question
-// FIXME: Fix issue https://github.com/chairemobilite/od_mtl/issues/130
-export const toddlerDaycareCustomConditional: WidgetConditional = (interview, path) => {
-    return [true, null];
-};
+export const toddlerDaycareCustomConditional: WidgetConditional = (interview) => [
+    shouldShowToddlerDayCareQuestions(interview),
+    null
+];
