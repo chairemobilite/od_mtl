@@ -60,6 +60,7 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 tripDiaryMaxTimeOfDay: 28 * 60 * 60, // 28h in seconds (i.e. 4h the next day)
                 tripDiaryMinTimeOfDay: 4 * 60 * 60, // 4h in seconds
                 additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames,
+                inlineUsualPlacesEntry: true,
                 activitiesIncludeOnly: [
                     'home',
                     'workUsual',
