@@ -1,6 +1,12 @@
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import type { InterviewAttributes, Journey, Trip } from 'evolution-common/lib/services/questionnaire/types';
+import type {
+    ChoiceType,
+    InterviewAttributes,
+    Journey,
+    Person,
+    Trip
+} from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
@@ -16,11 +22,6 @@ const isSchoolEnrolledTrueValues = [
 ];
 
 // TODO: Migrate all these useful helpers (or not) to Evolution
-
-export const isStudentFromEnrolled = (person) => {
-    const schoolType = person.schoolType;
-    return !_isBlank(schoolType) && isSchoolEnrolledTrueValues.includes(schoolType);
-};
 
 // Make sure the household size matches the number of persons in the household,
 // in case the participant changed one value but did not reach the household
@@ -183,3 +184,9 @@ export const shouldShowToddlerDayCareQuestions = (interview: InterviewAttributes
     // Make visible if there are no trips to drop/fetch someone
     return compatibleTrips.length === 0;
 };
+
+export const personsArrayToChoices = (personsArray: Person[]): ChoiceType[] =>
+    personsArray.map((person) => ({
+        value: person._uuid,
+        label: (t) => odSurveyHelpers.getPersonIdentificationString({ person, t })
+    }));

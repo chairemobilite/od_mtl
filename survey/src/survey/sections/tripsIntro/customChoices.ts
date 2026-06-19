@@ -7,16 +7,12 @@ import { getFormattedDate } from 'evolution-frontend/lib/services/display/fronte
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { personsArrayToChoices } from '../../common/customHelpers';
 
 // List possible self-respondents among the interviewable persons
 export const whoAnswersCustomChoices: WidgetConfig.ParsingFunction<WidgetConfig.RadioChoiceType[]> = (interview) => {
     const interviewablePersons = odHelpers.getInterviewablePersonsArray({ interview });
-    return interviewablePersons
-        .filter((person) => person.age >= config.selfResponseMinimumAge)
-        .map((person) => ({
-            value: person._uuid,
-            label: _escape(person.nickname)
-        }));
+    return personsArrayToChoices(interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge));
 };
 
 // Custom because the labels of the choices contain journey dates
@@ -98,12 +94,7 @@ export const outOfTerritoryMembersCustomChoices: WidgetConfig.ParsingFunction<Wi
 ) => {
     const person = odHelpers.getPerson({ interview, path });
     const persons = odHelpers.getPersonsArray({ interview });
-    const choices: WidgetConfig.ChoiceType[] = persons
-        .filter((p) => p._uuid !== person._uuid)
-        .map((p) => ({
-            value: p._uuid,
-            label: _escape(p.nickname)
-        }));
+    const choices: WidgetConfig.ChoiceType[] = personsArrayToChoices(persons.filter((p) => p._uuid !== person._uuid));
     choices.unshift({
         value: 'none',
         label: (t: TFunction) => t('tripsIntro:outOfTerritoryMembersChoiceNone')
