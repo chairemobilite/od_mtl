@@ -1,27 +1,10 @@
-import moment from 'moment';
 import { TFunction } from 'i18next';
 import { ButtonWidgetConfig, HelpPopup } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
-import i18n from 'chaire-lib-frontend/lib/config/i18n.config';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 // import { countPersons, getPersonsObject, selfResponseAge } from '../helperFunctions/helper';
-
-export const cityHelpPopup: HelpPopup = {
-    title: {
-        fr: 'Quoi écrire si ce n\'est pas une ville ?',
-        en: 'What to write if it\'s not a city?'
-    },
-    content: {
-        fr: function (_interview, _path) {
-            return 'Vous pouvez aussi mettre le nom de votre village, municipalité ou réserve autochtone';
-        },
-        en: function (_interview, _path) {
-            return 'You can also put the name of your village, county or indigeneous reserve.';
-        }
-    }
-};
 
 // TODO: Use the assignedDate from the interview object instead of the date of the survey.
 // TODO: Update the assignedDate from serverFieldUpdate.ts and test it from serverFieldUpdate.test.ts

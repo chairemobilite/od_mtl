@@ -2,30 +2,18 @@ import _get from 'lodash/get';
 import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
-import { Journey, Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
+import { Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
-import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
-import { getShortcutVisitedPlaces } from './customFrontendHelper';
 import {
     shouldAskForNoSchoolTripFollowup,
     shouldAskForNoSchoolTripReason,
-    shouldAskForNoWorkTripReason,
-    shouldDisplayTripJunction
+    shouldAskForNoWorkTripReason
 } from './helper';
-import { isPartialSample, isStudentFromEnrolled, shouldShowToddlerDayCareQuestions } from './customHelpers';
+import { isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
 import { getPointZone } from './commonHelpers';
-
-const isSchoolEnrolledTrueValues = [
-    'kindergarten',
-    'childcare',
-    'primarySchool',
-    'secondarySchool',
-    'schoolAtHome',
-    'other'
-];
 
 // Don't show Question and give 'Québec' as default value
 export const hiddenWithQuebecAsDefaultValueCustomConditional: WidgetConditional = (_interview) => {
@@ -67,14 +55,6 @@ export const personOccupationCustomConditional: WidgetConditional = (interview, 
     return [!_isBlank(age) && age >= 16 && age <= 69 && !isStudent && !isWorker, null];
 };
 
-export const personUsualSchoolPlaceNameCustomConditional: WidgetConditional = (interview, path) => {
-    const person = surveyHelper.getResponse(interview, path, null, '../../') as Person;
-    const schoolPlaceType = person.schoolPlaceType;
-
-    const childrenCase = isStudentFromEnrolled(person) && person.schoolType !== 'schoolAtHome';
-    return [['onLocation', 'hybrid'].includes(schoolPlaceType) || childrenCase, null];
-};
-
 export const departurePlaceOtherCustomConditional: WidgetConditional = (interview, path) => {
     const journey = odSurveyHelper.getActiveJourney({ interview });
     if (journey === null) {
@@ -96,56 +76,6 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
             _booleish((journey as any).departurePlaceIsHome) === false,
         null
     ];
-};
-
-export const currentPlaceWorkOnTheRoadAndNoNextPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview, person });
-    const visitedPlace: any = surveyHelper.getResponse(interview, path, null, '../');
-    const visitedPlaceActivity = visitedPlace.activity;
-    const nextVisitedPlace = odSurveyHelper.getNextVisitedPlace({ journey, visitedPlaceId: visitedPlace._uuid });
-    return [!nextVisitedPlace && visitedPlaceActivity === 'workOnTheRoad', null];
-};
-
-export const isLastPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview, person });
-    const visitedPlace: any = odSurveyHelper.getActiveVisitedPlace({ interview, journey });
-    const visitedPlacesArray = odSurveyHelper.getVisitedPlacesArray({ journey });
-    return (
-        visitedPlacesArray.length > 1 && visitedPlacesArray[visitedPlacesArray.length - 1]._uuid === visitedPlace._uuid
-    );
-};
-
-export const alreadyVisitedPlaceCustomConditional: WidgetConditional = (interview, path) => {
-    const activity: any = surveyHelper.getResponse(interview, path, null, '../activity');
-    // Do not display if no activity
-    if (_isBlank(activity)) {
-        return [false, null];
-    }
-    // Do not display if it is an incompatible activity
-    const incompatibleActivity = [...loopActivities, 'home'].includes(activity);
-    if (incompatibleActivity) {
-        return [false, null];
-    }
-
-    // Do not display if usual place is already set
-    const person = odSurveyHelper.getPerson({ interview });
-    if (
-        (activity === 'workUsual' && (person as any).usualWorkPlace && (person as any).usualWorkPlace.geography) ||
-        (activity === 'schoolUsual' && (person as any).usualSchoolPlace && (person as any).usualSchoolPlace.geography)
-    ) {
-        return [false, null];
-    }
-
-    // Display if there are possible shortcuts
-    const geography: any = surveyHelper.getResponse(interview, path, null, '../geography');
-    let lastAction = null;
-    if (geography) {
-        lastAction = _get(geography, 'properties.lastAction', null);
-    }
-    const shortcuts = getShortcutVisitedPlaces(interview);
-    return [(lastAction === null || lastAction === 'shortcut') && shortcuts.length > 0, null];
 };
 
 const peopleCountQuestionModes = ['carDriver', 'rentalCar', 'carDriverCarsharing'];
@@ -177,26 +107,6 @@ export const shouldDisplayOnDemandTypeCustomConditional: WidgetConditional = (in
             (busLines.includes('dontKnow') || busLines.includes('other')));
 
     return [shouldDisplay, null];
-};
-
-export const shouldAskTripJunctionCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview });
-    const trip = odSurveyHelper.getActiveTrip({ interview });
-    if (trip) {
-        const journey = odSurveyHelper.getActiveJourney({ interview, person });
-        const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
-        const destination = odSurveyHelper.getDestination({ visitedPlaces, trip });
-        const activity = destination ? destination.activity : null;
-        const segments = odSurveyHelper.getSegmentsArray({ trip });
-        const currentSegment: any = surveyHelper.getResponse(interview, path, undefined, '../');
-        const segmentIndex = segments.findIndex((segment) => segment._sequence === currentSegment?._sequence);
-        if (segmentIndex === undefined || segmentIndex === 0) {
-            return [false, null];
-        }
-        const previousSegment = segments[segmentIndex - 1];
-        return [shouldDisplayTripJunction(previousSegment, currentSegment, activity), null];
-    }
-    return [false, null];
 };
 
 export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = (interview, path) => {
