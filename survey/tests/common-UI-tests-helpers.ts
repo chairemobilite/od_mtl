@@ -2233,7 +2233,7 @@ export const fillOmissionsSectionTests = ({
         testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: omissions.toddlerDaycare });
     }
 
-    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices yesNo
+    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices person14PlusCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     if (omissions.toddlerDaycareDropoff === null) {
@@ -2259,7 +2259,7 @@ export const fillOmissionsSectionTests = ({
         });
     }
 
-    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices yesNo
+    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices person14PlusCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     if (omissions.toddlerDaycarePickup === null) {

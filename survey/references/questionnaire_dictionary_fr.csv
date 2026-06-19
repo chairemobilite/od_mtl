@@ -913,8 +913,6 @@ Champ,o_toddlerDaycareDropoff
 Type de question,Case à cocher
 Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
 Question,Qui a reconduit vos enfants à leur lieu de garde?
-Valeurs,"yes : Oui
-no : Non"
 ""
 Champ,o_toddlerDaycareDropoffMode
 Type de question,Bouton radio
@@ -930,8 +928,6 @@ Champ,o_toddlerDaycarePickup
 Type de question,Case à cocher
 Conditionnel,toddlerDaycareConditional : o_toddlerDaycare === yes
 Question,Qui est allé chercher vos enfants à leur lieu de garde?
-Valeurs,"yes : Oui
-no : Non"
 ""
 Champ,o_toddlerDaycarePickupMode
 Type de question,Bouton radio

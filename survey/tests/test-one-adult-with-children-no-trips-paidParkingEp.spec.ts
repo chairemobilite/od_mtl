@@ -149,9 +149,9 @@ commonUITestsHelpers.fillTravelBehaviorSectionTests({
 const omissions = _cloneDeep(commonUITestsHelpers.defaultOmissionsSection);
 // Filling the most fields as possible, to cover all the conditional checks.
 omissions.toddlerDaycare = 'yes';
-omissions.toddlerDaycareDropoff = ['yes', 'no']; // FIXME: This should be filled with the actual values.
+omissions.toddlerDaycareDropoff = ['${personId[0]}']; // The parent
 omissions.toddlerDaycareDropoffMode = 'walk';
-omissions.toddlerDaycarePickup = ['yes', 'no']; // FIXME: This should be filled with the actual values.
+omissions.toddlerDaycarePickup = ['anotherPerson']; // Another person
 omissions.toddlerDaycarePickupMode = 'walk';
 // Omission block is not shown for this case
 omissions.hasOmittedTrips = null;
