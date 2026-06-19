@@ -1,3 +1,4 @@
+import _escape from 'lodash/escape';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import config from 'evolution-common/lib/config/project.config';
@@ -14,7 +15,7 @@ export const whoAnswersCustomChoices: WidgetConfig.ParsingFunction<WidgetConfig.
         .filter((person) => person.age >= config.selfResponseMinimumAge)
         .map((person) => ({
             value: person._uuid,
-            label: person.nickname
+            label: _escape(person.nickname)
         }));
 };
 
@@ -101,7 +102,7 @@ export const outOfTerritoryMembersCustomChoices: WidgetConfig.ParsingFunction<Wi
         .filter((p) => p._uuid !== person._uuid)
         .map((p) => ({
             value: p._uuid,
-            label: p.nickname
+            label: _escape(p.nickname)
         }));
     choices.unshift({
         value: 'none',

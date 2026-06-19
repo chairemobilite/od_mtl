@@ -24,7 +24,7 @@ export const personUsualWorkPlaceGeography: WidgetConfig.InputMapFindPlaceType =
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = odSurveyHelpers.getPersonIdentificationString({ person: activePerson, t });
         return t('travelBehavior:personUsualWorkPlaceGeography', {
             nickname,
             count: countPersons
@@ -94,7 +94,7 @@ export const personUsualSchoolPlaceGeography: WidgetConfig.InputMapFindPlaceType
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const countPersons = odSurveyHelpers.countPersons({ interview });
-        const nickname = activePerson?.nickname || t('survey:noNickname');
+        const nickname = odSurveyHelpers.getPersonIdentificationString({ person: activePerson, t });
         return t('travelBehavior:personUsualSchoolPlaceGeography', {
             nickname,
             count: countPersons
