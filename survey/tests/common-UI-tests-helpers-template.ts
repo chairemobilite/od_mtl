@@ -512,15 +512,15 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
 
     // Test builtin widget segmentDriver
 
-    // Test select widget segmentSubwayStationStart with conditional subwayConditional with choices subwayStationStartCustomChoices
+    // Test custom widget segmentSubwayStationStart with conditional subwayConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.subwayStationStart', isVisible: true });
+    // Implement custom test
 
-    // Test select widget segmentSubwayStationEnd with conditional subwayConditional with choices subwayStationEndCustomChoices
+    // Test custom widget segmentSubwayStationEnd with conditional subwayConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.subwayStationEnd', isVisible: true });
+    // Implement custom test
 
     // Test checkbox widget segmentSubwayStationsTransfer with conditional subwayTransferCustomConditional with choices subwayStationsTransferCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

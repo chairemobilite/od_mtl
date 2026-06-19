@@ -13,6 +13,11 @@ import { segmentsWidgetsNames } from './sections/segments/widgetsNames';
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import { updateHouseholdSizeFromPersonCount } from './common/customHelpers';
 
+// Import feature collections for some widgets
+import metroStations from './geojson/stations_metro.json';
+
+const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+
 const questionnaireConfiguration: QuestionnaireConfiguration = {
     tripDiary: {
         sections: {
@@ -52,7 +57,11 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                     'other',
                     'taxi',
                     'dontKnow'
-                ] as Mode[]
+                ] as Mode[],
+                fieldsWithGeojsonPoint: [
+                    { fieldName: 'subwayStationStart', type: 'fromCollection', featureCollection: metroStationsFC },
+                    { fieldName: 'subwayStationEnd', type: 'fromCollection', featureCollection: metroStationsFC }
+                ]
             },
             visitedPlaces: {
                 type: 'visitedPlaces' as const,

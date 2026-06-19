@@ -423,9 +423,7 @@ Qui conduisait ?
 
 Station d'embarquement (au départ) : 
 
-
 Station de débarquement (à l'arrivée) : 
-
 
 Station(s) de transfert :
 Choisir "aucune" si aucun transfert n'a été effectué

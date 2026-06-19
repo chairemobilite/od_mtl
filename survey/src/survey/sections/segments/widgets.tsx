@@ -69,28 +69,11 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
 // FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
 // segmentDriver
 
-// FIXME segmentSubwayStation: choix · Issue #21 · chairemobilite/od_mtl
-export const segmentSubwayStationStart: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'subwayStationStart',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentSubwayStationStart'),
-    choices: customChoices.subwayStationStartCustomChoices,
-    conditional: conditionals.subwayConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const segmentSubwayStationStart = customWidgets.segmentSubwayStationStart;
 
-export const segmentSubwayStationEnd: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'subwayStationEnd',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentSubwayStationEnd'),
-    choices: customChoices.subwayStationEndCustomChoices,
-    conditional: conditionals.subwayConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const segmentSubwayStationEnd = customWidgets.segmentSubwayStationEnd;
 
 // FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl
 // segmentSubwayStationsTransfert : subwayTransfertCustomConditional et choix custom · Issue #18 · chairemobilite/od_mtl

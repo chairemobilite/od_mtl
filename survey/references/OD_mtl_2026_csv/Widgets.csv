@@ -261,8 +261,8 @@ __Include the driver and any other person, whether or not they are part of your 
 max=5
 overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
 segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
-segmentSubwayStationStart,Select,1,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,subwayStationStartCustomChoices,,,,True,,,,,FIXME segmentSubwayStation: choix · Issue #21 · chairemobilite/od_mtl
-segmentSubwayStationEnd,Select,1,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,subwayStationEndCustomChoices,,,,True,,,,,
+segmentSubwayStationStart,Custom,1,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+segmentSubwayStationEnd,Custom,1,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationsTransfer,Checkbox,1,segments,segments,subwayStationsTransfer,"**Station(s) de transfert** :
 __Choisir ""aucune"" si aucun transfert n'a été effectué__","**Transfer station(s)**:
 __Choose ‘none’ if no transfer was made__",,,,,subwayTransferCustomConditional,subwayTransferCustomValidation,subwayStationsTransferCustomChoices,,,,True,,,,,"FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl

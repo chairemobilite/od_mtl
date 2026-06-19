@@ -12,6 +12,14 @@ import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtension
 import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
+import * as conditionals from '../../common/conditionals';
+import metroStations from '../../geojson/stations_metro.json';
+import {
+    getSegmentNextLocation,
+    getSegmentPreviousLocation
+} from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
+
+const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
 let busRoutes = { type: 'FeatureCollection', features: [] };
 
@@ -172,4 +180,44 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
             }
         ];
     }
+};
+
+export const segmentSubwayStationStart: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'subwayStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayStationStart'),
+    featureCollection: metroStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentSubwayStationStart referenceGeography: segment context is undefined');
+        }
+        return getSegmentPreviousLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.subwayConditional,
+    validations: validations.requiredValidation
+};
+
+export const segmentSubwayStationEnd: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'subwayStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentSubwayStationEnd'),
+    featureCollection: metroStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentSubwayStationEnd referenceGeography: segment context is undefined');
+        }
+        return getSegmentNextLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.subwayConditional,
+    validations: validations.requiredValidation
 };
