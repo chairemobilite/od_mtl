@@ -426,9 +426,7 @@ Who drove?
 
 Boarding station(when entering the metro):
 
-
 Exit station (when leaving the metro):
-
 
 Transfer station(s):
 Choose ‘none’ if no transfer was made

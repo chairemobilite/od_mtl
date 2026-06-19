@@ -58,18 +58,6 @@ export const subwayStationsCustomChoices: ChoiceType[] = [
     }
 ];
 
-// List of the subway stations, sorted by proximity to segment origin
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/21
-export const subwayStationStartCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
-    return subwayStationsCustomChoices;
-};
-
-// List of the subway stations, sorted by proximity to segment destination
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/21
-export const subwayStationEndCustomChoices: ParsingFunction<ChoiceType[]> = (interview) => {
-    return subwayStationsCustomChoices;
-};
-
 // List the filtered subway transfer stations
 // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/18
 export const subwayStationsTransferCustomChoices: ParsingFunction<ChoiceType[]> = (interview) => {

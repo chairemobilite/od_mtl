@@ -626,12 +626,12 @@ Question type,Builtin
 Question,Who drove?
 ""
 Field,subwayStationStart
-Question type,Select input
+Question type,Unknown input
 Conditional,subwayConditional : mode === transitRRT
 Question,Boarding station(when entering the metro):
 ""
 Field,subwayStationEnd
-Question type,Select input
+Question type,Unknown input
 Conditional,subwayConditional : mode === transitRRT
 Question,Exit station (when leaving the metro):
 ""

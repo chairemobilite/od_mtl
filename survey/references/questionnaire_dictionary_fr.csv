@@ -623,12 +623,12 @@ Type de question,Builtin
 Question,Qui conduisait ?
 ""
 Champ,subwayStationStart
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,subwayConditional : mode === transitRRT
 Question,Station d'embarquement (au départ) : 
 ""
 Champ,subwayStationEnd
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,subwayConditional : mode === transitRRT
 Question,Station de débarquement (à l'arrivée) : 
 ""
