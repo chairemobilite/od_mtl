@@ -1,4 +1,5 @@
 import moment from 'moment';
+import _escape from 'lodash/escape';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { mobilityAssistiveDevices, preferNotToAnswer } from '../../common/choices';
@@ -75,7 +76,7 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         value: 'onLocation',
         label: (t: TFunction, interview, path) => {
             const activePerson = getPerson({ interview, path });
-            const nickname = activePerson?.nickname || t('survey:noNickname');
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
             return t('household:workPlaceBeforeLeaveTypeChoicesOnLocation', {
                 nickname,
                 count: countPersons({ interview })
@@ -86,7 +87,7 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         value: 'hybrid',
         label: (t: TFunction, interview, path) => {
             const activePerson = getPerson({ interview, path });
-            const nickname = activePerson?.nickname || t('survey:noNickname');
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
             return t('household:workPlaceBeforeLeaveTypeChoicesHybrid', {
                 nickname,
                 count: countPersons({ interview })
@@ -97,7 +98,7 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         value: 'onTheRoadWithUsualPlace',
         label: (t: TFunction, interview, path) => {
             const activePerson = getPerson({ interview, path });
-            const nickname = activePerson?.nickname || t('survey:noNickname');
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
             return t('household:workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace', {
                 nickname,
                 count: countPersons({ interview })
@@ -108,7 +109,7 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         value: 'onTheRoadWithoutUsualPlace',
         label: (t: TFunction, interview, path) => {
             const activePerson = getPerson({ interview, path });
-            const nickname = activePerson?.nickname || t('survey:noNickname');
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
             return t('household:workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace', {
                 nickname,
                 count: countPersons({ interview })
@@ -119,7 +120,7 @@ export const workPlaceBeforeLeaveTypeCustomChoices: ChoiceType[] = [
         value: 'remote',
         label: (t: TFunction, interview, path) => {
             const activePerson = getPerson({ interview, path });
-            const nickname = activePerson?.nickname || t('survey:noNickname');
+            const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
             return t('household:workPlaceBeforeLeaveTypeChoicesRemote', {
                 nickname,
                 count: countPersons({ interview })
