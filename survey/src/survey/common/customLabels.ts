@@ -2,9 +2,13 @@ import { TFunction } from 'i18next';
 import moment from 'moment';
 
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { I18nData, UserInterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import {
+    I18nData,
+    InterviewAttributes,
+    UserInterviewAttributes
+} from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import { getFormattedTripDateFromJourney } from './customHelpers';
+import { getChildrenAged1To4, getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
 import {
@@ -254,20 +258,50 @@ export const personTransitFareWarningCustomLabel: I18nData = (t: TFunction, inte
 
 // Get a label with the assigned date, outside of the journey context
 export const labelWithAssignedDate =
-    (translationKey: string): I18nData =>
+    (
+        translationKey: string,
+        additionalContextFct?: (t: TFunction, interview: UserInterviewAttributes) => Record<string, unknown>
+    ): I18nData =>
         (t: TFunction, interview, path) => {
             const assignedDay = getResponse(interview, '_assignedDay') as string;
             if (_isBlank(assignedDay)) {
                 throw new Error('labelWithAssignedDate: Assigned day not found');
             }
             const assignedDate = getFormattedDate(assignedDay, { withRelative: true, locale: i18n.language });
+            const additionalContext = additionalContextFct?.(t, interview) ?? {};
             return t(translationKey, {
-                assignedDate
+                assignedDate,
+                ...additionalContext
             });
         };
 
-// Custom because of the presence of the journey date in the label
-export const toddlerDaycareCustomLabel: I18nData = labelWithAssignedDate('omissions:toddlerDaycare');
+const getChildContext = (t: TFunction, interview: InterviewAttributes) => {
+    const children = getChildrenAged1To4(interview);
+    if (children.length !== 1) {
+        return {
+            count: children.length
+        };
+    }
+    return {
+        count: 1,
+        childname: odHelpers.getPersonIdentificationString({ person: children[0], t }),
+        age: children[0].age
+    };
+};
+
+const labelWithChildName =
+    (translationKey: string): I18nData =>
+        (t: TFunction, interview, path) =>
+            t(translationKey, { ...getChildContext(t, interview) });
+
+// Custom because of the presence of the journey date and child information in the label
+export const toddlerDaycareCustomLabel: I18nData = labelWithAssignedDate('omissions:toddlerDaycare', getChildContext);
+
+// Custom because of the presence of the child information in the label
+export const toddlerDaycarePickupCustomLabel: I18nData = labelWithChildName('omissions:toddlerDaycarePickup');
+
+// Custom because of the presence of the child information in the label
+export const toddlerDaycareDropoffCustomLabel: I18nData = labelWithChildName('omissions:toddlerDaycareDropoff');
 
 // Custom because of the presence of the journey date in the label
 export const hasOmittedTripsCustomLabel: I18nData = labelWithAssignedDate('omissions:hasOmittedTrips');

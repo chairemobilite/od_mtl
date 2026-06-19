@@ -5,9 +5,18 @@
 toddlerDaycare: >-
     Did at least one of your children attend a childcare center (daycare or CPE) on
     {{assignedDate}}?
+toddlerDaycare_one: >-
+    Did {{childname}} ($t(survey:age, {"count": {{age}} })) attend a childcare center
+    (daycare or CPE) on {{assignedDate}}?
 toddlerDaycareDropoff: Who dropped off your children at their childcare center?
+toddlerDaycareDropoff_one: >-
+    Who dropped off {{childname}} ($t(survey:age, {"count": {{age}} })) at the childcare
+    center
 toddlerDaycareDropoffMode: What mode of transportation was used?
 toddlerDaycarePickup: Who picked up your children from their childcare center?
+toddlerDaycarePickup_one: >-
+    Who picked up {{childname}} ($t(survey:age, {"count": {{age}} })) at the childcare
+    center
 toddlerDaycarePickupMode: What mode of transportation was used?
 hasOmittedTrips: >-
     Did you make at least one trip on {{assignedDate}} that you did not report?<br
@@ -29,3 +38,4 @@ popup:
         <strong>Why this question?</strong><br />This question is asked when no trips
         for the reason "Drop-off" or "Pick-up" are recorded near a listed kindergarten,
         daycare, or CPE.
+anotherPersonChoice: Another person

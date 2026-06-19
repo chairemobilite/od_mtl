@@ -620,8 +620,7 @@ Est-ce qu’au moins un de vos enfants ont fréquenté un lieu de garde (garderi
 - Non
 
 Qui a reconduit vos enfants à leur lieu de garde?
-- Oui
-- Non
+
 
 Par quel moyen de transport?
 - Marche
@@ -631,8 +630,7 @@ Par quel moyen de transport?
 - Autre
 
 Qui est allé chercher vos enfants à leur lieu de garde?
-- Oui
-- Non
+
 
 Par quel moyen de transport?
 - Marche

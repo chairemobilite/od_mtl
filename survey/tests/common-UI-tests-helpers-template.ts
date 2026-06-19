@@ -743,7 +743,7 @@ export const fillOmissionsSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycare', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycare', value: '?' });
 
-    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices yesNo
+    // Test checkbox widget toddlerDaycareDropoff with conditional toddlerDaycareConditional with choices person14PlusAndOtherCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoff', isVisible: true });
@@ -755,7 +755,7 @@ export const fillOmissionsSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycareDropoffMode', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'omissions.toddlerDaycareDropoffMode', value: '?' });
 
-    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices yesNo
+    // Test checkbox widget toddlerDaycarePickup with conditional toddlerDaycareConditional with choices person14PlusAndOtherCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'omissions.toddlerDaycarePickup', isVisible: true });

@@ -5,9 +5,18 @@
 toddlerDaycare: >-
     Est-ce qu’au moins un de vos enfants ont fréquenté un lieu de garde (garderie
     ou CPE) le {{assignedDate}}? 
+toddlerDaycare_one: >-
+    Est-ce que {{childname}} ($t(survey:age, {"count": {{age}} })) a fréquenté un
+    lieu de garde (garderie ou CPE) le {{assignedDate}}? 
 toddlerDaycareDropoff: Qui a reconduit vos enfants à leur lieu de garde?
+toddlerDaycareDropoff_one: >-
+    Qui a reconduit {{childname}} ($t(survey:age, {"count": {{age}} })) à son lieu
+    de garde?
 toddlerDaycareDropoffMode: Par quel moyen de transport?
 toddlerDaycarePickup: Qui est allé chercher vos enfants à leur lieu de garde?
+toddlerDaycarePickup_one: >-
+    Qui est allé chercher {{childname}} ($t(survey:age, {"count": {{age}} })) à son
+    lieu de garde?
 toddlerDaycarePickupMode: Par quel moyen de transport?
 hasOmittedTrips: >-
     Avez-vous effectué au moins un déplacement le {{assignedDate}} que vous n'auriez
@@ -29,3 +38,4 @@ popup:
         <strong>Pourquoi cette question?</strong><br />Cette question est posée quand
         aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré
         à proximité d’une maternelle, garderie ou CPE répertoriée. 
+anotherPersonChoice: Une autre personne

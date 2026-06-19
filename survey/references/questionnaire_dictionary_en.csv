@@ -916,8 +916,6 @@ Field,o_toddlerDaycareDropoff
 Question type,Checkbox input
 Conditional,toddlerDaycareConditional : o_toddlerDaycare === yes
 Question,Who dropped off your children at their childcare center?
-Values,"yes : Yes
-no : No"
 ""
 Field,o_toddlerDaycareDropoffMode
 Question type,Radio input
@@ -933,8 +931,6 @@ Field,o_toddlerDaycarePickup
 Question type,Checkbox input
 Conditional,toddlerDaycareConditional : o_toddlerDaycare === yes
 Question,Who picked up your children from their childcare center?
-Values,"yes : Yes
-no : No"
 ""
 Field,o_toddlerDaycarePickupMode
 Question type,Radio input

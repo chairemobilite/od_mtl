@@ -151,6 +151,11 @@ export const getBarriersTripPath = (interview: InterviewAttributes) =>
 export const getBarriersDisabilityTripPath = (interview: InterviewAttributes) =>
     getBarriersTripPathForType('_barriersDisabilityTripPath', interview, validateTripForBarrierDisabilityQuestions);
 
+export const getChildrenAged1To4 = (interview) =>
+    odSurveyHelpers
+        .getPersonsArray({ interview })
+        .filter((person) => typeof person.age === 'number' && person.age >= 1 && person.age <= 4);
+
 // Function to decide whether to show the toddler daycare questions
 const toddlerDaycarePartialSamples = ['paidParking', 'householdType', 'respect'];
 export const shouldShowToddlerDayCareQuestions = (interview: InterviewAttributes): boolean => {
@@ -158,12 +163,9 @@ export const shouldShowToddlerDayCareQuestions = (interview: InterviewAttributes
     if (!isPartialSample(interview, toddlerDaycarePartialSamples)) {
         return false;
     }
-    const allPersons = odSurveyHelpers.getPersonsArray({ interview });
 
     // Make sure the household has children
-    const children = allPersons.filter(
-        (person) => typeof person.age === 'number' && person.age >= 1 && person.age <= 4
-    );
+    const children = getChildrenAged1To4(interview);
     if (children.length === 0) {
         // No children
         return false;

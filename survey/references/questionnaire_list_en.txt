@@ -623,8 +623,7 @@ Did at least one of your children attend a childcare center (daycare or CPE) on 
 - No
 
 Who dropped off your children at their childcare center?
-- Yes
-- No
+
 
 What mode of transportation was used?
 - Walking
@@ -634,8 +633,7 @@ What mode of transportation was used?
 - Other
 
 Who picked up your children from their childcare center?
-- Yes
-- No
+
 
 What mode of transportation was used?
 - Walking
