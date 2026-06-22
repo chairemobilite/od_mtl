@@ -439,15 +439,11 @@ Line taken between BerriUQAM and Lionel-Groulx
 
 Boarding station (when getting onto the train)
 
-
 Exit station (when leaving the train)
-
 
 Boarding station (when entering the REM)
 
-
 Exit station (when leaving the REM)
-
 
 Departure airport
 - Montreal Pierre-Elliott-Trudeau International Airport (YUL)

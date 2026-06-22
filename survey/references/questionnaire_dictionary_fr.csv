@@ -647,22 +647,22 @@ stm_1 : 1-Verte
 dontKnow : Je ne sais pas"
 ""
 Champ,trainStationStart
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,trainConditional : mode === transitRegionalRail
 Question,Gare d'embarquement (au départ) : 
 ""
 Champ,trainStationEnd
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,trainConditional : mode === transitRegionalRail
 Question,Gare de débarquement (à l'arrivée) : 
 ""
 Champ,remStationStart
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,remConditional : mode === transitLRRT
 Question,Station d'embarquement (au départ) : 
 ""
 Champ,remStationEnd
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,remConditional : mode === transitLRRT
 Question,Station de débarquement (à l'arrivée) : 
 ""

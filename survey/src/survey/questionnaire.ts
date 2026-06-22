@@ -15,8 +15,12 @@ import { updateHouseholdSizeFromPersonCount } from './common/customHelpers';
 
 // Import feature collections for some widgets
 import metroStations from './geojson/stations_metro.json';
+import remStations from './geojson/stations_rem.json';
+import trainStations from './geojson/gares_train.json';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
 const questionnaireConfiguration: QuestionnaireConfiguration = {
     tripDiary: {
@@ -60,7 +64,11 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 ] as Mode[],
                 fieldsWithGeojsonPoint: [
                     { fieldName: 'subwayStationStart', type: 'fromCollection', featureCollection: metroStationsFC },
-                    { fieldName: 'subwayStationEnd', type: 'fromCollection', featureCollection: metroStationsFC }
+                    { fieldName: 'remStationStart', type: 'fromCollection', featureCollection: remStationsFC },
+                    { fieldName: 'trainStationStart', type: 'fromCollection', featureCollection: trainStationsFC },
+                    { fieldName: 'subwayStationEnd', type: 'fromCollection', featureCollection: metroStationsFC },
+                    { fieldName: 'remStationEnd', type: 'fromCollection', featureCollection: remStationsFC },
+                    { fieldName: 'trainStationEnd', type: 'fromCollection', featureCollection: trainStationsFC }
                 ]
             },
             visitedPlaces: {

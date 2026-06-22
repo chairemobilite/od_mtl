@@ -14,12 +14,17 @@ import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
 import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 import * as conditionals from '../../common/conditionals';
 import metroStations from '../../geojson/stations_metro.json';
+import remStations from '../../geojson/stations_rem.json';
+import trainStations from '../../geojson/gares_train.json';
 import {
     getSegmentNextLocation,
     getSegmentPreviousLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
+import * as customValidations from '../../common/customValidations';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
 let busRoutes = { type: 'FeatureCollection', features: [] };
 
@@ -219,5 +224,86 @@ export const segmentSubwayStationEnd: WidgetConfig.InputSelectFeatureType = {
         return getSegmentNextLocation({ interview, ...segmentContext });
     },
     conditional: conditionals.subwayConditional,
+    validations: validations.requiredValidation
+};
+
+export const segmentTrainStationStart: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'trainStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentTrainStationStart'),
+    featureCollection: trainStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentTrainStationStart referenceGeography: segment context is undefined');
+        }
+        return getSegmentPreviousLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.trainConditional,
+    validations: validations.requiredValidation
+};
+
+// FIXME Validations: segmentTrainStationEnd : trainValidation · Issue #20 · chairemobilite/od_mtl
+export const segmentTrainStationEnd: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'trainStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentTrainStationEnd'),
+    featureCollection: trainStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentTrainStationEnd referenceGeography: segment context is undefined');
+        }
+        return getSegmentNextLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.trainConditional,
+    validations: customValidations.trainCustomValidation
+};
+
+export const segmentRemStationStart: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'remStationStart',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentRemStationStart'),
+    featureCollection: remStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentRemStationStart referenceGeography: segment context is undefined');
+        }
+        return getSegmentPreviousLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.remConditional,
+    validations: validations.requiredValidation
+};
+
+export const segmentRemStationEnd: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'remStationEnd',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:segmentRemStationEnd'),
+    featureCollection: remStationsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('segmentRemStationEnd referenceGeography: segment context is undefined');
+        }
+        return getSegmentNextLocation({ interview, ...segmentContext });
+    },
+    conditional: conditionals.remConditional,
     validations: validations.requiredValidation
 };

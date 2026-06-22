@@ -534,25 +534,25 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.subwayLine', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.subwayLine', value: '?' });
 
-    // Test select widget segmentTrainStationStart with conditional trainConditional with choices trainStationStartCustomChoices
+    // Test custom widget segmentTrainStationStart with conditional trainConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.trainStationStart', isVisible: true });
+    // Implement custom test
 
-    // Test select widget segmentTrainStationEnd with conditional trainConditional with choices trainStationEndCustomChoices
+    // Test custom widget segmentTrainStationEnd with conditional trainConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.trainStationEnd', isVisible: true });
+    // Implement custom test
 
-    // Test select widget segmentRemStationStart with conditional remConditional with choices remStationStartCustomChoices
+    // Test custom widget segmentRemStationStart with conditional remConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.remStationStart', isVisible: true });
+    // Implement custom test
 
-    // Test select widget segmentRemStationEnd with conditional remConditional with choices remStationEndCustomChoices
+    // Test custom widget segmentRemStationEnd with conditional remConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.remStationEnd', isVisible: true });
+    // Implement custom test
 
     // Test radio widget segmentPlaneStationStart with conditional isPlaneAndSegmentOriginInTerritoryCustomConditional with choices planeStationChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

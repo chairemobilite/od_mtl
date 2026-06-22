@@ -650,22 +650,22 @@ stm_1 : 1-Green
 dontKnow : I don't know"
 ""
 Field,trainStationStart
-Question type,Select input
+Question type,Unknown input
 Conditional,trainConditional : mode === transitRegionalRail
 Question,Boarding station (when getting onto the train)
 ""
 Field,trainStationEnd
-Question type,Select input
+Question type,Unknown input
 Conditional,trainConditional : mode === transitRegionalRail
 Question,Exit station (when leaving the train)
 ""
 Field,remStationStart
-Question type,Select input
+Question type,Unknown input
 Conditional,remConditional : mode === transitLRRT
 Question,Boarding station (when entering the REM)
 ""
 Field,remStationEnd
-Question type,Select input
+Question type,Unknown input
 Conditional,remConditional : mode === transitLRRT
 Question,Exit station (when leaving the REM)
 ""
