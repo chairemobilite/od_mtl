@@ -2152,7 +2152,7 @@ export const fillTravelBehaviorSectionTests = ({
             isVisible: false
         });
     } else {
-        // Test string widget personUsualSchoolPlaceName with conditional personUsualSchoolPlaceNameCustomConditional
+        // Test string widget personUsualSchoolPlaceName with conditional hasSchoolLocationNotSetConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
         testHelpers.inputStringTest({
             context,
@@ -2172,7 +2172,7 @@ export const fillTravelBehaviorSectionTests = ({
     // Test custom widget personNoSchoolTripIntro
     // Implement custom test
 
-    // Test select widget personNoSchoolTripReason with conditional shouldAskForNoSchoolTripReasonCustomConditional with choices noSchoolTripReasonChoices
+    // Test select widget personNoSchoolTripReason with conditional hasSchoolLocationNotSetConditional with choices noSchoolTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     if (travelBehavior.noSchoolTripReason === null) {

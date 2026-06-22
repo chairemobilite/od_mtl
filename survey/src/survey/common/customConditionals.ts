@@ -5,11 +5,7 @@ import config from 'evolution-common/lib/config/project.config';
 import { Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
-import {
-    shouldAskForNoSchoolTripFollowup,
-    shouldAskForNoSchoolTripReason,
-    shouldAskForNoWorkTripReason
-} from './helper';
+import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from './helper';
 import { isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
@@ -117,11 +113,6 @@ export const shouldAskForNoWorkTripReasonCustomConditional: WidgetConditional = 
 export const shouldAskPersonNoWorkTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {
     const reason = surveyHelper.getResponse(interview, path, null, '../noWorkTripReason');
     return [reason === 'other', null];
-};
-
-export const shouldAskForNoSchoolTripReasonCustomConditional: WidgetConditional = (interview, path) => {
-    const person = odSurveyHelper.getPerson({ interview, path });
-    return [shouldAskForNoSchoolTripReason({ interview, person }), null];
 };
 
 export const shouldAskForNoSchoolTripSpecifyCustomConditional: WidgetConditional = (interview, path) => {
