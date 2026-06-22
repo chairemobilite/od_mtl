@@ -522,11 +522,11 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.subwayStationEnd', isVisible: true });
     // Implement custom test
 
-    // Test checkbox widget segmentSubwayStationsTransfer with conditional subwayTransferCustomConditional with choices subwayStationsTransferCustomChoices
+    // Test radio widget segmentSubwayStationsTransfer with conditional subwayTransferCustomConditional with choices subwayStationsTransferCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.subwayStationsTransfer', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: '?.subwayStationsTransfer', values: ['?'] });
+    testHelpers.inputRadioTest({ context, path: '?.subwayStationsTransfer', value: '?' });
 
     // Test radio widget segmentSubwayLine with conditional subwayLineConditional with choices subwayLineChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

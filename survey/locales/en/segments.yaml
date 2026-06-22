@@ -105,6 +105,8 @@ fromStopType_transitFerry: from the <strong>ferry boarding</strong>
 fromStopType_intercityTrain: from the <strong>train station</strong>
 fromStopType_plane: from the <strong>airport</strong>
 fromStopType: from the <strong>stop</strong>
+metroTransferStation:
+    none: None
 mode:
     Walk: <strong>Walking</strong>
     Bicycle: <strong>Bicycle</strong>

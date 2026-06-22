@@ -263,10 +263,9 @@ overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
 segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
 segmentSubwayStationStart,Custom,1,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationEnd,Custom,1,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
-segmentSubwayStationsTransfer,Checkbox,1,segments,segments,subwayStationsTransfer,"**Station(s) de transfert** :
+segmentSubwayStationsTransfer,Radio,1,segments,segments,subwayStationsTransfer,"**Station(s) de transfert** :
 __Choisir ""aucune"" si aucun transfert n'a été effectué__","**Transfer station(s)**:
-__Choose ‘none’ if no transfer was made__",,,,,subwayTransferCustomConditional,subwayTransferCustomValidation,subwayStationsTransferCustomChoices,,,,True,,,,,"FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl
-segmentSubwayStationsTransfert : subwayTransfertCustomConditional et choix custom · Issue #18 · chairemobilite/od_mtl"
+__Choose ‘none’ if no transfer was made__",,,,,subwayTransferCustomConditional,,subwayStationsTransferCustomChoices,,,,True,,,,,
 segmentSubwayLine,Radio,1,segments,segments,subwayLine,**Ligne empruntée** entre BerriUQAM et LionelGroulx :,**Line taken** between BerriUQAM and Lionel-Groulx,,,,,subwayLineConditional,,subwayLineChoices,,,,True,,,,,
 segmentTrainStationStart,Custom,1,segments,segments,trainStationStart,**Gare d'embarquement** (au départ) : ,**Boarding station** (when getting onto the train),,,,,trainConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentTrainStationEnd,Custom,1,segments,segments,trainStationEnd,**Gare de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the train),,,,,trainConditional,trainCustomValidation,,,,,True,,,,,"Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique

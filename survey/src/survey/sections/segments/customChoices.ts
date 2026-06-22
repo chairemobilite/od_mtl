@@ -4,6 +4,9 @@ import { no } from '../../common/choices';
 import { TFunction } from 'i18next';
 import { getPerson, countPersons } from 'evolution-common/lib/services/odSurvey/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
+import metroTransfers from '../../config/metroTransfers.json';
+import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 // FIXME This is copied from the `onDemandChoices` type in choices.tsx. It was
 // copied from there because a choice required the nickname
@@ -59,9 +62,32 @@ export const subwayStationsCustomChoices: ChoiceType[] = [
 ];
 
 // List the filtered subway transfer stations
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/18
-export const subwayStationsTransferCustomChoices: ParsingFunction<ChoiceType[]> = (interview) => {
-    return subwayStationsCustomChoices;
+export const subwayStationsTransferCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
+    const subwayStationStart = getResponse(interview, path, null, '../subwayStationStart');
+    const subwayStationEnd = getResponse(interview, path, null, '../subwayStationEnd');
+    if (_isBlank(subwayStationStart) || _isBlank(subwayStationEnd)) {
+        throw new Error(
+            'subwayStationsTransferCustomChoices: subway stations are empty, we should not display choices'
+        );
+    }
+    const metroTransferData = metroTransfers[subwayStationStart as string]?.[subwayStationEnd as string];
+    const choices = metroTransferData.choices;
+    if (choices === undefined) {
+        throw new Error(
+            'subwayStationsTransferCustomChoices: no available choices for stations ' +
+                subwayStationStart +
+                ' and ' +
+                subwayStationEnd
+        );
+    }
+
+    return choices.map((choice) => ({
+        value: choice.value,
+        label:
+            typeof choice.label === 'string'
+                ? choice.label
+                : (t: TFunction) => t(`segments:metroTransferStation.${choice.value}`)
+    }));
 };
 
 // List the other household members
