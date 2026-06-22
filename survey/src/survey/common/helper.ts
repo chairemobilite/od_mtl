@@ -3,6 +3,7 @@ import _isEqual from 'lodash/isEqual';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment-business-days';
 import { distance as turfDistance } from '@turf/turf';
+import { isFeature } from 'geojson-validation';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
 import {
@@ -21,6 +22,7 @@ import {
     validateButtonAction,
     validateButtonActionWithCompleteSection
 } from 'evolution-frontend/lib/services/display/frontendHelper';
+import * as conditionals from './conditionals';
 
 // FIXME Move elsewhere as we start using Evolution's builtin sections. It is
 // here to be available for widgets.ts, sections.ts and questionnaire.ts files.
@@ -168,33 +170,6 @@ export const shouldAskForNoWorkTripReason = ({
     return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'work').length === 0;
 };
 
-export const shouldAskForNoSchoolTripReason = ({
-    person,
-    interview
-}: {
-    person: Person;
-    interview: UserInterviewAttributes;
-}) => {
-    // Ask only for full time students
-    const journey = odSurveyHelper.getJourneysArray({ person })[0];
-    if (!person || !journey) {
-        return false;
-    }
-    const studentType = person.studentType;
-    const schoolPlaceType = person.schoolPlaceType;
-    const schoolPlaceIsCompatible =
-        ['onLocation', 'hybrid'].includes(schoolPlaceType) && ['fullTime', 'partTime'].includes(studentType);
-    const childrenCase = odSurveyHelper.isStudentFromSchoolType({ person });
-    if (!(schoolPlaceIsCompatible || childrenCase)) {
-        return false;
-    }
-
-    const tripsDate = getResponse(interview, '_assignedDay', null);
-    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
-
-    return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'school').length === 0;
-};
-
 export const shouldAskForNoSchoolTripFollowup = ({
     person,
     interview
@@ -239,15 +214,41 @@ const travelBehaviorForPersonComplete = function ({
     }
     // Make sure the no trip reasons are answered if required
     const shouldAskNoSchoolTrip = shouldAskForNoSchoolTripFollowup({ person, interview });
+    // Should ask school place is both shouldAskNotSchoolTrip and the conditional is `false`
+    const shouldAskSchoolPlace =
+        shouldAskNoSchoolTrip &&
+        conditionals.hasSchoolLocationNotSetConditional(interview, `household.persons.${person._uuid}`)[0];
     const shouldAskNoWorkTrip = shouldAskForNoWorkTripReason({ person, interview });
     if (!shouldAskNoSchoolTrip && !shouldAskNoWorkTrip) {
         return true;
     }
+
     const journey = odSurveyHelper.getJourneysArray({ person })[0] as any;
-    return (
-        (!shouldAskNoSchoolTrip || typeof journey.noSchoolTripReason === 'string') &&
-        (!shouldAskNoWorkTrip || typeof journey.noWorkTripReason === 'string')
-    );
+
+    // Either or both no work or school trip reasons need to be completed
+    // No work is completed if we should not ask or the noWorkTripReason is filled
+    const noWorkTripCompleted = !shouldAskNoWorkTrip || typeof journey.noWorkTripReason === 'string';
+
+    // No school trip has many completion path, encapsulate them in a function
+    const noSchoolTripCompleted = () => {
+        // Not to be asked, so it is completed
+        if (!shouldAskNoSchoolTrip) {
+            return true;
+        }
+        const hasSchoolPlaceAnswered = typeof (person as any).hasSchoolPlace === 'string';
+        // Need to fill school place type
+        if (!hasSchoolPlaceAnswered) {
+            return false;
+        }
+        // No school place to ask, it is completed
+        if (!shouldAskSchoolPlace) {
+            return true;
+        }
+        // Completed if noSchoolTripReason and geography are set
+        return typeof journey.noSchoolTripReason === 'string' && isFeature(person.usualSchoolPlace?.geography);
+    };
+
+    return noSchoolTripCompleted() && noWorkTripCompleted;
 };
 
 /**
