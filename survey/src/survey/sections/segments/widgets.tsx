@@ -75,17 +75,15 @@ export const segmentSubwayStationStart = customWidgets.segmentSubwayStationStart
 // Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 export const segmentSubwayStationEnd = customWidgets.segmentSubwayStationEnd;
 
-// FIXME segmentSubwayStationsTransfert : subwayValidation · Issue #19 · chairemobilite/od_mtl
-// segmentSubwayStationsTransfert : subwayTransfertCustomConditional et choix custom · Issue #18 · chairemobilite/od_mtl
-export const segmentSubwayStationsTransfer: WidgetConfig.InputCheckboxType = {
-    ...defaultInputBase.inputCheckboxBase,
+export const segmentSubwayStationsTransfer: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'subwayStationsTransfer',
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('segments:segmentSubwayStationsTransfer'),
     choices: customChoices.subwayStationsTransferCustomChoices,
     conditional: customConditionals.subwayTransferCustomConditional,
-    validations: customValidations.subwayTransferCustomValidation
+    validations: validations.requiredValidation
 };
 
 export const segmentSubwayLine: WidgetConfig.InputRadioType = {

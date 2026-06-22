@@ -636,7 +636,7 @@ Conditional,subwayConditional : mode === transitRRT
 Question,Exit station (when leaving the metro):
 ""
 Field,subwayStationsTransfer
-Question type,Checkbox input
+Question type,Radio input
 Conditional,subwayTransferCustomConditional
 Question,"Transfer station(s):
 Choose ‘none’ if no transfer was made"

@@ -14,6 +14,7 @@ import { isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelp
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
 import { getPointZone } from './commonHelpers';
+import metroTransfers from '../config/metroTransfers.json';
 
 // Don't show Question and give 'Québec' as default value
 export const hiddenWithQuebecAsDefaultValueCustomConditional: WidgetConditional = (_interview) => {
@@ -404,15 +405,23 @@ export const junctionPaidParkingCustomConditional: WidgetConditional = (intervie
 
 // Custom conditional to show if the pair of segment entry/exit subway stations
 // requires a question about the subway transfer station
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/37
 export const subwayTransferCustomConditional: WidgetConditional = (interview, path) => {
     const subwayStationStart = surveyHelper.getResponse(interview, path, null, '../subwayStationStart');
     const subwayStationEnd = surveyHelper.getResponse(interview, path, null, '../subwayStationEnd');
     if (_isBlank(subwayStationStart) || _isBlank(subwayStationEnd)) {
         return [false, null];
     }
-    // FIXME Implement the rest of the condition
-    return [false, null];
+    const metroTransferData = metroTransfers[subwayStationStart as string]?.[subwayStationEnd as string];
+    if (metroTransferData !== undefined) {
+        // Afficher ou non selon la matrice de transfer
+        if (metroTransferData.display) {
+            return [true, null];
+        } else {
+            return [false, metroTransferData.value];
+        }
+    }
+    // Fallback to `false` with value of 'none'
+    return [false, 'none'];
 };
 
 // Custom conditional to validate if a segment is of a certain mode and if the

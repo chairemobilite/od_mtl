@@ -122,6 +122,8 @@ fromStopType_transitFerry: du <strong>quai d'embarquement</strong>
 fromStopType_intercityTrain: de la <strong>gare de train</strong>
 fromStopType_plane: de l'<strong>aéroport</strong>
 fromStopType: de l'<strong>arrêt</strong>
+metroTransferStation:
+    none: Aucune
 mode:
     Walk: <strong>Marche</strong>
     Bicycle: <strong>Vélo</strong>

@@ -633,7 +633,7 @@ Conditionnel,subwayConditional : mode === transitRRT
 Question,Station de débarquement (à l'arrivée) : 
 ""
 Champ,subwayStationsTransfer
-Type de question,Case à cocher
+Type de question,Bouton radio
 Conditionnel,subwayTransferCustomConditional
 Question,"Station(s) de transfert :
 Choisir ""aucune"" si aucun transfert n'a été effectué"

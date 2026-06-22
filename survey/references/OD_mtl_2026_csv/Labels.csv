@@ -214,6 +214,7 @@ segments,fromStopType_transitFerry,du **quai d'embarquement**,from the **ferry b
 segments,fromStopType_intercityTrain,de la **gare de train**,from the **train station**,,
 segments,fromStopType_plane,de l'**aéroport**,from the **airport**,,
 segments,fromStopType,de l'**arrêt**,from the **stop**,,
+segments,metroTransferStation.none,Aucune,None,,
 household,workPlaceBeforeLeaveTypeChoicesOnLocation,"Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps","Yes, {{nickname}} worked always on-site at fixed location","Oui, je travaillais au lieu fixe en présentiel en tout temps","Yes, I worked always on-site at fixed location"
 household,workPlaceBeforeLeaveTypeChoicesHybrid,"Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)","Yes, {{nickname}} did hybrid work (remote and on-site)","Oui, je travaillais en mode hybride (télétravail et en présentiel)","Yes, I did hybrid work (remote and on-site)"
 household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace,"Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)","Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","Yes, I worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)"
