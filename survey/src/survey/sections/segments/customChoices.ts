@@ -64,30 +64,6 @@ export const subwayStationsTransferCustomChoices: ParsingFunction<ChoiceType[]> 
     return subwayStationsCustomChoices;
 };
 
-// List the train stations, sorted by proximity to segment origin
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/22
-export const trainStationStartCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
-    return subwayStationsCustomChoices;
-};
-
-// List the train stations, sorted by proximity to segment destination
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/22
-export const trainStationEndCustomChoices: ParsingFunction<ChoiceType[]> = (interview) => {
-    return subwayStationsCustomChoices;
-};
-
-// List the REM stations, sorted by proximity to segment origin
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/23
-export const remStationStartCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
-    return subwayStationsCustomChoices;
-};
-
-// List the REM stations, sorted by proximity to segment destination
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/23
-export const remStationEndCustomChoices: ParsingFunction<ChoiceType[]> = (interview) => {
-    return subwayStationsCustomChoices;
-};
-
 // List the other household members
 export const tripCommunCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
     const journeyContext = odSurveyHelper.getJourneyContextFromPath({ interview, path });

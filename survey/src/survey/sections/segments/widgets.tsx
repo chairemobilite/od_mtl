@@ -99,52 +99,18 @@ export const segmentSubwayLine: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentTrainStation : choix · Issue #22 · chairemobilite/od_mtl
-export const segmentTrainStationStart: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'trainStationStart',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentTrainStationStart'),
-    choices: customChoices.trainStationStartCustomChoices,
-    conditional: conditionals.trainConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const segmentTrainStationStart = customWidgets.segmentTrainStationStart;
 
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 // FIXME Validations: segmentTrainStationEnd : trainValidation · Issue #20 · chairemobilite/od_mtl
-export const segmentTrainStationEnd: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'trainStationEnd',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentTrainStationEnd'),
-    choices: customChoices.trainStationEndCustomChoices,
-    conditional: conditionals.trainConditional,
-    validations: customValidations.trainCustomValidation
-};
+export const segmentTrainStationEnd = customWidgets.segmentTrainStationEnd;
 
-// FIXME segmentRemStation : choix · Issue #23 · chairemobilite/od_mtl
-export const segmentRemStationStart: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'remStationStart',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentRemStationStart'),
-    choices: customChoices.remStationStartCustomChoices,
-    conditional: conditionals.remConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const segmentRemStationStart = customWidgets.segmentRemStationStart;
 
-export const segmentRemStationEnd: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'remStationEnd',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:segmentRemStationEnd'),
-    choices: customChoices.remStationEndCustomChoices,
-    conditional: conditionals.remConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const segmentRemStationEnd = customWidgets.segmentRemStationEnd;
 
 // FIXME segmentPlaneStationStart : planeStationStartCustomConditional · Issue #26 · chairemobilite/od_mtl
 export const segmentPlaneStationStart: WidgetConfig.InputRadioType = {

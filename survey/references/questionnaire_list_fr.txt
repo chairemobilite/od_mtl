@@ -436,15 +436,11 @@ Ligne empruntée entre BerriUQAM et LionelGroulx :
 
 Gare d'embarquement (au départ) : 
 
-
 Gare de débarquement (à l'arrivée) : 
-
 
 Station d'embarquement (au départ) : 
 
-
 Station de débarquement (à l'arrivée) : 
-
 
 Aéroport de départ
 - Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
