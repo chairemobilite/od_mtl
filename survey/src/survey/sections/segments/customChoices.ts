@@ -7,6 +7,8 @@ import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers'
 import metroTransfers from '../../config/metroTransfers.json';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { no as choiceNo } from '../../common/choices';
+import { personsArrayToChoices } from '../../common/customHelpers';
 
 // FIXME This is copied from the `onDemandChoices` type in choices.tsx. It was
 // copied from there because a choice required the nickname
@@ -90,18 +92,15 @@ export const subwayStationsTransferCustomChoices: ParsingFunction<ChoiceType[]> 
     }));
 };
 
-// List the other household members
-export const tripCommunCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
+// List the other household members for common trips
+export const commonTripCustomChoices: ParsingFunction<ChoiceType[]> = (interview, path) => {
     const journeyContext = odSurveyHelper.getJourneyContextFromPath({ interview, path });
     if (!journeyContext) {
-        throw new Error('tripCommunCustomChoices: Journey context not found for path ' + path);
+        throw new Error('commonTripCustomChoices: Journey context not found for path ' + path);
     }
     const { person } = journeyContext;
     const persons = odSurveyHelper.getPersonsArray({ interview });
-    return persons
-        .filter((p) => p._uuid !== person._uuid)
-        .map((p) => ({
-            value: p._uuid,
-            label: (t: TFunction) => odSurveyHelper.getPersonIdentificationString({ person: p, t })
-        }));
+    const personsChoices: ChoiceType[] = personsArrayToChoices(persons.filter((p) => p._uuid !== person._uuid));
+    personsChoices.unshift(choiceNo[0]);
+    return personsChoices;
 };

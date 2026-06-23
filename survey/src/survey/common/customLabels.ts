@@ -363,3 +363,30 @@ export const barriersDisabilityTripCustomLabel: I18nData = labelWithTripData(
     'barriers:barriersDisabilityTrip',
     '_barriersDisabilityTripPath'
 );
+
+export const commonTripCustomLabel: I18nData = (t, interview, path) => {
+    const tripContext = odHelpers.getTripContextFromPath({ interview, path });
+    if (tripContext === null) {
+        throw new Error('commonTripCustomLabel: trip context not found for path ' + path);
+    }
+    const { person, journey, trip } = tripContext;
+    const visitedPlaces = odHelpers.getVisitedPlaces({ journey });
+    const origin = odHelpers.getOrigin({ trip, visitedPlaces });
+    const destination = odHelpers.getDestination({ trip, visitedPlaces });
+    return t('segments:personTripsCommonTripWith', {
+        origin: odHelpers.getVisitedPlaceDescription({
+            visitedPlace: origin,
+            person,
+            interview,
+            t,
+            options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
+        }),
+        destination: odHelpers.getVisitedPlaceDescription({
+            visitedPlace: destination,
+            person,
+            interview,
+            t,
+            options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
+        })
+    });
+};

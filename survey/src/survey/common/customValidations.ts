@@ -237,3 +237,13 @@ export const uniqueNicknameCustomValidation: ValidationFunction = (value, _custo
         }
     ];
 };
+
+export const commonTripCustomValidation: ValidationFunction = (value, _customValue, interview, path) => {
+    return [
+        ...requiredValidation(value, _customValue, interview, path),
+        {
+            validation: !_isBlank(value) && Array.isArray(value) && value.length > 1 && value.includes('no'),
+            errorMessage: (t: TFunction) => t('segments:errors.tripCommonNoOnlySelection')
+        }
+    ];
+};

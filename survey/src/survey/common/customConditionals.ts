@@ -6,7 +6,7 @@ import { Person, WidgetConditional } from 'evolution-common/lib/services/questio
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from './helper';
-import { isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelpers';
+import { isCommonTripSampleMatch, isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
 import { getPointZone } from './commonHelpers';
@@ -456,8 +456,28 @@ export const isIntercityBusAndSegmentDestinationInTerritoryCustomConditional: Wi
     isModeAndSegmentLocationInTerritoryCustomConditional('intercityBus', 'destination');
 
 // Custom conditional to decide whether to show the common trip question
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/38
-export const tripCommunCustomConditional: WidgetConditional = (interview, path) => {
+export const commonTripCustomConditional: WidgetConditional = (interview, path) => {
+    // Make sure we have the right ep and the household matches
+    if (!isCommonTripSampleMatch(interview)) {
+        return [false, null];
+    }
+    const tripContext = odSurveyHelper.getTripContextFromPath({ interview, path });
+    if (tripContext === null) {
+        throw new Error('commonTripCustomConditional: trip context cannot be found for path' + path);
+    }
+    const { person, trip } = tripContext;
+
+    // Validate if this person should see the question (first interviewable person)
+    const commonTripRefPersonId = surveyHelper.getResponse(interview, '_commonTripRefPersonId');
+    if (commonTripRefPersonId !== person._uuid) {
+        return [false, null];
+    }
+
+    // If the last segment has no next segment
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    if (segments.length > 0 && segments[segments.length - 1].hasNextMode === false) {
+        return [true, null];
+    }
     return [false, null];
 };
 

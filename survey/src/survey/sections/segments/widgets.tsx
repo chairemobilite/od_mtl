@@ -285,25 +285,15 @@ export const tripJunctionPaidParking: WidgetConfig.InputRadioType = {
 
 // segmentHasNextMode
 
-// FIXME tripCommun : tripCommunCustomConditonal · Issue #38 · chairemobilite/od_mtl
-export const tripCommun: WidgetConfig.InputCheckboxType = {
+export const personTripsCommonTripWith: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,
-    path: 'tripCommun',
+    path: 'commonTripWith',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('segments:tripCommun', {
-            nickname,
-            count: countPersons,
-            context: activePerson?.gender
-        });
-    },
-    choices: customChoices.tripCommunCustomChoices,
-    conditional: customConditionals.tripCommunCustomConditional,
-    validations: validations.requiredValidation
+    label: customLabels.commonTripCustomLabel,
+    choices: customChoices.commonTripCustomChoices,
+    conditional: customConditionals.commonTripCustomConditional,
+    validations: customValidations.commonTripCustomValidation
 };
 
 // buttonSaveTrip

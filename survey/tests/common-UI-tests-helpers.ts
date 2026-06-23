@@ -1522,12 +1522,16 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
 };
 
 /********** Tests Segments section **********/
+export type TestTrip = {
+    commonTrip: string[] | null;
+};
 export const fillSegmentsSectionTests = ({
     context,
     householdSize = 1,
     segments,
+    trip = { commonTrip: null },
     expectedNextSection = 'end'
-}: CommonTestParametersModify & { segments: Segment[]; expectedNextSection?: string }) => {
+}: CommonTestParametersModify & { segments: Segment[]; trip: TestTrip; expectedNextSection?: string }) => {
     testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget segmentsPersonTripsTitle
@@ -1552,6 +1556,23 @@ export const fillSegmentsSectionTests = ({
         // TODO: Implement multiple mode of transport for a trip
         fillOneSegmentTests({ context, index: segment.segmentIndex, segment });
     });
+
+    // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (trip.commonTrip === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputCheckboxTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
+            values: trip.commonTrip
+        });
+    }
 
     // Test custom widget buttonConfirmNextSection with conditional lastPlaceEnteredCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */

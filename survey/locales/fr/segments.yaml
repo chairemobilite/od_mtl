@@ -51,20 +51,9 @@ tripJunctionPrivateBus: '<strong>Lieu d’embarquement</strong> (montée dans le
 tripJunctionBusPrivate: '<strong>Lieu de débarquement</strong> (descente du bus) '
 tripJunctionPaidParking: <strong>Stationnement</strong> en arrivant  {{stopType}}
 segmentHasNextMode: Autre mode utilisé pour le déplacement avant l'arrivée?
-tripCommun: >-
-    {{nickname}} a-t-il(-elle) réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_male: >-
-    {{nickname}} a-t-il réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_female: >-
-    {{nickname}} a-t-elle réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_custom: >-
-    {{nickname}} a-t-iel réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_one: Avez-vous réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_male_one: Avez-vous réalisé ce déplacement avec une autre personne du ménage?
-tripCommun_female_one: Avez-vous réalisé ce déplacement avec une autre personne du
-    ménage?
-tripCommun_custom_one: Avez-vous réalisé ce déplacement avec une autre personne du
-    ménage?
+personTripsCommonTripWith: >-
+    Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout
+    ou en partie, <strong>avec un autre membre du ménage</strong>?
 buttonSaveTrip: Confirmer ce déplacement
 buttonConfirmNextSection: Confirmer les lieux et continuer
 segmentsIntroOnTheRoad: >-
@@ -124,6 +113,12 @@ fromStopType_plane: de l'<strong>aéroport</strong>
 fromStopType: de l'<strong>arrêt</strong>
 metroTransferStation:
     none: Aucune
+errors:
+    tripCommonNoOnlySelection: >-
+        Vous ne pouvez sélectionner des membres du ménage et l'option "Non" en même
+        temps
+    trainStationsIncoherent: La ou les station(s) de transfert semblent incohérentes
+        pour ce déplacement
 mode:
     Walk: <strong>Marche</strong>
     Bicycle: <strong>Vélo</strong>
@@ -170,6 +165,3 @@ mode:
     CarDriver_leisureStroll: Auto en tant que conducteur
     CarPassenger_leisureStroll: Auto en tant que passager
     Transit_leisureStroll: Transport en commun
-errors:
-    trainStationsIncoherent: La ou les station(s) de transfert semblent incohérentes
-        pour ce déplacement

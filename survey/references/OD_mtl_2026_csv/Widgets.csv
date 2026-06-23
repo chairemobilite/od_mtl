@@ -303,7 +303,7 @@ tripJunctionPaidParking,Radio,1,segments,segments,junctionPointPaidParking,**Sta
 
 FIXME tripJunctionPaidParking : junctionPaidParkingCustomConditional · Issue #37 · chairemobilite/od_mtl"
 segmentHasNextMode,Builtin,1,segments,segments,hasNextMode,Autre mode utilisé pour le déplacement avant l'arrivée?,Other mode of transportation used for the trip before arrival?,,,,,,,,,,,,,,,,
-tripCommun,Checkbox,1,segments,personTrips,tripCommun,{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?,Did {{nickname}} make this trip with another member of the household?,Avez-vous réalisé ce déplacement avec une autre personne du ménage?,Did you make this trip with another member of the household?,,,tripCommunCustomConditional,,tripCommunCustomChoices,,,,True,,,,,FIXME tripCommun : tripCommunCustomConditonal · Issue #38 · chairemobilite/od_mtl
+personTripsCommonTripWith,Checkbox,1,segments,personTrips,commonTripWith,"Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout ou en partie, **avec un autre membre du ménage**?","Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, **with another household member**?",,,customLabels={{commonTripCustomLabel}},,commonTripCustomConditional,commonTripCustomValidation,commonTripCustomChoices,,,,True,,,,,
 buttonSaveTrip,Builtin,1,segments,personTrips,trip.save,Confirmer ce déplacement,Confirm this trip,,,,,,,,,,,,,,,,
 buttonConfirmNextSection,Builtin,1,segments,,segments.save,Confirmer les lieux et continuer,Confirm locations and continue,,,,,lastPlaceEnteredCustomConditional,,,,,,,,,,,
 activePersonTitle,Builtin,1,travelBehavior,,,,,,,,,,,,,,,True,,,,,

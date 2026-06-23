@@ -49,8 +49,9 @@ tripJunctionPrivateBus: <strong>Boarding location</strong> (getting on the bus)
 tripJunctionBusPrivate: <strong>Exit location</strong> (getting off the bus)
 tripJunctionPaidParking: <strong>Parking</strong> upon arrival at {{stopType}}
 segmentHasNextMode: Other mode of transportation used for the trip before arrival?
-tripCommun: Did {{nickname}} make this trip with another member of the household?
-tripCommun_one: Did you make this trip with another member of the household?
+personTripsCommonTripWith: >-
+    Was this trip (between {{origin}} and {{destination}}) made, in part or entirely,
+    <strong>with another household member</strong>?
 buttonSaveTrip: Confirm this trip
 buttonConfirmNextSection: Confirm locations and continue
 segmentsIntroOnTheRoad: >-
@@ -107,6 +108,12 @@ fromStopType_plane: from the <strong>airport</strong>
 fromStopType: from the <strong>stop</strong>
 metroTransferStation:
     none: None
+errors:
+    tripCommonNoOnlySelection: >-
+        You cannot select other household members and the option "No" at the same
+        time
+    trainStationsIncoherent: The transfer station(s) do not seem coherent for this
+        trip
 mode:
     Walk: <strong>Walking</strong>
     Bicycle: <strong>Bicycle</strong>
@@ -151,6 +158,3 @@ mode:
     CarDriver_leisureStroll: Car as driver
     CarPassenger_leisureStroll: Car as passenger
     Transit_leisureStroll: Public transit
-errors:
-    trainStationsIncoherent: The transfer station(s) do not seem coherent for this
-        trip
