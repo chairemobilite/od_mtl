@@ -16,7 +16,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
 export const personTripsWidgetsNames: SectionConfig['widgets'] = [
     'segmentIntro',
     'segments',
-    'tripCommun',
+    'personTripsCommonTripWith',
     'buttonSaveTrip'
 ];
 

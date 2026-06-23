@@ -52,6 +52,27 @@ export const isPartialSample = (interview: InterviewAttributes, partialSample: s
     return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
 };
 
+/**
+ * Validate if the interview is the commonTrip ep AND if the household matches some criteria
+ * @param interview
+ * @returns
+ */
+export const isCommonTripSampleMatch = (interview: InterviewAttributes) => {
+    const isCommonTripEp = getResponse(interview, 'ep.commonTrip', false) as boolean;
+    if (!isCommonTripEp) {
+        return false;
+    }
+    // The household should have more than one person and have persons aged between 5 and 17 or aged 65+
+    const persons = odSurveyHelpers.getPersonsArray({ interview });
+    if (persons.length === 1) {
+        return false;
+    }
+    const eligiblePerson = persons.filter(
+        (person) => (person.age >= config.interviewableAge && person.age < config.adultAge) || person.age >= 65
+    );
+    return eligiblePerson.length > 0;
+};
+
 export const getPersonsOfDrivingAge = (interview: InterviewAttributes) =>
     odSurveyHelpers
         .getInterviewablePersonsArray({ interview })

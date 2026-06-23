@@ -543,7 +543,7 @@ Parking upon arrival at {{stopType}}
 
 Other mode of transportation used for the trip before arrival?
 
-Did {{nickname}} make this trip with another member of the household?
+Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, with another household member?
 
 
 Confirm this trip

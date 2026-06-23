@@ -540,7 +540,7 @@ Stationnement en arrivant  {{stopType}}
 
 Autre mode utilisé pour le déplacement avant l'arrivée?
 
-{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?
+Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout ou en partie, avec un autre membre du ménage?
 
 
 Confirmer ce déplacement

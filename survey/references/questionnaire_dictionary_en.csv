@@ -809,10 +809,10 @@ Field,hasNextMode
 Question type,Builtin
 Question,Other mode of transportation used for the trip before arrival?
 ""
-Field,tripCommun
+Field,commonTripWith
 Question type,Checkbox input
-Conditional,tripCommunCustomConditional
-Question,Did {{nickname}} make this trip with another member of the household?
+Conditional,commonTripCustomConditional
+Question,"Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, with another household member?"
 ""
 Field,save
 Question type,Builtin

@@ -640,11 +640,11 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
 
     // Test builtin widget segmentHasNextMode
 
-    // Test checkbox widget tripCommun with conditional tripCommunCustomConditional with choices tripCommunCustomChoices
+    // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.tripCommun', isVisible: true });
-    testHelpers.inputCheckboxTest({ context, path: '?.tripCommun', values: ['?'] });
+    testHelpers.inputVisibleTest({ context, path: '?.commonTripWith', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: '?.commonTripWith', values: ['?'] });
 
     // Test builtin widget buttonSaveTrip
 

@@ -806,10 +806,10 @@ Champ,hasNextMode
 Type de question,Builtin
 Question,Autre mode utilisé pour le déplacement avant l'arrivée?
 ""
-Champ,tripCommun
+Champ,commonTripWith
 Type de question,Case à cocher
-Conditionnel,tripCommunCustomConditional
-Question,{{nickname}} a-t-{{gender: il/elle/iel/il(-elle)}} réalisé ce déplacement avec une autre personne du ménage?
+Conditionnel,commonTripCustomConditional
+Question,"Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout ou en partie, avec un autre membre du ménage?"
 ""
 Champ,save
 Type de question,Builtin

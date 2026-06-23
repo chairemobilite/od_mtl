@@ -9,7 +9,7 @@ import {
 } from 'evolution-common/lib/services/questionnaire/types';
 import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnaire';
 import { personVisitedPlacesWidgetsNames } from './sections/visitedPlaces/widgetsNames';
-import { segmentsWidgetsNames } from './sections/segments/widgetsNames';
+import { segmentsWidgetsNames, personTripsWidgetsNames } from './sections/segments/widgetsNames';
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import { updateHouseholdSizeFromPersonCount } from './common/customHelpers';
 
@@ -30,6 +30,7 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 enabled: true,
                 askSegmentDriver: true,
                 additionalSegmentWidgetNames: segmentsWidgetsNames,
+                additionalTripsWidgetNames: personTripsWidgetsNames,
                 modesIncludeOnly: [
                     'walk',
                     'bicycle',
