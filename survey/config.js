@@ -37,6 +37,7 @@ module.exports = {
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
     interviewableMinimumAge: 5,
+    accessCodeFormat: '0000-0000',
     selfResponseMinimumAge: 14,
     singlePersonInterview: false,
     allowChangeSectionWithoutValidation: true,
