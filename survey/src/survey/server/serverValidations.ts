@@ -1,7 +1,4 @@
-import { validateAccessCode, registerAccessCodeValidationFunction } from 'evolution-backend/lib/services/accessCode';
-
-// Access code is 4 digits, dash, 4 digits
-registerAccessCodeValidationFunction((accessCode) => accessCode.match(/^\d{4}-? *\d{4}$/gi) !== null);
+import { validateAccessCode } from 'evolution-backend/lib/services/accessCode';
 
 export default {
     accessCode: {
