@@ -548,7 +548,7 @@ Question,At what time did {{nickname}} arrive at the previous location ({{visite
 ""
 Field,_previousDepartureTime
 Question type,Builtin
-Question,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
+Question,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 ""
 Field,arrivalTime
 Question type,Builtin
@@ -556,7 +556,7 @@ Question,{{nickname}} arrived {{atPlace}} at:
 ""
 Field,nextPlaceCategory
 Question type,Builtin
-Question,"After being {{atPlace}}, {{nickname}}…
+Question,"After being {{atPlace}}, {{nickname}}…{{reminderText}}
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer."
 ""
 Field,onTheRoadNextPlaceCategory
@@ -565,7 +565,7 @@ Question,Where did {{nickname}} end their trips on the road?
 ""
 Field,departureTime
 Question type,Builtin
-Question,{{nickname}} left {{place}} at:
+Question,{{nickname}} left {{place}} at:{{reminderText}}
 ""
 Field,visitedPlacesSave
 Question type,Builtin

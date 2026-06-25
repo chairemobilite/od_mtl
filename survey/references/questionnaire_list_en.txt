@@ -381,16 +381,16 @@ At what time did {{nickname}} leave the previous location ({{visitedPlaceDescrip
 
 At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} on the road trips?
 
-At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
+At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 
 {{nickname}} arrived {{atPlace}} at:
 
-After being {{atPlace}}, {{nickname}}…
+After being {{atPlace}}, {{nickname}}…{{reminderText}}
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.
 
 Where did {{nickname}} end their trips on the road?
 
-{{nickname}} left {{place}} at:
+{{nickname}} left {{place}} at:{{reminderText}}
 
 Confirm
 

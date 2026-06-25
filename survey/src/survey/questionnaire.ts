@@ -11,12 +11,17 @@ import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnair
 import { personVisitedPlacesWidgetsNames } from './sections/visitedPlaces/widgetsNames';
 import { segmentsWidgetsNames, personTripsWidgetsNames } from './sections/segments/widgetsNames';
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
-import { updateHouseholdSizeFromPersonCount } from './common/customHelpers';
+import {
+    getCommonTripReminderOptionsForVisitedPlaces,
+    isCommonTripSampleMatch,
+    updateHouseholdSizeFromPersonCount
+} from './common/customHelpers';
 
 // Import feature collections for some widgets
 import metroStations from './geojson/stations_metro.json';
 import remStations from './geojson/stations_rem.json';
 import trainStations from './geojson/gares_train.json';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
@@ -79,6 +84,12 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 tripDiaryMinTimeOfDay: 4 * 60 * 60, // 4h in seconds
                 additionalVisitedPlacesWidgetNames: personVisitedPlacesWidgetsNames,
                 inlineUsualPlacesEntry: true,
+                additionalLabelOptionFunctions: {
+                    visitedPlaceActivityCategory: getCommonTripReminderOptionsForVisitedPlaces,
+                    visitedPlacePreviousDepartureTime: getCommonTripReminderOptionsForVisitedPlaces,
+                    visitedPlaceNextPlaceCategory: getCommonTripReminderOptionsForVisitedPlaces,
+                    visitedPlaceDepartureTime: getCommonTripReminderOptionsForVisitedPlaces
+                },
                 activitiesIncludeOnly: [
                     'home',
                     'workUsual',
@@ -120,13 +131,22 @@ const segmentSectionConfigFromFactory = surveySections['segments'];
 // Add the segments section to the exported configuration
 const segmentConfig: SectionConfig = {
     ...segmentSectionConfigFromFactory,
-    // FIXME Remove this override when we don't need to manually update the household size in every section
+    // Override the onSectionEntry to get the reference person ID for the common trips questions.
     onSectionEntry: function (interview, iterationContext) {
+        // Get values to update from the original segment section configuration
         const segmentValuesToUpdate = segmentSectionConfigFromFactory.onSectionEntry!(interview, iterationContext);
-        const needUpdateHouseholdSizeValues = updateHouseholdSizeFromPersonCount(interview);
-        return !segmentValuesToUpdate && !needUpdateHouseholdSizeValues
-            ? undefined
-            : _merge(segmentValuesToUpdate || {}, needUpdateHouseholdSizeValues || {});
+
+        // If common trip partial sample, add the person ID of the first person
+        // to enter this section
+        if (isCommonTripSampleMatch(interview)) {
+            const refPersonId = getResponse(interview, '_commonTripRefPersonId', null);
+            if (refPersonId === null && iterationContext && iterationContext.length > 0) {
+                const personId = iterationContext[iterationContext.length - 1];
+                segmentValuesToUpdate['response._commonTripRefPersonId'] = personId;
+            }
+        }
+
+        return segmentValuesToUpdate;
     }
 };
 
