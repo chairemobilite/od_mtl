@@ -87,9 +87,9 @@ segments,driverOther,Une autre personne,Another person,,
 segments,driverDontKnow,Je ne sais pas,I don't know,,
 segments,driverFamilyMemberSeq,Personne {{sequence}},Person {{sequence}},,
 visitedPlaces,Activity,Spécifier :,Specify :,,
-visitedPlaces,ActivityCategoryFirstLocation,Activité principale au lieu de départ de la journée,Main activity carried out at the starting point of the day,,
-visitedPlaces,ActivityCategoryAfterHome,Activité principale au premier lieu visité dans la journée après avoir quitté le domicile,Main activity carried out at the first location visited after leaving home,,
-visitedPlaces,ActivityCategory,Activité principale à ce lieu,Main activity carried out at this location,,
+visitedPlaces,ActivityCategoryFirstLocation,Activité principale au lieu de départ de la journée{{reminderText}},Main activity carried out at the starting point of the day{{reminderText}},,
+visitedPlaces,ActivityCategoryAfterHome,Activité principale au premier lieu visité dans la journée après avoir quitté le domicile{{reminderText}},Main activity carried out at the first location visited after leaving home{{reminderText}},,
+visitedPlaces,ActivityCategory,Activité principale à ce lieu{{reminderText}},Main activity carried out at this location{{reminderText}},,
 visitedPlaces,VisitedPlaceSequence,Lieu {{count}},Location #{{count}},Lieu de départ de la journée,Departure place for this day
 visitedPlaces,ConfirmDeleteVisitedPlace,Confirmez-vous que vous voulez retirer ce lieu?,Do you confirm that you want to remove this location?,,
 visitedPlaces,LocationNameAddress,Nom ou adresse du lieu,Name or address of the place,,
@@ -184,6 +184,9 @@ visitedPlaces,nextPlaceRadioChoices.stayedHomeUntilTheNextDay,Rest{{gender:é/é
 visitedPlaces,nextPlaceRadioChoices.stayedThereUntilTheNextDay,Rest{{gender:é/ée/é(e)/é(e)}} à cet endroit jusqu'au lendemain,Stayed at this place until the next day,,
 visitedPlaces,nextPlaceRadioChoices.visitedAnotherPlace,All{{gender:é/ée/é(e)/é(e)}} ou arrêt{{gender:é/ée/é(e)/é(e)}} à un autre endroit,Went or stopped elsewhere,,
 visitedPlaces,nextPlaceRadioChoices.wentBackHome,Retourn{{gender:é/ée/é(e)/é(e)}} au domicile directement ({{address}}),Returned home directly ({{address}}),,
+visitedPlaces,reminderText,"
+<span style=""background-color:#fff6cc;"">&#x26A0; Rappel: déplacement avec {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>","
+<span style=""background-color:#fff6cc;"">&#x26A0;Reminder: trip with {{otherNickname}} at {{time}} &#8594; {{origin}} to {{destination}}</span>",,
 segments,onDemandChoicesPickupAtOrigin,"Oui, il est venu chercher {{nickname}} à son lieu de départ","Yes, it picked {{nickname}} up at their departure location","Oui, il est venu me chercher à mon lieu de départ","Yes, it picked me up at my departure location"
 segments,onDemandChoicesJoinedStop,"Oui, {{nickname}} a rejoint un arrêt","Yes, {{nickname}} went to a stop","Oui, j'ai rejoint un arrêt","Yes, I went to a stop"
 segments,busLinesOther,Autre(s) ligne(s) de bus,Other bus line(s),,

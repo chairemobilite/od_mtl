@@ -378,16 +378,16 @@ Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois local
 
 À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent ({{visitedPlaceDescription}}) avant de débuter ses déplacements sur la route?
 
-À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?
+À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
 
 {{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
 
-Après avoir été {{atPlace}}, {{nickname}} est…
+Après avoir été {{atPlace}}, {{nickname}} est…{{reminderText}}
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.
 
 À quel endroit {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} terminé ses déplacements sur la route?
 
-{{nickname}} a quitté {{place}} à:
+{{nickname}} a quitté {{place}} à:{{reminderText}}
 
 Confirmer
 

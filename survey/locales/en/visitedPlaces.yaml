@@ -66,33 +66,34 @@ visitedPlacePreviousArrivalTime_female_one: >-
     At what time did you arrive at the previous location ({{visitedPlaceDescription}})
     before starting your on the road trips?
 visitedPlacePreviousDepartureTime: >-
-    At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?
+    At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_one: >-
-    At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?
+    At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:'
 visitedPlaceArrivalTime_one: 'You arrived {{atPlace}} at:'
 visitedPlaceNextPlaceCategory: >-
-    After being {{atPlace}}, {{nickname}}…<br /><span class="_pale _oblique">If {{nickname}}
-    left this place after 4 AM the following day, please consider for the purposes
-    of the survey that they stayed there until the next day and select the appropriate
-    answer.</span>
+    After being {{atPlace}}, {{nickname}}…{{reminderText}}<br /><span class="_pale
+    _oblique">If {{nickname}} left this place after 4 AM the following day, please
+    consider for the purposes of the survey that they stayed there until the next
+    day and select the appropriate answer.</span>
 visitedPlaceNextPlaceCategory_one: >-
-    After being {{atPlace}}, you…<br /><span class="_pale _oblique">If you left this
-    place after 4 AM the following day, please consider for the purposes of the survey
-    that you stayed there until the next day and select the appropriate answer.</span>
+    After being {{atPlace}}, you…{{reminderText}}<br /><span class="_pale _oblique">If
+    you left this place after 4 AM the following day, please consider for the purposes
+    of the survey that you stayed there until the next day and select the appropriate
+    answer.</span>
 visitedPlaceOnTheRoadNextPlaceCategory: Where did {{nickname}} end their trips on
     the road?
 visitedPlaceOnTheRoadNextPlaceCategory_one: Where did you end your trips on the road?
-visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:'
-visitedPlaceDepartureTime_one: 'You left {{place}} at:'
+visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:{{reminderText}}'
+visitedPlaceDepartureTime_one: You left {{place}} at:{{reminderText}}
 buttonSaveVisitedPlace: Confirm
 buttonVisitedPlacesConfirmNextSection: Confirm locations and continue
 Activity: 'Specify :'
 ActivityCategoryFirstLocation: Main activity carried out at the starting point of
-    the day
-ActivityCategoryAfterHome: Main activity carried out at the first location visited
-    after leaving home
-ActivityCategory: Main activity carried out at this location
+    the day{{reminderText}}
+ActivityCategoryAfterHome: >-
+    Main activity carried out at the first location visited after leaving home{{reminderText}}
+ActivityCategory: Main activity carried out at this location{{reminderText}}
 VisitedPlaceSequence: 'Location #{{count}}'
 VisitedPlaceSequence_one: Departure place for this day
 ConfirmDeleteVisitedPlace: Do you confirm that you want to remove this location?
@@ -313,3 +314,6 @@ nextPlaceRadioChoices:
     stayedThereUntilTheNextDay: Stayed at this place until the next day
     visitedAnotherPlace: Went or stopped elsewhere
     wentBackHome: Returned home directly ({{address}})
+reminderText: >-
+    <br /><span style="background-color:#fff6cc;">&#x26A0;Reminder: trip with {{otherNickname}}
+    at {{time}} &#8594; {{origin}} to {{destination}}</span>
