@@ -27,6 +27,8 @@ personVisitedPlacesTitle_female_one: >-
 personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
     {{assignedDate}}:'
 personVisitedPlacesMap_one: 'Carte de vos déplacements le {{assignedDate}}:'
+visitedPlaceActivityCategory: Activité principale à ce lieu{{reminderText}}
+visitedPlaceActivity: 'Spécifier :'
 visitedPlaceOnTheRoadPreviousPlaceActivity: >-
     Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Quel endroit était le point de départ
@@ -36,6 +38,7 @@ visitedPlaceAlreadyVisited: >-
     de {{nickname}} ou dans celles des autres membres du ménage.</span>
 visitedPlaceAlreadyVisited_one: Avez-vous déjà localisé ce lieu?
 visitedPlaceShortcut: 'Veuillez choisir le lieu dans la liste des lieux déjà localisés:'
+visitedPlaceName: Nom ou adresse du lieu
 visitedPlaceGeography: >-
     Veuillez positionner le lieu sur la carte<br /><span class="_pale _oblique">Naviguez,
     zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous
@@ -171,51 +174,48 @@ visitedPlaceDepartureTime: '{{nickname}} a quitté {{place}} à:{{reminderText}}
 visitedPlaceDepartureTime_one: Vous avez quitté {{place}} à:{{reminderText}}
 buttonSaveVisitedPlace: Confirmer
 buttonVisitedPlacesConfirmNextSection: Confirmer les lieux et continuer
-Activity: 'Spécifier :'
-ActivityCategoryFirstLocation: Activité principale au lieu de départ de la journée{{reminderText}}
-ActivityCategoryAfterHome: >-
+visitedPlaceActivityCategory_firstLocation: Activité principale au lieu de départ
+    de la journée{{reminderText}}
+visitedPlaceActivityCategory_afterHome: >-
     Activité principale au premier lieu visité dans la journée après avoir quitté
     le domicile{{reminderText}}
-ActivityCategory: Activité principale à ce lieu{{reminderText}}
 VisitedPlaceSequence: Lieu {{count}}
 VisitedPlaceSequence_one: Lieu de départ de la journée
 ConfirmDeleteVisitedPlace: Confirmez-vous que vous voulez retirer ce lieu?
-LocationNameAddress: Nom ou adresse du lieu
-LocationNameAddressExample_workUsual: Édifice du Phare, CPE les petits génies
-LocationNameAddressExample_workUsual_onTheRoadOften: Centre de distribution Rivières,
+visitedPlaceNameExample_workUsual: Édifice du Phare, CPE les petits génies
+visitedPlaceNameExample_workUsual_onTheRoadOften: Centre de distribution Rivières,
     Resto St-Hubert Alma
-LocationNameAddressExample_workNotUsual: Palais des congrès de Montréal, Le Co-work
-    du lac Long
-LocationNameAddressExample_schoolUsual: École Marguerite-Bourgeoys, Collège CDI Québec,
+visitedPlaceNameExample_workNotUsual: Palais des congrès de Montréal, Le Co-work du
+    lac Long
+visitedPlaceNameExample_schoolUsual: École Marguerite-Bourgeoys, Collège CDI Québec,
     UQAR
-LocationNameAddressExample_schoolNotUsual: Bibliothèque à Livre ouvert, École de musique
+visitedPlaceNameExample_schoolNotUsual: Bibliothèque à Livre ouvert, École de musique
     Dorémi
-LocationNameAddressExample_shopping: Centre d’achat Le Carrefour, Provigo St-Félicien,
+visitedPlaceNameExample_shopping: Centre d’achat Le Carrefour, Provigo St-Félicien,
     IKEA Boucherville
-LocationNameAddressExample_restaurant: Normandin de Lévis, Snack bar chez Raymond,
-    Resto Subway de Rawdon
-LocationNameAddressExample_dropSomeone: Gare d’autocar, Aréna des Collines, École
-    des Pionniers
-LocationNameAddressExample_fetchSomeone: Gare d’autocar, Aréna des Collines, École
-    des Pionniers
-LocationNameAddressExample_leisureArtsMusicCulture: Cinéma des chutes, Théâtre de
-    Verdure, Musée national des petits pots Masson
-LocationNameAddressExample_leisureSports: Nautilus St-Georges, Escalade La Grimpe,
-    Parc de la Rose
-LocationNameAddressExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hôtel
+visitedPlaceNameExample_restaurant: Normandin de Lévis, Snack bar chez Raymond, Resto
+    Subway de Rawdon
+visitedPlaceNameExample_dropSomeone: Gare d’autocar, Aréna des Collines, École des
+    Pionniers
+visitedPlaceNameExample_fetchSomeone: Gare d’autocar, Aréna des Collines, École des
+    Pionniers
+visitedPlaceNameExample_leisureArtsMusicCulture: Cinéma des chutes, Théâtre de Verdure,
+    Musée national des petits pots Masson
+visitedPlaceNameExample_leisureSports: Nautilus St-Georges, Escalade La Grimpe, Parc
+    de la Rose
+visitedPlaceNameExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hôtel
     Days Inn St-Flavien
-LocationNameAddressExample_leisureStroll: Parc au bord de l’eau, Petit train du nord,
+visitedPlaceNameExample_leisureStroll: Parc au bord de l’eau, Petit train du nord,
     Stroll de la Montagne
-LocationNameAddressExample_visiting: Addresse de la personne visitée, Coin des Rossignols
+visitedPlaceNameExample_visiting: Adresse de la personne visitée, Coin des Rossignols
     et de l’Étang
-LocationNameAddressExample_medical: >-
+visitedPlaceNameExample_medical: >-
     Clinique Médicale des Marguerites, Hôpital régional de Rimouski, CLSC des Rivières
-LocationNameAddressExample_service: Coiffure Dans le Vent, Caisse Desjardins de Limoilou
-LocationNameAddressExample_worship: Église Saint-Nicéphore, Mosquée de la Capitale,
-    Synagogue Maison Chabad
-LocationNameAddressExample_secondaryHome: Adresse de la résidence secondaire ou du
-    chalet
-LocationNameAddressExample_schoolNotStudent: Institut Linguistique, École de conduite
+visitedPlaceNameExample_service: Coiffure Dans le Vent, Caisse Desjardins de Limoilou
+visitedPlaceNameExample_worship: Église Saint-Nicéphore, Mosquée de la Capitale, Synagogue
+    Maison Chabad
+visitedPlaceNameExample_secondaryHome: Adresse de la résidence secondaire ou du chalet
+visitedPlaceNameExample_schoolNotStudent: Institut Linguistique, École de conduite
     Tecnic
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace: >-
     {{nickname}} a quitté le domicile pour aller à son lieu habituel de travail à?

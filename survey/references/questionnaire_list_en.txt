@@ -365,6 +365,10 @@ Chronological order must be respected (i.e. sequence matters).
 
 Map of {{nickname}}’s trips on {{assignedDate}}:
 
+Main activity carried out at this location{{reminderText}}
+
+Specify :
+
 Where did {{nickname}} begin their work trip on the road?
 
 Did you previously locate this place on the map?
@@ -373,6 +377,8 @@ In {{nickname}}'s travel diary or that of another household member.
 - No
 
 Please select this place from the list of previously located places:
+
+Name or address of the place
 
 Please locate this place on the map
 Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.

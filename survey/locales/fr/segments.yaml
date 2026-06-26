@@ -56,12 +56,6 @@ personTripsCommonTripWith: >-
     ou en partie, <strong>avec un autre membre du ménage</strong>?
 buttonSaveTrip: Confirmer ce déplacement
 buttonConfirmNextSection: Confirmer les lieux et continuer
-segmentsIntroOnTheRoad: >-
-    Veuillez indiquer tous les modes de transport utilisés pour effectuer les déplacements
-    sur la route, dans l'ordre chronologique:
-segmentsIntroStroll: >-
-    Veuillez indiquer tous les modes de transport utilisés pour effectuer la promenade,
-    dans l'ordre chronologique:
 junctionGeographyRefreshGeocodingLabel: Chercher le lieu de jonction à partir du nom
     ou de l'adresse
 driverFamily: Ami ou famille

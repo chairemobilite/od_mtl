@@ -517,6 +517,14 @@ Field,visitedPlacesMap
 Question type,Builtin
 Question,Map of {{nickname}}’s trips on {{assignedDate}}:
 ""
+Field,activityCategory
+Question type,Builtin
+Question,Main activity carried out at this location{{reminderText}}
+""
+Field,activity
+Question type,Builtin
+Question,Specify :
+""
 Field,onTheRoadPreviousPlaceActivity
 Question type,Builtin
 Question,Where did {{nickname}} begin their work trip on the road?
@@ -532,6 +540,10 @@ no : No"
 Field,shortcut
 Question type,Builtin
 Question,Please select this place from the list of previously located places:
+""
+Field,name
+Question type,Builtin
+Question,Name or address of the place
 ""
 Field,geography
 Question type,Builtin

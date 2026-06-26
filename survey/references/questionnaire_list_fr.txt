@@ -362,6 +362,10 @@ L'ordre chronologique doit être respecté.
 
 Carte des déplacements de {{nickname}} le {{assignedDate}}:
 
+Activité principale à ce lieu{{reminderText}}
+
+Spécifier :
+
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
 Avez-vous déjà localisé ce lieu?
@@ -370,6 +374,8 @@ Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
 - Non
 
 Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+
+Nom ou adresse du lieu
 
 Veuillez positionner le lieu sur la carte
 Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.

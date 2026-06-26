@@ -514,6 +514,14 @@ Champ,visitedPlacesMap
 Type de question,Builtin
 Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
 ""
+Champ,activityCategory
+Type de question,Builtin
+Question,Activité principale à ce lieu{{reminderText}}
+""
+Champ,activity
+Type de question,Builtin
+Question,Spécifier :
+""
 Champ,onTheRoadPreviousPlaceActivity
 Type de question,Builtin
 Question,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
@@ -529,6 +537,10 @@ no : Non"
 Champ,shortcut
 Type de question,Builtin
 Question,Veuillez choisir le lieu dans la liste des lieux déjà localisés:
+""
+Champ,name
+Type de question,Builtin
+Question,Nom ou adresse du lieu
 ""
 Champ,geography
 Type de question,Builtin

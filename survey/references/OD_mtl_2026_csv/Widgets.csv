@@ -217,14 +217,14 @@ L'ordre chronologique doit être respecté.","Places you went on {{journeyDate}}
 Chronological order must be respected (i.e. sequence matters).",,,,,,,,,True,,,,,
 personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{assignedDate}}:,Map of **{{nickname}}**’s trips on {{assignedDate}}:,Carte de vos déplacements le {{assignedDate}}:,Map of your trips on {{assignedDate}}:,,,,,,,,,,,,,,
 personVisitedPlaces,Builtin,1,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,
-visitedPlaceActivityCategory,Builtin,1,visitedPlaces,personVisitedPlaces,activityCategory,,,,,,,,,,,,,,,,,,
-visitedPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,activity,,,,,,,,,,,,,,,,,,
+visitedPlaceActivityCategory,Builtin,1,visitedPlaces,personVisitedPlaces,activityCategory,Activité principale à ce lieu{{reminderText}},Main activity carried out at this location{{reminderText}},,,,,,,,,,,,,,,,
+visitedPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,activity,Spécifier :,Specify :,,,,,,,,,,,,,,,,
 visitedPlaceOnTheRoadPreviousPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadPreviousPlaceActivity,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?,Where did {{nickname}} begin their work trip on the road?,Quel endroit était le point de départ de vos déplacements sur la route?,Where did you begin your work trip on the road?,,,,,,,,,,,,,,
 visitedPlaceAlreadyVisited,Builtin,1,visitedPlaces,personVisitedPlaces,alreadyVisitedBySelfOrAnotherHouseholdMember,"Avez-vous déjà localisé ce lieu?
 __Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.__","Did you previously locate this place on the map?
 __In {{nickname}}'s travel diary or that of another household member.__",Avez-vous déjà localisé ce lieu?,Did you previously locate this place on the map?,,,alreadyVisitedPlaceCustomConditional,,yesNo,,,,True,,,,,
 visitedPlaceShortcut,Builtin,1,visitedPlaces,personVisitedPlaces,shortcut,Veuillez choisir le lieu dans la liste des lieux déjà localisés:,Please select this place from the list of previously located places:,,,,,,,,,,,,,,,,
-visitedPlaceName,Builtin,1,visitedPlaces,personVisitedPlaces,name,,,,,,,,,,,,,,,,,,
+visitedPlaceName,Builtin,1,visitedPlaces,personVisitedPlaces,name,Nom ou adresse du lieu,Name or address of the place,,,,,,,,,,,,,,,,
 visitedPlaceGeography,Builtin,1,visitedPlaces,personVisitedPlaces,geography,"Veuillez positionner le lieu sur la carte
 __Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.__","Please locate this place on the map
 __Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.__",,,,,,,,,,,,,,,,
