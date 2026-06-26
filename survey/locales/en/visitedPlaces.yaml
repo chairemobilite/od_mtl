@@ -14,6 +14,8 @@ personVisitedPlacesTitle_one: >-
     (i.e. sequence matters).
 personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
 personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
+visitedPlaceActivityCategory: Main activity carried out at this location{{reminderText}}
+visitedPlaceActivity: 'Specify :'
 visitedPlaceOnTheRoadPreviousPlaceActivity: Where did {{nickname}} begin their work
     trip on the road?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Where did you begin your work trip
@@ -24,6 +26,7 @@ visitedPlaceAlreadyVisited: >-
 visitedPlaceAlreadyVisited_one: Did you previously locate this place on the map?
 visitedPlaceShortcut: 'Please select this place from the list of previously located
     places:'
+visitedPlaceName: Name or address of the place
 visitedPlaceGeography: >-
     Please locate this place on the map<br /><span class="_pale _oblique">Navigate,
     zoom and click on map. Once a pin icon has been dropped, you will be able to drag
@@ -88,48 +91,45 @@ visitedPlaceDepartureTime: '{{nickname}} left {{place}} at:{{reminderText}}'
 visitedPlaceDepartureTime_one: You left {{place}} at:{{reminderText}}
 buttonSaveVisitedPlace: Confirm
 buttonVisitedPlacesConfirmNextSection: Confirm locations and continue
-Activity: 'Specify :'
-ActivityCategoryFirstLocation: Main activity carried out at the starting point of
-    the day{{reminderText}}
-ActivityCategoryAfterHome: >-
+visitedPlaceActivityCategory_firstLocation: Main activity carried out at the starting
+    point of the day{{reminderText}}
+visitedPlaceActivityCategory_afterHome: >-
     Main activity carried out at the first location visited after leaving home{{reminderText}}
-ActivityCategory: Main activity carried out at this location{{reminderText}}
 VisitedPlaceSequence: 'Location #{{count}}'
 VisitedPlaceSequence_one: Departure place for this day
 ConfirmDeleteVisitedPlace: Do you confirm that you want to remove this location?
-LocationNameAddress: Name or address of the place
-LocationNameAddressExample_workUsual: Lighthouse building, Les Petits génies CPE
-LocationNameAddressExample_workUsual_onTheRoadOften: Rivière distribution center,
-    Alma St-Hubert BBQ
-LocationNameAddressExample_workNotUsual: Chateau Frontenac, Co-work on the Long lake
-LocationNameAddressExample_schoolUsual: Marguerite-Bourgeoys school, CDI College Québec,
+visitedPlaceNameExample_workUsual: Lighthouse building, Les Petits génies CPE
+visitedPlaceNameExample_workUsual_onTheRoadOften: Rivière distribution center, Alma
+    St-Hubert BBQ
+visitedPlaceNameExample_workNotUsual: Chateau Frontenac, Co-work on the Long lake
+visitedPlaceNameExample_schoolUsual: Marguerite-Bourgeoys school, CDI College Québec,
     UQAR
-LocationNameAddressExample_schoolNotUsual: National library, music school Doremi
-LocationNameAddressExample_shopping: Le Carrefour shopping mall, Provigo St-Félicien,
+visitedPlaceNameExample_schoolNotUsual: National library, music school Doremi
+visitedPlaceNameExample_shopping: Le Carrefour shopping mall, Provigo St-Félicien,
     IKEA Boucherville
-LocationNameAddressExample_restaurant: Normandin in Lévis, Snack bar chez Raymond,
-    Subway restaurant in Rawdon
-LocationNameAddressExample_dropSomeone: Central bus station, des Collines arena, des
+visitedPlaceNameExample_restaurant: Normandin in Lévis, Snack bar chez Raymond, Subway
+    restaurant in Rawdon
+visitedPlaceNameExample_dropSomeone: Central bus station, des Collines arena, des
     Pionniers high school
-LocationNameAddressExample_fetchSomeone: Central bus station, des Collines arena,
-    des Pionniers high school
-LocationNameAddressExample_leisureArtsMusicCulture: Des chutes cinema, de Verdure
-    Theatre, Mason Jar National Museum
-LocationNameAddressExample_leisureSports: Nautilus St-Georges, Climbing La Grimpe,
-    de la Rose Park
-LocationNameAddressExample_leisureTourism: Camping Ste-Madeleine, Paris*France, Hotel
+visitedPlaceNameExample_fetchSomeone: Central bus station, des Collines arena, des
+    Pionniers high school
+visitedPlaceNameExample_leisureArtsMusicCulture: Des chutes cinema, de Verdure Theatre,
+    Mason Jar National Museum
+visitedPlaceNameExample_leisureSports: Nautilus St-Georges, Climbing La Grimpe, de
+    la Rose Park
+visitedPlaceNameExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hotel
     Days Inn St-Flavien
-LocationNameAddressExample_leisureStroll: Waterside park, Petit train du nord, de
-    la Montagne promenade
-LocationNameAddressExample_visiting: Address of the visited person, corner des Rossignols
+visitedPlaceNameExample_leisureStroll: Waterside park, Petit train du nord, de la
+    Montagne promenade
+visitedPlaceNameExample_visiting: Address of the visited person, corner des Rossignols
     and de l’Étang
-LocationNameAddressExample_medical: >-
+visitedPlaceNameExample_medical: >-
     des Marguerites medical clinic, Rimouski regional hospital, des Rivières CLSC
-LocationNameAddressExample_service: High class Hair saloon, Caisse Desjardins Limoilou
-LocationNameAddressExample_worship: >-
+visitedPlaceNameExample_service: High class Hair salon, Caisse Desjardins Limoilou
+visitedPlaceNameExample_worship: >-
     Saint-Nicéphore church, de la Capitale mosque, Congregation Beth Israel Ohev Sholem
-LocationNameAddressExample_secondaryHome: Secondary home or cottage address
-LocationNameAddressExample_schoolNotStudent: language centre, Tecnic driving school
+visitedPlaceNameExample_secondaryHome: Secondary home or cottage address
+visitedPlaceNameExample_schoolNotStudent: language centre, Tecnic driving school
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace: '{{nickname}} left
     home to go to their usual work place?'
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_male: '{{nickname}}

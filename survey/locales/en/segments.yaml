@@ -54,12 +54,6 @@ personTripsCommonTripWith: >-
     <strong>with another household member</strong>?
 buttonSaveTrip: Confirm this trip
 buttonConfirmNextSection: Confirm locations and continue
-segmentsIntroOnTheRoad: >-
-    Please indicate all modes of transport used to complete work trip on the road,
-    in chronological order:
-segmentsIntroStroll: >-
-    Please indicate all modes of transport used to complete the stroll, in chronological
-    order:
 junctionGeographyRefreshGeocodingLabel: Search the junction location using the place
     name or address
 driverFamily: Friend or family

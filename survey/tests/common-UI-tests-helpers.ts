@@ -1103,7 +1103,7 @@ const testTripDiaryHeaderVisibility = ({ context, householdSize = 1 }: CommonTes
         testHelpers.inputVisibleTest({ context, path: 'activePersonTitle', isVisible: false });
         testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: false });
     } else {
-        testHelpers.waitTextVisible({ context, text: '\'s interview' });
+        testHelpers.waitTextVisible({ context, text: '’s interview' });
         // FIXME: The following visibility tests for 'buttonSwitchPerson' fails because it is not an input. It is not a button and we should support button visibility tests
         // testHelpers.inputVisibleTest({ context, path: 'buttonSwitchPerson', isVisible: true });
     }
@@ -1578,7 +1578,7 @@ export const fillSegmentsSectionTests = ({
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputNextButtonTest({
         context,
-        text: 'Confirm and continue',
+        text: 'Confirm locations and continue',
         nextPageUrl: `/survey/${expectedNextSection}`
     });
 };
