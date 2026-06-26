@@ -134,3 +134,6 @@ didRespondForCorrectAssignedDateConditional,,ep.exclusive,===,respect,,,si EP qu
 didNotRespondForCorrectAssignedDateConditional,,end.didRespondForCorrectAssignedDate,===,no,,,
 hasBarrierTripConditional,,_barriersTripPath,!==,null,,,
 hasBarrierDisabilityTripConditional,,_barriersDisabilityTripPath,!==,null,,,
+isAccessCodeInvalidConditional,,_accessCodeConfirmed,===,False,,,
+isAccessCodeNotValidConditional,,_accessCodeConfirmed,===,False,,,
+isAccessCodeNotValidConditional,||,_accessCodeConfirmed,===,null,,,

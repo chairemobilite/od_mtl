@@ -23,7 +23,7 @@ test.beforeAll(async ({ browser }) => {
 
 test.afterAll(async () => {
     // Delete the participant after the test
-    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+    await commonUITestsHelpers.deleteParticipantInterview(email);
 });
 
 // Define the visited places for this test scenario
@@ -79,17 +79,20 @@ const segments: commonUITestsHelpers.Segment[] = [
 ];
 
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination that does not exist in the database.
-// The survey should still start a new interview with these credentials.
-const postalCode = 'G1R 5H1';
+// Start the survey using the email provided
+const email = 'one-person-with-trips@test.com';
 const accessCode = '7357-1112';
-surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
+surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',
-    accessCode,
-    postalCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/home'
+    email,
+    nextPageUrl: 'survey/accessCode'
+});
+
+/********** Tests access code section **********/
+commonUITestsHelpers.fillAccessCodeSectionTests({
+    context,
+    accessCode: { accessCode, accessCodeIsCorrect: null }
 });
 
 /********** Tests home section **********/

@@ -106,9 +106,10 @@ describe('access code update', () => {
     beforeEach(() => {
         jest.clearAllMocks();
         config.postalCodeRegion = 'quebec';
+        config.accessCodeFormat = '0000-0000';
     });
 
-    const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCode') as any).callback;
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCodeConfirm') as any).callback;
     
     test('properly formatted access code, with data', async () => {
         const interview = _cloneDeep(baseInterview);
@@ -121,7 +122,8 @@ describe('access code update', () => {
             'home._addressIsPrefilled': true
         }
         preFilledMock.mockResolvedValueOnce(prefillData);
-        const updateResult = await updateCallback(interview, '1111-1111');
+        interview.response.accessCode = '1111-1111';
+        const updateResult = await updateCallback(interview, true);
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ ...prefillData, _accessCodeConfirmed: true });
@@ -131,18 +133,21 @@ describe('access code update', () => {
         ['11111111', '1111-1111'],
         ['1111 1111', '1111-1111'],
         ['1111  1111', '1111-1111'],
-    ]).test('access code to reformat, without data %s', async (accessCode, expected) => {
+    ]).test('access code to reformat, without data, so no confirm %s', async (accessCode, expected) => {
         const interview = _cloneDeep(baseInterview);
-        // Fill the partial sample to avoid computing there here
+        interview.response.accessCode = accessCode;
+        // Fill the partial sample to avoid computing them here
         interview.response.ep = { exclusive: 'mtmd', commonTrip: true, sameMode: false };
+        preFilledMock.mockResolvedValueOnce({});
 
-        const updateResult = await updateCallback(interview, accessCode);
+        const updateResult = await updateCallback(interview, true);
         expect(preFilledMock).toHaveBeenCalledWith(expected, interview);
-        expect(updateResult).toEqual({ accessCode: expected, _accessCodeConfirmed: true });
+        expect(updateResult).toEqual({ accessCode: expected, _accessCodeConfirmed: false });
     });
 
     test('undefined access code', async() => {
         const interview = _cloneDeep(baseInterview);
+        interview.response.accessCode = undefined;
 
         expect(await updateCallback(interview, undefined)).toEqual({ });
         expect(preFilledMock).not.toHaveBeenCalled();
@@ -150,24 +155,27 @@ describe('access code update', () => {
 
     test('invalid access code', async() => {
         const interview = _cloneDeep(baseInterview);
+        interview.response.accessCode = 'invalid';
 
-        expect(await updateCallback(interview, 'invalid')).toEqual({ });
+        expect(await updateCallback(interview, true)).toEqual({ });
         expect(preFilledMock).not.toHaveBeenCalled();
     });
 
     test('already confirmed access code', async() => {
         const interview = _cloneDeep(baseInterview);
         interview.response._accessCodeConfirmed = true;
+        interview.response.accessCode = '1111-1111';
 
-        expect(await updateCallback(interview, '1111-1111')).toEqual({ });
+        expect(await updateCallback(interview, true)).toEqual({ });
         expect(preFilledMock).not.toHaveBeenCalled();
     });
 
     test('error in get prefilled', async () => {
         const interview = _cloneDeep(baseInterview);
+        interview.response.accessCode = '11111111';
 
         preFilledMock.mockRejectedValueOnce(new Error('Error getting prefilled data'));
-        const updateResult = await updateCallback(interview, '11111111');
+        const updateResult = await updateCallback(interview, true);
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult).toEqual({ });
     });
@@ -187,7 +195,14 @@ describe('access code update', () => {
             expected: { 'home.address': '123 Main St', 'home._addressIsPrefilled': true, 'home.preData': { 'ep.exclusive': 'omission', 'ep.commonTrip': false, 'ep.sameMode': true }, 'ep.exclusive': 'omission', 'ep.commonTrip': false, 'ep.sameMode': true }
         },
         {
-            title: 'no previous or prefilled eps',
+            title: 'no previous or prefilled data, code unconfirmed by participant, no prefill',
+            prefillData: {},
+            randomValues: [],
+            expected: { _accessCodeConfirmed: false }
+        },
+        {
+            title: 'no previous or prefilled data, code confirmed by participant, should calculate',
+            interviewResponseData: { accessCodeIsCorrect: ['accessCodeConfirmOk'] },
             prefillData: {},
             randomValues: [0.4, 0.32, 0.64],
             expected: { 'ep.exclusive': 'paidParking', 'ep.commonTrip': true, 'ep.sameMode': false }
@@ -214,8 +229,9 @@ describe('access code update', () => {
             expected: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
     ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
-        // Assign the interview response data for the test case
+        // Assign the interview response data for the test case, after setting an arbitrary test access code
         const interview = _cloneDeep(baseInterview);
+        interview.response.accessCode = '1111-1111';
         if (interviewResponseData !== undefined) {
             Object.assign(interview.response, interviewResponseData);
         }
@@ -230,10 +246,10 @@ describe('access code update', () => {
         preFilledMock.mockResolvedValueOnce(prefillData);
 
         // Call the update callback and check the result
-        const updateResult = await updateCallback(interview, '1111-1111');
+        const updateResult = await updateCallback(interview, true);
         // Random mock should have been called only if partial sample were necessary
         expect(randomMock).toHaveBeenCalledTimes(randomValues.length);
-        expect(updateResult).toEqual({ ...expected, _accessCodeConfirmed: true });
+        expect(updateResult).toEqual({ _accessCodeConfirmed: true, ...expected });
 
         // Restore the original Math.random function        
         randomMock.mockRestore();
@@ -245,6 +261,7 @@ describe('access code update', () => {
         { title: 'outside zone', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
     ])('test home region assignation with geometry $title', async ({ expected, geography }) => {
         const interview = _cloneDeep(baseInterview);
+        interview.response.accessCode = '1111-1111';
 
         // Prepare data to return
         const prefillData = {
@@ -255,7 +272,7 @@ describe('access code update', () => {
             'home.geography': geography
         }
         preFilledMock.mockResolvedValueOnce(prefillData);
-        const updateResult = await updateCallback(interview, '1111-1111');
+        const updateResult = await updateCallback(interview, true);
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult['home.RA']).toEqual(expected);

@@ -338,3 +338,5 @@ barriersChoices:
     '-1': >-
         <strong>Je ne sais pas</strong> - Je ne peux pas dire si cette raison m’a
         amené à éviter le TC pour ce déplacement.
+accessCodeConfirmChoices:
+    accessCodeConfirmOk: Je confirme que le code d'accès est correct

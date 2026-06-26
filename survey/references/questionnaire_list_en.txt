@@ -1,7 +1,16 @@
-Section: Home
+Section: Access code
 
 Access code
 Printed on the letter you received.
+
+This access code does not appear to be valid. Please verify the information or check the checkbox to confirm the values entered.
+- I confirm the access code is correct
+
+Confirm
+
+
+
+Section: Home
 
 I consent to be contacted to continue the survey.
 If I do not complete it or if some of the information provided is incoherent.

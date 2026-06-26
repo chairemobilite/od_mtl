@@ -13,9 +13,9 @@ const context = {
     widgetTestCounters: {}
 };
 
-// Survey credentials, no long distance section, no trips, one person in the
-// household, should go to omissions section.
-const postalCode = 'H3B 0A7';
+// Survey credentials, no long distance section, no trips, one adult in the
+// household with young child with daycare trip. Should go to end section.
+const email = 'one-adul-with-child-and-trips@test.com';
 const accessCode = '7357-2116';
 
 // Configure the tests to run in serial mode (one after the other)
@@ -28,7 +28,7 @@ test.beforeAll(async ({ browser }) => {
 
 test.afterAll(async () => {
     // Delete the participant after the test
-    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+    await commonUITestsHelpers.deleteParticipantInterview(email);
 });
 
 // Define the visited places for this test scenario: dropped the child at a daycare, then went shopping, then home
@@ -106,14 +106,18 @@ const segments: commonUITestsHelpers.Segment[] = [
 ];
 
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination
-surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
+// Start the survey using the email provided
+surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',
-    accessCode,
-    postalCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/home'
+    email,
+    nextPageUrl: 'survey/accessCode'
+});
+
+/********** Tests access code section **********/
+commonUITestsHelpers.fillAccessCodeSectionTests({
+    context,
+    accessCode: { accessCode, accessCodeIsCorrect: null }
 });
 
 /********** Tests home section **********/
@@ -218,16 +222,5 @@ commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2, endSection
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });
 
-// Logout and log back in with same credentials, shoud log in directly
+// Logout and log back in with same credentials, shoud send the email link
 testHelpers.logoutTest({ context });
-testHelpers.hasConsentTest({ context });
-testHelpers.startSurveyTest({ context });
-testHelpers.registerWithAccessPostalCodeTest({
-    context,
-    postalCode,
-    accessCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/completed'
-});
-
-// FIXME Validate the survey re-entry

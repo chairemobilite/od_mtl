@@ -1,12 +1,27 @@
 ""
-Section,Domicile
-Abréviation,h_
+Section,Code d'accès
+Abréviation,ac_
 ""
 Champ,accessCode
 Type de question,Champ de texte
-Conditionnel,accessCodeIsSetCustomConditional
+Conditionnel,isAccessCodeNotValidConditional : _accessCodeConfirmed === False || _accessCodeConfirmed === null
 Question,"Code d'accès
 Inscrit dans la lettre reçue."
+""
+Champ,accessCodeIsCorrect
+Type de question,Case à cocher
+Conditionnel,isAccessCodeInvalidConditional : _accessCodeConfirmed === False
+Question,Ce code d'accès ne semble pas valide. Veuillez vérifier l'information entrée ou cocher la case pour confirmer cette information
+Valeurs,accessCodeConfirmOk : Je confirme que le code d'accès est correct
+""
+Champ,ac_confirm
+Type de question,Entrée inconnue
+Question,Confirmer
+""
+""
+""
+Section,Domicile
+Abréviation,h_
 ""
 Champ,acceptToBeContactedForHelp
 Type de question,Bouton radio

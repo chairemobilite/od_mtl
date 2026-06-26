@@ -1,12 +1,27 @@
 ""
-Section,Home
-Abbreviation,h_
+Section,Access code
+Abbreviation,ac_
 ""
 Field,accessCode
 Question type,Text input
-Conditional,accessCodeIsSetCustomConditional
+Conditional,isAccessCodeNotValidConditional : _accessCodeConfirmed === False || _accessCodeConfirmed === null
 Question,"Access code
 Printed on the letter you received."
+""
+Field,accessCodeIsCorrect
+Question type,Checkbox input
+Conditional,isAccessCodeInvalidConditional : _accessCodeConfirmed === False
+Question,This access code does not appear to be valid. Please verify the information or check the checkbox to confirm the values entered.
+Values,accessCodeConfirmOk : I confirm the access code is correct
+""
+Field,ac_confirm
+Question type,Unknown input
+Question,Confirm
+""
+""
+""
+Section,Home
+Abbreviation,h_
 ""
 Field,acceptToBeContactedForHelp
 Question type,Radio input

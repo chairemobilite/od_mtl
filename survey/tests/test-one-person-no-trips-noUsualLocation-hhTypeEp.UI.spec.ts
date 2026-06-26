@@ -15,7 +15,7 @@ const context = {
 
 // Survey credentials, no long distance section, no trips, one person in the
 // household, should go directly to end section after travel behavior.
-const postalCode = 'J7V 3Z5';
+const email = 'one-person-no-trips-noUsualLocation@test.com';
 const accessCode = '7357-1125';
 
 // Configure the tests to run in serial mode (one after the other)
@@ -28,18 +28,22 @@ test.beforeAll(async ({ browser }) => {
 
 test.afterAll(async () => {
     // Delete the participant after the test
-    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+    await commonUITestsHelpers.deleteParticipantInterview(email);
 });
 
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination
-surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
+// Start the survey using the email provided
+surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',
-    accessCode,
-    postalCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/home'
+    email,
+    nextPageUrl: 'survey/accessCode'
+});
+
+/********** Tests access code section **********/
+commonUITestsHelpers.fillAccessCodeSectionTests({
+    context,
+    accessCode: { accessCode, accessCodeIsCorrect: null }
 });
 
 /********** Tests home section **********/
@@ -89,14 +93,3 @@ commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
 
 // Logout and log back in with same credentials, shoud log in directly
 testHelpers.logoutTest({ context });
-testHelpers.hasConsentTest({ context });
-testHelpers.startSurveyTest({ context });
-testHelpers.registerWithAccessPostalCodeTest({
-    context,
-    postalCode,
-    accessCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/completed'
-});
-
-// FIXME Validate the survey re-entry
