@@ -121,13 +121,6 @@ export const shouldAskForNoSchoolTripSpecifyCustomConditional: WidgetConditional
     return [reason === 'other', null];
 };
 
-export const accessCodeIsSetCustomConditional: WidgetConditional = (interview, path) => {
-    // Do not show the access code if it is set and confirmed, but keep its value, to avoid the participant changing its value
-    const accessCodeConfirmed = surveyHelper.getResponse(interview, '_accessCodeConfirmed', false);
-    const accessCode = surveyHelper.getResponse(interview, path, null);
-    return [!accessCodeConfirmed, accessCode];
-};
-
 // FIXME This conditional is used instead of the non custom
 // `hasHouseholdSize2OrMoreConditional` because the person count can change in
 // the household section without changing the household size. When

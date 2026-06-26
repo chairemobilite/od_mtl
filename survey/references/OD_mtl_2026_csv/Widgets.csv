@@ -1,7 +1,9 @@
 questionName,inputType,active,section,group,path,label::fr,label::en,label_one::fr,label_one::en,parameters,appearance,conditional,validation,choices,help_popup,inputRange,confirm_popup,containsHtml,customPath,customChoice,defaultValue,includeNotApplicable,comments
-accessCode,String,True,home,,accessCode,"**Code d'accès**
+accessCode,String,True,accessCode,,accessCode,"**Code d'accès**
 __Inscrit dans la lettre reçue.__","**Access code**
-__Printed on the letter you received.__",,,formatter=eightDigitsAccessCodeFormatter,,accessCodeIsSetCustomConditional,accessCodeValidation,,,,,True,,,,,
+__Printed on the letter you received.__",,,formatter=accessCodeFormatter,,isAccessCodeNotValidConditional,accessCodeValidation,,,,,True,,,,,Cacher la question lorsque le code a été validé et pré-rempli pour empêcher de pouvoir venir le modifier
+accessCodeIsCorrectConfirmation,Checkbox,True,accessCode,,accessCodeIsCorrect,Ce code d'accès ne semble pas valide. Veuillez vérifier l'information entrée ou cocher la case pour confirmer cette information,This access code does not appear to be valid. Please verify the information or check the checkbox to confirm the values entered.,,,,,isAccessCodeInvalidConditional,accessCodeConfirmIsCheckedCustomValidation,accessCodeConfirmChoices,,,,,,,,,
+accessCode_confirm,Custom,True,accessCode,,accessCode.confirm,Confirmer,Confirm,,,,,,,,,,,True,,,,,Custom car le bouton doit envoyer un champ pour informer le backend de pré-remplir les champs ou retourner invalide.
 acceptToBeContactedForHelp,Radio,True,home,,acceptToBeContactedForHelp,"Je consens à être contacté(e) pour **continuer ou préciser le questionnaire**. 
 __Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.__","I consent to be contacted to **continue the survey**.
 __If I do not complete it or if some of the information provided is incoherent.__",,,,,,,yesNo,,,,True,,,,,

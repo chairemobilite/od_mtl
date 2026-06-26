@@ -4,12 +4,12 @@ import { test, expect } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
-export const deleteParticipantInterview = async (accessCode: string) => {
+export const deleteParticipantInterview = async (email: string) => {
     try {
-        // Delete the participant interview with the access code
-        await knex('sv_participants').del().whereILike('username', `${accessCode}-%`);
+        // Delete the participant interview with the email
+        await knex('sv_participants').del().whereILike('email', `${email}`);
     } catch (error) {
-        console.error(`Error deleting participant with access code ${accessCode}`, error);
+        console.error(`Error deleting participant with email ${email}`, error);
     }
 };
 
@@ -342,16 +342,49 @@ export const defaultLongDistance: LongDistanceSection = {
     wantToParticipateInSurveyEmail: null
 };
 
+/********* Tests access code section */
+type AccessCodeSection = {
+    accessCode?: string; // undefined => no change to the value, visible
+    accessCodeIsCorrect?: true | null; // undefined => no change, but value visible; null => invisible; value => check the value
+    expectedNextSection?: string;
+};
+export const fillAccessCodeSectionTests = ({
+    context,
+    accessCode
+}: testHelpers.CommonTestParameters & { accessCode: AccessCodeSection }) => {
+    // Test checkbox first to allow entering invalid codes
+    // Test checkbox widget accessCodeIsCorrectConfirmation with conditional isAccessCodeInvalidConditional with choices accessCodeConfirmChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (accessCode.accessCodeIsCorrect === null) {
+        testHelpers.inputVisibleTest({ context, path: 'accessCodeIsCorrect', isVisible: false });
+    } else {
+        if (accessCode.accessCodeIsCorrect !== undefined) {
+            testHelpers.inputCheckboxTest({ context, path: 'accessCodeIsCorrect', values: ['accessCodeConfirmOk'] });
+        } else {
+            testHelpers.inputVisibleTest({ context, path: 'accessCodeIsCorrect', isVisible: true });
+        }
+    }
+
+    // Test string widget accessCode
+    if (accessCode.accessCode !== undefined) {
+        testHelpers.inputStringTest({ context, path: 'accessCode', value: accessCode.accessCode });
+    }
+
+    // Test nextbutton widget accessCode_confirm
+    testHelpers.inputNextButtonTest({
+        context,
+        text: 'Confirm',
+        nextPageUrl: `survey/${accessCode.expectedNextSection ?? 'home'}`
+    });
+};
+
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFilled = true }: HomeTestParameters) => {
     const householdSize = home.householdSize;
 
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
-
-    // Test string widget accessCode with conditional accessCodeIsSetCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: false });
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */

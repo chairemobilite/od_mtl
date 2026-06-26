@@ -1,7 +1,16 @@
-Section: Domicile
+Section: Code d'accès
 
 Code d'accès
 Inscrit dans la lettre reçue.
+
+Ce code d'accès ne semble pas valide. Veuillez vérifier l'information entrée ou cocher la case pour confirmer cette information
+- Je confirme que le code d'accès est correct
+
+Confirmer
+
+
+
+Section: Domicile
 
 Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
 Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.

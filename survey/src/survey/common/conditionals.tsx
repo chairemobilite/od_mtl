@@ -1421,3 +1421,35 @@ export const hasBarrierDisabilityTripConditional: WidgetConditional = (interview
         ]
     });
 };
+
+export const isAccessCodeInvalidConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: '_accessCodeConfirmed',
+                comparisonOperator: '===',
+                value: false
+            }
+        ]
+    });
+};
+
+export const isAccessCodeNotValidConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: '_accessCodeConfirmed',
+                comparisonOperator: '===',
+                value: false
+            },
+            {
+                logicalOperator: '||',
+                path: '_accessCodeConfirmed',
+                comparisonOperator: '===',
+                value: null
+            }
+        ]
+    });
+};

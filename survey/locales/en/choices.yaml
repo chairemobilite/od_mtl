@@ -333,3 +333,5 @@ barriersChoices:
     '-1': >-
         <strong>Don't know</strong> - I cannot say whether this reason led me to avoid
         public transit for this trip.
+accessCodeConfirmChoices:
+    accessCodeConfirmOk: I confirm the access code is correct

@@ -17,17 +17,6 @@ import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
 import * as customLabels from '../../common/customLabels';
 
-export const accessCode: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'accessCode',
-    twoColumns: false,
-    containsHtml: true,
-    inputFilter: formatters.eightDigitsAccessCodeFormatter,
-    label: (t: TFunction) => t('home:accessCode'),
-    conditional: customConditionals.accessCodeIsSetCustomConditional,
-    validations: validations.accessCodeValidation
-};
-
 export const acceptToBeContactedForHelp: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'acceptToBeContactedForHelp',

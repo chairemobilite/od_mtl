@@ -14,7 +14,7 @@ const context = {
 };
 
 // Survey credentials
-const postalCode = 'G5A 1E7';
+const email = 'two-persons-with-work-and-shortcuts@test.com';
 const accessCode = '7357-1115';
 
 // Configure the tests to run in serial mode (one after the other)
@@ -27,7 +27,7 @@ test.beforeAll(async ({ browser }) => {
 
 test.afterAll(async () => {
     // Delete the participant after the test
-    await commonUITestsHelpers.deleteParticipantInterview(accessCode);
+    await commonUITestsHelpers.deleteParticipantInterview(email);
 });
 
 /********** Test data **********/
@@ -276,14 +276,18 @@ const segmentsP2: commonUITestsHelpers.Segment[] = [
 ];
 
 /********** Start the survey **********/
-// Start the survey using an access code and postal code combination
-surveyTestHelpers.startAndLoginWithAccessAndPostalCodes({
+// Start the survey using the email provided
+surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',
-    accessCode,
-    postalCode,
-    expectedToExist: true,
-    nextPageUrl: 'survey/home'
+    email,
+    nextPageUrl: 'survey/accessCode'
+});
+
+/********** Tests access code section **********/
+commonUITestsHelpers.fillAccessCodeSectionTests({
+    context,
+    accessCode: { accessCode, accessCodeIsCorrect: null }
 });
 
 /********** Tests home section **********/

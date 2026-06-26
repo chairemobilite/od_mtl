@@ -9,7 +9,7 @@ import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/inter
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
 import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
-import { eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
+import { accessCodeFormatter, eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
@@ -256,17 +256,23 @@ export default [
         }
     },
     {
-        field: 'accessCode',
+        // When the access code is confirmed by clicking the confirm button
+        field: 'accessCodeConfirm',
         callback: async (interview: InterviewAttributes, value) => {
             try {
-                // FIXME In od_mtl, prefilling data should come after confirming access code, but it is not implemented yet. See https://github.com/chairemobilite/od_mtl/issues/110
+                const accessCode = getResponse(interview, 'accessCode');
+                const accessCodeIsCorrect = getResponse(interview, 'accessCodeIsCorrect');
 
                 const properlyFormattedAccessCode =
-                    typeof value === 'string' ? eightDigitsAccessCodeFormatter(value) : value;
+                    typeof accessCode === 'string' ? accessCodeFormatter(accessCode) : accessCode;
                 // Only valid access codes should be processed
-                if (_isBlank(value) || !validateAccessCode(properlyFormattedAccessCode)) {
+                if (
+                    typeof properlyFormattedAccessCode !== 'string' ||
+                    !validateAccessCode(properlyFormattedAccessCode)
+                ) {
                     return {};
                 }
+
                 // To avoid multiple changes to the access code, we check if it has already been confirmed, if so, simply return.
                 const accessCodeConfirmed = getResponse(interview, '_accessCodeConfirmed', false);
                 if (accessCodeConfirmed) {
@@ -275,22 +281,34 @@ export default [
 
                 // Get prefilled responses for this access code
                 const prefilledResponses = await getPrefilledForAccessCode(properlyFormattedAccessCode, interview);
+                const prefilledOk = !_isBlank(prefilledResponses);
 
-                if (properlyFormattedAccessCode !== value) {
+                if (properlyFormattedAccessCode !== accessCode) {
                     prefilledResponses['accessCode'] = properlyFormattedAccessCode;
                 }
-                // Set the access code as confirmed
-                prefilledResponses['_accessCodeConfirmed'] = true;
+                // Set the access code as confirmed if it exists
+                if (prefilledOk) {
+                    prefilledResponses['_accessCodeConfirmed'] = true;
 
-                // Set the home RA is the prefilled response contains a home geography
-                if (
-                    prefilledResponses['home.geography'] &&
-                    isFeature(prefilledResponses['home.geography']) &&
-                    isPoint((prefilledResponses['home.geography'] as GeoJSON.Feature).geometry)
-                ) {
-                    prefilledResponses['home.RA'] = getPointZone(
-                        prefilledResponses['home.geography'] as GeoJSON.Feature<GeoJSON.Point>
-                    );
+                    // Set the home RA is the prefilled response contains a home geography
+                    if (
+                        prefilledResponses['home.geography'] &&
+                        isFeature(prefilledResponses['home.geography']) &&
+                        isPoint((prefilledResponses['home.geography'] as GeoJSON.Feature).geometry)
+                    ) {
+                        prefilledResponses['home.RA'] = getPointZone(
+                            prefilledResponses['home.geography'] as GeoJSON.Feature<GeoJSON.Point>
+                        );
+                    }
+                } else {
+                    // If the participant confirmed the access code is correct, set it as confirmed, otherwise, no
+                    if (!(Array.isArray(accessCodeIsCorrect) && accessCodeIsCorrect.includes('accessCodeConfirmOk'))) {
+                        prefilledResponses['_accessCodeConfirmed'] = false;
+                        return prefilledResponses;
+                    } else {
+                        prefilledResponses['_accessCodeConfirmed'] = true;
+                        // Continue to set the partial samples
+                    }
                 }
 
                 return setPartialSamples(interview, prefilledResponses);

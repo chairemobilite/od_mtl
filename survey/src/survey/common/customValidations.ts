@@ -247,3 +247,17 @@ export const commonTripCustomValidation: ValidationFunction = (value, _customVal
         }
     ];
 };
+
+export const accessCodeConfirmIsCheckedCustomValidation: ValidationFunction = (
+    value,
+    _customValue,
+    interview,
+    path
+) => {
+    return [
+        {
+            validation: _isBlank(value),
+            errorMessage: (t: TFunction) => t('accessCode:errors.accessCodeNeedConfirm')
+        }
+    ];
+};

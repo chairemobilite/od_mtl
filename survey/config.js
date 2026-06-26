@@ -63,13 +63,11 @@ module.exports = {
         }
     },
     auth: {
-        passwordless: false,
-        anonymous: false,
+        passwordless: true,
+        anonymous: true,
         google: false,
         facebook: false,
-        byField: {
-            postalCodeField: 'home_postalCode'
-        }
+        byField: false
     },
     postalCodeRegion: 'quebec',
     separateAdminLoginPage: true,

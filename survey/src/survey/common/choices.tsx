@@ -1206,3 +1206,10 @@ export const barriersChoices: ChoiceType[] = [
         label: (t: TFunction) => t('choices:barriersChoices.-1')
     }
 ];
+
+export const accessCodeConfirmChoices: ChoiceType[] = [
+    {
+        value: 'accessCodeConfirmOk',
+        label: (t: TFunction) => t('choices:accessCodeConfirmChoices.accessCodeConfirmOk')
+    }
+];

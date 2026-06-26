@@ -2,46 +2,48 @@
 // The Evolution Generator is used to automate the creation of consistent, reliable code.
 // Any changes made to this file will be overwritten.
 
+import moment from 'moment';
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { customPreload } from './customPreload';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 
-export const currentSectionName: string = 'home';
-const previousSectionName: SectionConfig['previousSection'] = 'accessCode';
-const nextSectionName: SectionConfig['nextSection'] = 'household';
+export const currentSectionName: string = 'accessCode';
+const previousSectionName: SectionConfig['previousSection'] = null;
+const nextSectionName: SectionConfig['nextSection'] = 'home';
+const parentSection = 'home';
 
 // Config for the section
 export const sectionConfig: SectionConfig = {
     previousSection: previousSectionName,
     nextSection: nextSectionName,
     title: {
-        fr: 'Domicile',
-        en: 'Home'
+        fr: 'Code d\'accès',
+        en: 'Access code'
     },
     navMenu: {
-        type: 'inNav',
-        menuName: {
-            fr: 'Domicile',
-            en: 'Home'
-        }
+        type: 'hidden',
+        parentSection: parentSection
     },
     widgets: widgetsNames,
-    // Do some actions before the section is loaded
-    preload: customPreload,
     // Allow to click on the section menu
-    enableConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: previousSectionName });
-    },
+    enableConditional: true,
     // Determine if the current section is completed
     completionConditional: function (interview) {
         return isSectionCompleted({ interview, sectionName: currentSectionName });
     },
     isSectionVisible: (interview) => {
-        // Section not available until access code is confirmed
+        // We should not go back to this section once the access code is confirmed
         const accessCodeConfirmed = getResponse(interview, '_accessCodeConfirmed');
-        return accessCodeConfirmed === true;
+        return accessCodeConfirmed !== true;
+    },
+    onSectionEntry: function (interview, _iterationContext) {
+        // Set the previous day if not set yet
+        const previousDay = getResponse(interview, '_previousDay');
+        if (!previousDay) {
+            return { 'response._previousDay': moment().subtract(1, 'days').format('YYYY-MM-DD') };
+        }
+        return undefined;
     }
 };
 

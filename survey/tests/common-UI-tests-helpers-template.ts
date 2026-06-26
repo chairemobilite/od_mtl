@@ -39,6 +39,29 @@ surveyTestHelpers.startAndLoginWithEmail({
 // Start the survey without email
 surveyTestHelpers.startAndLoginAnonymously({ context, title: '?', hasUser: false });
 
+/********** Tests Accesscode section **********/
+export const fillAccesscodeSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
+    // Verify the accessCode navigation is active
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'accessCode', buttonStatus: 'active', isDisabled: false });
+
+    // Progress bar test for accessCode section
+    testHelpers.sectionProgressBarTest({ context, sectionName: 'accessCode', completionPercentage: 0 });
+
+    // Test string widget accessCode with conditional isAccessCodeNotValidConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'accessCode', value: '?' });
+
+    // Test checkbox widget accessCodeIsCorrectConfirmation with conditional isAccessCodeInvalidConditional with choices accessCodeConfirmChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'accessCodeIsCorrect', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'accessCodeIsCorrect', values: ['?'] });
+
+    // Test custom widget accessCode_confirm
+    // Implement custom test
+};
+
 /********** Tests Home section **********/
 export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParametersModify) => {
     // Verify the home navigation is active
@@ -46,11 +69,6 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
 
     // Progress bar test for home section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'home', completionPercentage: 0 });
-
-    // Test string widget accessCode with conditional accessCodeIsSetCustomConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'accessCode', isVisible: true });
-    testHelpers.inputStringTest({ context, path: 'accessCode', value: '?' });
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */

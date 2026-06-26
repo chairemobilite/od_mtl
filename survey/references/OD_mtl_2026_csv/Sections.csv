@@ -1,4 +1,5 @@
 section,abbreviation,title_fr,title_en,in_nav,template,has_preload,parent_section
+accessCode,ac_,Code d'accès,Access code,0,0,0,home
 home,h_,Domicile,Home,1,0,1,
 household,hh_,Ménage,Household,1,0,1,
 personsTrips,pt_,Déplacements,Trips introduction,1,0,1,

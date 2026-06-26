@@ -2,9 +2,6 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
-accessCode: >-
-    <strong>Code d'accès</strong><br /><span class="_pale _oblique">Inscrit dans la
-    lettre reçue.</span>
 acceptToBeContactedForHelp: >-
     Je consens à être contacté(e) pour <strong>continuer ou préciser le questionnaire</strong>.
     <br /><span class="_pale _oblique">Si je ne le termine pas ou si certains des
