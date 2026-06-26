@@ -240,8 +240,13 @@ const getVisitedPlaceLatestTime = ({
         return latestTime;
     }
     const previousPlace = odSurveyHelpers.getPreviousVisitedPlace({ journey, visitedPlaceId: visitedPlace._uuid });
-    if (previousPlace !== null && typeof previousPlace.departureTime === 'number') {
-        return previousPlace.departureTime;
+    if (
+        previousPlace !== null &&
+        (typeof previousPlace.departureTime === 'number' || typeof previousPlace.arrivalTime === 'number')
+    ) {
+        return typeof previousPlace.departureTime === 'number'
+            ? previousPlace.departureTime
+            : previousPlace.arrivalTime;
     }
     // Fall back to the questionnaire configuration's earliest time
     // FIXME La configuration du questionnaire n,est pas encore disponible globalement depuis Evolution, donc nous ne pouvons accéder à cette information. C'est hard-codé pour l'instant.
