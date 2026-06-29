@@ -13,8 +13,8 @@ import { segmentsWidgetsNames, personTripsWidgetsNames } from './sections/segmen
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import {
     getCommonTripReminderOptionsForVisitedPlaces,
-    isCommonTripSampleMatch,
-    updateHouseholdSizeFromPersonCount
+    getPreviousModeSameModePartialSample,
+    isCommonTripSampleMatch
 } from './common/customHelpers';
 
 // Import feature collections for some widgets
@@ -75,7 +75,10 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                     { fieldName: 'subwayStationEnd', type: 'fromCollection', featureCollection: metroStationsFC },
                     { fieldName: 'remStationEnd', type: 'fromCollection', featureCollection: remStationsFC },
                     { fieldName: 'trainStationEnd', type: 'fromCollection', featureCollection: trainStationsFC }
-                ]
+                ],
+                additionalLabelOptionFunctions: {
+                    segmentSameModeAsReverseTrip: getPreviousModeSameModePartialSample
+                }
             },
             visitedPlaces: {
                 type: 'visitedPlaces' as const,

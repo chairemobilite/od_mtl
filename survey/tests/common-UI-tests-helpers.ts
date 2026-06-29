@@ -109,6 +109,8 @@ export const defaultHome: HomeSection = {
 
 export type Segment = {
     segmentIndex: number;
+    // Indicate if the segment is expected to be present already or if the participant needs to click the next button
+    expectedPrefilled: boolean;
     sameModeAsReverseTrip: boolean | null;
     modePre: string | null;
     mode: string | null;
@@ -147,6 +149,7 @@ export type Segment = {
  * Default segment with null values for all optional questions
  */
 export const defaultSegmentNullValues: Omit<Segment, 'segmentIndex' | 'modePre' | 'mode' | 'hasNextMode'> = {
+    expectedPrefilled: false,
     sameModeAsReverseTrip: null, // Question won't show.
     paidForParking: null, // Question won't show.
     vehicleOccupancy: null, // Question won't show.
@@ -1615,12 +1618,18 @@ const fillOneSegmentTests = ({
     // Build a string for segmentId (e.g., "${segmentId[0]}") using a template literal to avoid immediate interpolation
     const segmentIdString = `\${segmentId[${index}]}`;
 
-    // Test the group object button
-    testHelpers.inputNextButtonTest({
-        context,
-        text: 'Select the first (or only) mode of transport used during this trip',
-        nextPageUrl: '/survey/segments'
-    });
+    // Test the group object button, if the segment is not expected to exist already
+    if (!segment.expectedPrefilled) {
+        const nextSegmentText =
+            index === 0
+                ? 'Select the first (or only) mode of transport used during this trip'
+                : 'Select the next mode of transport';
+        testHelpers.inputNextButtonTest({
+            context,
+            text: nextSegmentText,
+            nextPageUrl: '/survey/segments'
+        });
+    }
 
     // Test custom widget segmentSameModeAsReverseTrip
     if (segment.sameModeAsReverseTrip === null) {
@@ -1722,10 +1731,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
-            value: segment.subwayStationStart
+            values: segment.subwayStationStart
         });
     }
 
@@ -1737,10 +1746,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
-            value: segment.subwayStationEnd
+            values: segment.subwayStationEnd
         });
     }
 
@@ -1782,10 +1791,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
-            value: segment.trainStationStart
+            values: segment.trainStationStart
         });
     }
 
@@ -1797,10 +1806,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
-            value: segment.trainStationEnd
+            values: segment.trainStationEnd
         });
     }
 
@@ -1812,10 +1821,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
-            value: segment.remStationStart
+            values: segment.remStationStart
         });
     }
 
@@ -1827,10 +1836,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
-            value: segment.remStationEnd
+            values: segment.remStationEnd
         });
     }
 
@@ -2088,8 +2097,10 @@ const fillOneSegmentTests = ({
         });
     }
 
-    // Test custom widget buttonSaveTrip
-    testHelpers.inputNextButtonTest({ context, text: 'Confirm this trip', nextPageUrl: '/survey/segments' });
+    // Click on the next button if segment does not have next mode
+    if (segment.hasNextMode !== true) {
+        testHelpers.inputNextButtonTest({ context, text: 'Confirm this trip', nextPageUrl: '/survey/segments' });
+    }
 };
 
 export const fillTravelBehaviorSectionTests = ({

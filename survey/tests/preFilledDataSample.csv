@@ -7,6 +7,8 @@ AccessCode,PostalCode,Address,AptNumber,City,Province,AddrLat,AddrLon,Strate,Lot
 7357-1116,H3B 0A7,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.565568,-73.757695,1,3,one-person-no-trips-and-omission-exclusive,omission,FALSE,FALSE
 7357-2116,H3B 0A7,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.565568,-73.757695,1,3,test-one-adult-with-child-and-trips-householdTypeEp,householdType,FALSE,FALSE
 7357-3116,H3B 0A7,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.565568,-73.757695,1,3,test-one-adult-with-children-no-trips-paidParkingEp,paidParking,FALSE,FALSE
+7357-2112,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,2,one-person-with-transit-trips-sameModeFalse,mtmd,FALSE,FALSE
+7357-3112,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,2,one-person-with-transit-trips-trips-sameModeTrue,mtmd,FALSE,TRUE
 7357-1117,G0L 1G0,"3100, boulevard Le Carrefour",,Laval,Québec,45.565568,-73.757695,1,1,,,,
 7357-1118,G0L 1G0,"3100, boulevard Le Carrefour",,Laval,Québec,45.565568,-73.757695,1,2,,,,
 7357-1119,J6A 8G4,"107, rue Laroche",,Repentigny,Québec,45.7524804,-73.450328,1,3,one-person-no-trips-and-freqAttitudinalBarriersEp,freqAttitudinalBarriers,FALSE,FALSE

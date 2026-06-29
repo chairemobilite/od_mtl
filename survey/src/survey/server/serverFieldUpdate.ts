@@ -1,5 +1,5 @@
 import moment from 'moment-business-days';
-import { booleanPointInPolygon } from '@turf/turf';
+import { v4 as uuidV4 } from 'uuid';
 import { isFeature, isPoint } from 'geojson-validation';
 import { _isBlank, _booleish } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { validateAccessCode } from 'evolution-backend/lib/services/accessCode';
@@ -10,7 +10,7 @@ import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils'
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
 import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
 import { accessCodeFormatter, eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
-import { InterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
+import { InterviewAttributes, Segment } from 'evolution-common/lib/services/questionnaire/types';
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
@@ -231,6 +231,66 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
         }
     }
     return currentAdditionalData;
+};
+
+// List of fields to copy to the reverse segment and where to copy them
+const segmentFieldReverseMapping = {
+    subwayStationStart: 'subwayStationEnd',
+    subwayStationEnd: 'subwayStationStart',
+    trainStationStart: 'trainStationEnd',
+    trainStationEnd: 'trainStationStart',
+    remStationStart: 'remStationEnd',
+    remStationEnd: 'remStationStart'
+};
+const copyReverseSegment = (originalSegment: Segment, currentSegmentPath: string): Record<string, unknown> => {
+    // Copy the modes
+    const updatedSegmentData: Record<string, unknown> = {
+        [`${currentSegmentPath}.mode`]: originalSegment.mode,
+        [`${currentSegmentPath}.modePre`]: originalSegment.modePre
+    };
+    // Copy the reverse stations for transit modes, will be null or undefined for non-transit
+    Object.entries(segmentFieldReverseMapping).forEach(
+        ([previousField, newField]) =>
+            (updatedSegmentData[`${currentSegmentPath}.${newField}`] = originalSegment[previousField])
+    );
+
+    return updatedSegmentData;
+};
+
+const copyReverseSegmentArray = (
+    originalSegments: Segment[],
+    currentSegmentPath: string,
+    currentSegments: Segment[]
+): Record<string, unknown> => {
+    const updatedSegmentData: Record<string, unknown> = {};
+    // Get the path for the trips and create paths for each new segments
+    const tripsPath = getPath(currentSegmentPath, '../');
+    // Create a new paths for each segment additional segment and copy the data from reverse original segments
+    const originalSegmentsCount = originalSegments.length;
+    for (let segmentIndex = 0; segmentIndex < originalSegmentsCount; segmentIndex++) {
+        const copySegment = originalSegments[originalSegmentsCount - segmentIndex - 1];
+        // If segment already exists, copy the data to it
+        if (currentSegments[segmentIndex]) {
+            const segmentPath = `${tripsPath}.${currentSegments[segmentIndex]._uuid}`;
+            updatedSegmentData[`${segmentPath}.mode`] = copySegment.mode;
+            updatedSegmentData[`${segmentPath}.modePre`] = copySegment.modePre;
+            updatedSegmentData[`${segmentPath}.hasNextMode`] = segmentIndex !== originalSegmentsCount - 1;
+            continue;
+        }
+        // Else create a new one
+        const newSegmentUuid = uuidV4();
+        const newSegmentPath = `${tripsPath}.${newSegmentUuid}`;
+        updatedSegmentData[`${newSegmentPath}`] = {
+            _uuid: newSegmentUuid,
+            _sequence: segmentIndex + 1,
+            _is_new: true,
+            mode: copySegment.mode,
+            modePre: copySegment.modePre,
+            hasNextMode: segmentIndex !== originalSegmentsCount - 1
+        };
+    }
+    // FIXME We should also delete any extra segments, but currently, because of this bug https://github.com/chairemobilite/evolution/issues/1719 it would prove worse than extra visible segments
+    return updatedSegmentData;
 };
 
 export default [
@@ -526,6 +586,50 @@ export default [
             } catch (error) {
                 console.log('Error occurred while getting summary for transit mode:', error);
                 return defaultResponse;
+            }
+        }
+    },
+    {
+        field: {
+            regex: '^household\\.persons\\.[a-zA-Z0-9_-]+\\.journeys\\.[a-zA-Z0-9_-]+\\.trips\\.[a-zA-Z0-9_-]+\\.segments\\.[a-zA-Z0-9_-]+\\.sameModeAsReverseTrip$'
+        },
+        runOnValidatedData: true,
+        callback: async (interview, value, path, registerUpdateOperation) => {
+            // If the value is not 'yes' or the partial sample is not sameMode, ignore
+            const sameModeSample = getResponse(interview, 'ep.sameMode', false);
+            if (value !== true || !sameModeSample) {
+                return {};
+            }
+            try {
+                // Remplissage complexe des segments à partir des données
+                // précédentes, laisser le serveur le faire puisque côté client,
+                // ce serait un champ à la fois et trop de logique à écrire à
+                // trop d'endroits différents
+                const pathParts = path.split('.');
+                const personId = pathParts[2];
+                const journeyId = pathParts[4];
+                const tripId = pathParts[6];
+
+                const person = odSurveyHelpers.getPerson({ interview, personId });
+                const journey = person ? odSurveyHelpers.getJourneys({ person })[journeyId] : undefined;
+                const trip = journey ? (odSurveyHelpers.getTrips({ journey })[tripId] ?? null) : null;
+                const previousTrip = odSurveyHelpers.getPreviousTrip({ currentTrip: trip, journey });
+                const previousTripSegments = odSurveyHelpers.getSegmentsArray({ trip: previousTrip });
+                const currentTripSegments = odSurveyHelpers.getSegmentsArray({ trip });
+
+                // Copy each of the previous trip segment's data into the new trip
+                const currentSegmentPath = getPath(path, '../');
+                if (previousTripSegments.length === 1) {
+                    console.log('should copy reverse segment');
+                    // Fill the current segment's mode with same data as previous segment and reverse entry/exit stations if necessary
+                    return copyReverseSegment(previousTripSegments[0], currentSegmentPath);
+                } else {
+                    // Multi-mode: copy modes only in reverse order
+                    return copyReverseSegmentArray(previousTripSegments, currentSegmentPath, currentTripSegments);
+                }
+            } catch (error) {
+                console.error('Error occurred while filling the segment data for sameMode partial sample:', error);
+                return {};
             }
         }
     }
