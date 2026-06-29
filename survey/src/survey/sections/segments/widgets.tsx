@@ -31,8 +31,6 @@ import * as customLabels from '../../common/customLabels';
 
 // segments
 
-// segmentSameModeAsPreviousTrip : sameModeAsPreviousTripCustomConditional · Issue #15 · chairemobilite/od_mtl
-// segmentSameModeAsPreviousTrip : implication · Issue #43 · chairemobilite/od_mtl
 // segmentSameModeAsReverseTrip
 
 // FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl

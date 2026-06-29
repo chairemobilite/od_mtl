@@ -162,3 +162,33 @@ mode:
     CarDriver_leisureStroll: Auto en tant que conducteur
     CarPassenger_leisureStroll: Auto en tant que passager
     Transit_leisureStroll: Transport en commun
+    short:
+        Walk: Marche
+        Bicycle: Vélo
+        BicycleElectric: Vélo électrique
+        KickScooterElectric: Trottinette électrique
+        Wheelchair: Chaise roulante
+        MobilityScooter: Quadriporteur/triporteur
+        TransitRRT: Métro
+        TransitLRRT: REM
+        TransitRegionalRail: Train de banlieue (exo)
+        TransitStreetCar: Tramway
+        TransitBus: Bus (transport collectif)
+        TransitTaxi: Taxi collectif / Transport à la demande
+        IntercityBus: Bus interurbain
+        SchoolBus: Autobus scolaire (jaune)
+        OtherBus: Bus nolisé ou privé
+        CarDriverRental: Voiture louée
+        CarDriver: Voiture personnelle
+        CarDriverCarsharing: Autopartage
+        Motorcycle: Moto ou scooter
+        TransitFerry: Traversier ou navette fluviale sans véhicule
+        FerryWithCar: Traversier avec véhicule
+        IntercityTrain: Train interurbain
+        CarPassenger: Passager (voiture/moto/scooter)
+        OtherActiveMode: Autre mobilité active (course, trottinette, skateboard)
+        Paratransit: Transport adapté
+        Plane: Avion
+        Other: Autre
+        Taxi: Taxi ou équivalent (ex. Uber)
+        DontKnow: Je ne sais pas / Préfère ne pas répondre

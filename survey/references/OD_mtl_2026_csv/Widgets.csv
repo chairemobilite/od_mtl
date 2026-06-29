@@ -257,8 +257,7 @@ personVisitedPlacesMap,Builtin,1,segments,,segmentsMap,Carte des déplacements d
 personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.trips,,,,,,,,,,,,,,,,,,
 segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:","Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:",,,,,,,,,,,,,,,,
 segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,
-segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,Même mode que le déplacement précédent ({{previousMode}}),Same mode as the previous trip ({{previousMode}}),,,,,,,,,,,,,,,,"segmentSameModeAsPreviousTrip : sameModeAsPreviousTripCustomConditional · Issue #15 · chairemobilite/od_mtl
-segmentSameModeAsPreviousTrip : implication · Issue #43 · chairemobilite/od_mtl"
+segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,Même mode que le déplacement précédent ({{previousMode}}),Same mode as the previous trip ({{previousMode}}),,,,,,,,,,,,,,,,
 segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
 segmentMode,Builtin,1,segments,segments,mode,,,,,,,,,,,,,,,,,,
 segmentPaidForParking,Radio,VRAI,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndShouldShowPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,

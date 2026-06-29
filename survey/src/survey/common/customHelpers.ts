@@ -1,3 +1,5 @@
+import _isEqual from 'lodash/isEqual';
+import _upperFirst from 'lodash/upperFirst';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import type {
@@ -15,6 +17,7 @@ import config from 'evolution-common/lib/config/project.config';
 import { TFunction } from 'i18next';
 import { secondsSinceMidnightToTimeStr } from 'chaire-lib-common/lib/utils/DateTimeUtils';
 import { AdditionalSectionLabelOptionFct } from 'evolution-common/lib/services/questionnaire/types';
+import * as segmentHelpers from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -76,6 +79,9 @@ export const isCommonTripSampleMatch = (interview: InterviewAttributes) => {
     );
     return eligiblePerson.length > 0;
 };
+
+export const isSameModeSample = (interview: InterviewAttributes) =>
+    getResponse(interview, 'ep.sameMode', false) as boolean;
 
 export const getPersonsOfDrivingAge = (interview: InterviewAttributes) =>
     odSurveyHelpers
@@ -363,4 +369,259 @@ export const getCommonTripReminderOptionsForVisitedPlaces: AdditionalSectionLabe
         currentPerson: person,
         currentVisitedPlace: visitedPlace
     });
+};
+
+/**
+ * Return whether these 2 trips are part of a simple chain with a single mode,
+ * ie the origin of the previous trip is the same as the destination of the trip
+ * and there is only one segment in the previous trip that is one of the simple
+ * modes.
+ *
+ * @param {Object} options - The options object.
+ * @param {Trip} options.trip The potential return trip
+ * @param {Trip} options.previousTrip The previous trip that can be part of the
+ * chain
+ * @param {Object} options.journey The journey object that these trips are part
+ * of
+ * @param {Object} options.interview The interview object
+ * @param {Object} options.person The person these trips belong to
+ * @returns Whether the `trip` is the return trip of a simple chain with simple
+ * modes
+ */
+export const isSimpleChainAnyModeOrComplexChainSimpleModeReturnTrip = ({
+    trip,
+    previousTrip,
+    journey,
+    interview,
+    person
+}: {
+    trip: Trip;
+    previousTrip: Trip;
+    journey: Journey;
+    interview: InterviewAttributes;
+    person: Person;
+}): boolean => {
+    const visitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey });
+    const origin = odSurveyHelpers.getOrigin({ trip, visitedPlaces });
+    const destination = odSurveyHelpers.getDestination({ trip, visitedPlaces });
+    const previousOrigin = odSurveyHelpers.getOrigin({ trip: previousTrip, visitedPlaces });
+
+    // If origin or destination is not found, we cannot determine if it is a simple chain
+    if (!origin || !destination || !previousOrigin) {
+        return false;
+    }
+
+    // ignore loop/moving activities:
+    if (
+        odSurveyHelpers.isLoopActivity({ visitedPlace: origin }) ||
+        odSurveyHelpers.isLoopActivity({ visitedPlace: destination })
+    ) {
+        return false;
+    }
+
+    const previousTripOriginGeography = odSurveyHelpers.getVisitedPlaceGeography({
+        visitedPlace: previousOrigin,
+        interview,
+        person
+    });
+    const tripDestinationGeography = odSurveyHelpers.getVisitedPlaceGeography({
+        visitedPlace: destination,
+        interview,
+        person
+    });
+    // Condition pour une boucle simple, le mode ne doit juste pas être 'other'
+    if (
+        previousTripOriginGeography &&
+        tripDestinationGeography &&
+        tripDestinationGeography.geometry &&
+        previousTripOriginGeography.geometry &&
+        _isEqual(previousTripOriginGeography.geometry.coordinates, tripDestinationGeography.geometry.coordinates)
+    ) {
+        const previousTripSegmentsAsArray = odSurveyHelpers.getSegmentsArray({ trip: previousTrip });
+        return !previousTripSegmentsAsArray.some((prevSegment) => prevSegment.mode === 'other');
+    }
+
+    // échantillon sameMode condition 2: boucle complexe, mode simple:
+
+    const trips = odSurveyHelpers.getTripsArray({ journey });
+    // Find candidate trips for the current complex chain: all previous trips until there is a loop activity;
+    const previousTrips = trips.filter((otherTrip) => otherTrip._sequence < trip._sequence);
+    const loopActivityLastIndex = previousTrips.findLastIndex((otherTrip) => {
+        const otherTripOrigin = odSurveyHelpers.getOrigin({ trip: otherTrip, visitedPlaces });
+        const otherTripDestination = odSurveyHelpers.getDestination({ trip: otherTrip, visitedPlaces });
+
+        // If origin or destination is not found, this trip cannot be part of the chain
+        if (!otherTripOrigin || !otherTripDestination) {
+            return true;
+        }
+
+        // loop/moving activities cannot be part of the chain
+        if (
+            odSurveyHelpers.isLoopActivity({ visitedPlace: otherTripOrigin }) ||
+            odSurveyHelpers.isLoopActivity({ visitedPlace: otherTripDestination })
+        ) {
+            return true;
+        }
+        return false;
+    });
+    const previousTripsNotLoops =
+        loopActivityLastIndex !== -1 ? previousTrips.slice(loopActivityLastIndex + 1) : previousTrips;
+    // Get possible next trips
+    const nextTrips = trips.filter((otherTrip) => otherTrip._sequence >= trip._sequence);
+    const loopActivityNextIndex = nextTrips.findIndex((otherTrip) => {
+        const otherTripOrigin = odSurveyHelpers.getOrigin({ trip: otherTrip, visitedPlaces });
+        const otherTripDestination = odSurveyHelpers.getDestination({ trip: otherTrip, visitedPlaces });
+
+        // If origin or destination is not found, this trip cannot be part of the chain
+        if (!otherTripOrigin || !otherTripDestination) {
+            return true;
+        }
+
+        // loop/moving activities cannot be part of the chain
+        if (
+            odSurveyHelpers.isLoopActivity({ visitedPlace: otherTripOrigin }) ||
+            odSurveyHelpers.isLoopActivity({ visitedPlace: otherTripDestination })
+        ) {
+            return true;
+        }
+        return false;
+    });
+    const nextTripsNotLoops = loopActivityNextIndex !== -1 ? nextTrips.slice(0, loopActivityNextIndex) : nextTrips;
+
+    // Find the smallest possible complex chain, ie starting at the last index
+    // from the previous trips where the origin matches one of the next trip's
+    // destination
+    const complexChainStartTripIndex = previousTripsNotLoops.findLastIndex((otherPreviousTrip) => {
+        const otherTripOrigin = odSurveyHelpers.getOrigin({ trip: otherPreviousTrip, visitedPlaces });
+        const previousTripOriginGeography = odSurveyHelpers.getVisitedPlaceGeography({
+            visitedPlace: otherTripOrigin,
+            interview,
+            person
+        });
+        if (!previousTripOriginGeography || !previousTripOriginGeography.geometry) {
+            return false;
+        }
+        const matchingNextTripDestination = nextTripsNotLoops.find((otherNextTrip) => {
+            const nextTripDestination = odSurveyHelpers.getDestination({ trip: otherNextTrip, visitedPlaces });
+            const tripDestinationGeography = odSurveyHelpers.getVisitedPlaceGeography({
+                visitedPlace: nextTripDestination,
+                interview,
+                person
+            });
+            // Trip avec la même géographie
+            if (
+                tripDestinationGeography &&
+                tripDestinationGeography.geometry &&
+                _isEqual(
+                    previousTripOriginGeography.geometry.coordinates,
+                    tripDestinationGeography.geometry.coordinates
+                )
+            ) {
+                return true;
+            }
+            return false;
+        });
+        return matchingNextTripDestination !== undefined;
+    });
+    // Condition si on est dans une chaîne complexe, valider que tous les trips ont un unique mode simple
+    if (complexChainStartTripIndex !== -1) {
+        const complexChainPreviousTrips = previousTripsNotLoops.slice(complexChainStartTripIndex);
+        // Make sure that none the the trips from the chain have more than one simple mode
+        return !complexChainPreviousTrips.some((prevTrip) => {
+            const previousTripSegmentsAsArray = odSurveyHelpers.getSegmentsArray({ trip: prevTrip });
+            if (
+                previousTripSegmentsAsArray.length === 1 &&
+                previousTripSegmentsAsArray[0].mode &&
+                ['carPassenger', 'carDriver', 'walk', 'bicycle'].includes(previousTripSegmentsAsArray[0].mode)
+            ) {
+                // one segment with simple mode, this is correct
+                return false;
+            }
+            return true;
+        });
+    }
+    return false;
+};
+
+const originalShouldShowSameAsReverseTripQuestion = segmentHelpers.shouldShowSameAsReverseTripQuestion;
+
+/**
+ * Condition pour montrer la question de même mode dans le cas de l'échantillon
+ * partiel 'sameMode': n'importe quelle série de modes pour une boucle simple,
+ * modes simples pour une boucle complexe.
+ * @returns
+ */
+export const shouldShowSameAsReverseTripQuestionForSameModeEp = ({
+    interview,
+    path
+}: {
+    interview: InterviewAttributes;
+    path: string;
+}): boolean => {
+    const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+    if (!segmentContext) {
+        throw new Error('shouldShowSameAsReverseTripQuestion: segment context not found for path ' + path);
+    }
+    const { person, journey, trip, segment } = segmentContext;
+    // Do not display if segment is not new or if not the first
+    if (segment._isNew === false || segment._sequence !== 1) {
+        return false;
+    }
+    // If the trip already has more than one segment, the conditional should
+    // follow the current flow if the path is `sameModeAsReverseTrip`, otherwise
+    // return false (for other widgets depending on this answer, they should be
+    // shown)
+    const segmentsArray = odSurveyHelpers.getSegmentsArray({ trip });
+    if (segmentsArray.length > 1 && !path.endsWith('sameModeAsReverseTrip')) {
+        return false;
+    }
+    // Display this question if the previous and current trips form either a
+    // simple chain with any mode or a complex chain with a simple mode
+    const previousTrip = odSurveyHelpers.getPreviousTrip({ currentTrip: trip, journey });
+    return (
+        previousTrip !== null &&
+        isSimpleChainAnyModeOrComplexChainSimpleModeReturnTrip({ interview, journey, person, trip, previousTrip })
+    );
+};
+
+// FIXME Override the shouldShowSameAsReverseTripQuestion from segment helpers.
+// Plusieurs widgets utilisent cette fonction pour déterminer leur affichage
+// (les modes, et hasNextMode). Pour que tous puissent utiliser la nouvelle
+// logique pour l'échantillon 'sameMode', la fonction doit être overridée
+// globalement. Ce n'est pas idéal, mais pour du A/B testing en 2026, ça va.
+// Par contre, attention pour les audits!
+(segmentHelpers as any).shouldShowSameAsReverseTripQuestion = ({
+    interview,
+    path
+}: {
+    interview: InterviewAttributes;
+    path: string;
+}): boolean => {
+    if (!isSameModeSample(interview)) {
+        return originalShouldShowSameAsReverseTripQuestion({ interview, path });
+    }
+    return shouldShowSameAsReverseTripQuestionForSameModeEp({ interview, path });
+};
+
+export const getPreviousModeSameModePartialSample: AdditionalSectionLabelOptionFct = ({ interview, t, path }) => {
+    // Only for same mode sample
+    if (!isSameModeSample(interview)) {
+        return {};
+    }
+    const tripContext = odSurveyHelpers.getTripContextFromPath({ interview, path });
+    if (!tripContext) {
+        throw new Error('shouldShowSameAsReverseTripQuestion: segment context not found for path ' + path);
+    }
+
+    const { journey, trip } = tripContext;
+
+    const previousTrip = odSurveyHelpers.getPreviousTrip({ currentTrip: trip, journey });
+    const previousSegments = odSurveyHelpers.getSegmentsArray({ trip: previousTrip });
+    // Return for previousMode the comma-separated list of reverse segment modes
+    return {
+        previousMode: previousSegments
+            .reverse()
+            .map((segment) => t(`segments:mode.short.${_upperFirst(segment.mode)}`))
+            .join(', ')
+    };
 };
