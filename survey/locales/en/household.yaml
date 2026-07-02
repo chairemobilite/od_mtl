@@ -5,9 +5,9 @@
 personNickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
     for the remainder of the interview<br /><span class="_pale _oblique">Can be a
-    nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').<br
-    />The name is only used to simplify the response process and will be removed from
-    the final dataset.</span>
+    nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum',
+    'JT').<br />The name is only used to simplify the response process and will be
+    removed from the final dataset.</span>
 personAge: >-
     <strong>Age</strong> (in years)<br /><span class="_pale _oblique">Enter 0 for
     babies under the age of 1 year</span>
@@ -16,7 +16,7 @@ personGender: >-
     sex assigned at birth or that which appears on legal documents.</span>
 personDrivingLicenseOwnership: >-
     <strong>Driver's licence</strong><br /><span class="_pale _oblique">Include learner's
-    and probationary permits, but do not include moped (motorized scooter) permits.</span>
+    and probationary permits, but do not include moped (motorized scooter) permits</span>
 personCarsharingMember: >-
     <strong>Carshare</strong> (ex. Communauto, Leo): used <br />as driver in the past
     6 months
@@ -40,25 +40,27 @@ personTransitFare: >-
     to ARTM fare zones.</span>
 personTransitFareWarning: >-
     You selected a transit pass that extends beyond the fare zone of your place of
-    residence.<br /><strong>The monthly price of the {{transitFare}} is {{transitFarePrice,
-    currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}}
-    for reduced price).</strong>
+    residence. Please confirm that this is the correct fare or edit your answer.<br
+    /><strong>The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency:
+    CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price).</strong>
 personHasDisability: >-
     <strong>Permanent physical, intellectual or other disability</strong> that affects
     or limits {{nickname}}’s daily travel?<br /><span class="_pale _oblique">Ex: mobility-related,
     visual, other…</span>
 personHasDisability_one: >-
     <strong>Permanent physical, intellectual or other disability</strong> which influences
-    or limits your daily travel?
-personDisabilities: … which one(s)?<br /><span class="_pale _oblique">Optional</span>
-personDisabilitiesSpecify: 'Specify:'
+    or limits your daily travel?<br /><span class="_pale _oblique">Ex: mobility-related,
+    visual, other…</span>
+personDisabilities: >-
+    <strong>Which one(s)</strong>?<br /><span class="_pale _oblique">Optional</span>
+personDisabilitiesSpecify: Specify
 personMobilityAssistiveDevices: >-
     <strong>Type(s) of mobility aid(s)</strong>, if any, used for {{nickname}}’s travel
     outside the home<br /><span class="_pale _oblique">Optional</span>
 personMobilityAssistiveDevices_one: >-
     <strong>Type(s) of mobility aid(s)</strong>, if any, used for your travel outside
     the home<br /><span class="_pale _oblique">Optional</span>
-personMobilityAssistiveDevicesSpecify: 'Specify:'
+personMobilityAssistiveDevicesSpecify: Specify
 personMostUsedMobilityAssistiveDevice: <strong>Most used</strong><br /><span class="_pale
     _oblique">Optional</span>
 personUseParatransit: >-
@@ -86,8 +88,11 @@ personWorkerType: >-
     <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
     workers, artists, or those on long-term leave.</span>
 personJobType: <strong>Type of employment</strong> of {{nickname}}
-personWorkPlaceType: Does {{nickname}} have a fixed <strong>workplace</strong>?
-personWorkPlaceType_one: Do you have a fixed <strong>workplace</strong>?
+personJobType_one: <strong>Type of employment</strong>
+personWorkPlaceType: >-
+    Which of the following best describes {{nickname}}’s <strong>work arrangement</strong>?
+personWorkPlaceType_one: >-
+    Which of the following best describes your <strong>work arrangement</strong>?
 personWorkDays: >-
     Number of days per week {{nickname}} works<br /><span class="_pale _oblique">In
     a typical week. Whether or not travel is required for work.</span><br />
@@ -102,30 +107,30 @@ personTravelToWorkDays_one: >-
     Number of days per week you travel outside the home for work<br /><span class="_pale
     _oblique">In a typical week. Enter 0 if you do not have a workplace or you work
     exclusively from home.</span>
+personOccupation: <strong>Main occupation</strong>
 personEducationalAttainment: >-
     Highest level of <strong>educational attainment</strong><br /><span class="_pale
     _oblique">If in doubt, select the education level that most closely matches the
     academic background.</span>
-personOccupation: <strong>Main occupation</strong>
 household_save: Save and continue
 addGroupedObject: Add a missing person
 deleteThisGroupedObject: Delete this person
 popup:
-    studentTitle: Who should be included?
+    studentTitle: Who should be considered a student?
     studentContent: >-
-        <strong>Who should be considered a student?</strong><br /><span class="_green">Include:</span><br
-        />- All students and pupils aged 15 and over, regardless of level of education<br
-        />- Anyone taking regular courses through an educational institution<br />-
-        Anyone currently in an internship, apprenticeship, or co-op program, but enrolled
-        in an educational institution<br /><span class="_red">Do not include:</span><br
-        />- One-time or online training courses<br />- Private lessons, etc.
-    workerTitle: Who should be included?
+        <span class="_green">Include:</span><br />- All students and pupils aged 15
+        and over, regardless of level of education<br />- Anyone taking regular courses
+        through an educational institution<br />- Anyone currently in an internship,
+        apprenticeship, or co-op program, but enrolled in an educational institution<br
+        /><span class="_red">Do not include:</span><br />- One-time or online training
+        courses<br />- Private lessons, etc.
+    workerTitle: Who should be considered a worker?
     workerContent: >-
-        <strong>Who should be considered a worker?</strong><br /><span class="_green">Include:</span><br
-        />- Anyone with a job or a business, even if temporarily absent at the time
-        of responding (e.g., sick leave, parental leave, vacation, temporary layoff)<br
-        />- Both salaried employees and self-employed workers<br /><span class="_red">Do
-        not include:</span><br />- People without a job and not looking for work
+        <span class="_green">Include:</span><br />- Anyone with a job or a business,
+        even if temporarily absent at the time of responding (e.g., sick leave, parental
+        leave, vacation, temporary layoff)<br />- Both salaried employees and self-employed
+        workers<br /><span class="_red">Do not include:</span><br />- People without
+        a job and not looking for work
     validateHouseholdAgesHelp: >-
         At least one member of your household must be 16 years old or older to respond
         to this survey. Please verify ages.
@@ -134,7 +139,7 @@ popup:
     transitFareTitle: Fare zones?
     transitFareContent: Carte + tableau des tarifs
 errors:
-    selectDontKnowWhenNoOtherChoiceSelected: Select "I don't know" only if no other
+    selectDontKnowWhenNoOtherChoiceSelected: Select "Don't know" only if no other
         choice is selected.
     selectNoWhenNoOtherChoiceSelected: Select "no" only if no other choice is selected.
     selectNoneWhenNoOtherChoiceSelected: Select "None for the current month" only
@@ -151,22 +156,22 @@ errors:
     nicknameMustBeUnique: The name or nickname must be unique
 schoolTypeLessThan4: <strong>Childcare type</strong>
 schoolTypeBetween4And15: <strong>School type</strong>
-workPlaceBeforeLeaveTypeChoicesOnLocation: Yes, {{nickname}} worked always on-site
-    at fixed location
-workPlaceBeforeLeaveTypeChoicesOnLocation_one: Yes, I worked always on-site at fixed
-    location
-workPlaceBeforeLeaveTypeChoicesHybrid: Yes, {{nickname}} did hybrid work (remote and
-    on-site)
-workPlaceBeforeLeaveTypeChoicesHybrid_one: Yes, I did hybrid work (remote and on-site)
+workPlaceBeforeLeaveTypeChoicesOnLocation: '{{nickname}} works in person at a fixed
+    location away from home at all times'
+workPlaceBeforeLeaveTypeChoicesOnLocation_one: I work in person at a fixed location
+    away from home at all times
+workPlaceBeforeLeaveTypeChoicesHybrid: '{{nickname}} works in a hybrid mode (remote
+    and in-person)'
+workPlaceBeforeLeaveTypeChoicesHybrid_one: I work in a hybrid mode (remote and in-person)
+workPlaceBeforeLeaveTypeChoicesRemote: '{{nickname}} always works from home or remotely'
+workPlaceBeforeLeaveTypeChoicesRemote_one: I always work from home or remotely
 workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
-    Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage,
+    {{nickname}} works on the road, starting from a fixed location (e.g., garage,
     office, station, restaurant, etc.)
 workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
-    Yes, I worked on the road departing from a fixed location (ex: garage, office,
-    station, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: No, {{nickname}} worked
-    on the road departing from home
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: No, I worked on the
-    road departing from home
-workPlaceBeforeLeaveTypeChoicesRemote: No, {{nickname}} worked from home or from elsewhere
-workPlaceBeforeLeaveTypeChoicesRemote_one: No, I worked from home or from elsewhere
+    I work on the road, starting from a fixed location (e.g., garage, office, station,
+    restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: '{{nickname}} works on
+    the road, starting from home'
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: I work on the road,
+    starting from home

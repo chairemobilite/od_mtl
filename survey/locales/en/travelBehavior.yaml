@@ -7,32 +7,26 @@ personNoWorkTripIntro: >-
     <strong>You didn't report any work trips</strong> by {{nickname}} on {{journeyDate}}
 personNoWorkTripIntro_one: <strong>You didn't report any work trips</strong> on {{journeyDate}}
 personNoWorkTripReason: Why?
-personUsualWorkPlaceIntro: '{{nickname}} has not traveled to their usual workplace.
+personUsualWorkPlaceIntro: '{{nickname}} did not travel to their usual workplace.
     Can you locate it?'
-personUsualWorkPlaceIntro_male: '{{nickname}} has not traveled to his usual workplace.
+personUsualWorkPlaceIntro_male: '{{nickname}} did not travel to his usual workplace.
     Can you locate it?'
-personUsualWorkPlaceIntro_female: '{{nickname}} has not traveled to her usual workplace.
+personUsualWorkPlaceIntro_female: '{{nickname}} did not travel to her usual workplace.
     Can you locate it?'
-personUsualWorkPlaceIntro_one: You have not traveled to your usual workplace. Can
+personUsualWorkPlaceIntro_one: You did not travel to your usual workplace. Can you
+    locate it?
+personUsualWorkPlaceIntro_male_one: You did not travel to your usual workplace. Can
     you locate it?
-personUsualWorkPlaceIntro_male_one: You have not traveled to your usual workplace.
-    Can you locate it?
-personUsualWorkPlaceIntro_female_one: You have not traveled to your usual workplace.
+personUsualWorkPlaceIntro_female_one: You did not travel to your usual workplace.
     Can you locate it?
 personUsualWorkPlaceName: >-
     <strong>Name or address</strong> of {{nickname}}'s <strong>usual workplace</strong>
 personUsualWorkPlaceName_one: <strong>Name or address</strong> of your <strong>usual
     workplace</strong>
 personUsualWorkPlaceGeography: >-
-    Please locate the <strong>usual workplace</strong> for {{nickname}}<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-personUsualWorkPlaceGeography_one: >-
-    Please locate your <strong>usual workplace</strong>.<br /><span class="_pale _oblique">Navigate,
-    zoom, and click on the map to identify the location. Once located, you can move
-    the marker for greater precision.<br />You can also search for the place on the
-    map using the "Search location" button.</span>
+    Location on the map<br /><span class="_pale _oblique">Locate the place by searching
+    for its name or address, or by navigating, zooming and clicking on the map. Once
+    located, you can move the pin for greater accuracy.</span>
 personUsualWorkPlaceCommuting: >-
     What mode of transportation does {{nickname}} usually use <strong>to travel to
     their workplace?</strong><br /><span class="_pale _oblique">If multiple modes
@@ -49,9 +43,9 @@ personNoSchoolTripIntro: >-
 personNoSchoolTripIntro_one: <strong>You didn't report any study trips</strong> on
     {{journeyDate}}
 personHasSchoolPlace: >-
-    Does {{nickname}} attend <strong>a school or educational institution for studies?</strong><br
-    /><span class="_pale _oblique">Answer “No” only if {{nickname}} takes courses
-    exclusively online.</span>
+    Does {{nickname}} attend <strong>a school or educational institution</strong>
+    for studies?<br /><span class="_pale _oblique">Answer “No” only if {{nickname}}
+    takes courses exclusively online.</span>
 personHasSchoolPlace_one: >-
     Do you attend <strong>a school or educational institution for studies?</strong><br
     /><span class="_pale _oblique">Answer “No” only if you take courses exclusively
@@ -62,15 +56,9 @@ personUsualSchoolPlaceName: >-
 personUsualSchoolPlaceName_one: >-
     <strong>Name or address</strong> of your school or <strong>main study location</strong>
 personUsualSchoolPlaceGeography: >-
-    Please locate the <strong>usual place of study</strong> for {{nickname}}.<br /><span
-    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
-    Once located, you can move the marker for greater precision.<br />You can also
-    search for the place on the map using the "Search location" button.</span>
-personUsualSchoolPlaceGeography_one: >-
-    Please locate your <strong>usual place of study</strong>.<br /><span class="_pale
-    _oblique">Navigate, zoom, and click on the map to identify the location. Once
-    located, you can move the marker for greater precision.<br />You can also search
-    for the place on the map using the "Search location" button.</span>
+    Location on the map<br /><span class="_pale _oblique">Locate the place by searching
+    for its name or address, or by navigating, zooming and clicking on the map. Once
+    located, you can move the pin for greater accuracy.</span>
 personNoSchoolTripReason: Reason {{nickname}} did not travel for their studies on
     {{journeyDate}}
 personNoSchoolTripReason_male: Reason {{nickname}} did not travel for his studies
@@ -87,8 +75,8 @@ personHasSchoolPlace_schoolchildcare: Does {{nickname}} attend a school, daycare
 workCommutingHelpPopup:
     title: Why this question?
     content: >-
-        <strong>Why this question?</strong><br />Inspired by Statistics Canada’s Census,
-        this question allows for comparison of commuting modes across surveys.
+        Inspired by Statistics Canada’s Census, this question allows for comparison
+        of commuting modes across surveys.
 personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace: >-
     What mode of transportation does {{nickname}} usually use <strong>to travel to
     their workplace?</strong><br /><span class="_pale _oblique">If multiple modes

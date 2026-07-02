@@ -53,10 +53,9 @@ commonUITestsHelpers.fillHomeSectionTests({ context });
 const person = _cloneDeep(commonUITestsHelpers.defaultPerson1);
 // Person does not have a fixed work place. Also, ra is 8, so a few questions are not asked
 person.workPlaceType = 'remote';
-person.workDays = '5';
+person.workDays = null;
 person.travelToWorkDays = null;
 person.carSharingMember = null;
-person.bikesharingMembership = null;
 person.bikesharingUsage = null;
 commonUITestsHelpers.fillHouseholdSectionWithMembersTests({ context, householdMembers: [person] });
 

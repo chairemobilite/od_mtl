@@ -3,10 +3,10 @@
 # Any changes made to this file will be overwritten.
 
 buttonSwitchPerson: Change person
-personTripsTitle: Trips made by {{nickname}} on {{assignedDate}}
-personTripsTitle_one: Trips you made on {{assignedDate}}
-personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
-personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
+personTripsTitle: Trips made by {{nickname}} on {{journeyDates}}
+personTripsTitle_one: Trips you made on {{journeyDates}}
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDate}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
 segmentIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:
@@ -41,10 +41,16 @@ segmentBusLines: >-
     the results shown.</span>
 segmentBusLinesWarning: Some bus line(s) seem invalid for this trip. Please validate
     the lines.
-segmentTransitAccessMode: Mode of transportation to get from {{origin}} to {{stopType}}
-segmentIntercityAccessMode: Mode of transportation to get from {{origin}} to {{stopType}}
-segmentTransitEgressMode: Mode of transportation to get {{stopType}} to {{destination}}
-segmentIntercityEgressMode: Mode of transportation to get {{stopType}} to {{destination}}
+segmentTransitAccessMode: >-
+    <strong>Mode</strong> of transportation to get from {{origin}} to <strong>{{stopType}}</strong>
+segmentIntercityAccessMode: >-
+    <strong>Mode</strong> of transportation to get from {{origin}} to <strong>{{stopType}}</strong>
+segmentTransitEgressMode: >-
+    <strong>Mode</strong> of transportation to get <strong>{{stopType}}</strong> to
+    {{destination}}
+segmentIntercityEgressMode: >-
+    <strong>Mode</strong> of transportation to get <strong>{{stopType}}</strong> to
+    {{destination}}
 tripJunctionPrivateBus: <strong>Boarding location</strong> (getting on the bus)
 tripJunctionBusPrivate: <strong>Exit location</strong> (getting off the bus)
 tripJunctionPaidParking: <strong>Parking</strong> upon arrival at {{stopType}}

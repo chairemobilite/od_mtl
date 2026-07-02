@@ -4,15 +4,14 @@
 
 anyTripModeFrequenciesIntro: >-
     <strong>How often</strong> do you use the following <strong>modes of transportation?</strong><br
-    /><span class="_pale _oblique">For your trips, for all purposes combined, such
-    as commuting to work or school, accessing leisure activities or services, grocery
-    shopping, accompanying someone, etc.<br />Think about the current month, excluding
-    major storms.</span>
+    /><span class="_pale _oblique">For all your trips, regardless of the activity
+    (work, studies, leisure, services, shopping, accompanying someone, etc.).<br />Think
+    about the current month, excluding major storms.</span>
 anyTripModeFrequenciesWalk: 'Frequency of use of the mode: <strong>Walk</strong> (for
     most of the trip)'
 anyTripModeFrequenciesBicycle: >-
     Frequency of use of the mode: <strong>Bike</strong> and other active modes (scooter,
-    rollerblades, skateboards)
+    rollerblades, skateboard)
 anyTripModeFrequenciesTransit: >-
     Frequency of use of the mode: <strong>Public transit</strong> (bus, metro, REM,
     train)

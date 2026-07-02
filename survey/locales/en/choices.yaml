@@ -11,9 +11,9 @@ other:
 otherWithoutSpecify:
     other: Other
 dontKnow:
-    dontKnow: I don't know
+    dontKnow: Don't know
 preferNotToAnswer:
-    preferNotToAnswer: I prefer not to answer
+    preferNotToAnswer: Prefer not to answer
 homeIsMain:
     yes: Yes, I live there more than 50% of the time
     no: >-
@@ -67,7 +67,7 @@ transitFareType:
     AB: All modes AB
     ABC: All modes ABC
     ABCD: All modes ABCD
-    bus: Bus
+    bus: Bus (ABC)
     busCD: Out-of-territory bus (CD)
     opusWithTicketsOnly: OPUS card with individual fares only
     otherTerritory: Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
@@ -75,13 +75,20 @@ transitFareType:
 transitFareWarning:
     yes: I confirm
 workPlaceTypeChoices:
-    onLocation: Yes, always on-site at fixed location
-    hybrid: Yes, hybrid work (remote and on-site)
+    onLocation: Works in person at a fixed location away from home at all times
+    onLocation_one: Work in person at a fixed location away from home at all times
+    hybrid: Works in a hybrid mode (remote and in-person)
+    hybrid_one: Work in a hybrid mode (remote and in-person)
+    remote: Always works from home or remotely
+    remote_one: Always work from home or remotely
     onTheRoadWithUsualPlace: >-
-        Yes, work on the road departing from a fixed location (ex: garage, office,
-        station, restaurant, etc.)
-    onTheRoadWithoutUsualPlace: No, work on the road departing from home
-    remote: No, work from home or from elsewhere
+        Works on the road, starting from a fixed location (e.g., garage, office, station,
+        restaurant, etc.)
+    onTheRoadWithUsualPlace_one: >-
+        Work on the road, starting from a fixed location (e.g., garage, office, station,
+        restaurant, etc.)
+    onTheRoadWithoutUsualPlace: Works on the road, starting from home
+    onTheRoadWithoutUsualPlace_one: Work on the road, starting from home
 longDistanceFrequencyChoices:
     '00_00': Never (0)
     '01_03': A few times during the period (1 to 3)
@@ -101,13 +108,13 @@ householdIncomeChoices:
     '100000_149999': $100,000 to $149,999
     '150000_199999': $150,000 to $199,999
     '200000_999999': $200,000 and more
-    dontKnow: I don't know
-    refusal: I prefer not to respond
+    dontKnow: Don't know
+    refusal: Prefer not to respond
 householdOwnershipChoices:
     tenant: Tenant
     owner: Owner
     other: Other
-    preferNotToAnswer: I prefer not to respond
+    preferNotToAnswer: Prefer not to respond
 departurePlaceOtherChoices:
     otherParentHome: <strong>Home of the other parent or guardian</strong>
     workedOvernight: <strong>Worked overnight</strong>
@@ -128,20 +135,18 @@ onDemandChoices:
 noWorkTripReasonChoices:
     remoteWorkOrWorkAtHome: Remote work / work from home
     onStrike: On strike
-    leaveSicknessPersonalReason: Leave (sick, personal, other)
+    leaveSicknessPersonalReason: Leave (holidays, sick, etc.)
     noWork: No work planned
 noSchoolTripReasonChoices:
     distanceLearning: Distance learning
-    schoolWasClosed: School was closed or no classes
+    schoolWasClosed: No classes
     leaveSicknessPersonalReason: Leave (sick, personal, other)
     strike: Strike
 educationalAttainment:
-    noneOrPrimaryEducation: No certificate, diploma or degree
-    secondaryEducation: High school (secondary) diploma or equivalency certificate
-    postSecondaryNonTertiaryEducation: Apprenticeship or trades certificate or diploma
-    shortCycleTertiaryEducation: College, CEGEP or other non-university certificate
-        or diploma
-    diplomaBelowBachelor: University certificate or diploma below bachelor level
+    secondaryEducationOrLess: High school diploma, equivalency certificate, or none
+    postSecondaryBelowBachelorEducation: >-
+        Apprenticeship, trade school, CEGEP/college diploma, or university certificate
+        below a bachelor's degree
     bachelorOrHigher: Bachelor's degree or higher
 workPlaceBeforeLeaveTypeChoices:
     onLocation: Yes, {{nickname}} worked always on-site at fixed location
@@ -238,7 +243,7 @@ mobilityAssistiveDevices:
     threeOrFourwheeledScooter: Three- or four-wheeled scooter
     noSpecificDevice: No specific mobility aids
     other: Other (specify)
-    preferNotToAnswer: I prefer not to answer
+    preferNotToAnswer: Prefer not to answer
 paratransitFrequencies:
     never: Never in the last 12 months
     1orMorePerYear: 1 to a few days in the last 12 months
@@ -285,7 +290,7 @@ householdType:
         couple with a child living with an uncle)
     noFamily: >-
         Household of <strong>two or more people with no family relationship</strong>
-        (e.g. two siblings living together)
+        (e.g. roommates or two siblings living together)
 householdTypeSpecify:
     coupleWithChild: Household formed by a <strong>couple with child(ren)</strong>
     coupleWithoutChild: Household formed by a <strong>couple without children</strong>

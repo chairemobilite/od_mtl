@@ -29,13 +29,13 @@ hasOmittedTripsIntro: >-
     <span class="_pale _oblique">Cocher toutes les <strong>activités</strong> de déplacements
     associés avec vos déplacements non-rapportés, ainsi que les <strong>modes</strong>
     utilisés pour les effectuer.</span>
-hasOmittedTripsActivity: 'Activités:'
-hasOmittedTripsMode: 'Modes:'
+hasOmittedTripsActivity: Activités
+hasOmittedTripsMode: Modes
 buttonCompleteOmissionsSection: Continuer
 popup:
     toddlerDaycareTitle: Pourquoi cette question?
     toddlerDaycareContent: >-
-        <strong>Pourquoi cette question?</strong><br />Cette question est posée quand
-        aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré
-        à proximité d’une maternelle, garderie ou CPE répertoriée. 
+        Cette question est posée quand aucun déplacement pour motif « Reconduire »
+        ou « Aller chercher » n'est enregistré par un ménage comprenant au moins un
+        enfant de 1-4 ans.
 anotherPersonChoice: Une autre personne

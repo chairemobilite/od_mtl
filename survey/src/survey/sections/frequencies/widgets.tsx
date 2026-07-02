@@ -26,7 +26,7 @@ export const anyTripModeFrequenciesWalk: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('frequencies:anyTripModeFrequenciesWalk'),
     choices: choices.anyTripModeFrequenciesChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const anyTripModeFrequenciesBicycle: WidgetConfig.InputRadioType = {
@@ -37,7 +37,7 @@ export const anyTripModeFrequenciesBicycle: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('frequencies:anyTripModeFrequenciesBicycle'),
     choices: choices.anyTripModeFrequenciesChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const anyTripModeFrequenciesTransit: WidgetConfig.InputRadioType = {
@@ -48,7 +48,7 @@ export const anyTripModeFrequenciesTransit: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('frequencies:anyTripModeFrequenciesTransit'),
     choices: choices.anyTripModeFrequenciesChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const anyTripModeFrequenciesCarPassenger: WidgetConfig.InputRadioType = {
@@ -59,7 +59,7 @@ export const anyTripModeFrequenciesCarPassenger: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('frequencies:anyTripModeFrequenciesCarPassenger'),
     choices: choices.anyTripModeFrequenciesChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const anyTripModeFrequenciesCarDriver: WidgetConfig.InputRadioType = {
@@ -70,7 +70,7 @@ export const anyTripModeFrequenciesCarDriver: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('frequencies:anyTripModeFrequenciesCarDriver'),
     choices: choices.anyTripModeFrequenciesChoices,
     conditional: conditionals.hasDrivingLicenseConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const buttonCompleteFrequenciesSection: WidgetConfig.ButtonWidgetConfig = {

@@ -2,33 +2,27 @@ namespace,key,label::fr,label::en,label_one::fr,label_one::en
 household,addGroupedObject,Ajouter une personne manquante,Add a missing person,,
 household,deleteThisGroupedObject,Supprimer cette personne,Delete this person,,
 home,popup.homeOwnershipTitle,Pourquoi cette question?,Why this question?,,
-home,popup.homeOwnershipContent,"**Pourquoi cette question?**
-Le statut d’occupation du logement (locataire ou propriétaire) est associé à des comportements de mobilité différents. Cette information nous permet de mieux interpréter les résultats de l’enquête et de nous assurer que les données recueillies sont représentatives de l’ensemble des ménages de la région.","**Why this question?**
-Housing occupancy status (renter or homeowner) is associated with different mobility behaviors. This information allows us to better interpret the survey results and ensures that the collected data is representative of all households in the region.",,
+home,popup.homeOwnershipContent,Le statut d’occupation du logement (locataire ou propriétaire) est associé à des comportements de mobilité différents. Cette information nous permet de mieux interpréter les résultats de l’enquête et de nous assurer que les données recueillies sont représentatives de l’ensemble des ménages de la région.,Housing occupancy status (renter or homeowner) is associated with different mobility behaviors. This information allows us to better interpret the survey results and ensures that the collected data is representative of all households in the region.,,
 home,popup.householdSizeTitle,Qui inclure dans ce nombre?,Who should be included in this number?,,
-home,popup.householdSizeContent,"**Qui inclure dans ce nombre?**
-<span class=""_green"">Inclure :</span>
+home,popup.householdSizeContent,"<span class=""_green"">Inclure :</span>
 - Vous-même
 - Les enfants en garde partagée s'ils étaient présents à votre domicile le <span class=""_green"">{{assignedDate}}</span>
-Les chambreuses, les chambreurs et colocataires, ainsi que tous ceux et celles qui vivent en communauté domestique","**Who should be included in this number?**
-<span class=""_green"">Include :</span>
+- Les chambreuses, les chambreurs et colocataires, ainsi que tous ceux et celles qui vivent en communauté domestique","<span class=""_green"">Include :</span>
 - Yourself
 - Children in shared custody if they were present at your home on <span class=""_green"">{{assignedDate}}</span>
 - Roommates and housemates, as well as all people living in a shared household community",,
 home,home_carParkingsAvailableVehicleHousehold_one,"**Stationnement(s) disponible(s) au domicile** pour le véhicule de votre ménage. 
 __Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation__","**Parking** available at home for your household's vehicle
 __You may leave this question blank if none of the options apply to your situation.__",,
-home,popup.householdCarNumberTitle,Quels véhicules inclure dans ce nombre?,Which vehicles should be included in this number?,,
-home,popup.householdCarNumberContent,"**Quels véhicules inclure?**
-<span class=""_green"">Inclure :</span> 
+home,popup.householdCarNumberTitle,Quels véhicules inclure?,Which vehicles should be included?,,
+home,popup.householdCarNumberContent,"<span class=""_green"">Inclure :</span> 
 - Les automobiles, VUS, camions légers, camions et fourgonnettes
 - Les véhicules fournis ou loués par un employeur que les membres de votre ménage utilisent pour aller au travail ou pour des raisons personnelles
 <span class=""_red"">Ne pas inclure :</span> 
 - Les mobylettes, scooters et motos (à essence ou électriques)
 - Les véhicules d’autopartage
 - Un véhicule stationné au lieu de travail utilisé exclusivement pour le travail
-- Les véhicules remisés ou de collection utilisés rarement","**Which vehicles should be included?**
-<span class=""_green"">Include:</span>
+- Les véhicules remisés ou de collection utilisés rarement","<span class=""_green"">Include:</span>
 - Cars, SUVs, light trucks, trucks, and vans
 - Vehicles provided or leased by an employer that members of your household use for commuting or personal reasons
 <span class=""_red"">Do not include:</span>
@@ -36,40 +30,38 @@ home,popup.householdCarNumberContent,"**Quels véhicules inclure?**
 - Car-sharing vehicles
 - A vehicle parked at the workplace and used exclusively for work
 - Stored or collector vehicles used rarely",,
-home,popup.householdTwoWheelTitle,Quels véhicules inclure dans ce nombre?,Which vehicles should be included in this number?,,
-home,popup.householdTwoWheelContent,"**Quels véhicules inclure?**
-<span class=""_green"">Inclure :</span> 
+home,popup.householdTwoWheelTitle,Quels véhicules inclure?,Which vehicles should be included?,,
+home,popup.householdTwoWheelContent,"<span class=""_green"">Inclure :</span> 
 - Les mobylettes, scooters et motos (à essence ou électriques)
 <span class=""_red"">Ne pas inclure :</span> 
 - Les automobiles, VUS, camions légers, camions et fourgonnettes
 - Les vélos ou vélos électriques
-- Les trottinettes ou trottinettes électriques","**Which vehicles should be included?**
-<span class=""_green"">Include:</span>
+- Les trottinettes ou trottinettes électriques","<span class=""_green"">Include:</span>
 - Mopeds, and motorcycles (gas or electric)
 <span class=""_red"">Do not include:</span>
 - Cars, SUVs, light trucks, trucks, and vans
 - Bicycles or electric bicycles
 - Scooters or electric scooters",,
-household,popup.studentTitle,Qui inclure?,Who should be included?,,
-household,popup.studentContent,"**Qui considérer comme étudiant?** 
-<span class=""_green"">Inclure :</span>
+household,popup.studentTitle,Qui considérer comme étudiant?,Who should be considered a student?,,
+household,popup.studentContent,"<span class=""_green"">Inclure :</span>
 - Tous les étudiants et élèves à partir de 15 ans, indépendamment du niveau d'enseignement.
 - Toute personne suivant des cours de façon régulière via un établissement.
 - Toute personne actuellement en stage / alternance / apprentissage, mais inscrite dans un établissement d'enseignement.
-<span class=""_red"">Ne pas inclure</span> les formations ponctuelles ou en ligne, les cours particuliers, etc.","**Who should be considered a student?**
-<span class=""_green"">Include:</span>
+<span class=""_red"">Ne pas inclure :</span>
+- Les formations ponctuelles ou en ligne.
+- Les cours particuliers, etc.","<span class=""_green"">Include:</span>
 - All students and pupils aged 15 and over, regardless of level of education
 - Anyone taking regular courses through an educational institution
 - Anyone currently in an internship, apprenticeship, or co-op program, but enrolled in an educational institution
 <span class=""_red"">Do not include:</span>
 - One-time or online training courses
 - Private lessons, etc.",,
-household,popup.workerTitle,Qui inclure?,Who should be included?,,
-household,popup.workerContent,"**Qui considérer comme travailleur?** 
-<span class=""_green"">Inclure </span> toute personne avec un emploi ou une entreprise, même si temporairement absente au moment de répondre (par exemple : congé de maladie, congé parental, vacances, mise à pied temporaire). 
-<span class=""_green"">Inclure </span>  le travail salarié ou à son compte.
-<span class=""_red"">Ne pas inclure</span> les personnes sans emploi et ne cherchant pas de travail.","**Who should be considered a worker?**
-<span class=""_green"">Include:</span>
+household,popup.workerTitle,Qui considérer comme travailleur?,Who should be considered a worker?,,
+household,popup.workerContent,"<span class=""_green"">Inclure :</span> 
+- Toute personne avec un emploi ou une entreprise, même si temporairement absente au moment de répondre (ex. : congé de maladie, congé parental, vacances, mise à pied temporaire). 
+- Tout travailleur salarié ou à son compte.
+<span class=""_red"">Ne pas inclure :</span> 
+- Les personnes sans emploi et ne cherchant pas de travail.","<span class=""_green"">Include:</span>
 - Anyone with a job or a business, even if temporarily absent at the time of responding (e.g., sick leave, parental leave, vacation, temporary layoff)
 - Both salaried employees and self-employed workers
 <span class=""_red"">Do not include:</span>
@@ -88,25 +80,30 @@ visitedPlaces,visitedPlaceActivityCategory_firstLocation,Activité principale au
 visitedPlaces,visitedPlaceActivityCategory_afterHome,Activité principale au premier lieu visité dans la journée après avoir quitté le domicile{{reminderText}},Main activity carried out at the first location visited after leaving home{{reminderText}},,
 visitedPlaces,VisitedPlaceSequence,Lieu {{count}},Location #{{count}},Lieu de départ de la journée,Departure place for this day
 visitedPlaces,ConfirmDeleteVisitedPlace,Confirmez-vous que vous voulez retirer ce lieu?,Do you confirm that you want to remove this location?,,
-visitedPlaces,visitedPlaceNameExample_workUsual,"Édifice du Phare, CPE les petits génies","Lighthouse building, Les Petits génies CPE",,
-visitedPlaces,visitedPlaceNameExample_workUsual_onTheRoadOften,"Centre de distribution Rivières, Resto St-Hubert Alma","Rivière distribution center, Alma St-Hubert BBQ",,
-visitedPlaces,visitedPlaceNameExample_workNotUsual,"Palais des congrès de Montréal, Le Co-work du lac Long","Chateau Frontenac, Co-work on the Long lake",,
-visitedPlaces,visitedPlaceNameExample_schoolUsual,"École Marguerite-Bourgeoys, Collège CDI Québec, UQAR","Marguerite-Bourgeoys school, CDI College Québec, UQAR",,
-visitedPlaces,visitedPlaceNameExample_schoolNotUsual,"Bibliothèque à Livre ouvert, École de musique Dorémi","National library, music school Doremi",,
-visitedPlaces,visitedPlaceNameExample_shopping,"Centre d’achat Le Carrefour, Provigo St-Félicien, IKEA Boucherville","Le Carrefour shopping mall, Provigo St-Félicien, IKEA Boucherville",,
-visitedPlaces,visitedPlaceNameExample_restaurant,"Normandin de Lévis, Snack bar chez Raymond, Resto Subway de Rawdon","Normandin in Lévis, Snack bar chez Raymond, Subway restaurant in Rawdon",,
-visitedPlaces,visitedPlaceNameExample_dropSomeone,"Gare d’autocar, Aréna des Collines, École des Pionniers","Central bus station, des Collines arena, des Pionniers high school",,
-visitedPlaces,visitedPlaceNameExample_fetchSomeone,"Gare d’autocar, Aréna des Collines, École des Pionniers","Central bus station, des Collines arena, des Pionniers high school",,
-visitedPlaces,visitedPlaceNameExample_leisureArtsMusicCulture,"Cinéma des chutes, Théâtre de Verdure, Musée national des petits pots Masson","Des chutes cinema, de Verdure Theatre, Mason Jar National Museum",,
-visitedPlaces,visitedPlaceNameExample_leisureSports,"Nautilus St-Georges, Escalade La Grimpe, Parc de la Rose","Nautilus St-Georges, Climbing La Grimpe, de la Rose Park",,
-visitedPlaces,visitedPlaceNameExample_leisureTourism,"Camping Ste-Madeleine, Paris France, Hôtel Days Inn St-Flavien","Camping Ste-Madeleine, Paris France, Hotel Days Inn St-Flavien",,
-visitedPlaces,visitedPlaceNameExample_leisureStroll,"Parc au bord de l’eau, Petit train du nord, Stroll de la Montagne","Waterside park, Petit train du nord, de la Montagne promenade",,
-visitedPlaces,visitedPlaceNameExample_visiting,"Adresse de la personne visitée, Coin des Rossignols et de l’Étang","Address of the visited person, corner des Rossignols and de l’Étang",,
-visitedPlaces,visitedPlaceNameExample_medical,"Clinique Médicale des Marguerites, Hôpital régional de Rimouski, CLSC des Rivières","des Marguerites medical clinic, Rimouski regional hospital, des Rivières CLSC",,
-visitedPlaces,visitedPlaceNameExample_service,"Coiffure Dans le Vent, Caisse Desjardins de Limoilou","High class Hair salon, Caisse Desjardins Limoilou",,
-visitedPlaces,visitedPlaceNameExample_worship,"Église Saint-Nicéphore, Mosquée de la Capitale, Synagogue Maison Chabad","Saint-Nicéphore church, de la Capitale mosque, Congregation Beth Israel Ohev Sholem",,
-visitedPlaces,visitedPlaceNameExample_secondaryHome,Adresse de la résidence secondaire ou du chalet,Secondary home or cottage address,,
-visitedPlaces,visitedPlaceNameExample_schoolNotStudent,"Institut Linguistique, École de conduite Tecnic","language centre, Tecnic driving school",,
+visitedPlaces,visitedPlaceNameExample_workUsual,"Tour Banque Nationale, Coin Peel et Sherbrooke","National Bank tower, Corner Peel and Sherbrooke",,
+visitedPlaces,visitedPlaceNameExample_workUsual_onTheRoadOften,"Centre de distribution Rosemère, Resto St-Hubert BBQ Ahuntsic","Rosemère distribution center, Kirkland St-Hubert BBQ",,
+visitedPlaces,visitedPlaceNameExample_workNotUsual,"Palais des congrès de Mtl, Espace Coworking Jarry","Montreal Palais des congrès, Jarry Coworking space",,
+visitedPlaces,visitedPlaceNameExample_schoolUsual,"École St-Cécile, Collège de Maisonneuve, UQAM","St-Cécile school, Dawson college, McGill",,
+visitedPlaces,visitedPlaceNameExample_schoolNotUsual,"Bibliothèque St-Michel, École Marie-Favery","St-Michel library, Marie-Favery school",,
+visitedPlaces,visitedPlaceNameExample_shopping,"Dix30, Provigo Baie d'Urfé, IKEA Boucherville","Dix30, Provigo Baie d'Urfé, IKEA Ville St-Laurent",,
+visitedPlaces,visitedPlaceNameExample_restaurant,"Allô mon coco Centropolis, Scores Place Vertu, Resto Subway sur Fleury","Eggspectation on de Maisonneuve, Scores at Place Vertu, Subway restaurant on Fleury",,
+visitedPlaces,visitedPlaceNameExample_dropSomeone,"Station métro Cadillac, Aréna d'Outremont, École Sophie Barat…","Cadillac metro station, Outremont arena, Sophie Barat high school",,
+visitedPlaces,visitedPlaceNameExample_fetchSomeone,"Station métro Cadillac, Aréna d'Outremont, École Sophie Barat…","Cadillac metro station, Outremont arena, Sophie Barat high school",,
+visitedPlaces,visitedPlaceNameExample_leisureArtsMusicCulture,"Cinéma Beaubien, Théâtre St Denis, Jardin Botanique","Spheretech Guzzo cinema, Centaur Theatre, Botanical gardens",,
+visitedPlaces,visitedPlaceNameExample_leisureSports,"Nautilus Châteauguay, Escalade Allez-up Verdun, Parc Jarry","Nautilus Rockland center, Shakti Rock Gym, Jarry park",,
+visitedPlaces,visitedPlaceNameExample_leisureTourism,"Camping au Pin d'Érable, Paris France, Toronto","Camping in Pin d'Érable, Paris France, Toronto Ontario ",,
+visitedPlaces,visitedPlaceNameExample_leisureStroll,"Parc du Mont-Royal, Ile Charron, Parc Maurice Richard","Mount-Royal park, Ile Charron, Maurice Richard park",,
+visitedPlaces,visitedPlaceNameExample_visiting,"8540 rue Toupin Montréal, Vieux Ste-Rose, Coin Bellechasse et Pie-IX, …","8540 Toupin street Montreal, Old Ste-Rose, Corner Bellechasse and Pie-IX, …",,
+visitedPlaces,visitedPlaceNameExample_medical,"Clinique Sunnybrooke, Hôpital Sacré Cœur, CLSC du Ruisseau-Papineau","Sunnybrooke clinic, MUHC, Villeray CLSC",,
+visitedPlaces,visitedPlaceNameExample_service,"Coiffure Chez Carole Mtl Est, Caisse Desjardins Terrebonne","Chez Carole barber Mtl Est, Caisse Desjardins Terrebonne",,
+visitedPlaces,visitedPlaceNameExample_worship,"Église La Citadelle, Mosquée Abou Bakr Asseddique, Synagogue Ahavath Israel","La Citadelle church, Abou Bakr Asseddique mosque, Congregation Ahavath Israel",,
+visitedPlaces,visitedPlaceNameExample_secondaryHome,"Laurentides, Saint Sauveur","Laurentides, Saint Sauveur",,
+visitedPlaces,visitedPlaceNameExample_schoolNotStudent,"École de langue CLIC Montréal, Ecole de conduite Lauzon","CLIC Montréal language centre, Lauzon driving school",,
+visitedPlaces,visitedPlaceNameExample_schoolChild,École St-Cécile,St-Cécile school,,
+visitedPlaces,visitedPlaceNameExample_accompany,"Aréna de La Prairie, Clinique dentaire DDO","La Prairie Arena, DDO Dental Clinic",,
+visitedPlaces,visitedPlaceNameExample_pickClassifiedPurchase,"8540 rue Toupin, Montréal","8540 Toupin street, Montreal",,
+visitedPlaces,visitedPlaceNameExample_vet,Hôpital vétérinaire de Terrebonne,Terrebonne Veterinary Hospital,,
+visitedPlaces,visitedPlaceNameExample_volunteering,"Centre de bénévolat et Moisson Laval, SPCA Roussillon, Le Chainon rue Saint Laurent","Volunteer Centre and Moisson Laval, SPCA Roussillon, Le Chainon on Saint Laurent Street",,
 visitedPlaces,visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace,{{nickname}} a quitté le domicile pour aller à son lieu habituel de travail à?,{{nickname}} left home to go to {{gender:his/her/their/their}} usual work place?,Vous avez quitté le domicile pour aller à votre lieu habituel de travail à?,You left home to go to your usual work place at?
 visitedPlaces,visitedPlacePreviousPreviousDepartureTime_usualWorkPlace,{{nickname}} a quitté le lieu précédent ({{previousPlaceDescription}}) pour aller à son lieu habituel de travail à?,{{nickname}} left the previous location ({{previousPlaceDescription}}) to go to {{gender:his/her/their/their}} usual work place?,Vous avez quitté le lieu précédent ({{previousPlaceDescription}}) pour aller à votre lieu habituel de travail à?,You left the previous location ({{previousPlaceDescription}}) to go to your usual work place at?
 visitedPlaces,visitedPlacePreviousArrivalTime_home,À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender:é/ée/é(e)/é(e)}} au domicile avant de débuter ses déplacements sur la route?,At what time did {{nickname}} arrive home before starting {{gender:his/her/their/their}} on the road trips?,À quelle heure êtes-vous arriv{{gender:é/ée/é(e)/é(e)}} au domicile avant de débuter vos déplacements sur la route?,At what time did you arrive home before starting your on the road trips?
@@ -157,7 +154,10 @@ visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentBackHome,Domicile,Home,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentToUsualWorkPlace,Lieu de travail habituel,Usual work place,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.visitedAnotherPlace,Autre lieu,Other location,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.stayedThereUntilTheNextDay,{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain,{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day,J'ai complété mes déplacements sur la route après 4:00 du matin le lendemain,I completed my work on the road trips after 4AM the next day
-household,errors.selectDontKnowWhenNoOtherChoiceSelected,"Sélectionnez ""Je ne sais pas"" seulement si aucun autre choix n'est sélectionné.","Select ""I don't know"" only if no other choice is selected.",,
+visitedPlaces,reminderText,"
+<span style=""background-color:#fff6cc;"">&#x26A0; Rappel : déplacement avec {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>","
+<span style=""background-color:#fff6cc;"">&#x26A0;Reminder: trip with {{otherNickname}} at {{time}} &#8594; {{origin}} to {{destination}}</span>",,
+household,errors.selectDontKnowWhenNoOtherChoiceSelected,"Sélectionnez ""Ne sais pas"" seulement si aucun autre choix n'est sélectionné.","Select ""Don't know"" only if no other choice is selected.",,
 household,errors.selectNoWhenNoOtherChoiceSelected,"Sélectionnez ""Non"" seulement si aucun autre choix n'est sélectionné.","Select ""no"" only if no other choice is selected.",,
 household,errors.selectNoneWhenNoOtherChoiceSelected,"Sélectionnez ""Aucun pour le mois en cours"" seulement si aucun autre choix n'est sélectionné.","Select ""None for the current month"" only if no other choice is selected.",,
 household,errors.selectPreferNotToAnswerWhenNoOtherChoiceSelected,"Sélectionnez ""Préfère ne pas répondre"" seulement si aucun autre choix n'est sélectionné.","Select ""Prefer not to answer"" only if no other choice is selected.",,
@@ -177,11 +177,8 @@ visitedPlaces,onTheRoadArrivalTypeOther,Autre lieu,Other location,,
 visitedPlaces,onTheRoadArrivalTypeStayedThereUntilTheNextDay,{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain,{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day,J'ai complété mes déplacements sur la route après 4:00 du matin le lendemain,I completed my work on the road trips after 4AM the next day
 visitedPlaces,nextPlaceRadioChoices.stayedHomeUntilTheNextDay,Rest{{gender:é/ée/é(e)/é(e)}} au domicile jusqu'au lendemain,Stayed home until the next day,,
 visitedPlaces,nextPlaceRadioChoices.stayedThereUntilTheNextDay,Rest{{gender:é/ée/é(e)/é(e)}} à cet endroit jusqu'au lendemain,Stayed at this place until the next day,,
-visitedPlaces,nextPlaceRadioChoices.visitedAnotherPlace,All{{gender:é/ée/é(e)/é(e)}} ou arrêt{{gender:é/ée/é(e)/é(e)}} à un autre endroit,Went or stopped elsewhere,,
-visitedPlaces,nextPlaceRadioChoices.wentBackHome,Retourn{{gender:é/ée/é(e)/é(e)}} au domicile directement ({{address}}),Returned home directly ({{address}}),,
-visitedPlaces,reminderText,"
-<span style=""background-color:#fff6cc;"">&#x26A0; Rappel: déplacement avec {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>","
-<span style=""background-color:#fff6cc;"">&#x26A0;Reminder: trip with {{otherNickname}} at {{time}} &#8594; {{origin}} to {{destination}}</span>",,
+visitedPlaces,nextPlaceRadioChoices.visitedAnotherPlace,All{{gender:é/ée/é(e)/é(e)}} à un autre endroit,Went elsewhere,,
+visitedPlaces,nextPlaceRadioChoices.wentBackHome,Retourn{{gender:é/ée/é(e)/é(e)}} au domicile ({{address}}),Returned home ({{address}}),,
 segments,onDemandChoicesPickupAtOrigin,"Oui, il est venu chercher {{nickname}} à son lieu de départ","Yes, it picked {{nickname}} up at their departure location","Oui, il est venu me chercher à mon lieu de départ","Yes, it picked me up at my departure location"
 segments,onDemandChoicesJoinedStop,"Oui, {{nickname}} a rejoint un arrêt","Yes, {{nickname}} went to a stop","Oui, j'ai rejoint un arrêt","Yes, I went to a stop"
 segments,busLinesOther,Autre(s) ligne(s) de bus,Other bus line(s),,
@@ -214,14 +211,14 @@ segments,fromStopType_plane,de l'**aéroport**,from the **airport**,,
 segments,fromStopType,de l'**arrêt**,from the **stop**,,
 segments,metroTransferStation.none,Aucune,None,,
 segments,errors.tripCommonNoOnlySelection,"Vous ne pouvez sélectionner des membres du ménage et l'option ""Non"" en même temps","You cannot select other household members and the option ""No"" at the same time",,
-household,workPlaceBeforeLeaveTypeChoicesOnLocation,"Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps","Yes, {{nickname}} worked always on-site at fixed location","Oui, je travaillais au lieu fixe en présentiel en tout temps","Yes, I worked always on-site at fixed location"
-household,workPlaceBeforeLeaveTypeChoicesHybrid,"Oui, {{nickname}} travaillait en mode hybride (télétravail et en présentiel)","Yes, {{nickname}} did hybrid work (remote and on-site)","Oui, je travaillais en mode hybride (télétravail et en présentiel)","Yes, I did hybrid work (remote and on-site)"
-household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace,"Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","Yes, {{nickname}} worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)","Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","Yes, I worked on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)"
-household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace,"Non, {{nickname}} travaillait sur la route avec départ du domicile","No, {{nickname}} worked on the road departing from home","Non, je travaillais sur la route avec départ du domicile","No, I worked on the road departing from home"
-household,workPlaceBeforeLeaveTypeChoicesRemote,"Non, {{nickname}} travaillait à partir du domicile ou à distance","No, {{nickname}} worked from home or from elsewhere","Non, je travaillais à partir du domicile ou à distance","No, I worked from home or from elsewhere"
+household,workPlaceBeforeLeaveTypeChoicesOnLocation,{{nickname}} travaille en présentiel en tout temps à un lieu fixe hors domicile,{{nickname}} works in person at a fixed location away from home at all times,Je travaille en présentiel en tout temps à un lieu fixe hors domicile,I work in person at a fixed location away from home at all times
+household,workPlaceBeforeLeaveTypeChoicesHybrid,{{nickname}} travaille en mode hybride (télétravail et en présentiel),{{nickname}} works in a hybrid mode (remote and in-person),Je travaille en mode hybride (télétravail et en présentiel),I work in a hybrid mode (remote and in-person)
+household,workPlaceBeforeLeaveTypeChoicesRemote,{{nickname}} travaille toujours au domicile ou à distance,{{nickname}} always works from home or remotely,Je travaille toujours au domicile ou à distance,I always work from home or remotely
+household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace,"{{nickname}} travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","{{nickname}} works on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)","Je travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","I work on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)"
+household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace,{{nickname}} travaille sur la route avec départ du domicile,"{{nickname}} works on the road, starting from home",Je travaille sur la route avec départ du domicile,"I work on the road, starting from home"
 tripsIntro,WhyThisDate,Pourquoi cette journée?,Why this day?,,
 tripsIntro,WhyThisDateExplanation,revoir le texte,review text,,
-tripsIntro,personDidTripsConfirmChoiceNo,{{nickname}} n'a effectué aucun déplacement le {{journeyDate}},{{nickname}} did not make any trip on {{journeyDate}},Je n'ai effectué aucun déplacement le {{journeyDate}},I did not make any trip on {{journeyDate}}
+tripsIntro,personDidTripsConfirmChoiceNo,{{nickname}} n'a effectué aucun déplacement le {{journeyDate}},{{nickname}} did not make any trips on {{journeyDate}},Je n'ai effectué aucun déplacement le {{journeyDate}},I did not make any trips on {{journeyDate}}
 tripsIntro,personDidTripsConfirmChoiceYes,{{nickname}} a effectué au moins un déplacement le {{journeyDate}},{{nickname}} did make at least one trip on {{journeyDate}},J'ai effectué au moins un déplacement le {{journeyDate}},I did make at least one trip on {{journeyDate}}
 tripsIntro,outOfTerritoryChoiceNo,"Non, {{nickname}} est rest{{gender:é/ée/é(e)}} à cet endroit jusqu’au lendemain","No, {{nickname}} stayed at this place until the next day","Non, je suis rest{{gender:é/ée/é(e)}} à cet endroit jusqu’au lendemain","No, I stayed at this place until the next day"
 tripsIntro,outOfTerritoryChoiceNo_hotelForWork,"Non, {{nickname}} est rest{{gender:é/ée/é(e)}} en voyage pour le travail jusqu’au lendemain","No, {{nickname}} stayed away for work until the next day","Non, je suis rest{{gender:é/ée/é(e)}} en voyage pour le travail jusqu’au lendemain","No, I stayed away for work until the next day"
@@ -275,9 +272,7 @@ segments,mode.Transit_leisureStroll,Transport en commun,Public transit,,
 segments,errors.trainStationsIncoherent,La ou les station(s) de transfert semblent incohérentes pour ce déplacement,The transfer station(s) do not seem coherent for this trip,,
 travelBehavior,personHasSchoolPlace_schoolchildcare,"Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?","Does {{nickname}} attend a school, daycare or CPE?",,
 travelBehavior,workCommutingHelpPopup.title,Pourquoi cette question?,Why this question?,,
-travelBehavior,workCommutingHelpPopup.content,"**Pourquoi cette question?**
-Inspirée du Recensement de Statistique Canada, cette question permet de comparer les modes de navettage entre enquêtes.","**Why this question?**
-Inspired by Statistics Canada’s Census, this question allows for comparison of commuting modes across surveys.",,
+travelBehavior,workCommutingHelpPopup.content,"Inspirée du Recensement de Statistique Canada, cette question permet de comparer les modes de navettage entre enquêtes.","Inspired by Statistics Canada’s Census, this question allows for comparison of commuting modes across surveys.",,
 travelBehavior,personUsualWorkPlaceCommuting_onTheRoadWithUsualPlace,"Quel moyen de transport utilise habituellement {{nickname}} pour** se rendre à son lieu de travail?** 
 __Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
 Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
@@ -305,14 +300,16 @@ __If multiple modes are used, indicate the one that represents the largest share
 If you work at multiple locations, respond based on the location visited most frequently.
 Answer the mode used when leaving home__"
 omissions,popup.toddlerDaycareTitle,Pourquoi cette question?,Why this question?,,
-omissions,popup.toddlerDaycareContent,"**Pourquoi cette question?**
-Cette question est posée quand aucun déplacement pour motif « Reconduire » ou « Aller chercher » est enregistré à proximité d’une maternelle, garderie ou CPE répertoriée. ","**Why this question?**
-This question is asked when no trips for the reason ""Drop-off"" or ""Pick-up"" are recorded near a listed kindergarten, daycare, or CPE.",,
+omissions,popup.toddlerDaycareContent,Cette question est posée quand aucun déplacement pour motif « Reconduire » ou « Aller chercher » n'est enregistré par un ménage comprenant au moins un enfant de 1-4 ans.,"This question is asked when no trips for the reason ""Drop-off"" or ""Pick-up"" are recorded by a household with 1-4 years old child.",,
 omissions,anotherPersonChoice,Une autre personne,Another person,,
 end,popup.incomeHelpPopupTitle,Pourquoi cette question?,Why this question?,,
-end,popup.incomeHelpPopupContent,"**Pourquoi cette question?**
-La tranche de revenu du ménage nous permet de comprendre certains enjeux d'équité en mobilité. Cela permet aussi d'identifier s'il y a une bonne représentativité parmi nos répondants.","**Why this question?**
-The household income bracket helps us understand certain equity issues in mobility. It also helps identify whether our respondents are well represented.",,
+end,popup.incomeHelpPopupContent,La tranche de revenu du ménage nous permet de comprendre certains enjeux d'équité en mobilité. Cela permet aussi d'identifier s'il y a une bonne représentativité parmi nos répondants.,The household income bracket helps us understand certain equity issues in mobility. It also helps identify whether our respondents are well represented.,,
 barriers,barriersIntro_carDriver,"Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture comme conducteur. Pour chacun des éléments suivants, **indiquez s’ils ont constitué un frein à l’utilisation du transport en commun** (bus, métro, train ou REM), pour ce **déplacement**.","For the trip indicated above, you used a car as a driver. For each of the following items, **indicate whether they were a barrier to using public transit** (bus, metro, train, or REM) for this **trip**.",,
 barriers,barriersIntro_carPassenger,"Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture comme passager. Pour chacun des éléments suivants, **indiquez s’ils ont constitué un frein à l’utilisation du transport en commun** (bus, métro, train ou REM), pour ce **déplacement**.","For the trip indicated above, you used a car as a passenger. For each of the following items, **indicate whether they were a barrier to using public transit** (bus, metro, train, or REM) for this **trip**.",,
+home,popup.accessCodeHelpPopupTitle,Où trouver mon code d’accès?,Where find my access code?,,
+home,popup.accessCodeHelpPopupContent,"capture de la lettre
+Si vous n'avez pas reçu de lettre d'invitation, vous n'êtes pas éligible à l'enquête métropolitaine 2026 Perspectives mobilité.","capture de la lettre
+If you have not received the invitation letter, you are not eligible for the enquête métropolitaine 2026 Perspectives mobilité.",,
+home,popup.disabilityHelpPopupTitle,Pourquoi cette question?,Why this question?,,
+home,popup.disabilityHelpPopupContent,"Nous demandons si des personnes présentent des incapacités qui limitent leur mobilité afin d'étudier les impacts sur leur façon de se déplacer. À postériori, ces informations permettront de proposer une offre de transport plus adaptée à leurs besoins.",We ask whether any household members have disabilities that limit their mobility in order to better understand how these limitations affect their travel behavior. This information will help us propose transportation services that are better tailored to their needs.,,
 accessCode,errors.accessCodeNeedConfirm,Vous devez confirmer que le code d'accès a été correctement saisi,You must confirm that the access code is correctly typed,,

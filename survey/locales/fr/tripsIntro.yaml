@@ -15,43 +15,46 @@ personNewPerson: >-
     réponses recueillies.</details>
 personWhoWillAnswerForThisPerson: >-
     Qui répond pour {{nickname}}?<br /><span class="_pale _oblique">Si {{nickname}}
-    est disponible, iel peut venir compléter ou vous pouvez répondre aux prochaines
-    questions pour lui(-elle)</span>
+    est disponible, iel peut venir compléter ou vous pouvez répondre pour lui(-elle)</span>
 personWhoWillAnswerForThisPerson_male: >-
     Qui répond pour {{nickname}}?<br /><span class="_pale _oblique">Si {{nickname}}
-    est disponible, il peut venir compléter ou vous pouvez répondre aux prochaines
-    questions pour lui</span>
+    est disponible, il peut venir compléter ou vous pouvez répondre pour lui</span>
 personWhoWillAnswerForThisPerson_female: >-
     Qui répond pour {{nickname}}?<br /><span class="_pale _oblique">Si {{nickname}}
-    est disponible, elle peut venir compléter ou vous pouvez répondre aux prochaines
-    questions pour elle</span>
+    est disponible, elle peut venir compléter ou vous pouvez répondre pour elle</span>
 personDidTrips: >-
     Est-ce que {{nickname}} s'est déplacé(e) le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
-    quelqu'un.</span>
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
+    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
+    ou reconduire quelqu’un.</span>
 personDidTrips_male: >-
     Est-ce que {{nickname}} s'est déplacé le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
-    quelqu'un.</span>
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
+    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
+    ou reconduire quelqu’un.</span>
 personDidTrips_female: >-
     Est-ce que {{nickname}} s'est déplacée le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous les déplacements, qu'ils soient pour des motifs personnels
-    (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire
-    quelqu'un.</span>
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
+    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
+    ou reconduire quelqu’un.</span>
 personDidTrips_one: >-
     Vous êtes-vous déplacé(e) le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
+    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
 personDidTrips_male_one: >-
     Vous êtes-vous déplacé le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
+    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
 personDidTrips_female_one: >-
     Vous êtes-vous déplacée le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties,
-    loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.</span>
+    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
+    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
+    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
 personDidTripsConfirm: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que {{nickname}} ne s'est pas déplacé(e) le {{journeyDate}}?
@@ -72,70 +75,71 @@ personDidTripsConfirm_female_one: >-
     que vous n'avez fait aucun déplacement le {{journeyDate}}?
 visitedPlacesIntro: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé(e) le
-    {{journeyDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br
-    /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
-    (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est allé(e)
-    chercher ou reconduire quelqu'un).<br />- <strong>Inclure tous les lieux</strong>
-    peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture,
-    transport collectif, taxi, avion, bateau, etc.).</span><br /><span class="_red">-
-    <strong>Ne pas inclure les lieux de transfert</strong> en cours de déplacement
-    (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}}
-    est allé(e) reconduire ou chercher quelqu'un à cet endroit.</span>
+    {{journeyDate}} <br /><br />- <span class="_green">Inclure</span> les lieux visités
+    jusqu'à 4:00 le lendemain matin.<br />- <span class="_green">Inclure</span> même
+    <strong>les petits arrêts</strong> (station-service, garderie/école, dépanneur
+    ou tout lieu où {{nickname}} est allé(e) chercher ou reconduire quelqu'un).<br
+    />- <span class="_green">Inclure</span> <strong>tous les lieux peu importe les
+    modes de transport utilisés</strong> pour s'y rendre (marche, vélo, voiture, transport
+    collectif, taxi, avion, bateau, etc.).<br />- <span class="_red">Ne pas inclure</span>
+    <strong>les lieux de transfert</strong> en cours de déplacement (arrêts de bus,
+    gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est allé(e)
+    reconduire ou chercher quelqu'un à cet endroit.
 visitedPlacesIntro_male: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allé le {{journeyDate}}
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
-    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
-    dépanneur ou tout lieu où {{nickname}} est allé chercher ou reconduire quelqu'un).<br
-    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
-    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
-    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
-    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
-    lieux de stationnement, etc.) sauf si {{nickname}} est allé reconduire ou chercher
-    quelqu'un à cet endroit.</span>
+    <br /><br />- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00
+    le lendemain matin.<br />- <span class="_green">Inclure</span> même <strong>les
+    petits arrêts</strong> (station-service, garderie/école, dépanneur ou tout lieu
+    où {{nickname}} est allé chercher ou reconduire quelqu'un).<br />- <span class="_green">Inclure</span>
+    <strong>tous les lieux peu importe les modes de transport utilisés</strong> pour
+    s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).<br
+    />- <span class="_red">Ne pas inclure</span> <strong>les lieux de transfert</strong>
+    en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement,
+    etc.) sauf si {{nickname}} est allé reconduire ou chercher quelqu'un à cet endroit.
 visitedPlacesIntro_female: >-
     Nous allons vous demander d'indiquer les lieux où {{nickname}} est allée le {{journeyDate}}
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
-    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
-    dépanneur ou tout lieu où {{nickname}} est allée chercher ou reconduire quelqu'un).<br
-    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
-    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
-    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
-    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
-    lieux de stationnement, etc.) sauf si {{nickname}} est allée reconduire ou chercher
-    quelqu'un à cet endroit.</span>
+    <br /><br />- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00
+    le lendemain matin.<br />- <span class="_green">Inclure</span> même <strong>les
+    petits arrêts</strong> (station-service, garderie/école, dépanneur ou tout lieu
+    où {{nickname}} est allée chercher ou reconduire quelqu'un).<br />- <span class="_green">Inclure</span>
+    <strong>tous les lieux peu importe les modes de transport utilisés</strong> pour
+    s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).<br
+    />- <span class="_red">Ne pas inclure</span> <strong>les lieux de transfert</strong>
+    en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement,
+    etc.) sauf si {{nickname}} est allée reconduire ou chercher quelqu'un à cet endroit.
 visitedPlacesIntro_one: >-
-    Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé(e) le
-    {{journeyDate}}</strong> (inclure les lieux visités jusqu'à 4:00 le lendemain
-    matin)<br /><br /><span class="_green">- <strong>Inclure même les petits arrêts</strong>
-    (station-service, garderie/école, dépanneur ou tout lieu où vous êtes allé(e)
-    chercher ou reconduire quelqu'un).<br />- <strong>Inclure tous les lieux</strong>
-    peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture,
-    transport collectif, taxi, avion, bateau, etc.).</span><br /><span class="_red">-
-    <strong>Ne pas inclure les lieux de transfert</strong> en cours de déplacement
-    (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si vous êtes
-    allé(e) reconduire ou chercher quelqu'un à cet endroit.</span>
+    Nous allons vous demander d'indiquer les lieux où vous êtes allé(e) le {{journeyDate}}
+    <br /><br />- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00
+    le lendemain matin.<br />- <span class="_green">Inclure</span> même <strong>les
+    petits arrêts</strong> (station-service, garderie/école, dépanneur ou tout lieu
+    où vous êtes allé(e) chercher ou reconduire quelqu'un).<br />- <span class="_green">Inclure</span>
+    <strong>tous les lieux peu importe les modes de transport utilisés</strong> pour
+    s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).<br
+    />- <span class="_red">Ne pas inclure</span> <strong>les lieux de transfert</strong>
+    en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement,
+    etc.) sauf si vous êtes allé(e) reconduire ou chercher quelqu'un à cet endroit.
 visitedPlacesIntro_male_one: >-
-    Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allé le {{journeyDate}}</strong>
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
-    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
-    dépanneur ou tout lieu où vous êtes allé chercher ou reconduire quelqu'un).<br
-    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
-    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
-    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
-    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
-    lieux de stationnement, etc.) sauf si vous êtes allé reconduire ou chercher quelqu'un
-    à cet endroit.</span>
+    Nous allons vous demander d'indiquer les lieux où vous êtes allé le {{journeyDate}}
+    <br /><br />- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00
+    le lendemain matin.<br />- <span class="_green">Inclure</span> même <strong>les
+    petits arrêts</strong> (station-service, garderie/école, dépanneur ou tout lieu
+    où vous êtes allé chercher ou reconduire quelqu'un).<br />- <span class="_green">Inclure</span>
+    <strong>tous les lieux peu importe les modes de transport utilisés</strong> pour
+    s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).<br
+    />- <span class="_red">Ne pas inclure</span> <strong>les lieux de transfert</strong>
+    en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement,
+    etc.) sauf si vous êtes allé reconduire ou chercher quelqu'un à cet endroit.
 visitedPlacesIntro_female_one: >-
-    Nous allons vous demander d'indiquer les <strong>lieux où vous êtes allée le {{journeyDate}}</strong>
-    (inclure les lieux visités jusqu'à 4:00 le lendemain matin)<br /><br /><span class="_green">-
-    <strong>Inclure même les petits arrêts</strong> (station-service, garderie/école,
-    dépanneur ou tout lieu où vous êtes allée chercher ou reconduire quelqu'un).<br
-    />- <strong>Inclure tous les lieux</strong> peu importe les modes de transport
-    utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion,
-    bateau, etc.).</span><br /><span class="_red">- <strong>Ne pas inclure les lieux
-    de transfert</strong> en cours de déplacement (arrêts de bus, gares, terminus,
-    lieux de stationnement, etc.) sauf si vous êtes allée reconduire ou chercher quelqu'un
-    à cet endroit.</span>
+    Nous allons vous demander d'indiquer les lieux où vous êtes allée le {{journeyDate}}
+    <br /><br />- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00
+    le lendemain matin.<br />- <span class="_green">Inclure</span> même <strong>les
+    petits arrêts</strong> (station-service, garderie/école, dépanneur ou tout lieu
+    où vous êtes allée chercher ou reconduire quelqu'un).<br />- <span class="_green">Inclure</span>
+    <strong>tous les lieux peu importe les modes de transport utilisés</strong> pour
+    s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).<br
+    />- <span class="_red">Ne pas inclure</span> <strong>les lieux de transfert</strong>
+    en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement,
+    etc.) sauf si vous êtes allée reconduire ou chercher quelqu'un à cet endroit.
 personDeparturePlaceIsHome: >-
     Est-ce que {{nickname}} a <strong>commencé sa journée au domicile</strong> ({{address}})?<br
     /><span class="_pale _oblique">Répondre 'Non' uniquement si {{nickname}} n'a pas
@@ -169,26 +173,25 @@ personDeparturePlaceIsHome_female_one: >-
 personDeparturePlaceOther: Où était {{nickname}} à 4h du matin?
 personDeparturePlaceOther_one: Où étiez-vous à 4h du matin?
 personOutOfTerritory: >-
-    Est-ce que {{nickname}} est retourné(e) au domicile {{address}} la journée du
+    Est-ce que {{nickname}} est retourné(e) au domicile ({{address}}) la journée du
     {{journeyDate}}?
 personOutOfTerritory_male: >-
-    Est-ce que {{nickname}} est retourné au domicile {{address}} la journée du {{journeyDate}}?
+    Est-ce que {{nickname}} est retourné au domicile ({{address}}) la journée du {{journeyDate}}?
 personOutOfTerritory_female: >-
-    Est-ce que {{nickname}} est retournée au domicile {{address}} la journée du {{journeyDate}}?
+    Est-ce que {{nickname}} est retournée au domicile ({{address}}) la journée du
+    {{journeyDate}}?
 personOutOfTerritory_one: >-
-    Est-ce que vous êtes retourné(e) au domicile {{address}} la journée du {{journeyDate}}?
+    Est-ce que vous êtes retourné(e) au domicile ({{address}}) la journée du {{journeyDate}}?
 personOutOfTerritory_male_one: >-
-    Est-ce que vous êtes retourné au domicile {{address}} la journée du {{journeyDate}}?
+    Est-ce que vous êtes retourné au domicile ({{address}}) la journée du {{journeyDate}}?
 personOutOfTerritory_female_one: >-
-    Est-ce que vous êtes retournée au domicile {{address}} la journée du {{journeyDate}}?
-personOutOfTerritoryMembers: D’autres membres du ménage étaient avec {{nickname}}
-    toute la journée?
-personOutOfTerritoryMembers_one: D’autres membres du ménage étaient avec vous toute
-    la journée?
+    Est-ce que vous êtes retournée au domicile ({{address}}) la journée du {{journeyDate}}?
+personOutOfTerritoryMembers: >-
+    D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
 tripsIntro_save: Continuer
 tripsIntroOutro: >-
     <span class="_pale _oblique">Vos réponses serviront à évaluer l'usage et l'achalandage
-    des réseaux routiers et de transport collectif et demeureront entièrement confidentielles</span>
+    des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.</span>
 WhyThisDate: Pourquoi cette journée?
 WhyThisDateExplanation: revoir le texte
 personDidTripsConfirmChoiceNo: "{{nickname}} n'a effectué aucun déplacement le {{journeyDate}}"

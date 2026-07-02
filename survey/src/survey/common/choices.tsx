@@ -268,23 +268,48 @@ export const transitFareWarning: ChoiceType[] = [
 export const workPlaceTypeChoices: ChoiceType[] = [
     {
         value: 'onLocation',
-        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onLocation')
+        label: (t: TFunction, interview, path) => {
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceTypeChoices.onLocation', {
+                count: countPersons
+            });
+        }
     },
     {
         value: 'hybrid',
-        label: (t: TFunction) => t('choices:workPlaceTypeChoices.hybrid')
-    },
-    {
-        value: 'onTheRoadWithUsualPlace',
-        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onTheRoadWithUsualPlace')
-    },
-    {
-        value: 'onTheRoadWithoutUsualPlace',
-        label: (t: TFunction) => t('choices:workPlaceTypeChoices.onTheRoadWithoutUsualPlace')
+        label: (t: TFunction, interview, path) => {
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceTypeChoices.hybrid', {
+                count: countPersons
+            });
+        }
     },
     {
         value: 'remote',
-        label: (t: TFunction) => t('choices:workPlaceTypeChoices.remote')
+        label: (t: TFunction, interview, path) => {
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceTypeChoices.remote', {
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'onTheRoadWithUsualPlace',
+        label: (t: TFunction, interview, path) => {
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceTypeChoices.onTheRoadWithUsualPlace', {
+                count: countPersons
+            });
+        }
+    },
+    {
+        value: 'onTheRoadWithoutUsualPlace',
+        label: (t: TFunction, interview, path) => {
+            const countPersons = odSurveyHelpers.countPersons({ interview });
+            return t('choices:workPlaceTypeChoices.onTheRoadWithoutUsualPlace', {
+                count: countPersons
+            });
+        }
     }
 ];
 
@@ -470,7 +495,8 @@ export const noWorkTripReasonChoices: ChoiceType[] = [
     },
     {
         value: 'onStrike',
-        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.onStrike')
+        label: (t: TFunction) => t('choices:noWorkTripReasonChoices.onStrike'),
+        hidden: true
     },
     {
         value: 'leaveSicknessPersonalReason',
@@ -499,7 +525,8 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
     },
     {
         value: 'strike',
-        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.strike')
+        label: (t: TFunction) => t('choices:noSchoolTripReasonChoices.strike'),
+        hidden: true
     },
     ...otherWithoutSpecify,
     ...dontKnow
@@ -507,24 +534,12 @@ export const noSchoolTripReasonChoices: ChoiceType[] = [
 
 export const educationalAttainment: ChoiceType[] = [
     {
-        value: 'noneOrPrimaryEducation',
-        label: (t: TFunction) => t('choices:educationalAttainment.noneOrPrimaryEducation')
+        value: 'secondaryEducationOrLess',
+        label: (t: TFunction) => t('choices:educationalAttainment.secondaryEducationOrLess')
     },
     {
-        value: 'secondaryEducation',
-        label: (t: TFunction) => t('choices:educationalAttainment.secondaryEducation')
-    },
-    {
-        value: 'postSecondaryNonTertiaryEducation',
-        label: (t: TFunction) => t('choices:educationalAttainment.postSecondaryNonTertiaryEducation')
-    },
-    {
-        value: 'shortCycleTertiaryEducation',
-        label: (t: TFunction) => t('choices:educationalAttainment.shortCycleTertiaryEducation')
-    },
-    {
-        value: 'diplomaBelowBachelor',
-        label: (t: TFunction) => t('choices:educationalAttainment.diplomaBelowBachelor')
+        value: 'postSecondaryBelowBachelorEducation',
+        label: (t: TFunction) => t('choices:educationalAttainment.postSecondaryBelowBachelorEducation')
     },
     {
         value: 'bachelorOrHigher',

@@ -128,15 +128,7 @@ export const personOutOfTerritoryMembers: WidgetConfig.InputCheckboxType = {
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers',
     twoColumns: false,
     containsHtml: false,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('tripsIntro:personOutOfTerritoryMembers', {
-            nickname,
-            count: countPersons
-        });
-    },
+    label: (t: TFunction) => t('tripsIntro:personOutOfTerritoryMembers'),
     choices: customChoices.outOfTerritoryMembersCustomChoices,
     conditional: conditionals.outOfTerritoryMembersConditional,
     validations: customValidations.personOutOfTerritoryMembersCustomValidation

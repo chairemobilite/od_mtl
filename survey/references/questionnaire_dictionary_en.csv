@@ -25,15 +25,15 @@ Abbreviation,h_
 ""
 Field,acceptToBeContactedForHelp
 Question type,Radio input
-Question,"I consent to be contacted to continue the survey.
-If I do not complete it or if some of the information provided is incoherent."
+Question,"I consent to be contacted to continue or clarify the survey
+If I do not complete it or if some of the information provided appears inconsistent."
 Values,"yes : Yes
 no : No"
 ""
 Field,wantToParticipateToDraw
 Question type,Radio input
 Question,"I would like to participate in the prize draw
-Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response([View rules](lien))"
+Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response ([View rules](lien))."
 Values,"yes : Yes
 no : No"
 ""
@@ -69,21 +69,21 @@ no : No, it is my secondary residence and my household mainly lives at another a
 ""
 Field,hh_ownership
 Question type,Radio input
-Question,Does your household rent or own your home?
+Question,Housing tenure
 Values,"tenant : Tenant
 owner : Owner
 other : Other
-preferNotToAnswer : I prefer not to respond"
+preferNotToAnswer : Prefer not to respond"
 ""
 Field,hh_size
 Question type,RadioNumber
 Question,"Persons living in your home
-Including yourself and children in shared custody if they were at your home on {{assignedDate}}."
+Including yourself and children in shared custody if they were at your home on {{assignedDate}}"
 ""
 Field,hh_carNumber
 Question type,RadioNumber
 Question,"Cars, SUVs, light-duty trucks or vans, etc.
-Available to one or more members of your household."
+Available to one or more members of your household"
 ""
 Field,hh_twoWheelNumber
 Question type,Radio input
@@ -110,11 +110,10 @@ no : No"
 Field,hh_carsharing
 Question type,Radio input
 Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
-Question,"Carshare (ex. : Communauto, Leo): used as driver in the past 6 months
- by at least one household member"
+Question,"Carshare (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,hh_bicycleNumber
 Question type,RadioNumber
@@ -129,20 +128,19 @@ Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 Field,hh_bikesharing
 Question type,Radio input
 Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
-Question,"Bikeshare (BIXI): used in the last 30 days
-by at least one household member"
+Question,Bikeshare (BIXI): used in the last 30 days by at least one household member
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,hh_atLeastOnePersonWithDisability
 Question type,Radio input
 Conditional,hasHouseholdSize2OrMoreConditional : hh_size >= 2
-Question,"Is there at least one person in your household having a permanent disability that limits their daily travel?
+Question,"Is there at least one person in your household that has a permanent disability that limits their daily travel?
 Including yourself"
 Values,"yes : Yes
 no : No
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
 ""
 ""
 ""
@@ -153,7 +151,7 @@ Field,nickname
 Question type,Text input
 Conditional,hasPersonCount2OrMoreCustomConditional
 Question,"Name or nickname that will allow you to identify this person for the remainder of the interview
-Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+Can be a nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum', 'JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
 ""
 Field,age
@@ -169,16 +167,16 @@ May differ from the sex assigned at birth or that which appears on legal documen
 Values,"female : Woman
 male : Man
 custom : This person identifies as:
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
 ""
 Field,drivingLicenseOwnership
 Question type,Radio input
 Conditional,ifAge16OrMoreConditional : age >= 16
 Question,"Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter) permits."
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,carsharingMember
 Question type,Radio input
@@ -187,7 +185,7 @@ Question,"Carshare (ex. Communauto, Leo): used
 as driver in the past 6 months"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,bikesharingUsage
 Question type,Radio input
@@ -196,16 +194,7 @@ Question,"Bikeshare (ex. BIXI): used in the last 30 days
 "
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
-""
-Field,bikesharingMembership
-Question type,Radio input
-Conditional,bikesharingMembershipConditional : bikesharingUsage === yes
-Question,"BIXI membership
-Valid for the current month"
-Values,"yes : Yes (monthly, seasonal)
-no : No (pay per trip)
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,usedTransitInLast30Days
 Question type,Radio input
@@ -214,7 +203,7 @@ Question,"Public transit: used in the past 30 days
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,transitPass
 Question type,Checkbox input
@@ -226,7 +215,7 @@ Values,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : ARTM monthly or
 transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : ARTM monthly or annual pass (including senior passes)
 tickets : ARTM individual tickets or fares
 other : Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,transitFare
 Question type,Radio input
@@ -237,18 +226,18 @@ Values,"A : All modes A
 AB : All modes AB
 ABC : All modes ABC
 ABCD : All modes ABCD
-bus : Bus
+bus : Bus (ABC)
 busCD : Out-of-territory bus (CD)
 opusWithTicketsOnly : OPUS card with individual fares only
 otherTerritory : Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 other : Other (specify)
 none : None for the current month
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,transitFareWarning
 Question type,Checkbox input
 Conditional,transitFareWarningCustomConditional
-Question,"You selected a transit pass that extends beyond the fare zone of your place of residence.
+Question,"You selected a transit pass that extends beyond the fare zone of your place of residence. Please confirm that this is the correct fare or edit your answer.
 The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price)."
 Values,yes : I confirm
 ""
@@ -259,12 +248,12 @@ Question,"Permanent physical, intellectual or other disability that affects or l
 Ex: mobility-related, visual, other…"
 Values,"yes : Yes
 no : No
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilities
 Question type,Checkbox input
 Conditional,hasDisabilityConditional : hasDisability === yes
-Question,"… which one(s)?
+Question,"Which one(s)?
 Optional"
 Values,"hearing (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Hearing
 visual (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Visual
@@ -276,12 +265,12 @@ chronicIllness (personDisabilityIsNotPreferNotToAnswer : disabilities === null |
 speechOrLanguageDisorder (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Speech or language disorder
 fineMotorSkills (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Fine motor skills (e.g. dexterity, agility, etc.)
 other (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Other (specify)
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilitiesSpecify
 Question type,Text input
 Conditional,personDisabilityIsOtherConditional : disabilities === other
-Question,Specify:
+Question,Specify
 ""
 Field,mobilityAssistiveDevices
 Question type,Checkbox input
@@ -297,12 +286,12 @@ walkerOrRollator (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevi
 threeOrFourwheeledScooter (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Three- or four-wheeled scooter
 noSpecificDevice (personMobilityDeviceNotPreferNotToAnswer : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== preferNotToAnswer) : No specific mobility aids
 other (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Other (specify)
-preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : I prefer not to answer"
+preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : Prefer not to answer"
 ""
 Field,mobilityAssistiveDevicesSpecify
 Question type,Text input
 Conditional,personAssistiveDevicesIsOtherConditional : mobilityAssistiveDevices === other
-Question,Specify:
+Question,Specify
 ""
 Field,mostUsedMobilityAssistiveDevice
 Question type,Radio input
@@ -318,7 +307,7 @@ STM, RTL, STL, exo, etc.
 Optional"
 Values,"yes : Yes
 no : No
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilitiesFrequenciesParatransit
 Question type,Radio input
@@ -372,43 +361,30 @@ salesAndServices : Sales and services
 retail, customer service, food services, personal services…
 manufacturing : Manufacturing, trades and other jobs
 factory, construction, skilled trades, transportation, warehousing…
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,workPlaceType
 Question type,Radio input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Does {{nickname}} have a fixed workplace?
-Values,"onLocation : Yes, always on-site at fixed location
-hybrid : Yes, hybrid work (remote and on-site)
-onTheRoadWithUsualPlace : Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
-onTheRoadWithoutUsualPlace : No, work on the road departing from home
-remote : No, work from home or from elsewhere"
+Question,Which of the following best describes {{nickname}}’s work arrangement?
+Values,"onLocation : Works in person at a fixed location away from home at all times
+hybrid : Works in a hybrid mode (remote and in-person)
+remote : Always works from home or remotely
+onTheRoadWithUsualPlace : Works on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)
+onTheRoadWithoutUsualPlace : Works on the road, starting from home"
 ""
 Field,workDays
 Question type,RadioNumber
-Conditional,personWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Conditional,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Number of days per week {{nickname}} works
 In a typical week. Whether or not travel is required for work.
 "
 ""
 Field,travelToWorkDays
 Question type,Unknown input
-Conditional,personHybridWorkDaysConditional : workPlaceType === hybrid && workDays > 0
+Conditional,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Number of days per week {{nickname}} travels outside the home for work
 In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home."
-""
-Field,educationalAttainment
-Question type,Radio input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"Highest level of educational attainment
-If in doubt, select the education level that most closely matches the academic background."
-Values,"noneOrPrimaryEducation : No certificate, diploma or degree
-secondaryEducation : High school (secondary) diploma or equivalency certificate
-postSecondaryNonTertiaryEducation : Apprenticeship or trades certificate or diploma
-shortCycleTertiaryEducation : College, CEGEP or other non-university certificate or diploma
-diplomaBelowBachelor : University certificate or diploma below bachelor level
-bachelorOrHigher : Bachelor's degree or higher
-preferNotToAnswer : I prefer not to answer"
 ""
 Field,occupation
 Question type,Radio input
@@ -426,7 +402,17 @@ parentalOrSickLeave : Sick leave or parental leave
 longTermDisability : Long-term disability
 volunteer : Volunteer
 other : Other
-preferNotToAnswer : I prefer not to answer"
+preferNotToAnswer : Prefer not to answer"
+""
+Field,educationalAttainment
+Question type,Radio input
+Conditional,educationalAttainmentConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent || occupation === unemployed || occupation === parentalOrSickLeave
+Question,"Highest level of educational attainment
+If in doubt, select the education level that most closely matches the academic background."
+Values,"secondaryEducationOrLess : High school diploma, equivalency certificate, or none
+postSecondaryBelowBachelorEducation : Apprenticeship, trade school, CEGEP/college diploma, or university certificate below a bachelor's degree
+bachelorOrHigher : Bachelor's degree or higher
+preferNotToAnswer : Prefer not to answer"
 ""
 ""
 ""
@@ -463,12 +449,12 @@ Field,hh_persons.{_activePersonId}.whoWillAnswerForThisPerson
 Question type,Radio input
 Conditional,if2OrMorePersons14OrMoreYearsOldCustomConditional
 Question,"Who is responding for {{nickname}}?
-If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer the following questions on {{gender:his/her/their}} behalf."
+If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer on {{gender:his/her/their}} behalf."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Question type,Radio input
 Question,"Did {{nickname}} make any trips on {{journeyDate}}?
-Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off."
+Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off."
 Values,"yes : Yes
 no : No"
 ""
@@ -481,7 +467,7 @@ Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsH
 Question type,Radio input
 Conditional,personDidTripsAndDeparturePlaceNotSetCustomConditional
 Question,"Did {{nickname}} start their day at home ({{address}})?
-Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
+Answer 'No' only if {{nickname}} did not sleep at home (night of {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift)."
 Values,"yes : Yes
 no : No"
 ""
@@ -502,12 +488,12 @@ other : Other"
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory
 Question type,Radio input
 Conditional,outOfTerritoryConditional : departurePlaceOther === hotelForWork || departurePlaceOther === hotelForVacation
-Question,Has {{nickname}} returned home at {{address}} on {{journeyDate}}?
+Question,Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
 Question type,Checkbox input
 Conditional,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && outOfTerritory === yes
-Question,Were other household members with {{nickname}} all day?
+Question,Were other household members also outside home all day?
 ""
 ""
 ""
@@ -530,7 +516,7 @@ Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDates}}:
 ""
 Field,activityCategory
 Question type,Builtin
@@ -562,8 +548,8 @@ Question,Name or address of the place
 ""
 Field,geography
 Question type,Builtin
-Question,"Please locate this place on the map
-Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below."
+Question,"Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
 ""
 Field,_previousPreviousDepartureTime
 Question type,Builtin
@@ -614,11 +600,11 @@ Question,Change person
 ""
 Field,personTripsTitle
 Question type,Builtin
-Question,Trips made by {{nickname}} on {{assignedDate}}
+Question,Trips made by {{nickname}} on {{journeyDates}}
 ""
 Field,segmentsMap
 Question type,Builtin
-Question,Map of {{nickname}}’s trips on {{assignedDate}}:
+Question,Map of {{nickname}}’s trips on {{journeyDate}}:
 ""
 Field,segmentsIntro
 Question type,Builtin
@@ -640,7 +626,7 @@ Values,"noWorker (isDestinationWorkCustomConditional): No (free or paid by emplo
 no (isDestinationNotWorkCustomConditional): No (free)
 yes : Yes (parking meter, sticker, pass or permit)
 noPark : The vehicle was not parked
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,vehicleOccupancy
 Question type,RadioNumber
@@ -674,7 +660,7 @@ Conditional,subwayLineConditional : subwayStationStart === berriUqam && subwaySt
 Question,Line taken between BerriUQAM and Lionel-Groulx
 Values,"stm_2 : 2-Orange
 stm_1 : 1-Green
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,trainStationStart
 Question type,Unknown input
@@ -703,7 +689,7 @@ Question,Departure airport
 Values,"YUL : Montreal Pierre-Elliott-Trudeau International Airport (YUL)
 YHU : Montreal Saint-Hubert Airport (YHU)
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,intercityRailStationStart
 Question type,Radio input
@@ -714,7 +700,7 @@ dorvalStation : Dorval
 coteauStation : Coteau
 saintLambertStation : Saint-Lambert
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,intercityBusStationStart
 Question type,Radio input
@@ -726,7 +712,7 @@ YUL : Montreal Airport (YUL)
 terminusKirkland : Kirkland
 terminusLongueuil : Longueuil Intermodal Terminal
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,planeStationEnd
 Question type,Radio input
@@ -735,7 +721,7 @@ Question,Arrival airport
 Values,"YUL : Montreal Pierre-Elliott-Trudeau International Airport (YUL)
 YHU : Montreal Saint-Hubert Airport (YHU)
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,intercityRailStationEnd
 Question type,Radio input
@@ -746,7 +732,7 @@ dorvalStation : Dorval
 coteauStation : Coteau
 saintLambertStation : Saint-Lambert
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,intercityBusStationEnd
 Question type,Radio input
@@ -758,7 +744,7 @@ YUL : Montreal Airport (YUL)
 terminusKirkland : Kirkland
 terminusLongueuil : Longueuil Intermodal Terminal
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,busLines
 Question type,Unknown input
@@ -830,7 +816,7 @@ Values,"noWorker (isDestinationWorkCustomConditional): No (free or paid by emplo
 no (isDestinationNotWorkCustomConditional): No (free)
 yes : Yes (parking meter, sticker, pass or permit)
 noPark : The vehicle was not parked
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,hasNextMode
 Question type,Builtin
@@ -865,10 +851,10 @@ Conditional,shouldAskForNoWorkTripReasonCustomConditional
 Question,Why?
 Values,"remoteWorkOrWorkAtHome : Remote work / work from home
 onStrike : On strike
-leaveSicknessPersonalReason : Leave (sick, personal, other)
+leaveSicknessPersonalReason : Leave (holidays, sick, etc.)
 noWork : No work planned
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,hh_persons.{_activePersonId}.usualWorkPlace.name
 Question type,Text input
@@ -878,9 +864,8 @@ Question,Name or address of {{nickname}}'s usual workplace
 Field,hh_persons.{_activePersonId}.usualWorkPlace.geography
 Question type,Unknown input
 Conditional,hasWorkingLocationNotSetCustomConditional
-Question,"Please locate the usual workplace for {{nickname}}
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the ""Search location"" button."
+Question,"Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
 ""
 Field,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
 Question type,Radio input
@@ -912,20 +897,19 @@ Question,Name or address of {{nickname}}'s school or main study location
 Field,hh_persons.{_activePersonId}.usualSchoolPlace.geography
 Question type,Unknown input
 Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
-Question,"Please locate the usual place of study for {{nickname}}.
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the ""Search location"" button."
+Question,"Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Question type,Select input
 Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 Values,"distanceLearning : Distance learning
-schoolWasClosed : School was closed or no classes
+schoolWasClosed : No classes
 leaveSicknessPersonalReason : Leave (sick, personal, other)
 strike : Strike
 other : Other
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 ""
 ""
@@ -973,7 +957,7 @@ Field,o_hasOmittedTrips
 Question type,Radio input
 Conditional,hasOmittedTripsConditional : exclusive === omission
 Question,"Did you make at least one trip on {{assignedDate}} that you did not report?
-For example, a walk to the convenience store, going out for coffee or dinner with friends, or a health walk with the dog.
+For example, a walk to the convenience store, going out for coffee or dinner with friends, or a stroll with the dog.
 You will not need to go back and update anything. We just want to know how often trips are missed.
 This question is only asked to one person in the household in order to improve our understanding of the limitations of the data."
 Values,"yes : Yes
@@ -982,7 +966,7 @@ no : No"
 Field,o_hasOmittedTripsActivity
 Question type,Checkbox input
 Conditional,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
-Question,Activities:
+Question,Activities
 Values,"work : Work, Studies or Volunteering
 shopping : Shopping, services or restaurants
 pickupDropOff : Dropping off or picking up someone
@@ -994,7 +978,7 @@ other : Other reason"
 Field,o_hasOmittedTripsMode
 Question type,Checkbox input
 Conditional,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
-Question,Modes:
+Question,Modes of transportation
 Values,"walk : Walking
 bicycle : Bicycle
 carDriver : Car driver
@@ -1012,12 +996,12 @@ Question type,Radio input
 Question,"In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 Field,hh_longDistanceTripsSeptemberDecember
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2025?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)
@@ -1026,7 +1010,7 @@ Values,"00_00 : Never (0)
 Field,hh_longDistanceTripsJanuaryApril
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2026?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)
@@ -1035,7 +1019,7 @@ Values,"00_00 : Never (0)
 Field,hh_longDistanceTripsMayAugust
 Question type,Radio input
 Conditional,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+Question,How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2026?
 Values,"00_00 : Never (0)
 01_03 : A few times during the period (1 to 3)
 04_12 : A few times a month (4 to 12)
@@ -1078,7 +1062,7 @@ Values,"neverOrRarely : Never/Rarely
 ""
 Field,anyTripModeFrequenciesBicycle
 Question type,Radio input
-Question,"Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboards)"
+Question,"Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1136,7 +1120,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalTransitGoodQuality
 Question type,Radio input
-Question,"Overall, public transportation in the region where I live is useful and of good quality."
+Question,"Overall, public transit in the region where I live is useful and of good quality."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1144,7 +1128,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalFamiliarWithTransit
 Question type,Radio input
-Question,"I am familiar with the public transportation services that serve my home and my usual activity locations (lines, main stops, frequencies)"
+Question,"I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)"
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1160,7 +1144,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalEasyWithoutCar
 Question type,Radio input
-Question,"It would be easy for me to make most of my trips without a personal car, using public transportation or active modes."
+Question,"It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1352,7 +1336,7 @@ Values,"oneFamilyOnly : Household consisting of one single family, with no other
 multigenerationalFamily (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Multigenerational household (e.g. parents, children and grandparents living together)
 manyFamilies (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Household consisting of multiple families (e.g. two couples living together)
 oneFamilyWithOther (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Household consisting of one family and other person(s) (e.g. couple with a child living with an uncle)
-noFamily : Household of two or more people with no family relationship (e.g. two siblings living together)"
+noFamily : Household of two or more people with no family relationship (e.g. roommates or two siblings living together)"
 ""
 Field,hh_typeSpecify
 Question type,Radio input
@@ -1367,7 +1351,7 @@ Question type,RadioNumber
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 Optional
-Do not include hybrid vehicles powered by an internal combustion engine"
+Only include vehicles that can be plugged in to recharge (do not include regular hybrids, e.g. Toyota Corolla Hybrid)"
 ""
 Field,hh_electricCarNumber
 Question type,RadioNumber
@@ -1392,14 +1376,14 @@ Values,"000000_009999 : Less than $10,000
 100000_149999 : $100,000 to $149,999
 150000_199999 : $150,000 to $199,999
 200000_999999 : $200,000 and more
-dontKnow : I don't know
-refusal : I prefer not to respond"
+dontKnow : Don't know
+refusal : Prefer not to respond"
 ""
 Field,e_didRespondForCorrectAssignedDate
 Question type,Radio input
 Conditional,didRespondForCorrectAssignedDateConditional : exclusive === respect
 Question,"Do the trips reported in the previous sections reflect your household’s travel on {{assignedDate}}?
-This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses. Your eligibility for the draw will not be affected."
+This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses, and your eligibility for the draw will not be affected."
 ""
 Field,e_didNotRespondForCorrectAssignedDateReasons
 Question type,Checkbox input
@@ -1422,7 +1406,7 @@ no : No"
 Field,e_wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail
 Question type,Text input
 Conditional,wantToParticipateInOtherSurveysChaireMobiliteConditional : e_wouldLikeToParticipateInOtherSurveysChaireMobilite === yes
-Question,Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
+Question,Please provide the email address where you can be reached to participate in other studies
 ""
 Field,e_commentsOnSurvey
 Question type,Text area input
@@ -1431,6 +1415,7 @@ Optional"
 ""
 Field,e_interestOfTheSurvey
 Question type,Range input
+Conditional,enmpConditional : exclusive === mtmd
 Question,"How interesting was this survey to you?
 Optional"
 Values,"0 : Not at all
@@ -1439,11 +1424,13 @@ Values,"0 : Not at all
 ""
 Field,e_timeSpentAnswering
 Question type,Number input
+Conditional,enmpConditional : exclusive === mtmd
 Question,"How much time do you think you spent answering this survey (in minutes)?
 Optional"
 ""
 Field,e_durationOfTheSurvey
 Question type,Range input
+Conditional,enmpConditional : exclusive === mtmd
 Question,"Do you feel that the length of the survey was too short, about right, or too long?
 Optional"
 Values,"0 : Too short
@@ -1452,6 +1439,7 @@ Values,"0 : Too short
 ""
 Field,e_difficultyOfTheSurvey
 Question type,Range input
+Conditional,enmpConditional : exclusive === mtmd
 Question,"How easy or difficult was it for you to answer the questions in this survey?
 Optional"
 Values,"0 : Very easy
@@ -1460,6 +1448,7 @@ Values,"0 : Very easy
 ""
 Field,e_burdenOfTheSurvey
 Question type,Range input
+Conditional,enmpConditional : exclusive === mtmd
 Question,"How burdensome (demanding) did you find this survey to be?
 Optional"
 Values,"0 : Not at all
@@ -1468,11 +1457,12 @@ Values,"0 : Not at all
 ""
 Field,e_consideredAbandoningSurvey
 Question type,Radio input
-Question,"Have you considered, at any point, abandoning the survey?
+Conditional,enmpConditional : exclusive === mtmd
+Question,"Did you consider, at any point, abandoning the survey?
 Optional"
 Values,"yes : Yes
 no : No
-dontKnow : I don't know"
+dontKnow : Don't know"
 ""
 ""
 ""

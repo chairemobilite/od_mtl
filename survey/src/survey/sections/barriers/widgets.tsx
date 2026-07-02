@@ -35,7 +35,7 @@ export const barriersFrequency: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersFrequency'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersReliability: WidgetConfig.InputRadioType = {
@@ -46,7 +46,7 @@ export const barriersReliability: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersReliability'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersWalk: WidgetConfig.InputRadioType = {
@@ -57,7 +57,7 @@ export const barriersWalk: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersWalk'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersTime: WidgetConfig.InputRadioType = {
@@ -68,7 +68,7 @@ export const barriersTime: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersTime'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersTransfer: WidgetConfig.InputRadioType = {
@@ -79,7 +79,7 @@ export const barriersTransfer: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersTransfer'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersSecurity: WidgetConfig.InputRadioType = {
@@ -90,7 +90,7 @@ export const barriersSecurity: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersSecurity'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersPlanning: WidgetConfig.InputRadioType = {
@@ -101,7 +101,7 @@ export const barriersPlanning: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersPlanning'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityTrip: WidgetConfig.TextWidgetConfig = {
@@ -128,7 +128,7 @@ export const barriersDisabilityFrequency: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityFrequency'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityReliability: WidgetConfig.InputRadioType = {
@@ -139,7 +139,7 @@ export const barriersDisabilityReliability: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityReliability'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityWalk: WidgetConfig.InputRadioType = {
@@ -150,7 +150,7 @@ export const barriersDisabilityWalk: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityWalk'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityTime: WidgetConfig.InputRadioType = {
@@ -161,7 +161,7 @@ export const barriersDisabilityTime: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityTime'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityTransfer: WidgetConfig.InputRadioType = {
@@ -172,7 +172,7 @@ export const barriersDisabilityTransfer: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityTransfer'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilitySecurity: WidgetConfig.InputRadioType = {
@@ -183,7 +183,7 @@ export const barriersDisabilitySecurity: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilitySecurity'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityUniversalAccessibility: WidgetConfig.InputRadioType = {
@@ -194,7 +194,7 @@ export const barriersDisabilityUniversalAccessibility: WidgetConfig.InputRadioTy
     label: (t: TFunction) => t('barriers:barriersDisabilityUniversalAccessibility'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityPlanning: WidgetConfig.InputRadioType = {
@@ -205,7 +205,7 @@ export const barriersDisabilityPlanning: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityPlanning'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const barriersDisabilityCourtesy: WidgetConfig.InputRadioType = {
@@ -216,7 +216,7 @@ export const barriersDisabilityCourtesy: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('barriers:barriersDisabilityCourtesy'),
     choices: choices.barriersChoices,
     conditional: conditionals.hasBarrierDisabilityTripConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const buttonCompleteBarriersSection: WidgetConfig.ButtonWidgetConfig = {

@@ -43,7 +43,7 @@ export type HouseholdMember = {
     drivingLicenseOwnership: string | null;
     carSharingMember: string | null;
     bikesharingUsage: string | null;
-    bikesharingMembership: string | null;
+    // bikesharingMembership: string | null;
     usedTransitInLast30Days: string | null;
     transitPass: string[] | null;
     transitFare: string | null;
@@ -207,11 +207,11 @@ export const defaultPerson1: HouseholdMember = {
     workPlaceType: 'hybrid',
     workDays: '4',
     travelToWorkDays: '3',
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
     // FIXME For now the question is always shown, until https://github.com/chairemobilite/evolution/issues/1608 is resolved, or we actually have the `home.RA` field set
-    bikesharingUsage: 'no',
-    bikesharingMembership: null
+    bikesharingUsage: 'no'
+    // bikesharingMembership: null
 };
 /**
  * Male, part time worker, full time student, no driving license, with transitPass, hybrid work and school places
@@ -242,12 +242,12 @@ export const defaultPerson2: HouseholdMember = {
     jobType: 'administration',
     workPlaceType: 'onLocation',
     workDays: null, // Question won't show
-    travelToWorkDays: null, // Question won't show
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    travelToWorkDays: '5', // Question won't show
+    educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
     // FIXME For now the question is always shown, until https://github.com/chairemobilite/evolution/issues/1608 is resolved, or we actually have the `home.RA` field set
-    bikesharingUsage: 'no',
-    bikesharingMembership: null
+    bikesharingUsage: 'no'
+    // bikesharingMembership: null
 };
 
 export type VisitedPlace = {
@@ -421,6 +421,12 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
     }
 
     if (!addressIsFilled) {
+        testHelpers.waitTextVisible({
+            context,
+            text: 'Address pre-filled according to the access code.',
+            isVisible: false
+        });
+
         // Test string widget home_address
         testHelpers.inputStringTest({ context, path: 'home.address', value: home.address });
 
@@ -438,6 +444,7 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
         // trying to change section
 
         // Test visibility of address inputs, without filling any values
+        testHelpers.waitTextVisible({ context, text: 'Address pre-filled according to the access code.' });
         testHelpers.inputVisibleTest({ context, path: 'home.address', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.city', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.postalCode', isVisible: true });
@@ -665,23 +672,6 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.bikesharingUsage`,
                 value: person.bikesharingUsage
-            });
-        }
-
-        // Test radio widget personBikesharingMembership with conditional bikesharingMembershipConditional with choices bikesharingMembership
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (person.bikesharingMembership === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.bikesharingMembership`,
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.bikesharingMembership`,
-                value: person.bikesharingMembership
             });
         }
 
@@ -1068,7 +1058,7 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 isVisible: false
             });
         } else {
-            // Test custom widget personTravelToWorkDays with conditional personHybridWorkDaysConditional
+            // Test custom widget personTravelToWorkDays with conditional personWorkTripDaysConditional
             /* @link file://./../src/survey/common/conditionals.tsx */
             testHelpers.inputRadioTest({
                 context,
@@ -1266,7 +1256,7 @@ export const fillTripsintroSectionTests = ({
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({
         context,
-        text: 'Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential'
+        text: 'Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential'
     });
 
     // Test nextbutton widget tripsIntro_save
@@ -2537,7 +2527,7 @@ export const fillFrequenciesSectionTests = ({
     // Test infotext widget anyTripModeFrequenciesIntro
     testHelpers.waitTextVisible({
         context,
-        text: 'For your trips, for all purposes combined, such as commuting to work or school, accessing leisure activities or services, grocery shopping, accompanying someone, etc'
+        text: 'For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.)'
     });
 
     // Test radio widget anyTripModeFrequenciesWalk with choices anyTripModeFrequenciesChoices
@@ -2976,6 +2966,7 @@ export type EndSection = {
     wouldLikeToParticipateInOtherSurveysChaireMobilite: 'yes' | 'no';
     wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail?: string | null;
     householdCommentsOnSurvey?: string;
+    burdenQuestionsVisible?: boolean;
     endInterestOfTheSurvey?: number;
     endTimeSpentAnswering?: string;
     endDurationOfTheSurvey?: number;
@@ -2994,9 +2985,10 @@ export const defaultEnd: EndSection = {
     didNotRespondForCorrectAssignedDateReasons: null,
     wouldLikeToParticipateInOtherSurveysChaireMobilite: 'yes',
     wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: 'test@example.com',
-    householdCommentsOnSurvey: 'Test'
+    householdCommentsOnSurvey: 'Test',
 
     // Optional questions are not filled by default
+    burdenQuestionsVisible: false
 };
 
 export type EndTestParameters = CommonTestParametersModify & {
@@ -3123,68 +3115,135 @@ export const fillEndSectionTests = ({ context, endSection = defaultEnd }: EndTes
         value: endSection.householdCommentsOnSurvey || ''
     });
 
-    // Test infotext widget optionalIntroText
-    testHelpers.waitTextVisible({
-        context,
-        text: 'The next questions are optional and are added for research purposes. You can complete the interview without answering them.'
-    });
+    if (endSection.burdenQuestionsVisible) {
+        // Test infotext widget optionalIntroText
+        testHelpers.waitTextVisible({
+            context,
+            text: 'The next questions are optional and are added for research purposes. You can complete the interview without answering them.'
+        });
 
-    // Test range widget endInterestOfTheSurvey
-    if (endSection.endInterestOfTheSurvey !== undefined) {
-        testHelpers.inputRangeTest({
+        // Test range widget endInterestOfTheSurvey
+        if (endSection.endInterestOfTheSurvey !== undefined) {
+            testHelpers.inputRangeTest({
+                context,
+                path: 'end.interestOfTheSurvey',
+                value: endSection.endInterestOfTheSurvey,
+                sliderColor: 'red-yellow-green'
+            });
+        } else {
+            // FIXME Test visibility of widget when it is possible (https://github.com/chairemobilite/evolution/issues/1710)
+        }
+
+        // Test number widget endTimeSpentAnswering
+        if (endSection.endTimeSpentAnswering !== undefined) {
+            testHelpers.inputStringTest({
+                context,
+                path: 'end.timeSpentAnswering',
+                value: endSection.endTimeSpentAnswering
+            });
+        } else {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'end.timeSpentAnswering',
+                isVisible: true
+            });
+        }
+
+        // Test range widget endDurationOfTheSurvey
+        if (endSection.endDurationOfTheSurvey !== undefined) {
+            testHelpers.inputRangeTest({
+                context,
+                path: 'end.durationOfTheSurvey',
+                value: endSection.endDurationOfTheSurvey,
+                sliderColor: 'green-yellow-red'
+            });
+        } else {
+            // FIXME Test visibility of widget when it is possible (https://github.com/chairemobilite/evolution/issues/1710)
+        }
+
+        // Test range widget endDifficultyOfTheSurvey
+        if (endSection.endDifficultyOfTheSurvey !== undefined) {
+            testHelpers.inputRangeTest({
+                context,
+                path: 'end.difficultyOfTheSurvey',
+                value: endSection.endDifficultyOfTheSurvey,
+                sliderColor: 'green-yellow-red'
+            });
+        } else {
+            // FIXME Test visibility of widget when it is possible (https://github.com/chairemobilite/evolution/issues/1710)
+        }
+
+        // Test range widget endBurdenOfTheSurvey
+        if (endSection.endBurdenOfTheSurvey !== undefined) {
+            testHelpers.inputRangeTest({
+                context,
+                path: 'end.burdenOfTheSurvey',
+                value: endSection.endBurdenOfTheSurvey,
+                sliderColor: 'green-yellow-red'
+            });
+        } else {
+            // FIXME Test visibility of widget when it is possible (https://github.com/chairemobilite/evolution/issues/1710)
+        }
+
+        // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (endSection.endConsideredAbandoningSurvey !== undefined) {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'end.consideredAbandoningSurvey',
+                value: endSection.endConsideredAbandoningSurvey
+            });
+        } else {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'end.consideredAbandoningSurvey',
+                isVisible: true
+            });
+        }
+    } else {
+        // Check that all burden questions are invisible
+        testHelpers.waitTextVisible({
+            context,
+            text: 'The next questions are optional and are added for research purposes. You can complete the interview without answering them.',
+            isVisible: false
+        });
+
+        // Test range widget endInterestOfTheSurvey
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.interestOfTheSurvey',
-            value: endSection.endInterestOfTheSurvey,
-            sliderColor: 'red-yellow-green'
+            isVisible: false
         });
-    }
 
-    // Test number widget endTimeSpentAnswering
-    if (endSection.endTimeSpentAnswering !== undefined) {
-        testHelpers.inputStringTest({
+        // Test number widget endTimeSpentAnswering
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.timeSpentAnswering',
-            value: endSection.endTimeSpentAnswering
+            isVisible: false
         });
-    }
 
-    // Test range widget endDurationOfTheSurvey
-    if (endSection.endDurationOfTheSurvey !== undefined) {
-        testHelpers.inputRangeTest({
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.durationOfTheSurvey',
-            value: endSection.endDurationOfTheSurvey,
-            sliderColor: 'green-yellow-red'
+            isVisible: false
         });
-    }
 
-    // Test range widget endDifficultyOfTheSurvey
-    if (endSection.endDifficultyOfTheSurvey !== undefined) {
-        testHelpers.inputRangeTest({
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.difficultyOfTheSurvey',
-            value: endSection.endDifficultyOfTheSurvey,
-            sliderColor: 'green-yellow-red'
+            isVisible: false
         });
-    }
 
-    // Test range widget endBurdenOfTheSurvey
-    if (endSection.endBurdenOfTheSurvey !== undefined) {
-        testHelpers.inputRangeTest({
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.burdenOfTheSurvey',
-            value: endSection.endBurdenOfTheSurvey,
-            sliderColor: 'green-yellow-red'
+            isVisible: false
         });
-    }
 
-    // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
-    /* @link file://./../src/survey/common/choices.tsx */
-    if (endSection.endConsideredAbandoningSurvey !== undefined) {
-        testHelpers.inputRadioTest({
+        testHelpers.inputVisibleTest({
             context,
             path: 'end.consideredAbandoningSurvey',
-            value: endSection.endConsideredAbandoningSurvey
+            isVisible: false
         });
     }
 

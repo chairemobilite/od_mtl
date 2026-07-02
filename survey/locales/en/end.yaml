@@ -7,8 +7,8 @@ householdTypeSpecify: More specifically?
 householdPluginHybridCarNumber: >-
     Among the vehicles owned by your household, how many are <strong>plug-in hybrid
     vehicles</strong>?<br /><span class="_pale _oblique">Optional</span><br /><span
-    class="_pale _oblique">Do not include hybrid vehicles powered by an internal combustion
-    engine</span>
+    class="_pale _oblique">Only include vehicles that can be plugged in to recharge
+    (do not include regular hybrids, e.g. Toyota Corolla Hybrid)</span>
 householdElectricCarNumber: >-
     Among the vehicles owned by your household, how many are <strong>electric vehicles</strong>?<br
     /><span class="_pale _oblique">Optional</span>
@@ -19,7 +19,7 @@ didRespondForCorrectAssignedDate: >-
     Do the trips reported in the previous sections reflect your household’s travel
     on {{assignedDate}}?<br /><span class="_pale _oblique">This question is for statistical
     purposes only. If you answer No, you will not be asked to go back or correct your
-    responses. Your eligibility for the draw will not be affected.</span>
+    responses, and your eligibility for the draw will not be affected.</span>
 didNotRespondForCorrectAssignedDateReasons: <strong>Why</strong> did you not report
     your trips for {{assignedDate}}?
 wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
@@ -27,7 +27,7 @@ wouldLikeToParticipateInOtherSurveysChaireMobilite: >-
     by the ARTM and the Chaire Mobilité of Polytechnique Montreal?
 wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: >-
     Please provide the <strong>email address</strong> where you can be reached to
-    participate in other studies by the Chaire Mobilite.
+    participate in other studies
 householdCommentsOnSurvey: >-
     Your <strong>comments and suggestions</strong> about the survey<br /><span class="_pale
     _oblique">Optional</span>
@@ -50,14 +50,13 @@ endBurdenOfTheSurvey: >-
     How <strong>burdensome (demanding)</strong> did you find this survey to be?<br
     /><span class="_pale _oblique">Optional</span>
 endConsideredAbandoningSurvey: >-
-    Have you considered, at any point, <strong>abandoning the survey</strong>?<br
-    /><span class="_pale _oblique">Optional</span>
+    Did you consider, at any point, <strong>abandoning the survey</strong>?<br /><span
+    class="_pale _oblique">Optional</span>
 buttonCompleteInterviewWithCompleteSection: Complete the interview
 errors:
     inputRangeMustBePositiveOrZero: Make sure your slider button is inside the range.
 popup:
     incomeHelpPopupTitle: Why this question?
     incomeHelpPopupContent: >-
-        <strong>Why this question?</strong><br />The household income bracket helps
-        us understand certain equity issues in mobility. It also helps identify whether
-        our respondents are well represented.
+        The household income bracket helps us understand certain equity issues in
+        mobility. It also helps identify whether our respondents are well represented.

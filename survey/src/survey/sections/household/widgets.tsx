@@ -75,7 +75,12 @@ export const personCarsharingMember: WidgetConfig.InputRadioType = {
     path: 'carsharingMember',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:personCarsharingMember'),
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        return t('household:personCarsharingMember', {
+            context: activePerson?.gender
+        });
+    },
     choices: choices.yesNoDontKnow,
     conditional: conditionals.carsharingConditional,
     validations: validations.requiredValidation
@@ -92,16 +97,7 @@ export const personBikesharingUsage: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-export const personBikesharingMembership: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'bikesharingMembership',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personBikesharingMembership'),
-    choices: choices.bikesharingMembership,
-    conditional: conditionals.bikesharingMembershipConditional,
-    validations: validations.requiredValidation
-};
+// Note: personBikesharingMembership widget is not active. This widget will not be displayed in the survey.
 
 export const personUsedTransitInLast30Days: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
@@ -339,8 +335,10 @@ export const personJobType: WidgetConfig.InputRadioType = {
     label: (t: TFunction, interview, path) => {
         const activePerson = odSurveyHelpers.getPerson({ interview, path });
         const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
         return t('household:personJobType', {
-            nickname
+            nickname,
+            count: countPersons
         });
     },
     choices: choices.jobTypes,
@@ -392,17 +390,6 @@ export const personWorkDays: WidgetConfig.InputRadioNumberType = {
 // Custom because max of RadioNumber does not accept a path with ${currentPerson}
 export const personTravelToWorkDays = customWidgets.personTravelToWorkDays;
 
-export const personEducationalAttainment: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'educationalAttainment',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personEducationalAttainment'),
-    choices: choices.educationalAttainment,
-    conditional: conditionals.isWorkerConditional,
-    validations: validations.requiredValidation
-};
-
 // Custom conditional to set the default value depending on previous answers
 export const personOccupation: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
@@ -412,6 +399,17 @@ export const personOccupation: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('household:personOccupation'),
     choices: choices.personOccupation,
     conditional: customConditionals.personOccupationCustomConditional,
+    validations: validations.requiredValidation
+};
+
+export const personEducationalAttainment: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'educationalAttainment',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personEducationalAttainment'),
+    choices: choices.educationalAttainment,
+    conditional: conditionals.educationalAttainmentConditional,
     validations: validations.requiredValidation
 };
 
