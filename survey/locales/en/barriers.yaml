@@ -5,9 +5,9 @@
 barriersTrip: >-
     Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersIntro: >-
-    For the trip indicated above, you used a car. For each of the following items,
-    <strong>indicate whether they were a barrier to using public transit</strong>
-    (bus, metro, train, or REM) for this <strong>trip</strong>.
+    For the trip shown above, you used a car. For each of the following items, <strong>indicate
+    whether they were a barrier to using public transit</strong> (bus, metro, train,
+    or REM) for this <strong>trip</strong>.
 barriersFrequency: >-
     <strong>Public transit frequency</strong> (e.g., infrequent service, long waiting
     times)
@@ -30,9 +30,9 @@ barriersPlanning: >-
 barriersDisabilityTrip: >-
     Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersDisabilityIntro: >-
-    For the trip indicated above, you used paratransit. For each of the following
-    items, <strong>indicate whether they were a barrier to using regular public transit
-    service</strong> (bus, metro, train, or REM) for this <strong>trip</strong>.
+    For the trip shown above, you used paratransit. For each of the following items,
+    <strong>indicate whether they were a barrier to using regular public transit service</strong>
+    (bus, metro, train, or REM) for this <strong>trip</strong>.
 barriersDisabilityFrequency: >-
     <strong>Public transit frequency</strong> (e.g., infrequent service, long waiting
     times)
@@ -58,7 +58,7 @@ barriersDisabilityPlanning: >-
 barriersDisabilityCourtesy: >-
     <strong>Lack of civility</strong> (giving up one’s seat, removing one’s bag, people
     blocking access to a pole for support or standing in front of doors) and/or the
-    presence of discriminatory attitudes (hostile stares)
+    <strong>presence of discriminatory attitudes</strong> (hostile stares)
 buttonCompleteBarriersSection: Continue
 barriersIntro_carDriver: >-
     For the trip indicated above, you used a car as a driver. For each of the following

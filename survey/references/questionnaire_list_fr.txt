@@ -12,19 +12,22 @@ Confirmer
 
 Section: Domicile
 
-Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Je consens à être contacté(e) pour continuer ou préciser le questionnaire
 Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.
 - Oui
 - Non
 
 Je souhaite participer au tirage au sort
-Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))
+Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien)).
 - Oui
 - Non
 
 Veuillez saisir le courriel pour vous recontacter.
 
 Adresse courriel
+
+Votre adresse est pré-remplie en fonction du code d'accès.
+Merci de vérifier que les informations sont correctes ou les corriger
 
 Adresse
 
@@ -36,21 +39,21 @@ Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision.
 
 Le {{address}} est-elle la résidence principale de votre ménage?
-La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)
+La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %).
 - Oui, j'y habite plus de 50 % du temps
 - Non, c’est ma résidence secondaire et mon ménage habite majoritairement à une autre adresse
 
-Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+Statut d'occupation du logement
 - Locataire
 - Propriétaire
 - Autre
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
 Personnes habitant votre domicile ou logement
-Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}.
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}
 
 Automobiles, VUS, camions légers ou fourgonnettes, etc.
-À la disposition de votre ménage.
+À la disposition de votre ménage
 
 Motocyclettes ou scooters nécessitant un permis 
 Aussi appelé cyclomoteur ou mobylette
@@ -59,36 +62,34 @@ Aussi appelé cyclomoteur ou mobylette
 - 2+
 
 Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
-Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation
+Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.
 - Entrée privée, garage ou place de stationnement réservée
 - Possession d’une vignette résidentielle 
 
-Votre ménage a-t-il accès a une entrée privée, garage ou place de stationnement réservée?
+Votre ménage a-t-il accès à une entrée privée, garage ou place de stationnement réservée?
 - Oui
 - Non
 
-Autopartage (ex. : Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
-Par au moins une personne du ménage
+Autopartage (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
 Vélo(s) à la disposition de votre ménage 
 Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.
 
-Parmi ces vélos, combien sont des vélo(s) à assistance électrique
+Parmi ces vélos, combien sont des vélo(s) à assistance électrique?
 
-Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
-Par au moins une personne du ménage
+Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
 Y a-t-il au moins une personne dans votre ménage avec une incapacité permanente qui limite ses déplacements quotidiens?
 Y compris vous-même
 - Oui
 - Non
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
 Enregistrer et continuer
 
@@ -108,35 +109,29 @@ Peut différer du sexe assigné à la naissance ou inscrit dans les documents l�
 - Femme
 - Homme
 - Cette personne s'identifie comme:
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
 Permis de conduire
-Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter.
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
-Autopartage (ex. Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
+Autopartage (ex. : Communauto, Léo) : utilisation comme conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}}  dans les 6 derniers mois
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
-Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
+Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours
 - Oui
 - Non
-- Je ne sais pas
-
-Abonnement BIXI
-Valide pour le mois en cours
-- Oui (mensuel, saison)
-- Non (paiement au déplacement)
-- Je ne sais pas
+- Ne sait pas
 
 Transports en commun : utilisation dans les 30 derniers jours
 Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
 Type de passe, abonnement utilisés pour le transport en commun dans les 30 derniers jours
 Inclure les abonnements gratuits.
@@ -145,23 +140,23 @@ Les titres de l’ARTM permettent de prendre les services de la STM (métro et b
 - Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
 - Titres ou billets individuels de l’ARTM
 - Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
-- Je ne sais pas
+- Ne sait pas
 
 Type de passe utilisé en tant qu’abonnement valide pour le mois en cours
-A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM
+A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM.
 - Tous modes A
 - Tous modes AB
 - Tous modes ABC
 - Tous modes ABCD
-- Bus
+- Bus (ABC)
 - Bus hors territoire (CD)
 - Carte OPUS avec titres individuels seulement
 - Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
 - Autre (spécifiez)
 - Aucun pour le mois en cours
-- Je ne sais pas
+- Ne sait pas
 
-Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.
+Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre ou modifiez votre réponse.
 Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif réduit).
 - Je confirme
 
@@ -169,9 +164,9 @@ Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence o
 Ex. : motrice, visuelle, autre, etc.
 - Oui
 - Non
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
-… la ou lesquelles? 
+La ou lesquelles?
 Facultatif
 - Auditive 
 - Visuelle
@@ -183,9 +178,9 @@ Facultatif
 - Trouble de la parole ou du langage
 - Motricité fine (ex. dextérité, agilité, etc.)
 - Autre (spécifiez)
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
-Spécifiez:
+Spécifiez
 
 Type(s) d’aide à la mobilité utilisé(s) pour les déplacements de {{nickname}} en dehors de la maison
 Facultatif
@@ -198,11 +193,11 @@ Facultatif
 - Triporteur ou quadriporteur
 - Aucun matériel spécifique
 - Autre (spécifiez)
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
-Spécifiez:
+Spécifiez
 
-Le plus utilisé?
+Le plus utilisé
 Facultatif
 
 
@@ -211,7 +206,7 @@ STM, RTL, STL, exo, etc.
 Facultatif
 - Oui
 - Non
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
 
 Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé le transport adapté?
 Facultatif
@@ -250,30 +245,20 @@ commis, adjoint·e administratif·ve, secrétariat, soutien administratif…
 commerce de détail, service à la clientèle, restauration, soins personnels…
 - Fabrication, métiers et autres emplois
 usine, construction, métiers spécialisés, transport, entreposage…
-- Je ne sais pas
+- Ne sait pas
 
-Est-ce que {{nickname}} a un lieu d'emploi fixe?
-- Oui, travail au lieu fixe en présentiel en tout temps
-- Oui, travail en mode hybride (télétravail et en présentiel)
-- Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
-- Non, travail sur la route avec départ du domicile
-- Non, travail à partir du domicile ou à distance
+Parmi les situations suivantes, laquelle décrit le mieux la façon dont {{nickname}} travaille?
+- Travaille en présentiel en tout temps à un lieu fixe hors domicile
+- Travaille en mode hybride (télétravail et en présentiel)
+- Travaille toujours au domicile ou à distance
+- Travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+- Travaille sur la route avec départ du domicile
 
 Nombre de jour(s) par semaine où {{nickname}} travaille
 Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.
 
 Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
 Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile
-
-Plus haut niveau de scolarité
-En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.
-- Aucun certificat, diplôme ou degré
-- Diplôme d'études secondaires ou attestation d'équivalence
-- Diplôme d'apprenti ou d'une école de métiers
-- Diplôme d'un cégep ou collège
-- Certificat ou diplôme universitaire inférieur au baccalauréat
-- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
-- Je préfère ne pas répondre
 
 Occupation principale
 - Travail à temps plein (30h et plus/semaine)
@@ -288,7 +273,14 @@ Occupation principale
 - Invalidité de longue durée
 - Bénévole
 - Autre
-- Je préfère ne pas répondre
+- Préfère ne pas répondre
+
+Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.
+- Diplôme d'études secondaires, attestation d'équivalence ou aucun
+- Diplôme d'apprenti, école de métiers, CÉGEP / collège ou certificat universitaire inférieur au baccalauréat
+- Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+- Préfère ne pas répondre
 
 Enregistrer et continuer
 
@@ -315,22 +307,23 @@ L’ordre des personnes interviewées est aléatoire.
 <details><summary>Pourquoi l'ordre des personnes peut avoir été changé?</summary> L'ordre des personnes pour lesquelles on demande de spécifier les déplacements est aléatoire (tiré au sort). Cela permet de diminuer l’influence de l’ordre de déclaration sur la qualité des réponses recueillies.</details>
 
 Qui répond pour {{nickname}}?
-Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre aux prochaines questions pour {{gender:lui/elle/lui(-elle)}}
+Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre pour {{gender:lui/elle/lui(-elle)}}
 
 
 Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
-Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un.
+Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.
 - Oui
 - Non
 
 Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 
 
-Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} (inclure les lieux visités jusqu'à 4:00 le lendemain matin)
+Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} 
 
-<span class="_green">- Inclure même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
-- Inclure tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).</span>
-<span class="_red">- Ne pas inclure les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.</span>
+- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00 le lendemain matin.
+- <span class="_green">Inclure</span> même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
+- <span class="_green">Inclure</span> tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).
+- <span class="_red">Ne pas inclure</span> les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.
 
 Est-ce que {{nickname}} a commencé sa journée au domicile ({{address}})?
 Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex. : travail de nuit).
@@ -348,15 +341,15 @@ Où était {{nickname}} à 4h du matin?
 - Écoles / lieu d’études: terminait des travaux ou y couchait
 - Autre
 
-Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile {{address}} la journée du {{journeyDate}}?
+Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile ({{address}}) la journée du {{journeyDate}}?
 
 
-D’autres membres du ménage étaient avec {{nickname}} toute la journée?
+D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
 
 
 Continuer
 
-Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles
+Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.
 
 
 
@@ -366,10 +359,10 @@ Section: Déplacements
 
 Changer de personne
 
-Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
 L'ordre chronologique doit être respecté.
 
-Carte des déplacements de {{nickname}} le {{assignedDate}}:
+Carte des déplacements de {{nickname}} le {{journeyDates}} :
 
 Activité principale à ce lieu{{reminderText}}
 
@@ -386,8 +379,8 @@ Veuillez choisir le lieu dans la liste des lieux déjà localisés:
 
 Nom ou adresse du lieu
 
-Veuillez positionner le lieu sur la carte
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.
+Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.
 
 À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 
@@ -414,9 +407,9 @@ Section: Modes de transport
 
 Changer de personne
 
-Déplacements de {{nickname}} le {{assignedDate}}
+Déplacements de {{nickname}} le {{journeyDates}}
 
-Carte des déplacements de {{nickname}} le {{assignedDate}}:
+Carte des déplacements de {{nickname}} le {{journeyDate}}:
 
 Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
 
@@ -429,7 +422,7 @@ Stationnement payant?
 - Non (gratuit)
 - Oui (parcomètre, vignette, passe ou permis)
 - Le véhicule n'a pas été stationné
-- Je ne sais pas
+- Ne sait pas
 
 Personne(s) dans le véhicule
 Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).
@@ -444,10 +437,10 @@ Station(s) de transfert :
 Choisir "aucune" si aucun transfert n'a été effectué
 
 
-Ligne empruntée entre BerriUQAM et LionelGroulx :
+Ligne empruntée entre Berri-UQAM et Lionel Groulx
 - 2-Orange
 - 1-Verte
-- Je ne sais pas
+- Ne sait pas
 
 Gare d'embarquement (au départ) : 
 
@@ -461,7 +454,7 @@ Aéroport de départ
 - Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
 - Aéroport Montréal Saint-Hubert (YHU)
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Gare de départ
 - Gare Centrale (Montréal)
@@ -469,7 +462,7 @@ Gare de départ
 - Coteau
 - Saint-Lambert
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Gare de départ
 - Gare d'autocars de Montréal (1717 rue Berri)
@@ -478,13 +471,13 @@ Gare de départ
 - Kirkland
 - Terminus intermodal de Longueuil
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Aéroport d’arrivée
 - Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
 - Aéroport Montréal Saint-Hubert (YHU)
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Gare d'arrivée
 - Gare Centrale (Montréal)
@@ -492,7 +485,7 @@ Gare d'arrivée
 - Coteau
 - Saint-Lambert
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Gare d'arrivée
 - Gare d'autocars de Montréal (1717 rue Berri)
@@ -501,10 +494,10 @@ Gare d'arrivée
 - Kirkland
 - Terminus intermodal de Longueuil
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
-Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats.
+Pour chaque ligne utilisée, inscrire le numéro de la ligne ou son nom puis sélectionner-la dans la liste des résultats.
 
 Mode pour se rendre de {{origin}} {{stopType}}
 - Marche
@@ -551,7 +544,7 @@ Stationnement en arrivant  {{stopType}}
 - Non (gratuit)
 - Oui (parcomètre, vignette, passe ou permis)
 - Le véhicule n'a pas été stationné
-- Je ne sais pas
+- Ne sait pas
 
 Autre mode utilisé pour le déplacement avant l'arrivée?
 
@@ -573,18 +566,17 @@ Vous n'avez déclaré aucun déplacement pour le travail pour {{nickname}} le {{
 Pour quelle raison?
 - Télétravail / travail à la maison
 - En grève
-- Congé (maladie, personnel, autre)
+- Congé (vacances, maladie, etc.)
 - Pas de travail prévu
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 {{nickname}} n'a pas fait de déplacement vers son lieu de travail habituel. Pouvez-vous le localiser?
 
 Nom ou adresse du lieu habituel de travail de {{nickname}}
 
-Veuillez localiser le lieu de travail habituel de {{nickname}}
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu".
+Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.
 
 Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
 Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
@@ -606,17 +598,16 @@ Répondre ‘Non’ seulement si {{nickname}} n’effectue que des cours à dist
 
 Nom ou adresse du lieu habituel d’études de {{nickname}}
 
-Veuillez localiser le lieu habituel d’études de {{nickname}}.
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu").
+Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.
 
 Raison pour laquelle {{nickname}} n’a pas effectué de déplacement pour les études le {{journeyDate}}?
 - Cours à distance
-- École fermée ou pas de cours
+- Pas de cours
 - Congé (maladie, personnel, autre)
 - Grève
 - Autre
-- Je ne sais pas
+- Ne sait pas
 
 Continuer
 
@@ -657,7 +648,7 @@ Cette question n’est posée qu’à une seule personne du ménage dans l’obj
 
 Cocher toutes les activités de déplacements associés avec vos déplacements non-rapportés, ainsi que les modes utilisés pour les effectuer.
 
-Activités:
+Activités
 - Travail, Études ou Bénévolat
 - Magasinage, services ou restauration
 - Reconduire ou aller chercher quelqu’un
@@ -666,7 +657,7 @@ Activités:
 - Santé (clinique, hôpital, vétérinaire, etc.)
 - Autre motif
 
-Modes:
+Modes
 - Marche
 - Vélo
 - Auto conducteur 
@@ -683,21 +674,21 @@ Section: Déplacements longue distance
 Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
-À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2025?
 - Jamais (0)
 - Quelques fois durant la période (1 à 3)
 - Quelques fois par mois (4 à 12)
 - Une à plusieurs fois par semaine (13 ou plus)
 
-À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2026?
 - Jamais (0)
 - Quelques fois durant la période (1 à 3)
 - Quelques fois par mois (4 à 12)
 - Une à plusieurs fois par semaine (13 ou plus)
 
-À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2026?
 - Jamais (0)
 - Quelques fois durant la période (1 à 3)
 - Quelques fois par mois (4 à 12)
@@ -728,7 +719,7 @@ Confirmer
 Section: Fréquences par mode
 
 À quelle fréquence utilisez-vous les modes de transport suivants?
-Pour les déplacements, tous motifs confondus, donc se rendre au travail ou aux études, pour accéder aux loisirs ou services, faire ses courses, accompagnement, etc. 
+Pour tous vos déplacements, peu importe l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).
 Pensez au mois en cours, hors tempêtes majeures.
 
 Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
@@ -738,7 +729,7 @@ Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
-Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planches à roulettes)
+Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planche à roulettes)
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
@@ -976,7 +967,7 @@ Laquelle des situations suivantes décrit le mieux votre ménage?
 - Ménage multigénérationnel (ex. : parents, enfants et grands-parents vivant ensemble)
 - Ménage comprenant plusieurs familles (ex. : deux couples vivant ensemble)
 - Ménage comprenant une seule famille et autre(s) personne(s) (ex. : couple avec enfant vivant avec un oncle)
-- Ménage de deux personnes ou plus sans lien familial (ex. : deux frères ou sœurs vivant ensemble)
+- Ménage de deux personnes ou plus sans lien familial (ex. : colocataire ou deux frères et sœurs vivant ensemble)
 
 Plus spécifiquement?
 - Ménage formé d’un couple avec enfant(s)
@@ -985,7 +976,7 @@ Plus spécifiquement?
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif
-Ne pas inclure les véhicules hybrides avec moteur à combustion
+Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
 Facultatif
@@ -1005,8 +996,8 @@ Facultatif
 - 100 000$ à 149 999$
 - 150 000$ à 199 999$
 - 200 000 $ et plus
-- Je ne sais pas
-- Je préfère ne pas répondre
+- Ne sait pas
+- Préfère ne pas répondre
 
 Les déplacements rapportés dans les sections précédentes représentent-ils la mobilité de votre ménage le {{assignedDate}}?
 Cette question n’est posée que pour des fins statistiques. Si vous répondez Non, on ne vous demandera ni de revenir en arrière ni de corriger ce qui est inscrit. De plus, votre éligibilité au tirage ne sera pas affectée.
@@ -1051,7 +1042,7 @@ Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
 Facultatif
 - Oui
 - Non
-- Je ne sais pas
+- Ne sait pas
 
 Terminer l’entrevue
 

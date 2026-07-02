@@ -25,7 +25,7 @@ export const attitudinalOpinion: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalOpinion'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalCar: WidgetConfig.InputRadioType = {
@@ -36,7 +36,7 @@ export const attitudinalCar: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalCar'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalTransitGoodQuality: WidgetConfig.InputRadioType = {
@@ -47,7 +47,7 @@ export const attitudinalTransitGoodQuality: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalTransitGoodQuality'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalFamiliarWithTransit: WidgetConfig.InputRadioType = {
@@ -58,7 +58,7 @@ export const attitudinalFamiliarWithTransit: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalFamiliarWithTransit'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalRequireHighLevel: WidgetConfig.InputRadioType = {
@@ -69,7 +69,7 @@ export const attitudinalRequireHighLevel: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalRequireHighLevel'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalEasyWithoutCar: WidgetConfig.InputRadioType = {
@@ -80,7 +80,7 @@ export const attitudinalEasyWithoutCar: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalEasyWithoutCar'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const attitudinalGoodAccessImportant: WidgetConfig.InputRadioType = {
@@ -91,7 +91,7 @@ export const attitudinalGoodAccessImportant: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('attitudinal:attitudinalGoodAccessImportant'),
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const buttonCompleteAttitudinalSection: WidgetConfig.ButtonWidgetConfig = {

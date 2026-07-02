@@ -12,8 +12,8 @@ personVisitedPlacesTitle: >-
 personVisitedPlacesTitle_one: >-
     Places you went on {{journeyDate}}:<br />Chronological order must be respected
     (i.e. sequence matters).
-personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{assignedDate}}:'
-personVisitedPlacesMap_one: 'Map of your trips on {{assignedDate}}:'
+personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDates}}:'
+personVisitedPlacesMap_one: 'Map of your trips on {{journeyDates}}:'
 visitedPlaceActivityCategory: Main activity carried out at this location{{reminderText}}
 visitedPlaceActivity: 'Specify :'
 visitedPlaceOnTheRoadPreviousPlaceActivity: Where did {{nickname}} begin their work
@@ -28,10 +28,9 @@ visitedPlaceShortcut: 'Please select this place from the list of previously loca
     places:'
 visitedPlaceName: Name or address of the place
 visitedPlaceGeography: >-
-    Please locate this place on the map<br /><span class="_pale _oblique">Navigate,
-    zoom and click on map. Once a pin icon has been dropped, you will be able to drag
-    the icon to specify a more precise location. You can also search for a place using
-    its name or address with the button below.</span>
+    Location on the map<br /><span class="_pale _oblique">Locate the place by searching
+    for its name or address, or by navigating, zooming and clicking on the map. Once
+    located, you can move the pin for greater accuracy.</span>
 visitedPlacePreviousPreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
     before going to their usual work place?
@@ -98,38 +97,44 @@ visitedPlaceActivityCategory_afterHome: >-
 VisitedPlaceSequence: 'Location #{{count}}'
 VisitedPlaceSequence_one: Departure place for this day
 ConfirmDeleteVisitedPlace: Do you confirm that you want to remove this location?
-visitedPlaceNameExample_workUsual: Lighthouse building, Les Petits génies CPE
-visitedPlaceNameExample_workUsual_onTheRoadOften: Rivière distribution center, Alma
+visitedPlaceNameExample_workUsual: National Bank tower, Corner Peel and Sherbrooke
+visitedPlaceNameExample_workUsual_onTheRoadOften: Rosemère distribution center, Kirkland
     St-Hubert BBQ
-visitedPlaceNameExample_workNotUsual: Chateau Frontenac, Co-work on the Long lake
-visitedPlaceNameExample_schoolUsual: Marguerite-Bourgeoys school, CDI College Québec,
-    UQAR
-visitedPlaceNameExample_schoolNotUsual: National library, music school Doremi
-visitedPlaceNameExample_shopping: Le Carrefour shopping mall, Provigo St-Félicien,
-    IKEA Boucherville
-visitedPlaceNameExample_restaurant: Normandin in Lévis, Snack bar chez Raymond, Subway
-    restaurant in Rawdon
-visitedPlaceNameExample_dropSomeone: Central bus station, des Collines arena, des
-    Pionniers high school
-visitedPlaceNameExample_fetchSomeone: Central bus station, des Collines arena, des
-    Pionniers high school
-visitedPlaceNameExample_leisureArtsMusicCulture: Des chutes cinema, de Verdure Theatre,
-    Mason Jar National Museum
-visitedPlaceNameExample_leisureSports: Nautilus St-Georges, Climbing La Grimpe, de
-    la Rose Park
-visitedPlaceNameExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hotel
-    Days Inn St-Flavien
-visitedPlaceNameExample_leisureStroll: Waterside park, Petit train du nord, de la
-    Montagne promenade
-visitedPlaceNameExample_visiting: Address of the visited person, corner des Rossignols
-    and de l’Étang
-visitedPlaceNameExample_medical: >-
-    des Marguerites medical clinic, Rimouski regional hospital, des Rivières CLSC
-visitedPlaceNameExample_service: High class Hair salon, Caisse Desjardins Limoilou
+visitedPlaceNameExample_workNotUsual: Montreal Palais des congrès, Jarry Coworking
+    space
+visitedPlaceNameExample_schoolUsual: St-Cécile school, Dawson college, McGill
+visitedPlaceNameExample_schoolNotUsual: St-Michel library, Marie-Favery school
+visitedPlaceNameExample_shopping: Dix30, Provigo Baie d'Urfé, IKEA Ville St-Laurent
+visitedPlaceNameExample_restaurant: >-
+    Eggspectation on de Maisonneuve, Scores at Place Vertu, Subway restaurant on Fleury
+visitedPlaceNameExample_dropSomeone: Cadillac metro station, Outremont arena, Sophie
+    Barat high school
+visitedPlaceNameExample_fetchSomeone: Cadillac metro station, Outremont arena, Sophie
+    Barat high school
+visitedPlaceNameExample_leisureArtsMusicCulture: Spheretech Guzzo cinema, Centaur
+    Theatre, Botanical gardens
+visitedPlaceNameExample_leisureSports: Nautilus Rockland center, Shakti Rock Gym,
+    Jarry park
+visitedPlaceNameExample_leisureTourism: "Camping in Pin d'Érable, Paris France, Toronto
+    Ontario "
+visitedPlaceNameExample_leisureStroll: Mount-Royal park, Ile Charron, Maurice Richard
+    park
+visitedPlaceNameExample_visiting: 8540 Toupin street Montreal, Old Ste-Rose, Corner
+    Bellechasse and Pie-IX, …
+visitedPlaceNameExample_medical: Sunnybrooke clinic, MUHC, Villeray CLSC
+visitedPlaceNameExample_service: Chez Carole barber Mtl Est, Caisse Desjardins Terrebonne
 visitedPlaceNameExample_worship: >-
-    Saint-Nicéphore church, de la Capitale mosque, Congregation Beth Israel Ohev Sholem
-visitedPlaceNameExample_secondaryHome: Secondary home or cottage address
-visitedPlaceNameExample_schoolNotStudent: language centre, Tecnic driving school
+    La Citadelle church, Abou Bakr Asseddique mosque, Congregation Ahavath Israel
+visitedPlaceNameExample_secondaryHome: Laurentides, Saint Sauveur
+visitedPlaceNameExample_schoolNotStudent: CLIC Montréal language centre, Lauzon driving
+    school
+visitedPlaceNameExample_schoolChild: St-Cécile school
+visitedPlaceNameExample_accompany: La Prairie Arena, DDO Dental Clinic
+visitedPlaceNameExample_pickClassifiedPurchase: 8540 Toupin street, Montreal
+visitedPlaceNameExample_vet: Terrebonne Veterinary Hospital
+visitedPlaceNameExample_volunteering: >-
+    Volunteer Centre and Moisson Laval, SPCA Roussillon, Le Chainon on Saint Laurent
+    Street
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace: '{{nickname}} left
     home to go to their usual work place?'
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_male: '{{nickname}}
@@ -294,6 +299,9 @@ onTheRoadNextPlaceCategoryChoices:
         4AM the next day
     stayedThereUntilTheNextDay_female_one: I completed my work on the road trips after
         4AM the next day
+reminderText: >-
+    <br /><span style="background-color:#fff6cc;">&#x26A0;Reminder: trip with {{otherNickname}}
+    at {{time}} &#8594; {{origin}} to {{destination}}</span>
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location
@@ -312,8 +320,5 @@ onTheRoadArrivalTypeStayedThereUntilTheNextDay_female_one: I completed my work o
 nextPlaceRadioChoices:
     stayedHomeUntilTheNextDay: Stayed home until the next day
     stayedThereUntilTheNextDay: Stayed at this place until the next day
-    visitedAnotherPlace: Went or stopped elsewhere
-    wentBackHome: Returned home directly ({{address}})
-reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0;Reminder: trip with {{otherNickname}}
-    at {{time}} &#8594; {{origin}} to {{destination}}</span>
+    visitedAnotherPlace: Went elsewhere
+    wentBackHome: Returned home ({{address}})

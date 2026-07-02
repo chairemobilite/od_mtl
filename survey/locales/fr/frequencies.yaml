@@ -4,16 +4,15 @@
 
 anyTripModeFrequenciesIntro: >-
     À quelle <strong>fréquence</strong> utilisez-vous les <strong>modes de transport</strong>
-    suivants?<br /><span class="_pale _oblique">Pour les déplacements, tous motifs
-    confondus, donc se rendre au travail ou aux études, pour accéder aux loisirs ou
-    services, faire ses courses, accompagnement, etc. <br />Pensez au mois en cours,
-    hors tempêtes majeures.</span>
+    suivants?<br /><span class="_pale _oblique">Pour tous vos déplacements, peu importe
+    l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner
+    quelqu'un, etc.).<br />Pensez au mois en cours, hors tempêtes majeures.</span>
 anyTripModeFrequenciesWalk: >-
     Fréquence d'utilisation du mode : <strong>Marche</strong> (pour la majorité du
     trajet)
 anyTripModeFrequenciesBicycle: >-
     Fréquence d'utilisation du mode : <strong>Vélo</strong> et autres modes actifs
-    (trottinette, patins ou planches à roulettes)
+    (trottinette, patins ou planche à roulettes)
 anyTripModeFrequenciesTransit: >-
     Fréquence d'utilisation du mode : <strong>Transport en commun</strong> (bus, métro,
     REM, train)

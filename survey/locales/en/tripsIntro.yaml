@@ -14,24 +14,23 @@ personNewPerson: >-
     to the reporting sequence and ensures consistent data quality.</details>
 personWhoWillAnswerForThisPerson: >-
     Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
-    is available, they can complete this section, or you may answer the following
-    questions on their behalf.</span>
+    is available, they can complete this section, or you may answer on their behalf.</span>
 personWhoWillAnswerForThisPerson_male: >-
     Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
-    is available, he can complete this section, or you may answer the following questions
-    on his behalf.</span>
+    is available, he can complete this section, or you may answer on his behalf.</span>
 personWhoWillAnswerForThisPerson_female: >-
     Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
-    is available, she can complete this section, or you may answer the following questions
-    on her behalf.</span>
+    is available, she can complete this section, or you may answer on her behalf.</span>
 personDidTrips: >-
     Did {{nickname}} make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
-    all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
-    work, or to pick up or drop someone off.</span>
+    all your trips, regardless of the distance travelled or mode of transportation
+    used, whether for personal reasons (shopping, outings, leisure, etc.), for work
+    or school, or to pick up or drop someone off.</span>
 personDidTrips_one: >-
     Did you make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
-    all trips, whether for personal reasons (shopping, outings, leisure, etc.), for
-    work, or to pick up or drop someone off.</span>
+    all your trips, regardless of the distance travelled or mode of transportation
+    used, whether for personal reasons (shopping, outings, leisure, etc.), for work
+    or school, or to pick up or drop someone off.</span>
 personDidTripsConfirm: >-
     You previously reported trips. Can you confirm they were reported by mistake and
     that {{nickname}} did not travel on {{journeyDate}}?
@@ -39,21 +38,22 @@ personDidTripsConfirm_one: >-
     You previously reported trips. Do you confirm they were reported by mistake and
     that you did not travel on {{journeyDate}}?
 visitedPlacesIntro: >-
-    Please specify the <strong>places {{nickname}} went on {{journeyDate}}</strong>
-    (include all places visited until 4 AM the following morning)<br /><br /><span
-    class="_green">- <strong>Include short stops and errands</strong> (gas station,
-    daycare/school, convenience store or any place where {{nickname}} picked someone
-    up or dropped someone off).<br />- <strong>Include all places</strong> regardless
-    of the mode of transport used to get there (walking, cycling, car, public transit,
-    taxi, plane, boat, etc.).</span><br /><span class="_red">- <strong>Do not include
-    transfer locations</strong> (bus stops, train stations, terminals, parking lots,
-    etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
+    Please specify the places {{nickname}} went on {{journeyDate}}<br /><br />- <span
+    class="_green">include</span> all places visited until 4 AM the following morning.<br
+    /><span class="_green">- <strong>Include short stops and errands</strong> (gas
+    station, daycare/school, convenience store or any place where {{nickname}} picked
+    someone up or dropped someone off).<br />- <strong>Include all places</strong>
+    regardless of the mode of transportation used to get there (walking, cycling,
+    car, public transit, taxi, plane, boat, etc.).</span><br /><span class="_red">-
+    <strong>Do not include transfer locations</strong> (bus stops, train stations,
+    terminals, parking lots, etc.) unless {{nickname}} went there to drop someone
+    off or pick someone up.</span>
 visitedPlacesIntro_one: >-
-    Please specify the <strong>places you went on {{journeyDate}}</strong> (include
-    all places visited until 4 AM the following morning)<br /><br /><span class="_green">-
+    Please specify the places you went on {{journeyDate}}<br /><br />- <span class="_green">include</span>
+    all places visited until 4 AM the following morning.<br /><span class="_green">-
     <strong>Include short stops and errands</strong> (gas station, daycare/school,
     convenience store or any place where you picked someone up or dropped someone
-    off).<br />- <strong>Include all places</strong> regardless of the mode of transport
+    off).<br />- <strong>Include all places</strong> regardless of the mode of transportation
     used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span><br
     /><span class="_red">- <strong>Do not include transfer locations</strong> (bus
     stops, train stations, terminals, parking lots, etc.) unless you went there to
@@ -61,26 +61,25 @@ visitedPlacesIntro_one: >-
 personDeparturePlaceIsHome: >-
     Did {{nickname}} <strong>start their day at home</strong> ({{address}})?<br /><span
     class="_pale _oblique">Answer 'No' only if {{nickname}} did not sleep at home
-    (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work
+    (night of {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work
     shift).</span>
 personDeparturePlaceIsHome_one: >-
     Did you <strong>start your day at home</strong> ({{address}})?<br /><span class="_pale
-    _oblique">Answer 'No' only if you did not sleep at home (nuit du {{dayOne}} au
+    _oblique">Answer 'No' only if you did not sleep at home (night of {{dayOne}} to
     {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
 personDeparturePlaceOther: Where was {{nickname}} at 4 AM?
 personDeparturePlaceOther_one: Where were you at 4 AM?
-personOutOfTerritory: Has {{nickname}} returned home at {{address}} on {{journeyDate}}?
-personOutOfTerritory_one: Have you returned home at {{address}} on {{journeyDate}}?
-personOutOfTerritoryMembers: Were other household members with {{nickname}} all day?
-personOutOfTerritoryMembers_one: Were other household members with you all day?
+personOutOfTerritory: Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
+personOutOfTerritory_one: Have you returned home ({{address}}) on {{journeyDate}}?
+personOutOfTerritoryMembers: Were other household members also outside home all day?
 tripsIntro_save: Continue
 tripsIntroOutro: >-
-    <span class="_pale _oblique">Your answers will be used to assess the use and traffic
-    of the road and public transit networks and will remain entirely confidential</span>
+    <span class="_pale _oblique">Your answers will be used to assess how road and
+    public transit networks are used and will remain entirely confidential.</span>
 WhyThisDate: Why this day?
 WhyThisDateExplanation: review text
-personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trip on {{journeyDate}}'
-personDidTripsConfirmChoiceNo_one: I did not make any trip on {{journeyDate}}
+personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trips on {{journeyDate}}'
+personDidTripsConfirmChoiceNo_one: I did not make any trips on {{journeyDate}}
 personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{journeyDate}}'
 personDidTripsConfirmChoiceYes_one: I did make at least one trip on {{journeyDate}}
 outOfTerritoryChoiceNo: No, {{nickname}} stayed at this place until the next day

@@ -57,6 +57,14 @@ export const contactEmail: WidgetConfig.InputStringType = {
     validations: validations.emailValidation
 };
 
+export const homeIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'homeIntro',
+    containsHtml: true,
+    text: (t: TFunction) => t('home:homeIntro'),
+    conditional: conditionals.homeAddressIsPrefilledConditional
+};
+
 export const homeAddress: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
     path: 'home.address',
@@ -108,7 +116,7 @@ export const householdOwnership: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'household.ownership',
     twoColumns: false,
-    containsHtml: false,
+    containsHtml: true,
     label: (t: TFunction) => t('home:householdOwnership'),
     helpPopup: customHelpPopup.householdOwnershipHelpPopup,
     choices: choices.householdOwnershipChoices,

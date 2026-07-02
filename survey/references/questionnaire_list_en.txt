@@ -12,19 +12,22 @@ Confirm
 
 Section: Home
 
-I consent to be contacted to continue the survey.
-If I do not complete it or if some of the information provided is incoherent.
+I consent to be contacted to continue or clarify the survey
+If I do not complete it or if some of the information provided appears inconsistent.
 - Yes
 - No
 
 I would like to participate in the prize draw
-Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response([View rules](lien))
+Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response ([View rules](lien)).
 - Yes
 - No
 
 Please enter the email so we can contact you.
 
 Email address
+
+Address pre-filled according to the access code.
+Please check this information or change it.
 
 Address
 
@@ -40,17 +43,17 @@ The usual place of residence is the dwelling where your household lives most of 
 - Yes, I live there more than 50% of the time
 - No, it is my secondary residence and my household mainly lives at another address
 
-Does your household rent or own your home?
+Housing tenure
 - Tenant
 - Owner
 - Other
-- I prefer not to respond
+- Prefer not to respond
 
 Persons living in your home
-Including yourself and children in shared custody if they were at your home on {{assignedDate}}.
+Including yourself and children in shared custody if they were at your home on {{assignedDate}}
 
 Cars, SUVs, light-duty trucks or vans, etc.
-Available to one or more members of your household.
+Available to one or more members of your household
 
 Motorcycles or scooters requiring a licence
 Also known as mopeds or motorized scooters
@@ -67,28 +70,26 @@ Does your household have access to a private driveway, garage, or reserved parki
 - Yes
 - No
 
-Carshare (ex. : Communauto, Leo): used as driver in the past 6 months
- by at least one household member
+Carshare (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member
 - Yes
 - No
-- I don't know
+- Don't know
 
 Bicycles owned by household members
 Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.
 
 Among these bicycles, how many are electric bicycles (e-bikes)?
 
-Bikeshare (BIXI): used in the last 30 days
-by at least one household member
+Bikeshare (BIXI): used in the last 30 days by at least one household member
 - Yes
 - No
-- I don't know
+- Don't know
 
-Is there at least one person in your household having a permanent disability that limits their daily travel?
+Is there at least one person in your household that has a permanent disability that limits their daily travel?
 Including yourself
 - Yes
 - No
-- I prefer not to answer
+- Prefer not to answer
 
 Save and continue
 
@@ -97,7 +98,7 @@ Save and continue
 Section: Household
 
 Name or nickname that will allow you to identify this person for the remainder of the interview
-Can be a nickname, initials, or who this person represents to you (ex: 'Me','Kiddo','Mum','JT').
+Can be a nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum', 'JT').
 The name is only used to simplify the response process and will be removed from the final dataset.
 
 Age (in years)
@@ -108,37 +109,31 @@ May differ from the sex assigned at birth or that which appears on legal documen
 - Woman
 - Man
 - This person identifies as:
-- I prefer not to answer
+- Prefer not to answer
 
 Driver's licence
-Include learner's and probationary permits, but do not include moped (motorized scooter) permits.
+Include learner's and probationary permits, but do not include moped (motorized scooter) permits
 - Yes
 - No
-- I don't know
+- Don't know
 
 Carshare (ex. Communauto, Leo): used 
 as driver in the past 6 months
 - Yes
 - No
-- I don't know
+- Don't know
 
 Bikeshare (ex. BIXI): used in the last 30 days
 
 - Yes
 - No
-- I don't know
-
-BIXI membership
-Valid for the current month
-- Yes (monthly, seasonal)
-- No (pay per trip)
-- I don't know
+- Don't know
 
 Public transit: used in the past 30 days 
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)
 - Yes
 - No
-- I don't know
+- Don't know
 
 Type of pass or subscription used for public transit in the past 30 days
 Include free passes.
@@ -147,7 +142,7 @@ ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and
 - ARTM monthly or annual pass (including senior passes)
 - ARTM individual tickets or fares
 - Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
-- I don't know
+- Don't know
 
 Type of pass used as a valid monthly subscription for the current month
 A, AB, ABC, and ABCD refer to ARTM fare zones.
@@ -155,15 +150,15 @@ A, AB, ABC, and ABCD refer to ARTM fare zones.
 - All modes AB
 - All modes ABC
 - All modes ABCD
-- Bus
+- Bus (ABC)
 - Out-of-territory bus (CD)
 - OPUS card with individual fares only
 - Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 - Other (specify)
 - None for the current month
-- I don't know
+- Don't know
 
-You selected a transit pass that extends beyond the fare zone of your place of residence.
+You selected a transit pass that extends beyond the fare zone of your place of residence. Please confirm that this is the correct fare or edit your answer.
 The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price).
 - I confirm
 
@@ -171,9 +166,9 @@ Permanent physical, intellectual or other disability that affects or limits {{ni
 Ex: mobility-related, visual, other…
 - Yes
 - No
-- I prefer not to answer
+- Prefer not to answer
 
-… which one(s)?
+Which one(s)?
 Optional
 - Hearing
 - Visual
@@ -185,9 +180,9 @@ Optional
 - Speech or language disorder
 - Fine motor skills (e.g. dexterity, agility, etc.)
 - Other (specify)
-- I prefer not to answer
+- Prefer not to answer
 
-Specify:
+Specify
 
 Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
 Optional
@@ -200,9 +195,9 @@ Optional
 - Three- or four-wheeled scooter
 - No specific mobility aids
 - Other (specify)
-- I prefer not to answer
+- Prefer not to answer
 
-Specify:
+Specify
 
 Most used
 Optional
@@ -213,7 +208,7 @@ STM, RTL, STL, exo, etc.
 Optional
 - Yes
 - No
-- I prefer not to answer
+- Prefer not to answer
 
 In the past 12 months, how often has {{nickname}} used paratransit services?
 Optional
@@ -252,14 +247,14 @@ clerk, administrative assistant, secretariat, administrative support…
 retail, customer service, food services, personal services…
 - Manufacturing, trades and other jobs
 factory, construction, skilled trades, transportation, warehousing…
-- I don't know
+- Don't know
 
-Does {{nickname}} have a fixed workplace?
-- Yes, always on-site at fixed location
-- Yes, hybrid work (remote and on-site)
-- Yes, work on the road departing from a fixed location (ex: garage, office, station, restaurant, etc.)
-- No, work on the road departing from home
-- No, work from home or from elsewhere
+Which of the following best describes {{nickname}}’s work arrangement?
+- Works in person at a fixed location away from home at all times
+- Works in a hybrid mode (remote and in-person)
+- Always works from home or remotely
+- Works on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)
+- Works on the road, starting from home
 
 Number of days per week {{nickname}} works
 In a typical week. Whether or not travel is required for work.
@@ -267,16 +262,6 @@ In a typical week. Whether or not travel is required for work.
 
 Number of days per week {{nickname}} travels outside the home for work
 In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home.
-
-Highest level of educational attainment
-If in doubt, select the education level that most closely matches the academic background.
-- No certificate, diploma or degree
-- High school (secondary) diploma or equivalency certificate
-- Apprenticeship or trades certificate or diploma
-- College, CEGEP or other non-university certificate or diploma
-- University certificate or diploma below bachelor level
-- Bachelor's degree or higher
-- I prefer not to answer
 
 Main occupation
 - Employed full-time (30h and more/week)
@@ -291,7 +276,14 @@ Main occupation
 - Long-term disability
 - Volunteer
 - Other
-- I prefer not to answer
+- Prefer not to answer
+
+Highest level of educational attainment
+If in doubt, select the education level that most closely matches the academic background.
+- High school diploma, equivalency certificate, or none
+- Apprenticeship, trade school, CEGEP/college diploma, or university certificate below a bachelor's degree
+- Bachelor's degree or higher
+- Prefer not to answer
 
 Save and continue
 
@@ -318,25 +310,26 @@ The order of the interviewed persons was randomly selected.
 <details><summary>Why might the order of persons have been changed?</summary>The order of persons for whom we ask you to specify trips is randomized. This helps avoid any bias related to the reporting sequence and ensures consistent data quality.</details>
 
 Who is responding for {{nickname}}?
-If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer the following questions on {{gender:his/her/their}} behalf.
+If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer on {{gender:his/her/their}} behalf.
 
 
 Did {{nickname}} make any trips on {{journeyDate}}?
-Include all trips, whether for personal reasons (shopping, outings, leisure, etc.), for work, or to pick up or drop someone off.
+Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.
 - Yes
 - No
 
 You previously reported trips. Can you confirm they were reported by mistake and that {{nickname}} did not travel on {{journeyDate}}?
 
 
-Please specify the places {{nickname}} went on {{journeyDate}} (include all places visited until 4 AM the following morning)
+Please specify the places {{nickname}} went on {{journeyDate}}
 
+- <span class="_green">include</span> all places visited until 4 AM the following morning.
 <span class="_green">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
-- Include all places regardless of the mode of transport used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
+- Include all places regardless of the mode of transportation used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
 <span class="_red">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
 
 Did {{nickname}} start their day at home ({{address}})?
-Answer 'No' only if {{nickname}} did not sleep at home (nuit du {{dayOne}} au {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
+Answer 'No' only if {{nickname}} did not sleep at home (night of {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
 - Yes
 - No
 
@@ -351,15 +344,15 @@ Where was {{nickname}} at 4 AM?
 - School / place of study: studied or slept there
 - Other
 
-Has {{nickname}} returned home at {{address}} on {{journeyDate}}?
+Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
 
 
-Were other household members with {{nickname}} all day?
+Were other household members also outside home all day?
 
 
 Continue
 
-Your answers will be used to assess the use and traffic of the road and public transit networks and will remain entirely confidential
+Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential.
 
 
 
@@ -372,7 +365,7 @@ Change person
 Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters).
 
-Map of {{nickname}}’s trips on {{assignedDate}}:
+Map of {{nickname}}’s trips on {{journeyDates}}:
 
 Main activity carried out at this location{{reminderText}}
 
@@ -389,8 +382,8 @@ Please select this place from the list of previously located places:
 
 Name or address of the place
 
-Please locate this place on the map
-Navigate, zoom and click on map. Once a pin icon has been dropped, you will be able to drag the icon to specify a more precise location. You can also search for a place using its name or address with the button below.
+Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.
 
 At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 
@@ -417,9 +410,9 @@ Section: Modes of transport
 
 Change person
 
-Trips made by {{nickname}} on {{assignedDate}}
+Trips made by {{nickname}} on {{journeyDates}}
 
-Map of {{nickname}}’s trips on {{assignedDate}}:
+Map of {{nickname}}’s trips on {{journeyDate}}:
 
 Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
 
@@ -432,7 +425,7 @@ Paid parking
 - No (free)
 - Yes (parking meter, sticker, pass or permit)
 - The vehicle was not parked
-- I don't know
+- Don't know
 
 Persons in the vehicle
 Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).
@@ -450,7 +443,7 @@ Choose ‘none’ if no transfer was made
 Line taken between BerriUQAM and Lionel-Groulx
 - 2-Orange
 - 1-Green
-- I don't know
+- Don't know
 
 Boarding station (when getting onto the train)
 
@@ -464,7 +457,7 @@ Departure airport
 - Montreal Pierre-Elliott-Trudeau International Airport (YUL)
 - Montreal Saint-Hubert Airport (YHU)
 - Other
-- I don't know
+- Don't know
 
 Boarding station (departure)
 - Gare Centrale (Montreal)
@@ -472,7 +465,7 @@ Boarding station (departure)
 - Coteau
 - Saint-Lambert
 - Other
-- I don't know
+- Don't know
 
 Boarding station (departure)
 - Montreal Central Bus Station (1717 Berri Street)
@@ -481,13 +474,13 @@ Boarding station (departure)
 - Kirkland
 - Longueuil Intermodal Terminal
 - Other
-- I don't know
+- Don't know
 
 Arrival airport
 - Montreal Pierre-Elliott-Trudeau International Airport (YUL)
 - Montreal Saint-Hubert Airport (YHU)
 - Other
-- I don't know
+- Don't know
 
 Exit station (arrival)
 - Gare Centrale (Montreal)
@@ -495,7 +488,7 @@ Exit station (arrival)
 - Coteau
 - Saint-Lambert
 - Other
-- I don't know
+- Don't know
 
 Exit station (arrival)
 - Montreal Central Bus Station (1717 Berri Street)
@@ -504,7 +497,7 @@ Exit station (arrival)
 - Kirkland
 - Longueuil Intermodal Terminal
 - Other
-- I don't know
+- Don't know
 
 Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown.
@@ -554,7 +547,7 @@ Parking upon arrival at {{stopType}}
 - No (free)
 - Yes (parking meter, sticker, pass or permit)
 - The vehicle was not parked
-- I don't know
+- Don't know
 
 Other mode of transportation used for the trip before arrival?
 
@@ -576,18 +569,17 @@ You didn't report any work trips by {{nickname}} on {{journeyDate}}
 Why?
 - Remote work / work from home
 - On strike
-- Leave (sick, personal, other)
+- Leave (holidays, sick, etc.)
 - No work planned
 - Other
-- I don't know
+- Don't know
 
-{{nickname}} has not traveled to {{gender: his/her/their/their}} usual workplace. Can you locate it?
+{{nickname}} did not travel to {{gender: his/her/their/their}} usual workplace. Can you locate it?
 
 Name or address of {{nickname}}'s usual workplace
 
-Please locate the usual workplace for {{nickname}}
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the "Search location" button.
+Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.
 
 What mode of transportation does {{nickname}} usually use to travel to their workplace?
 If multiple modes are used, indicate the one that represents the largest share of distance traveled.
@@ -609,17 +601,16 @@ Answer “No” only if {{nickname}} takes courses exclusively online.
 
 Name or address of {{nickname}}'s school or main study location
 
-Please locate the usual place of study for {{nickname}}.
-Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
-You can also search for the place on the map using the "Search location" button.
+Location on the map
+Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.
 
 Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 - Distance learning
-- School was closed or no classes
+- No classes
 - Leave (sick, personal, other)
 - Strike
 - Other
-- I don't know
+- Don't know
 
 Continue
 
@@ -652,7 +643,7 @@ What mode of transportation was used?
 - Other
 
 Did you make at least one trip on {{assignedDate}} that you did not report?
-For example, a walk to the convenience store, going out for coffee or dinner with friends, or a health walk with the dog.
+For example, a walk to the convenience store, going out for coffee or dinner with friends, or a stroll with the dog.
 You will not need to go back and update anything. We just want to know how often trips are missed.
 This question is only asked to one person in the household in order to improve our understanding of the limitations of the data.
 - Yes
@@ -660,7 +651,7 @@ This question is only asked to one person in the household in order to improve o
 
 Check all the activities for your unreported trips, as well as the modes of transportation used to make them.
 
-Activities:
+Activities
 - Work, Studies or Volunteering
 - Shopping, services or restaurants
 - Dropping off or picking up someone
@@ -669,7 +660,7 @@ Activities:
 - Health (clinic, hospital, veterinary, etc.)
 - Other reason
 
-Modes:
+Modes of transportation
 - Walking
 - Bicycle
 - Car driver
@@ -686,21 +677,21 @@ Section: Long distance trips
 In the last 12 months, did you or a member of your household make any trips other than to your usual place of work or study, beyond the limits of the grey area (more than 40 km from home)?
 - Yes
 - No
-- I don't know
+- Don't know
 
-How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2024?
+How often did you or a member of your household make long-distance trips (more than 40 km) between September and December 2025?
 - Never (0)
 - A few times during the period (1 to 3)
 - A few times a month (4 to 12)
 - One to several times a week (13 or more)
 
-How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2025?
+How often did you or a member of your household make long-distance trips (more than 40 km) between January and April 2026?
 - Never (0)
 - A few times during the period (1 to 3)
 - A few times a month (4 to 12)
 - One to several times a week (13 or more)
 
-How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2025?
+How often did you or a member of your household make long-distance trips (more than 40 km) between May and August 2026?
 - Never (0)
 - A few times during the period (1 to 3)
 - A few times a month (4 to 12)
@@ -731,7 +722,7 @@ Confirm
 Section: Mode frequencies
 
 How often do you use the following modes of transportation?
-For your trips, for all purposes combined, such as commuting to work or school, accessing leisure activities or services, grocery shopping, accompanying someone, etc.
+For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.).
 Think about the current month, excluding major storms.
 
 Frequency of use of the mode: Walk (for most of the trip)
@@ -741,7 +732,7 @@ Frequency of use of the mode: Walk (for most of the trip)
 - 2 to 4 days/week
 - 5+ days/week
 
-Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboards)
+Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
@@ -791,14 +782,14 @@ A personal car represents independence and autonomy for me.
 - Somewhat agree
 - Strongly agree
 
-Overall, public transportation in the region where I live is useful and of good quality.
+Overall, public transit in the region where I live is useful and of good quality.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-I am familiar with the public transportation services that serve my home and my usual activity locations (lines, main stops, frequencies)
+I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
@@ -812,7 +803,7 @@ My usual activities require a high level of mobility and flexibility (frequent t
 - Somewhat agree
 - Strongly agree
 
-It would be easy for me to make most of my trips without a personal car, using public transportation or active modes.
+It would be easy for me to make most of my trips without a personal car, using public transit or active modes.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
@@ -834,7 +825,7 @@ Section: Barriers
 
 Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 
-For the trip indicated above, you used a car. For each of the following items, indicate whether they were a barrier to using public transit (bus, metro, train, or REM) for this trip.
+For the trip shown above, you used a car. For each of the following items, indicate whether they were a barrier to using public transit (bus, metro, train, or REM) for this trip.
 
 Public transit frequency (e.g., infrequent service, long waiting times)
 - Not a barrier at all - I did not avoid public transit for this reason.
@@ -894,7 +885,7 @@ Trip planning (ease of finding information, accessible website, etc.)
 
 Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 
-For the trip indicated above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
+For the trip shown above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
 
 Public transit frequency (e.g., infrequent service, long waiting times)
 - Not a barrier at all - I did not avoid public transit for this reason.
@@ -979,7 +970,7 @@ Which of the following situations best describes your household?
 - Multigenerational household (e.g. parents, children and grandparents living together)
 - Household consisting of multiple families (e.g. two couples living together)
 - Household consisting of one family and other person(s) (e.g. couple with a child living with an uncle)
-- Household of two or more people with no family relationship (e.g. two siblings living together)
+- Household of two or more people with no family relationship (e.g. roommates or two siblings living together)
 
 More specifically?
 - Household formed by a couple with child(ren)
@@ -988,7 +979,7 @@ More specifically?
 
 Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 Optional
-Do not include hybrid vehicles powered by an internal combustion engine
+Only include vehicles that can be plugged in to recharge (do not include regular hybrids, e.g. Toyota Corolla Hybrid)
 
 Among the vehicles owned by your household, how many are electric vehicles?
 Optional
@@ -1008,11 +999,11 @@ Optional
 - $100,000 to $149,999
 - $150,000 to $199,999
 - $200,000 and more
-- I don't know
-- I prefer not to respond
+- Don't know
+- Prefer not to respond
 
 Do the trips reported in the previous sections reflect your household’s travel on {{assignedDate}}?
-This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses. Your eligibility for the draw will not be affected.
+This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses, and your eligibility for the draw will not be affected.
 
 
 Why did you not report your trips for {{assignedDate}}?
@@ -1028,7 +1019,7 @@ Would you be interested in participating in other studies conducted by the ARTM 
 - Yes
 - No
 
-Please provide the email address where you can be reached to participate in other studies by the Chaire Mobilite.
+Please provide the email address where you can be reached to participate in other studies
 
 Your comments and suggestions about the survey
 Optional
@@ -1050,11 +1041,11 @@ Optional
 How burdensome (demanding) did you find this survey to be?
 Optional
 
-Have you considered, at any point, abandoning the survey?
+Did you consider, at any point, abandoning the survey?
 Optional
 - Yes
 - No
-- I don't know
+- Don't know
 
 Complete the interview
 
@@ -1067,9 +1058,9 @@ Thank you for your participation!
 You can modify your answers by clicking on the sections in the menu above.
 Thank you for taking the time to complete this questionnaire. Your responses have been successfully recorded. If you provided an email address and checked the box indicating your interest in participating in the contest, you are eligible for the prize draw.
 
-The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of accessibility and mobility issues in the Greater Montréal area.
+The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of access and mobility issues in the Greater Montréal area.
 
-Do you live within the ARTM territory and are you interested in helping improve mobility by sharing your opinion on a regular basis? You could win $500 each month and $1,000 annually. Please click the button below to sign up for the ARTM’s Let's talk mobility panel.
+Live within the ARTM territory and interested in helping improve mobility by sharing your opinion regularly? Click the button below to sign up for the ARTM's Let's talk mobility panel. $500 monthly and $1,000 annual prize draws among participants.
 
 Go to « Let's talk mobility » panel
 

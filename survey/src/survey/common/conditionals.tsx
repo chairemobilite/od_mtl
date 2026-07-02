@@ -637,19 +637,13 @@ export const personWorkDaysConditional: WidgetConditional = (interview, path) =>
             {
                 path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
-                value: 'remote'
-            },
-            {
-                logicalOperator: '||',
-                path: `household.persons.${currentPersonId}.workPlaceType`,
-                comparisonOperator: '===',
                 value: 'hybrid'
             }
         ]
     });
 };
 
-export const personHybridWorkDaysConditional: WidgetConditional = (interview, path) => {
+export const personWorkTripDaysConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
         interview,
@@ -657,13 +651,33 @@ export const personHybridWorkDaysConditional: WidgetConditional = (interview, pa
             {
                 path: `household.persons.${currentPersonId}.workPlaceType`,
                 comparisonOperator: '===',
-                value: 'hybrid'
+                value: 'hybrid',
+                parentheses: '('
             },
             {
                 logicalOperator: '&&',
                 path: `household.persons.${currentPersonId}.workDays`,
                 comparisonOperator: '>',
-                value: 0
+                value: 0,
+                parentheses: ')'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceType`,
+                comparisonOperator: '===',
+                value: 'onLocation'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceType`,
+                comparisonOperator: '===',
+                value: 'onTheRoadWithUsualPlace'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.workPlaceType`,
+                comparisonOperator: '===',
+                value: 'onTheRoadWithoutUsualPlace'
             }
         ]
     });
@@ -1422,6 +1436,57 @@ export const hasBarrierDisabilityTripConditional: WidgetConditional = (interview
     });
 };
 
+export const educationalAttainmentConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'fullTimeWorker'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'partTimeWorker'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'workerAndStudent'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'unemployed'
+            },
+            {
+                logicalOperator: '||',
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'parentalOrSickLeave'
+            }
+        ]
+    });
+};
+
+export const enmpConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'ep.exclusive',
+                comparisonOperator: '===',
+                value: 'mtmd'
+            }
+        ]
+    });
+};
+
 export const isAccessCodeInvalidConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,
@@ -1449,6 +1514,19 @@ export const isAccessCodeNotValidConditional: WidgetConditional = (interview) =>
                 path: '_accessCodeConfirmed',
                 comparisonOperator: '===',
                 value: null
+            }
+        ]
+    });
+};
+
+export const homeAddressIsPrefilledConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'home._addressIsPrefilled',
+                comparisonOperator: '===',
+                value: true
             }
         ]
     });

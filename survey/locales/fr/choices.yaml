@@ -11,9 +11,9 @@ other:
 otherWithoutSpecify:
     other: Autre
 dontKnow:
-    dontKnow: Je ne sais pas
+    dontKnow: Ne sait pas
 preferNotToAnswer:
-    preferNotToAnswer: Je préfère ne pas répondre
+    preferNotToAnswer: Préfère ne pas répondre
 homeIsMain:
     yes: Oui, j'y habite plus de 50 % du temps
     no: >-
@@ -68,7 +68,7 @@ transitFareType:
     AB: Tous modes AB
     ABC: Tous modes ABC
     ABCD: Tous modes ABCD
-    bus: Bus
+    bus: Bus (ABC)
     busCD: Bus hors territoire (CD)
     opusWithTicketsOnly: Carte OPUS avec titres individuels seulement
     otherTerritory: Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc.
@@ -77,13 +77,13 @@ transitFareType:
 transitFareWarning:
     yes: Je confirme
 workPlaceTypeChoices:
-    onLocation: Oui, travail au lieu fixe en présentiel en tout temps
-    hybrid: Oui, travail en mode hybride (télétravail et en présentiel)
+    onLocation: Travaille en présentiel en tout temps à un lieu fixe hors domicile
+    hybrid: Travaille en mode hybride (télétravail et en présentiel)
+    remote: Travaille toujours au domicile ou à distance
     onTheRoadWithUsualPlace: >-
-        Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau,
-        poste, restaurant, etc.)
-    onTheRoadWithoutUsualPlace: Non, travail sur la route avec départ du domicile
-    remote: Non, travail à partir du domicile ou à distance
+        Travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste,
+        restaurant, etc.)
+    onTheRoadWithoutUsualPlace: Travaille sur la route avec départ du domicile
 longDistanceFrequencyChoices:
     '00_00': Jamais (0)
     '01_03': Quelques fois durant la période (1 à 3)
@@ -103,13 +103,13 @@ householdIncomeChoices:
     '100000_149999': 100 000$ à 149 999$
     '150000_199999': 150 000$ à 199 999$
     '200000_999999': 200 000 $ et plus
-    dontKnow: Je ne sais pas
-    refusal: Je préfère ne pas répondre
+    dontKnow: Ne sait pas
+    refusal: Préfère ne pas répondre
 householdOwnershipChoices:
     tenant: Locataire
     owner: Propriétaire
     other: Autre
-    preferNotToAnswer: Je préfère ne pas répondre
+    preferNotToAnswer: Préfère ne pas répondre
 departurePlaceOtherChoices:
     otherParentHome: <strong>Domicile de l'autre parent ou tuteur</strong>
     workedOvernight: <strong>Travaillait de nuit</strong>
@@ -130,19 +130,19 @@ onDemandChoices:
 noWorkTripReasonChoices:
     remoteWorkOrWorkAtHome: Télétravail / travail à la maison
     onStrike: En grève
-    leaveSicknessPersonalReason: Congé (maladie, personnel, autre)
+    leaveSicknessPersonalReason: Congé (vacances, maladie, etc.)
     noWork: Pas de travail prévu
 noSchoolTripReasonChoices:
     distanceLearning: Cours à distance
-    schoolWasClosed: École fermée ou pas de cours
+    schoolWasClosed: Pas de cours
     leaveSicknessPersonalReason: Congé (maladie, personnel, autre)
     strike: Grève
 educationalAttainment:
-    noneOrPrimaryEducation: Aucun certificat, diplôme ou degré
-    secondaryEducation: Diplôme d'études secondaires ou attestation d'équivalence
-    postSecondaryNonTertiaryEducation: Diplôme d'apprenti ou d'une école de métiers
-    shortCycleTertiaryEducation: Diplôme d'un cégep ou collège
-    diplomaBelowBachelor: Certificat ou diplôme universitaire inférieur au baccalauréat
+    secondaryEducationOrLess: Diplôme d'études secondaires, attestation d'équivalence
+        ou aucun
+    postSecondaryBelowBachelorEducation: >-
+        Diplôme d'apprenti, école de métiers, CÉGEP / collège ou certificat universitaire
+        inférieur au baccalauréat
     bachelorOrHigher: Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
 workPlaceBeforeLeaveTypeChoices:
     onLocation: Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps
@@ -240,7 +240,7 @@ mobilityAssistiveDevices:
     threeOrFourwheeledScooter: Triporteur ou quadriporteur
     noSpecificDevice: Aucun matériel spécifique
     other: Autre (spécifiez)
-    preferNotToAnswer: Je préfère ne pas répondre
+    preferNotToAnswer: Préfère ne pas répondre
 paratransitFrequencies:
     never: Jamais au cours des 12 derniers mois
     1orMorePerYear: 1 à quelques jours au cours des 12 derniers mois
@@ -286,7 +286,7 @@ householdType:
         (ex. : couple avec enfant vivant avec un oncle)
     noFamily: >-
         Ménage de <strong>deux personnes ou plus sans lien familial</strong> (ex.
-        : deux frères ou sœurs vivant ensemble)
+        : colocataire ou deux frères et sœurs vivant ensemble)
 householdTypeSpecify:
     coupleWithChild: Ménage formé d’un <strong>couple avec enfant(s)</strong>
     coupleWithoutChild: Ménage formé d’un <strong>couple sans enfant</strong>

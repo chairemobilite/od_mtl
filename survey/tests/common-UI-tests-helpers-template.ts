@@ -88,6 +88,11 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
     testHelpers.inputVisibleTest({ context, path: 'contactEmail', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'contactEmail', value: '?' });
 
+    // Test infotext widget homeIntro with conditional homeAddressIsPrefilledConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'homeIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
     // Test string widget homeAddress
     testHelpers.inputStringTest({ context, path: 'home.address', value: '?' });
 
@@ -207,8 +212,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     // Test radio widget personBikesharingMembership with conditional bikesharingMembershipConditional with choices bikesharingMembership
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.bikesharingMembership', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.bikesharingMembership', value: '?' });
+    // Widget not active
 
     // Test radio widget personUsedTransitInLast30Days with conditional ifAge5orMoreConditional with choices yesNoDontKnow
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -314,22 +318,22 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workDays', isVisible: true });
 
-    // Test custom widget personTravelToWorkDays with conditional personHybridWorkDaysConditional
+    // Test custom widget personTravelToWorkDays with conditional personWorkTripDaysConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.travelToWorkDays', isVisible: true });
     // Implement custom test
-
-    // Test radio widget personEducationalAttainment with conditional isWorkerConditional with choices educationalAttainment
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', value: '?' });
 
     // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
+
+    // Test radio widget personEducationalAttainment with conditional educationalAttainmentConditional with choices educationalAttainment
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.educationalAttainment', value: '?' });
 
     // Test nextbutton widget household_save
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
@@ -1160,26 +1164,40 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     // Test text widget householdCommentsOnSurvey
     testHelpers.inputStringTest({ context, path: 'end.commentsOnSurvey', value: '?' });
 
-    // Test infotext widget optionalIntroText
+    // Test infotext widget optionalIntroText with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.optionalIntroText', isVisible: true });
     testHelpers.waitTextVisible({ context, text: '?' });
 
-    // Test range widget endInterestOfTheSurvey
+    // Test range widget endInterestOfTheSurvey with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.interestOfTheSurvey', isVisible: true });
     testHelpers.inputRangeTest({ context, path: 'end.interestOfTheSurvey', value: 0, sliderColor: '?' });
 
-    // Test number widget endTimeSpentAnswering
+    // Test number widget endTimeSpentAnswering with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.timeSpentAnswering', isVisible: true });
     testHelpers.inputStringTest({ context, path: 'end.timeSpentAnswering', value: '?' });
 
-    // Test range widget endDurationOfTheSurvey
+    // Test range widget endDurationOfTheSurvey with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.durationOfTheSurvey', isVisible: true });
     testHelpers.inputRangeTest({ context, path: 'end.durationOfTheSurvey', value: 0, sliderColor: '?' });
 
-    // Test range widget endDifficultyOfTheSurvey
+    // Test range widget endDifficultyOfTheSurvey with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.difficultyOfTheSurvey', isVisible: true });
     testHelpers.inputRangeTest({ context, path: 'end.difficultyOfTheSurvey', value: 0, sliderColor: '?' });
 
-    // Test range widget endBurdenOfTheSurvey
+    // Test range widget endBurdenOfTheSurvey with conditional enmpConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.burdenOfTheSurvey', isVisible: true });
     testHelpers.inputRangeTest({ context, path: 'end.burdenOfTheSurvey', value: 0, sliderColor: '?' });
 
-    // Test radio widget endConsideredAbandoningSurvey with choices yesNoDontKnow
+    // Test radio widget endConsideredAbandoningSurvey with conditional enmpConditional with choices yesNoDontKnow
+    /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'end.consideredAbandoningSurvey', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'end.consideredAbandoningSurvey', value: '?' });
 
     // Test nextbutton widget buttonCompleteInterviewWithCompleteSection

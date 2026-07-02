@@ -9,6 +9,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'wantToParticipateToDraw',
     'contactInformationIntro',
     'contactEmail',
+    'homeIntro',
     'homeAddress',
     'homeCity',
     'homePostalCode',

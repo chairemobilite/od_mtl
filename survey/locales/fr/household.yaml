@@ -16,21 +16,27 @@ personGender: >-
 personDrivingLicenseOwnership: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur(-rice) et probatoires, mais ne pas inclure les
-    permis de cyclomoteur/scooter.</span>
+    permis de cyclomoteur/scooter</span>
 personDrivingLicenseOwnership_male: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprenti conducteur et probatoires, mais ne pas inclure les permis
-    de cyclomoteur/scooter.</span>
+    de cyclomoteur/scooter</span>
 personDrivingLicenseOwnership_female: >-
     <strong>Permis de conduire</strong><br /><span class="_pale _oblique">Inclure
     les permis d’apprentie conductrice et probatoires, mais ne pas inclure les permis
-    de cyclomoteur/scooter.</span>
+    de cyclomoteur/scooter</span>
 personCarsharingMember: >-
-    <strong>Autopartage</strong> (ex. Communauto, Léo) : utilisation comme conducteur(-rice)
-    dans les 6 derniers mois
+    <strong>Autopartage</strong> (ex. : Communauto, Léo) : utilisation comme conducteur(-rice)  dans
+    les 6 derniers mois
+personCarsharingMember_male: >-
+    <strong>Autopartage</strong> (ex. : Communauto, Léo) : utilisation comme conducteur  dans
+    les 6 derniers mois
+personCarsharingMember_female: >-
+    <strong>Autopartage</strong> (ex. : Communauto, Léo) : utilisation comme conductrice  dans
+    les 6 derniers mois
 personBikesharingUsage: >-
-    <strong>Vélo en libre-service</strong> (ex. BIXI) : utilisation dans les 30 derniers
-    jours
+    <strong>Vélo en libre-service</strong> (ex. : BIXI) : utilisation dans les 30
+    derniers jours
 personBikesharingMembership: >-
     <strong>Abonnement BIXI</strong><br /><span class="_pale _oblique">Valide pour
     le mois en cours</span>
@@ -46,40 +52,41 @@ personTransitPass: >-
 personTransitFare: >-
     <strong>Type de passe</strong> utilisé en tant qu’<strong>abonnement</strong>
     valide pour le mois en cours<br /><span class="_pale _oblique">A, AB, ABC et ABCD
-    font référence aux zones tarifaires de l'ARTM</span>
+    font référence aux zones tarifaires de l'ARTM.</span>
 personTransitFareWarning: >-
     Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre
-    lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.<br /><strong>Le
-    prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency:
-    CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif
-    réduit).</strong>
+    lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre ou modifiez votre
+    réponse.<br /><strong>Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice,
+    currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}}
+    pour le tarif réduit).</strong>
 personHasDisability: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
     qui influence ou limite les déplacements quotidiens de {{nickname}}?<br /><span
     class="_pale _oblique">Ex. : motrice, visuelle, autre, etc.</span>
 personHasDisability_one: >-
     <strong>Incapacité permanente d'ordre physique, intellectuelle ou autre</strong>
-    qui influence ou limite vos déplacements quotidiens?
+    qui influence ou limite vos déplacements quotidiens?<br /><span class="_pale _oblique">Ex.
+    : motrice, visuelle, autre, etc.</span>
 personDisabilities: >-
-    …<strong> la ou lesquelles</strong>? <br /><span class="_pale _oblique">Facultatif</span>
-personDisabilitiesSpecify: 'Spécifiez:'
+    <strong>La ou lesquelles?</strong><br /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesSpecify: Spécifiez
 personMobilityAssistiveDevices: >-
     <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour les déplacements
     de {{nickname}} en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
 personMobilityAssistiveDevices_one: >-
     <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour vos déplacements
     en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
-personMobilityAssistiveDevicesSpecify: 'Spécifiez:'
+personMobilityAssistiveDevicesSpecify: Spécifiez
 personMostUsedMobilityAssistiveDevice: >-
-    <strong>Le plus utilisé?</strong><br /><span class="_pale _oblique">Facultatif</span>
+    <strong>Le plus utilisé</strong><br /><span class="_pale _oblique">Facultatif</span>
 personUseParatransit: >-
-    {{nickname}} est-iel admis.e au <strong>transport adapté</strong>? <br /><span
+    {{nickname}} est-iel <strong>admis.e au transport adapté</strong>? <br /><span
     class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
 personUseParatransit_male: >-
-    {{nickname}} est-il admis au <strong>transport adapté</strong>? <br /><span class="_pale
+    {{nickname}} est-il <strong>admis au transport adapté</strong>? <br /><span class="_pale
     _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
 personUseParatransit_female: >-
-    {{nickname}} est-elle admise au <strong>transport adapté</strong>? <br /><span
+    {{nickname}} est-elle <strong>admise au transport adapté</strong>? <br /><span
     class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
 personUseParatransit_one: >-
     Êtes-vous admis.e au <strong>transport adapté</strong>? <br /><span class="_pale
@@ -148,8 +155,13 @@ personWorkerType_female: >-
     <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
     autonome, artiste ou en congé de longue durée.</span>
 personJobType: <strong>Type d’emploi</strong> de {{nickname}}
-personWorkPlaceType: Est-ce que {{nickname}} a un <strong>lieu d'emploi</strong> fixe?
-personWorkPlaceType_one: Avez-vous un <strong>lieu d'emploi</strong> fixe?
+personJobType_one: <strong>Type d’emploi</strong>
+personWorkPlaceType: >-
+    Parmi les situations suivantes, laquelle décrit le mieux la <strong>façon</strong>
+    dont {{nickname}} <strong>travaille</strong>?
+personWorkPlaceType_one: >-
+    Parmi les situations suivantes, laquelle décrit le mieux la <strong>façon</strong>
+    dont vous <strong>travaillez</strong>?
 personWorkDays: >-
     Nombre de jour(s) par semaine où {{nickname}} travaille<br /><span class="_pale
     _oblique">Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.</span>
@@ -164,32 +176,32 @@ personTravelToWorkDays_one: >-
     Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail<br
     /><span class="_pale _oblique">Dans une semaine typique. Indiquer 0 si vous n'avez
     pas de lieu de travail ou ne travaillez que depuis votre domicile</span>
+personOccupation: <strong>Occupation principale</strong>
 personEducationalAttainment: >-
     Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En
     cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du
     parcours.</span>
-personOccupation: <strong>Occupation principale</strong>
 household_save: Enregistrer et continuer
 addGroupedObject: Ajouter une personne manquante
 deleteThisGroupedObject: Supprimer cette personne
 popup:
-    studentTitle: Qui inclure?
+    studentTitle: Qui considérer comme étudiant?
     studentContent: >-
-        <strong>Qui considérer comme étudiant?</strong> <br /><span class="_green">Inclure
-        :</span><br />- Tous les étudiants et élèves à partir de 15 ans, indépendamment
-        du niveau d'enseignement.<br />- Toute personne suivant des cours de façon
-        régulière via un établissement.<br />- Toute personne actuellement en stage
-        / alternance / apprentissage, mais inscrite dans un établissement d'enseignement.<br
-        /><span class="_red">Ne pas inclure</span> les formations ponctuelles ou en
-        ligne, les cours particuliers, etc.
-    workerTitle: Qui inclure?
+        <span class="_green">Inclure :</span><br />- Tous les étudiants et élèves
+        à partir de 15 ans, indépendamment du niveau d'enseignement.<br />- Toute
+        personne suivant des cours de façon régulière via un établissement.<br />-
+        Toute personne actuellement en stage / alternance / apprentissage, mais inscrite
+        dans un établissement d'enseignement.<br /><span class="_red">Ne pas inclure
+        :</span><br />- Les formations ponctuelles ou en ligne.<br />- Les cours particuliers,
+        etc.
+    workerTitle: Qui considérer comme travailleur?
     workerContent: >-
-        <strong>Qui considérer comme travailleur?</strong> <br /><span class="_green">Inclure
-        </span> toute personne avec un emploi ou une entreprise, même si temporairement
-        absente au moment de répondre (par exemple : congé de maladie, congé parental,
-        vacances, mise à pied temporaire). <br /><span class="_green">Inclure </span>  le
-        travail salarié ou à son compte.<br /><span class="_red">Ne pas inclure</span>
-        les personnes sans emploi et ne cherchant pas de travail.
+        <span class="_green">Inclure :</span> <br />- Toute personne avec un emploi
+        ou une entreprise, même si temporairement absente au moment de répondre (ex.
+        : congé de maladie, congé parental, vacances, mise à pied temporaire). <br
+        />- Tout travailleur salarié ou à son compte.<br /><span class="_red">Ne pas
+        inclure :</span> <br />- Les personnes sans emploi et ne cherchant pas de
+        travail.
     validateHouseholdAgesHelp: >-
         Au moins un membre de votre ménage doit avoir 16 ans ou plus pour répondre
         à ce questionnaire. Veuillez vérifier les âges.
@@ -198,8 +210,8 @@ popup:
     transitFareTitle: Zones tarifaires?
     transitFareContent: Carte + tableau des tarifs
 errors:
-    selectDontKnowWhenNoOtherChoiceSelected: >-
-        Sélectionnez "Je ne sais pas" seulement si aucun autre choix n'est sélectionné.
+    selectDontKnowWhenNoOtherChoiceSelected: Sélectionnez "Ne sais pas" seulement
+        si aucun autre choix n'est sélectionné.
     selectNoWhenNoOtherChoiceSelected: Sélectionnez "Non" seulement si aucun autre
         choix n'est sélectionné.
     selectNoneWhenNoOtherChoiceSelected: >-
@@ -218,25 +230,25 @@ errors:
     nicknameMustBeUnique: Le nom ou surnom doit être unique
 schoolTypeLessThan4: <strong>Type de garde</strong>
 schoolTypeBetween4And15: <strong>Type d'école</strong>
-workPlaceBeforeLeaveTypeChoicesOnLocation: Oui, {{nickname}} travaillait au lieu fixe
-    en présentiel en tout temps
-workPlaceBeforeLeaveTypeChoicesOnLocation_one: Oui, je travaillais au lieu fixe en
-    présentiel en tout temps
-workPlaceBeforeLeaveTypeChoicesHybrid: Oui, {{nickname}} travaillait en mode hybride
-    (télétravail et en présentiel)
-workPlaceBeforeLeaveTypeChoicesHybrid_one: Oui, je travaillais en mode hybride (télétravail
+workPlaceBeforeLeaveTypeChoicesOnLocation: >-
+    {{nickname}} travaille en présentiel en tout temps à un lieu fixe hors domicile
+workPlaceBeforeLeaveTypeChoicesOnLocation_one: Je travaille en présentiel en tout
+    temps à un lieu fixe hors domicile
+workPlaceBeforeLeaveTypeChoicesHybrid: '{{nickname}} travaille en mode hybride (télétravail
+    et en présentiel)'
+workPlaceBeforeLeaveTypeChoicesHybrid_one: Je travaille en mode hybride (télétravail
     et en présentiel)
+workPlaceBeforeLeaveTypeChoicesRemote: '{{nickname}} travaille toujours au domicile
+    ou à distance'
+workPlaceBeforeLeaveTypeChoicesRemote_one: Je travaille toujours au domicile ou à
+    distance
 workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace: >-
-    Oui, {{nickname}} travaillait sur la route avec départ d'un lieu fixe (ex: garage,
-    bureau, poste, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
-    Oui, je travaillais sur la route avec départ d'un lieu fixe (ex: garage, bureau,
+    {{nickname}} travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau,
     poste, restaurant, etc.)
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: Non, {{nickname}} travaillait
-    sur la route avec départ du domicile
-workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: Non, je travaillais
-    sur la route avec départ du domicile
-workPlaceBeforeLeaveTypeChoicesRemote: Non, {{nickname}} travaillait à partir du domicile
-    ou à distance
-workPlaceBeforeLeaveTypeChoicesRemote_one: Non, je travaillais à partir du domicile
-    ou à distance
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace_one: >-
+    Je travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste,
+    restaurant, etc.)
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace: '{{nickname}} travaille
+    sur la route avec départ du domicile'
+workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace_one: Je travaille sur la
+    route avec départ du domicile

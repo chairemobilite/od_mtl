@@ -24,7 +24,7 @@ export const householdType: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('end:householdType'),
     choices: choices.householdType,
     conditional: conditionals.householdTypeConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const householdTypeSpecify: WidgetConfig.InputRadioType = {
@@ -35,7 +35,7 @@ export const householdTypeSpecify: WidgetConfig.InputRadioType = {
     label: (t: TFunction) => t('end:householdTypeSpecify'),
     choices: choices.householdTypeSpecify,
     conditional: conditionals.householdTypeSpecifyConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
@@ -74,7 +74,7 @@ export const householdIncome: WidgetConfig.InputSelectType = {
     label: (t: TFunction) => t('end:householdIncome'),
     choices: choices.householdIncomeChoices,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const didRespondForCorrectAssignedDate: WidgetConfig.InputRadioType = {
@@ -85,7 +85,7 @@ export const didRespondForCorrectAssignedDate: WidgetConfig.InputRadioType = {
     label: customLabels.didRespondForCorrectDateCustomLabel,
     choices: customChoices.didRespondForCorrectAssignedDateCustomChoices,
     conditional: conditionals.didRespondForCorrectAssignedDateConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const didNotRespondForCorrectAssignedDateReasons: WidgetConfig.InputCheckboxType = {
@@ -96,7 +96,7 @@ export const didNotRespondForCorrectAssignedDateReasons: WidgetConfig.InputCheck
     label: customLabels.didNotRespondForCorrectDateReasonCustomLabel,
     choices: choices.didNotRespondForCorrectAssignedDateReasons,
     conditional: conditionals.didNotRespondForCorrectAssignedDateConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const wouldLikeToParticipateInOtherSurveysChaireMobilite: WidgetConfig.InputRadioType = {
@@ -107,7 +107,7 @@ export const wouldLikeToParticipateInOtherSurveysChaireMobilite: WidgetConfig.In
     label: (t: TFunction) => t('end:wouldLikeToParticipateInOtherSurveysChaireMobilite'),
     choices: choices.yesNo,
     conditional: defaultConditional,
-    validations: validations.requiredValidation
+    validations: validations.optionalValidation
 };
 
 export const wouldLikeToParticipateInOtherSurveysChaireMobiliteContactEmail: WidgetConfig.InputStringType = {
@@ -135,7 +135,7 @@ export const optionalIntroText: WidgetConfig.TextWidgetConfig = {
     path: 'end.optionalIntroText',
     containsHtml: true,
     text: (t: TFunction) => t('end:optionalIntroText'),
-    conditional: defaultConditional
+    conditional: conditionals.enmpConditional
 };
 
 export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
@@ -145,7 +145,7 @@ export const endInterestOfTheSurvey: WidgetConfig.InputRangeType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:endInterestOfTheSurvey'),
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
@@ -155,7 +155,7 @@ export const endTimeSpentAnswering: WidgetConfig.InputStringType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:endTimeSpentAnswering'),
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: validations.optionalValidation
 };
 
@@ -166,7 +166,7 @@ export const endDurationOfTheSurvey: WidgetConfig.InputRangeType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:endDurationOfTheSurvey'),
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
@@ -177,7 +177,7 @@ export const endDifficultyOfTheSurvey: WidgetConfig.InputRangeType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:endDifficultyOfTheSurvey'),
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
@@ -188,7 +188,7 @@ export const endBurdenOfTheSurvey: WidgetConfig.InputRangeType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:endBurdenOfTheSurvey'),
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: customValidations.rangeOptionalOrValidCustomValidation
 };
 
@@ -199,7 +199,7 @@ export const endConsideredAbandoningSurvey: WidgetConfig.InputRadioType = {
     containsHtml: true,
     label: (t: TFunction) => t('end:endConsideredAbandoningSurvey'),
     choices: choices.yesNoDontKnow,
-    conditional: defaultConditional,
+    conditional: conditionals.enmpConditional,
     validations: validations.optionalValidation
 };
 

@@ -25,7 +25,7 @@ Abréviation,h_
 ""
 Champ,acceptToBeContactedForHelp
 Type de question,Bouton radio
-Question,"Je consens à être contacté(e) pour continuer ou préciser le questionnaire. 
+Question,"Je consens à être contacté(e) pour continuer ou préciser le questionnaire
 Si je ne le termine pas ou si certains des renseignements fournis sont incohérents."
 Valeurs,"yes : Oui
 no : Non"
@@ -33,7 +33,7 @@ no : Non"
 Champ,wantToParticipateToDraw
 Type de question,Bouton radio
 Question,"Je souhaite participer au tirage au sort
-Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))"
+Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))."
 Valeurs,"yes : Oui
 no : Non"
 ""
@@ -63,27 +63,27 @@ Champ,h_isMain
 Type de question,Bouton radio
 Conditionnel,sdrWithSecondaryHousesCustomConditional
 Question,"Le {{address}} est-elle la résidence principale de votre ménage?
-La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)"
+La résidence principale est le logement où votre ménage vit la majorité du temps (au moins 50 %)."
 Valeurs,"yes : Oui, j'y habite plus de 50 % du temps
 no : Non, c’est ma résidence secondaire et mon ménage habite majoritairement à une autre adresse"
 ""
 Champ,hh_ownership
 Type de question,Bouton radio
-Question,Est-ce que votre ménage est locataire ou propriétaire de votre logement?
+Question,Statut d'occupation du logement
 Valeurs,"tenant : Locataire
 owner : Propriétaire
 other : Autre
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,hh_size
 Type de question,RadioNumber
 Question,"Personnes habitant votre domicile ou logement
-Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}."
+Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}"
 ""
 Champ,hh_carNumber
 Type de question,RadioNumber
 Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
-À la disposition de votre ménage."
+À la disposition de votre ménage"
 ""
 Champ,hh_twoWheelNumber
 Type de question,Bouton radio
@@ -96,25 +96,24 @@ Champ,h_carParkingAvailableVehicleHousehold
 Type de question,Case à cocher
 Conditionnel,carParkingHomeWithVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
-Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation"
+Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation."
 Valeurs,"private : Entrée privée, garage ou place de stationnement réservée
 stickers : Possession d’une vignette résidentielle "
 ""
 Champ,h_carParkingAvailableNoVehicleHousehold
 Type de question,Bouton radio
 Conditionnel,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
-Question,"Votre ménage a-t-il accès a une entrée privée, garage ou place de stationnement réservée?"
+Question,"Votre ménage a-t-il accès à une entrée privée, garage ou place de stationnement réservée?"
 Valeurs,"yes : Oui
 no : Non"
 ""
 Champ,hh_carsharing
 Type de question,Bouton radio
 Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
-Question,"Autopartage (ex. : Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois
-Par au moins une personne du ménage"
+Question,"Autopartage (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,hh_bicycleNumber
 Type de question,RadioNumber
@@ -124,16 +123,15 @@ Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incl
 Champ,hh_electricBicycleNumber
 Type de question,RadioNumber
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
-Question,"Parmi ces vélos, combien sont des vélo(s) à assistance électrique"
+Question,"Parmi ces vélos, combien sont des vélo(s) à assistance électrique?"
 ""
 Champ,hh_bikesharing
 Type de question,Bouton radio
 Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
-Question,"Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
-Par au moins une personne du ménage"
+Question,Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,hh_atLeastOnePersonWithDisability
 Type de question,Bouton radio
@@ -142,7 +140,7 @@ Question,"Y a-t-il au moins une personne dans votre ménage avec une incapacité
 Y compris vous-même"
 Valeurs,"yes : Oui
 no : Non
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 ""
 ""
@@ -169,41 +167,32 @@ Peut différer du sexe assigné à la naissance ou inscrit dans les documents l�
 Valeurs,"female : Femme
 male : Homme
 custom : Cette personne s'identifie comme:
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,drivingLicenseOwnership
 Type de question,Bouton radio
 Conditionnel,ifAge16OrMoreConditional : age >= 16
 Question,"Permis de conduire
-Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter."
+Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,carsharingMember
 Type de question,Bouton radio
 Conditionnel,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_RA <= 6 && hh_size === 1)
-Question,"Autopartage (ex. Communauto, Léo) : utilisation comme conducteur(-rice) dans les 6 derniers mois"
+Question,"Autopartage (ex. : Communauto, Léo) : utilisation comme conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}}  dans les 6 derniers mois"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,bikesharingUsage
 Type de question,Bouton radio
 Conditionnel,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_RA <= 6 && hh_size === 1)
-Question,Vélo en libre-service (ex. BIXI) : utilisation dans les 30 derniers jours
+Question,Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
-""
-Champ,bikesharingMembership
-Type de question,Bouton radio
-Conditionnel,bikesharingMembershipConditional : bikesharingUsage === yes
-Question,"Abonnement BIXI
-Valide pour le mois en cours"
-Valeurs,"yes : Oui (mensuel, saison)
-no : Non (paiement au déplacement)
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,usedTransitInLast30Days
 Type de question,Bouton radio
@@ -212,7 +201,7 @@ Question,"Transports en commun : utilisation dans les 30 derniers jours
 Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,transitPass
 Type de question,Case à cocher
@@ -224,29 +213,29 @@ Valeurs,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : Passe / abonne
 transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
 tickets : Titres ou billets individuels de l’ARTM
 other : Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,transitFare
 Type de question,Bouton radio
 Conditionnel,transitFareConditional : transitPass === transitPassARTM
 Question,"Type de passe utilisé en tant qu’abonnement valide pour le mois en cours
-A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM"
+A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM."
 Valeurs,"A : Tous modes A
 AB : Tous modes AB
 ABC : Tous modes ABC
 ABCD : Tous modes ABCD
-bus : Bus
+bus : Bus (ABC)
 busCD : Bus hors territoire (CD)
 opusWithTicketsOnly : Carte OPUS avec titres individuels seulement
 otherTerritory : Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
 other : Autre (spécifiez)
 none : Aucun pour le mois en cours
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,transitFareWarning
 Type de question,Case à cocher
 Conditionnel,transitFareWarningCustomConditional
-Question,"Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre.
+Question,"Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre ou modifiez votre réponse.
 Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif réduit)."
 Valeurs,yes : Je confirme
 ""
@@ -257,12 +246,12 @@ Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui i
 Ex. : motrice, visuelle, autre, etc."
 Valeurs,"yes : Oui
 no : Non
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,disabilities
 Type de question,Case à cocher
 Conditionnel,hasDisabilityConditional : hasDisability === yes
-Question,"… la ou lesquelles? 
+Question,"La ou lesquelles?
 Facultatif"
 Valeurs,"hearing (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Auditive 
 visual (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Visuelle
@@ -274,12 +263,12 @@ chronicIllness (personDisabilityIsNotPreferNotToAnswer : disabilities === null |
 speechOrLanguageDisorder (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Trouble de la parole ou du langage
 fineMotorSkills (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Motricité fine (ex. dextérité, agilité, etc.)
 other (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Autre (spécifiez)
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,disabilitiesSpecify
 Type de question,Champ de texte
 Conditionnel,personDisabilityIsOtherConditional : disabilities === other
-Question,Spécifiez:
+Question,Spécifiez
 ""
 Champ,mobilityAssistiveDevices
 Type de question,Case à cocher
@@ -295,17 +284,17 @@ walkerOrRollator (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevi
 threeOrFourwheeledScooter (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Triporteur ou quadriporteur
 noSpecificDevice (personMobilityDeviceNotPreferNotToAnswer : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== preferNotToAnswer) : Aucun matériel spécifique
 other (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Autre (spécifiez)
-preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : Je préfère ne pas répondre"
+preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : Préfère ne pas répondre"
 ""
 Champ,mobilityAssistiveDevicesSpecify
 Type de question,Champ de texte
 Conditionnel,personAssistiveDevicesIsOtherConditional : mobilityAssistiveDevices === other
-Question,Spécifiez:
+Question,Spécifiez
 ""
 Champ,mostUsedMobilityAssistiveDevice
 Type de question,Bouton radio
 Conditionnel,mostUsedMobilityAssistiveDeviceCustomConditional
-Question,"Le plus utilisé?
+Question,"Le plus utilisé
 Facultatif"
 ""
 Champ,useParatransit
@@ -316,7 +305,7 @@ STM, RTL, STL, exo, etc.
 Facultatif"
 Valeurs,"yes : Oui
 no : Non
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,disabilitiesFrequenciesParatransit
 Type de question,Bouton radio
@@ -370,42 +359,29 @@ salesAndServices : Vente et services
 commerce de détail, service à la clientèle, restauration, soins personnels…
 manufacturing : Fabrication, métiers et autres emplois
 usine, construction, métiers spécialisés, transport, entreposage…
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,workPlaceType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Est-ce que {{nickname}} a un lieu d'emploi fixe?
-Valeurs,"onLocation : Oui, travail au lieu fixe en présentiel en tout temps
-hybrid : Oui, travail en mode hybride (télétravail et en présentiel)
-onTheRoadWithUsualPlace : Oui, travail sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
-onTheRoadWithoutUsualPlace : Non, travail sur la route avec départ du domicile
-remote : Non, travail à partir du domicile ou à distance"
+Question,"Parmi les situations suivantes, laquelle décrit le mieux la façon dont {{nickname}} travaille?"
+Valeurs,"onLocation : Travaille en présentiel en tout temps à un lieu fixe hors domicile
+hybrid : Travaille en mode hybride (télétravail et en présentiel)
+remote : Travaille toujours au domicile ou à distance
+onTheRoadWithUsualPlace : Travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
+onTheRoadWithoutUsualPlace : Travaille sur la route avec départ du domicile"
 ""
 Champ,workDays
 Type de question,RadioNumber
-Conditionnel,personWorkDaysConditional : workPlaceType === remote || workPlaceType === hybrid
+Conditionnel,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Nombre de jour(s) par semaine où {{nickname}} travaille
 Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail."
 ""
 Champ,travelToWorkDays
 Type de question,Entrée inconnue
-Conditionnel,personHybridWorkDaysConditional : workPlaceType === hybrid && workDays > 0
+Conditionnel,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
 Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile"
-""
-Champ,educationalAttainment
-Type de question,Bouton radio
-Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,"Plus haut niveau de scolarité
-En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours."
-Valeurs,"noneOrPrimaryEducation : Aucun certificat, diplôme ou degré
-secondaryEducation : Diplôme d'études secondaires ou attestation d'équivalence
-postSecondaryNonTertiaryEducation : Diplôme d'apprenti ou d'une école de métiers
-shortCycleTertiaryEducation : Diplôme d'un cégep ou collège
-diplomaBelowBachelor : Certificat ou diplôme universitaire inférieur au baccalauréat
-bachelorOrHigher : Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
-preferNotToAnswer : Je préfère ne pas répondre"
 ""
 Champ,occupation
 Type de question,Bouton radio
@@ -423,7 +399,17 @@ parentalOrSickLeave : Congé de maladie ou congé parental
 longTermDisability : Invalidité de longue durée
 volunteer : Bénévole
 other : Autre
-preferNotToAnswer : Je préfère ne pas répondre"
+preferNotToAnswer : Préfère ne pas répondre"
+""
+Champ,educationalAttainment
+Type de question,Bouton radio
+Conditionnel,educationalAttainmentConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent || occupation === unemployed || occupation === parentalOrSickLeave
+Question,"Plus haut niveau de scolarité
+En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours."
+Valeurs,"secondaryEducationOrLess : Diplôme d'études secondaires, attestation d'équivalence ou aucun
+postSecondaryBelowBachelorEducation : Diplôme d'apprenti, école de métiers, CÉGEP / collège ou certificat universitaire inférieur au baccalauréat
+bachelorOrHigher : Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+preferNotToAnswer : Préfère ne pas répondre"
 ""
 ""
 ""
@@ -460,12 +446,12 @@ Champ,hh_persons.{_activePersonId}.whoWillAnswerForThisPerson
 Type de question,Bouton radio
 Conditionnel,if2OrMorePersons14OrMoreYearsOldCustomConditional
 Question,"Qui répond pour {{nickname}}?
-Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre aux prochaines questions pour {{gender:lui/elle/lui(-elle)}}"
+Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre pour {{gender:lui/elle/lui(-elle)}}"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Type de question,Bouton radio
 Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
-Inclure tous les déplacements, qu'ils soient pour des motifs personnels (achats, sorties, loisirs, etc.), pour le travail, ou pour aller chercher ou reconduire quelqu'un."
+Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un."
 Valeurs,"yes : Oui
 no : Non"
 ""
@@ -499,12 +485,12 @@ other : Autre"
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory
 Type de question,Bouton radio
 Conditionnel,outOfTerritoryConditional : departurePlaceOther === hotelForWork || departurePlaceOther === hotelForVacation
-Question,Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile {{address}} la journée du {{journeyDate}}?
+Question,Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile ({{address}}) la journée du {{journeyDate}}?
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
 Type de question,Case à cocher
 Conditionnel,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && outOfTerritory === yes
-Question,D’autres membres du ménage étaient avec {{nickname}} toute la journée?
+Question,D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
 ""
 ""
 ""
@@ -522,12 +508,12 @@ Question,Changer de personne
 ""
 Champ,personVisitedPlacesTitle
 Type de question,Builtin
-Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}}:
+Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
 L'ordre chronologique doit être respecté."
 ""
 Champ,visitedPlacesMap
 Type de question,Builtin
-Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+Question,Carte des déplacements de {{nickname}} le {{journeyDates}} :
 ""
 Champ,activityCategory
 Type de question,Builtin
@@ -559,8 +545,8 @@ Question,Nom ou adresse du lieu
 ""
 Champ,geography
 Type de question,Builtin
-Question,"Veuillez positionner le lieu sur la carte
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous."
+Question,"Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision."
 ""
 Champ,_previousPreviousDepartureTime
 Type de question,Builtin
@@ -611,11 +597,11 @@ Question,Changer de personne
 ""
 Champ,personTripsTitle
 Type de question,Builtin
-Question,Déplacements de {{nickname}} le {{assignedDate}}
+Question,Déplacements de {{nickname}} le {{journeyDates}}
 ""
 Champ,segmentsMap
 Type de question,Builtin
-Question,Carte des déplacements de {{nickname}} le {{assignedDate}}:
+Question,Carte des déplacements de {{nickname}} le {{journeyDate}}:
 ""
 Champ,segmentsIntro
 Type de question,Builtin
@@ -637,7 +623,7 @@ Valeurs,"noWorker (isDestinationWorkCustomConditional): Non (gratuit ou payé pa
 no (isDestinationNotWorkCustomConditional): Non (gratuit)
 yes : Oui (parcomètre, vignette, passe ou permis)
 noPark : Le véhicule n'a pas été stationné
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,vehicleOccupancy
 Type de question,RadioNumber
@@ -668,10 +654,10 @@ Choisir ""aucune"" si aucun transfert n'a été effectué"
 Champ,subwayLine
 Type de question,Bouton radio
 Conditionnel,subwayLineConditional : subwayStationStart === berriUqam && subwayStationEnd === lionelGroulx || (subwayStationStart === lionelGroulx && subwayStationEnd === berriUqam) || (subwayStationStart === jeanDrapeau && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === jeanDrapeau) || (subwayStationStart === longueuilUniversiteDeSherbrooke && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === longueuilUniversiteDeSherbrooke)
-Question,Ligne empruntée entre BerriUQAM et LionelGroulx :
+Question,Ligne empruntée entre Berri-UQAM et Lionel Groulx
 Valeurs,"stm_2 : 2-Orange
 stm_1 : 1-Verte
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,trainStationStart
 Type de question,Entrée inconnue
@@ -700,7 +686,7 @@ Question,Aéroport de départ
 Valeurs,"YUL : Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
 YHU : Aéroport Montréal Saint-Hubert (YHU)
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,intercityRailStationStart
 Type de question,Bouton radio
@@ -711,7 +697,7 @@ dorvalStation : Dorval
 coteauStation : Coteau
 saintLambertStation : Saint-Lambert
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,intercityBusStationStart
 Type de question,Bouton radio
@@ -723,7 +709,7 @@ YUL : Aéroport de Montréal (YUL)
 terminusKirkland : Kirkland
 terminusLongueuil : Terminus intermodal de Longueuil
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,planeStationEnd
 Type de question,Bouton radio
@@ -732,7 +718,7 @@ Question,Aéroport d’arrivée
 Valeurs,"YUL : Aéroport international Pierre-Elliott-Trudeau de Montréal (YUL)
 YHU : Aéroport Montréal Saint-Hubert (YHU)
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,intercityRailStationEnd
 Type de question,Bouton radio
@@ -743,7 +729,7 @@ dorvalStation : Dorval
 coteauStation : Coteau
 saintLambertStation : Saint-Lambert
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,intercityBusStationEnd
 Type de question,Bouton radio
@@ -755,13 +741,13 @@ YUL : Aéroport de Montréal (YUL)
 terminusKirkland : Kirkland
 terminusLongueuil : Terminus intermodal de Longueuil
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,busLines
 Type de question,Entrée inconnue
 Conditionnel,busConditional : mode === transitBus
 Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
-Pour chaque ligne utilisée, inscrivez le numéro de la ligne ou son nom puis sélectionnez-la dans la liste des résultats."
+Pour chaque ligne utilisée, inscrire le numéro de la ligne ou son nom puis sélectionner-la dans la liste des résultats."
 ""
 Champ,transitAccessMode
 Type de question,Bouton radio
@@ -827,7 +813,7 @@ Valeurs,"noWorker (isDestinationWorkCustomConditional): Non (gratuit ou payé pa
 no (isDestinationNotWorkCustomConditional): Non (gratuit)
 yes : Oui (parcomètre, vignette, passe ou permis)
 noPark : Le véhicule n'a pas été stationné
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,hasNextMode
 Type de question,Builtin
@@ -862,10 +848,10 @@ Conditionnel,shouldAskForNoWorkTripReasonCustomConditional
 Question,Pour quelle raison?
 Valeurs,"remoteWorkOrWorkAtHome : Télétravail / travail à la maison
 onStrike : En grève
-leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
+leaveSicknessPersonalReason : Congé (vacances, maladie, etc.)
 noWork : Pas de travail prévu
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,hh_persons.{_activePersonId}.usualWorkPlace.name
 Type de question,Champ de texte
@@ -875,9 +861,8 @@ Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 Champ,hh_persons.{_activePersonId}.usualWorkPlace.geography
 Type de question,Entrée inconnue
 Conditionnel,hasWorkingLocationNotSetCustomConditional
-Question,"Veuillez localiser le lieu de travail habituel de {{nickname}}
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu""."
+Question,"Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision."
 ""
 Champ,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
 Type de question,Bouton radio
@@ -909,20 +894,19 @@ Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
 Champ,hh_persons.{_activePersonId}.usualSchoolPlace.geography
 Type de question,Entrée inconnue
 Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
-Question,"Veuillez localiser le lieu habituel d’études de {{nickname}}.
-Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
-Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"")."
+Question,"Position sur la carte
+Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision."
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Type de question,Liste déroulante
 Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,Raison pour laquelle {{nickname}} n’a pas effectué de déplacement pour les études le {{journeyDate}}?
 Valeurs,"distanceLearning : Cours à distance
-schoolWasClosed : École fermée ou pas de cours
+schoolWasClosed : Pas de cours
 leaveSicknessPersonalReason : Congé (maladie, personnel, autre)
 strike : Grève
 other : Autre
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 ""
 ""
@@ -979,7 +963,7 @@ no : Non"
 Champ,o_hasOmittedTripsActivity
 Type de question,Case à cocher
 Conditionnel,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
-Question,Activités:
+Question,Activités
 Valeurs,"work : Travail, Études ou Bénévolat
 shopping : Magasinage, services ou restauration
 pickupDropOff : Reconduire ou aller chercher quelqu’un
@@ -991,7 +975,7 @@ other : Autre motif"
 Champ,o_hasOmittedTripsMode
 Type de question,Case à cocher
 Conditionnel,hasOmittedTripsSpecifyConditional : o_hasOmittedTrips === yes
-Question,Modes:
+Question,Modes
 Valeurs,"walk : Marche
 bicycle : Vélo
 carDriver : Auto conducteur 
@@ -1009,12 +993,12 @@ Type de question,Bouton radio
 Question,"Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménage avez effectué au moins un déplacement, autre qu’à votre lieu habituel de travail ou d’études, qui a franchi les limites de cette zone grise (plus de 40 km du domicile)?"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 Champ,hh_longDistanceTripsSeptemberDecember
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2024?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2025?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)
@@ -1023,7 +1007,7 @@ Valeurs,"00_00 : Jamais (0)
 Champ,hh_longDistanceTripsJanuaryApril
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2025?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de janvier à avril 2026?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)
@@ -1032,7 +1016,7 @@ Valeurs,"00_00 : Jamais (0)
 Champ,hh_longDistanceTripsMayAugust
 Type de question,Bouton radio
 Conditionnel,madeLongDistanceTripsConditional : hh_madeLongDistanceTripsInLastYear === yes
-Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2025?
+Question,À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2026?
 Valeurs,"00_00 : Jamais (0)
 01_03 : Quelques fois durant la période (1 à 3)
 04_12 : Quelques fois par mois (4 à 12)
@@ -1075,7 +1059,7 @@ Valeurs,"neverOrRarely : Jamais/Rarement
 ""
 Champ,anyTripModeFrequenciesBicycle
 Type de question,Bouton radio
-Question,"Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planches à roulettes)"
+Question,"Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planche à roulettes)"
 Valeurs,"neverOrRarely : Jamais/Rarement
 1to3daysPerMonth : 1 à 3 jours/mois
 1dayPerWeek : 1 jour/sem.
@@ -1349,7 +1333,7 @@ Valeurs,"oneFamilyOnly : Ménage comprenant une seule famille, sans autre person
 multigenerationalFamily (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Ménage multigénérationnel (ex. : parents, enfants et grands-parents vivant ensemble)
 manyFamilies (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Ménage comprenant plusieurs familles (ex. : deux couples vivant ensemble)
 oneFamilyWithOther (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Ménage comprenant une seule famille et autre(s) personne(s) (ex. : couple avec enfant vivant avec un oncle)
-noFamily : Ménage de deux personnes ou plus sans lien familial (ex. : deux frères ou sœurs vivant ensemble)"
+noFamily : Ménage de deux personnes ou plus sans lien familial (ex. : colocataire ou deux frères et sœurs vivant ensemble)"
 ""
 Champ,hh_typeSpecify
 Type de question,Bouton radio
@@ -1364,7 +1348,7 @@ Type de question,RadioNumber
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif
-Ne pas inclure les véhicules hybrides avec moteur à combustion"
+Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)"
 ""
 Champ,hh_electricCarNumber
 Type de question,RadioNumber
@@ -1389,8 +1373,8 @@ Valeurs,"000000_009999 : Moins de 10 000 $
 100000_149999 : 100 000$ à 149 999$
 150000_199999 : 150 000$ à 199 999$
 200000_999999 : 200 000 $ et plus
-dontKnow : Je ne sais pas
-refusal : Je préfère ne pas répondre"
+dontKnow : Ne sait pas
+refusal : Préfère ne pas répondre"
 ""
 Champ,e_didRespondForCorrectAssignedDate
 Type de question,Bouton radio
@@ -1428,6 +1412,7 @@ Facultatif"
 ""
 Champ,e_interestOfTheSurvey
 Type de question,Curseur de plage
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 Facultatif"
 Valeurs,"0 : Pas du tout
@@ -1436,11 +1421,13 @@ Valeurs,"0 : Pas du tout
 ""
 Champ,e_timeSpentAnswering
 Type de question,Champ numérique
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 Facultatif"
 ""
 Champ,e_durationOfTheSurvey
 Type de question,Curseur de plage
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
 Facultatif"
 Valeurs,"0 : Trop court
@@ -1449,6 +1436,7 @@ Valeurs,"0 : Trop court
 ""
 Champ,e_difficultyOfTheSurvey
 Type de question,Curseur de plage
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 Facultatif"
 Valeurs,"0 : Très facile
@@ -1457,6 +1445,7 @@ Valeurs,"0 : Très facile
 ""
 Champ,e_burdenOfTheSurvey
 Type de question,Curseur de plage
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
 Facultatif"
 Valeurs,"0 : Pas du tout
@@ -1465,11 +1454,12 @@ Valeurs,"0 : Pas du tout
 ""
 Champ,e_consideredAbandoningSurvey
 Type de question,Bouton radio
+Conditionnel,enmpConditional : exclusive === mtmd
 Question,"Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
 Facultatif"
 Valeurs,"yes : Oui
 no : Non
-dontKnow : Je ne sais pas"
+dontKnow : Ne sait pas"
 ""
 ""
 ""

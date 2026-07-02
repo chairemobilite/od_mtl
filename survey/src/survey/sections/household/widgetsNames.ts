@@ -13,7 +13,7 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personDrivingLicenseOwnership',
     'personCarsharingMember',
     'personBikesharingUsage',
-    'personBikesharingMembership',
+    // 'personBikesharingMembership',
     'personUsedTransitInLast30Days',
     'personTransitPass',
     'personTransitFare',
@@ -33,6 +33,6 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personWorkPlaceType',
     'personWorkDays',
     'personTravelToWorkDays',
-    'personEducationalAttainment',
-    'personOccupation'
+    'personOccupation',
+    'personEducationalAttainment'
 ];

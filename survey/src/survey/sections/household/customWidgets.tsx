@@ -5,7 +5,7 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import { householdMembersWidgetsNames } from './widgetsNames';
 import { inputRadioNumberBase } from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
-import { personHybridWorkDaysConditional } from '../../common/conditionals';
+import { personWorkTripDaysConditional } from '../../common/conditionals';
 
 // TODO: Migrate most of these widgets in Evolution Frontend, not here.
 export const householdMembers: GroupConfig = {
@@ -68,9 +68,10 @@ export const personTravelToWorkDays: InputRadioNumberType = {
         min: 0,
         max: (interview, path) => {
             const workDays = surveyHelper.getResponse(interview, path, null, '../workDays');
-            return workDays ? Number(workDays) : 0;
+            // Limiter à workDays si spécifié (pour hybride), sinon, 7
+            return workDays ? Number(workDays) : 7;
         }
     },
-    conditional: personHybridWorkDaysConditional,
+    conditional: personWorkTripDaysConditional,
     validations: requiredValidation
 };

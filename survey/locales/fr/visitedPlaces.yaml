@@ -7,26 +7,26 @@ activePersonTitle: >-
     class="_center _pale">•</p>
 buttonSwitchPerson: Changer de personne
 personVisitedPlacesTitle: >-
-    Lieux où {{nickname}} est allé(e) le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allé(e) le {{journeyDate}} :<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_male: >-
-    Lieux où {{nickname}} est allé le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allé le {{journeyDate}} :<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_female: >-
-    Lieux où {{nickname}} est allée le {{journeyDate}}:<br />L'ordre chronologique
+    Lieux où {{nickname}} est allée le {{journeyDate}} :<br />L'ordre chronologique
     doit être respecté.
 personVisitedPlacesTitle_one: >-
-    Lieux où vous êtes allé(e) le {{journeyDate}}:<br />L'ordre chronologique doit
+    Lieux où vous êtes allé(e) le {{journeyDate}} :<br />L'ordre chronologique doit
     être respecté.
 personVisitedPlacesTitle_male_one: >-
-    Lieux où vous êtes allé le {{journeyDate}}:<br />L'ordre chronologique doit être
+    Lieux où vous êtes allé le {{journeyDate}} :<br />L'ordre chronologique doit être
     respecté.
 personVisitedPlacesTitle_female_one: >-
-    Lieux où vous êtes allée le {{journeyDate}}:<br />L'ordre chronologique doit être
-    respecté.
-personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong> le
-    {{assignedDate}}:'
-personVisitedPlacesMap_one: 'Carte de vos déplacements le {{assignedDate}}:'
+    Lieux où vous êtes allée le {{journeyDate}} :<br />L'ordre chronologique doit
+    être respecté.
+personVisitedPlacesMap: >-
+    Carte des déplacements de <strong>{{nickname}}</strong> le {{journeyDates}} :
+personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDates}} :'
 visitedPlaceActivityCategory: Activité principale à ce lieu{{reminderText}}
 visitedPlaceActivity: 'Spécifier :'
 visitedPlaceOnTheRoadPreviousPlaceActivity: >-
@@ -40,10 +40,9 @@ visitedPlaceAlreadyVisited_one: Avez-vous déjà localisé ce lieu?
 visitedPlaceShortcut: 'Veuillez choisir le lieu dans la liste des lieux déjà localisés:'
 visitedPlaceName: Nom ou adresse du lieu
 visitedPlaceGeography: >-
-    Veuillez positionner le lieu sur la carte<br /><span class="_pale _oblique">Naviguez,
-    zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous
-    pourrez déplacer le point pour davantage de précision. Vous pouvez également chercher
-    le lieu en utilisant le nom ou l'adresse avec le bouton ci-dessous.</span>
+    Position sur la carte<br /><span class="_pale _oblique">Localisez le lieu en le
+    recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur
+    la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.</span>
 visitedPlacePreviousPreviousDepartureTime: >-
     À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{visitedPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
@@ -182,41 +181,43 @@ visitedPlaceActivityCategory_afterHome: >-
 VisitedPlaceSequence: Lieu {{count}}
 VisitedPlaceSequence_one: Lieu de départ de la journée
 ConfirmDeleteVisitedPlace: Confirmez-vous que vous voulez retirer ce lieu?
-visitedPlaceNameExample_workUsual: Édifice du Phare, CPE les petits génies
-visitedPlaceNameExample_workUsual_onTheRoadOften: Centre de distribution Rivières,
-    Resto St-Hubert Alma
-visitedPlaceNameExample_workNotUsual: Palais des congrès de Montréal, Le Co-work du
-    lac Long
-visitedPlaceNameExample_schoolUsual: École Marguerite-Bourgeoys, Collège CDI Québec,
-    UQAR
-visitedPlaceNameExample_schoolNotUsual: Bibliothèque à Livre ouvert, École de musique
-    Dorémi
-visitedPlaceNameExample_shopping: Centre d’achat Le Carrefour, Provigo St-Félicien,
-    IKEA Boucherville
-visitedPlaceNameExample_restaurant: Normandin de Lévis, Snack bar chez Raymond, Resto
-    Subway de Rawdon
-visitedPlaceNameExample_dropSomeone: Gare d’autocar, Aréna des Collines, École des
-    Pionniers
-visitedPlaceNameExample_fetchSomeone: Gare d’autocar, Aréna des Collines, École des
-    Pionniers
-visitedPlaceNameExample_leisureArtsMusicCulture: Cinéma des chutes, Théâtre de Verdure,
-    Musée national des petits pots Masson
-visitedPlaceNameExample_leisureSports: Nautilus St-Georges, Escalade La Grimpe, Parc
-    de la Rose
-visitedPlaceNameExample_leisureTourism: Camping Ste-Madeleine, Paris France, Hôtel
-    Days Inn St-Flavien
-visitedPlaceNameExample_leisureStroll: Parc au bord de l’eau, Petit train du nord,
-    Stroll de la Montagne
-visitedPlaceNameExample_visiting: Adresse de la personne visitée, Coin des Rossignols
-    et de l’Étang
-visitedPlaceNameExample_medical: >-
-    Clinique Médicale des Marguerites, Hôpital régional de Rimouski, CLSC des Rivières
-visitedPlaceNameExample_service: Coiffure Dans le Vent, Caisse Desjardins de Limoilou
-visitedPlaceNameExample_worship: Église Saint-Nicéphore, Mosquée de la Capitale, Synagogue
-    Maison Chabad
-visitedPlaceNameExample_secondaryHome: Adresse de la résidence secondaire ou du chalet
-visitedPlaceNameExample_schoolNotStudent: Institut Linguistique, École de conduite
-    Tecnic
+visitedPlaceNameExample_workUsual: Tour Banque Nationale, Coin Peel et Sherbrooke
+visitedPlaceNameExample_workUsual_onTheRoadOften: Centre de distribution Rosemère,
+    Resto St-Hubert BBQ Ahuntsic
+visitedPlaceNameExample_workNotUsual: Palais des congrès de Mtl, Espace Coworking
+    Jarry
+visitedPlaceNameExample_schoolUsual: École St-Cécile, Collège de Maisonneuve, UQAM
+visitedPlaceNameExample_schoolNotUsual: Bibliothèque St-Michel, École Marie-Favery
+visitedPlaceNameExample_shopping: Dix30, Provigo Baie d'Urfé, IKEA Boucherville
+visitedPlaceNameExample_restaurant: Allô mon coco Centropolis, Scores Place Vertu,
+    Resto Subway sur Fleury
+visitedPlaceNameExample_dropSomeone: Station métro Cadillac, Aréna d'Outremont, École
+    Sophie Barat…
+visitedPlaceNameExample_fetchSomeone: Station métro Cadillac, Aréna d'Outremont, École
+    Sophie Barat…
+visitedPlaceNameExample_leisureArtsMusicCulture: Cinéma Beaubien, Théâtre St Denis,
+    Jardin Botanique
+visitedPlaceNameExample_leisureSports: Nautilus Châteauguay, Escalade Allez-up Verdun,
+    Parc Jarry
+visitedPlaceNameExample_leisureTourism: Camping au Pin d'Érable, Paris France, Toronto
+visitedPlaceNameExample_leisureStroll: Parc du Mont-Royal, Ile Charron, Parc Maurice
+    Richard
+visitedPlaceNameExample_visiting: 8540 rue Toupin Montréal, Vieux Ste-Rose, Coin Bellechasse
+    et Pie-IX, …
+visitedPlaceNameExample_medical: Clinique Sunnybrooke, Hôpital Sacré Cœur, CLSC du
+    Ruisseau-Papineau
+visitedPlaceNameExample_service: Coiffure Chez Carole Mtl Est, Caisse Desjardins Terrebonne
+visitedPlaceNameExample_worship: Église La Citadelle, Mosquée Abou Bakr Asseddique,
+    Synagogue Ahavath Israel
+visitedPlaceNameExample_secondaryHome: Laurentides, Saint Sauveur
+visitedPlaceNameExample_schoolNotStudent: École de langue CLIC Montréal, Ecole de
+    conduite Lauzon
+visitedPlaceNameExample_schoolChild: École St-Cécile
+visitedPlaceNameExample_accompany: Aréna de La Prairie, Clinique dentaire DDO
+visitedPlaceNameExample_pickClassifiedPurchase: 8540 rue Toupin, Montréal
+visitedPlaceNameExample_vet: Hôpital vétérinaire de Terrebonne
+visitedPlaceNameExample_volunteering: >-
+    Centre de bénévolat et Moisson Laval, SPCA Roussillon, Le Chainon rue Saint Laurent
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace: >-
     {{nickname}} a quitté le domicile pour aller à son lieu habituel de travail à?
 visitedPlacePreviousPreviousDepartureTime_home_usualWorkPlace_one: Vous avez quitté
@@ -432,6 +433,9 @@ onTheRoadNextPlaceCategoryChoices:
         le lendemain
     stayedThereUntilTheNextDay_one: J'ai complété mes déplacements sur la route après
         4:00 du matin le lendemain
+reminderText: >-
+    <br /><span style="background-color:#fff6cc;">&#x26A0; Rappel : déplacement avec
+    {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>
 onTheRoadArrivalTypeHome: Domicile
 onTheRoadArrivalTypeUsualWorkPlace: Lieu de travail habituel
 onTheRoadArrivalTypeOther: Autre lieu
@@ -446,12 +450,9 @@ nextPlaceRadioChoices:
     stayedThereUntilTheNextDay: Resté(e) à cet endroit jusqu'au lendemain
     stayedThereUntilTheNextDay_male: Resté à cet endroit jusqu'au lendemain
     stayedThereUntilTheNextDay_female: Restée à cet endroit jusqu'au lendemain
-    visitedAnotherPlace: Allé(e) ou arrêté(e) à un autre endroit
-    visitedAnotherPlace_male: Allé ou arrêté à un autre endroit
-    visitedAnotherPlace_female: Allée ou arrêtée à un autre endroit
-    wentBackHome: Retourné(e) au domicile directement ({{address}})
-    wentBackHome_male: Retourné au domicile directement ({{address}})
-    wentBackHome_female: Retournée au domicile directement ({{address}})
-reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0; Rappel: déplacement avec
-    {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>
+    visitedAnotherPlace: Allé(e) à un autre endroit
+    visitedAnotherPlace_male: Allé à un autre endroit
+    visitedAnotherPlace_female: Allée à un autre endroit
+    wentBackHome: Retourné(e) au domicile ({{address}})
+    wentBackHome_male: Retourné au domicile ({{address}})
+    wentBackHome_female: Retournée au domicile ({{address}})

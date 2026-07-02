@@ -7,8 +7,8 @@ householdTypeSpecify: Plus spécifiquement?
 householdPluginHybridCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
     hybrides rechargeables</strong>?<br /><span class="_pale _oblique">Facultatif</span><br
-    /><span class="_pale _oblique">Ne pas inclure les véhicules hybrides avec moteur
-    à combustion</span>
+    /><span class="_pale _oblique">Inclure uniquement les véhicules hybrides que l’on
+    peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)</span>
 householdElectricCarNumber: >-
     Parmi les véhicules possédés par votre ménage, combien sont des <strong>véhicules
     électriques</strong>?<br /><span class="_pale _oblique">Facultatif</span>
@@ -61,6 +61,6 @@ errors:
 popup:
     incomeHelpPopupTitle: Pourquoi cette question?
     incomeHelpPopupContent: >-
-        <strong>Pourquoi cette question?</strong><br />La tranche de revenu du ménage
-        nous permet de comprendre certains enjeux d'équité en mobilité. Cela permet
-        aussi d'identifier s'il y a une bonne représentativité parmi nos répondants.
+        La tranche de revenu du ménage nous permet de comprendre certains enjeux d'équité
+        en mobilité. Cela permet aussi d'identifier s'il y a une bonne représentativité
+        parmi nos répondants.

@@ -58,11 +58,10 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     jobType: 'administration',
     workPlaceType: 'onLocation',
     workDays: null,
-    travelToWorkDays: null,
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    travelToWorkDays: '4',
+    educationalAttainment: 'bachelorOrHigher',
     occupation: null, // Question won't show.
-    bikesharingUsage: 'no',
-    bikesharingMembership: null
+    bikesharingUsage: 'no'
 };
 const person2: commonUITestsHelpers.HouseholdMember = {
     personIndex: 1,
@@ -91,10 +90,9 @@ const person2: commonUITestsHelpers.HouseholdMember = {
     workPlaceType: 'hybrid',
     workDays: '4',
     travelToWorkDays: '3',
-    educationalAttainment: 'postSecondaryNonTertiaryEducation',
+    educationalAttainment: 'secondaryEducationOrLess',
     occupation: null, // Question won't show.
-    bikesharingUsage: 'no',
-    bikesharingMembership: null
+    bikesharingUsage: 'no'
 };
 
 // P1 goes to work, then stops at the SAQ and goes to a restaurant to wait for P2. Then both go back home together later
@@ -363,7 +361,14 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 2 });
 
 /********** Tests end section **********/
-commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2 });
+commonUITestsHelpers.fillEndSectionTests({
+    context,
+    householdSize: 2,
+    endSection: {
+        ...commonUITestsHelpers.defaultEnd,
+        burdenQuestionsVisible: true
+    }
+});
 
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 2 });

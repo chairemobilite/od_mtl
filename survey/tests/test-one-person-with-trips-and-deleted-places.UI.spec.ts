@@ -194,7 +194,9 @@ const longDistance: commonUITestsHelpers.LongDistanceSection = {
 commonUITestsHelpers.fillLongDistanceSectionTests({ context, householdSize: 1, longDistanceSection: longDistance });
 
 /********** Tests end section **********/
-commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1 });
+const endSection = _cloneDeep(commonUITestsHelpers.defaultEnd);
+endSection.burdenQuestionsVisible = true;
+commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 1, endSection });
 
 /********** Tests completed section **********/
 commonUITestsHelpers.fillCompletedSectionTests({ context, householdSize: 1 });
