@@ -18,6 +18,11 @@ import { TFunction } from 'i18next';
 import { secondsSinceMidnightToTimeStr } from 'chaire-lib-common/lib/utils/DateTimeUtils';
 import { AdditionalSectionLabelOptionFct } from 'evolution-common/lib/services/questionnaire/types';
 import * as segmentHelpers from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
+import {
+    getCommonTripFromReferencePerson,
+    getCommonTripReferencePerson,
+    isCommonTripSampleMatch
+} from './commonHelpers';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -57,27 +62,6 @@ export const isPartialSample = (interview: InterviewAttributes, partialSample: s
     const partialSamples = typeof partialSample === 'string' ? [partialSample] : partialSample;
     const epExclusive = getResponse(interview, 'ep.exclusive', null);
     return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
-};
-
-/**
- * Validate if the interview is the commonTrip ep AND if the household matches some criteria
- * @param interview
- * @returns
- */
-export const isCommonTripSampleMatch = (interview: InterviewAttributes) => {
-    const isCommonTripEp = getResponse(interview, 'ep.commonTrip', false) as boolean;
-    if (!isCommonTripEp) {
-        return false;
-    }
-    // The household should have more than one person and have persons aged between 5 and 17 or aged 65+
-    const persons = odSurveyHelpers.getPersonsArray({ interview });
-    if (persons.length === 1) {
-        return false;
-    }
-    const eligiblePerson = persons.filter(
-        (person) => (person.age >= config.interviewableAge && person.age < config.adultAge) || person.age >= 65
-    );
-    return eligiblePerson.length > 0;
 };
 
 export const isSameModeSample = (interview: InterviewAttributes) =>
@@ -276,31 +260,15 @@ export const getCommonTripLabelOptions = ({
     if (!isCommonTripSampleMatch(interview)) {
         return defaultReminder;
     }
-    // See if this person may have had a common trip with someone (only if it is not the first one)
-    const commonTripReferencePersonId = getResponse(interview, '_commonTripRefPersonId', null) as string | null;
-    if (commonTripReferencePersonId === currentPerson._uuid || commonTripReferencePersonId === null) {
+    const commonTripsData = getCommonTripFromReferencePerson(interview, currentPerson);
+    if (commonTripsData === null) {
         return defaultReminder;
     }
-
-    // Does the first person have common trip with this one?
-    const commonTripReferencePerson = odSurveyHelpers.getPersons({ interview })[commonTripReferencePersonId];
-    if (commonTripReferencePerson === undefined) {
-        return defaultReminder;
-    }
-    const commonTripReferenceJourney = odSurveyHelpers.getJourneysArray({ person: commonTripReferencePerson })[0];
-    if (commonTripReferenceJourney === undefined) {
-        return defaultReminder;
-    }
-
-    // Does the first person have trips made in common with the current person?
-    const referenceTrips = odSurveyHelpers.getTripsArray({ journey: commonTripReferenceJourney });
-    const commonTrips = referenceTrips.filter(
-        (trip) =>
-            Array.isArray((trip as any).commonTripWith) && (trip as any).commonTripWith.includes(currentPerson._uuid)
-    );
-    if (commonTrips.length === 0) {
-        return defaultReminder;
-    }
+    const {
+        person: commonTripReferencePerson,
+        journey: commonTripReferenceJourney,
+        trips: commonTrips
+    } = commonTripsData;
 
     // Get the time bound for this person's current place (ie the last available time)
     const visitedPlaceLatestTime = getVisitedPlaceLatestTime({
@@ -624,4 +592,41 @@ export const getPreviousModeSameModePartialSample: AdditionalSectionLabelOptionF
             .map((segment) => t(`segments:mode.short.${_upperFirst(segment.mode)}`))
             .join(', ')
     };
+};
+
+const defaultPrefilledSegmentNote = { prefilledSegmentNote: '' };
+export const addPrefilledSegmentNote: AdditionalSectionLabelOptionFct = ({ interview, t, path }) => {
+    // Uncomment the code here to get the trip context faster when https://github.com/chairemobilite/evolution/issues/1715 is fixed
+    // const tripContext = odSurveyHelpers.getTripContextFromPath({ interview, path });
+    // if (!tripContext) {
+    //     throw new Error('addPrefilledSegmentNode: segment context not found for path ' + path);
+    // }
+    // const { trip } = tripContext;
+
+    const currentPerson = odSurveyHelpers.getActivePerson({ interview });
+    if (currentPerson === null) {
+        throw new Error('addPrefilledSegmentNote: current person not found in interview');
+    }
+    const currentJourney = odSurveyHelpers.getActiveJourney({ interview, person: currentPerson });
+    if (currentJourney === null) {
+        throw new Error('addPrefilledSegmentNote: current journey not found in interview');
+    }
+    const trip = odSurveyHelpers.getActiveTrip({ interview, journey: currentJourney });
+    if (trip === undefined) {
+        throw new Error('addPrefilledSegmentNote: current trip not found in interview ');
+    }
+
+    // If the trip is prefilled from a common trip, return a note to inform the
+    // user that the segment is prefilled
+    if ((trip as any)._prefilledFromCommonTrip === true) {
+        const referencePerson = getCommonTripReferencePerson(interview);
+        if (referencePerson !== null) {
+            return {
+                prefilledSegmentNote: t('segments:prefilledSegmentNote', {
+                    referenceNickname: odSurveyHelpers.getPersonIdentificationString({ person: referencePerson, t })
+                })
+            };
+        }
+    }
+    return defaultPrefilledSegmentNote;
 };

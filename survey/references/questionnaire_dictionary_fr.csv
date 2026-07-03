@@ -605,7 +605,7 @@ Question,Carte des déplacements de {{nickname}} le {{journeyDate}}:
 ""
 Champ,segmentsIntro
 Type de question,Builtin
-Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:"
+Question,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}"
 ""
 Champ,segments
 Type de question,Builtin

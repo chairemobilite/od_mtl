@@ -10,7 +10,7 @@ personVisitedPlacesMap: 'Carte des déplacements de <strong>{{nickname}}</strong
 personVisitedPlacesMap_one: 'Carte de vos déplacements le {{journeyDate}}:'
 segmentIntro: >-
     Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement
-    (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
+    (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}
 segments: Mode de transport
 segmentSameModeAsReverseTrip: Même mode que le déplacement précédent ({{previousMode}})
 segmentPaidForParking: Stationnement payant?
@@ -192,3 +192,7 @@ mode:
         Other: Autre
         Taxi: Taxi ou équivalent (ex. Uber)
         DontKnow: Je ne sais pas / Préfère ne pas répondre
+prefilledSegmentNote: >-
+    <br /><span class="_pale _oblique"><strong>Note:</strong> Information pré-remplie
+    en fonction de la déclaration de {{referenceNickname}}. Vérifier que les informations
+    sont correctes et changer au besoin.</span>

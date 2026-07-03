@@ -12,9 +12,9 @@ import { personVisitedPlacesWidgetsNames } from './sections/visitedPlaces/widget
 import { segmentsWidgetsNames, personTripsWidgetsNames } from './sections/segments/widgetsNames';
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import {
+    addPrefilledSegmentNote,
     getCommonTripReminderOptionsForVisitedPlaces,
-    getPreviousModeSameModePartialSample,
-    isCommonTripSampleMatch
+    getPreviousModeSameModePartialSample
 } from './common/customHelpers';
 
 // Import feature collections for some widgets
@@ -22,6 +22,7 @@ import metroStations from './geojson/stations_metro.json';
 import remStations from './geojson/stations_rem.json';
 import trainStations from './geojson/gares_train.json';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { isCommonTripSampleMatch } from './common/commonHelpers';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
@@ -77,7 +78,8 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                     { fieldName: 'trainStationEnd', type: 'fromCollection', featureCollection: trainStationsFC }
                 ],
                 additionalLabelOptionFunctions: {
-                    segmentSameModeAsReverseTrip: getPreviousModeSameModePartialSample
+                    segmentSameModeAsReverseTrip: getPreviousModeSameModePartialSample,
+                    segmentIntro: addPrefilledSegmentNote
                 }
             },
             visitedPlaces: {

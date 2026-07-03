@@ -299,6 +299,9 @@ segments,mode.short.Other,Autre,Other,,
 segments,mode.short.Taxi,Taxi ou équivalent (ex. Uber),Taxi or equivalent (eg. Uber),,
 segments,mode.short.DontKnow,Je ne sais pas / Préfère ne pas répondre,I don't know / Prefer not to answer,,
 segments,errors.trainStationsIncoherent,La ou les station(s) de transfert semblent incohérentes pour ce déplacement,The transfer station(s) do not seem coherent for this trip,,
+segments,prefilledSegmentNote,"
+__**Note:** Information pré-remplie en fonction de la déclaration de {{referenceNickname}}. Vérifier que les informations sont correctes et changer au besoin.__","
+__**Note:** Information prefilled from {{referenceNickname}}'s trip diary. Verify if the information is correct and change if needed.__",,
 travelBehavior,personHasSchoolPlace_schoolchildcare,"Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?","Does {{nickname}} attend a school, daycare or CPE?",,
 travelBehavior,workCommutingHelpPopup.title,Pourquoi cette question?,Why this question?,,
 travelBehavior,workCommutingHelpPopup.content,"Inspirée du Recensement de Statistique Canada, cette question permet de comparer les modes de navettage entre enquêtes.","Inspired by Statistics Canada’s Census, this question allows for comparison of commuting modes across surveys.",,

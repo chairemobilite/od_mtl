@@ -9,7 +9,7 @@ personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{jou
 personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
 segmentIntro: >-
     Please indicate all modes of transport used for this trip (from {{originName}}
-    to {{destinationName}}), in chronological order:
+    to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}
 segments: Mode of transport
 segmentSameModeAsReverseTrip: Same mode as the previous trip ({{previousMode}})
 segmentPaidForParking: Paid parking
@@ -188,3 +188,7 @@ mode:
         Other: Other
         Taxi: Taxi or equivalent (eg. Uber)
         DontKnow: I don't know / Prefer not to answer
+prefilledSegmentNote: >-
+    <br /><span class="_pale _oblique"><strong>Note:</strong> Information prefilled
+    from {{referenceNickname}}'s trip diary. Verify if the information is correct
+    and change if needed.</span>
