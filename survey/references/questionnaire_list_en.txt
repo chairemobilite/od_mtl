@@ -414,7 +414,7 @@ Trips made by {{nickname}} on {{journeyDates}}
 
 Map of {{nickname}}’s trips on {{journeyDate}}:
 
-Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:
+Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}
 
 Mode of transport
 

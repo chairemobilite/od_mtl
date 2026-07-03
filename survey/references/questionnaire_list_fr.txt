@@ -411,7 +411,7 @@ Déplacements de {{nickname}} le {{journeyDates}}
 
 Carte des déplacements de {{nickname}} le {{journeyDate}}:
 
-Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:
+Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}
 
 Mode de transport
 

@@ -608,7 +608,7 @@ Question,Map of {{nickname}}’s trips on {{journeyDate}}:
 ""
 Field,segmentsIntro
 Question type,Builtin
-Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:"
+Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}"
 ""
 Field,segments
 Question type,Builtin
