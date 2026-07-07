@@ -179,19 +179,19 @@ export type Segment = {
     // Indicate if the segment is expected to be present already or if the participant needs to click the next button
     expectedPrefilled: boolean;
     sameModeAsReverseTrip: boolean | null;
-    modePre: string | null;
-    mode: string | null;
+    modePre?: string | null;
+    mode?: string | null;
     paidForParking: string | null;
     vehicleOccupancy: number | null;
-    driver: string | null;
-    subwayStationStart: string | null;
-    subwayStationEnd: string | null;
-    subwayStationsTransfer: string[] | null;
+    driver?: string | null;
+    subwayStationStart?: string | null;
+    subwayStationEnd?: string | null;
+    subwayStationsTransfer?: string[] | null;
     subwayLine: string | null;
-    trainStationStart: string | null;
-    trainStationEnd: string | null;
-    remStationStart: string | null;
-    remStationEnd: string | null;
+    trainStationStart?: string | null;
+    trainStationEnd?: string | null;
+    remStationStart?: string | null;
+    remStationEnd?: string | null;
     planeStationStart: string | null;
     planeStationEnd: string | null;
     intercityRailStationStart: string | null;
@@ -210,6 +210,8 @@ export type Segment = {
     junctionBusPrivate: string | null;
     junctionPointPaidParking: string | null;
     hasNextMode: boolean | null;
+    // Should be shown only in the ep commonTrip if after hasNextMode is false
+    commonTrip: string[] | null;
 };
 
 /**
@@ -245,7 +247,8 @@ export const defaultSegmentNullValues: Omit<Segment, 'segmentIndex' | 'modePre' 
     intercityEgressMode: null, // Question won't show.
     junctionBusPrivate: null, // Question won't show.
     junctionPrivateBus: null, // Question won't show.
-    junctionPointPaidParking: null // Question won't show.
+    junctionPointPaidParking: null, // Question won't show.
+    commonTrip: null // Question won't show.
 };
 
 // TODO: Consider moving the householdMembers array to the individual test files for easier customization per test case.
@@ -821,7 +824,7 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
             }
         }
 
-        // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+        // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1CustomConditional with choices yesNoPreferNotToAnswer
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
         if (person.hasDisability === null) {
@@ -1659,16 +1662,12 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
 };
 
 /********** Tests Segments section **********/
-export type TestTrip = {
-    commonTrip: string[] | null;
-};
 export const fillSegmentsSectionTests = ({
     context,
     householdSize = 1,
     segments,
-    trip = { commonTrip: null },
     expectedNextSection = 'end'
-}: CommonTestParametersModify & { segments: Segment[]; trip: TestTrip; expectedNextSection?: string }) => {
+}: CommonTestParametersModify & { segments: Segment[]; expectedNextSection?: string }) => {
     testTripDiaryHeaderVisibility({ context, householdSize });
 
     // Test custom widget segmentsPersonTripsTitle
@@ -1693,23 +1692,6 @@ export const fillSegmentsSectionTests = ({
         // TODO: Implement multiple mode of transport for a trip
         fillOneSegmentTests({ context, index: segment.segmentIndex, segment });
     });
-
-    // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    if (trip.commonTrip === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputCheckboxTest({
-            context,
-            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
-            values: trip.commonTrip
-        });
-    }
 
     // Test custom widget buttonConfirmNextSection with conditional lastPlaceEnteredCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -1760,11 +1742,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.modePre`,
             isVisible: false
         });
-    } else {
+    } else if (segment.modePre !== undefined) {
         testHelpers.inputRadioTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.modePre`,
             value: segment.modePre
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.modePre`,
+            isVisible: true
         });
     }
 
@@ -1775,11 +1763,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.mode`,
             isVisible: false
         });
-    } else {
+    } else if (segment.mode !== undefined) {
         testHelpers.inputRadioTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.mode`,
             value: segment.mode
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.mode`,
+            isVisible: true
         });
     }
 
@@ -1822,12 +1816,19 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.driver`,
             isVisible: false
         });
-    } else {
+    } else if (segment.driver !== undefined) {
         testHelpers.inputSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.driver`,
             value: String(segment.driver)
         });
+    } else {
+        // FIXME Visibility tests do not seem to work with select widgets, cannot validate its presence
+        // testHelpers.inputVisibleTest({
+        //     context,
+        //     path: `true.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.driver`,
+        //     isVisible: true
+        // });
     }
 
     // Test custom widget segmentBusLines
@@ -1837,11 +1838,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
             isVisible: false
         });
-    } else {
+    } else if (segment.subwayStationStart !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
             values: segment.subwayStationStart
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationStart`,
+            isVisible: true
         });
     }
 
@@ -1852,11 +1859,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
             isVisible: false
         });
-    } else {
+    } else if (segment.subwayStationEnd !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
             values: segment.subwayStationEnd
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationEnd`,
+            isVisible: true
         });
     }
 
@@ -1867,11 +1880,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
             isVisible: false
         });
-    } else {
+    } else if (segment.subwayStationsTransfer !== undefined) {
         testHelpers.inputCheckboxTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
             values: segment.subwayStationsTransfer
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
+            isVisible: true
         });
     }
 
@@ -1882,11 +1901,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayLine`,
             isVisible: false
         });
-    } else {
+    } else if (segment.subwayLine !== undefined) {
         testHelpers.inputRadioTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayLine`,
             value: segment.subwayLine
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayLine`,
+            isVisible: true
         });
     }
 
@@ -1897,11 +1922,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
             isVisible: false
         });
-    } else {
+    } else if (segment.trainStationStart !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
             values: segment.trainStationStart
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationStart`,
+            isVisible: true
         });
     }
 
@@ -1912,11 +1943,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
             isVisible: false
         });
-    } else {
+    } else if (segment.trainStationEnd !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
             values: segment.trainStationEnd
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.trainStationEnd`,
+            isVisible: true
         });
     }
 
@@ -1927,11 +1964,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
             isVisible: false
         });
-    } else {
+    } else if (segment.remStationStart !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
             values: segment.remStationStart
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationStart`,
+            isVisible: true
         });
     }
 
@@ -1942,11 +1985,17 @@ const fillOneSegmentTests = ({
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
             isVisible: false
         });
-    } else {
+    } else if (segment.remStationEnd !== undefined) {
         testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
             values: segment.remStationEnd
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.remStationEnd`,
+            isVisible: true
         });
     }
 
@@ -2206,6 +2255,24 @@ const fillOneSegmentTests = ({
 
     // Click on the next button if segment does not have next mode
     if (segment.hasNextMode !== true) {
+        // See if the commonTrip field should be present and display it
+        // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (segment.commonTrip === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputCheckboxTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
+                values: segment.commonTrip
+            });
+        }
+
         testHelpers.inputNextButtonTest({ context, text: 'Confirm this trip', nextPageUrl: '/survey/segments' });
     }
 };
@@ -2783,6 +2850,18 @@ export const fillBarriersDisabilitySectionTests = ({
             value: barriersDisabilitySection.barriersDisabilityCourtesy
         });
     }
+};
+
+/*********** Tests for select freq person ***********/
+export type SelectFreqTestParameters = CommonTestParametersModify & {
+    selectedPerson: string;
+};
+export const fillSelectFreqPerson = ({ context, selectedPerson }: SelectFreqTestParameters) => {
+    // Test radio widget selectFreqPerson with choices hhAge16PlusCustomChoices
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputRadioTest({ context, path: '_freqPersonId', value: selectedPerson });
+    // Test nextbutton widget buttonCompleteSelectFreqPersonSection
+    testHelpers.inputNextButtonTest({ context, text: 'Confirm', nextPageUrl: 'survey/frequencies' });
 };
 
 /********** Tests for frequencies section **********/
