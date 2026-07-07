@@ -10,7 +10,7 @@ AccessCode,PostalCode,Address,AptNumber,City,Province,AddrLat,AddrLon,Strate,Lot
 735-711-212,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,2,one-person-with-transit-trips-sameModeFalse,mtmd,FALSE,FALSE
 735-711-312,G1R 5H1,1001 boulevard Robert-Bourassa,,Montréal,Québec,45.5010118,-73.5670624,1,2,one-person-with-transit-trips-trips-sameModeTrue,mtmd,FALSE,TRUE
 735-711-117,G0L 1G0,"3100, boulevard Le Carrefour",,Laval,Québec,45.565568,-73.757695,1,1,two-persons-with-disabilities-householdTypeEp,householdType,FALSE,FALSE
-735-711-118,G0L 1G0,"3100, boulevard Le Carrefour",,Laval,Québec,45.565568,-73.757695,1,2,,,,
+735-711-118,G0L 1G0,"3100, boulevard Le Carrefour",,Laval,Québec,45.565568,-73.757695,1,2,two-persons-with-common-trips-freqBarriersEp,freqBarriers,TRUE,FALSE
 735-711-119,J6A 8G4,"107, rue Laroche",,Repentigny,Québec,45.7524804,-73.450328,1,3,one-person-no-trips-and-freqAttitudinalBarriersEp,freqAttitudinalBarriers,FALSE,FALSE
 735-711-120,J6A 8G4,"107, rue Laroche",,Repentigny,Québec,45.7524804,-73.450328,1,3,one-person-with-trips-freqBarriers,freqBarriers,FALSE,FALSE
 735-711-121,G0L 1G0,"107, rue Laroche",,Repentigny,Québec,45.7524804,-73.450328,1,3,,,,
