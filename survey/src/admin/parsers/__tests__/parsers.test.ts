@@ -7,6 +7,7 @@
 
 import { parseInterviewAttributes } from '../interview.parser';
 import { parseHomeAttributes } from '../home.parser';
+import { parseHouseholdAttributes } from '../household.parser';
 import { parseTripAttributes } from '../trip.parser';
 import { parseVisitedPlaceAttributes } from '../visitedPlace.parser';
 import { surveyObjectParsers } from '../index';
@@ -20,6 +21,7 @@ describe('OD Nationale Quebec Survey Parsers', () => {
         test.each([
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
+            ['household', parseHouseholdAttributes],
             ['trip', parseTripAttributes],
             ['visitedPlace', parseVisitedPlaceAttributes]
         ])('should have %s parser configured correctly', (parserName, expectedFunction) => {
@@ -29,7 +31,6 @@ describe('OD Nationale Quebec Survey Parsers', () => {
         });
 
         test.each([
-            'household',
             'person',
             'journey',
             'segment'
@@ -116,6 +117,7 @@ describe('OD Nationale Quebec Survey Parsers', () => {
         test.each([
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
+            ['household', parseHouseholdAttributes],
             ['trip', parseTripAttributes],
             ['visitedPlace', parseVisitedPlaceAttributes]
         ])('should use correct parser implementation for %s', (parserName, expectedFunction) => {
@@ -124,7 +126,7 @@ describe('OD Nationale Quebec Survey Parsers', () => {
 
         it('should have correct parser configuration for OD Nationale Quebec survey', () => {
             // Verify we have exactly the parsers we need for this survey
-            const expectedParsers = ['interview', 'home', 'trip', 'visitedPlace'];
+            const expectedParsers = ['interview', 'home', 'household', 'trip', 'visitedPlace'];
             const actualParsers = Object.keys(surveyObjectParsers).filter((key) =>
                 surveyObjectParsers[key as keyof typeof surveyObjectParsers] !== undefined
             );
