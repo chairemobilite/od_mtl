@@ -804,21 +804,6 @@ export const carParkingsHome: ChoiceType[] = [
     }
 ];
 
-export const zeroToTwoPlus: ChoiceType[] = [
-    {
-        value: '0',
-        label: (t: TFunction) => t('choices:zeroToTwoPlus.0')
-    },
-    {
-        value: '1',
-        label: (t: TFunction) => t('choices:zeroToTwoPlus.1')
-    },
-    {
-        value: '2',
-        label: (t: TFunction) => t('choices:zeroToTwoPlus.2')
-    }
-];
-
 export const bikesharingMembership: ChoiceType[] = [
     {
         value: 'yes',

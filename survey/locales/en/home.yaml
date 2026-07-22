@@ -37,6 +37,12 @@ householdCarNumber: >-
 householdTwoWheelNumber: >-
     <strong>Motorcycles or scooters</strong> requiring a licence<br /><span class="_pale
     _oblique">Also known as mopeds or motorized scooters</span>
+householdBicycleNumber: >-
+    <strong>Bicycles</strong> owned by household members<br /><span class="_pale _oblique">Include
+    only bicycles belonging to teenagers or adults that are in usable condition, including
+    electric-assist bicycles. Do not include children’s bicycles.</span>
+householdElectricBicycleNumber: >-
+    Among these bicycles, how many are <strong>electric bicycles</strong> (e-bikes)?
 homeCarParkingsAvailableVehicleHousehold: >-
     <strong>Parking available at home</strong> for your household's vehicles<br /><span
     class="_pale _oblique">You may leave this question blank if none of the options
@@ -47,12 +53,6 @@ homeCarParkingsAvailableNoVehicleHousehold: >-
 householdCarsharing: >-
     <strong>Carshare</strong> (ex. : Communauto, Leo): used as driver in the past
     6 months by at least one household member
-householdBicycleNumber: >-
-    <strong>Bicycles</strong> owned by household members<br /><span class="_pale _oblique">Include
-    only bicycles belonging to teenagers or adults that are in usable condition, including
-    electric-assist bicycles. Do not include children’s bicycles.</span>
-householdElectricBicycleNumber: >-
-    Among these bicycles, how many are <strong>electric bicycles</strong> (e-bikes)?
 householdBikesharing: >-
     <strong>Bikeshare</strong> (BIXI): used in the last 30 days by at least one household
     member

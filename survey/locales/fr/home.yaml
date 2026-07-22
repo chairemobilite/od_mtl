@@ -38,6 +38,12 @@ householdCarNumber: >-
 householdTwoWheelNumber: >-
     <strong>Motocyclettes ou scooters</strong> nécessitant un permis <br /><span class="_pale
     _oblique">Aussi appelé cyclomoteur ou mobylette</span>
+householdBicycleNumber: >-
+    <strong>Vélo(s)</strong> à la disposition de votre ménage <br /><span class="_pale
+    _oblique">Indiquer seulement les vélos des ados ou adultes dans un état utilisable,
+    incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.</span>
+householdElectricBicycleNumber: >-
+    Parmi ces vélos, combien sont des <strong>vélos à assistance électrique</strong>?
 homeCarParkingsAvailableVehicleHousehold: >-
     <strong>Stationnement(s) disponible(s) au domicile</strong> pour les véhicules
     de votre ménage. <br /><span class="_pale _oblique">Vous pouvez laisser cette
@@ -48,12 +54,6 @@ homeCarParkingsAvailableNoVehicleHousehold: >-
 householdCarsharing: >-
     <strong>Autopartage</strong> (ex. : Communauto, Léo) : utilisé comme conducteur(-rice)
     par au moins une personne du ménage dans les 6 derniers mois
-householdBicycleNumber: >-
-    <strong>Vélo(s)</strong> à la disposition de votre ménage <br /><span class="_pale
-    _oblique">Indiquer seulement les vélos des ados ou adultes dans un état utilisable,
-    incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.</span>
-householdElectricBicycleNumber: >-
-    Parmi ces vélos, combien sont des <strong>vélo(s) à assistance électrique</strong>?
 householdBikesharing: >-
     <strong>Vélo en libre-service</strong> (ex. : BIXI) : utilisation dans les 30
     derniers jours par au moins une personne du ménage

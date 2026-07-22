@@ -209,10 +209,6 @@ usualWorkPlaceCommutingModes:
 carParkingsHome:
     private: Entrée privée, garage ou place de stationnement réservée
     stickers: Possession d’une vignette résidentielle 
-zeroToTwoPlus:
-    '0': '0'
-    '1': '1'
-    '2': 2+
 bikesharingMembership:
     yes: Oui (mensuel, saison)
     no: Non (paiement au déplacement)

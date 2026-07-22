@@ -463,12 +463,27 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
     // Test radionumber widget household_carNumber
     testHelpers.inputRadioTest({ context, path: 'household.carNumber', value: home.householdCarNumber });
 
-    // Test radio widget household_twoWheelNumber
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.twoWheelNumber',
-        value: String(home.householdTwoWheelNumber)
-    });
+    // Test radionumber widget household_twoWheelNumber
+    testHelpers.inputRadioTest({ context, path: 'household.twoWheelNumber', value: home.householdTwoWheelNumber });
+
+    // Test radionumber widget household_bicycleNumber
+    testHelpers.inputRadioTest({ context, path: 'household.bicycleNumber', value: home.householdBicycleNumber });
+
+    // Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (home.householdElectricBicycleNumber === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.electricBicycleNumber',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.electricBicycleNumber',
+            value: home.householdElectricBicycleNumber
+        });
+    }
 
     // Test checkbox widget home_carParkingsAvailableVehicleHousehold with conditional carParkingHomeWithVehicleConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -508,25 +523,6 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
         testHelpers.inputVisibleTest({ context, path: 'household.carsharing', isVisible: false });
     } else {
         testHelpers.inputRadioTest({ context, path: 'household.carsharing', value: home.householdCarSharing });
-    }
-
-    // Test radionumber widget household_bicycleNumber
-    testHelpers.inputRadioTest({ context, path: 'household.bicycleNumber', value: home.householdBicycleNumber });
-
-    // Test radionumber widget household_electricBicycleNumber with conditional hasHouseholdBicycleConditional
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    if (home.householdElectricBicycleNumber === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: 'household.electricBicycleNumber',
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: 'household.electricBicycleNumber',
-            value: home.householdElectricBicycleNumber
-        });
     }
 
     // Test radio widget household_bikesharing with conditional sharingMobilitiesConditional

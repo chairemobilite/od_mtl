@@ -19,11 +19,11 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'householdSize',
     'householdCarNumber',
     'householdTwoWheelNumber',
+    'householdBicycleNumber',
+    'householdElectricBicycleNumber',
     'homeCarParkingsAvailableVehicleHousehold',
     'homeCarParkingsAvailableNoVehicleHousehold',
     'householdCarsharing',
-    'householdBicycleNumber',
-    'householdElectricBicycleNumber',
     'householdBikesharing',
     'householdAtLeastOnePersonWithDisability',
     'home_save'

@@ -211,10 +211,6 @@ usualWorkPlaceCommutingModes:
 carParkingsHome:
     private: Private driveway, garage or reserved parking space
     stickers: Residential parking permit
-zeroToTwoPlus:
-    '0': '0'
-    '1': '1'
-    '2': 2+
 bikesharingMembership:
     yes: Yes (monthly, seasonal)
     no: No (pay per trip)

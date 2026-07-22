@@ -146,6 +146,7 @@ export const householdCarNumber: WidgetConfig.InputRadioNumberType = {
     path: 'household.carNumber',
     twoColumns: false,
     containsHtml: true,
+    joinWith: 'householdTwoWheelNumber',
     label: (t: TFunction) => t('home:householdCarNumber'),
     valueRange: {
         min: 0,
@@ -157,16 +158,50 @@ export const householdCarNumber: WidgetConfig.InputRadioNumberType = {
     validations: validations.carNumberValidation
 };
 
-export const householdTwoWheelNumber: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
+export const householdTwoWheelNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
     path: 'household.twoWheelNumber',
     twoColumns: false,
     containsHtml: true,
+    joinWith: 'householdBicycleNumber',
     label: (t: TFunction) => t('home:householdTwoWheelNumber'),
+    valueRange: {
+        min: 0,
+        max: 4
+    },
+    overMaxAllowed: true,
     helpPopup: customHelpPopup.twoWheelNumberHelpPopup,
-    choices: choices.zeroToTwoPlus,
     conditional: defaultConditional,
     validations: validations.requiredValidation
+};
+
+export const householdBicycleNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.bicycleNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdBicycleNumber'),
+    valueRange: {
+        min: 0,
+        max: 4
+    },
+    overMaxAllowed: true,
+    conditional: defaultConditional,
+    validations: validations.bicycleNumberValidation
+};
+
+export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.electricBicycleNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
+    valueRange: {
+        min: 0,
+        max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
+    },
+    conditional: conditionals.hasHouseholdBicycleConditional,
+    validations: validations.bicycleNumberValidation
 };
 
 // Custom label because of the car number plural
@@ -202,35 +237,6 @@ export const householdCarsharing: WidgetConfig.InputRadioType = {
     choices: choices.yesNoDontKnow,
     conditional: conditionals.sharingMobilitiesConditional,
     validations: validations.requiredValidation
-};
-
-export const householdBicycleNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.bicycleNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('home:householdBicycleNumber'),
-    valueRange: {
-        min: 0,
-        max: 2
-    },
-    overMaxAllowed: true,
-    conditional: defaultConditional,
-    validations: validations.bicycleNumberValidation
-};
-
-export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.electricBicycleNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
-    valueRange: {
-        min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
-    },
-    conditional: conditionals.hasHouseholdBicycleConditional,
-    validations: validations.bicycleNumberValidation
 };
 
 export const householdBikesharing: WidgetConfig.InputRadioType = {

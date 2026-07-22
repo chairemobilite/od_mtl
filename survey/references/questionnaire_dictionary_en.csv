@@ -86,11 +86,19 @@ Question,"Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household"
 ""
 Field,hh_twoWheelNumber
-Question type,Radio input
+Question type,RadioNumber
 Question,"Motorcycles or scooters requiring a licence
 Also known as mopeds or motorized scooters"
-Values,"1 : 1
-2 : 2+"
+""
+Field,hh_bicycleNumber
+Question type,RadioNumber
+Question,"Bicycles owned by household members
+Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles."
+""
+Field,hh_electricBicycleNumber
+Question type,RadioNumber
+Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
+Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
 Field,h_carParkingAvailableVehicleHousehold
 Question type,Checkbox input
@@ -114,16 +122,6 @@ Question,"Carshare (ex. : Communauto, Leo): used as driver in the past 6 months 
 Values,"yes : Yes
 no : No
 dontKnow : Don't know"
-""
-Field,hh_bicycleNumber
-Question type,RadioNumber
-Question,"Bicycles owned by household members
-Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles."
-""
-Field,hh_electricBicycleNumber
-Question type,RadioNumber
-Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
-Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
 Field,hh_bikesharing
 Question type,Radio input
