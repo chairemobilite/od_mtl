@@ -57,9 +57,11 @@ Available to one or more members of your household
 
 Motorcycles or scooters requiring a licence
 Also known as mopeds or motorized scooters
-- 0
-- 1
-- 2+
+
+Bicycles owned by household members
+Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.
+
+Among these bicycles, how many are electric bicycles (e-bikes)?
 
 Parking available at home for your household's vehicles
 You may leave this question blank if none of the options apply to your situation.
@@ -74,11 +76,6 @@ Carshare (ex. : Communauto, Leo): used as driver in the past 6 months by at leas
 - Yes
 - No
 - Don't know
-
-Bicycles owned by household members
-Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.
-
-Among these bicycles, how many are electric bicycles (e-bikes)?
 
 Bikeshare (BIXI): used in the last 30 days by at least one household member
 - Yes

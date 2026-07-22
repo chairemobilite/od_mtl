@@ -57,9 +57,11 @@ Automobiles, VUS, camions légers ou fourgonnettes, etc.
 
 Motocyclettes ou scooters nécessitant un permis 
 Aussi appelé cyclomoteur ou mobylette
-- 0
-- 1
-- 2+
+
+Vélo(s) à la disposition de votre ménage 
+Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.
+
+Parmi ces vélos, combien sont des vélos à assistance électrique?
 
 Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
 Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.
@@ -74,11 +76,6 @@ Autopartage (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au m
 - Oui
 - Non
 - Ne sait pas
-
-Vélo(s) à la disposition de votre ménage 
-Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.
-
-Parmi ces vélos, combien sont des vélo(s) à assistance électrique?
 
 Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage
 - Oui

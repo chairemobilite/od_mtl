@@ -36,23 +36,25 @@ householdCarNumber,RadioNumber,True,home,,household.carNumber,"**Automobiles**, 
 __À la disposition de votre ménage__","**Cars**, SUVs, light-duty trucks or vans, etc.
 __Available to one or more members of your household__",,,"min=0
 Max=4
-overMaxAllowed",,,carNumberValidation,,householdCarNumberHelpPopup,,,True,,,,,
-householdTwoWheelNumber,Radio,True,home,,household.twoWheelNumber,"**Motocyclettes ou scooters** nécessitant un permis 
+overMaxAllowed",join_with=${householdTwoWheelNumber},,carNumberValidation,,householdCarNumberHelpPopup,,,True,,,,,
+householdTwoWheelNumber,RadioNumber,True,home,,household.twoWheelNumber,"**Motocyclettes ou scooters** nécessitant un permis 
 __Aussi appelé cyclomoteur ou mobylette__","**Motorcycles or scooters** requiring a licence
-__Also known as mopeds or motorized scooters__",,,,,,,zeroToTwoPlus,twoWheelNumberHelpPopup,,,True,,,,,
+__Also known as mopeds or motorized scooters__",,,"min=0
+Max=4
+overMaxAllowed",join_with=${householdBicycleNumber},,,,twoWheelNumberHelpPopup,,,True,,,,,
+householdBicycleNumber,RadioNumber,True,home,,household.bicycleNumber,"**Vélo(s)** à la disposition de votre ménage 
+__Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.__","**Bicycles** owned by household members
+__Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.__",,,"min=0
+Max=4
+overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
+householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
+max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
 homeCarParkingsAvailableVehicleHousehold,Checkbox,True,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
 __Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.__","**Parking available at home** for your household's vehicles
 __You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,True,,,,,"Custom label because of the car number plural
 home_carParkingsAvailableVehicleHousehold : label · Issue #7 · chairemobilite/od_mtl"
 homeCarParkingsAvailableNoVehicleHousehold,Radio,True,home,,home.carParkingAvailableNoVehicleHousehold,"Votre ménage a-t-il accès à une **entrée privée, garage ou place de stationnement réservée**?","Does your household have access to a **private driveway, garage, or reserved parking space?**",,,,,carParkingHomeWithoutVehicleConditional,,yesNo,,,,True,,,,,
 householdCarsharing,Radio,True,home,,household.carsharing,"**Autopartage** (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois","**Carshare** (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member",,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
-householdBicycleNumber,RadioNumber,True,home,,household.bicycleNumber,"**Vélo(s)** à la disposition de votre ménage 
-__Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants.__","**Bicycles** owned by household members
-__Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.__",,,"min=0
-Max=2
-overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
-householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélo(s) à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
-max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
 householdBikesharing,Radio,True,home,,household.bikesharing,**Vélo en libre-service** (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage,**Bikeshare** (BIXI): used in the last 30 days by at least one household member,,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
 householdAtLeastOnePersonWithDisability,Radio,True,home,,household.atLeastOnePersonWithDisability,"Y a-t-il au moins une personne dans votre ménage avec une **incapacité permanente qui limite ses déplacements quotidiens**?
 __Y compris vous-même__","Is there at least one person in your household that has a **permanent disability that limits their daily travel?**
@@ -217,12 +219,12 @@ tripsIntro_save,NextButton,1,tripsIntro,,tripsIntro.save,Continuer,Continue,,,,,
 tripsIntroOutro,InfoText,1,tripsIntro,,tripsIntroOutro,__Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.__,__Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential.__,,,,,,,,,,,True,,,,,
 activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**’s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,True,,,,,
 buttonSwitchPerson,Builtin,1,visitedPlaces,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
-personVisitedPlacesTitle,Builtin,1,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
+personVisitedPlacesTitle,Builtin,True,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
 L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
 L'ordre chronologique doit être respecté.","Places you went on {{journeyDate}}:
 Chronological order must be respected (i.e. sequence matters).",,,,,,,,,True,,,,,
-personVisitedPlacesMap,Builtin,1,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDates}} :,Map of **{{nickname}}**’s trips on {{journeyDates}}:,Carte de vos déplacements le {{journeyDates}} :,Map of your trips on {{journeyDates}}:,,,,,,,,,,,,,,
+personVisitedPlacesMap,Builtin,True,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDates}} :,Map of **{{nickname}}**’s trips on {{journeyDates}}:,Carte de vos déplacements le {{journeyDates}} :,Map of your trips on {{journeyDates}}:,,,,,,,,,,,,,,
 personVisitedPlaces,Builtin,True,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,
 visitedPlaceActivityCategory,Builtin,True,visitedPlaces,personVisitedPlaces,activityCategory,Activité principale à ce lieu{{reminderText}},Main activity carried out at this location{{reminderText}},,,,,,,,,,,,,,,,
 visitedPlaceActivity,Builtin,True,visitedPlaces,personVisitedPlaces,activity,Spécifier :,Specify :,,,,,,,,,,,,,,,,

@@ -86,11 +86,19 @@ Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage"
 ""
 Champ,hh_twoWheelNumber
-Type de question,Bouton radio
+Type de question,RadioNumber
 Question,"Motocyclettes ou scooters nécessitant un permis 
 Aussi appelé cyclomoteur ou mobylette"
-Valeurs,"1 : 1
-2 : 2+"
+""
+Champ,hh_bicycleNumber
+Type de question,RadioNumber
+Question,"Vélo(s) à la disposition de votre ménage 
+Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants."
+""
+Champ,hh_electricBicycleNumber
+Type de question,RadioNumber
+Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
+Question,"Parmi ces vélos, combien sont des vélos à assistance électrique?"
 ""
 Champ,h_carParkingAvailableVehicleHousehold
 Type de question,Case à cocher
@@ -114,16 +122,6 @@ Question,"Autopartage (ex. : Communauto, Léo) : utilisé comme conducteur(-rice
 Valeurs,"yes : Oui
 no : Non
 dontKnow : Ne sait pas"
-""
-Champ,hh_bicycleNumber
-Type de question,RadioNumber
-Question,"Vélo(s) à la disposition de votre ménage 
-Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants."
-""
-Champ,hh_electricBicycleNumber
-Type de question,RadioNumber
-Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
-Question,"Parmi ces vélos, combien sont des vélo(s) à assistance électrique?"
 ""
 Champ,hh_bikesharing
 Type de question,Bouton radio
