@@ -71,7 +71,7 @@ module.exports = {
     },
     postalCodeRegion: 'quebec',
     separateAdminLoginPage: true,
-    surveySupportForm: true,
+    surveySupportForm: false,
     captchaComponentType: 'capjs',
     mapDefaultZoom: 10,
     mapDefaultCenter: {
