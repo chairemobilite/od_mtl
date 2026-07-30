@@ -367,6 +367,12 @@ Spécifier :
 
 Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 
+Nom ou adresse du lieu habituel de travail de {{nickname}}
+
+Veuillez localiser le lieu de travail habituel de {{nickname}}
+Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton "Chercher le lieu".
+
 Avez-vous déjà localisé ce lieu?
 Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.
 - Oui

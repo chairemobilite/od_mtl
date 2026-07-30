@@ -38,6 +38,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'dropSomeone',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Centre de la petite enfance de mon coeur',
@@ -53,6 +54,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'shopping',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Sports Expert Atwater',
@@ -68,6 +70,7 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.

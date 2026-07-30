@@ -258,6 +258,7 @@ export type VisitedPlace = {
     activity: string | null;
     onTheRoadPreviousPlaceActivity: string | null;
     onTheRoadNextPlaceCategory: string | null;
+    previousWorkPlaceName: string | null;
     alreadyVisitedBySelfOrAnotherHouseholdMember: boolean | null;
     shortcut: string | null;
     name: string | null;
@@ -1380,6 +1381,35 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.onTheRoadPreviousPlaceActivity',
             value: place.onTheRoadPreviousPlaceActivity
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousWorkPlaceName
+    if (place.previousWorkPlaceName === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousWorkPlace.name',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousWorkPlace.name',
+            value: place.previousWorkPlaceName
+        });
+    }
+
+    // Test custom widget visitedPlacePreviousWorkPlaceGeography
+    if (place.previousWorkPlaceName === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousWorkPlace.geography',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputMapFindPlaceTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}._previousWorkPlace.geography'
         });
     }
 

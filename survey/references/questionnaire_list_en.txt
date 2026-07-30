@@ -370,6 +370,12 @@ Specify :
 
 Where did {{nickname}} begin their work trip on the road?
 
+Name or address of {{nickname}}'s usual place of work
+
+Please locate the usual place of work for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the "Search location" button.
+
 Did you previously locate this place on the map?
 In {{nickname}}'s travel diary or that of another household member.
 - Yes

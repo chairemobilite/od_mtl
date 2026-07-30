@@ -456,6 +456,10 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceOnTheRoadPreviousPlaceActivity
 
+    // Test builtin widget visitedPlacePreviousWorkPlaceName
+
+    // Test builtin widget visitedPlacePreviousWorkPlaceGeography
+
     // Test builtin widget visitedPlaceAlreadyVisited with conditional alreadyVisitedPlaceCustomConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
