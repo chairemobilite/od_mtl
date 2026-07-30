@@ -229,6 +229,16 @@ personVisitedPlaces,Builtin,True,visitedPlaces,,household.persons.{_activePerson
 visitedPlaceActivityCategory,Builtin,True,visitedPlaces,personVisitedPlaces,activityCategory,Activité principale à ce lieu{{reminderText}},Main activity carried out at this location{{reminderText}},,,,,,,,,,,,,,,,
 visitedPlaceActivity,Builtin,True,visitedPlaces,personVisitedPlaces,activity,Spécifier :,Specify :,,,,,,,,,,,,,,,,
 visitedPlaceOnTheRoadPreviousPlaceActivity,Builtin,1,visitedPlaces,personVisitedPlaces,onTheRoadPreviousPlaceActivity,Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?,Where did {{nickname}} begin their work trip on the road?,Quel endroit était le point de départ de vos déplacements sur la route?,Where did you begin your work trip on the road?,,,,,,,,,,,,,,
+visitedPlacePreviousWorkPlaceName,Builtin,True,visitedPlaces,personVisitedPlaces,previousWorkPlace.name,**Nom ou adresse** du **lieu habituel de travail** de {{nickname}},**Name or address** of {{nickname}}'s **usual place of work**,**Nom ou adresse** de votre **lieu habituel de travail**,**Name or address** of your **usual place of work**,,,,,,,,,,,,,,
+visitedPlacePreviousWorkPlaceGeography,Builtin,True,visitedPlaces,personVisitedPlaces,previousWorkPlace.geography,"Veuillez localiser le **lieu de travail habituel** de {{nickname}}
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate the **usual place of work** for {{nickname}}
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__","Veuillez localiser votre **lieu de travail habituel**.
+__Naviguez, zoomez, et cliquez sur la carte pour localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage de précision.
+Vous pouvez également chercher le lieu sur la carte en utilisant le bouton ""Chercher le lieu"".__","Please locate your **usual place of work**.
+__Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button.__",,,,,,,,,,,,,,
 visitedPlaceAlreadyVisited,Builtin,1,visitedPlaces,personVisitedPlaces,alreadyVisitedBySelfOrAnotherHouseholdMember,"Avez-vous déjà localisé ce lieu?
 __Dans l'entrevue de {{nickname}} ou dans celles des autres membres du ménage.__","Did you previously locate this place on the map?
 __In {{nickname}}'s travel diary or that of another household member.__",Avez-vous déjà localisé ce lieu?,Did you previously locate this place on the map?,,,alreadyVisitedPlaceCustomConditional,,yesNo,,,,True,,,,,
@@ -292,7 +302,7 @@ __For each line, begin by typing the number or name, then select it from the res
 
 FIXME segmentBusLines : choix · Issue #24 · chairemobilite/od_mtl
 segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl"
-segmentBusLinesWarning,Custom,0,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,True,,,,,Custom because of the color and size of the choices
+segmentBusLinesWarning,Custom,False,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,True,,,,,Custom because of the color and size of the choices
 segmentTransitAccessMode,Radio,1,segments,segments,transitAccessMode,**Mode** pour se rendre de {{origin}} **{{stopType}}**,**Mode** of transportation to get from {{origin}} to **{{stopType}}**,,,customLabels={{segmentTransitAccessModeCustomLabel}},,isTransitModeAndDistanceFromOriginCustomConditional,,transitModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
 
 FIXME segmentTransitAccessMode : transitAccessCustomConditional · Issue #25 · chairemobilite/od_mtl"

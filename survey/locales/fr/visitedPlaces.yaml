@@ -33,6 +33,23 @@ visitedPlaceOnTheRoadPreviousPlaceActivity: >-
     Quel endroit était le point de départ des déplacements sur la route de {{nickname}}?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Quel endroit était le point de départ
     de vos déplacements sur la route?
+visitedPlacePreviousWorkPlaceName: >-
+    <strong>Nom ou adresse</strong> du <strong>lieu habituel de travail</strong> de
+    {{nickname}}
+visitedPlacePreviousWorkPlaceName_one: >-
+    <strong>Nom ou adresse</strong> de votre <strong>lieu habituel de travail</strong>
+visitedPlacePreviousWorkPlaceGeography: >-
+    Veuillez localiser le <strong>lieu de travail habituel</strong> de {{nickname}}<br
+    /><span class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour
+    localiser le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte
+    pour davantage de précision.<br />Vous pouvez également chercher le lieu sur la
+    carte en utilisant le bouton "Chercher le lieu".</span>
+visitedPlacePreviousWorkPlaceGeography_one: >-
+    Veuillez localiser votre <strong>lieu de travail habituel</strong>.<br /><span
+    class="_pale _oblique">Naviguez, zoomez, et cliquez sur la carte pour localiser
+    le lieu. Une fois localisé, vous pourrez déplacer le point sur la carte pour davantage
+    de précision.<br />Vous pouvez également chercher le lieu sur la carte en utilisant
+    le bouton "Chercher le lieu".</span>
 visitedPlaceAlreadyVisited: >-
     Avez-vous déjà localisé ce lieu?<br /><span class="_pale _oblique">Dans l'entrevue
     de {{nickname}} ou dans celles des autres membres du ménage.</span>
@@ -252,28 +269,28 @@ visitedPlacePreviousArrivalTime_home_female_one: >-
 visitedPlacePreviousArrivalTime_home_custom_one: >-
     À quelle heure êtes-vous arrivé(e) au domicile avant de débuter vos déplacements
     sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace: >-
+visitedPlacePreviousArrivalTime_workUsual: >-
     À quelle heure {{nickname}} est-il(-elle) arrivé(e) à son lieu de travail habituel
     avant de débuter ses déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_male: >-
+visitedPlacePreviousArrivalTime_workUsual_male: >-
     À quelle heure {{nickname}} est-il arrivé à son lieu de travail habituel avant
     de débuter ses déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_female: >-
+visitedPlacePreviousArrivalTime_workUsual_female: >-
     À quelle heure {{nickname}} est-elle arrivée à son lieu de travail habituel avant
     de débuter ses déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_custom: >-
+visitedPlacePreviousArrivalTime_workUsual_custom: >-
     À quelle heure {{nickname}} est-iel arrivé(e) à son lieu de travail habituel avant
     de débuter ses déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_one: >-
+visitedPlacePreviousArrivalTime_workUsual_one: >-
     À quelle heure êtes-vous arrivé(e) à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_male_one: >-
+visitedPlacePreviousArrivalTime_workUsual_male_one: >-
     À quelle heure êtes-vous arrivé à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_female_one: >-
+visitedPlacePreviousArrivalTime_workUsual_female_one: >-
     À quelle heure êtes-vous arrivée à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
-visitedPlacePreviousArrivalTime_usualWorkPlace_custom_one: >-
+visitedPlacePreviousArrivalTime_workUsual_custom_one: >-
     À quelle heure êtes-vous arrivé(e) à votre lieu de travail habituel avant de débuter
     vos déplacements sur la route?
 visitedPlacePreviousDepartureTime_home_workUsual: >-

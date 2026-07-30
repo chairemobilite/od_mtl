@@ -102,6 +102,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'workUsual',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
         name: 'McCord Steward Museum',
@@ -117,6 +118,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'shopping',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show, still no place to show
         shortcut: null, // Question won't show.
         name: 'SAQ Beaubien',
@@ -132,6 +134,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'restaurant',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
         name: 'Tabac Villeray',
@@ -147,6 +150,7 @@ const visitedPlacesP1: commonUITestsHelpers.VisitedPlace[] = [
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.
@@ -203,6 +207,7 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'workUsual',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show
         shortcut: null, // Question won't show.
         name: 'Sports Experts Atwater',
@@ -219,6 +224,7 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
         activity: 'restaurant',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: true,
         // Set the shortcut to one of the places from p1
         shortcut: '${tripDiary[0]}.visitedPlaces.${tripDiary[0].visitedPlaces[3]}',
@@ -235,6 +241,7 @@ const visitedPlacesP2: commonUITestsHelpers.VisitedPlace[] = [
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.

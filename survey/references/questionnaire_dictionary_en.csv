@@ -528,6 +528,16 @@ Field,onTheRoadPreviousPlaceActivity
 Question type,Builtin
 Question,Where did {{nickname}} begin their work trip on the road?
 ""
+Field,name
+Question type,Builtin
+Question,Name or address of {{nickname}}'s usual place of work
+""
+Field,geography
+Question type,Builtin
+Question,"Please locate the usual place of work for {{nickname}}
+Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
+You can also search for the place on the map using the ""Search location"" button."
+""
 Field,alreadyVisitedBySelfOrAnotherHouseholdMember
 Question type,Builtin
 Conditional,alreadyVisitedPlaceCustomConditional

@@ -46,6 +46,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: 'shopping',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Marché Jean-Talon',
@@ -61,6 +62,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.
@@ -76,6 +78,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: 'workUsual',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: 'Polytechnique Montréal',
@@ -91,6 +94,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.
@@ -106,6 +110,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: 'leisureArtsMusicCulture',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
         name: 'Place des festivals',
@@ -121,6 +126,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: 'restaurant',
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: false,
         shortcut: null, // Question won't show.
         name: 'Timeout market',
@@ -136,6 +142,7 @@ export const downtownSimpleChainsPlusComplexChain: commonUITestsHelpers.VisitedP
         activity: null, // Question won't show.
         onTheRoadPreviousPlaceActivity: null, // Question won't show.
         onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
         alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
         shortcut: null, // Question won't show.
         name: null, // Question won't show.

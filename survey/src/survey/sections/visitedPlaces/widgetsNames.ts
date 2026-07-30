@@ -17,6 +17,8 @@ export const personVisitedPlacesWidgetsNames: SectionConfig['widgets'] = [
     'visitedPlaceActivityCategory',
     'visitedPlaceActivity',
     'visitedPlaceOnTheRoadPreviousPlaceActivity',
+    'visitedPlacePreviousWorkPlaceName',
+    'visitedPlacePreviousWorkPlaceGeography',
     'visitedPlaceAlreadyVisited',
     'visitedPlaceShortcut',
     'visitedPlaceName',

@@ -20,6 +20,20 @@ visitedPlaceOnTheRoadPreviousPlaceActivity: Where did {{nickname}} begin their w
     trip on the road?
 visitedPlaceOnTheRoadPreviousPlaceActivity_one: Where did you begin your work trip
     on the road?
+visitedPlacePreviousWorkPlaceName: >-
+    <strong>Name or address</strong> of {{nickname}}'s <strong>usual place of work</strong>
+visitedPlacePreviousWorkPlaceName_one: >-
+    <strong>Name or address</strong> of your <strong>usual place of work</strong>
+visitedPlacePreviousWorkPlaceGeography: >-
+    Please locate the <strong>usual place of work</strong> for {{nickname}}<br /><span
+    class="_pale _oblique">Navigate, zoom, and click on the map to identify the location.
+    Once located, you can move the marker for greater precision.<br />You can also
+    search for the place on the map using the "Search location" button.</span>
+visitedPlacePreviousWorkPlaceGeography_one: >-
+    Please locate your <strong>usual place of work</strong>.<br /><span class="_pale
+    _oblique">Navigate, zoom, and click on the map to identify the location. Once
+    located, you can move the marker for greater precision.<br />You can also search
+    for the place on the map using the "Search location" button.</span>
 visitedPlaceAlreadyVisited: >-
     Did you previously locate this place on the map?<br /><span class="_pale _oblique">In
     {{nickname}}'s travel diary or that of another household member.</span>
@@ -177,22 +191,22 @@ visitedPlacePreviousArrivalTime_home_male_one: At what time did you arrive home 
     starting your on the road trips?
 visitedPlacePreviousArrivalTime_home_female_one: At what time did you arrive home
     before starting your on the road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace: >-
+visitedPlacePreviousArrivalTime_workUsual: >-
     At what time did {{nickname}} arrive at their usual work place before starting
     their on the road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace_male: >-
+visitedPlacePreviousArrivalTime_workUsual_male: >-
     At what time did {{nickname}} arrive at his usual work place before starting his
     on the road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace_female: >-
+visitedPlacePreviousArrivalTime_workUsual_female: >-
     At what time did {{nickname}} arrive at her usual work place before starting her
     on the road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace_one: >-
+visitedPlacePreviousArrivalTime_workUsual_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace_male_one: >-
+visitedPlacePreviousArrivalTime_workUsual_male_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
-visitedPlacePreviousArrivalTime_usualWorkPlace_female_one: >-
+visitedPlacePreviousArrivalTime_workUsual_female_one: >-
     At what time did you arrive at your usual work place before starting your on the
     road trips?
 visitedPlacePreviousDepartureTime_home_workUsual: At what time did {{nickname}} leave
