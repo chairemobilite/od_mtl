@@ -17,3 +17,5 @@ playwright-example.config.ts
 playwright.config.ts
 # TODO: Remove tests/common-UI-tests-helpers-template.ts from this ignore list once all lint errors in that file are resolved.
 tests/common-UI-tests-helpers-template.ts 
+# This file is a single json object for the matrix and too big to be formatted
+src/survey/config/zat_x_zat_matrix.ts
