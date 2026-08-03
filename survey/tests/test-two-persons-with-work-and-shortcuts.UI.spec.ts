@@ -15,7 +15,7 @@ const context = {
 
 // Survey credentials
 const email = 'two-persons-with-work-and-shortcuts@test.com';
-const accessCode = '7357-1115';
+const accessCode = '735-711-115';
 
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });

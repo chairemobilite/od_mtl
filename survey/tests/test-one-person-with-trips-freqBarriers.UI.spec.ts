@@ -84,7 +84,7 @@ const segments: commonUITestsHelpers.Segment[] = [
 /********** Start the survey **********/
 // The survey should still start a new interview with these credentials.
 const email = 'one-person-with-trips-freqBarriers@test.com';
-const accessCode = '7357-1120';
+const accessCode = '735-711-120';
 surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',

@@ -30,7 +30,7 @@ test.afterAll(async () => {
 /********** Start the survey **********/
 // Start the survey using the email provided
 const email = 'one-person-with-transit-trips@test.com';
-const accessCode = '7357-2112';
+const accessCode = '735-711-212';
 surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',

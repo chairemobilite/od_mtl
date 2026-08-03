@@ -83,7 +83,7 @@ const segments: commonUITestsHelpers.Segment[] = [
 /********** Start the survey **********/
 // Start the survey using the email provided
 const email = 'one-person-with-trips@test.com';
-const accessCode = '7357-1112';
+const accessCode = '735-711-112';
 surveyTestHelpers.startAndLoginWithEmail({
     context,
     title: 'Perspectives Mobilité 2026',
