@@ -84,7 +84,10 @@ const validateTripSingleSegmentHasMode =
             return modes.includes(segments[0].mode) || modes.includes(segments[0].modePre);
         };
 
-const validateTripForBarrierQuestions = validateTripSingleSegmentHasMode(['carDriver', 'carPassenger']);
+const validateTripForBarrierQuestionsByMode = validateTripSingleSegmentHasMode(['carDriver', 'carPassenger']);
+// The `_isBarrierEligible` flag has been set by the server, it has to be `true`
+const validateTripForBarrierQuestions = ({ trip }: { trip: Trip }) =>
+    (trip as any)._isBarrierEligible === true && validateTripForBarrierQuestionsByMode({ trip });
 
 const validateTripForBarrierDisabilityQuestions = validateTripSingleSegmentHasMode(['paratransit']);
 
