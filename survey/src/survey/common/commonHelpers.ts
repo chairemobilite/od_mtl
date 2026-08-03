@@ -40,6 +40,19 @@ export const isCommonTripSampleMatch = (interview: InterviewAttributes) => {
     return eligiblePerson.length > 0;
 };
 
+/**
+ * Determine if an interview is part of a given partial sample
+ * @param interview The interview
+ * @param partialSample The partial sample.s to confirm if this interview is
+ * part of
+ * @returns `true` if the interview is one of the requested partial sample
+ */
+export const isPartialSample = (interview: InterviewAttributes, partialSample: string | string[]) => {
+    const partialSamples = typeof partialSample === 'string' ? [partialSample] : partialSample;
+    const epExclusive = getResponse(interview, 'ep.exclusive', null);
+    return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
+};
+
 export const getCommonTripReferencePerson = (interview: InterviewAttributes) => {
     // Get the common trip reference person id
     const commonTripReferencePersonId = getResponse(interview, '_commonTripRefPersonId', null) as string | null;

@@ -6,10 +6,10 @@ import { Person, WidgetConditional } from 'evolution-common/lib/services/questio
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from './helper';
-import { isPartialSample, shouldShowToddlerDayCareQuestions } from './customHelpers';
+import { shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
-import { getPointZone, isCommonTripSampleMatch } from './commonHelpers';
+import { getPointZone, isCommonTripSampleMatch, isPartialSample } from './commonHelpers';
 import metroTransfers from '../config/metroTransfers.json';
 
 // Don't show Question and give 'Québec' as default value

@@ -21,7 +21,8 @@ import * as segmentHelpers from 'evolution-common/lib/services/questionnaire/sec
 import {
     getCommonTripFromReferencePerson,
     getCommonTripReferencePerson,
-    isCommonTripSampleMatch
+    isCommonTripSampleMatch,
+    isPartialSample
 } from './commonHelpers';
 
 const isSchoolEnrolledTrueValues = [
@@ -56,12 +57,6 @@ export const getFormattedTripDateFromJourney = (journey: Journey): string | unde
         ? getFormattedDate(assignedDay!, { withRelative: true, locale: i18n.language })
         : undefined;
     return journeyDate;
-};
-
-export const isPartialSample = (interview: InterviewAttributes, partialSample: string | string[]) => {
-    const partialSamples = typeof partialSample === 'string' ? [partialSample] : partialSample;
-    const epExclusive = getResponse(interview, 'ep.exclusive', null);
-    return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
 };
 
 export const isSameModeSample = (interview: InterviewAttributes) =>

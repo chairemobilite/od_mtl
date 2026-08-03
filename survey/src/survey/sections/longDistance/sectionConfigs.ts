@@ -6,7 +6,8 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { isPartialSample, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { isPartialSample } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
