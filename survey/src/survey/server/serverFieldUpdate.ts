@@ -16,6 +16,7 @@ import { postalCodeValidation } from 'evolution-common/lib/services/widgets/vali
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import { getCommonTripFromReferencePerson, getPointZone, isCommonTripSampleMatch } from '../common/commonHelpers';
+import { getZatForPoint } from './serverHelpers';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -354,13 +355,16 @@ export default [
                 if (prefilledOk) {
                     prefilledResponses['_accessCodeConfirmed'] = true;
 
-                    // Set the home RA is the prefilled response contains a home geography
+                    // Set the home RA and zat if the prefilled response contains a home geography
                     if (
                         prefilledResponses['home.geography'] &&
                         isFeature(prefilledResponses['home.geography']) &&
                         isPoint((prefilledResponses['home.geography'] as GeoJSON.Feature).geometry)
                     ) {
                         prefilledResponses['home.RA'] = getPointZone(
+                            prefilledResponses['home.geography'] as GeoJSON.Feature<GeoJSON.Point>
+                        );
+                        prefilledResponses['home.zat'] = getZatForPoint(
                             prefilledResponses['home.geography'] as GeoJSON.Feature<GeoJSON.Point>
                         );
                     }
@@ -386,13 +390,13 @@ export default [
         field: 'home.geography',
         callback: async (interview: InterviewAttributes, value) => {
             try {
-                // Set the correct RA for the home geography
+                // Set the correct RA and zat for the home geography
 
                 // If the point is not a feature, set to null
                 if (_isBlank(value) || !isFeature(value) || !isPoint(value.geometry)) {
-                    return { 'home.RA': null };
+                    return { 'home.RA': null, 'home.zat': null };
                 }
-                return { 'home.RA': getPointZone(value) };
+                return { 'home.RA': getPointZone(value), 'home.zat': getZatForPoint(value) };
             } catch (error) {
                 console.error('error getting server update fields for home geography', error);
                 return {};
@@ -482,6 +486,28 @@ export default [
             } catch (error) {
                 console.error('error attempting to set the interview as completed', error);
                 return {};
+            }
+        }
+    },
+    {
+        field: {
+            regex: '^household\\.persons\\.[a-zA-Z0-9_-]+\\.journeys\\.[a-zA-Z0-9_-]+\\.visitedPlaces\\.[a-zA-Z0-9_-]+\\.geography$'
+        },
+        // Do not run on validated data as it may affect previous responses for barriers, etc
+        runOnValidatedData: false,
+        callback: async (interview, value, path, registerUpdateOperation) => {
+            const pathToSet = getPath(path, '../zat');
+            try {
+                // Set the zat corresponding to the geography
+
+                // If the point is not a feature, set to null
+                if (_isBlank(value) || !isFeature(value) || !isPoint(value.geometry)) {
+                    return { [pathToSet]: null };
+                }
+                return { [pathToSet]: getZatForPoint(value) };
+            } catch (error) {
+                console.error('Error getting zat for visited place geography:', error);
+                return { [pathToSet]: null };
             }
         }
     },
