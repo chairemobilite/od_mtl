@@ -15,7 +15,12 @@ import { InterviewAttributes, Segment, Trip } from 'evolution-common/lib/service
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
-import { getCommonTripFromReferencePerson, getPointZone, isCommonTripSampleMatch } from '../common/commonHelpers';
+import {
+    getCommonTripFromReferencePerson,
+    getPointZone,
+    isCommonTripSampleMatch,
+    isPartialSample
+} from '../common/commonHelpers';
 import { getZatForPoint } from './serverHelpers';
 
 // *** Code for the home address prefill **
@@ -667,9 +672,17 @@ export default [
         field: '_activeTripId',
         callback: async (interview, value, path) => {
             try {
-                if (_isBlank(value) || !isCommonTripSampleMatch(interview)) {
-                    // Nothing to do if no actual trip ID
+                if (
+                    _isBlank(value) ||
+                    (!isCommonTripSampleMatch(interview) &&
+                        !isPartialSample(interview, ['freqBarriers', 'freqAttitudinalBarriers']))
+                ) {
+                    // Nothing to do if no actual trip ID or if it is not a sample that needs further calculations
                     return {};
+                }
+
+                if (isCommonTripSampleMatch(interview)) {
+                    
                 }
                 // Fill segment data: If the partial sample is set the
                 // commonTrip and this is a common trip (same
