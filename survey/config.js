@@ -22,8 +22,8 @@ module.exports = {
     projectShortname: `od_mtl_2026`,
     projectDirectory: `${__dirname}/runtime`,
     logoPaths: {
-        fr: `/dist/images/logo_od_mtl_2026_fr.svg`,
-        en: `/dist/images/logo_od_mtl_2026_en.svg`
+        fr: `/dist/images/logo_od_mtl_2026.svg`,
+        en: `/dist/images/logo_od_mtl_2026.svg`
     },
     countryCode: 'CA',
     // FIXME See if those dates are still useful or if startDateTimeWithTimezoneOffset supercedes them

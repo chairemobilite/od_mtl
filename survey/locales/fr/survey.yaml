@@ -1,492 +1,230 @@
 homepage:
-    AgreementText: >-
-        Je confirme avoir lu ce qui précède et consens à la collecte, au
-        traitement et à l’utilisation des renseignements personnels transmis
-        lors de l’Enquête.
+    AgreementText: Je consens
     ErrorNotAgreed: >-
         Vous devez accepter les conditions d'utilisation pour débuter le
         questionnaire.
-    introduction_saguenay: >-
-        <p class="left"><span class="_strong">L'enquête
-        Origine-Destination</span> est en cours et votre participation est
-        importante pour sa réussite.</p><p class="left">Nous vous invitons à décrire
-        vos déplacements ainsi que ceux des membres de votre ménage pour
-        la journée qui vous est suggérée.</p><br/><details style="margin-bottom:
-        1rem"><summary class="left _strong" style="cursor:
-        pointer;">Consentement à la transmission de renseignements
-        personnels</summary><ul><li>Dans le cadre de l'Enquête
-        origine-destination 2025 de Saguenay (l'«Enquête»), j'autorise le
-        ministère des Transports et de la Mobilité durable, la Société de
-        transport du Saguenay et la Ville de Saguenay (les «Organismes») à
-        collecter les renseignements personnels suivants :<ul><li>adresse
-        courriel;</li><li>adresse du domicile;</li><li>profil du ménage :
-        localisation, nombre de personnes, nombre de véhicules à leur
-        disposition, catégorie de revenu, mode d'occupation, présence de
-        personnes limitées dans leurs déplacements quotidiens en raison d'une
-        incapacité;</li><li>profil de chacune des personnes composant le ménage
-        : âge, sexe, possession d'un permis de conduire, possession d'un
-        laissez-passer de transport en commun, abonnement à un service
-        d'autopartage, situation d'emploi, localisation du lieu de travail ou
-        d'études, habitudes de télétravail ou de téléétudes;</li><li>profil des
-        déplacements de chacune des personnes du ménage lors d'une journée en
-        particulier.</li></ul></li><li>Les renseignements personnels recueillis
-        durant l'Enquête permettent aux Organismes de bien comprendre les
-        besoins de la population en transport et ainsi de planifier les futures
-        interventions en matière d'offre routière et de transport
-        collectif.</li><li>Les renseignements personnels seront collectés au
-        moyen d'un questionnaire en ligne.</li><li>Votre participation à
-        l'Enquête est sur une base volontaire.</li><li>Les catégories de
-        personnes qui pourront, dans l'exercice de leurs fonctions, avoir accès
-        à ces renseignements personnels sont :<ul><li>Les
-        Organismes;</li><li>Les établissements d'enseignement et les centres de
-        recherche reconnus.</li></ul></li><li>Si au cours de l'Enquête, vous ne
-        désirez plus poursuivre, les renseignements personnels recueillis
-        jusqu'à ce moment seront détruits à votre demande.</li><li>Toute personne ayant fourni
-        des renseignements personnels en participant à l'Enquête a le droit de
-        consulter les renseignements personnels détenus à son sujet, d'en
-        obtenir copie ou de requérir la rectification des renseignements
-        inexacts, incomplets, équivoques ou recueillis en contravention de la
-        loi. Pour ce faire, elle doit contacter le responsable de l'accès à
-        l'information du ministère des Transports et de la Mobilité durable au
-        418 646-0160, poste 23013, ou lui adresser une demande écrite à <a
-        href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a> en
-        prouvant son identité.</li><li>Les renseignements personnels seront
-        conservés durant un délai déterminé au moyen du calendrier de
-        conservation des Organismes.</li><li>Si vous refusez de fournir les
-        renseignements personnels requis dans le cadre de l'Enquête, vous ne
-        pourrez pas y participer.</li></ul><br/><p class="left">Pour obtenir plus
-        d'information sur l'Enquête, nous vous invitons à consulter la page
-        suivante: <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</p><p class="left">Vous devez également
-        consentir à ce formulaire de Polytechnique Montréal: <a
-        href="/dist/documents/od_saguenay_2025_consent_mtmd_poly_fr.pdf"
-        target="_blank">Information de consentement</a></p></details>
     introduction: >-
-        <p class="left"><span class="_strong">L'enquête
-        Origine-Destination</span> est en cours et votre participation est
-        importante pour sa réussite.</p><p class="left">Nous vous invitons à décrire
-        vos déplacements ainsi que ceux des membres de votre ménage pour
-        la journée qui vous est suggérée.</p><br/><details style="margin-bottom:
-        1rem"><summary class="left _strong" style="cursor:
-        pointer;">Consentement à la transmission de renseignements
-        personnels</summary><ul><li>Dans le cadre de l'Enquête
-        Origine-Destination 2025 (l'«Enquête»), j'autorise le ministère des
-        Transports et de la Mobilité durable (MTMD) à collecter les
-        renseignements personnels suivants :<ul><li>adresse
-        courriel;</li><li>adresse du domicile;</li><li>profil du ménage :
-        localisation, nombre de personnes, nombre de véhicules à leur
-        disposition, catégorie de revenu, mode d'occupation, présence de
-        personnes limitées dans leurs déplacements quotidiens en raison d'une
-        incapacité;</li><li>profil de chacune des personnes composant le ménage
-        : âge, sexe, possession d'un permis de conduire, possession d'un
-        laissez-passer de transport en commun, abonnement à un service
-        d'autopartage, situation d'emploi, localisation du lieu de travail ou
-        d'études, habitudes de télétravail ou de téléétudes;</li><li>profil des
-        déplacements de chacune des personnes du ménage lors d'une journée en
-        particulier.</li></ul></li><li>Les renseignements personnels recueillis
-        durant l'Enquête permettent au MTMD de bien comprendre les besoins de la
-        population en transport et ainsi de planifier les futures interventions
-        en matière d'offre routière et de transport collectif.</li><li>Les
-        renseignements personnels seront collectés au moyen d'un questionnaire
-        en ligne.</li><li>Votre participation à l'Enquête est sur une base
-        volontaire.</li><li>Les catégories de personnes qui pourront, dans
-        l'exercice de leurs fonctions, avoir accès à ces renseignements
-        personnels sont :<ul><li>Le MTMD;</li><li>Les établissements
-        d'enseignement et les centres de recherche
-        reconnus.</li></ul></li><li>Si au cours de l'Enquête, vous ne désirez
-        plus poursuivre, les renseignements personnels recueillis jusqu'à ce
-        moment seront détruits à votre demande.</li><li>Toute personne ayant fourni des
-        renseignements personnels en participant à l'Enquête a le droit de
-        consulter les renseignements personnels détenus à son sujet, d'en
-        obtenir copie ou de requérir la rectification des renseignements
-        inexacts, incomplets, équivoques ou recueillis en contravention de la
-        loi. Pour ce faire, elle doit contacter le responsable de l'accès à
-        l'information du ministère des Transports et de la Mobilité durable au
-        418 646-0160, poste 23013, ou lui adresser une demande écrite à <a
-        href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a> en
-        prouvant son identité.</li><li>Les renseignements personnels seront
-        conservés durant un délai déterminé au moyen du calendrier de
-        conservation du MTMD.</li><li>Si vous refusez de fournir les
-        renseignements personnels requis dans le cadre de l'Enquête, vous ne
-        pourrez pas y participer.</li></ul><br/><p class="left">Pour obtenir plus
-        d'information sur l'Enquête, nous vous invitons à consulter la page
-        suivante: <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</p><p class="left">Vous devez également
-        consentir à ce formulaire de Polytechnique Montréal: <a
-        href="/dist/documents/od_nationale_2025_consent_mtmd_poly_fr.pdf"
-        target="_blank">Information de consentement</a></p></details>
-    introductionParagraphTwo: >-
-        <p class="left">Nous vous remercions pour votre contribution à la
-        planification du transport de demain!</p><br/><p class="left _strong"
-        style="margin-bottom: 1rem;">La date limite pour participer est le 16
-        décembre 2025.</p><br/><p class="left"><em>Pour obtenir plus
-        d'information sur l'Enquête, nous vous invitons à consulter la page
-        suivante</em>: <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</em></p><br/> <p class="center
-        _oblique" style="margin: 2rem 0;"><a
-        href="mailto:EOD@transports.gouv.qc.ca" target="_blank">Nous
-        joindre</a></p>
+        <p class="left"><span class="_sarcelle _strong">Contribuez à la planification de la
+        mobilité et courez la chance de gagner l'un des nombreux prix offerts (montant total de
+        2 500 $)!</span></p><br/><p class="left"><span class="_strong">Le Bureau des enquêtes sur
+        la mobilité</span>, piloté par l'Autorité régionale de transport métropolitain (ARTM), invite
+        la population de la région métropolitaine de Montréal à faire connaître leurs habitudes de
+        déplacement.</p><br/><p class="left _strong">La date limite pour participer est le 16
+        décembre 2026.</p><br/><p class="left _oblique" style="font-size: 80%; margin-bottom:
+        1rem">En cochant la boîte dessous, vous consentez à la collecte, au traitement et aux
+        utilisations possibles des données décrites dans <a
+        href="https://www.artm.quebec/wp-content/uploads/2026/07/Enonce-confidentialite_Enquetes-Pm-FR_R01_2026.pdf"
+        target="_blank">l'énoncé de confidentialité</a>. Cet énoncé explique, entre autres, que des
+        données pourraient être partagées pour des fins de recherche et de planification. De plus, en
+        cochant la boîte ci-dessous, vous attestez être autorisé à fournir les renseignements
+        personnels des personnes mineures habitant votre ménage, soit en tant qu'autorité parentale ou
+        tuteur/tutrice.</p>
+    introductionParagraphTwo: ''
     start: Débuter
 footer: >-
     <div style="display: flex;justify-content: center;">
         <div style="font-size:
         80%;max-width: 700px;margin: 15px;">
-            <p><a href="/dist/documents/od_nationale_2025_consent_mtmd_poly_fr.pdf" target="_blank">Information de
-                    consentement</a>&nbsp;| <a href="mailto:EOD@transports.gouv.qc.ca?subject=Enquête%20Origine-Destination"
-                    target="_blank">Nous joindre par courriel</a></p>
+            <p><a href="https://www.artm.quebec/wp-content/uploads/2026/07/Enonce-confidentialite_Enquetes-Pm-FR_R01_2026.pdf"
+                    target="_blank">Énoncé de confidentialité</a>&nbsp;|&nbsp;<a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"
+                    target="_blank">Règlement du concours</a>&nbsp;|&nbsp;<a
+                    href="https://www.artm.quebec/planification/enquete-metropolitaine-perspectives-mobilite/"
+                    target="_blank">Plus d'infos</a>&nbsp;|&nbsp;<a
+                    href="mailto:perspectivesmobilite@artm.quebec?subject=Enquête%20Perspectives%20Mobilité"
+                    target="_blank">Nous joindre</a></p>
         </div>
     </div>
     <details class="faq-container">
         <summary class="faq-title ornament_bottom">Foire aux questions
             (FAQ)</summary>
         <details>
-            <summary class="_h2">Qu'est-ce qu'une Enquête Origine-Destination (EOD)?</summary>
-            <h3>Planifier
-                le transport de demain</h3>
-            <p>Enquête d'envergure qui vise à recueillir des renseignements
-                précis et factuels sur les déplacements des résidents des territoires d'enquêtes
-                concernés.</p>
-            <h3>Recueillir l'information</h3>
-            <p>Ces renseignements constituent
-                une source d'information indispensable pour les organismes publics travaillant
-                à l'amélioration et au développement du territoire et des transports actuels et
-                futurs.</p>
-            <h3>La participation</h3>
-            <p>La participation des citoyens est fondamentale
-                pour la réussite de cette enquête. Les données ainsi recueillies permettront de
-                comparer et d'analyser les tendances en matière de mobilité au fil des ans.</p>
+            <summary class="_h2">Qu'est-ce que l'enquête métropolitaine Perspectives mobilité?</summary>
+            <p>L'Autorité régionale de transport métropolitain (ARTM), en collaboration avec le ministère des
+                Transports et de la Mobilité durable (MTMD), mène l'enquête métropolitaine Perspectives mobilité, du 1
+                septembre au 16 décembre 2026, auprès d'un échantillon de ménages de la grande région de Montréal.</p>
+            <p>Cette enquête vise à mieux comprendre comment les résidents de la région métropolitaine de Montréal se
+                déplacent, peu importe la fréquence de leurs déplacements ou les modes de transport qu'ils utilisent,
+                que ce soit l'auto, le transport collectif, la marche, le vélo ou d'autres formes de mobilité.</p>
         </details>
         <details>
-            <summary class="_h2">Qui réalise cette enquête?</summary>
-            <p>Cette enquête est réalisée par
-                le ministère des Transports et de la Mobilité durable (MTMD) et ses partenaires.</p>
+            <summary class="_h2">Pourquoi l'ARTM mène-t-elle l'enquête métropolitaine Perspectives mobilité?</summary>
+            <p>Les données recueillies et analysées dans le cadre de l'enquête fournissent une information fiable sur
+                les déplacements des personnes dans la région métropolitaine de Montréal.</p>
+            <p>Ces données sont essentielles pour permettre aux autorités publiques, comme le MTMD, les administrations
+                municipales, l'ARTM et les opérateurs de transport en commun, de planifier et d'améliorer les réseaux
+                routiers ainsi que de transport collectif, en plus de soutenir l'aménagement du territoire.</p>
+            <p>L'édition 2026 de l'enquête revêt une importance particulière. D'une part, elle permettra de voir comment
+                certaines tendances observées depuis 2023, comme le télétravail, ont évolué. D'autre part, 2026 marque
+                la première année d'un changement des méthodes d'enquête dans la région : les partenaires font évoluer
+                la collecte de données afin de rendre plus flexible, réactive et rapide la mécanique de collecte, de
+                traitement et de dissémination des données issues des enquêtes métropolitaines, en passant d'un modèle
+                de collecte tous les cinq ans à une collecte chaque automne.</p>
         </details>
         <details>
-            <summary class="_h2">Comment cette enquête est-elle réalisée?</summary>
-            <p>Les ménages recevront
-                une invitation postale pour remplir le questionnaire en ligne.</p>
+            <summary class="_h2">À quelle fréquence l'enquête est-elle réalisée?</summary>
+            <p>L'enquête métropolitaine a été réalisée essentiellement tous les cinq ans, de 1970 à 2023.</p>
+            <p>À partir de 2026, elle sera menée chaque automne. Cette approche permettra de suivre plus finement
+                l'évolution de la mobilité dans la grande région de Montréal, de réduire les effets d'imprévus pouvant
+                perturber une collecte, comme une grève postale, une interruption de service importante ou une pandémie,
+                et d'améliorer en continu les méthodes de collecte et de traitement afin de produire les données les
+                plus fiables possibles.</p>
         </details>
         <details>
-            <summary class="_h2">Pourquoi l'enquête a-t-elle lieu à l'automne?</summary>
-            <p>Les habitudes
-                de déplacement de la population sont généralement plus stables à l'automne ou au
-                printemps. Pour une enquête de l'envergure de celle-ci, seule la période de l'automne
-                est suffisamment longue pour réaliser le nombre d'entrevues visé.</p>
+            <summary class="_h2">À qui s'adresse l'enquête métropolitaine Perspectives mobilité?</summary>
+            <p>Au total, ce sont près de deux cent soixante-cinq mille (265 000) ménages qui seront invités en 2026 par
+                la poste à répondre au questionnaire. Ces ménages pourront répondre en ligne ou par téléphone, au
+                besoin, avec l'aide d'un agent du centre d'appels.</p>
+            <p>La population visée par l'enquête correspond à l'ensemble des personnes âgées de cinq ans et plus, habitant
+                un logement privé dans une des municipalités de la grande région de Montréal.</p>
+            <p>Seules les personnes sollicitées par la poste peuvent participer à l'enquête. Cette méthodologie vise à
+                s'assurer de recueillir des données en provenance d'un échantillon représentatif de la population et
+                d'éviter d'éventuels biais.</p>
+            <p>L'ARTM rappelle aux personnes qui recevront une lettre par la poste qu'il est important de participer,
+                peu importe les moyens de transport qu'ils utilisent (véhicule privé, transport collectif, transport
+                actif…) ou le fait qu'ils se déplacent peu.</p>
+            <p>Surveillez votre boîte postale entre le 1 septembre et le 16 décembre.</p>
         </details>
         <details>
-            <summary class="_h2">Pourquoi l'enquête s'échelonne-t-elle sur plusieurs semaines?</summary>
-            <p>La
-                durée de l'enquête doit être suffisamment longue pour atteindre les objectifs d'échantillonnage.
-                Ainsi, la diversité des déplacements effectués quotidiennement par la population
-                de la région faisant l'objet de l'enquête pourra être justement représentée. Toujours
-                pour assurer la représentativité optimale, les journées où certaines situations
-                influencent la nature ou le nombre de déplacements sont exclues. Pensons aux jours
-                fériés, aux journées d'élections générales ou aux périodes de grève des services
-                publics.</p>
+            <summary class="_h2">Comment peut-on participer à l'enquête métropolitaine Perspectives mobilité?</summary>
+            <p>Si vous avez reçu une invitation par la poste, vous rendre à l'adresse Web indiquée dans la lettre. Nous
+                vous recommandons de répondre à l'enquête sur un ordinateur ou tablette électronique pour une meilleure
+                expérience, mais vous pouvez également balayer le code QR avec un téléphone intelligent. Utilisez
+                ensuite le code d'accès unique qui vous a été fourni pour accéder au questionnaire en ligne.</p>
+            <p>Si vous éprouvez de la difficulté à répondre au questionnaire, vous pouvez communiquer avec le centre
+                d'appels au 438-476-5920. Un agent pourra vous aider à remplir le questionnaire par téléphone du mercredi
+                au vendredi, entre 10 h et 16 h et le samedi, de 10 h à 14 h.</p>
         </details>
         <details>
-            <summary class="_h2">L'enquête est-elle représentative
-                de la réalité?</summary>
-            <p>Pour assurer la représentativité des résultats, le territoire
-                d'enquête est divisé en secteurs ayant chacun un objectif quant au nombre de questionnaires
-                à remplir. Le portrait obtenu sera ainsi statistiquement représentatif des comportements
-                de l'ensemble des ménages qui y habitent.</p>
+            <summary class="_h2">Pourquoi est-il important pour les personnes ayant reçu une invitation par la poste de
+                participer à l'enquête métropolitaine?</summary>
+            <p>Les enquêtes sur la mobilité sont essentielles, car elles fournissent aux autorités publiques, comme le
+                gouvernement du Québec, les municipalités, l'ARTM et les sociétés de transport collectif, des données
+                concrètes pour contribuer à l'amélioration du réseau routier, réduire les impacts de la congestion,
+                planifier et améliorer les services de transport collectif et appuyer les efforts de réduction des
+                émissions de gaz à effet de serre. Elles servent aussi à orienter l'aménagement du territoire et la
+                création de milieux de vie attrayants, par exemple comme intrants à la révision des schémas
+                d'aménagement et à la planification des quartiers, des pôles d'activité et des accès aux services.</p>
+            <p>Ces données alimentent aussi la recherche pour mieux comprendre les enjeux d'accessibilité et d'équité
+                dans les déplacements. Elles peuvent, par exemple, aider à étudier la répartition de l'espace public
+                selon les usages des voies publiques, à mieux comprendre les besoins de déplacement entre les secteurs
+                et à orienter des décisions qui rendent les déplacements plus efficaces, plus sécuritaires et plus
+                équitables. En bout de ligne, une meilleure connaissance de la mobilité contribue à un meilleur accès aux
+                services et aux opportunités, ainsi qu'à une meilleure qualité de vie pour l'ensemble de la population.</p>
         </details>
         <details>
-            <summary class="_h2">Est-ce
-                que tout le monde peut participer à l'enquête?</summary>
-            <p>Pour assurer la représentativité
-                des résultats de l'enquête, seuls les ménages directement invités peuvent participer
-                à l'enquête.</p>
+            <summary class="_h2">Quels sont les prix à gagner en participant à l'enquête?</summary>
+            <p>En remplissant le questionnaire de l'enquête en ligne ou par téléphone, avant le 16 décembre 2026, les
+                participants peuvent être éligibles au tirage de tablettes électroniques Apple ou Android (valeur
+                d'environ 500 $), de montres intelligentes (valeur d'environ 200 $) et de prix en argent (prix de 500 $
+                ou 200 $). Au total, <strong>2 500 $ en prix seront tirés en 2026</strong>.</p>
+            <p>Les personnes gagnantes seront désignées au hasard, le 17 décembre 2026, et contactées par courriel dans
+                les quinze (15) jours suivant le tirage.</p>
+            <p>Pour consulter le règlement du concours, visitez le <a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"
+                    target="_blank">site Web de l'ARTM</a>.</p>
         </details>
         <details>
-            <summary class="_h2">Quel est le processus de
-                sélection des participants?</summary>
-            <p>Le seul critère de sélection des ménages
-                est d'ordre géographique. Les ménages sont sélectionnés de façon aléatoire à partir
-                des listes d'Adresses Québec et du DGEQ (Directeur général des élections).</p>
+            <summary class="_h2">Combien de temps est requis pour répondre à l'enquête?</summary>
+            <p>Le temps moyen estimé pour remplir le questionnaire se situe entre 10 et 20 minutes. Il peut toutefois
+                varier selon la taille de votre ménage et le nombre de déplacements à rapporter.</p>
         </details>
         <details>
-            <summary class="_h2">Est-ce
-                que la participation à l'enquête est obligatoire?</summary>
-            <p>Les ménages invités
-                répondent sur une base volontaire. La réponse positive du plus grand nombre assurera
-                la réussite de l'EOD, un outil important pour mieux planifier l'aménagement des
-                infrastructures et des services de mobilité sur le territoire.</p>
+            <summary class="_h2">Comment s'assure-t-on que les renseignements demeurent confidentiels?</summary>
+            <p>Le respect de la vie privée des personnes qui participent à l'enquête est une priorité pour l'ARTM et ses
+                partenaires. C'est pourquoi nous mettons en place les mesures de sécurité nécessaires pour assurer la
+                protection des renseignements recueillis et échangés avec les participants dans le cadre du programme
+                d'enquêtes Perspectives mobilité.</p>
+            <p>Les coordonnées fournies par les personnes qui acceptent d'être recontactées à des fins de recherche sont
+                conservées séparément des réponses au questionnaire. Si une personne y consent, un lien temporaire et
+                sécurisé peut être conservé pendant une période limitée afin de permettre des relances ciblées selon
+                certains profils de mobilité ou caractéristiques du ménage. Les analyses courantes demeurent réalisées à
+                partir de données dépersonnalisées.</p>
+            <p>Pour consulter l'Énoncé de confidentialité, visitez le <a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/07/Enonce-confidentialite_Enquetes-Pm-FR_R01_2026.pdf"
+                    target="_blank">site Web de l'ARTM</a>.</p>
         </details>
         <details>
-            <summary class="_h2">Les renseignements divulgués par les citoyens sont-ils confidentiels
-                et protégés?</summary>
-            <p>La confidentialité et la protection des renseignements
-                recueillis dans le cadre de l'enquête sont assurées par des accès très restreints
-                et hautement sécurisés aux bases de données. Des certificats de sécurité sont installés
-                sur le serveur et les données transmises sont cryptées à chaque étape.</p>
-            <p>Aucune
-                information nominative, telle que les numéros de téléphone, ne sera conservée dans
-                la base de données finale. Les données recueillies sont analysées, pour être ensuite
-                publiées de façon agrégée (données regroupées). Elles serviront uniquement à des
-                analyses de mobilité pour la planification des transports et de l'aménagement du
-                territoire au sein d'agences et d'organismes publics. Toute disposition visant
-                à fournir au public des renseignements concernant les données de l'enquête est
-                assujettie à la Loi sur l'accès aux documents des organismes publics et sur la
-                protection des renseignements personnels.</p>
-            <p>De plus, le personnel affecté à
-                l'enquête est tenu au secret professionnel. Les firmes mandatées pour la collecte
-                des données ont signé un formulaire d'engagement à la confidentialité à l'égard
-                de tout renseignement nominatif et personnel auquel elles ont accès. Ces firmes
-                perdront l'accès aux bases de données au terme de leur mandat.</p>
+            <summary class="_h2">Est-ce la même enquête que l'enquête Origine-Destination?</summary>
+            <p>Oui. Auparavant appelée enquête Origine-Destination, elle porte depuis 2023 le nom d'« enquête
+                métropolitaine Perspectives mobilité ». Ce nouveau nom reflète le rôle essentiel qu'elle joue pour une
+                variété d'intervenants dans la planification des projets d'infrastructure ainsi que pour la recherche,
+                notamment dans le domaine des transports. Les enquêtes menées dans d'autres régions du Québec par le
+                Ministère des Transports et de la Mobilité durable (MTMD) s'appellent toujours « Enquêtes
+                Origine-Destination ».</p>
         </details>
         <details>
-            <summary class="_h2">Cette enquête vise-t-elle à privilégier un moyen de transport au détriment
-                d'un autre?</summary>
-            <p>Non. Cette enquête a pour but de connaître l'ensemble
-                des habitudes de déplacement des résidents. L'utilisation des données vise à identifier
-                les besoins en transport, quel que soit le moyen de transport utilisé. Il n'y a
-                aucun parti pris pour un mode de transport ni aucun jugement de valeur. L'objectif
-                est d'obtenir un portrait qui s'apparente le plus possible aux comportements observés.</p>
+            <summary class="_h2">À quel moment les résultats de l'enquête métropolitaine Perspectives mobilité 2026
+                seront-ils connus?</summary>
+            <p>Le temps requis pour traiter et analyser les données est évalué entre 12 et 18 mois. Les résultats
+                préliminaires devraient donc être connus d'ici la fin 2027.</p>
+            <p>La collecte de données d'enquête métropolitaine étant réalisée à chaque automne à partir de 2026, à plus
+                petit échantillon, les livrables typiques ne seront pas livrés avant 2029. Les données de la première
+                année serviront surtout à des analyses globales ou de tendances à haut niveau. Au fil des prochaines
+                années, l'ajout de nouvelles données permettra de bonifier la base de données et d'obtenir des analyses
+                plus détaillées à des niveaux géographiques plus fins.</p>
         </details>
         <details>
-            <summary class="_h2">Comment fonctionne la collecte de données?</summary>
-            <p>Les renseignements
-                des ménages sont collectés au moyen d'un questionnaire en ligne. La réalisation
-                des questionnaires en ligne sera administrée au moyen de la plateforme Évolution,
-                dans le cadre d'une entente avec Polytechnique Montréal.</p>
+            <summary class="_h2">Je n'arrive pas à accéder au questionnaire (problème avec le lien, le code QR, le
+                chargement de la page), ou je ne peux pas passer à la page suivante. Que dois-je faire?</summary>
+            <p>Veuillez d'abord patienter quelques instants pour permettre le chargement du questionnaire. Cela peut
+                prendre jusqu'à une minute en fonction de la vitesse de chargement de votre connexion internet, mais
+                sachez que le questionnaire est relativement « léger », car il ne contient qu'une ou deux images et
+                aucune vidéo.</p>
+            <p>Vous pouvez rafraîchir la page de votre navigateur ou fermer la fenêtre, puis retourner au site de
+                l'enquête. Dans la plupart des cas, cela vous ramènera à la page où vous étiez et elle devrait se
+                charger correctement. Notez que si vos paramètres de navigateur web ne permettent pas de stocker les
+                témoins de connexion (cookies), il est possible que vous ayez à vous reconnecter pour retrouver votre
+                progression.</p>
+            <p>Vous pouvez aussi tenter de répondre au sondage avec un autre navigateur web (Chrome, Safari, Firefox,
+                Edge, etc.).</p>
+            <p>Enfin, si vous ne pouvez pas vous rendre à la page suivante, vérifiez que vous avez entré une réponse à
+                toutes les questions obligatoires et que le format est correct (par exemple, une question sur l'âge
+                nécessite une réponse en chiffres, un positionnement de lieu demande une certaine précision sur la
+                carte, etc.). Une question invalide ou incomplète sera signalée par un encadré rouge.</p>
+            <p>Si malgré tout vous ne parvenez pas à accéder au questionnaire, vous pouvez contacter le 438-476-5920
+                en fournissant votre code unique ainsi que le courriel associé à votre soumission, l'adresse postale
+                associée à votre code, ainsi que toute autre information complémentaire qui permettra à l'agent de
+                valider votre identité.</p>
         </details>
         <details>
-            <summary class="_h2">Que demande-t-on aux ménages participant à l'enquête?</summary>
-            <p>Les
-                questions de l'enquête portent particulièrement sur les trois aspects suivants
-                :</p>
-            <ul>
-                <li>le profil du ménage - localisation, nombre de personnes, nombre de
-                    véhicules à sa disposition, catégorie de revenu, mode d'occupation du logement,
-                    présence de personnes limitées dans leurs déplacements quotidiens en raison d'une
-                    incapacité permanente;</li>
-                <li>le profil de chacune des personnes composant le ménage
-                    - âge, sexe, possession d'un permis de conduire, possession d'un laissez-passer
-                    de transport en commun, abonnement à un service d'autopartage, l'occupation, localisation
-                    du lieu de travail ou d'études, habitudes de télétravail ou de téléétudes;</li>
-                <li>le
-                    profil des déplacements de chacune des personnes du ménage (renseignements sur chacun
-                    des déplacements effectués une journée précédant le jour de l'ouverture du questionnaire)
-                    - motif, heure de départ, lieux d'origine et de destination, modes de transport
-                    utilisés et, le cas échéant, lignes de transport en commun utilisées, lieu du changement
-                    de mode de transport et stationnement au lieu de travail.</li>
-            </ul>
+            <summary class="_h2">Est-ce que mes réponses seront sauvegardées si je quitte le questionnaire et que j'y
+                reviens plus tard pour le compléter?</summary>
+            <p>Quelle que soit la situation, vos réponses sont enregistrées au fur et à mesure. Ainsi, elles nous seront
+                transmises si vous quittez le questionnaire, que vous y reveniez plus tard ou non.</p>
+            <p>Si vous aviez fourni une adresse courriel avant de commencer l'enquête (sur la page de connexion), vous
+                pouvez entrer à nouveau cette adresse, et un lien de connexion unique vous sera envoyé pour retrouver
+                vos réponses. Si vous avez utilisé une authentification par compte Google, vous pouvez vous reconnecter
+                et retrouver vos réponses de cette manière.</p>
+            <p>Enfin, si vous n'êtes pas dans l'un des cas ci-dessus, vous pouvez contacter le 438-476-5920 en
+                fournissant votre code unique ainsi que le courriel utilisé ou l'adresse postale associée à votre réponse
+                ainsi que toute autre information complémentaire qui permettra à l'agent de valider votre identité. Un
+                agent ou une agente sera alors à même de retrouver votre enquête et de la poursuivre avec vous.</p>
         </details>
         <details>
-            <summary class="_h2">Dans le questionnaire, je dois indiquer mes déplacements pour une journée
-                particulière, mais cette journée n'est pas représentative de mes déplacements quotidiens.</summary>
-            <p>L'objectif
-                de l'enquête est de connaître les pratiques de déplacement de l'ensemble de la
-                communauté pendant un jour moyen de semaine. Il est normal et tout à fait acceptable,
-                sur le plan statistique, d'avoir un sous-ensemble de répondants dont les déplacements
-                effectués lors de la journée ciblée ont été plus ou moins représentatifs de leurs
-                déplacements habituels. Il est important de décrire ce que vous avez réellement
-                fait.</p>
+            <summary class="_h2">Avez-vous reçu mes réponses au sondage?</summary>
+            <p>Nous avons presque certainement reçu vos réponses, car elles nous parviennent automatiquement lorsque
+                vous remplissez le questionnaire, et ce, au fur et à mesure, même si vous ne vous êtes pas rendu à la
+                fin.</p>
+            <p>Notez qu'aucune confirmation ne vous sera transmise par courriel une fois que vous aurez soumis le
+                questionnaire complété; la page de fin (et de remerciements) du questionnaire indique que votre réponse
+                est enregistrée comme complète.</p>
         </details>
         <details>
-            <summary class="_h2">J'ai été sollicité par la poste
-                pour répondre au questionnaire en ligne. Puis-je avoir de l'assistance?</summary>
-            <p>Oui,
-                c'est possible. Les résidents invités à participer à l'enquête en ligne peuvent
-                communiquer avec nous par courriel à l'adresse suivante: <a
-                    href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p>
+            <summary class="_h2">Comment puis-je annuler ma participation à l'enquête?</summary>
+            <p>Vous pouvez nous contacter à <a href="mailto:perspectivesmobilite@artm.quebec">perspectivesmobilite@artm.quebec</a>
+                avec votre code unique et l'adresse postale associée, et nous nous assurerons de supprimer toutes les
+                réponses liées à votre code. Notez que si vous avez entré un code erroné, nous ne pourrons pas supprimer
+                votre enquête.</p>
         </details>
         <details>
-            <summary class="_h2">Pourquoi demandez-vous des renseignements aussi précis?</summary>
-            <p>L'objectif
-                est de connaître avec précision les déplacements effectués. Pour ce faire, la localisation
-                des lieux d'origine et de destination est nécessaire. Plus cette localisation est
-                précise, plus l'analyse produite est fine. La précision des déplacements de chaque
-                individu est nécessaire pour bien comprendre certains phénomènes comme, notamment,
-                le choix modal retenu pour réaliser le déplacement. Lors de la diffusion cependant,
-                le résultat est présenté sous forme de données agrégées.</p>
+            <summary class="_h2">Question ou commentaire à propos de l'ARTM</summary>
+            <p>Pour toute question ou commentaire à propos de l'ARTM, contactez-nous via le formulaire en ligne: <a
+                    href="https://www.artm.quebec/application-mobile-chrono/contactez-nous/" target="_blank">ARTM – Vous
+                    souhaitez communiquer avec l'ARTM</a>.</p>
         </details>
     </details>
-footer_saguenay: >-
-    <div style="display: flex;justify-content: center;">
-        <div style="font-size:
-        80%;max-width: 700px;margin: 15px;">
-            <p><a href="/dist/documents/od_saguenay_2025_consent_mtmd_poly_fr.pdf" target="_blank">Information de
-                    consentement</a>&nbsp;| <a href="mailto:EOD@transports.gouv.qc.ca?subject=Enquête%20Origine-Destination"
-                    target="_blank">Nous joindre par courriel</a></p>
-        </div>
-    </div>
-    <details class="faq-container">
-        <summary class="faq-title ornament_bottom">Foire aux questions
-            (FAQ)</summary>
-        <details>
-            <summary class="_h2">Qu'est-ce qu'une Enquête Origine-Destination (EOD)?</summary>
-            <h3>Planifier
-                le transport de demain</h3>
-            <p>Enquête d'envergure qui vise à recueillir des renseignements
-                précis et factuels sur les déplacements des résidents des territoires d'enquêtes
-                concernés.</p>
-            <h3>Recueillir l'information</h3>
-            <p>Ces renseignements constituent
-                une source d'information indispensable pour les organismes publics travaillant
-                à l'amélioration et au développement du territoire et des transports actuels et
-                futurs.</p>
-            <h3>La participation</h3>
-            <p>La participation des citoyens est fondamentale
-                pour la réussite de cette enquête. Les données ainsi recueillies permettront de
-                comparer et d'analyser les tendances en matière de mobilité au fil des ans.</p>
-        </details>
-        <details>
-            <summary class="_h2">Qui réalise cette enquête?</summary>
-            <p>Cette enquête est réalisée par
-                le ministère des Transports et de la Mobilité durable (MTMD) et ses partenaires.</p>
-        </details>
-        <details>
-            <summary class="_h2">Comment cette enquête est-elle réalisée?</summary>
-            <p>Les ménages recevront
-                une invitation postale pour remplir le questionnaire en ligne.</p>
-        </details>
-        <details>
-            <summary class="_h2">Pourquoi l'enquête a-t-elle lieu à l'automne?</summary>
-            <p>Les habitudes
-                de déplacement de la population sont généralement plus stables à l'automne ou au
-                printemps. Pour une enquête de l'envergure de celle-ci, seule la période de l'automne
-                est suffisamment longue pour réaliser le nombre d'entrevues visé.</p>
-        </details>
-        <details>
-            <summary class="_h2">Pourquoi l'enquête s'échelonne-t-elle sur plusieurs semaines?</summary>
-            <p>La
-                durée de l'enquête doit être suffisamment longue pour atteindre les objectifs d'échantillonnage.
-                Ainsi, la diversité des déplacements effectués quotidiennement par la population
-                de la région faisant l'objet de l'enquête pourra être justement représentée. Toujours
-                pour assurer la représentativité optimale, les journées où certaines situations
-                influencent la nature ou le nombre de déplacements sont exclues. Pensons aux jours
-                fériés, aux journées d'élections générales ou aux périodes de grève des services
-                publics.</p>
-        </details>
-        <details>
-            <summary class="_h2">L'enquête est-elle représentative
-                de la réalité?</summary>
-            <p>Pour assurer la représentativité des résultats, le territoire
-                d'enquête est divisé en secteurs ayant chacun un objectif quant au nombre de questionnaires
-                à remplir. Le portrait obtenu sera ainsi statistiquement représentatif des comportements
-                de l'ensemble des ménages qui y habitent.</p>
-        </details>
-        <details>
-            <summary class="_h2">Est-ce
-                que tout le monde peut participer à l'enquête?</summary>
-            <p>Pour assurer la représentativité
-                des résultats de l'enquête, seuls les ménages directement invités peuvent participer
-                à l'enquête.</p>
-        </details>
-        <details>
-            <summary class="_h2">Quel est le processus de
-                sélection des participants?</summary>
-            <p>Le seul critère de sélection des ménages
-                est d'ordre géographique. Les ménages sont sélectionnés de façon aléatoire à partir
-                des listes d'Adresses Québec et du DGEQ (Directeur général des élections).</p>
-        </details>
-        <details>
-            <summary class="_h2">Est-ce
-                que la participation à l'enquête est obligatoire?</summary>
-            <p>Les ménages invités
-                répondent sur une base volontaire. La réponse positive du plus grand nombre assurera
-                la réussite de l'EOD, un outil important pour mieux planifier l'aménagement des
-                infrastructures et des services de mobilité sur le territoire.</p>
-        </details>
-        <details>
-            <summary class="_h2">Les renseignements divulgués par les citoyens sont-ils confidentiels
-                et protégés?</summary>
-            <p>La confidentialité et la protection des renseignements
-                recueillis dans le cadre de l'enquête sont assurées par des accès très restreints
-                et hautement sécurisés aux bases de données. Des certificats de sécurité sont installés
-                sur le serveur et les données transmises sont cryptées à chaque étape.</p>
-            <p>Aucune
-                information nominative, telle que les numéros de téléphone, ne sera conservée dans
-                la base de données finale. Les données recueillies sont analysées, pour être ensuite
-                publiées de façon agrégée (données regroupées). Elles serviront uniquement à des
-                analyses de mobilité pour la planification des transports et de l'aménagement du
-                territoire au sein d'agences et d'organismes publics. Toute disposition visant
-                à fournir au public des renseignements concernant les données de l'enquête est
-                assujettie à la Loi sur l'accès aux documents des organismes publics et sur la
-                protection des renseignements personnels.</p>
-            <p>De plus, le personnel affecté à
-                l'enquête est tenu au secret professionnel. Les firmes mandatées pour la collecte
-                des données ont signé un formulaire d'engagement à la confidentialité à l'égard
-                de tout renseignement nominatif et personnel auquel elles ont accès. Ces firmes
-                perdront l'accès aux bases de données au terme de leur mandat.</p>
-        </details>
-        <details>
-            <summary class="_h2">Cette enquête vise-t-elle à privilégier un moyen de transport au détriment
-                d'un autre?</summary>
-            <p>Non. Cette enquête a pour but de connaître l'ensemble
-                des habitudes de déplacement des résidents. L'utilisation des données vise à identifier
-                les besoins en transport, quel que soit le moyen de transport utilisé. Il n'y a
-                aucun parti pris pour un mode de transport ni aucun jugement de valeur. L'objectif
-                est d'obtenir un portrait qui s'apparente le plus possible aux comportements observés.</p>
-        </details>
-        <details>
-            <summary class="_h2">Comment fonctionne la collecte de données?</summary>
-            <p>Les renseignements
-                des ménages sont collectés au moyen d'un questionnaire en ligne. La réalisation
-                des questionnaires en ligne sera administrée au moyen de la plateforme Évolution,
-                dans le cadre d'une entente avec Polytechnique Montréal.</p>
-        </details>
-        <details>
-            <summary class="_h2">Que demande-t-on aux ménages participant à l'enquête?</summary>
-            <p>Les
-                questions de l'enquête portent particulièrement sur les trois aspects suivants
-                :</p>
-            <ul>
-                <li>le profil du ménage - localisation, nombre de personnes, nombre de
-                    véhicules à sa disposition, catégorie de revenu, mode d'occupation du logement,
-                    présence de personnes limitées dans leurs déplacements quotidiens en raison d'une
-                    incapacité permanente;</li>
-                <li>le profil de chacune des personnes composant le ménage
-                    - âge, sexe, possession d'un permis de conduire, possession d'un laissez-passer
-                    de transport en commun, abonnement à un service d'autopartage, l'occupation, localisation
-                    du lieu de travail ou d'études, habitudes de télétravail ou de téléétudes;</li>
-                <li>le
-                    profil des déplacements de chacune des personnes du ménage (renseignements sur chacun
-                    des déplacements effectués une journée précédant le jour de l'ouverture du questionnaire)
-                    - motif, heure de départ, lieux d'origine et de destination, modes de transport
-                    utilisés et, le cas échéant, lignes de transport en commun utilisées, lieu du changement
-                    de mode de transport et stationnement au lieu de travail.</li>
-            </ul>
-        </details>
-        <details>
-            <summary class="_h2">Dans le questionnaire, je dois indiquer mes déplacements pour une journée
-                particulière, mais cette journée n'est pas représentative de mes déplacements quotidiens.</summary>
-            <p>L'objectif
-                de l'enquête est de connaître les pratiques de déplacement de l'ensemble de la
-                communauté pendant un jour moyen de semaine. Il est normal et tout à fait acceptable,
-                sur le plan statistique, d'avoir un sous-ensemble de répondants dont les déplacements
-                effectués lors de la journée ciblée ont été plus ou moins représentatifs de leurs
-                déplacements habituels. Il est important de décrire ce que vous avez réellement
-                fait.</p>
-        </details>
-        <details>
-            <summary class="_h2">J'ai été sollicité par la poste
-                pour répondre au questionnaire en ligne. Puis-je avoir de l'assistance?</summary>
-            <p>Oui,
-                c'est possible. Les résidents invités à participer à l'enquête en ligne peuvent
-                communiquer avec nous par courriel à l'adresse suivante: <a
-                    href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p>
-        </details>
-        <details>
-            <summary class="_h2">Pourquoi demandez-vous des renseignements aussi précis?</summary>
-            <p>L'objectif
-                est de connaître avec précision les déplacements effectués. Pour ce faire, la localisation
-                des lieux d'origine et de destination est nécessaire. Plus cette localisation est
-                précise, plus l'analyse produite est fine. La précision des déplacements de chaque
-                individu est nécessaire pour bien comprendre certains phénomènes comme, notamment,
-                le choix modal retenu pour réaliser le déplacement. Lors de la diffusion cependant,
-                le résultat est présenté sous forme de données agrégées.</p>
-        </details>
-    </details>
+
 auth:
     EmailSubLabel: >-
         <br /><span class="_pale _oblique">En cas de déconnexion, vous pourrez

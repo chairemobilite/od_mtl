@@ -1,383 +1,213 @@
 homepage:
-    AgreementText: >-
-        I confirm that I have read the above and consent to the collection,
-        processing, and use of the personal information provided during the
-        Survey.
+    AgreementText: I consent
     ErrorNotAgreed: In order to start the survey, you must accept the terms of use.
-    introduction_saguenay: >-
-        <p class="left">The <span class="_strong">Origin-Destination
-        Survey</span> is underway and your participation is important for its
-        success.</p><p class="left">We invite you to describe your trips as
-        well as those of the other members of your household during the day that
-        is suggested to you.</p><br/><details style="margin-bottom:
-        1rem"><summary class="left _strong" style="cursor: pointer;">Consent for
-        the Transmission of Personal Information</summary><ul><li>As part of the
-        2025 Saguenay Origin-Destination Survey (the "Survey"), I authorize
-        the Ministère des Transports et de la Mobilité durable (MTMD), the
-        Société de transport du Saguenay, and the city of Saguenay (the
-        "Organizations") to collect the following personal
-        information:<ul><li>Email address.</li><li>Home address.</li><li>Your
-        household profile: location, number of people, number of available
-        vehicles, income category, housing status, presence of individuals with
-        mobility limitations due to disability.</li><li>Profile of each member
-        of your household: age, gender, whether they have a driver's licence,
-        whether they have a public transit pass, whether they subscribe to a
-        car-sharing service, occupation, where they work/study, remote
-        work/study habits; and</li><li>Travel profile of each member of your
-        household on a specific day.</li></ul></li><li>The personal information
-        collected during the Survey enables the Organizations to understand the
-        transportation needs of the population and plan future road
-        infrastructure and public transport projects.</li><li>The personal
-        information will be collected through an online
-        questionnaire.</li><li>Your participation in the Survey is
-        voluntary.</li><li>The categories of individuals who may have access to
-        this personal information in the course of their duties are:<ul><li>The
-        Organizations</li><li>Recognized educational institutions and research
-        centres</li></ul></li><li>If you choose not to continue with the Survey,
-        the personal information collected up to that point will be
-        destroyed at your request.</li><li>Anyone who has provided personal information by
-        participating in the Survey has the right to access their personal
-        information held about them, obtain a copy, or request correction of
-        inaccurate, incomplete, ambiguous, or unlawfully collected information
-        by contacting the person responsible for information access at the
-        Ministère des Transports et de la Mobilité durable at 418 646-0160,
-        extension 23013, or by sending a written request with proof of identity
-        to <a
-        href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</li><li>Personal
-        information will be retained for a period determined by the
-        MTMD's retention schedule.</li><li>If you refuse to provide the
-        required personal information for the Survey, you will not be able to
-        participate.</li></ul><br/><p class="left">For more information about the Survey, please visit the following link : <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</p><p class="left">You must also consent to this
-        form from Polytechnique Montreal: <a
-        href="/dist/documents/od_saguenay_2025_consent_mtmd_poly_en.pdf"
-        target="_blank">Consent Information</a></p></details>
     introduction: >-
-        <p class="left">The <span class="_strong">Origin-Destination
-        Survey</span> is underway and your participation is important for its
-        success. </p><p class="left">We invite you to describe your trips as
-        well as those of the other members of your household during the day that
-        is suggested to you.</p><br/><details style="margin-bottom:
-        1rem"><summary class="left _strong" style="cursor: pointer;">Consent for
-        the Transmission of Personal Information</summary><ul><li>As part of the
-        2025 Origin-Destination Survey (the "Survey"), I authorize the Ministère
-        des Transports et de la Mobilité durable (MTMD) to collect the following
-        personal information:<ul><li>Email address.</li><li>Home
-        address.</li><li>Your household profile: location, number of people,
-        number of available vehicles, income category, housing status, presence
-        of individuals with mobility limitations due to
-        disability.</li><li>Profile of each member of your household: age,
-        gender, whether they have a driver's licence, whether they have a public
-        transit pass, whether they subscribe to a car-sharing service,
-        occupation, where they work/study, remote work/study habits;
-        and</li><li>Travel profile of each member of your household on a
-        specific day.</li></ul></li><li>The personal information collected
-        during the Survey allows the MTMD to understand the transportation needs
-        of the population and to plan future road infrastructure and public
-        transport projects.</li><li>The personal information will be collected
-        through an online questionnaire.</li><li>Your participation in the
-        Survey is voluntary.</li><li>The categories of individuals who may have
-        access to this personal information in the course of their duties
-        are:<ul><li>MTMD.</li><li>Recognized educational institutions and
-        research centres.</li></ul></li><li>If you choose not to continue with
-        the Survey, the personal information collected up to that point will be
-        destroyed at your request.</li><li>Anyone who has provided personal information by
-        participating in the Survey has the right to access their personal
-        information held about them, obtain a copy, or request correction of
-        inaccurate, incomplete, ambiguous, or unlawfully collected information
-        by contacting the person responsible for information access at the
-        Ministère des Transports et de la Mobilité durable at 418 646-0160,
-        extension 23013, or by sending a written request with proof of identity
-        to <a
-        href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</li><li>Personal
-        information will be retained for a period determined by MTMD's retention
-        schedule.</li><li>If you refuse to provide the required personal
-        information for the Survey, you will not be able to
-        participate.</li></ul><br/><p class="left">For more information about the Survey, please visit the following link : <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</p><p class="left">You must also consent to this
-        form from Polytechnique Montreal: <a
-        href="/dist/documents/od_nationale_2025_consent_mtmd_poly_en.pdf"
-        target="_blank">Consent Information</a></p></details>
-    introductionParagraphTwo: >-
-        <p class="left">We thank you for your contribution to the planning of
-        tomorrow's transportation!</p><br/> <p class="left _strong"
-        style="margin-bottom: 1rem;">The deadline to participate is December
-        16th, 2025.</p><br/><p class="left"><em>For more information about the
-        Survey, please visit the following link</em>: <a
-        href="https://www.transports.gouv.qc.ca/fr/ministere/Planification-transports/enquetes-origine-destination/Pages/enquetes-origine-destination.aspx"
-        target="_blank">Enquêtes origine-destination - Transports et Mobilité
-        durable Québec (gouv.qc.ca)</a>.</em></p><p class="center _oblique"
-        style="margin: 2rem 0;"><a href="mailto:EOD@transports.gouv.qc.ca"
-        target="_blank">Contact us</a></p>
+        <p class="left"><span class="_sarcelle _strong">Help shape mobility planning and get a chance
+        to win one of the many prizes on offer (total value of $2,500)!</span></p><br/><p
+        class="left"><span class="_strong">The Office of Mobility Surveys</span>, led by the Autorité
+        régionale de transport métropolitain (ARTM), invites residents of the Greater Montreal area
+        to share their travel habits.</p><br/><p class="left _strong">The deadline to participate is
+        December 16, 2026.</p><br/><p class="left _oblique" style="font-size: 80%; margin-bottom:
+        1rem">By checking the box below, you consent to the collection, processing, and possible uses
+        of the data described in <a
+        href="https://www.artm.quebec/wp-content/uploads/2026/08/Privacy-Statement_Perspectives-mobilite-surveys_EN_R01_2026.pdf"
+        target="_blank">the privacy statement</a>. This statement explains, among other things, that
+        data may be shared for research and planning purposes. Additionally, by checking the box below,
+        you certify that you are authorized to provide the personal information of minors living in your
+        household, either as a parent or guardian.</p>
+    introductionParagraphTwo: ''
     start: Start
 footer: >-
     <div style="display: flex;justify-content: center;">
         <div style="font-size:
         80%;max-width: 700px;margin: 15px;">
-            <p><a href="/dist/documents/od_nationale_2025_consent_mtmd_poly_en.pdf" target="_blank">Consent
-                    Information</a> | <a href="mailto:EOD@transports.gouv.qc.ca?subject=Origin-Destination%20Survey"
-                    target="_blank">Contact us by email</a></p>
+            <p><a href="https://www.artm.quebec/wp-content/uploads/2026/08/Privacy-Statement_Perspectives-mobilite-surveys_EN_R01_2026.pdf"
+                    target="_blank">Privacy statement</a> | <a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf"
+                    target="_blank">Contest rules</a> | <a
+                    href="https://www.artm.quebec/planification/enquete-metropolitaine-perspectives-mobilite/"
+                    target="_blank">More information</a> | <a
+                    href="mailto:perspectivesmobilite@artm.quebec?subject=Perspectives%20Mobilité%20Survey"
+                    target="_blank">Contact us</a></p>
         </div>
     </div>
     <details class="faq-container">
         <summary class="faq-title ornament_bottom">Frequently Asked Questions
             (FAQ)</summary>
         <details>
-            <summary class="_h2">What is an Origin-Destination (OD) Survey?</summary>
-            <h3>Planning
-                for Tomorrow's Transport</h3>
-            <p>A large-scale survey aimed at collecting precise and factual information about the travel patterns of
-                residents in the surveyed territory.</p>
-            <h3>Collecting Information</h3>
-            <p>This information is an essential resource for public organizations seeking to improve and develop current and
-                future infrastructure and transport.</p>
-            <h3>Participation</h3>
-            <p>Household participation is fundamental to the success of this survey. The data collected will allow for the
-                comparison and analysis of mobility trends over the years.</p>
+            <summary class="_h2">What is the Perspectives mobilité 2026 Metropolitan Survey?</summary>
+            <p>The Autorité régionale de transport métropolitain (ARTM), in collaboration with the Ministère des
+                Transports et de la Mobilité durable (MTMD), is conducting the <em>Perspectives mobilité</em>
+                metropolitan survey from September 1 to December 16, 2026, among a sample of households in the Greater
+                Montréal region.</p>
+            <p>This survey aims to better understand how residents of the Greater Montréal region get around, regardless
+                of the frequency of their trips or the modes of transportation they use, whether by car, public transit,
+                walking, cycling, or other forms of mobility.</p>
         </details>
         <details>
-            <summary class="_h2">Who is conducting the survey?</summary>
-            <p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD) and its partners.
-            </p>
+            <summary class="_h2">Why is the ARTM conducting the Perspectives mobilité 2026 metropolitan survey?</summary>
+            <p>The data collected and analyzed as part of the survey provide reliable information on how people travel in
+                the Greater Montreal area.</p>
+            <p>This data is essential to enabling public authorities, such as the MTMD, municipal administrations, the
+                ARTM, and public transit operators, to plan and improve road and public transit networks, as well as to
+                support land-use planning efforts.</p>
+            <p>The 2026 edition of the survey is of particular importance. First, it will reveal how certain trends
+                observed since 2023, such as remote work, have evolved. Second, 2026 marks the first year of a change in
+                survey methods in the region: the partners are updating the data collection process to make the
+                collection, processing, and dissemination of data from metropolitan surveys more flexible, responsive, and
+                rapid, transitioning from a model of data collection every five years to an annual collection each fall.</p>
         </details>
         <details>
-            <summary class="_h2">How is the survey conducted?</summary>
-            <p>Households will receive an invitation in the mail to complete the online questionnaire.</p>
+            <summary class="_h2">How often is the survey conducted?</summary>
+            <p>The metropolitan survey was conducted primarily every five years from 1970 to 2023.</p>
+            <p>Starting in 2026, it will be conducted every fall. This approach will allow for more detailed tracking of
+                mobility trends in the Greater Montréal region, mitigate the impact of unforeseen events that could
+                disrupt data collection, such as a postal strike, a major service disruption, or a pandemic, and
+                continuously improve data collection and processing methods to produce the most reliable data possible.</p>
         </details>
         <details>
-            <summary class="_h2">Why is the survey taking place in the fall?</summary>
-            <p>Travel habits are generally more stable in the fall or spring. For a survey of this scale, the fall period is
-                long enough to achieve the desired number of interviews.</p>
+            <summary class="_h2">Who is invited to respond to the Perspectives mobilité 2026 metropolitan survey?</summary>
+            <p>In total, nearly two hundred sixty-five thousand (265,000) households will be invited by mail in 2026 to
+                complete the questionnaire. These households will be able to respond online or by phone, if necessary,
+                with the assistance of a call centre agent.</p>
+            <p>The survey's target population consists of all individuals aged five and older living in a private dwelling
+                in one of the municipalities of the Greater Montréal region.</p>
+            <p>Only those contacted by mail may participate in the survey. This methodology aims to ensure that data is
+                collected from a representative sample of the population and to avoid potential biases.</p>
+            <p>The ARTM reminds those who receive a letter in the mail that it is important to participate, regardless of
+                the mode of transportation they use (private vehicle, public transit, active transit, etc.) or whether
+                they travel infrequently.</p>
+            <p>Check your mailbox between September 1 and December 16.</p>
         </details>
         <details>
-            <summary class="_h2">Why does the survey span several weeks?</summary>
-            <p>The survey duration needs to be long enough to meet sampling objectives. This ensures that the diversity of
-                daily travel patterns in the survey area is accurately represented. To maintain representativeness, days
-                affected by certain events, such as public holidays, general elections, or public service strikes, are
-                excluded.</p>
+            <summary class="_h2">How can I participate in the Perspectives mobilité 2026 metropolitan survey?</summary>
+            <p>If you've received an invitation by mail, go to the website address provided in the letter. We recommend
+                completing the survey on a computer or tablet for the best experience, but you can also scan the QR code
+                with a smartphone. Then use the unique access code provided to you to access the online questionnaire.</p>
+            <p>If you have trouble completing the questionnaire, you can contact the call centre at 438-476-5920. An
+                agent will be able to help you complete the questionnaire over the phone Wednesday through Friday, from
+                10 a.m. to 4 p.m., and Saturday, from 10 a.m. to 2 p.m.</p>
         </details>
         <details>
-            <summary class="_h2">Is the survey representative of reality?</summary>
-            <p>To ensure result representativeness, the survey area is divided into sectors, each with its own questionnaire
-                completion goal. The resulting profile will be statistically representative of the behaviours of all
-                households in the area.</p>
+            <summary class="_h2">Why is it important for people who receive an invitation by mail to participate in the
+                metropolitan survey?</summary>
+            <p>Mobility surveys are essential because they provide public authorities, such as the Government of
+                Québec, municipalities, the ARTM, and public transit agencies, with concrete data to help improve the
+                road network, reduce the impacts of congestion, plan and enhance public transit services, and support
+                efforts to reduce greenhouse gas emissions. They also help guide land-use and development planning and
+                the creation of attractive living environments, for example by providing input for the revision of
+                regional land-use planning documents and the planning of neighbourhoods, activity centres, and access to
+                services.</p>
+            <p>These data also support research aimed at improving our understanding of accessibility and equity issues in
+                transportation. For example, they can help examine how public space is allocated based on different uses
+                of public roads, better understand travel needs between different areas, and inform decisions that make
+                travel more efficient, safer, and more equitable. Ultimately, a better understanding of mobility
+                contributes to improved access to services and opportunities, as well as a better quality of life for the
+                entire population.</p>
         </details>
         <details>
-            <summary class="_h2">Can everyone participate in the survey?</summary>
-            <p>To ensure the representativeness of the survey results, only households that are directly invited can
-                participate.</p>
+            <summary class="_h2">What prizes can you win by participating in the survey?</summary>
+            <p>By completing the survey questionnaire online or by phone before December 16, 2026, participants may be
+                eligible for a draw for Apple or Android tablets (valued at approximately $500), smartwatches (valued at
+                approximately $200), and cash prizes ($500 or $200). A total of <strong>$2,500 in prizes will be awarded
+                    in 2026</strong>.</p>
+            <p>The winning individuals will be selected at random on December 17, 2026, and contacted by email within
+                fifteen (15) days following the draw.</p>
+            <p>To view the contest rules, visit the <a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf"
+                    target="_blank">ARTM website</a>.</p>
         </details>
         <details>
-            <summary class="_h2">What is the participant selection process?</summary>
-            <p>The only selection criterion for households is geographic. Households are randomly selected from the Adresses
-                Québec and DGEQ (Directeur général des élections) lists.</p>
+            <summary class="_h2">How long does it take to complete the survey?</summary>
+            <p>The estimated average time to complete the questionnaire is between 10 and 20 minutes. However, this may
+                vary depending on the size of your household and the number of trips to report.</p>
         </details>
         <details>
-            <summary class="_h2">Is participation in the survey mandatory?</summary>
-            <p>Invited households participate on a voluntary basis. A high response rate will ensure the success of the OD
-                survey, an important tool to facilitate the planning of infrastructure and mobility services in the area.
-            </p>
+            <summary class="_h2">How do we ensure that the information remains confidential?</summary>
+            <p>Respecting the privacy of survey participants is a priority for the ARTM and its partners. That is why we
+                implement the necessary security measures to ensure the protection of information collected from and
+                exchanged with participants as part of the <em>Perspectives mobilité</em> survey program.</p>
+            <p>The contact information provided by individuals who agree to be contacted again for research purposes is
+                stored separately from the questionnaire responses. If an individual consents, a temporary, secure link may
+                be retained for a limited period to enable targeted follow-ups based on specific mobility profiles or
+                household characteristics. Routine analyses continue to be conducted using de-identified data.</p>
+            <p>To view the Privacy Statement, visit the <a
+                    href="https://www.artm.quebec/wp-content/uploads/2026/08/Privacy-Statement_Perspectives-mobilite-surveys_EN_R01_2026.pdf"
+                    target="_blank">ARTM website</a>.</p>
         </details>
         <details>
-            <summary class="_h2">Is the information disclosed by residents confidential and protected?</summary>
-            <p>The confidentiality and protection of the information collected are ensured by highly restricted and secure
-                access to the databases. Security certificates are installed on the server, and data transmitted is
-                encrypted at each stage.</p>
-            <p>No personal information, such as phone numbers, will be kept in the final database. The collected data is
-                analyzed then published in aggregated form (grouped data). It will be used solely for mobility analysis for
-                transport and land use planning within public agencies and organizations. Any public disclosure of survey
-                data is subject to the Act respecting Access to documents held by public bodies and the Protection of
-                personal information.</p>
-            <p>Additionally, survey personnel are bound by professional secrecy. Firms contracted to collect data have
-                signed confidentiality agreements regarding any personal and identifying information they access. These
-                firms will lose access to the databases once their mandate is completed.</p>
+            <summary class="_h2">Is this the same survey as the Origin-Destination Survey?</summary>
+            <p>Yes. Previously called the Origin-Destination Survey, it has been known since 2023 as the <em>Perspectives
+                    mobilité</em> Metropolitan Survey. This new name reflects the essential role it plays for a variety
+                of stakeholders in the planning of infrastructure projects as well as in research, particularly in the
+                field of transportation. Surveys conducted in other regions of Québec by the Ministère des Transports et
+                de la Mobilité durable (MTMD) are still called Origin-Destination Surveys.</p>
         </details>
         <details>
-            <summary class="_h2">Does the survey favour one mode of transportation over another?</summary>
-            <p>No, the survey aims to understand all travel habits of residents. The data will be used to identify transport
-                needs, regardless of the mode of transportation used. There is no bias towards any particular mode of
-                transportation, nor any value judgment. The goal is to obtain a profile that closely resembles the observed
-                behaviours.</p>
+            <summary class="_h2">When will the results of the Perspectives mobilité 2026 Metropolitan Survey be
+                released?</summary>
+            <p>The time required to process and analyze the data is estimated to be between 12 and 18 months. Preliminary
+                results are therefore expected to be available by the end of 2027.</p>
+            <p>Since metropolitan survey data collection will take place every fall starting in 2026, with a smaller
+                sample size, the usual set of survey products will not be available before 2029. The first year's data
+                will primarily be used for general analyses or high-level trend assessments. Over the next few years, the
+                addition of new data will enhance the database and enable more detailed analyses at finer geographic
+                levels.</p>
         </details>
         <details>
-            <summary class="_h2">How does data collection work?</summary>
-            <p>Information about each household will be collected through an online questionnaire. The administration of the
-                online questionnaires will be managed via the Evolution platform, under an agreement with the École
-                Polytechnique de Montréal.</p>
+            <summary class="_h2">I can't access the questionnaire (problem with the link, the QR code, or the page
+                loading), or I can't move to the next page. What should I do?</summary>
+            <p>First, please wait a few moments for the questionnaire to be loaded. This may take up to a minute
+                depending on your internet connection speed, but please note that the questionnaire is relatively
+                "light," as it contains only one or two images and no videos.</p>
+            <p>You can refresh the page in your browser or close the window, then return to the survey site. In most
+                cases, this will take you back to the page you were on, and it should load correctly. Note that if your
+                web browser settings do not allow cookies to be stored, you may need to log in again to retrieve your
+                progress.</p>
+            <p>You can also try taking the survey using a different web browser (Chrome, Safari, Firefox, Edge, etc.).</p>
+            <p>Finally, if you cannot get to the next page, check that you have answered all the mandatory questions, and
+                that the format is correct (for example, a question about age expects a number to be provided as an
+                answer, and a location question requires you to place the point precisely enough on the map, etc.). An
+                invalid or incomplete question will be outlined in red.</p>
+            <p>If you are still unable to access the questionnaire, you can call 438-476-5920 and provide your unique code,
+                the email address associated with your submission, the mailing address associated with your code, and any
+                other additional information that will allow the agent to verify your identity.</p>
         </details>
         <details>
-            <summary class="_h2">What is asked of participating households?</summary>
-            <p>The survey questions focus on three aspects:</p>
-            <ul>
-                <li>Household profile: location, number of people, number of available vehicles, income category, housing
-                    status, presence of individuals with mobility limitations due to permanent disability;</li>
-                <li>Profile of each household member: age, gender, whether they have a driver's licence, whether they have a
-                    public transit pass, whether they subscribe to a car-sharing service, occupation, where they work/study,
-                    remote work/study habits;</li>
-                <li>Travel profile of each household member (i.e., information about each trip made on the day prior to
-                    opening the questionnaire): purpose, departure time, origin and destination, modes of transportation
-                    used, and if applicable, public transit lines used, where they changed modes of transportation, and
-                    workplace parking.</li>
-            </ul>
+            <summary class="_h2">Will my answers be saved if I leave the questionnaire and return to it later to
+                complete it?</summary>
+            <p>As long as you are connected to the internet, your answers are recorded as you go. Thus, they will be
+                transmitted to us if you leave the questionnaire, whether you return to it later or not.</p>
+            <p>If you provided an email address before starting the survey (on the login page), you can enter that address
+                again, and a unique login link will be sent to you to retrieve your responses. If you used Google Account
+                authentication, you can log back in and retrieve your responses that way.</p>
+            <p>Finally, if none of the above applies to you, you can call 438-476-5920 and provide your unique code, along
+                with the email address or mailing address associated with your response, as well as any additional
+                information that will allow the agent to verify your identity. An agent will then be able to locate your
+                survey and help you continue it.</p>
         </details>
         <details>
-            <summary class="_h2">In the questionnaire, I need to report my travel for a specific day, but this day is not
-                representative of my daily travel.</summary>
-            <p>The goal of the survey is to understand the travel practices of the entire community during an average
-                weekday. It is normal and statistically acceptable to have a subset of respondents whose travel on the
-                surveyed day may be more or less representative of their usual travel. It is important to describe what you
-                actually did.</p>
+            <summary class="_h2">Have you received my survey responses?</summary>
+            <p>We have almost certainly received your responses, as they are sent to us automatically as you complete the
+                questionnaire, even if you did not finish it.</p>
+            <p>Please note that you will not receive a confirmation email once you have submitted the completed
+                questionnaire; the final (and thank you) page of the questionnaire indicates that your response has been
+                recorded as complete.</p>
         </details>
         <details>
-            <summary class="_h2">I received an invitation in the mail to complete the online questionnaire. Can I get
-                assistance?</summary>
-            <p>Yes, assistance is available. Residents invited to participate in the online survey can contact us by email
-                at <a href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p>
+            <summary class="_h2">How can I withdraw from the survey?</summary>
+            <p>You can contact us at <a href="mailto:perspectivesmobilite@artm.quebec">perspectivesmobilite@artm.quebec</a>
+                with your unique code and the associated mailing address, and we will make sure to delete all responses
+                associated with your code. Please note that if you entered an incorrect code, we will not be able to
+                delete your survey.</p>
         </details>
         <details>
-            <summary class="_h2">Why are you asking for so many details?</summary>
-            <p>The goal is to get an accurate description of the trips made. To do this, knowing the locations of origin and
-                destination is necessary. The more precise the location, the more detailed the analysis can be. Details of
-                each individual trip is needed to understand certain phenomena, such as which mode of transportation is
-                chosen for a trip. However, all results are presented in aggregated data form.</p>
+            <summary class="_h2">Questions or Comments About the ARTM</summary>
+            <p>For any questions or comments about the ARTM, please contact us via the online form: <a
+                    href="https://www.artm.quebec/en/about-us/contact-us/" target="_blank">ARTM – Contact us</a>.</p>
         </details>
     </details>
-footer_saguenay: >-
-    <div style="display: flex;justify-content: center;">
-        <div style="font-size:
-        80%;max-width: 700px;margin: 15px;">
-            <p><a href="/dist/documents/od_saguenay_2025_consent_mtmd_poly_en.pdf" target="_blank">Consent
-                    Information</a> | <a href="mailto:EOD@transports.gouv.qc.ca?subject=Origin-Destination%20Survey"
-                    target="_blank">Contact us by email</a></p>
-        </div>
-    </div>
-    <details class="faq-container">
-        <summary class="faq-title ornament_bottom">Frequently Asked Questions
-            (FAQ)</summary>
-        <details>
-            <summary class="_h2">What is an Origin-Destination (OD) Survey?</summary>
-            <h3>Planning
-                for Tomorrow's Transport</h3>
-            <p>A large-scale survey aimed at collecting precise and factual information about the travel patterns of
-                residents in the surveyed territory.</p>
-            <h3>Collecting Information</h3>
-            <p>This information is an essential resource for public organizations seeking to improve and develop current and
-                future infrastructure and transport.</p>
-            <h3>Participation</h3>
-            <p>Household participation is fundamental to the success of this survey. The data collected will allow for the
-                comparison and analysis of mobility trends over the years.</p>
-        </details>
-        <details>
-            <summary class="_h2">Who is conducting the survey?</summary>
-            <p>The survey is conducted by the Ministère des Transports et de la Mobilité durable (MTMD) and its partners.
-            </p>
-        </details>
-        <details>
-            <summary class="_h2">How is the survey conducted?</summary>
-            <p>Households will receive an invitation in the mail to complete the online questionnaire.</p>
-        </details>
-        <details>
-            <summary class="_h2">Why is the survey taking place in the fall?</summary>
-            <p>Travel habits are generally more stable in the fall or spring. For a survey of this scale, the fall period is
-                long enough to achieve the desired number of interviews.</p>
-        </details>
-        <details>
-            <summary class="_h2">Why does the survey span several weeks?</summary>
-            <p>The survey duration needs to be long enough to meet sampling objectives. This ensures that the diversity of
-                daily travel patterns in the survey area is accurately represented. To maintain representativeness, days
-                affected by certain events, such as public holidays, general elections, or public service strikes, are
-                excluded.</p>
-        </details>
-        <details>
-            <summary class="_h2">Is the survey representative of reality?</summary>
-            <p>To ensure result representativeness, the survey area is divided into sectors, each with its own questionnaire
-                completion goal. The resulting profile will be statistically representative of the behaviours of all
-                households in the area.</p>
-        </details>
-        <details>
-            <summary class="_h2">Can everyone participate in the survey?</summary>
-            <p>To ensure the representativeness of the survey results, only households that are directly invited can
-                participate.</p>
-        </details>
-        <details>
-            <summary class="_h2">What is the participant selection process?</summary>
-            <p>The only selection criterion for households is geographic. Households are randomly selected from the Adresses
-                Québec and DGEQ (Directeur général des élections) lists.</p>
-        </details>
-        <details>
-            <summary class="_h2">Is participation in the survey mandatory?</summary>
-            <p>Invited households participate on a voluntary basis. A high response rate will ensure the success of the OD
-                survey, an important tool to facilitate the planning of infrastructure and mobility services in the area.
-            </p>
-        </details>
-        <details>
-            <summary class="_h2">Is the information disclosed by residents confidential and protected?</summary>
-            <p>The confidentiality and protection of the information collected are ensured by highly restricted and secure
-                access to the databases. Security certificates are installed on the server, and data transmitted is
-                encrypted at each stage.</p>
-            <p>No personal information, such as phone numbers, will be kept in the final database. The collected data is
-                analyzed then published in aggregated form (grouped data). It will be used solely for mobility analysis for
-                transport and land use planning within public agencies and organizations. Any public disclosure of survey
-                data is subject to the Act respecting Access to documents held by public bodies and the Protection of
-                personal information.</p>
-            <p>Additionally, survey personnel are bound by professional secrecy. Firms contracted to collect data have
-                signed confidentiality agreements regarding any personal and identifying information they access. These
-                firms will lose access to the databases once their mandate is completed.</p>
-        </details>
-        <details>
-            <summary class="_h2">Does the survey favour one mode of transportation over another?</summary>
-            <p>No, the survey aims to understand all travel habits of residents. The data will be used to identify transport
-                needs, regardless of the mode of transportation used. There is no bias towards any particular mode of
-                transportation, nor any value judgment. The goal is to obtain a profile that closely resembles the observed
-                behaviours.</p>
-        </details>
-        <details>
-            <summary class="_h2">How does data collection work?</summary>
-            <p>Information about each household will be collected through an online questionnaire. The administration of the
-                online questionnaires will be managed via the Evolution platform, under an agreement with the École
-                Polytechnique de Montréal.</p>
-        </details>
-        <details>
-            <summary class="_h2">What is asked of participating households?</summary>
-            <p>The survey questions focus on three aspects:</p>
-            <ul>
-                <li>Household profile: location, number of people, number of available vehicles, income category, housing
-                    status, presence of individuals with mobility limitations due to permanent disability;</li>
-                <li>Profile of each household member: age, gender, whether they have a driver's licence, whether they have a
-                    public transit pass, whether they subscribe to a car-sharing service, occupation, where they work/study,
-                    remote work/study habits;</li>
-                <li>Travel profile of each household member (i.e., information about each trip made on the day prior to
-                    opening the questionnaire): purpose, departure time, origin and destination, modes of transportation
-                    used, and if applicable, public transit lines used, where they changed modes of transportation, and
-                    workplace parking.</li>
-            </ul>
-        </details>
-        <details>
-            <summary class="_h2">In the questionnaire, I need to report my travel for a specific day, but this day is not
-                representative of my daily travel.</summary>
-            <p>The goal of the survey is to understand the travel practices of the entire community during an average
-                weekday. It is normal and statistically acceptable to have a subset of respondents whose travel on the
-                surveyed day may be more or less representative of their usual travel. It is important to describe what you
-                actually did.</p>
-        </details>
-        <details>
-            <summary class="_h2">I received an invitation in the mail to complete the online questionnaire. Can I get
-                assistance?</summary>
-            <p>Yes, assistance is available. Residents invited to participate in the online survey can contact us by email
-                at <a href="mailto:EOD@transports.gouv.qc.ca">EOD@transports.gouv.qc.ca</a>.</p>
-        </details>
-        <details>
-            <summary class="_h2">Why are you asking for so many details?</summary>
-            <p>The goal is to get an accurate description of the trips made. To do this, knowing the locations of origin and
-                destination is necessary. The more precise the location, the more detailed the analysis can be. Details of
-                each individual trip is needed to understand certain phenomena, such as which mode of transportation is
-                chosen for a trip. However, all results are presented in aggregated data form.</p>
-        </details>
-    </details>
+
 auth:
     EmailSubLabel: >-
         <br /><span class="_pale _oblique">In case of disconnection, you can
