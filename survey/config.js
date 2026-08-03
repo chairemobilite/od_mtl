@@ -122,5 +122,6 @@ module.exports = {
         schoolPlace: []
     },
     auditChecksGroup: 'travelSurvey', // custom by default so older surveys work.
-    surveyBase: 'householdBased'
+    surveyBase: 'householdBased',
+    surveyAreaGeojsonPath: '../src/survey/geojson/surveyArea.geojson'
 };
