@@ -16,7 +16,7 @@ const context = {
 // Survey credentials, no long distance section, no trips, one person in the
 // household, should go to omissions section.
 const email = 'one-person-no-trips-and-omission@test.com';
-const accessCode = '7357-1116';
+const accessCode = '735-711-116';
 
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });

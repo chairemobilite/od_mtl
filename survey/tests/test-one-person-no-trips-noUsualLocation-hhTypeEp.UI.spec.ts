@@ -16,7 +16,7 @@ const context = {
 // Survey credentials, no long distance section, no trips, one person in the
 // household, should go directly to end section after travel behavior.
 const email = 'one-person-no-trips-noUsualLocation@test.com';
-const accessCode = '7357-1125';
+const accessCode = '735-711-125';
 
 // Configure the tests to run in serial mode (one after the other)
 test.describe.configure({ mode: 'serial' });
