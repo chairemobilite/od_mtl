@@ -6,7 +6,8 @@ import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
-import { isPartialSample, shouldShowToddlerDayCareQuestions } from '../../common/customHelpers';
+import { shouldShowToddlerDayCareQuestions } from '../../common/customHelpers';
+import { isPartialSample } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'omissions';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';

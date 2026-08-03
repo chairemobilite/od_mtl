@@ -5,13 +5,9 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import {
-    getBarriersDisabilityTripPath,
-    getBarriersTripPath,
-    isPartialSample,
-    updateHouseholdSizeFromPersonCount
-} from '../../common/customHelpers';
+import { getBarriersDisabilityTripPath, getBarriersTripPath } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
+import { isPartialSample } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'barriers';
 const previousSectionName: SectionConfig['previousSection'] = 'attitudinal';
