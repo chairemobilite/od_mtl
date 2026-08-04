@@ -97,7 +97,13 @@ export const outOfTerritoryMembersCustomChoices: WidgetConfig.ParsingFunction<Wi
     const choices: WidgetConfig.ChoiceType[] = personsArrayToChoices(persons.filter((p) => p._uuid !== person._uuid));
     choices.unshift({
         value: 'none',
-        label: (t: TFunction) => t('tripsIntro:outOfTerritoryMembersChoiceNone')
+        label: (t: TFunction, interview, path) => {
+            return t('tripsIntro:outOfTerritoryMembersChoiceNone', {
+                context: odHelpers.getPersonGenderContext({ person }),
+                count: odHelpers.getCountOrSelfDeclared({ interview, person }),
+                nickname: odHelpers.getPersonIdentificationString({ person, t })
+            });
+        }
     });
     return choices;
 };
