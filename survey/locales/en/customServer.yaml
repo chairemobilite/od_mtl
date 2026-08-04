@@ -55,3 +55,23 @@ confirmedByAdminEmailText: >
 
 
   Your access request to the survey platform has been confirmed. You can now use your account.
+magicLinkEmailSubject: Connecting to the travel survey
+magicLinkEmailText: >-
+  Welcome!
+  
+  
+  You requested a login link to access your Perspectives mobilité survey questionnaire.
+  
+  
+  To sign in, click the following link: {{magicLinkUrl}}
+  
+  
+  Thank you for contributing to better transportation planning in your area!
+  
+  
+  Please do not reply to this message.
+  
+  
+  Best regards,
+  
+  Office of mobility surveys of the ARTM
