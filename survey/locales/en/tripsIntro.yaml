@@ -69,8 +69,8 @@ personDeparturePlaceIsHome_one: >-
     {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).</span>
 personDeparturePlaceOther: Where was {{nickname}} at 4 AM?
 personDeparturePlaceOther_one: Where were you at 4 AM?
-personOutOfTerritory: Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
-personOutOfTerritory_one: Have you returned home ({{address}}) on {{journeyDate}}?
+personReturnedHome: Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
+personReturnedHome_one: Have you returned home ({{address}}) on {{journeyDate}}?
 personOutOfTerritoryMembers: Were other household members also outside home all day?
 tripsIntro_save: Continue
 tripsIntroOutro: >-
@@ -82,18 +82,17 @@ personDidTripsConfirmChoiceNo: '{{nickname}} did not make any trips on {{journey
 personDidTripsConfirmChoiceNo_one: I did not make any trips on {{journeyDate}}
 personDidTripsConfirmChoiceYes: '{{nickname}} did make at least one trip on {{journeyDate}}'
 personDidTripsConfirmChoiceYes_one: I did make at least one trip on {{journeyDate}}
-outOfTerritoryChoiceNo: No, {{nickname}} stayed at this place until the next day
-outOfTerritoryChoiceNo_one: No, I stayed at this place until the next day
-outOfTerritoryChoiceNo_hotelForWork: No, {{nickname}} stayed away for work until the
+returnedHomeChoiceNo: No, {{nickname}} stayed at this place until the next day
+returnedHomeChoiceNo_one: No, I stayed at this place until the next day
+returnedHomeChoiceNo_hotelForWork: No, {{nickname}} stayed away for work until the
     next day
-outOfTerritoryChoiceNo_hotelForWork_one: No, I stayed away for work until the next
+returnedHomeChoiceNo_hotelForWork_one: No, I stayed away for work until the next day
+returnedHomeChoiceNo_hotelForVacation: No, {{nickname}} stayed on vacation until the
+    next day
+returnedHomeChoiceNo_hotelForVacation_one: No, I stayed on vacation until the next
     day
-outOfTerritoryChoiceNo_hotelForVacation: No, {{nickname}} stayed on vacation until
-    the next day
-outOfTerritoryChoiceNo_hotelForVacation_one: No, I stayed on vacation until the next
-    day
-outOfTerritoryChoiceYes: Yes, {{nickname}} returned home before the next day
-outOfTerritoryChoiceYes_one: Yes, I returned home before the next day
+returnedHomeChoiceYes: Yes, {{nickname}} returned home before the next day
+returnedHomeChoiceYes_one: Yes, I returned home before the next day
 outOfTerritoryMembersChoiceNone: '{{nickname}} was alone'
 outOfTerritoryMembersChoiceNone_one: I was alone
 errors:

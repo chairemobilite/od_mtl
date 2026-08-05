@@ -111,14 +111,14 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
 // Custom choices because it has the departure place type in the labels
 //
 // FIXME: personOutOfTerritory : implication · Issue #45 · chairemobilite/od_mtl
-export const personOutOfTerritory: WidgetConfig.InputRadioType = {
+export const personReturnedHome: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory',
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome',
     twoColumns: false,
     containsHtml: false,
-    label: customLabels.personOutOfTerritoryCustomLabel,
-    choices: customChoices.outOfTerritoryCustomChoices,
-    conditional: conditionals.outOfTerritoryConditional,
+    label: customLabels.personReturnedHomeCustomLabel,
+    choices: customChoices.returnedHomeCustomChoices,
+    conditional: conditionals.returnedHomeConditional,
     validations: validations.requiredValidation
 };
 

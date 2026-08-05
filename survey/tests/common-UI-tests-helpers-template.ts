@@ -408,11 +408,11 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOther', value: '?' });
 
-    // Test radio widget personOutOfTerritory with conditional outOfTerritoryConditional with choices outOfTerritoryCustomChoices
+    // Test radio widget personReturnedHome with conditional returnedHomeConditional with choices returnedHomeCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritory', value: '?' });
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome', value: '?' });
 
     // Test checkbox widget personOutOfTerritoryMembers with conditional outOfTerritoryMembersConditional with choices outOfTerritoryMembersCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

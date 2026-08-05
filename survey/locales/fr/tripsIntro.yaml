@@ -172,19 +172,19 @@ personDeparturePlaceIsHome_female_one: >-
     matin (par ex. : travail de nuit).</span>
 personDeparturePlaceOther: Où était {{nickname}} à 4h du matin?
 personDeparturePlaceOther_one: Où étiez-vous à 4h du matin?
-personOutOfTerritory: >-
+personReturnedHome: >-
     Est-ce que {{nickname}} est retourné(e) au domicile ({{address}}) la journée du
     {{journeyDate}}?
-personOutOfTerritory_male: >-
+personReturnedHome_male: >-
     Est-ce que {{nickname}} est retourné au domicile ({{address}}) la journée du {{journeyDate}}?
-personOutOfTerritory_female: >-
+personReturnedHome_female: >-
     Est-ce que {{nickname}} est retournée au domicile ({{address}}) la journée du
     {{journeyDate}}?
-personOutOfTerritory_one: >-
+personReturnedHome_one: >-
     Est-ce que vous êtes retourné(e) au domicile ({{address}}) la journée du {{journeyDate}}?
-personOutOfTerritory_male_one: >-
+personReturnedHome_male_one: >-
     Est-ce que vous êtes retourné au domicile ({{address}}) la journée du {{journeyDate}}?
-personOutOfTerritory_female_one: >-
+personReturnedHome_female_one: >-
     Est-ce que vous êtes retournée au domicile ({{address}}) la journée du {{journeyDate}}?
 personOutOfTerritoryMembers: >-
     D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
@@ -199,44 +199,42 @@ personDidTripsConfirmChoiceNo_one: Je n'ai effectué aucun déplacement le {{jou
 personDidTripsConfirmChoiceYes: '{{nickname}} a effectué au moins un déplacement le
     {{journeyDate}}'
 personDidTripsConfirmChoiceYes_one: J'ai effectué au moins un déplacement le {{journeyDate}}
-outOfTerritoryChoiceNo: Non, {{nickname}} est resté(e) à cet endroit jusqu’au lendemain
-outOfTerritoryChoiceNo_male: Non, {{nickname}} est resté à cet endroit jusqu’au lendemain
-outOfTerritoryChoiceNo_female: Non, {{nickname}} est restée à cet endroit jusqu’au
-    lendemain
-outOfTerritoryChoiceNo_one: Non, je suis resté(e) à cet endroit jusqu’au lendemain
-outOfTerritoryChoiceNo_male_one: Non, je suis resté à cet endroit jusqu’au lendemain
-outOfTerritoryChoiceNo_female_one: Non, je suis restée à cet endroit jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork: Non, {{nickname}} est resté(e) en voyage pour
-    le travail jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork_male: Non, {{nickname}} est resté en voyage pour
-    le travail jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork_female: Non, {{nickname}} est restée en voyage
-    pour le travail jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork_one: Non, je suis resté(e) en voyage pour le travail
-    jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork_male_one: Non, je suis resté en voyage pour le
+returnedHomeChoiceNo: Non, {{nickname}} est resté(e) à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_male: Non, {{nickname}} est resté à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_female: Non, {{nickname}} est restée à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_one: Non, je suis resté(e) à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_male_one: Non, je suis resté à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_female_one: Non, je suis restée à cet endroit jusqu’au lendemain
+returnedHomeChoiceNo_hotelForWork: Non, {{nickname}} est resté(e) en voyage pour le
     travail jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForWork_female_one: Non, je suis restée en voyage pour
+returnedHomeChoiceNo_hotelForWork_male: Non, {{nickname}} est resté en voyage pour
     le travail jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForVacation: Non, {{nickname}} est resté(e) en vacances
+returnedHomeChoiceNo_hotelForWork_female: Non, {{nickname}} est restée en voyage pour
+    le travail jusqu’au lendemain
+returnedHomeChoiceNo_hotelForWork_one: Non, je suis resté(e) en voyage pour le travail
     jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForVacation_male: Non, {{nickname}} est resté en vacances
+returnedHomeChoiceNo_hotelForWork_male_one: Non, je suis resté en voyage pour le travail
     jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForVacation_female: Non, {{nickname}} est restée en vacances
+returnedHomeChoiceNo_hotelForWork_female_one: Non, je suis restée en voyage pour le
+    travail jusqu’au lendemain
+returnedHomeChoiceNo_hotelForVacation: Non, {{nickname}} est resté(e) en vacances
     jusqu’au lendemain
-outOfTerritoryChoiceNo_hotelForVacation_one: Non, je suis resté(e) en vacances jusqu’au
+returnedHomeChoiceNo_hotelForVacation_male: Non, {{nickname}} est resté en vacances
+    jusqu’au lendemain
+returnedHomeChoiceNo_hotelForVacation_female: Non, {{nickname}} est restée en vacances
+    jusqu’au lendemain
+returnedHomeChoiceNo_hotelForVacation_one: Non, je suis resté(e) en vacances jusqu’au
     lendemain
-outOfTerritoryChoiceNo_hotelForVacation_male_one: Non, je suis resté en vacances jusqu’au
+returnedHomeChoiceNo_hotelForVacation_male_one: Non, je suis resté en vacances jusqu’au
     lendemain
-outOfTerritoryChoiceNo_hotelForVacation_female_one: Non, je suis restée en vacances
+returnedHomeChoiceNo_hotelForVacation_female_one: Non, je suis restée en vacances
     jusqu’au lendemain
-outOfTerritoryChoiceYes: Oui, {{nickname}} est revenu(e) au domicile avant le lendemain
-outOfTerritoryChoiceYes_male: Oui, {{nickname}} est revenu au domicile avant le lendemain
-outOfTerritoryChoiceYes_female: Oui, {{nickname}} est revenue au domicile avant le
-    lendemain
-outOfTerritoryChoiceYes_one: Oui, je suis revenu(e) au domicile avant le lendemain
-outOfTerritoryChoiceYes_male_one: Oui, je suis revenu au domicile avant le lendemain
-outOfTerritoryChoiceYes_female_one: Oui, je suis revenue au domicile avant le lendemain
+returnedHomeChoiceYes: Oui, {{nickname}} est revenu(e) au domicile avant le lendemain
+returnedHomeChoiceYes_male: Oui, {{nickname}} est revenu au domicile avant le lendemain
+returnedHomeChoiceYes_female: Oui, {{nickname}} est revenue au domicile avant le lendemain
+returnedHomeChoiceYes_one: Oui, je suis revenu(e) au domicile avant le lendemain
+returnedHomeChoiceYes_male_one: Oui, je suis revenu au domicile avant le lendemain
+returnedHomeChoiceYes_female_one: Oui, je suis revenue au domicile avant le lendemain
 outOfTerritoryMembersChoiceNone: '{{nickname}} était seul(e)'
 outOfTerritoryMembersChoiceNone_male: '{{nickname}} était seul'
 outOfTerritoryMembersChoiceNone_female: '{{nickname}} était seule'
