@@ -39,7 +39,7 @@ const assignedWeekDayPath = '_assignedWeekDayIso';
 const ASSIGNED_DAY_UPDATE_FREQ_MINUTES = 15;
 let lastCheckMoment = undefined;
 const assignedDays = [0, 0, 0, 0, 0, 0, 0];
-const assignedDayTarget = [0.2, 0.2, 0.2, 0.2, 0.2, 0, 0];
+const assignedDayTarget = [0.1923, 0.1923, 0.1923, 0.1923, 0.1923, 0.0192, 0.0192];
 const defaultProbabilityOfDaysBefore = [0.6, 0.2, 0.13, 0.07];
 const getAssignedDayRates = (): number[] | undefined => {
     const total = assignedDays.reduce((sum, current) => sum + current, 0);
@@ -141,7 +141,8 @@ export const calculateAssignedDayFromPreviousDay = (previousDay: string): string
     for (let i = 0; i < 4; i++) {
         const dow = !prevDay.isHoliday() ? prevDay.isoWeekday() - 1 : 6;
         probabilities.push(
-            assignedDayTarget[dow] === 0
+            // Ignore holidays for this survey, probability of 0
+            assignedDayTarget[dow] === 0 || prevDay.isHoliday()
                 ? 0
                 : Math.max(
                     0.01,

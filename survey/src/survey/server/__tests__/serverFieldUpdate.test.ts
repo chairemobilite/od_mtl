@@ -342,28 +342,31 @@ describe('test survey day assignation', function () {
         expect(randomMock).not.toHaveBeenCalled();
     });
 
-    test('No data for days, but previous days is weekend', async () => {
+    test('No data for days, but previous days is sunday and is possible', async () => {
         randomMock.mockReturnValue(2);
 
         const interview = _cloneDeep(baseInterview);
-        // Previous day is sunday
-        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-09', '_assignedWeekDayIso': 5 /* friday */ });
-        expect(randomMock).toHaveBeenCalledTimes(1);
+        // Previous day is sunday, should not call random as there are assigned days on weekends.
+        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-11', '_assignedWeekDayIso': 7 /* sunday */ });
+        expect(randomMock).not.toHaveBeenCalled();
     });
 
     test('Should be called with probabilities, when more than 500 days', async() => {
-        // Return 500 for previous day (monday), 100 last friday, 200 wednesday, 200 tuesday
+        // Return 20 for 2 previous days (sunday, saturday, which will give higher probabilities for friday), 100 last friday, 400 thursday, 400 wednesday
         const interviews: any[] = [];
-        for (let i = 0; i < 500; i++) {
-            interviews.push({ response: { _assignedDay: '2024-09-23' }});
+        for (let i = 0; i < 20; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-22' }});
+        };
+        for (let i = 0; i < 20; i++) {
+            interviews.push({ response: { _assignedDay: '2024-09-21' }});
         };
         for (let i = 0; i < 100; i++) {
             interviews.push({ response: { _assignedDay: '2024-09-20' }});
         };
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 400; i++) {
             interviews.push({ response: { _assignedDay: '2024-09-19' }});
         };
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 400; i++) {
             interviews.push({ response: { _assignedDay: '2024-09-18' }});
         };
         getInterviewStreamMock.mockReturnValue(new ObjectReadableMock(interviews) as any);
@@ -371,22 +374,24 @@ describe('test survey day assignation', function () {
         // Update the assigned day rates
         await serverFieldUpdateFct.updateAssignedDayRates();
 
-        randomMock.mockReturnValue(3);
+        // Return 3 days ago
+        randomMock.mockReturnValue(2);
 
-        // Use a previous day of monday
+        // Use a previous day of sunday
         const interview = _cloneDeep(baseInterview);
-        interview.response._previousDay = '2024-09-23';
-        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_assignedDay': '2024-09-20', '_assignedWeekDayIso': 5 /* friday */ });
+        interview.response._previousDay = '2024-09-22';
+        expect(await updateCallback(interview, '2024-09-22')).toEqual({ '_assignedDay': '2024-09-20', '_assignedWeekDayIso': 5 /* friday */ });
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
-        // Weekend should have 0 probability, but day before (monday) should have one
+        // weekend should not have high probability
         expect(randomParams[0][0]).toBeGreaterThan(0);
-        expect(randomParams[0][1]).toEqual(0);
-        expect(randomParams[0][2]).toEqual(0);
-        // 3 days ago should have higher probability
-        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][0]);
-        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][1]);
-        expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][2]);
+        expect(randomParams[0][1]).toBeGreaterThan(0);
+        expect(randomParams[0][2]).toBeGreaterThan(0);
+        // 2 days ago should have higher probability
+        expect(randomParams[0][2]).toBeGreaterThan(randomParams[0][0]);
+        expect(randomParams[0][2]).toBeGreaterThan(randomParams[0][1]);
+        // thursday should have a probability
+        expect(randomParams[0][3]).toBeGreaterThan(0);
         expect(randomParams[2]).toEqual((randomParams[0] as number[]).reduce((sum, current) => sum + current, 0));
     });
 
@@ -421,10 +426,10 @@ describe('test survey day assignation', function () {
        
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
-        // Monday, sunday and saturday should have 0 probability
+        // Monday should be 0 (holiday), sunday and saturday should have lower probabilities than friday (3 days ago)
         expect(randomParams[0][0]).toEqual(0);
-        expect(randomParams[0][1]).toEqual(0);
-        expect(randomParams[0][2]).toEqual(0);
+        expect(randomParams[0][1]).toBeGreaterThan(0);
+        expect(randomParams[0][2]).toBeGreaterThan(0);
         // 3 days ago should have higher probability
         expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][0]);
         expect(randomParams[0][3]).toBeGreaterThan(randomParams[0][1]);
