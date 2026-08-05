@@ -235,6 +235,13 @@ describe('access code update', () => {
             randomValues: [1, 0.2, 0.7],
             expected: { 'home.preData': { }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
+        {
+            title: 'sameMode and commonTrip 0 when exclusive is mtmd',
+            interviewResponseData: { _assignedWeekDayIso: 2 /* tuesday */ },
+            prefillData: { 'home.preData': { } },
+            randomValues: [0.9998, 0.2, 0.3],
+            expected: { 'home.preData': { }, 'ep.exclusive': 'mtmd', 'ep.commonTrip': false, 'ep.sameMode': false }
+        },
     ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
         // Assign the interview response data for the test case, after setting an arbitrary test access code
         const interview = _cloneDeep(baseInterview);
