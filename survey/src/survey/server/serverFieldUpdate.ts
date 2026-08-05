@@ -8,18 +8,12 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/interviews/serverFieldUpdate';
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
-import participantsDbQueries from 'evolution-backend/lib/models/participants.db.queries';
-import { accessCodeFormatter, eightDigitsAccessCodeFormatter } from 'evolution-common/lib/utils/formatters';
+import { accessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 import { InterviewAttributes, Segment, Trip } from 'evolution-common/lib/services/questionnaire/types';
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
-import {
-    getCommonTripFromReferencePerson,
-    getPointZone,
-    isCommonTripSampleMatch,
-    isPartialSample
-} from '../common/commonHelpers';
+import { getPointZone, isCommonTripSampleMatch, isPartialSample } from '../common/commonHelpers';
 import { getUpdatedFieldsForBarriers, getUpdatedFieldsForCommonTrip, getZatForPoint } from './serverHelpers';
 
 // *** Code for the home address prefill **
@@ -172,17 +166,30 @@ export const calculateAssignedDayFromPreviousDay = (previousDay: string): string
 // value between 0 and 1, the first sample whose upper bound is higher than the
 // random value will be selected. The upper bounds should be in increasing order
 // and the last upper bound should be 1 or more.
-const epExclusiveProbabilities: [number, string][] = [
-    [0.05, 'householdType'],
-    [0.1, 'omission'],
-    [0.47, 'paidParking'],
-    [0.5, 'respect'],
-    [0.6, 'freqAttitudinal'],
-    [0.7, 'freqBarriers'],
-    [0.8, 'freqAttitudinalBarriers'],
-    [1, 'mtmd']
+const epExclusiveProbabilitiesWeekday: [number, string][] = [
+    [0.012, 'householdType'], // 1.2%
+    [0.062, 'omission'], // 5%
+    [0.442, 'paidParking'], // 38%
+    [0.492, 'respect'], // 5%
+    [0.592, 'freqAttitudinal'], // 10%
+    [0.692, 'freqBarriers'], // 10%
+    [0.792, 'freqAttitudinalBarriers'], // 10%
+    [1, 'mtmd'] // 20.8 %
 ];
-const possibleExclusiveSamples = epExclusiveProbabilities.map((item) => item[1]);
+// Seulement householdType la fds
+const epExclusiveProbabilitiesWeekend: [number, string][] = [[1, 'householdType']];
+const possibleExclusiveSamplesWeekday = epExclusiveProbabilitiesWeekday.map((item) => item[1]);
+const possibleExclusiveSamplesWeekend = epExclusiveProbabilitiesWeekend.map((item) => item[1]);
+const getExclusiveSamplesForDow = (dow: number) =>
+    dow < 6
+        ? {
+            possibleExclusiveSamples: possibleExclusiveSamplesWeekday,
+            exclusiveSampleProbabilities: epExclusiveProbabilitiesWeekday
+        }
+        : {
+            possibleExclusiveSamples: possibleExclusiveSamplesWeekend,
+            exclusiveSampleProbabilities: epExclusiveProbabilitiesWeekend
+        };
 const commonTripProbability = 0.5;
 const sameModeProbability = 0.5;
 /**
@@ -201,19 +208,29 @@ const sameModeProbability = 0.5;
  */
 const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData: Record<string, unknown>) => {
     // Set the current exclusive if it is not set or if not a valid value
-    const currentExclusiveSample = getResponse(interview, 'ep.exclusive', null);
+    let currentExclusiveSample = getResponse(interview, 'ep.exclusive', null);
+    // 'mtmd' sample should not be available on weekends and independent samples should not be assigned for 'mtmd'
+    const assignedWeekday = getResponse(interview, assignedWeekDayPath, 0) as number;
+    const { possibleExclusiveSamples, exclusiveSampleProbabilities } = getExclusiveSamplesForDow(assignedWeekday);
     if (typeof currentExclusiveSample !== 'string' || !possibleExclusiveSamples.includes(currentExclusiveSample)) {
-        let exclusiveSample = currentAdditionalData['home.preData']?.['ep.exclusive'];
-        if (typeof exclusiveSample !== 'string' || !possibleExclusiveSamples.includes(exclusiveSample)) {
+        currentExclusiveSample = currentAdditionalData['home.preData']?.['ep.exclusive'];
+        // Here, the exclusive sample comes from the preData, so we use the
+        // sample requested, even if not available on the day of week, as this
+        // is likely for tests and needs predictability, so we compare with
+        // weekday samples, that are exhaustive.
+        if (
+            typeof currentExclusiveSample !== 'string' ||
+            !possibleExclusiveSamplesWeekday.includes(currentExclusiveSample)
+        ) {
             const randomValue = Math.random();
-            for (let i = 0; i < epExclusiveProbabilities.length; i++) {
-                if (randomValue <= epExclusiveProbabilities[i][0]) {
-                    exclusiveSample = epExclusiveProbabilities[i][1];
+            for (let i = 0; i < exclusiveSampleProbabilities.length; i++) {
+                if (randomValue <= exclusiveSampleProbabilities[i][0]) {
+                    currentExclusiveSample = exclusiveSampleProbabilities[i][1];
                     break;
                 }
             }
         }
-        currentAdditionalData['ep.exclusive'] = exclusiveSample;
+        currentAdditionalData['ep.exclusive'] = currentExclusiveSample;
     }
     // Set the common trip and same mode samples if not set. If there are
     // prefilled values for them, use them after making sure to convert it to
