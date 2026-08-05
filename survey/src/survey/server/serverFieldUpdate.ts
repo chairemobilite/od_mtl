@@ -35,7 +35,7 @@ const getPrefilledForAccessCode = async (accessCode, interview) => {
 
 // *** Code for the assigned day ***
 const assignedDayPath = '_assignedDay';
-const originalAssignedDayPath = '_originalAssignedDay';
+const assignedWeekDayPath = '_assignedWeekDayIso';
 const ASSIGNED_DAY_UPDATE_FREQ_MINUTES = 15;
 let lastCheckMoment = undefined;
 const assignedDays = [0, 0, 0, 0, 0, 0, 0];
@@ -299,6 +299,21 @@ const copyReverseSegmentArray = (
     return updatedSegmentData;
 };
 
+const getDayOfWeek = (formattedDate: unknown): number | null => {
+    if (typeof formattedDate !== 'string') {
+        return null;
+    }
+    // Get the assigned day of week
+    const date = new Date(`${formattedDate}T00:00:00`);
+    if (Number.isNaN(date.getTime())) {
+        // Invalid date, return null
+        return null;
+    }
+    // javascript returns 0 for sunday. To match the export and postgres iso 8601 standard, where monday is 1 and sunday 7, we remap 0 to 7
+    const dayOfWeekNumber = date.getDay();
+    return dayOfWeekNumber === 0 ? 7 : dayOfWeekNumber;
+};
+
 export default [
     {
         field: '_previousDay',
@@ -312,12 +327,12 @@ export default [
                 const formattedAssignedDay = calculateAssignedDayFromPreviousDay(value);
                 return {
                     [assignedDayPath]: formattedAssignedDay,
-                    [originalAssignedDayPath]: formattedAssignedDay
+                    [assignedWeekDayPath]: getDayOfWeek(formattedAssignedDay)
                 };
             } catch (error) {
                 console.error('Error getting the assigned day for survey', error);
                 // Error, fallback to previous business day
-                return { [assignedDayPath]: value, [originalAssignedDayPath]: value };
+                return { [assignedDayPath]: value, [assignedWeekDayPath]: getDayOfWeek(value) };
             }
         }
     },

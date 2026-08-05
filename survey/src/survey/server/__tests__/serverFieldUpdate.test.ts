@@ -338,7 +338,7 @@ describe('test survey day assignation', function () {
         
         // Do the update callback with those data
         const interview = _cloneDeep(baseInterview);
-        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': interview.response._previousDay, '_originalAssignedDay': interview.response._previousDay });
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': interview.response._previousDay, '_assignedWeekDayIso': 1 /* monday */ });
         expect(randomMock).not.toHaveBeenCalled();
     });
 
@@ -347,7 +347,7 @@ describe('test survey day assignation', function () {
 
         const interview = _cloneDeep(baseInterview);
         // Previous day is sunday
-        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-09', '_originalAssignedDay': '2022-09-09' });
+        expect(await updateCallback(interview, '2022-09-11')).toEqual({ '_assignedDay': '2022-09-09', '_assignedWeekDayIso': 5 /* friday */ });
         expect(randomMock).toHaveBeenCalledTimes(1);
     });
 
@@ -376,7 +376,7 @@ describe('test survey day assignation', function () {
         // Use a previous day of monday
         const interview = _cloneDeep(baseInterview);
         interview.response._previousDay = '2024-09-23';
-        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_assignedDay': '2024-09-20', '_originalAssignedDay': '2024-09-20' });
+        expect(await updateCallback(interview, '2024-09-23')).toEqual({ '_assignedDay': '2024-09-20', '_assignedWeekDayIso': 5 /* friday */ });
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
         // Weekend should have 0 probability, but day before (monday) should have one
@@ -417,7 +417,7 @@ describe('test survey day assignation', function () {
         // Use a holiday as previous day
         const interview = _cloneDeep(baseInterview);
         interview.response._previousDay = '2022-10-10';
-        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': '2022-10-07', '_originalAssignedDay': '2022-10-07' });
+        expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': '2022-10-07', '_assignedWeekDayIso': 5 /* friday */ });
        
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
