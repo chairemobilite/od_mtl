@@ -183,7 +183,7 @@ describe('access code update', () => {
     test.each([
         { 
             title: 'ep.exclusive, ep.commonTrip and ep.sameMode already set',
-            interviewResponseData: { ep: { exclusive: 'freqBarriers', commonTrip: true, sameMode: false } },
+            interviewResponseData: { ep: { exclusive: 'freqBarriers', commonTrip: true, sameMode: false }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.address': '123 Main St' },
             randomValues: [],
             expected: { 'home.address': '123 Main St', 'home._addressIsPrefilled': true }
@@ -202,31 +202,38 @@ describe('access code update', () => {
         },
         {
             title: 'no previous or prefilled data, code confirmed by participant, should calculate',
-            interviewResponseData: { accessCodeIsCorrect: ['accessCodeConfirmOk'] },
+            interviewResponseData: { accessCodeIsCorrect: ['accessCodeConfirmOk'], _assignedWeekDayIso: 1 /* monday */ },
             prefillData: {},
             randomValues: [0.4, 0.32, 0.64],
             expected: { 'ep.exclusive': 'paidParking', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
         {
             title: 'some previous and prefilled eps',
-            interviewResponseData: { ep: { exclusive: 'omission' } },
+            interviewResponseData: { ep: { exclusive: 'omission' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': false } },
             randomValues: [0.4],
             expected: { 'home.preData': { 'ep.commonTrip': false }, 'ep.commonTrip': false, 'ep.sameMode': true }
         },
         {
             title: 'convert prefilled eps to valid booleish values',
-            interviewResponseData: { ep: { exclusive: 'omission' } },
+            interviewResponseData: { ep: { exclusive: 'omission' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': 'no', 'ep.sameMode': 'true' } },
             randomValues: [],
             expected: { 'home.preData': { 'ep.commonTrip': 'no', 'ep.sameMode': 'true' }, 'ep.commonTrip': false, 'ep.sameMode': true }
         },
         {
             title: 'calculate eps when not valid booleish values or invalid current value',
-            interviewResponseData: { ep: { exclusive: 'invalidValue' } },
+            interviewResponseData: { ep: { exclusive: 'invalidValue' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 } },
             randomValues: [0, 0.5, 0.7],
             expected: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
+        },
+        {
+            title: 'use different probabilities for weekends',
+            interviewResponseData: { ep: { exclusive: 'invalidValue' }, _assignedWeekDayIso: 6 /* saturday */ },
+            prefillData: { 'home.preData': { } },
+            randomValues: [1, 0.2, 0.7],
+            expected: { 'home.preData': { }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
     ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
         // Assign the interview response data for the test case, after setting an arbitrary test access code
