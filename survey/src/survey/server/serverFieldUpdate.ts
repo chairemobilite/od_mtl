@@ -225,7 +225,7 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
         ) {
             const randomValue = Math.random();
             for (let i = 0; i < exclusiveSampleProbabilities.length; i++) {
-                if (randomValue <= exclusiveSampleProbabilities[i][0]) {
+                if (randomValue < exclusiveSampleProbabilities[i][0]) {
                     currentExclusiveSample = exclusiveSampleProbabilities[i][1];
                     break;
                 }
@@ -243,7 +243,7 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
             currentAdditionalData['ep.commonTrip'] = prefilledCommonTrip;
         } else {
             currentAdditionalData['ep.commonTrip'] = _booleish(
-                Math.random() <= commonTripProbability(currentExclusiveSample as string)
+                Math.random() < commonTripProbability(currentExclusiveSample as string)
             );
         }
     }
@@ -255,7 +255,7 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
             currentAdditionalData['ep.sameMode'] = prefilledSameMode;
         } else {
             currentAdditionalData['ep.sameMode'] = _booleish(
-                Math.random() <= sameModeProbability(currentExclusiveSample as string)
+                Math.random() < sameModeProbability(currentExclusiveSample as string)
             );
         }
     }

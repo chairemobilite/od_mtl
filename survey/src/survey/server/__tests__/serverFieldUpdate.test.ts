@@ -225,14 +225,14 @@ describe('access code update', () => {
             title: 'calculate eps when not valid booleish values or invalid current value',
             interviewResponseData: { ep: { exclusive: 'invalidValue' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 } },
-            randomValues: [0, 0.5, 0.7],
+            randomValues: [0, 0.49999, 0.7],
             expected: { 'home.preData': { 'ep.commonTrip': 'hello', 'ep.sameMode': 234 }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
         {
             title: 'use different probabilities for weekends',
             interviewResponseData: { ep: { exclusive: 'invalidValue' }, _assignedWeekDayIso: 6 /* saturday */ },
             prefillData: { 'home.preData': { } },
-            randomValues: [1, 0.2, 0.7],
+            randomValues: [0.99998, 0.2, 0.7],
             expected: { 'home.preData': { }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
         {
@@ -240,6 +240,13 @@ describe('access code update', () => {
             interviewResponseData: { _assignedWeekDayIso: 2 /* tuesday */ },
             prefillData: { 'home.preData': { } },
             randomValues: [0.9998, 0.2, 0.3],
+            expected: { 'home.preData': { }, 'ep.exclusive': 'mtmd', 'ep.commonTrip': false, 'ep.sameMode': false }
+        },
+        {
+            title: 'sameMode and commonTrip 0 when exclusive is mtmd',
+            interviewResponseData: { _assignedWeekDayIso: 2 /* tuesday */ },
+            prefillData: { 'home.preData': { } },
+            randomValues: [0.9998, 0, 0],
             expected: { 'home.preData': { }, 'ep.exclusive': 'mtmd', 'ep.commonTrip': false, 'ep.sameMode': false }
         },
     ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
