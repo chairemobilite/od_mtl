@@ -190,8 +190,9 @@ const getExclusiveSamplesForDow = (dow: number) =>
             possibleExclusiveSamples: possibleExclusiveSamplesWeekend,
             exclusiveSampleProbabilities: epExclusiveProbabilitiesWeekend
         };
-const commonTripProbability = 0.5;
-const sameModeProbability = 0.5;
+// These samples should not apply to the 'mtmd' samples
+const commonTripProbability = (exclusiveSample: string) => (exclusiveSample !== 'mtmd' ? 0.5 : 0);
+const sameModeProbability = (exclusiveSample: string) => (exclusiveSample !== 'mtmd' ? 0.5 : 0);
 /**
  * Set partial samples for interview once if it is not already set and the
  * prefilled values do not contain a value for them (additional values are
@@ -241,7 +242,9 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
         if (prefilledCommonTrip !== null) {
             currentAdditionalData['ep.commonTrip'] = prefilledCommonTrip;
         } else {
-            currentAdditionalData['ep.commonTrip'] = _booleish(Math.random() <= commonTripProbability);
+            currentAdditionalData['ep.commonTrip'] = _booleish(
+                Math.random() <= commonTripProbability(currentExclusiveSample as string)
+            );
         }
     }
 
@@ -251,7 +254,9 @@ const setPartialSamples = (interview: InterviewAttributes, currentAdditionalData
         if (prefilledSameMode !== null) {
             currentAdditionalData['ep.sameMode'] = prefilledSameMode;
         } else {
-            currentAdditionalData['ep.sameMode'] = _booleish(Math.random() <= sameModeProbability);
+            currentAdditionalData['ep.sameMode'] = _booleish(
+                Math.random() <= sameModeProbability(currentExclusiveSample as string)
+            );
         }
     }
     return currentAdditionalData;
