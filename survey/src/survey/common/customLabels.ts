@@ -75,16 +75,16 @@ export const departurePlaceIsHomeCustomLabel: I18nData = (t: TFunction, intervie
 };
 
 // Custom because of the journey date and address placeholders
-export const personOutOfTerritoryCustomLabel: I18nData = (t: TFunction, interview, path) => {
+export const personReturnedHomeCustomLabel: I18nData = (t: TFunction, interview, path) => {
     const journeyContext = odHelpers.getJourneyContextFromPath({ interview, path });
     if (!journeyContext) {
-        throw new Error('personOutOfTerritoryCustomLabel: Journey context not found');
+        throw new Error('personReturnedHomeCustomLabel: Journey context not found');
     }
     const { person, journey } = journeyContext;
     const journeyDate = getFormattedTripDateFromJourney(journey);
     const homeAddress = odHelpers.getHomeAddressOneLine({ interview });
 
-    return t('tripsIntro:personOutOfTerritory', {
+    return t('tripsIntro:personReturnedHome', {
         context: odHelpers.getPersonGenderContext({ person }),
         nickname: odHelpers.getPersonIdentificationString({ person, t }),
         count: odHelpers.getCountOrSelfDeclared({ interview, person }),

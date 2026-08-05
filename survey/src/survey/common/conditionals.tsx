@@ -819,7 +819,7 @@ export const personDidTripsConditional: WidgetConditional = (interview, path) =>
     });
 };
 
-export const outOfTerritoryConditional: WidgetConditional = (interview, path) => {
+export const returnedHomeConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
     return checkConditionals({
@@ -859,9 +859,9 @@ export const outOfTerritoryMembersConditional: WidgetConditional = (interview, p
             },
             {
                 logicalOperator: '&&',
-                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.outOfTerritory`,
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.returnedHome`,
                 comparisonOperator: '===',
-                value: 'yes'
+                value: 'no'
             }
         ]
     });

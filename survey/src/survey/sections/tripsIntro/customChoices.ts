@@ -60,26 +60,23 @@ export const personDidTripsConfirmCustomChoices: WidgetConfig.RadioChoiceType[] 
 ];
 
 // Custom because the 'no' has a suffix label option depending on the departure place declared in the survey
-export const outOfTerritoryCustomChoices: WidgetConfig.RadioChoiceType[] = [
+export const returnedHomeCustomChoices: WidgetConfig.RadioChoiceType[] = [
     {
         value: 'no',
         label: (t: TFunction, interview, path) => {
             const person = odHelpers.getPerson({ interview, path });
             const departurePlaceOther = getResponse(interview, path, undefined, '../departurePlaceOther');
-            return t(
-                [`tripsIntro:outOfTerritoryChoiceNo_${departurePlaceOther}`, 'tripsIntro:outOfTerritoryChoiceNo'],
-                {
-                    count: odHelpers.getCountOrSelfDeclared({ interview, person }),
-                    nickname: odHelpers.getPersonIdentificationString({ person, t })
-                }
-            );
+            return t([`tripsIntro:returnedHomeChoiceNo_${departurePlaceOther}`, 'tripsIntro:returnedHomeChoiceNo'], {
+                count: odHelpers.getCountOrSelfDeclared({ interview, person }),
+                nickname: odHelpers.getPersonIdentificationString({ person, t })
+            });
         }
     },
     {
         value: 'yes',
         label: (t: TFunction, interview, path) => {
             const person = odHelpers.getPerson({ interview, path });
-            return t('tripsIntro:outOfTerritoryChoiceYes', {
+            return t('tripsIntro:returnedHomeChoiceYes', {
                 count: odHelpers.getCountOrSelfDeclared({ interview, person }),
                 nickname: odHelpers.getPersonIdentificationString({ person, t })
             });
