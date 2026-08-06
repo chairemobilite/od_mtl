@@ -1090,7 +1090,7 @@ export const carParkingHomeWithVehicleConditional: WidgetConditional = (intervie
         interview,
         conditionals: [
             {
-                path: 'home.RA',
+                path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
                 value: 4
             },
@@ -1137,7 +1137,7 @@ export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (inter
         interview,
         conditionals: [
             {
-                path: 'home.RA',
+                path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
                 value: 4
             },
@@ -1189,7 +1189,7 @@ export const sharingMobilitiesConditional: WidgetConditional = (interview) => {
             },
             {
                 logicalOperator: '&&',
-                path: 'home.RA',
+                path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
                 value: 6
             }
@@ -1216,7 +1216,7 @@ export const carsharingConditional: WidgetConditional = (interview, path) => {
             },
             {
                 logicalOperator: '||',
-                path: 'home.RA',
+                path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
                 value: 6
             },
@@ -1250,7 +1250,7 @@ export const bikesharingConditional: WidgetConditional = (interview, path) => {
             },
             {
                 logicalOperator: '||',
-                path: 'home.RA',
+                path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
                 value: 6
             },

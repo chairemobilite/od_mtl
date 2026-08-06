@@ -102,7 +102,7 @@ Question,"Parmi ces vélos, combien sont des vélos à assistance électrique?"
 ""
 Champ,h_carParkingAvailableVehicleHousehold
 Type de question,Case à cocher
-Conditionnel,carParkingHomeWithVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Conditionnel,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
 Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation."
 Valeurs,"private : Entrée privée, garage ou place de stationnement réservée
@@ -110,14 +110,14 @@ stickers : Possession d’une vignette résidentielle "
 ""
 Champ,h_carParkingAvailableNoVehicleHousehold
 Type de question,Bouton radio
-Conditionnel,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Conditionnel,carParkingHomeWithoutVehicleConditional : h_geography.properties.RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
 Question,"Votre ménage a-t-il accès à une entrée privée, garage ou place de stationnement réservée?"
 Valeurs,"yes : Oui
 no : Non"
 ""
 Champ,hh_carsharing
 Type de question,Bouton radio
-Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_geography.properties.RA <= 6
 Question,"Autopartage (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois"
 Valeurs,"yes : Oui
 no : Non
@@ -125,7 +125,7 @@ dontKnow : Ne sait pas"
 ""
 Champ,hh_bikesharing
 Type de question,Bouton radio
-Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Conditionnel,sharingMobilitiesConditional : hh_size >= 2 && h_geography.properties.RA <= 6
 Question,Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage
 Valeurs,"yes : Oui
 no : Non
@@ -178,7 +178,7 @@ dontKnow : Ne sait pas"
 ""
 Champ,carsharingMember
 Type de question,Bouton radio
-Conditionnel,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_RA <= 6 && hh_size === 1)
+Conditionnel,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,"Autopartage (ex. : Communauto, Léo) : utilisation comme conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}}  dans les 6 derniers mois"
 Valeurs,"yes : Oui
 no : Non
@@ -186,7 +186,7 @@ dontKnow : Ne sait pas"
 ""
 Champ,bikesharingUsage
 Type de question,Bouton radio
-Conditionnel,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_RA <= 6 && hh_size === 1)
+Conditionnel,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,Vélo en libre-service (ex. : BIXI) : utilisation dans les 30 derniers jours
 Valeurs,"yes : Oui
 no : Non

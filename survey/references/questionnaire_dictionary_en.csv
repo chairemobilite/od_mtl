@@ -102,7 +102,7 @@ Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
 Field,h_carParkingAvailableVehicleHousehold
 Question type,Checkbox input
-Conditional,carParkingHomeWithVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Conditional,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Parking available at home for your household's vehicles
 You may leave this question blank if none of the options apply to your situation."
 Values,"private : Private driveway, garage or reserved parking space
@@ -110,14 +110,14 @@ stickers : Residential parking permit"
 ""
 Field,h_carParkingAvailableNoVehicleHousehold
 Question type,Radio input
-Conditional,carParkingHomeWithoutVehicleConditional : h_RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Conditional,carParkingHomeWithoutVehicleConditional : h_geography.properties.RA <= 4 && (exclusive === freqAttitudinal || exclusive === freqBrakes || exclusive === freqAttitudinalBrakes) && hh_carNumber === 0 && hh_twoWheelNumber === 0
 Question,"Does your household have access to a private driveway, garage, or reserved parking space?"
 Values,"yes : Yes
 no : No"
 ""
 Field,hh_carsharing
 Question type,Radio input
-Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_geography.properties.RA <= 6
 Question,"Carshare (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member"
 Values,"yes : Yes
 no : No
@@ -125,7 +125,7 @@ dontKnow : Don't know"
 ""
 Field,hh_bikesharing
 Question type,Radio input
-Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_RA <= 6
+Conditional,sharingMobilitiesConditional : hh_size >= 2 && h_geography.properties.RA <= 6
 Question,Bikeshare (BIXI): used in the last 30 days by at least one household member
 Values,"yes : Yes
 no : No
@@ -178,7 +178,7 @@ dontKnow : Don't know"
 ""
 Field,carsharingMember
 Question type,Radio input
-Conditional,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_RA <= 6 && hh_size === 1)
+Conditional,carsharingConditional : drivingLicenseOwnership === yes && (hh_carsharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,"Carshare (ex. Communauto, Leo): used 
 as driver in the past 6 months"
 Values,"yes : Yes
@@ -187,7 +187,7 @@ dontKnow : Don't know"
 ""
 Field,bikesharingUsage
 Question type,Radio input
-Conditional,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_RA <= 6 && hh_size === 1)
+Conditional,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,"Bikeshare (ex. BIXI): used in the last 30 days
 "
 Values,"yes : Yes

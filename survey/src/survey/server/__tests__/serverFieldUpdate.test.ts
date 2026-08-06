@@ -277,10 +277,10 @@ describe('access code update', () => {
     });
 
     test.each([
-        { title: 'RA1', expected: 1, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expected: 8, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
-    ])('test home region assignation with geometry $title', async ({ expected, geography }) => {
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
+    ])('test home region assignation with geometry $title', async ({ expectedRA, expectedZat, geography }) => {
         const interview = _cloneDeep(baseInterview);
         interview.response.accessCode = '1111-1111';
 
@@ -296,32 +296,10 @@ describe('access code update', () => {
         const updateResult = await updateCallback(interview, true);
 
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
-        expect(updateResult['home.RA']).toEqual(expected);
+        expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
+        expect(updateResult['home.geography.properties.zat']).toEqual(expectedZat);
     });
 
-});
-
-describe('home geography update', () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    })
-    const updateCallback = (updateCallbacks.find((callback) => callback.field === 'home.geography') as any).callback;
-
-    test.each([
-        { title: 'RA1', expected: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expected: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expected: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
-        { title: 'not a point', expected: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
-        { title: 'not a geojson feature', expected: null, expectedZat: null, geography: 'a string value' },
-        { title: 'undefined', expected: null, expectedZat: null, geography: undefined }
-    ])('test home geography update: $title', async ({ expected, geography, expectedZat }) => {
-        const interview = _cloneDeep(baseInterview);
-
-        const updateResult = await updateCallback(interview, geography);
-
-        expect(updateResult['home.RA']).toEqual(expected);
-        expect(updateResult['home.zat']).toEqual(expectedZat);
-    });
 });
 
 describe('test survey day assignation', function () {
@@ -486,6 +464,39 @@ describe('test complete survey', function () {
 
 });
 
+describe('home geography update', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
+    const updateCallback = (updateCallbacks.find((callback) => callback.field === 'home.geography') as any).callback;
+
+    test.each([
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'not a point', expectedRA: undefined, expectedZat: undefined, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
+        { title: 'not a geojson feature', expectedRA: undefined, expectedZat: undefined, geography: 'a string value' },
+        { title: 'undefined', expectedRA: undefined, expectedZat: undefined, geography: undefined }
+    ])('test home geography update: $title', async ({ expectedRA, geography, expectedZat }) => {
+        const interview = _cloneDeep(baseInterview);
+
+        const updateResult = await updateCallback(interview, geography);
+
+        // Validate the zat and RA, the path should not be part of the object if undefined
+        if (expectedZat === undefined) {
+            expect(updateResult['home.geography.properties.zat']).toBeUndefined();
+        } else {
+            expect(updateResult['home.geography.properties.zat']).toEqual(expectedZat);
+        }
+
+        if (expectedRA === undefined) {
+            expect(updateResult['home.geography.properties.RA']).toBeUndefined();
+        } else {
+            expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
+        }
+    });
+});
+
 describe('visited place geography update', () => {
     beforeEach(() => {
         jest.clearAllMocks();
@@ -493,18 +504,29 @@ describe('visited place geography update', () => {
     const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined && (callback.field as {regex: string}).regex.includes('visitedPlaces') && (callback.field as {regex: string}).regex.includes('geography')) as any).callback;
 
     test.each([
-        { title: 'zat 20', expected: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'zat 1295', expected: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
-        { title: 'not a point', expected: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
-        { title: 'not a geojson feature', expected: null, geography: 'a string value' },
-        { title: 'undefined', expected: null, geography: undefined }
-    ])('test visited place geography update: $title', async ({ expected, geography }) => {
+        { title: 'zat 20', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'zat 1295', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'not a point', expectedRA: undefined, expectedZat: undefined, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
+        { title: 'not a geojson feature', expectedRA: undefined, expectedZat: undefined, geography: 'a string value' },
+        { title: 'undefined', expectedRA: undefined, expectedZat: undefined, geography: undefined }
+    ])('test visited place geography update: $title', async ({ expectedRA, expectedZat, geography }) => {
         const interview = _cloneDeep(baseInterview);
-        const basePath = 'household.persons.a12345.journeys.j1.visitedPlaces.p2';
-        const updateResult = await updateCallback(interview, geography, `${basePath}.geography`);
+        const basePath = 'household.persons.a12345.journeys.j1.visitedPlaces.p2.geography';
+        const updateResult = await updateCallback(interview, geography, basePath);
 
-        expect(updateResult[`${basePath}.zat`]).toEqual(expected);
+        // Validate the zat and RA, the path should not be part of the object if undefined
+        if (expectedZat === undefined) {
+            expect(updateResult[`${basePath}.properties.zat`]).toBeUndefined();
+        } else {
+            expect(updateResult[`${basePath}.properties.zat`]).toEqual(expectedZat);
+        }
+
+        if (expectedRA === undefined) {
+            expect(updateResult[`${basePath}.properties.RA`]).toBeUndefined();
+        } else {
+            expect(updateResult[`${basePath}.properties.RA`]).toEqual(expectedRA);
+        }
     });
 });
 

@@ -14,7 +14,7 @@ import type {
     VisitedPlace
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
+import { getCommonTripFromReferencePerson, getPointZone } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
 
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
@@ -229,24 +229,6 @@ export const getUpdatedFieldsForCommonTrip = (
     return updatedSegments;
 };
 
-// Get the place's zat. It is usually in the place itself (set when setting the
-// geography). If the activity is home though, get it from `home.zat`
-const getPlaceZat = ({
-    place,
-    interview
-}: {
-    place: VisitedPlace;
-    interview: UserInterviewAttributes;
-}): number | null => {
-    if (typeof (place as any).zat === 'number') {
-        return (place as any).zat;
-    }
-    if (place.activity === 'home' && typeof (interview.response.home as any)?.zat === 'number') {
-        return (interview.response.home! as any).zat;
-    }
-    return null;
-};
-
 /**
  * Function to be called by the server callback for active trip, gets whether a trip's origin and destination are in a pair of zats eligible to the barriers questions.
  * @param interview The interview
@@ -273,8 +255,18 @@ export const getUpdatedFieldsForBarriers = (
         return {};
     }
     // Ignore if the zats have not been found for both origin and destination
-    const originZat = getPlaceZat({ place: tripOrigin, interview });
-    const destinationZat = getPlaceZat({ place: tripDestination, interview });
+    const originGeography = odSurveyHelpers.getVisitedPlaceGeography({
+        visitedPlace: tripOrigin,
+        interview,
+        person: currentPerson
+    });
+    const destinationGeography = odSurveyHelpers.getVisitedPlaceGeography({
+        visitedPlace: tripDestination,
+        interview,
+        person: currentPerson
+    });
+    const originZat = originGeography !== null ? originGeography.properties.zat : null;
+    const destinationZat = destinationGeography !== null ? destinationGeography.properties.zat : null;
     if (!(typeof originZat === 'number' && typeof destinationZat === 'number')) {
         return {};
     }
@@ -286,4 +278,19 @@ export const getUpdatedFieldsForBarriers = (
             originZatRow?.[destinationZat - 1] === 1 ? true : false
     };
     return updatedSegments;
+};
+
+/**
+ * Add to the geography properties the values of the zones intersecting the
+ * geography for every data source in the database.
+ * @param geography The point for which to get the intersecting zones
+ * @param path The path of this geography. The zones will be appended to the
+ * `properties` of the geojson feature at the path.
+ */
+export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature<GeoJSON.Point>, path: string) => {
+    const responses = {
+        [`${path}.properties.RA`]: getPointZone(geography),
+        [`${path}.properties.zat`]: getZatForPoint(geography)
+    };
+    return responses;
 };
