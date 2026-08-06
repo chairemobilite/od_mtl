@@ -9,7 +9,7 @@ import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from '
 import { shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
-import { getPointZone, isCommonTripSampleMatch, isPartialSample } from './commonHelpers';
+import { isCommonTripSampleMatch, isPartialSample } from './commonHelpers';
 import metroTransfers from '../config/metroTransfers.json';
 
 // Don't show Question and give 'Québec' as default value
@@ -291,8 +291,8 @@ export const isCarDriverAndShouldShowPaidParkingCustomConditional: WidgetConditi
         visitedPlaces: odSurveyHelper.getVisitedPlaces({ journey })
     });
     if (tripDestination && tripDestination.geography) {
-        const destinationRegion = getPointZone(tripDestination.geography);
-        if (destinationRegion === null) {
+        const destinationRegion = (tripDestination.geography.properties as any).RA;
+        if (typeof destinationRegion !== 'number') {
             return [false, null];
         }
         /*
