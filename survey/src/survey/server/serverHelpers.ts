@@ -11,6 +11,10 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
 import raZones from '../geojson/RA.json';
+// FIXME We should not import from auditChecks here for the survey, but this
+// utils is very utile, so it should be moved elsewhere
+// (https://github.com/chairemobilite/evolution/issues/1792)
+import { getSurveyArea } from 'evolution-backend/lib/services/audits/auditChecks/AuditCheckUtils';
 
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
@@ -26,6 +30,11 @@ export const getPointZone = (homeGeography: GeoJSON.Feature<GeoJSON.Point>): num
     );
     return homeRegion !== undefined ? homeRegion.properties.RA23 : null;
 };
+
+const surveyArea = getSurveyArea();
+if (surveyArea === undefined) {
+    throw new Error('Survey area cannot be loaded, that is a problem...');
+}
 
 // Threshold distance for the trip geography to be considered the same location
 const commonTripGeographyDistanceThresholdMeters = 50;
@@ -293,7 +302,8 @@ export const getUpdatedFieldsForBarriers = (
 export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature<GeoJSON.Point>, path: string) => {
     const responses = {
         [`${path}.properties.RA`]: getPointZone(geography),
-        [`${path}.properties.zat`]: getZatForPoint(geography)
+        [`${path}.properties.zat`]: getZatForPoint(geography),
+        [`${path}.properties.isInTerritory`]: booleanPointInPolygon(geography, surveyArea)
     };
     return responses;
 };
