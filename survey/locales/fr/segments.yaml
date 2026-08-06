@@ -116,6 +116,16 @@ errors:
         temps
     trainStationsIncoherent: La ou les station(s) de transfert semblent incohérentes
         pour ce déplacement
+modePre:
+    Walk: Marche
+    Bicycle: Vélo
+    Bus: Bus
+    TransitHeavy: Métro, Train ou REM
+    SchoolBus: Autobus scolaire (jaune)
+    CarPassenger: Auto en tant que passager
+    CarDriver: Auto en tant que conducteur
+    Intercity: Avion, train ou bus interurbain
+    Other: Autre
 mode:
     Walk: <strong>Marche</strong>
     Bicycle: <strong>Vélo</strong>

@@ -266,7 +266,7 @@ const segmentsP2: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'taxi',
+        modePre: 'other',
         mode: 'taxi',
         hasNextMode: false
     },
