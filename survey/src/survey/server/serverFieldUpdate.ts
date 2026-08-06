@@ -20,7 +20,7 @@ import {
     isCommonTripSampleMatch,
     isPartialSample
 } from '../common/commonHelpers';
-import { getUpdatedFieldsForBarriers, getUpdatedFieldsForCommonTrip, getZatForPoint } from './serverHelpers';
+import { getUpdatedFieldsForBarriers, getUpdatedFieldsForCommonTrip, getZatForPoint, updatedPathWithZonesIntersectingPoint } from './serverHelpers';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -407,13 +407,13 @@ export default [
         field: 'home.geography',
         callback: async (interview: InterviewAttributes, value) => {
             try {
-                // Set the correct RA and zat for the home geography
+                // Set the various zones intersecting the geography
 
-                // If the point is not a feature, set to null
+                // If the point is not a feature, return an empty objects
                 if (_isBlank(value) || !isFeature(value) || !isPoint(value.geometry)) {
-                    return { 'home.RA': null, 'home.zat': null };
+                    return { };
                 }
-                return { 'home.RA': getPointZone(value), 'home.zat': getZatForPoint(value) };
+                return await updatedPathWithZonesIntersectingPoint(value, 'home.geography');
             } catch (error) {
                 console.error('error getting server update fields for home geography', error);
                 return {};

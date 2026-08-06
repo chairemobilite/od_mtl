@@ -16,6 +16,8 @@ import type {
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
+import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import zonesDbQueries from 'chaire-lib-backend/lib/models/db/zones.db.queries';
 
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 
@@ -287,3 +289,25 @@ export const getUpdatedFieldsForBarriers = (
     };
     return updatedSegments;
 };
+
+/** 
+ * Add to the geography properties the values of the zones intersecting the
+ * geography for every data source in the database.
+ * @param geography The point for which to get the intersecting zones
+ * @param path The path of this geography. The zones will be appended to the
+ * `properties` of the geojson feature at the path.
+ */
+export const updatedPathWithZonesIntersectingPoint = async (geography: GeoJSON.Feature<GeoJSON.Point>, path: string) => {
+    console.time('zoneQuery');
+    const responses = {};
+    const intersectingZones = await zonesDbQueries.getIntersectingZonesByDatasources(geography);
+    for (let i = 0; i < intersectingZones.length; i++) {
+        if (!_isBlank(intersectingZones[i].dsShortname)) {
+            // There may be no zone intersecting for a given data source, so we
+            // set to `null` in those cases to tell the calculation has been set
+            responses[`${path}.properties.${intersectingZones[i].dsShortname}`] = intersectingZones[i].zoneShortname;
+        }
+    }
+    console.timeEnd('zoneQuery');
+    return responses;
+}
