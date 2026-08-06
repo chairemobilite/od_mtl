@@ -593,7 +593,7 @@ describe('test transit summary generation', function () {
             source: 'unitTest'
         };
         summaryMock.mockResolvedValue(response);
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'transitHeavy', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
             opName: `transitSummary-73.145.1-73.345`,
@@ -616,7 +616,7 @@ describe('test transit summary generation', function () {
             source: 'unitTest'
         };
         summaryMock.mockResolvedValue(response);
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'transitHeavy', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
             opName: `transitSummary-73.145.1-73.345`,
@@ -635,7 +635,7 @@ describe('test transit summary generation', function () {
 
     test('exception in summary, expect undefined', async () => {
         summaryMock.mockRejectedValueOnce('Error');
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
             opName: `transitSummary-73.145.1-73.345`,
@@ -670,7 +670,7 @@ describe('test transit summary generation', function () {
             source: 'unitTest'
         };
         summaryMock.mockResolvedValue(response);
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', undefined))
+        expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', undefined))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: response });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
         expect(summaryMock).toHaveBeenCalledWith(expect.objectContaining({
@@ -686,7 +686,7 @@ describe('test transit summary generation', function () {
         registerUpdateOperationMock.mockImplementationOnce(() => {
             throw new Error('Error in registerUpdateOperation');
         });
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
             opName: `transitSummary-73.145.1-73.345`,
@@ -695,20 +695,20 @@ describe('test transit summary generation', function () {
     });
 
     test('Undefined person', async () => {
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345111.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'bus', 'household.persons.a12345111.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });
 
     test('Undefined trip', async () => {
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t2.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'transitHeavy', 'household.persons.a12345.journeys.j1.trips.t2.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });
 
     test('Transit data, but no scenarios specified in config', async () => {
         (config as any).trRoutingScenarios = undefined;
-        expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
+        expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();
     });

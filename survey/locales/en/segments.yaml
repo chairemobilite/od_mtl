@@ -114,6 +114,16 @@ errors:
         time
     trainStationsIncoherent: The transfer station(s) do not seem coherent for this
         trip
+modePre:
+    Walk: Walking
+    Bicycle: Bicycle
+    Bus: Bus
+    TransitHeavy: Metro, REM or Train
+    SchoolBus: School bus (yellow)
+    CarPassenger: Passenger in a car
+    CarDriver: Car as driver
+    Intercity: Plane, intercity train or bus
+    Other: Other
 mode:
     Walk: <strong>Walking</strong>
     Bicycle: <strong>Bicycle</strong>

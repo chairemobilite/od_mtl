@@ -78,7 +78,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitRRT',
         subwayStationStart: 'placeDArmes',
         subwayStationEnd: 'jeanTalon',
@@ -87,7 +87,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitRRT',
         subwayStationStart: 'jeanTalon',
         subwayStationEnd: 'squareVictoriaOaci',
@@ -96,7 +96,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitRRT',
         subwayStationStart: 'placeDArmes',
         subwayStationEnd: 'bonaventure',
@@ -105,7 +105,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 1,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitLRRT',
         remStationStart: 'gareCentrale',
         remStationEnd: 'edouardMontpetit',
@@ -114,7 +114,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitLRRT',
         remStationStart: 'edouardMontpetit',
         remStationEnd: 'gareCentrale',
@@ -123,7 +123,7 @@ const segments: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 1,
-        modePre: 'transit',
+        modePre: 'transitHeavy',
         mode: 'transitRRT',
         subwayStationStart: 'bonaventure',
         subwayStationEnd: 'placeDArmes',

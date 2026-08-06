@@ -561,7 +561,7 @@ export default [
             const resultPath = getPath(path, '../trRoutingResult');
             const defaultResponse = { [resultPath]: undefined };
             // If using a public transit mode, retrieve results from trRouting
-            if (!['transit'].includes(value) || (config as any).trRoutingScenarios === undefined) {
+            if (!['bus', 'transitHeavy'].includes(value) || (config as any).trRoutingScenarios === undefined) {
                 return defaultResponse;
             }
             try {
