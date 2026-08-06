@@ -6,22 +6,25 @@
 import { booleanPointInPolygon, distance as turfDistance } from '@turf/turf';
 import { v4 as uuidV4 } from 'uuid';
 import zatZones from '../geojson/zat_artm.json';
-import type {
-    Journey,
-    Person,
-    Trip,
-    UserInterviewAttributes,
-    VisitedPlace
-} from 'evolution-common/lib/services/questionnaire/types';
+import type { Journey, Person, Trip, UserInterviewAttributes } from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import { getCommonTripFromReferencePerson, getPointZone } from '../common/commonHelpers';
+import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
+import raZones from '../geojson/RA.json';
 
+const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 
 export const getZatForPoint = (geography: GeoJSON.Feature<GeoJSON.Point>): number | null => {
     const zat = zatZonesFeatureCollection.features.find((raZone) => booleanPointInPolygon(geography.geometry, raZone));
     return zat !== undefined ? zat.properties.zt23 : null;
+};
+
+export const getPointZone = (homeGeography: GeoJSON.Feature<GeoJSON.Point>): number | null => {
+    const homeRegion = raZonesFeatureCollection.features.find((raZone) =>
+        booleanPointInPolygon(homeGeography.geometry, raZone)
+    );
+    return homeRegion !== undefined ? homeRegion.properties.RA23 : null;
 };
 
 // Threshold distance for the trip geography to be considered the same location

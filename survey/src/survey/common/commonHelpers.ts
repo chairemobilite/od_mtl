@@ -2,21 +2,10 @@
 // ou backend, donc peut être importer autant dans le frontend que dans le
 // backend
 
-import { booleanPointInPolygon } from '@turf/turf';
-import raZones from '../geojson/RA.json';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import type { InterviewAttributes, Journey, Person, Trip } from 'evolution-common/lib/services/questionnaire/types';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import config from 'evolution-common/lib/config/project.config';
-
-const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
-
-export const getPointZone = (homeGeography: GeoJSON.Feature<GeoJSON.Point>): number | null => {
-    const homeRegion = raZonesFeatureCollection.features.find((raZone) =>
-        booleanPointInPolygon(homeGeography.geometry, raZone)
-    );
-    return homeRegion !== undefined ? homeRegion.properties.RA23 : null;
-};
 
 /**
  * Validate if the interview is the commonTrip partial sample AND if the
