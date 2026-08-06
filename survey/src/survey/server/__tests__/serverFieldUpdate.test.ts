@@ -1,6 +1,6 @@
 
 import moment from 'moment-business-days';
-import config from 'chaire-lib-common/lib/config/shared/project.config';
+import config from 'evolution-common/lib/config/project.config';
 import { ObjectReadableMock } from 'stream-mock';
 import updateCallbacks, * as serverFieldUpdateFct from '../serverFieldUpdate';
 import _cloneDeep from 'lodash/cloneDeep';
@@ -14,6 +14,15 @@ import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import '../serverValidations'; // Make sure access code format validation is registered
 
 jest.useFakeTimers();
+
+jest.mock('evolution-common/lib/config/project.config', () => ({
+    __esModule: true,
+    default: {
+        ...jest.requireActual('evolution-common/lib/config/project.config').default,
+        // Make the survey area file path relative to the test runtime environment
+        surveyAreaGeojsonPath: '../../../survey/src/survey/geojson/surveyArea.geojson'
+    }
+}));
 
 jest.mock('evolution-backend/lib/models/interviews.db.queries', () => ({
     getInterviewsStream: jest.fn().mockImplementation(() => new ObjectReadableMock([]))
@@ -277,10 +286,10 @@ describe('access code update', () => {
     });
 
     test.each([
-        { title: 'RA1', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
-    ])('test home region assignation with geometry $title', async ({ expectedRA, expectedZat, geography }) => {
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
+    ])('test home region assignation with geometry $title', async ({ expectedRA, expectedZat, expectedInTerritory, geography }) => {
         const interview = _cloneDeep(baseInterview);
         interview.response.accessCode = '1111-1111';
 
@@ -298,6 +307,7 @@ describe('access code update', () => {
         expect(preFilledMock).toHaveBeenCalledWith('1111-1111', interview);
         expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
         expect(updateResult['home.geography.properties.zat']).toEqual(expectedZat);
+        expect(updateResult['home.geography.properties.isInTerritory']).toEqual(expectedInTerritory)
     });
 
 });
@@ -471,18 +481,18 @@ describe('home geography update', () => {
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'home.geography') as any).callback;
 
     test.each([
-        { title: 'RA1', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
-        { title: 'not a point', expectedRA: undefined, expectedZat: undefined, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
-        { title: 'not a geojson feature', expectedRA: undefined, expectedZat: undefined, geography: 'a string value' },
-        { title: 'undefined', expectedRA: undefined, expectedZat: undefined, geography: undefined }
-    ])('test home geography update: $title', async ({ expectedRA, geography, expectedZat }) => {
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'not a point', geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
+        { title: 'not a geojson feature', geography: 'a string value' },
+        { title: 'undefined', geography: undefined }
+    ])('test home geography update: $title', async ({ expectedRA, geography, expectedZat, expectedInTerritory }) => {
         const interview = _cloneDeep(baseInterview);
 
         const updateResult = await updateCallback(interview, geography);
 
-        // Validate the zat and RA, the path should not be part of the object if undefined
+        // Validate the zones intersection values, the path should not be part of the object if undefined
         if (expectedZat === undefined) {
             expect(updateResult['home.geography.properties.zat']).toBeUndefined();
         } else {
@@ -494,6 +504,12 @@ describe('home geography update', () => {
         } else {
             expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
         }
+
+        if (expectedInTerritory === undefined) {
+            expect(updateResult['home.geography.properties.isInTerritory']).toBeUndefined();
+        } else {
+            expect(updateResult['home.geography.properties.isInTerritory']).toEqual(expectedInTerritory);
+        }
     });
 });
 
@@ -504,13 +520,13 @@ describe('visited place geography update', () => {
     const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined && (callback.field as {regex: string}).regex.includes('visitedPlaces') && (callback.field as {regex: string}).regex.includes('geography')) as any).callback;
 
     test.each([
-        { title: 'zat 20', expectedRA: 1, expectedZat: 20, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'zat 1295', expectedRA: 8, expectedZat: 1295, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
-        { title: 'not a point', expectedRA: undefined, expectedZat: undefined, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
-        { title: 'not a geojson feature', expectedRA: undefined, expectedZat: undefined, geography: 'a string value' },
-        { title: 'undefined', expectedRA: undefined, expectedZat: undefined, geography: undefined }
-    ])('test visited place geography update: $title', async ({ expectedRA, expectedZat, geography }) => {
+        { title: 'zat 20', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'zat 1295', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'not a point', geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
+        { title: 'not a geojson feature', geography: 'a string value' },
+        { title: 'undefined', geography: undefined }
+    ])('test visited place geography update: $title', async ({ expectedRA, expectedZat, expectedInTerritory, geography }) => {
         const interview = _cloneDeep(baseInterview);
         const basePath = 'household.persons.a12345.journeys.j1.visitedPlaces.p2.geography';
         const updateResult = await updateCallback(interview, geography, basePath);
@@ -527,6 +543,12 @@ describe('visited place geography update', () => {
         } else {
             expect(updateResult[`${basePath}.properties.RA`]).toEqual(expectedRA);
         }
+
+        if (expectedInTerritory === undefined) {
+            expect(updateResult[`${basePath}.properties.isInTerritory`]).toBeUndefined();
+        } else {
+            expect(updateResult[`${basePath}.properties.isInTerritory`]).toEqual(expectedInTerritory);
+        }
     });
 });
 
@@ -540,7 +562,7 @@ describe('test transit summary generation', function () {
         // Make sure the assigned day is set
         interview = _cloneDeep(baseInterview);
         interview.response._assignedDay = '2022-09-26'; // A monday
-        config.trRoutingScenarios = {
+        (config as any).trRoutingScenarios = {
             SE: 'ScenarioDeSemaine',
             SA: 'ScenarioDuSamedi',
             DI: 'ScenarioDuDimanche'
@@ -685,7 +707,7 @@ describe('test transit summary generation', function () {
     });
 
     test('Transit data, but no scenarios specified in config', async () => {
-        config.trRoutingScenarios = undefined;
+        (config as any).trRoutingScenarios = undefined;
         expect(await updateCallback(interview, 'transit', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
         expect(registerUpdateOperationMock).not.toHaveBeenCalled();

@@ -11,7 +11,7 @@ import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.quer
 import { accessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 import { InterviewAttributes, Segment, Trip } from 'evolution-common/lib/services/questionnaire/types';
 import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
-import config from 'chaire-lib-common/lib/config/shared/project.config';
+import config from 'evolution-common/lib/config/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import { isCommonTripSampleMatch, isPartialSample } from '../common/commonHelpers';
 import {
@@ -561,7 +561,7 @@ export default [
             const resultPath = getPath(path, '../trRoutingResult');
             const defaultResponse = { [resultPath]: undefined };
             // If using a public transit mode, retrieve results from trRouting
-            if (!['transit'].includes(value) || config.trRoutingScenarios === undefined) {
+            if (!['transit'].includes(value) || (config as any).trRoutingScenarios === undefined) {
                 return defaultResponse;
             }
             try {
@@ -584,10 +584,10 @@ export default [
                 const weekDay = moment(householdTripsDate).day();
                 const scenario =
                     weekDay === 0
-                        ? config.trRoutingScenarios.DI
+                        ? (config as any).trRoutingScenarios.DI
                         : weekDay === 6
-                            ? config.trRoutingScenarios.SA
-                            : config.trRoutingScenarios.SE;
+                            ? (config as any).trRoutingScenarios.SA
+                            : (config as any).trRoutingScenarios.SE;
                 if (scenario === undefined) {
                     return defaultResponse;
                 }
