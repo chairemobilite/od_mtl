@@ -206,22 +206,20 @@ export const personsArrayToChoices = (personsArray: Person[]): ChoiceType[] =>
         label: (t) => odSurveyHelpers.getPersonIdentificationString({ person, t })
     }));
 
-// Get the latest time from this visited place. It is either the departure time, the arrival time or the previous place's departure time
-const getVisitedPlaceLatestTime = ({
-    interview,
-    person,
+// Latest time on this visited place, or from the previous place, for common trip selection.
+const getVisitedPlaceTimeBoundFromPlaceAndJourney = ({
     journey,
-    visitedPlace
+    visitedPlace,
+    includeCurrentArrivalTime
 }: {
-    interview: InterviewAttributes;
-    person: Person;
     journey: Journey;
     visitedPlace: VisitedPlace;
+    includeCurrentArrivalTime: boolean;
 }) => {
     const latestTime =
         typeof visitedPlace.departureTime === 'number'
             ? visitedPlace.departureTime
-            : typeof visitedPlace.arrivalTime === 'number'
+            : includeCurrentArrivalTime && typeof visitedPlace.arrivalTime === 'number'
                 ? visitedPlace.arrivalTime
                 : undefined;
     if (latestTime !== undefined) {
@@ -236,24 +234,94 @@ const getVisitedPlaceLatestTime = ({
             ? previousPlace.departureTime
             : previousPlace.arrivalTime;
     }
-    // Fall back to the questionnaire configuration's earliest time
-    // FIXME La configuration du questionnaire n,est pas encore disponible globalement depuis Evolution, donc nous ne pouvons accéder à cette information. C'est hard-codé pour l'instant.
     return 4 * 60 * 60;
 };
 
+/**
+ * Lower bound for selecting which common trip reminder to show.
+ * Arrival reminders ignore the current place's arrival time so that entering
+ * the correct arrival does not advance to the next common trip.
+ *
+ * @param journey The current person's journey
+ * @param visitedPlace The visited place being edited
+ * @param reminderKind Whether the reminder is for a departure or arrival time widget
+ */
+const getVisitedPlaceLatestTimeForCommonTripReminder = ({
+    journey,
+    visitedPlace,
+    reminderKind
+}: {
+    journey: Journey;
+    visitedPlace: VisitedPlace;
+    reminderKind: CommonTripTimeReminderKind;
+}) =>
+    getVisitedPlaceTimeBoundFromPlaceAndJourney({
+        journey,
+        visitedPlace,
+        includeCurrentArrivalTime: reminderKind !== 'arrival'
+    });
+
+/**
+ * @param reminderKind Whether the reminder is for a departure or arrival time widget
+ * @param visitedPlace The visited place being edited
+ * @param commonTrips Common trips declared by the reference person
+ * @param commonTripReferenceVisitedPlaces Visited places on the reference person's journey
+ */
+const isCommonTripTimeReminderCompleted = ({
+    reminderKind,
+    visitedPlace,
+    commonTrips,
+    commonTripReferenceVisitedPlaces
+}: {
+    reminderKind: CommonTripTimeReminderKind;
+    visitedPlace: VisitedPlace;
+    commonTrips: Trip[];
+    commonTripReferenceVisitedPlaces: { [visitedPlaceId: string]: VisitedPlace };
+}) => {
+    if (reminderKind === 'arrival' && typeof visitedPlace.arrivalTime === 'number') {
+        return commonTrips.some((trip) => {
+            const destination = odSurveyHelpers.getDestination({
+                trip,
+                visitedPlaces: commonTripReferenceVisitedPlaces
+            });
+            return destination.arrivalTime === visitedPlace.arrivalTime;
+        });
+    }
+    if (reminderKind === 'departure' && typeof visitedPlace.departureTime === 'number') {
+        return commonTrips.some((trip) => {
+            const origin = odSurveyHelpers.getOrigin({
+                trip,
+                visitedPlaces: commonTripReferenceVisitedPlaces
+            });
+            return origin.departureTime === visitedPlace.departureTime;
+        });
+    }
+    return false;
+};
+
 const defaultReminder = { reminderText: '' };
+
+type CommonTripTimeReminderKind = 'departure' | 'arrival';
+
+const commonTripTimeReminderLabelKeys: Record<CommonTripTimeReminderKind, string> = {
+    departure: 'visitedPlaces:commonTripTimeReminderDepartureText',
+    arrival: 'visitedPlaces:commonTripTimeReminderArrivalText'
+};
+
 export const getCommonTripLabelOptions = ({
     t,
     interview,
     currentPerson,
     currentJourney,
-    currentVisitedPlace
+    currentVisitedPlace,
+    reminderKind = 'departure'
 }: {
     t: TFunction;
     interview: InterviewAttributes;
     currentPerson: Person;
     currentJourney: Journey;
     currentVisitedPlace: VisitedPlace;
+    reminderKind?: CommonTripTimeReminderKind;
 }) => {
     if (!isCommonTripSampleMatch(interview)) {
         return defaultReminder;
@@ -268,16 +336,26 @@ export const getCommonTripLabelOptions = ({
         trips: commonTrips
     } = commonTripsData;
 
-    // Get the time bound for this person's current place (ie the last available time)
-    const visitedPlaceLatestTime = getVisitedPlaceLatestTime({
-        interview,
-        person: currentPerson,
+    const commonTripReferenceVisitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey: commonTripReferenceJourney });
+
+    if (
+        isCommonTripTimeReminderCompleted({
+            reminderKind,
+            visitedPlace: currentVisitedPlace,
+            commonTrips,
+            commonTripReferenceVisitedPlaces
+        })
+    ) {
+        return defaultReminder;
+    }
+
+    const visitedPlaceLatestTime = getVisitedPlaceLatestTimeForCommonTripReminder({
         journey: currentJourney,
-        visitedPlace: currentVisitedPlace
+        visitedPlace: currentVisitedPlace,
+        reminderKind
     });
 
     // Find the earliest trip done after that timestamp
-    const commonTripReferenceVisitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey: commonTripReferenceJourney });
     const applicableCommonTrip = commonTrips.find((trip) => {
         const tripOrigin = odSurveyHelpers.getOrigin({ trip, visitedPlaces: commonTripReferenceVisitedPlaces });
         return tripOrigin.departureTime >= visitedPlaceLatestTime;
@@ -296,10 +374,12 @@ export const getCommonTripLabelOptions = ({
         trip: applicableCommonTrip,
         visitedPlaces: commonTripReferenceVisitedPlaces
     });
+    const reminderLabelKey = commonTripTimeReminderLabelKeys[reminderKind];
+    const reminderTime = reminderKind === 'arrival' ? destination.arrivalTime : origin.departureTime;
     return {
-        reminderText: t('visitedPlaces:reminderText', {
+        reminderText: t(reminderLabelKey, {
             otherNickname: odSurveyHelpers.getPersonIdentificationString({ person: commonTripReferencePerson, t }),
-            time: secondsSinceMidnightToTimeStr(origin.departureTime),
+            time: secondsSinceMidnightToTimeStr(reminderTime),
             origin: odSurveyHelpers.getVisitedPlaceDescription({
                 visitedPlace: origin,
                 person: commonTripReferencePerson,
@@ -334,6 +414,38 @@ export const getCommonTripReminderOptionsForVisitedPlaces: AdditionalSectionLabe
         currentJourney: journey,
         currentPerson: person,
         currentVisitedPlace: visitedPlace
+    });
+};
+
+export const getCommonTripDepartureTimeReminderOptions: AdditionalSectionLabelOptionFct = ({ interview, t, path }) => {
+    const visitedPlaceContext = odSurveyHelpers.getVisitedPlaceContextFromPath({ interview, path });
+    if (visitedPlaceContext === null) {
+        throw new Error('Common trip reminder options: visited place context not found for path ' + path);
+    }
+    const { person, journey, visitedPlace } = visitedPlaceContext;
+    return getCommonTripLabelOptions({
+        t,
+        interview,
+        currentJourney: journey,
+        currentPerson: person,
+        currentVisitedPlace: visitedPlace,
+        reminderKind: 'departure'
+    });
+};
+
+export const getCommonTripArrivalTimeReminderOptions: AdditionalSectionLabelOptionFct = ({ interview, t, path }) => {
+    const visitedPlaceContext = odSurveyHelpers.getVisitedPlaceContextFromPath({ interview, path });
+    if (visitedPlaceContext === null) {
+        throw new Error('Common trip reminder options: visited place context not found for path ' + path);
+    }
+    const { person, journey, visitedPlace } = visitedPlaceContext;
+    return getCommonTripLabelOptions({
+        t,
+        interview,
+        currentJourney: journey,
+        currentPerson: person,
+        currentVisitedPlace: visitedPlace,
+        reminderKind: 'arrival'
     });
 };
 

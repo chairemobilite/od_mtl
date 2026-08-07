@@ -7,12 +7,15 @@ import {
     SectionConfig,
     QuestionnaireConfiguration
 } from 'evolution-common/lib/services/questionnaire/types';
+import { applySectionAdditionalLabelOptions } from 'evolution-common/lib/services/questionnaire/sections/common/applyAdditionalLabelOptions';
 import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnaire';
 import { personVisitedPlacesWidgetsNames } from './sections/visitedPlaces/widgetsNames';
 import { segmentsWidgetsNames, personTripsWidgetsNames } from './sections/segments/widgetsNames';
 import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/SegmentAttributes';
 import {
     addPrefilledSegmentNote,
+    getCommonTripArrivalTimeReminderOptions,
+    getCommonTripDepartureTimeReminderOptions,
     getCommonTripReminderOptionsForVisitedPlaces,
     getPreviousModeSameModePartialSample
 } from './common/customHelpers';
@@ -91,9 +94,10 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                 inlineUsualPlacesEntry: true,
                 additionalLabelOptionFunctions: {
                     visitedPlaceActivityCategory: getCommonTripReminderOptionsForVisitedPlaces,
-                    visitedPlacePreviousDepartureTime: getCommonTripReminderOptionsForVisitedPlaces,
+                    visitedPlacePreviousDepartureTime: getCommonTripDepartureTimeReminderOptions,
                     visitedPlaceNextPlaceCategory: getCommonTripReminderOptionsForVisitedPlaces,
-                    visitedPlaceDepartureTime: getCommonTripReminderOptionsForVisitedPlaces
+                    visitedPlaceDepartureTime: getCommonTripDepartureTimeReminderOptions,
+                    visitedPlaceArrivalTime: getCommonTripArrivalTimeReminderOptions
                 },
                 activitiesIncludeOnly: [
                     'home',
@@ -164,7 +168,20 @@ const validatedSections = getAndValidateSurveySections({
     segments: segmentConfig
 });
 
-// Widgets defined in the interview will override the ones from the section factory, if any
-const allWidgetConfig = Object.assign({}, widgetsConfig, widgets);
+// Widgets defined in the interview override section factory widgets. Re-apply label
+// option functions so {{reminderText}} is always interpolated (e.g. arrival time).
+const visitedPlacesLabelOptionFunctions =
+    questionnaireConfiguration.tripDiary?.sections?.visitedPlaces?.additionalLabelOptionFunctions;
+const segmentsLabelOptionFunctions =
+    questionnaireConfiguration.tripDiary?.sections?.segments?.additionalLabelOptionFunctions;
+
+let allWidgetConfig = Object.assign({}, widgetsConfig, widgets);
+
+if (visitedPlacesLabelOptionFunctions) {
+    allWidgetConfig = applySectionAdditionalLabelOptions(allWidgetConfig, visitedPlacesLabelOptionFunctions);
+}
+if (segmentsLabelOptionFunctions) {
+    allWidgetConfig = applySectionAdditionalLabelOptions(allWidgetConfig, segmentsLabelOptionFunctions);
+}
 
 export { validatedSections as surveySections, allWidgetConfig as widgetsConfig };

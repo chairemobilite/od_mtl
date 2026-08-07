@@ -124,12 +124,12 @@ visitedPlacePreviousDepartureTime_female_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_custom_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
-visitedPlaceArrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:'
-visitedPlaceArrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:'
-visitedPlaceArrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:'
-visitedPlaceArrivalTime_one: 'Vous êtes arrivé(e) {{atPlace}} à:'
-visitedPlaceArrivalTime_male_one: 'Vous êtes arrivé {{atPlace}} à:'
-visitedPlaceArrivalTime_female_one: 'Vous êtes arrivée {{atPlace}} à:'
+visitedPlaceArrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_one: Vous êtes arrivé(e) {{atPlace}} à:{{reminderText}}
+visitedPlaceArrivalTime_male_one: Vous êtes arrivé {{atPlace}} à:{{reminderText}}
+visitedPlaceArrivalTime_female_one: Vous êtes arrivée {{atPlace}} à:{{reminderText}}
 visitedPlaceNextPlaceCategory: >-
     Après avoir été {{atPlace}}, {{nickname}} est…{{reminderText}}<br /><span class="_pale
     _oblique">Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci
@@ -450,9 +450,12 @@ onTheRoadNextPlaceCategoryChoices:
         le lendemain
     stayedThereUntilTheNextDay_one: J'ai complété mes déplacements sur la route après
         4:00 du matin le lendemain
-reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0; Rappel : déplacement avec
-    {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>
+commonTripTimeReminderDepartureText: >-
+    <br /><span class="_yellow _strong">&#9888; Rappel: déplacement avec {{otherNickname}},
+    départ de {{origin}} à {{time}} vers {{destination}}</span>
+commonTripTimeReminderArrivalText: >-
+    <br /><span class="_yellow _strong">&#9888; Rappel: déplacement avec {{otherNickname}},
+    arrivée à {{destination}} à {{time}} depuis {{origin}}</span>
 onTheRoadArrivalTypeHome: Domicile
 onTheRoadArrivalTypeUsualWorkPlace: Lieu de travail habituel
 onTheRoadArrivalTypeOther: Autre lieu

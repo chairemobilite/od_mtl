@@ -573,7 +573,7 @@ Question,At what time did {{nickname}} leave the previous location ({{previousVi
 ""
 Field,arrivalTime
 Question type,Builtin
-Question,{{nickname}} arrived {{atPlace}} at:
+Question,{{nickname}} arrived {{atPlace}} at:{{reminderText}}
 ""
 Field,nextPlaceCategory
 Question type,Builtin

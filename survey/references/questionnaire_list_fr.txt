@@ -391,7 +391,7 @@ Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant,
 
 À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
 
-{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
+{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:{{reminderText}}
 
 Après avoir été {{atPlace}}, {{nickname}} est…{{reminderText}}
 Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci de considérer pour l'enquête qu'{{gender :il/elle/iel/il(-elle)}} y est rest{{gender :é/ée/é(e)/é(e)}} jusqu'au lendemain et de sélectionner la réponse adaptée.

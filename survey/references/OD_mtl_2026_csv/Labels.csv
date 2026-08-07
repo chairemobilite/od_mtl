@@ -154,9 +154,12 @@ visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentBackHome,Domicile,Home,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.wentToUsualWorkPlace,Lieu de travail habituel,Usual work place,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.visitedAnotherPlace,Autre lieu,Other location,,
 visitedPlaces,onTheRoadNextPlaceCategoryChoices.stayedThereUntilTheNextDay,{{nickname}} a complété ses déplacements sur la route après 4:00 du matin le lendemain,{{nickname}} completed {{gender:his/her/their/their}} work on the road trips after 4AM the next day,J'ai complété mes déplacements sur la route après 4:00 du matin le lendemain,I completed my work on the road trips after 4AM the next day
-visitedPlaces,reminderText,"
-<span style=""background-color:#fff6cc;"">&#x26A0; Rappel : déplacement avec {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>","
-<span style=""background-color:#fff6cc;"">&#x26A0;Reminder: trip with {{otherNickname}} at {{time}} &#8594; {{origin}} to {{destination}}</span>",,
+visitedPlaces,commonTripTimeReminderDepartureText,"
+<span class=""_yellow _strong"">&#9888; Rappel: déplacement avec {{otherNickname}}, départ de {{origin}} à {{time}} vers {{destination}}</span>","
+<span class=""_yellow _strong"">&#9888; Reminder: trip with {{otherNickname}}, departure from {{origin}} at {{time}} to {{destination}}</span>",,
+visitedPlaces,commonTripTimeReminderArrivalText,"
+<span class=""_yellow _strong"">&#9888; Rappel: déplacement avec {{otherNickname}}, arrivée à {{destination}} à {{time}} depuis {{origin}}</span>","
+<span class=""_yellow _strong"">&#9888; Reminder: trip with {{otherNickname}}, arrived at {{destination}} at {{time}} from {{origin}}</span>",,
 household,errors.selectDontKnowWhenNoOtherChoiceSelected,"Sélectionnez ""Ne sais pas"" seulement si aucun autre choix n'est sélectionné.","Select ""Don't know"" only if no other choice is selected.",,
 household,errors.selectNoWhenNoOtherChoiceSelected,"Sélectionnez ""Non"" seulement si aucun autre choix n'est sélectionné.","Select ""no"" only if no other choice is selected.",,
 household,errors.selectNoneWhenNoOtherChoiceSelected,"Sélectionnez ""Aucun pour le mois en cours"" seulement si aucun autre choix n'est sélectionné.","Select ""None for the current month"" only if no other choice is selected.",,

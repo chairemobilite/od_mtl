@@ -85,8 +85,8 @@ visitedPlacePreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_one: >-
     At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
-visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:'
-visitedPlaceArrivalTime_one: 'You arrived {{atPlace}} at:'
+visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:{{reminderText}}'
+visitedPlaceArrivalTime_one: You arrived {{atPlace}} at:{{reminderText}}
 visitedPlaceNextPlaceCategory: >-
     After being {{atPlace}}, {{nickname}}…{{reminderText}}<br /><span class="_pale
     _oblique">If {{nickname}} left this place after 4 AM the following day, please
@@ -313,9 +313,12 @@ onTheRoadNextPlaceCategoryChoices:
         4AM the next day
     stayedThereUntilTheNextDay_female_one: I completed my work on the road trips after
         4AM the next day
-reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0;Reminder: trip with {{otherNickname}}
-    at {{time}} &#8594; {{origin}} to {{destination}}</span>
+commonTripTimeReminderDepartureText: >-
+    <br /><span class="_yellow _strong">&#9888; Reminder: trip with {{otherNickname}},
+    departure from {{origin}} at {{time}} to {{destination}}</span>
+commonTripTimeReminderArrivalText: >-
+    <br /><span class="_yellow _strong">&#9888; Reminder: trip with {{otherNickname}},
+    arrived at {{destination}} at {{time}} from {{origin}}</span>
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location
