@@ -33,7 +33,7 @@ no : Non"
 Champ,wantToParticipateToDraw
 Type de question,Bouton radio
 Question,"Je souhaite participer au tirage au sort
-Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien))."
+Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu (<a href=""https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"" target=""_blank"">Voir règlement</a>)."
 Valeurs,"yes : Oui
 no : Non"
 ""

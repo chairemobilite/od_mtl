@@ -33,7 +33,7 @@ no : No"
 Field,wantToParticipateToDraw
 Question type,Radio input
 Question,"I would like to participate in the prize draw
-Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response ([View rules](lien))."
+Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response (<a href=""https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf"" target=""_blank"">View rules</a>)."
 Values,"yes : Yes
 no : No"
 ""

@@ -9,7 +9,8 @@ acceptToBeContactedForHelp: >-
 wantToParticipateToDraw: >-
     Je souhaite participer au <strong>tirage au sort</strong><br /><span class="_pale
     _oblique">Seuls les gagnants seront contactés. Il est nécessaire de terminer le
-    questionnaire pour être retenu ([Voir règlement](lien)).</span>
+    questionnaire pour être retenu (<a href="https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"
+    target="_blank">Voir règlement</a>).</span>
 contactInformationIntro: Veuillez saisir le courriel pour vous recontacter.
 contactEmail: <strong>Adresse courriel</strong>
 homeIntro: >-
