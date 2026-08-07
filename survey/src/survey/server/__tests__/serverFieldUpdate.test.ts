@@ -562,6 +562,7 @@ describe('test transit summary generation', function () {
         // Make sure the assigned day is set
         interview = _cloneDeep(baseInterview);
         interview.response._assignedDay = '2022-09-26'; // A monday
+        interview.response._assignedWeekDayIso = 1;
         (config as any).trRoutingScenarios = {
             SE: 'ScenarioDeSemaine',
             SA: 'ScenarioDuSamedi',

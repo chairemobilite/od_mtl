@@ -565,27 +565,20 @@ export default [
                 return defaultResponse;
             }
             try {
-                // Extract IDs from the path
-                const pathParts = path.split('.');
-                const personId = pathParts[2];
-                const journeyId = pathParts[4];
-                const tripId = pathParts[6];
-
-                const person = odSurveyHelpers.getPerson({ interview, personId });
-                const journey = person ? odSurveyHelpers.getJourneys({ person })[journeyId] : undefined;
-                const visitedPlaces = journey ? odSurveyHelpers.getVisitedPlaces({ journey }) : null;
-                const trip = journey ? odSurveyHelpers.getTrips({ journey })[tripId] || null : null;
-                const householdTripsDate = getResponse(interview, assignedDayPath, null);
-                if (visitedPlaces === null || person === null || trip === null || householdTripsDate === null) {
+                // Get the context objects from the path
+                const tripContext = odSurveyHelpers.getTripContextFromPath({ interview, path });
+                const isoWeekDay = getResponse(interview, assignedWeekDayPath, null);
+                if (tripContext === null || isoWeekDay === null) {
                     return defaultResponse;
                 }
+                const { person, journey, trip } = tripContext;
+                const visitedPlaces = journey ? odSurveyHelpers.getVisitedPlaces({ journey }) : null;
 
                 // Find the scenario for the appropriate week day
-                const weekDay = moment(householdTripsDate).day();
                 const scenario =
-                    weekDay === 0
+                    isoWeekDay === 7
                         ? (config as any).trRoutingScenarios.DI
-                        : weekDay === 6
+                        : isoWeekDay === 6
                             ? (config as any).trRoutingScenarios.SA
                             : (config as any).trRoutingScenarios.SE;
                 if (scenario === undefined) {
@@ -622,7 +615,7 @@ export default [
                             destination: destinationGeography,
                             transitScenario: scenario,
                             departureSecondsSinceMidnight: timeOfTrip,
-                            departureDateString: householdTripsDate,
+                            departureDateString: journey.startDate,
                             minWaitingTime: 180,
                             maxAccessTravelTime: 20 * 60,
                             maxEgressTravelTime: 20 * 60,
