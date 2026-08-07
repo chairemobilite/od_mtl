@@ -8,8 +8,8 @@ acceptToBeContactedForHelp,Radio,True,home,,acceptToBeContactedForHelp,"Je conse
 __Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.__","I consent to be contacted to **continue or clarify the survey**
 __If I do not complete it or if some of the information provided appears inconsistent.__",,,,,,,yesNo,,,,True,,,,,
 wantToParticipateToDraw,Radio,True,home,,wantToParticipateToDraw,"Je souhaite participer au **tirage au sort**
-__Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu ([Voir règlement](lien)).__","I would like to participate in the **prize draw**
-__Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response ([View rules](lien)).__",,,,,,,yesNo,,,,True,,,,,
+__Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu (<a href=""https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"" target=""_blank"">Voir règlement</a>).__","I would like to participate in the **prize draw**
+__Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response (<a href=""https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf"" target=""_blank"">View rules</a>).__",,,,,,,yesNo,,,,True,,,,,
 contactInformationIntro,InfoText,True,home,,contactInformationIntro,Veuillez saisir le courriel pour vous recontacter.,Please enter the email so we can contact you.,,,,,acceptsToBeContactedForHelp,,,,,,True,,,,,
 contactEmail,String,True,home,,contactEmail,**Adresse courriel**,**Email address**,,,,,acceptsToBeContactedForHelp,emailValidation,,,,,True,,,,,
 homeIntro,InfoText,True,home,,homeIntro,"Votre adresse est pré-remplie en fonction du code d'accès.
