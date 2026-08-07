@@ -206,3 +206,6 @@ prefilledSegmentNote: >-
     <br /><span class="_pale _oblique"><strong>Note:</strong> Information pré-remplie
     en fonction de la déclaration de {{referenceNickname}}. Vérifier que les informations
     sont correctes et changer au besoin.</span>
+featureSelect:
+    other: Autre
+    dontKnow: Je ne sais pas

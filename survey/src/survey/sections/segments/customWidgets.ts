@@ -187,6 +187,34 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
     }
 };
 
+const featureSelectAdditionalChoices = [
+    {
+        label: (t: TFunction) => t('segments:featureSelect.other'),
+        value: 'other'
+    },
+    {
+        label: (t: TFunction) => t('segments:featureSelect.dontKnow'),
+        value: 'dontknow',
+        conditional: (interview, path) => {
+            const person = odSurveyHelpers.getPerson({ interview });
+            return !odSurveyHelpers.isSelfDeclared({ person, interview });
+        }
+    }
+];
+
+const featureSelectShortcuts = [
+    {
+        label: (t: TFunction) => t('segments:featureSelect.other'),
+        value: 'other',
+        color: 'grey'
+    },
+    {
+        label: (t: TFunction) => t('segments:featureSelect.dontKnow'),
+        value: 'dontknow',
+        color: 'grey'
+    }
+];
+
 export const segmentSubwayStationStart: WidgetConfig.InputSelectFeatureType = {
     type: 'question',
     inputType: 'selectFeature',
@@ -203,6 +231,8 @@ export const segmentSubwayStationStart: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentPreviousLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.subwayConditional,
     validations: validations.requiredValidation
 };
@@ -223,6 +253,8 @@ export const segmentSubwayStationEnd: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentNextLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.subwayConditional,
     validations: validations.requiredValidation
 };
@@ -243,6 +275,8 @@ export const segmentTrainStationStart: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentPreviousLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.trainConditional,
     validations: validations.requiredValidation
 };
@@ -264,6 +298,8 @@ export const segmentTrainStationEnd: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentNextLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.trainConditional,
     validations: customValidations.trainCustomValidation
 };
@@ -284,6 +320,8 @@ export const segmentRemStationStart: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentPreviousLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.remConditional,
     validations: validations.requiredValidation
 };
@@ -304,6 +342,8 @@ export const segmentRemStationEnd: WidgetConfig.InputSelectFeatureType = {
         }
         return getSegmentNextLocation({ interview, ...segmentContext });
     },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
     conditional: conditionals.remConditional,
     validations: validations.requiredValidation
 };
