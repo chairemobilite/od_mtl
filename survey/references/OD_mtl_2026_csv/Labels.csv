@@ -311,6 +311,8 @@ segments,errors.trainStationsIncoherent,La ou les station(s) de transfert semble
 segments,prefilledSegmentNote,"
 __**Note:** Information pré-remplie en fonction de la déclaration de {{referenceNickname}}. Vérifier que les informations sont correctes et changer au besoin.__","
 __**Note:** Information prefilled from {{referenceNickname}}'s trip diary. Verify if the information is correct and change if needed.__",,
+segments,featureSelect.other,Autre,Other,,
+segments,featureSelect.dontKnow,Je ne sais pas,I don't know,,
 travelBehavior,personHasSchoolPlace_schoolchildcare,"Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?","Does {{nickname}} attend a school, daycare or CPE?",,
 travelBehavior,workCommutingHelpPopup.title,Pourquoi cette question?,Why this question?,,
 travelBehavior,workCommutingHelpPopup.content,"Inspirée du Recensement de Statistique Canada, cette question permet de comparer les modes de navettage entre enquêtes.","Inspired by Statistics Canada’s Census, this question allows for comparison of commuting modes across surveys.",,

@@ -202,3 +202,6 @@ prefilledSegmentNote: >-
     <br /><span class="_pale _oblique"><strong>Note:</strong> Information prefilled
     from {{referenceNickname}}'s trip diary. Verify if the information is correct
     and change if needed.</span>
+featureSelect:
+    other: Other
+    dontKnow: I don't know
