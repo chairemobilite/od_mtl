@@ -23,6 +23,7 @@ test.describe.configure({ mode: 'serial' });
 // Initialize the test page and add it to the context
 test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
+    commonUITestsHelpers.assignWeekDayToInterview({ page: context.page });
     // FIXME This part should be added in the initializeTestPage function,
     // direcly in Evolution. Here for now to avoid having to update Evolution
     // again just yet.
