@@ -1,4 +1,5 @@
 import knex from 'chaire-lib-backend/lib/config/shared/db.config';
+import moment from 'moment';
 // eslint-disable-next-line n/no-extraneous-import
 import { test, expect } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
@@ -26,6 +27,71 @@ export type HouseholdTestParameters = testHelpers.CommonTestParameters & {
 export type HomeTestParameters = testHelpers.CommonTestParameters & {
     addressIsFilled?: boolean;
     home?: HomeSection;
+};
+
+/**
+ * Listen to the first survey update route to set the assignedDay to a weekday,
+ * to make weekend/week cases deterministic
+ * @param param0 The web page
+ */
+export const assignWeekDayToInterview = ({ page }: { page: any }) => {
+    // Listen to the first `survey/updateInterview` call
+    page.route('**/survey/updateInterview', async (route) => {
+        const request = route.request();
+        const postData = request.postData();
+        const currentIsoWeekday = moment().isoWeekday();
+
+        // For monday, assign last friday (-2 is last friday, ie 5 (friday) - 7 (last week))
+        // For sunday, assign current friday
+        // All other days will assign the day before
+        const date =
+            currentIsoWeekday === 1
+                ? moment().weekday(-2).format('YYYY-MM-DD')
+                : currentIsoWeekday === 7
+                    ? moment().weekday(5).format('YYYY-MM-DD')
+                    : moment()
+                        .weekday(currentIsoWeekday - 1)
+                        .format('YYYY-MM-DD');
+
+        const payload = !postData ? {} : JSON.parse(postData);
+
+        // Modify the payload to set the assignedDay
+        payload.valuesByPath = {
+            ...(payload.valuesByPath ?? {}),
+            // add/override fields here
+            'response._assignedDay': date
+        };
+
+        // Since it was assigned by "client" interception, the server will not
+        // assign it, but we still need to send it back to the application, so
+        // we listen to the reply and add the _assignedDay there too
+        const response = await route.fetch({
+            postData: JSON.stringify(payload),
+            headers: request.headers()
+        });
+
+        const responseBody = await response.text();
+        let jsonResponse = JSON.parse(responseBody);
+
+        // Modify the incoming response payload
+        jsonResponse = {
+            ...jsonResponse,
+            updatedValuesByPath: {
+                ...jsonResponse.updatedValuesByPath,
+                'response._assignedDay': date
+            }
+        };
+
+        // Complete the route to finish the loop
+        await route.fulfill({
+            status: response.status(),
+            headers: response.headers(),
+            body: JSON.stringify(jsonResponse)
+        });
+
+        // The job is done, stop listening for this route
+        page.unroute('**/survey/updateInterview');
+    });
 };
 
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
