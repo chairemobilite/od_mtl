@@ -1115,6 +1115,7 @@ Question type,Radio input
 Question,"The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips"
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1123,6 +1124,7 @@ Question type,Radio input
 Question,A personal car represents independence and autonomy for me.
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1131,6 +1133,7 @@ Question type,Radio input
 Question,"Overall, public transit in the region where I live is useful and of good quality."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1139,6 +1142,7 @@ Question type,Radio input
 Question,"I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)"
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1147,6 +1151,7 @@ Question type,Radio input
 Question,"My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1155,6 +1160,7 @@ Question type,Radio input
 Question,"It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1163,6 +1169,7 @@ Question type,Radio input
 Question,"When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
+0 : Neither agree nor disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
@@ -1175,7 +1182,8 @@ Field,barriersFrequency
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,"Public transit frequency (e.g., infrequent service, long waiting times)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1185,7 +1193,8 @@ Field,barriersReliability
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,"Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1195,7 +1204,8 @@ Field,barriersWalk
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,Walking time to a stop or station (at departure or arrival)
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1205,7 +1215,8 @@ Field,barriersTime
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,"Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1215,7 +1226,8 @@ Field,barriersTransfer
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,Number of transfers required (changes of line or mode)
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1225,7 +1237,8 @@ Field,barriersSecurity
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,"Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1235,7 +1248,8 @@ Field,barriersPlanning
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
 Question,"Trip planning (ease of finding information, accessible website, etc.)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1245,7 +1259,8 @@ Field,barriersDisabilityFrequency
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Public transit frequency (e.g., infrequent service, long waiting times)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1255,7 +1270,8 @@ Field,barriersDisabilityReliability
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1265,7 +1281,8 @@ Field,barriersDisabilityWalk
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,Walking time to a stop or station (at departure or arrival)
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1275,7 +1292,8 @@ Field,barriersDisabilityTime
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1285,7 +1303,8 @@ Field,barriersDisabilityTransfer
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,Number of transfers required (changes of line or mode)
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1295,7 +1314,8 @@ Field,barriersDisabilitySecurity
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1305,7 +1325,8 @@ Field,barriersDisabilityUniversalAccessibility
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1315,7 +1336,8 @@ Field,barriersDisabilityPlanning
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Trip planning (ease of finding information, accessible website, etc.)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.
@@ -1325,7 +1347,8 @@ Field,barriersDisabilityCourtesy
 Question type,Radio input
 Conditional,hasBarrierDisabilityTripConditional : _barriersDisabilityTripPath !== null
 Question,"Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)"
-Values,"1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
+1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
 3 : Strong barrier - This reason strongly led me to avoid public transit.
 4 : Decisive barrier - I avoided public transit mainly because of this reason.

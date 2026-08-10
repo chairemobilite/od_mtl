@@ -24,7 +24,8 @@ export const isCommonTripSampleMatch = (interview: InterviewAttributes) => {
         return false;
     }
     const eligiblePerson = persons.filter(
-        (person) => (person.age >= config.interviewableAge && person.age < config.adultAge) || person.age >= 65
+        (person) =>
+            (person.age >= config.ages.interviewableAge && person.age < config.ages.adultAge) || person.age >= 65
     );
     return eligiblePerson.length > 0;
 };

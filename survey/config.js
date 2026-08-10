@@ -36,9 +36,18 @@ module.exports = {
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
-    interviewableMinimumAge: 5,
+    ages: {
+        interviewableAge: 5,
+        selfResponseMinimumAge: 14,
+        adultAge: 18,
+        drivingLicenseAge: 16,
+        workingAge: 15,
+        schoolMandatoryAge: 15,
+        maxPersonAge: 125,
+        // Add warnings when household have members aged 100 or more
+        addAuditWarningVeryOldAge: 100
+    },
     accessCodeFormat: '000-000-000',
-    selfResponseMinimumAge: 14,
     singlePersonInterview: false,
     allowChangeSectionWithoutValidation: true,
     introductionTwoParagraph: true,

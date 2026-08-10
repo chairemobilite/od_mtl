@@ -12,7 +12,9 @@ import { personsArrayToChoices } from '../../common/customHelpers';
 // List possible self-respondents among the interviewable persons
 export const whoAnswersCustomChoices: WidgetConfig.ParsingFunction<WidgetConfig.RadioChoiceType[]> = (interview) => {
     const interviewablePersons = odHelpers.getInterviewablePersonsArray({ interview });
-    return personsArrayToChoices(interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge));
+    return personsArrayToChoices(
+        interviewablePersons.filter((person) => person.age >= config.ages.selfResponseMinimumAge)
+    );
 };
 
 // Custom because the labels of the choices contain journey dates

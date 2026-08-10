@@ -134,7 +134,7 @@ export const hasPersonCount2OrMoreCustomConditional: WidgetConditional = (interv
 // Custom conditional on the number of possible self-respondents
 export const if2OrMorePersons14OrMoreYearsOldCustomConditional: WidgetConditional = (interview, path) => {
     const interviewablePersons = odSurveyHelper.getInterviewablePersonsArray({ interview });
-    const canRespondPersons = interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge);
+    const canRespondPersons = interviewablePersons.filter((person) => person.age >= config.ages.selfResponseMinimumAge);
     return [canRespondPersons.length > 1, canRespondPersons.length === 1 ? canRespondPersons[0]._uuid : null];
 };
 
