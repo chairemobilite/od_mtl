@@ -11,7 +11,7 @@ export const person14PlusAndOtherCustomChoices: WidgetConfig.ParsingFunction<Wid
 ) => {
     const interviewablePersons = odHelpers.getInterviewablePersonsArray({ interview });
     const choices = personsArrayToChoices(
-        interviewablePersons.filter((person) => person.age >= config.selfResponseMinimumAge)
+        interviewablePersons.filter((person) => person.age >= config.ages.selfResponseMinimumAge)
     );
     choices.push({
         value: 'anotherPerson',

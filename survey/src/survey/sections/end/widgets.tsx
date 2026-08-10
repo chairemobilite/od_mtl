@@ -72,6 +72,7 @@ export const householdIncome: WidgetConfig.InputSelectType = {
     twoColumns: false,
     containsHtml: true,
     label: (t: TFunction) => t('end:householdIncome'),
+    helpPopup: customHelpPopup.incomeHelpPopup,
     choices: choices.householdIncomeChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation

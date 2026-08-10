@@ -102,7 +102,7 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                             }
                             const { person } = segmentContext;
                             // People of school age. See if we can use a better condition in Evolution (https://github.com/chairemobilite/evolution/issues/1794)
-                            return typeof person.age === 'number' && person.age < projectConfig.schoolMandatoryAge;
+                            return typeof person.age === 'number' && person.age < projectConfig.ages.schoolMandatoryAge;
                         }
                     },
                     carPassenger: {

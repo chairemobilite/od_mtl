@@ -65,7 +65,7 @@ export const isSameModeSample = (interview: InterviewAttributes) =>
 export const getPersonsOfDrivingAge = (interview: InterviewAttributes) =>
     odSurveyHelpers
         .getInterviewablePersonsArray({ interview })
-        .filter((person) => person.age >= config.drivingLicenseAge);
+        .filter((person) => person.age >= config.ages.drivingLicenseAge);
 
 export const hasMoreThanOnePersonOfDrivingAge = (interview: InterviewAttributes) =>
     getPersonsOfDrivingAge(interview).length > 1;
