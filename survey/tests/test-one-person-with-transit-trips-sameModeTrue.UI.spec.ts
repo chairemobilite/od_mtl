@@ -24,28 +24,6 @@ test.describe.configure({ mode: 'serial' });
 test.beforeAll(async ({ browser }) => {
     context.page = await testHelpers.initializeTestPage(browser, context.objectDetector);
     commonUITestsHelpers.assignWeekDayToInterview({ page: context.page });
-    // FIXME This part should be added in the initializeTestPage function,
-    // direcly in Evolution. Here for now to avoid having to update Evolution
-    // again just yet.
-    context.page.on('response', async (response: any) => {
-        try {
-            if (!response.url().includes('survey/updateInterview')) {
-                return;
-            }
-            const text = await response.text();
-            if (!text) {
-                return;
-            }
-            const parsed = JSON.parse(text);
-            const valuesByPath = parsed && parsed['updatedValuesByPath'];
-            if (valuesByPath !== undefined && Object.keys(valuesByPath).length > 0) {
-                context.objectDetector.detectSurveyObjects(valuesByPath);
-            }
-        } catch (err) {
-            // ignore parse errors or other response read issues
-            console.log('got error', err);
-        }
-    });
 });
 
 test.afterAll(async () => {
