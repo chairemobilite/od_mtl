@@ -78,6 +78,11 @@ module.exports = {
         facebook: false,
         byField: false
     },
+    trRoutingScenarios: {
+        DI: 'ad438798-e0b2-4e08-a3bd-b944fee418e1',
+        SA: '80da3027-8ad6-4f80-89d6-23d0ae3dec1c',
+        SE: '23f9c86f-e161-4af3-9102-ecf81bedc473'
+    },
     postalCodeRegion: 'quebec',
     separateAdminLoginPage: true,
     surveySupportForm: false,
