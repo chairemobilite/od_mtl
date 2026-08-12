@@ -359,7 +359,7 @@ Section: Déplacements
 
 Change person
 
-Places {{nickname}} went on {{journeyDate}}:
+Places {{nickname}} went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters).
 
 Map of {{nickname}}’s trips on {{journeyDates}}:

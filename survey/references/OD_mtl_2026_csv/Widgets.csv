@@ -219,10 +219,10 @@ tripsIntro_save,NextButton,1,tripsIntro,,tripsIntro.save,Continuer,Continue,,,,,
 tripsIntroOutro,InfoText,1,tripsIntro,,tripsIntroOutro,__Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.__,__Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential.__,,,,,,,,,,,True,,,,,
 activePersonTitle,Builtin,1,visitedPlaces,,activePersonTitle,"<p class=""_center _em"" style=""margin-bottom: 0;"">Entrevue de **{{nickname}}**</p><p class=""_center _pale"">•</p>","<p class=""_center _em"" style=""margin-bottom: 0;"">**{{nickname}}**’s interview</p><p class=""_center _pale"">•</p>",,,,,hasHouseholdSize2OrMoreConditional,,,,,,True,,,,,
 buttonSwitchPerson,Builtin,1,visitedPlaces,,buttonSwitchPerson,Changer de personne,Change person,,,,,,,,,,,,,,,,
-personVisitedPlacesTitle,Builtin,True,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
-L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDate}}:
-Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
-L'ordre chronologique doit être respecté.","Places you went on {{journeyDate}}:
+personVisitedPlacesTitle,Builtin,True,visitedPlaces,,personVisitedPlacesTitle,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}} :
+L'ordre chronologique doit être respecté.","Places {{nickname}} went on {{journeyDates}}:
+Chronological order must be respected (i.e. sequence matters).","Lieux où vous êtes allé{{gender:/e/(e)/(e)}} le {{journeyDates}} :
+L'ordre chronologique doit être respecté.","Places you went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters).",,,,,,,,,True,,,,,
 personVisitedPlacesMap,Builtin,True,visitedPlaces,,visitedPlacesMap,Carte des déplacements de **{{nickname}}** le {{journeyDates}} :,Map of **{{nickname}}**’s trips on {{journeyDates}}:,Carte de vos déplacements le {{journeyDates}} :,Map of your trips on {{journeyDates}}:,,,,,,,,,,,,,,
 personVisitedPlaces,Builtin,True,visitedPlaces,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlaces,,,,,,,,,,,,,,,,,,

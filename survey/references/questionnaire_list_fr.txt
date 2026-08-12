@@ -356,7 +356,7 @@ Section: Déplacements
 
 Changer de personne
 
-Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
+Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}} :
 L'ordre chronologique doit être respecté.
 
 Carte des déplacements de {{nickname}} le {{journeyDates}} :
