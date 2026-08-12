@@ -509,7 +509,7 @@ Question,Change person
 ""
 Field,personVisitedPlacesTitle
 Question type,Builtin
-Question,"Places {{nickname}} went on {{journeyDate}}:
+Question,"Places {{nickname}} went on {{journeyDates}}:
 Chronological order must be respected (i.e. sequence matters)."
 ""
 Field,visitedPlacesMap

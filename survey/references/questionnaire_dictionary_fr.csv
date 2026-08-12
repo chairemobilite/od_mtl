@@ -506,7 +506,7 @@ Question,Changer de personne
 ""
 Champ,personVisitedPlacesTitle
 Type de question,Builtin
-Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDate}} :
+Question,"Lieux où {{nickname}} est allé{{gender:/e/(e)/(e)}} le {{journeyDates}} :
 L'ordre chronologique doit être respecté."
 ""
 Champ,visitedPlacesMap
