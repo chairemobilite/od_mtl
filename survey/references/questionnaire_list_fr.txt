@@ -679,7 +679,7 @@ Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménag
 - Non
 - Ne sait pas
 
-À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2025?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2026?
 - Jamais (0)
 - Quelques fois durant la période (1 à 3)
 - Quelques fois par mois (4 à 12)
@@ -691,7 +691,7 @@ Au cours des 12 derniers mois, est-ce que vous ou un des membres de votre ménag
 - Quelques fois par mois (4 à 12)
 - Une à plusieurs fois par semaine (13 ou plus)
 
-À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de mai à août 2026?
+À quelle fréquence vous ou un des membres de votre ménage avez-vous effectué des déplacements longue distance (plus de 40 km) de septembre à décembre 2025?
 - Jamais (0)
 - Quelques fois durant la période (1 à 3)
 - Quelques fois par mois (4 à 12)
