@@ -54,7 +54,7 @@ export const updateHouseholdSizeFromPersonCount = (
 export const getFormattedTripDateFromJourney = (journey: Journey): string | undefined => {
     const assignedDay = journey.startDate;
     const journeyDate = !_isBlank(assignedDay)
-        ? getFormattedDate(assignedDay!, { withRelative: true, locale: i18n.language })
+        ? getFormattedDate(assignedDay!, { withRelative: true, locale: i18n.language, withDayOfWeek: true })
         : undefined;
     return journeyDate;
 };
