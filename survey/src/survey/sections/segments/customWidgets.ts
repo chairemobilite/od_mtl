@@ -1,17 +1,13 @@
 import _get from 'lodash/get';
 import _upperFirst from 'lodash/upperFirst';
 import _escape from 'lodash/escape';
-import config from 'evolution-common/lib/config/project.config';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import { TFunction } from 'i18next';
-import { formatGeocodingQueryStringFromMultipleFields, getResponse } from 'evolution-common/lib/utils/helpers';
-import { shouldDisplayTripJunction } from '../../common/helper';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
-import { getModeIcon } from 'evolution-common/lib/services/questionnaire/sections/segments/modeIconMapping';
 import { loopActivities } from 'evolution-common/lib/services/odSurvey/types';
-import { inaccessibleZoneGeographyCustomValidation } from '../../common/customValidations';
 import * as conditionals from '../../common/conditionals';
 import metroStations from '../../geojson/stations_metro.json';
 import remStations from '../../geojson/stations_rem.json';
