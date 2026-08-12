@@ -21,27 +21,11 @@ import {
     getSegmentPreviousLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 import * as customValidations from '../../common/customValidations';
+import busRoutes from '../../config/busRoutes.json';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
-
-let busRoutes = { type: 'FeatureCollection', features: [] };
-
-// Use async immediately invoked function (IIFE) to handle dynamic import instead of using a require, which causes linter error
-(async () => {
-    try {
-        // FIXME Can't use dynamic import as webpack does not find the file and complains the dependency is an expression
-        /* eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports */
-        busRoutes = require(`../../config/busRoutes${_upperFirst(process.env.EV_VARIANT)}.json`);
-        busRoutes.features = busRoutes.features.sort((a, b) =>
-            (a.properties.sortableName || '').localeCompare(b.properties.sortableName)
-        );
-    } catch (error) {
-        // No bus routes found for this ev variant, it's ok, the question just won't be asked
-        console.log('No bus routes found for this survey');
-    }
-})();
 
 export const segmentBusLines: WidgetConfig.InputMultiselectType = {
     type: 'question',
@@ -67,17 +51,14 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
         // Put possibles lines at the top of the choices
         const lineSummary: any = getResponse(interview, path, undefined, '../trRoutingResult');
         const lines = lineSummary?.lines || [];
-        const busRoutesFeatures = busRoutes.features;
-        const choices: any[] = busRoutesFeatures.map((busRoute: any) => {
-            const busRouteName = busRoute.properties.name;
+        const choices: any[] = busRoutes.map((busRoute) => {
+            const busRouteName = busRoute.name;
             const altLine = lines.find(
-                (line) =>
-                    busRoute.properties.agencyId === line.agencyAcronym &&
-                    busRoute.properties.shortname === line.lineShortname
+                (line) => busRoute.agencyAcronym === line.agencyAcronym && busRoute.lineShortname === line.lineShortname
             );
             return {
-                value: busRoute.properties.slug,
-                color: busRoute.properties.color,
+                value: busRoute.slug,
+                color: busRoute.color,
                 label: {
                     fr: busRouteName,
                     en: busRouteName
@@ -106,14 +87,14 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
     label: (t: TFunction, interview, path) => {
         const person = odSurveyHelpers.getPerson({ interview });
         const nickname = _escape(person.nickname);
-        return t('segments:busLines', {
+        return t('segments:segmentBusLines', {
             nickname,
             count: odSurveyHelpers.getCountOrSelfDeclared({ interview, person })
         });
     },
     conditional: function (interview, path) {
         const mode = getResponse(interview, path, null, '../mode');
-        if (mode !== 'transitBus' || busRoutes.features.length === 0) {
+        if (mode !== 'transitBus' || busRoutes.length === 0) {
             return [false, null];
         }
         const journey = odSurveyHelpers.getActiveJourney({ interview });
@@ -150,7 +131,7 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
             }
         ];
     },
-    label: (t) => t('segments:busLinesWarning'),
+    label: (t) => t('segments:segmentBusLinesWarning'),
     conditional: function (interview, path) {
         const segmentMode = getResponse(interview, path, undefined, '../mode');
         const segmentBuses: any = getResponse(interview, path, undefined, `../${segmentBusLines.path}`);
@@ -161,16 +142,13 @@ export const segmentBusLinesWarning: WidgetConfig.InputButtonType = {
         let hasImpossibleLine = false;
         if (lineSummary !== undefined) {
             const lines = lineSummary.lines || [];
-            const busRoutesFeatures = busRoutes.features;
-            const declaredBusRoutes = busRoutesFeatures.filter((busRoute) =>
-                segmentBuses.includes(busRoute.properties.slug)
-            );
+            const declaredBusRoutes = busRoutes.filter((busRoute) => segmentBuses.includes(busRoute.slug));
             const impossibleBusRoutes = declaredBusRoutes.filter(
                 (busRoute) =>
                     lines.find(
                         (line) =>
-                            busRoute.properties.agencyId === line.agencyAcronym &&
-                            busRoute.properties.shortname === line.lineShortname
+                            busRoute.agencyAcronym === line.agencyAcronym &&
+                            busRoute.lineShortname === line.lineShortname
                     ) === undefined
             );
             hasImpossibleLine = impossibleBusRoutes.length !== 0;

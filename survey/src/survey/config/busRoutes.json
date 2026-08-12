@@ -1,0 +1,4923 @@
+[
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "104",
+        "slug": "exo_104_chambly-brassard---martel---gentilly",
+        "color": "#1F1F1F",
+        "name": "exo 104 Chambly (Brassard - Martel - Gentilly)"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "105",
+        "slug": "exo_105_chambly---richelieu---marieville",
+        "color": "#1F1F1F",
+        "name": "exo 105 Chambly - Richelieu - Marieville"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "106",
+        "slug": "exo_106_chambly-brassard---salaberry---gentilly",
+        "color": "#1F1F1F",
+        "name": "exo 106 Chambly (Brassard - Salaberry - Gentilly)"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "107",
+        "slug": "exo_107_chambly-anne-le-seigneur---salaberry---brassard",
+        "color": "#1F1F1F",
+        "name": "exo 107 Chambly (Anne-Le Seigneur - Salaberry - Brassard)"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "108",
+        "slug": "exo_108_taxibus-chambly---st-mathias-sur-richelieu",
+        "color": "#1F1F1F",
+        "name": "exo 108 Taxibus Chambly - St-Mathias-sur-Richelieu"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "109",
+        "slug": "exo_109_taxibus-chambly---carignan---saint-hubert",
+        "color": "#1F1F1F",
+        "name": "exo 109 Taxibus Chambly - Carignan - Saint-Hubert"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "481",
+        "slug": "exo_481_chambly---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 481 Chambly - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "482",
+        "slug": "exo_482_chambly-franquet---frechette---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 482 Chambly (Franquet - Fréchette) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "483",
+        "slug": "exo_483_carignan-bellerive-henriette---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 483 Carignan (Bellerive-Henriette) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "484",
+        "slug": "exo_484_carignan-ile-aux-lievres---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 484 Carignan (Île aux Lièvres) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "485",
+        "slug": "exo_485_chambly-lebel---frechette---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 485 Chambly (Lebel - Fréchette) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "486",
+        "slug": "exo_486_marieville---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 486 Marieville - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "487",
+        "slug": "exo_487_chambly-industriel---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 487 Chambly (Industriel) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "488",
+        "slug": "exo_488_chambly-daigneault---martel---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 488 Chambly (Daigneault - Martel) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "680",
+        "slug": "exo_680_chambly---terminus-longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 680 Chambly - Terminus Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "681",
+        "slug": "exo_681_chambly---terminus-longueuil---cegep-e--montpetit",
+        "color": "#1F1F1F",
+        "name": "exo 681 Chambly - Terminus Longueuil - Cégep É.-Montpetit"
+    },
+    {
+        "agencyAcronym": "exoCITCRC_2026",
+        "lineShortname": "685",
+        "slug": "exo_685_carignan---chambly---saint-jean-sur-richelieu",
+        "color": "#1F1F1F",
+        "name": "exo 685 Carignan - Chambly - Saint-Jean-sur-Richelieu"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "220",
+        "slug": "exo_220_deux-montagnes---pointe-calumet-59e-avenue",
+        "color": "#1F1F1F",
+        "name": "exo 220 Deux-Montagnes - Pointe-Calumet (59e Avenue)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "221",
+        "slug": "exo_221_deux-montagnes---pointe-calumet-avenue-joseph",
+        "color": "#1F1F1F",
+        "name": "exo 221 Deux-Montagnes - Pointe Calumet (Avenue Joseph)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "222",
+        "slug": "exo_222_deux-montagnes---sainte-marthe-sur-le-lac",
+        "color": "#1F1F1F",
+        "name": "exo 222 Deux-Montagnes - Sainte-Marthe-sur-le-Lac"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "225",
+        "slug": "exo_225_deux-montagnes---saint-eustache-a-sauve",
+        "color": "#1F1F1F",
+        "name": "exo 225 Deux-Montagnes - Saint-Eustache (A-Sauvé)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "226",
+        "slug": "exo_226_deux-montagnes---saint-eustache-a-sauve",
+        "color": "#1F1F1F",
+        "name": "exo 226 Deux-Montagnes - Saint-Eustache (A-Sauvé)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "227",
+        "slug": "exo_227_deux-montagnes---saint-eustache-centre",
+        "color": "#1F1F1F",
+        "name": "exo 227 Deux-Montagnes - Saint-Eustache (Centre)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "228",
+        "slug": "exo_228_deux-montagnes---saint-eustache-centre",
+        "color": "#1F1F1F",
+        "name": "exo 228 Deux-Montagnes - Saint-Eustache (Centre)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "230",
+        "slug": "exo_230_saint-jerome-centre-ville",
+        "color": "#1F1F1F",
+        "name": "exo 230 Saint-Jérôme (Centre-ville)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "231",
+        "slug": "exo_231_saint-jerome-centre",
+        "color": "#1F1F1F",
+        "name": "exo 231 Saint-Jérôme (Centre)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "232",
+        "slug": "exo_232_saint-jerome-centre",
+        "color": "#1F1F1F",
+        "name": "exo 232 Saint-Jérôme (Centre)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "233",
+        "slug": "exo_233_saint-jerome-bellefeuille",
+        "color": "#1F1F1F",
+        "name": "exo 233 Saint-Jérôme (Bellefeuille)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "234",
+        "slug": "exo_234_saint-jerome-bellefeuille",
+        "color": "#1F1F1F",
+        "name": "exo 234 Saint-Jérôme (Bellefeuille)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "235",
+        "slug": "exo_235_saint-jerome-lafontaine",
+        "color": "#1F1F1F",
+        "name": "exo 235 Saint-Jérôme (Lafontaine)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "236",
+        "slug": "exo_236_saint-jerome-saint-antoine",
+        "color": "#1F1F1F",
+        "name": "exo 236 Saint-Jérôme (Saint-Antoine)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "237",
+        "slug": "exo_237_saint-jerome-saint-antoine",
+        "color": "#1F1F1F",
+        "name": "exo 237 Saint-Jérôme (Saint-Antoine)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "238",
+        "slug": "exo_238_saint-jerome---mirabel-saint-canut",
+        "color": "#1F1F1F",
+        "name": "exo 238 Saint-Jérôme - Mirabel (Saint-Canut)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "239",
+        "slug": "exo_239_saint-jerome---mirabel-mirabel-en-haut",
+        "color": "#1F1F1F",
+        "name": "exo 239 Saint-Jérôme - Mirabel (Mirabel-en-Haut)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "240",
+        "slug": "exo_240_boisbriand-nord---boisbriand-sud",
+        "color": "#1F1F1F",
+        "name": "exo 240 Boisbriand Nord - Boisbriand Sud"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "241",
+        "slug": "exo_241_boisbriand-sud---boisbriand-nord",
+        "color": "#1F1F1F",
+        "name": "exo 241 Boisbriand Sud - Boisbriand Nord"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "242",
+        "slug": "exo_242_sainte-therese---rosemere---laval-sainte-rose",
+        "color": "#1F1F1F",
+        "name": "exo 242 Sainte-Thérèse - Rosemère - Laval (Sainte-Rose)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "243",
+        "slug": "exo_243_mirabel-saint-augustin---sainte-therese",
+        "color": "#1F1F1F",
+        "name": "exo 243 Mirabel (Saint-Augustin) - Sainte-Thérèse"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "246",
+        "slug": "exo_246_sainte-therese---blainville-renaissance",
+        "color": "#1F1F1F",
+        "name": "exo 246 Sainte-Thérèse - Blainville (Renaissance)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "247",
+        "slug": "exo_247_sainte-therese---blainville",
+        "color": "#1F1F1F",
+        "name": "exo 247 Sainte-Thérèse - Blainville"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "248",
+        "slug": "exo_248_rosemere---gare-rosemere",
+        "color": "#1F1F1F",
+        "name": "exo 248 Rosemère - Gare Rosemère"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "249",
+        "slug": "exo_249_sainte-therese---lorraine---terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 249 Sainte-Thérèse - Lorraine - Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "250",
+        "slug": "exo_250_sainte-anne-des-plaines---sainte-therese",
+        "color": "#1F1F1F",
+        "name": "exo 250 Sainte-Anne-des-Plaines - Sainte-Thérèse"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "251",
+        "slug": "exo_251_sainte-therese---polyvalente-sainte-therese",
+        "color": "#1F1F1F",
+        "name": "exo 251 Sainte-Thérèse - Polyvalente Sainte-Thérèse"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "252",
+        "slug": "exo_252_sainte-therese-des-mille-iles",
+        "color": "#1F1F1F",
+        "name": "exo 252 Sainte-Thérèse (des Mille-Îles)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "253",
+        "slug": "exo_253_terrebonne---lorraine---gare-rosemere",
+        "color": "#1F1F1F",
+        "name": "exo 253 Terrebonne - Lorraine - Gare Rosemère"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "254",
+        "slug": "exo_254_gare-blainville---blainville-est",
+        "color": "#1F1F1F",
+        "name": "exo 254 Gare Blainville - Blainville (Est)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "255",
+        "slug": "exo_255_gare-blainville---blainville-ouest",
+        "color": "#1F1F1F",
+        "name": "exo 255 Gare Blainville - Blainville (Ouest)"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "405",
+        "slug": "exo_405_deux-montagnes---sainte-therese-express",
+        "color": "#1F1F1F",
+        "name": "exo 405 Deux-Montagnes - Sainte-Thérèse Express"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "509",
+        "slug": "exo_509_saint-jerome---laval-express",
+        "color": "#1F1F1F",
+        "name": "exo 509 Saint-Jérôme - Laval Express"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "514",
+        "slug": "exo_514_sainte-anne-des-plaines---laval",
+        "color": "#1F1F1F",
+        "name": "exo 514 Sainte-Anne-des-Plaines - Laval"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "600",
+        "slug": "exo_600_deux-montagnes---st-eustache-sud---ste-therese",
+        "color": "#1F1F1F",
+        "name": "exo 600 Deux-Montagnes - St-Eustache (Sud) - Ste-Thérèse"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "604",
+        "slug": "exo_604_saint-placide---oka---deux-montagnes",
+        "color": "#1F1F1F",
+        "name": "exo 604 Saint-Placide - Oka - Deux-Montagnes"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "605",
+        "slug": "exo_605_deux-montagnes---st-eustache-nord---ste-therese",
+        "color": "#1F1F1F",
+        "name": "exo 605 Deux-Montagnes - St-Eustache (Nord) - Ste-Thérèse"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "610",
+        "slug": "exo_610_sainte-therese---terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 610 Sainte-Thérèse - Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "707",
+        "slug": "exo_707_boisbriand---laval",
+        "color": "#1F1F1F",
+        "name": "exo 707 Boisbriand - Laval"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "708",
+        "slug": "exo_708_deux-montagnes---laval",
+        "color": "#1F1F1F",
+        "name": "exo 708 Deux-Montagnes - Laval"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "709",
+        "slug": "exo_709_saint-jerome---laval",
+        "color": "#1F1F1F",
+        "name": "exo 709 Saint-Jérôme - Laval"
+    },
+    {
+        "agencyAcronym": "exoCITLA_2026",
+        "lineShortname": "YMX",
+        "slug": "exo_ymx_aerocite-ymx-express",
+        "color": "#1F1F1F",
+        "name": "exo YMX Aérocité YMX Express"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "188",
+        "slug": "exo_188_terminus-vaudreuil---hudson",
+        "color": "#1F1F1F",
+        "name": "exo 188 Terminus Vaudreuil - Hudson"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "189",
+        "slug": "exo_189_terminus-vaudreuil---saint-lazare",
+        "color": "#1F1F1F",
+        "name": "exo 189 Terminus Vaudreuil - Saint-Lazare"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "190",
+        "slug": "exo_190_terminus-vaudreuil---st-charles---gare-dorion",
+        "color": "#1F1F1F",
+        "name": "exo 190 Terminus Vaudreuil - St-Charles - Gare Dorion"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "191",
+        "slug": "exo_191_terminus-vaudreuil---valois---gare-dorion",
+        "color": "#1F1F1F",
+        "name": "exo 191 Terminus Vaudreuil - Valois - Gare Dorion"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "192",
+        "slug": "exo_192_terminus-vaudreuil---joseph-carrier",
+        "color": "#1F1F1F",
+        "name": "exo 192 Terminus Vaudreuil - Joseph-Carrier"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "193",
+        "slug": "exo_193_terminus-vaudreuil---ouimet---floralies",
+        "color": "#1F1F1F",
+        "name": "exo 193 Terminus Vaudreuil - Ouimet - Floralies"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "194",
+        "slug": "exo_194_terminus-vaudreuil---emile-bouchard---floralies",
+        "color": "#1F1F1F",
+        "name": "exo 194 Terminus Vaudreuil - Émile-Bouchard - Floralies"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "200",
+        "slug": "exo_200_gare-dorion---chicoine",
+        "color": "#1F1F1F",
+        "name": "exo 200 Gare Dorion - Chicoine"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "210",
+        "slug": "exo_210_gare-ile-perrot---pointe-aux-renards",
+        "color": "#1F1F1F",
+        "name": "exo 210 Gare Île-Perrot - Pointe-aux-Renards"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "211",
+        "slug": "exo_211_gare-ile-perrot---pointe-du-moulin",
+        "color": "#1F1F1F",
+        "name": "exo 211 Gare Île-Perrot - Pointe-du-Moulin"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "212",
+        "slug": "exo_212_gare-ile-perrot---perrot",
+        "color": "#1F1F1F",
+        "name": "exo 212 Gare Île-Perrot - Perrot"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "490",
+        "slug": "exo_490_terminus-vaudreuil---bourget---rem",
+        "color": "#1F1F1F",
+        "name": "exo 490 Terminus Vaudreuil - Bourget - REM"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "491",
+        "slug": "exo_491_terminus-vaudreuil---rem",
+        "color": "#1F1F1F",
+        "name": "exo 491 Terminus Vaudreuil - REM"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "493",
+        "slug": "exo_493_terminus-vaudreuil---cegep-john-abbott",
+        "color": "#1F1F1F",
+        "name": "exo 493 Terminus Vaudreuil - Cégep John Abbott"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "591",
+        "slug": "exo_591_gare-dorion---ile-perrot---rem",
+        "color": "#1F1F1F",
+        "name": "exo 591 Gare Dorion - Île Perrot - REM"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "593",
+        "slug": "exo_593_notre-dame-de-l-ile-perrot---terminus-macdonald",
+        "color": "#1F1F1F",
+        "name": "exo 593 Notre-Dame-de-l'Île-Perrot - Terminus Macdonald"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "695",
+        "slug": "exo_695_rigaud---terminus-vaudreuil",
+        "color": "#1F1F1F",
+        "name": "exo 695 Rigaud - Terminus Vaudreuil"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "790",
+        "slug": "exo_790_dorion---ile-perrot---rem",
+        "color": "#1F1F1F",
+        "name": "exo 790 Dorion - Île Perrot - REM"
+    },
+    {
+        "agencyAcronym": "exoCITPI_2026",
+        "lineShortname": "793",
+        "slug": "exo_793_gare-dorion---ile-perrot---terminus-macdonald",
+        "color": "#1F1F1F",
+        "name": "exo 793 Gare Dorion - Île Perrot - Terminus Macdonald"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "1",
+        "slug": "exo_1_valleyfield---beauharnois---chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 1 Valleyfield - Beauharnois - Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "20",
+        "slug": "exo_20_beauharnois",
+        "color": "#1F1F1F",
+        "name": "exo 20 Beauharnois"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "21",
+        "slug": "exo_21_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 21 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "22",
+        "slug": "exo_22_chateauguay",
+        "color": "#1F1F1F",
+        "name": "exo 22 Châteauguay"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "23",
+        "slug": "exo_23_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 23 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "24",
+        "slug": "exo_24_chateauguay",
+        "color": "#1F1F1F",
+        "name": "exo 24 Châteauguay"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "25",
+        "slug": "exo_25_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 25 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "26",
+        "slug": "exo_26_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 26 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "27",
+        "slug": "exo_27_chateauguay",
+        "color": "#1F1F1F",
+        "name": "exo 27 Châteauguay"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "28",
+        "slug": "exo_28_chateauguay---montreal-centre-ville",
+        "color": "#1F1F1F",
+        "name": "exo 28 Châteauguay - Montréal (Centre-Ville)"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "29",
+        "slug": "exo_29_chateauguay",
+        "color": "#1F1F1F",
+        "name": "exo 29 Châteauguay"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "31",
+        "slug": "exo_31_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 31 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "32",
+        "slug": "exo_32_chateauguay---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 32 Châteauguay - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "33",
+        "slug": "exo_33_chateauguay",
+        "color": "#1F1F1F",
+        "name": "exo 33 Châteauguay"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "90",
+        "slug": "exo_90_cegep-andre-laurendeau",
+        "color": "#1F1F1F",
+        "name": "exo 90 Cégep André-Laurendeau"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "98",
+        "slug": "exo_98_kahnawake---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 98 Kahnawake - Montréal"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "111",
+        "slug": "exo_111_haut-saint-laurent",
+        "color": "#1F1F1F",
+        "name": "exo 111 Haut-Saint-Laurent"
+    },
+    {
+        "agencyAcronym": "exoCITSO_2026",
+        "lineShortname": "140",
+        "slug": "exo_140_mercier---chateauguay---mercier",
+        "color": "#1F1F1F",
+        "name": "exo 140 Mercier - Châteauguay - Mercier"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "370",
+        "slug": "exo_370_saint-amable---sainte-julie",
+        "color": "#1F1F1F",
+        "name": "exo 370 Saint-Amable - Sainte-Julie"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "532",
+        "slug": "exo_532_express-varennes-terminus-radisson",
+        "color": "#1F1F1F",
+        "name": "exo 532 Express Varennes / Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "700",
+        "slug": "exo_700_sorel-tracy---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 700 Sorel-Tracy - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "701",
+        "slug": "exo_701_contrecoeur---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 701 Contrecoeur - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "707",
+        "slug": "exo_707_contrecoeur---varennes-jean-coutu---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 707 Contrecoeur - Varennes (Jean-Coutu) - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "709",
+        "slug": "exo_709_contrecoeur---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 709 Contrecoeur - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "720",
+        "slug": "exo_720_varennes---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 720 Varennes - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "721",
+        "slug": "exo_721_varennes---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 721 Varennes - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "722",
+        "slug": "exo_722_varennes---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 722 Varennes - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "723",
+        "slug": "exo_723_varennes-ireq---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 723 Varennes (IREQ) - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "731",
+        "slug": "exo_731_saint-amable---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 731 Saint-Amable - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITSV_2026",
+        "lineShortname": "732",
+        "slug": "exo_732_saint-amable---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 732 Saint-Amable - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "21",
+        "slug": "exo_21_mont-saint-hilaire-la-pommeraie",
+        "color": "#1F1F1F",
+        "name": "exo 21 Mont-Saint-Hilaire (La Pommeraie)"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "23",
+        "slug": "exo_23_otterburn-park",
+        "color": "#1F1F1F",
+        "name": "exo 23 Otterburn Park"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "24",
+        "slug": "exo_24_saint-basile-le-grand-sud",
+        "color": "#1F1F1F",
+        "name": "exo 24 Saint-Basile-le-Grand (sud)"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "25",
+        "slug": "exo_25_saint-hyacinthe---mont-saint-hilaire",
+        "color": "#1F1F1F",
+        "name": "exo 25 Saint-Hyacinthe - Mont-Saint-Hilaire"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "26",
+        "slug": "exo_26_saint-basile-le-grand-nord",
+        "color": "#1F1F1F",
+        "name": "exo 26 Saint-Basile-le-Grand (nord)"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "200",
+        "slug": "exo_200_saint-hyacinthe---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 200 Saint-Hyacinthe - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "201",
+        "slug": "exo_201_expresso---mont-saint-hilaire---longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 201 ExpressO - Mont-Saint-Hilaire - Longueuil"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "20B",
+        "slug": "exo_20b_beloeil",
+        "color": "#1F1F1F",
+        "name": "exo 20B Beloeil"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "300",
+        "slug": "exo_300_saint-hyacinthe---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 300 Saint-Hyacinthe - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoCITVR_2026",
+        "lineShortname": "520",
+        "slug": "exo_520_express-beloeil-terminus-radisson",
+        "color": "#1F1F1F",
+        "name": "exo 520 Express Beloeil / Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "134",
+        "slug": "exo_134_saint-philippe---candiac",
+        "color": "#1F1F1F",
+        "name": "exo 134 Saint-Philippe - Candiac"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "135",
+        "slug": "exo_135_taxi-collectif-saint-philippe---candiac-gare",
+        "color": "#1F1F1F",
+        "name": "exo 135 Taxi collectif Saint-Philippe - Candiac (Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "140",
+        "slug": "exo_140_la-prairie-balmoral---briqueterie---magdeleine",
+        "color": "#1F1F1F",
+        "name": "exo 140 La Prairie (Balmoral - Briqueterie - Magdeleine)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "141",
+        "slug": "exo_141_la-prairie-magdeleine---briqueterie--balmoral",
+        "color": "#1F1F1F",
+        "name": "exo 141 La Prairie (Magdeleine - Briqueterie -Balmoral)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "142",
+        "slug": "exo_142_candiac-montcalm---fouquet---haendel",
+        "color": "#1F1F1F",
+        "name": "exo 142 Candiac (Montcalm - Fouquet - Haendel)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "143",
+        "slug": "exo_143_candiac---la-prairie",
+        "color": "#1F1F1F",
+        "name": "exo 143 Candiac - La Prairie"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "144",
+        "slug": "exo_144_la-prairie-symbiocite",
+        "color": "#1F1F1F",
+        "name": "exo 144 La Prairie (Symbiocité)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "145",
+        "slug": "exo_145_taxi-collectif-candiac---delson-industriel",
+        "color": "#1F1F1F",
+        "name": "exo 145 Taxi collectif Candiac - Delson (Industriel)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "146",
+        "slug": "exo_146_candiac-deauville---carrefour---gare",
+        "color": "#1F1F1F",
+        "name": "exo 146 Candiac (Deauville - Carrefour - Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "147",
+        "slug": "exo_147_candiac-barcelone---carrefour---gare",
+        "color": "#1F1F1F",
+        "name": "exo 147 Candiac (Barcelone - Carrefour - Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "150",
+        "slug": "exo_150_sainte-catherine-brebeuf---monchamp---gare",
+        "color": "#1F1F1F",
+        "name": "exo 150 Sainte-Catherine (Brébeuf - Monchamp - Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "151",
+        "slug": "exo_151_delson-principale-nord---sainte-catherine",
+        "color": "#1F1F1F",
+        "name": "exo 151 Delson (Principale Nord) - Sainte-Catherine"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "152",
+        "slug": "exo_152_delson-principale-sud---gare",
+        "color": "#1F1F1F",
+        "name": "exo 152 Delson (Principale Sud - Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "153",
+        "slug": "exo_153_saint-constant-saint-pierre---gare---beauvais",
+        "color": "#1F1F1F",
+        "name": "exo 153 Saint-Constant (Saint-Pierre - Gare - Beauvais)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "154",
+        "slug": "exo_154_sainte-catherine-marie-victorin---ecluses",
+        "color": "#1F1F1F",
+        "name": "exo 154 Sainte-Catherine (Marie-Victorin - Écluses)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "155",
+        "slug": "exo_155_delson---saint-constant-gare-sainte-catherine",
+        "color": "#1F1F1F",
+        "name": "exo 155 Delson - Saint-Constant (Gare Sainte-Catherine)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "156",
+        "slug": "exo_156_saint-constant-smartcentres---monchamp---gare",
+        "color": "#1F1F1F",
+        "name": "exo 156 Saint-Constant (SmartCentres - Monchamp - Gare)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "157",
+        "slug": "exo_157_taxi-collectif-sainte-catherine-eperviers-orioles",
+        "color": "#1F1F1F",
+        "name": "exo 157 Taxi collectif Sainte-Catherine(Éperviers-Orioles)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "158",
+        "slug": "exo_158_taxi-collectif-sainte-catherine-industriel",
+        "color": "#1F1F1F",
+        "name": "exo 158 Taxi collectif Sainte-Catherine (Industriel)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "450",
+        "slug": "exo_450_la-prairie-magdeleine---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 450 La Prairie (Magdeleine) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "451",
+        "slug": "exo_451_la-prairie-briqueterie---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 451 La Prairie (Briqueterie) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "452",
+        "slug": "exo_452_la-prairie-symbiocite-briqueterie--term-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 452 La Prairie (Symbiocité-Briqueterie)-Term. Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "453",
+        "slug": "exo_453_la-prairie-vieux-la-prairie---terminus-panama",
+        "color": "#1F1F1F",
+        "name": "exo 453 La Prairie (Vieux-La Prairie) - Terminus Panama"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "454",
+        "slug": "exo_454_candiac-charlemagne---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 454 Candiac (Charlemagne) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "455",
+        "slug": "exo_455_candiac-deauville---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 455 Candiac (Deauville) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "456",
+        "slug": "exo_456_candiac-fouquet---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 456 Candiac (Fouquet) - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "457",
+        "slug": "exo_457_saint-philippe---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 457 Saint-Philippe - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "459",
+        "slug": "exo_459_candiac---terminus-panama",
+        "color": "#1F1F1F",
+        "name": "exo 459 Candiac - Terminus Panama"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "550",
+        "slug": "exo_550_la-prairie---longueuil-cegep-e--montpetit",
+        "color": "#1F1F1F",
+        "name": "exo 550 La Prairie - Longueuil (Cégep É.-Montpetit)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "551",
+        "slug": "exo_551_candiac---longueuil-cegep-e--montpetit",
+        "color": "#1F1F1F",
+        "name": "exo 551 Candiac - Longueuil (Cégep É.-Montpetit)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "552",
+        "slug": "exo_552_saint-constant---delson---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 552 Saint-Constant - Delson - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "553",
+        "slug": "exo_553_sainte-catherine---delson---terminus-panama",
+        "color": "#1F1F1F",
+        "name": "exo 553 Sainte-Catherine - Delson - Terminus Panama"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "554",
+        "slug": "exo_554_delson---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 554 Delson - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "555",
+        "slug": "exo_555_delson---longueuil-cegep-e--montpetit",
+        "color": "#1F1F1F",
+        "name": "exo 555 Delson - Longueuil (Cégep É.-Montpetit)"
+    },
+    {
+        "agencyAcronym": "exoLRRS_2026",
+        "lineShortname": "556",
+        "slug": "exo_556_delson---montreal-angrignon---cegep-a-laurendeau",
+        "color": "#1F1F1F",
+        "name": "exo 556 Delson - Montréal (Angrignon - Cégep A-Laurendeau)"
+    },
+    {
+        "agencyAcronym": "exoMRCARG_2026",
+        "lineShortname": "ARG",
+        "slug": "exo_arg_circuit-argenteuil-saint-jerome",
+        "color": "#FAC033",
+        "name": "exo ARG Circuit Argenteuil / Saint-Jérôme"
+    },
+    {
+        "agencyAcronym": "exoMRCARG_2026",
+        "lineShortname": "CARR",
+        "slug": "exo_carr_circuit-carrefour",
+        "color": "#3399FF",
+        "name": "exo CARR Circuit Carrefour"
+    },
+    {
+        "agencyAcronym": "exoMRCHSL_2026",
+        "lineShortname": "Bleue",
+        "slug": "exo_bleue_ligne-bleue",
+        "color": "#2F75B5",
+        "name": "exo Bleue Ligne Bleue"
+    },
+    {
+        "agencyAcronym": "exoMRCHSL_2026",
+        "lineShortname": "Jaune",
+        "slug": "exo_jaune_ligne-jaune",
+        "color": "#F0B400",
+        "name": "exo Jaune Ligne Jaune"
+    },
+    {
+        "agencyAcronym": "exoMRCHSL_2026",
+        "lineShortname": "Verte",
+        "slug": "exo_verte_ligne-verte",
+        "color": "#3FB62F",
+        "name": "exo Verte Ligne Verte"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "1",
+        "slug": "exo_1_repentigny-secteur-nord---cegep",
+        "color": "#1F1F1F",
+        "name": "exo 1 Repentigny secteur Nord - Cégep"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "2",
+        "slug": "exo_2_repentigny---saint-sulpice---lavaltrie",
+        "color": "#1F1F1F",
+        "name": "exo 2 Repentigny - Saint-Sulpice - Lavaltrie"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "5",
+        "slug": "exo_5_navette-gare-repentigny",
+        "color": "#1F1F1F",
+        "name": "exo 5 Navette gare Repentigny"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "6",
+        "slug": "exo_6_l-epiphanie---l-assomption",
+        "color": "#1F1F1F",
+        "name": "exo 6 L'Épiphanie - L'Assomption"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "8",
+        "slug": "exo_8_repentigny-secteur-centre---cegep",
+        "color": "#1F1F1F",
+        "name": "exo 8 Repentigny secteur Centre - Cégep"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "9",
+        "slug": "exo_9_charlemagne---chplg---terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 9 Charlemagne - CHPLG - Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "11",
+        "slug": "exo_11_repentigny-secteur-le-gardeur---cegep",
+        "color": "#1F1F1F",
+        "name": "exo 11 Repentigny secteur Le Gardeur - Cégep"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "14",
+        "slug": "exo_14_l-assomption---repentigny-le-gardeur---charlemagne",
+        "color": "#1F1F1F",
+        "name": "exo 14 L'Assomption - Repentigny-Le Gardeur - Charlemagne"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "15",
+        "slug": "exo_15_repentigny-secteur-sud-rue-notre-dame",
+        "color": "#1F1F1F",
+        "name": "exo 15 Repentigny secteur sud (rue Notre-Dame)"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "100",
+        "slug": "exo_100_l-assomption-repentigny-charlemagne-montreal",
+        "color": "#1F1F1F",
+        "name": "exo 100 L'Assomption-Repentigny-Charlemagne-Montréal"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "200",
+        "slug": "exo_200_express-repentigny---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 200 Express Repentigny - Montréal"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "300",
+        "slug": "exo_300_repentigny---montreal-via-notre-dame",
+        "color": "#1F1F1F",
+        "name": "exo 300 Repentigny - Montréal via Notre-Dame"
+    },
+    {
+        "agencyAcronym": "exoMRCLASSO_2026",
+        "lineShortname": "400",
+        "slug": "exo_400_repentigny---montreal-via-sherbrooke",
+        "color": "#1F1F1F",
+        "name": "exo 400 Repentigny - Montréal via Sherbrooke"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "1",
+        "slug": "exo_1_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 1 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "2",
+        "slug": "exo_2_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 2 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "3",
+        "slug": "exo_3_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 3 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "4",
+        "slug": "exo_4_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 4 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "5",
+        "slug": "exo_5_terrebonne---bois-des-filion",
+        "color": "#1F1F1F",
+        "name": "exo 5 Terrebonne - Bois-des-Filion"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "8",
+        "slug": "exo_8_terrebonne---secteur-centre",
+        "color": "#1F1F1F",
+        "name": "exo 8 Terrebonne - secteur centre"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "9",
+        "slug": "exo_9_terrebonne---secteur-ouest",
+        "color": "#1F1F1F",
+        "name": "exo 9 Terrebonne - secteur ouest"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "11",
+        "slug": "exo_11_terrebonne---lachenaie",
+        "color": "#1F1F1F",
+        "name": "exo 11 Terrebonne - Lachenaie"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "14",
+        "slug": "exo_14_terrebonne---la-plaine",
+        "color": "#1F1F1F",
+        "name": "exo 14 Terrebonne - La Plaine"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "17",
+        "slug": "exo_17_terrebonne---la-plaine",
+        "color": "#1F1F1F",
+        "name": "exo 17 Terrebonne - La Plaine"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "18",
+        "slug": "exo_18_terrebonne---cite-du-sport---cegep-de-terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 18 Terrebonne - Cité du sport - Cégep de Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "19",
+        "slug": "exo_19_terrebonne---terminus-montmorency",
+        "color": "#1F1F1F",
+        "name": "exo 19 Terrebonne - Terminus Montmorency"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "20",
+        "slug": "exo_20_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 20 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "21",
+        "slug": "exo_21_terrebonne---mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 21 Terrebonne - Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "22",
+        "slug": "exo_22_mascouche---cite-du-sport---cegep-de-terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 22 Mascouche - Cité du sport - Cégep de Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "23",
+        "slug": "exo_23_terrebonne---sainte-therese-cegep-lionel-groulx",
+        "color": "#1F1F1F",
+        "name": "exo 23 Terrebonne - Sainte-Thérèse (Cégep Lionel-Groulx)"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "25",
+        "slug": "exo_25_terrebonne---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 25 Terrebonne - Montréal"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "27",
+        "slug": "exo_27_terrebonne---cite-du-sport---cegep-de-terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 27 Terrebonne - Cité du Sport - Cégep de Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "30",
+        "slug": "exo_30_gare-mascouche---terrebonne---terminus-radisson",
+        "color": "#1F1F1F",
+        "name": "exo 30 Gare Mascouche - Terrebonne - Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "40",
+        "slug": "exo_40_lachenaie---montreal---terminus-radisson",
+        "color": "#1F1F1F",
+        "name": "exo 40 Lachenaie - Montréal - Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "45",
+        "slug": "exo_45_terrebonne---bois-des-filion",
+        "color": "#1F1F1F",
+        "name": "exo 45 Terrebonne - Bois-des-Filion"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "11C",
+        "slug": "exo_11c_terrebonne---cite-du-sport---lachenaie",
+        "color": "#1F1F1F",
+        "name": "exo 11C Terrebonne - Cité du sport - Lachenaie"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "140",
+        "slug": "exo_140_lachenaie---gare-de-terrebonne---terminus-radisson",
+        "color": "#1F1F1F",
+        "name": "exo 140 Lachenaie - Gare de Terrebonne - Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "24C",
+        "slug": "exo_24c_terrebonne---cite-du-sport---cegep-de-terrebonne",
+        "color": "#1F1F1F",
+        "name": "exo 24C Terrebonne - Cité du sport - Cégep de Terrebonne"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "25B",
+        "slug": "exo_25b_terrebonne---montreal",
+        "color": "#1F1F1F",
+        "name": "exo 25B Terrebonne - Montréal"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "417",
+        "slug": "exo_417_la-plaine---gare-mascouche",
+        "color": "#1F1F1F",
+        "name": "exo 417 La Plaine - Gare Mascouche"
+    },
+    {
+        "agencyAcronym": "exoMRCLM_2026",
+        "lineShortname": "512",
+        "slug": "exo_512_terrebonne-ouest---laval",
+        "color": "#1F1F1F",
+        "name": "exo 512 Terrebonne (Ouest) - Laval"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "1",
+        "slug": "exo_1_sainte-julie-des-hauts-bois",
+        "color": "#1F1F1F",
+        "name": "exo 1 Sainte-Julie (Des Hauts-Bois)"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "3",
+        "slug": "exo_3_sainte-julie-principale",
+        "color": "#1F1F1F",
+        "name": "exo 3 Sainte-Julie (Principale)"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "4",
+        "slug": "exo_4_sainte-julie-abbe-theoret",
+        "color": "#1F1F1F",
+        "name": "exo 4 Sainte-Julie (Abbé-Théoret)"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "5",
+        "slug": "exo_5_sainte-julie-n-p--lapierre",
+        "color": "#1F1F1F",
+        "name": "exo 5 Sainte-Julie (N.P.-Lapierre)"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "8",
+        "slug": "exo_8_sainte-julie-secteur-nord",
+        "color": "#1F1F1F",
+        "name": "exo 8 Sainte-Julie (secteur nord)"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "30",
+        "slug": "exo_30_sainte-julie---saint-hyacinthe",
+        "color": "#1F1F1F",
+        "name": "exo 30 Sainte-Julie - Saint-Hyacinthe"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "325",
+        "slug": "exo_325_express-longueuil---cegep",
+        "color": "#1F1F1F",
+        "name": "exo 325 Express Longueuil - Cégep"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "330",
+        "slug": "exo_330_express-longueuil---cfp---cegep",
+        "color": "#1F1F1F",
+        "name": "exo 330 Express Longueuil - CFP - Cégep"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "340",
+        "slug": "exo_340_express-longueuil---promenades-saint-bruno",
+        "color": "#1F1F1F",
+        "name": "exo 340 Express Longueuil - Promenades Saint-Bruno"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "350",
+        "slug": "exo_350_express-longueuil",
+        "color": "#1F1F1F",
+        "name": "exo 350 Express Longueuil"
+    },
+    {
+        "agencyAcronym": "exoOMITSJU_2026",
+        "lineShortname": "600",
+        "slug": "exo_600_sainte-julie---terminus-brossard",
+        "color": "#1F1F1F",
+        "name": "exo 600 Sainte-Julie - Terminus Brossard"
+    },
+    {
+        "agencyAcronym": "MRCARG",
+        "lineShortname": "CARR",
+        "slug": "mrcarg_carr_circuit-carrefour",
+        "color": "#3399FF",
+        "name": "MRCARG CARR Circuit Carrefour"
+    },
+    {
+        "agencyAcronym": "MRC de montcalm",
+        "lineShortname": "35",
+        "slug": "mrc-de-montcalm_35_circuit-35---saint-lin-laurentides-sainte-sophie--saint-jerome",
+        "color": "#0212F2",
+        "name": "MRC de montcalm 35 Circuit 35 - Saint-Lin-Laurentides-Sainte-Sophie- Saint-Jérôme"
+    },
+    {
+        "agencyAcronym": "MRC de montcalm",
+        "lineShortname": "37",
+        "slug": "mrc-de-montcalm_37_circuit-37---saint-lin-laurentides-terrebonne",
+        "color": "#81C341",
+        "name": "MRC de montcalm 37 Circuit 37 - Saint-Lin-Laurentides-Terrebonne"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "A",
+        "slug": "mrcjoliette_a_notre-dame-des-prairies",
+        "color": "#FED352",
+        "name": "MRCJoliette A Notre-Dame-des-Prairies"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "B",
+        "slug": "mrcjoliette_b_saint-charles-borromee",
+        "color": "#3C724B",
+        "name": "MRCJoliette B Saint-Charles-Borromée"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "C",
+        "slug": "mrcjoliette_c_christ-roi-et-belair",
+        "color": "#0C6EB7",
+        "name": "MRCJoliette C Christ-Roi et Bélair"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "D",
+        "slug": "mrcjoliette_d_saint-pierre-et-carrefour-du-moulin",
+        "color": "#806093",
+        "name": "MRCJoliette D Saint-Pierre et Carrefour du Moulin"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "E",
+        "slug": "mrcjoliette_e_saint-jean-baptiste-et-sainte-therese",
+        "color": "#F79647",
+        "name": "MRCJoliette E Saint-Jean-Baptiste et Sainte-Thérèse"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "X",
+        "slug": "mrcjoliette_x_express",
+        "color": "#231F20",
+        "name": "MRCJoliette X Express"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "32",
+        "slug": "mrcjoliette_32_joliette-sainte-emelie-de-l-energie-saint-michel-des-saints",
+        "color": "#35792B",
+        "name": "MRCJoliette 32 Joliette / Sainte-Émélie-de-L'Énergie / Saint-Michel-des-Saints"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "34",
+        "slug": "mrcjoliette_34_joliette-saint-ambroise-de-kildare-rawdon",
+        "color": "#35792B",
+        "name": "MRCJoliette 34 Joliette / Saint-Ambroise-de-Kildare / Rawdon"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "50",
+        "slug": "mrcjoliette_50_joliette-repentigny-montreal",
+        "color": "#35792B",
+        "name": "MRCJoliette 50 Joliette / Repentigny / Montréal"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "125",
+        "slug": "mrcjoliette_125_saint-donat-chertsey-montreal",
+        "color": "#35792B",
+        "name": "MRCJoliette 125 Saint-Donat / Chertsey / Montréal"
+    },
+    {
+        "agencyAcronym": "MRCJoliette",
+        "lineShortname": "131-138",
+        "slug": "mrcjoliette_131-138_joliette-lavaltrie-berthierville",
+        "color": "#35792B",
+        "name": "MRCJoliette 131-138 Joliette / Lavaltrie / Berthierville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "1",
+        "slug": "rtl_1_desaulniers-victoria-windsor",
+        "color": "#D90B3E",
+        "name": "RTL 1 Desaulniers / Victoria / Windsor"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "3",
+        "slug": "rtl_3_secteur-lafleche",
+        "color": "#D90B3E",
+        "name": "RTL 3 Secteur Laflèche"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "4",
+        "slug": "rtl_4_taschereau-payer-dix30",
+        "color": "#D90B3E",
+        "name": "RTL 4 Taschereau / Payer / DIX30"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "5",
+        "slug": "rtl_5_auteuil-mtee-st-hubert-maisonneuve",
+        "color": "#D90B3E",
+        "name": "RTL 5 Auteuil / mtée St-Hubert / Maisonneuve"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "6",
+        "slug": "rtl_6_victoria",
+        "color": "#D90B3E",
+        "name": "RTL 6 Victoria"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "8",
+        "slug": "rtl_8_ch-de-chambly-cousineau-promenades-st-bruno",
+        "color": "#D90B3E",
+        "name": "RTL 8 ch. de Chambly / Cousineau / Promenades St-Bruno"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "9",
+        "slug": "rtl_9_secteurs-l-m-st-hubert",
+        "color": "#D90B3E",
+        "name": "RTL 9 Secteurs L-M St-Hubert"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "10",
+        "slug": "rtl_10_roland-therrien-belcourt",
+        "color": "#D90B3E",
+        "name": "RTL 10 Roland-Therrien / Belcourt"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "13",
+        "slug": "rtl_13_riverside-secteurs-p-v-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 13 Riverside / Secteurs P-V Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "14",
+        "slug": "rtl_14_rome-dix30",
+        "color": "#D90B3E",
+        "name": "RTL 14 Rome / DIX30"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "15",
+        "slug": "rtl_15_riverside-alexandra-churchill",
+        "color": "#D90B3E",
+        "name": "RTL 15 Riverside / Alexandra / Churchill"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "16",
+        "slug": "rtl_16_nobert-antoinette-robidoux-adoncour",
+        "color": "#D90B3E",
+        "name": "RTL 16 Nobert / Antoinette-Robidoux / Adoncour"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "17",
+        "slug": "rtl_17_roland-therrien-roberval",
+        "color": "#D90B3E",
+        "name": "RTL 17 Roland-Therrien / Roberval"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "19",
+        "slug": "rtl_19_davis",
+        "color": "#D90B3E",
+        "name": "RTL 19 Davis"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "20",
+        "slug": "rtl_20_jean-paul-vincent-beauharnois",
+        "color": "#D90B3E",
+        "name": "RTL 20 Jean-Paul-Vincent / Beauharnois"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "21",
+        "slug": "rtl_21_grande-allee-du-quartier",
+        "color": "#D90B3E",
+        "name": "RTL 21 Grande Allée / du Quartier"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "22",
+        "slug": "rtl_22_gare-longueuil---st-hubert-sect-b-vieux-longueuil",
+        "color": "#D90B3E",
+        "name": "RTL 22 Gare Longueuil - St-Hubert/Sect. B Vieux-Longueuil"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "23",
+        "slug": "rtl_23_ste-helene-jacques-cartier",
+        "color": "#D90B3E",
+        "name": "RTL 23 Ste-Hélène / Jacques-Cartier"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "25",
+        "slug": "rtl_25_parcs-industriels-vieux-longueuil-boucherville",
+        "color": "#D90B3E",
+        "name": "RTL 25 Parcs industriels Vieux-Longueuil / Boucherville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "28",
+        "slug": "rtl_28_ch-de-chambly-savane-ena",
+        "color": "#D90B3E",
+        "name": "RTL 28 ch. de Chambly / Savane / ENA"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "29",
+        "slug": "rtl_29_collectivite-nouvelle",
+        "color": "#D90B3E",
+        "name": "RTL 29 Collectivité Nouvelle"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "30",
+        "slug": "rtl_30_secteurs-p-v-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 30 Secteurs P-V Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "32",
+        "slug": "rtl_32_secteur-b-brossard-mountainview",
+        "color": "#D90B3E",
+        "name": "RTL 32 Secteur B Brossard / Mountainview"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "33",
+        "slug": "rtl_33_secteurs-m-n-o-r-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 33 Secteurs M-N-O-R Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "34",
+        "slug": "rtl_34_secteur-a-brossard-bellevue",
+        "color": "#D90B3E",
+        "name": "RTL 34 Secteur A Brossard / Bellevue"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "37",
+        "slug": "rtl_37_simard-du-bearn",
+        "color": "#D90B3E",
+        "name": "RTL 37 Simard / du Béarn"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "38",
+        "slug": "rtl_38_chevrier-secteur-b-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 38 Chevrier / Secteur B Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "42",
+        "slug": "rtl_42_gaetan-boucher-parc-de-la-cite",
+        "color": "#D90B3E",
+        "name": "RTL 42 Gaétan-Boucher / Parc de la Cité"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "44",
+        "slug": "rtl_44_secteurs-m-n-o-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 44 Secteurs M-N-O Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "47",
+        "slug": "rtl_47_secteurs-r-s-t-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 47 Secteurs R-S-T Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "50",
+        "slug": "rtl_50_bienville-orchard-prince-charles",
+        "color": "#D90B3E",
+        "name": "RTL 50 Bienville / Orchard / Prince-Charles"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "55",
+        "slug": "rtl_55_victoria-wellington",
+        "color": "#D90B3E",
+        "name": "RTL 55 Victoria / Wellington"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "59",
+        "slug": "rtl_59_montgomery-gareau",
+        "color": "#D90B3E",
+        "name": "RTL 59 Montgomery / Gareau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "60",
+        "slug": "rtl_60_milan-gaetan-boucher-promenades-st-bruno",
+        "color": "#D90B3E",
+        "name": "RTL 60 Milan / Gaétan-Boucher / Promenades St-Bruno"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "61",
+        "slug": "rtl_61_boucherville-terminus-radisson",
+        "color": "#D90B3E",
+        "name": "RTL 61 Boucherville / Terminus Radisson"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "71",
+        "slug": "rtl_71_cure-poirier-tiffin",
+        "color": "#D90B3E",
+        "name": "RTL 71 Curé-Poirier / Tiffin"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "73",
+        "slug": "rtl_73_joliette-de-lyon",
+        "color": "#D90B3E",
+        "name": "RTL 73 Joliette / de Lyon"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "74",
+        "slug": "rtl_74_st-laurent-secteur-bellerive",
+        "color": "#D90B3E",
+        "name": "RTL 74 St-Laurent / Secteur Bellerive"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "75",
+        "slug": "rtl_75_quinn-brebeuf",
+        "color": "#D90B3E",
+        "name": "RTL 75 Quinn / Brébeuf"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "76",
+        "slug": "rtl_76_roland-therrien-roberval",
+        "color": "#D90B3E",
+        "name": "RTL 76 Roland-Therrien / Roberval"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "77",
+        "slug": "rtl_77_taschereau-coteau-rouge-cegep-e--montpetit",
+        "color": "#D90B3E",
+        "name": "RTL 77 Taschereau / Coteau-Rouge / Cégep É.-Montpetit"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "78",
+        "slug": "rtl_78_adoncour-du-colisee",
+        "color": "#D90B3E",
+        "name": "RTL 78 Adoncour / du Colisée"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "80",
+        "slug": "rtl_80_de-montarville-carrefour-de-la-rive-sud",
+        "color": "#D90B3E",
+        "name": "RTL 80 De Montarville / Carrefour de la Rive-Sud"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "81",
+        "slug": "rtl_81_du-fort-st-louis-marie-victorin",
+        "color": "#D90B3E",
+        "name": "RTL 81 du Fort-St-Louis / Marie-Victorin"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "82",
+        "slug": "rtl_82_marie-victorin-du-fort-st-louis",
+        "color": "#D90B3E",
+        "name": "RTL 82 Marie-Victorin / du Fort-St-Louis"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "83",
+        "slug": "rtl_83_de-montarville-samuel-de-champlain",
+        "color": "#D90B3E",
+        "name": "RTL 83 De Montarville / Samuel-De Champlain"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "84",
+        "slug": "rtl_84_samuel-de-champlain-de-montarville",
+        "color": "#D90B3E",
+        "name": "RTL 84 Samuel-De Champlain / De Montarville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "85",
+        "slug": "rtl_85_iles-percees-de-mortagne-de-gascogne",
+        "color": "#D90B3E",
+        "name": "RTL 85 Îles-Percées / de Mortagne / de Gascogne"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "86",
+        "slug": "rtl_86_samuel-de-champlain-de-montarville-tcv",
+        "color": "#D90B3E",
+        "name": "RTL 86 Samuel-De Champlain / De Montarville / TCV"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "88",
+        "slug": "rtl_88_ch-de-chambly-mountainview",
+        "color": "#D90B3E",
+        "name": "RTL 88 ch. de Chambly / Mountainview"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "93",
+        "slug": "rtl_93_gare-st-bruno-montarville-y--duckett",
+        "color": "#D90B3E",
+        "name": "RTL 93 Gare St-Bruno / Montarville / Y.-Duckett"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "98",
+        "slug": "rtl_98_parc-industriel-st-bruno-parent",
+        "color": "#D90B3E",
+        "name": "RTL 98 Parc industriel St-Bruno / Parent"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "99",
+        "slug": "rtl_99_promenades-st-bruno-st-bruno-de-montarville",
+        "color": "#D90B3E",
+        "name": "RTL 99 Promenades St-Bruno / St-Bruno-de-Montarville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "114",
+        "slug": "rtl_114_tisserand-de-rome-st-laurent",
+        "color": "#D90B3E",
+        "name": "RTL 114 Tisserand / de Rome / St-Laurent"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "120",
+        "slug": "rtl_120_fernand-lafontaine-stationnement-de-mortagne",
+        "color": "#D90B3E",
+        "name": "RTL 120 Fernand-Lafontaine / Stationnement de Mortagne"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "123",
+        "slug": "rtl_123_jacques-cartier-parcs-industriels",
+        "color": "#D90B3E",
+        "name": "RTL 123 Jacques-Cartier / Parcs industriels"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "125",
+        "slug": "rtl_125_pratt-whitney-lumenpulse",
+        "color": "#D90B3E",
+        "name": "RTL 125 Pratt & Whitney / Lumenpulse"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "128",
+        "slug": "rtl_128_zone-aeroportuaire-parc-industriel-st-bruno",
+        "color": "#D90B3E",
+        "name": "RTL 128 Zone aéroportuaire / Parc industriel St-Bruno"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "132",
+        "slug": "rtl_132_dix30-parc-de-la-cite-mountainview",
+        "color": "#D90B3E",
+        "name": "RTL 132 DIX30 / Parc de la Cité / Mountainview"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "160",
+        "slug": "rtl_160_milan-gaetan-boucher-centre-ville-st-bruno",
+        "color": "#D90B3E",
+        "name": "RTL 160 Milan / Gaétan-Boucher / Centre-ville St-Bruno"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "161",
+        "slug": "rtl_161_r--therrien-j--cartier-de-montarville",
+        "color": "#D90B3E",
+        "name": "RTL 161 R.-Therrien / J.-Cartier / De Montarville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "170",
+        "slug": "rtl_170_station-papineau-ste-helene-j--cartier",
+        "color": "#D90B3E",
+        "name": "RTL 170 Station Papineau / Ste-Hélène / J.-Cartier"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "180",
+        "slug": "rtl_180_de-montarville-des-sureaux",
+        "color": "#D90B3E",
+        "name": "RTL 180 De Montarville / des Sureaux"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "185",
+        "slug": "rtl_185_ampere-gay-lussac",
+        "color": "#D90B3E",
+        "name": "RTL 185 Ampère / Gay-Lussac"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "199",
+        "slug": "rtl_199_seigneurial-grand-boulevard",
+        "color": "#D90B3E",
+        "name": "RTL 199 Seigneurial / Grand Boulevard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "284",
+        "slug": "rtl_284_navette-boucherville",
+        "color": "#D90B3E",
+        "name": "RTL 284 Navette Boucherville"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "287",
+        "slug": "rtl_287_marie-victorin-du-fort-st-louis-tcv",
+        "color": "#D90B3E",
+        "name": "RTL 287 Marie-Victorin / du Fort St-Louis / TCV"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "410",
+        "slug": "rtl_410_express-roland-therrien-belcourt",
+        "color": "#D90B3E",
+        "name": "RTL 410 Express Roland-Therrien / Belcourt"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "417",
+        "slug": "rtl_417_express-roland-therrien-roberval",
+        "color": "#D90B3E",
+        "name": "RTL 417 Express Roland-Therrien / Roberval"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "421",
+        "slug": "rtl_421_grande-allee-a--frappier",
+        "color": "#D90B3E",
+        "name": "RTL 421 Grande-Allée / A.-Frappier"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "428",
+        "slug": "rtl_428_aeroport-met",
+        "color": "#D90B3E",
+        "name": "RTL 428 Aéroport MET"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "442",
+        "slug": "rtl_442_cousineau-pacific",
+        "color": "#D90B3E",
+        "name": "RTL 442 Cousineau / Pacific"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "461",
+        "slug": "rtl_461_express-de-touraine-de-montarville-radisson",
+        "color": "#D90B3E",
+        "name": "RTL 461 Express de Touraine / De Montarville / Radisson"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "462",
+        "slug": "rtl_462_touraine-mortagne-radisson-hmr-inst-cardio",
+        "color": "#D90B3E",
+        "name": "RTL 462 Touraine-Mortagne-Radisson-HMR-Inst.cardio"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "500",
+        "slug": "rtl_500_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 500 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "501",
+        "slug": "rtl_501_ecoles-privees",
+        "color": "#D90B3E",
+        "name": "RTL 501 Écoles privées"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "503",
+        "slug": "rtl_503_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 503 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "505",
+        "slug": "rtl_505_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 505 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "506",
+        "slug": "rtl_506_ecoles-privees",
+        "color": "#D90B3E",
+        "name": "RTL 506 Écoles privées"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "521",
+        "slug": "rtl_521_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 521 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "526",
+        "slug": "rtl_526_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 526 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "530",
+        "slug": "rtl_530_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 530 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "532",
+        "slug": "rtl_532_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 532 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "533",
+        "slug": "rtl_533_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 533 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "534",
+        "slug": "rtl_534_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 534 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "535",
+        "slug": "rtl_535_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 535 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "536",
+        "slug": "rtl_536_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 536 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "538",
+        "slug": "rtl_538_ecole-heritage-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 538 École Heritage Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "539",
+        "slug": "rtl_539_ecole-heritage-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 539 École Heritage Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "540",
+        "slug": "rtl_540_ecole-heritage-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 540 École Heritage Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "542",
+        "slug": "rtl_542_ecole-heritage-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 542 École Heritage Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "544",
+        "slug": "rtl_544_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 544 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "546",
+        "slug": "rtl_546_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 546 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "547",
+        "slug": "rtl_547_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 547 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "549",
+        "slug": "rtl_549_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 549 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "550",
+        "slug": "rtl_550_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 550 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "551",
+        "slug": "rtl_551_ecole-centennial-regional-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 551 École Centennial Regional High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "554",
+        "slug": "rtl_554_ecoles-privees",
+        "color": "#D90B3E",
+        "name": "RTL 554 Écoles privées"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "565",
+        "slug": "rtl_565_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 565 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "570",
+        "slug": "rtl_570_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 570 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "572",
+        "slug": "rtl_572_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 572 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "575",
+        "slug": "rtl_575_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 575 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "580",
+        "slug": "rtl_580_ecole-saint-lambert-international-high-school",
+        "color": "#D90B3E",
+        "name": "RTL 580 École Saint-Lambert International High School"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "600",
+        "slug": "rtl_600_ecoles-privees",
+        "color": "#D90B3E",
+        "name": "RTL 600 Écoles privées"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "601",
+        "slug": "rtl_601_ecole-de-l-agora",
+        "color": "#D90B3E",
+        "name": "RTL 601 École de l'Agora"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "605",
+        "slug": "rtl_605_ecole-de-l-agora",
+        "color": "#D90B3E",
+        "name": "RTL 605 École de l'Agora"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "606",
+        "slug": "rtl_606_ecoles-privees-college-champlain",
+        "color": "#D90B3E",
+        "name": "RTL 606 Écoles privées / Collège Champlain"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "607",
+        "slug": "rtl_607_ecole-de-l-agora",
+        "color": "#D90B3E",
+        "name": "RTL 607 École de l'Agora"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "608",
+        "slug": "rtl_608_ecole-andre-laurendeau-et-cegep-edouard-montpetit",
+        "color": "#D90B3E",
+        "name": "RTL 608 École André-Laurendeau et Cégep Édouard-Montpetit"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "609",
+        "slug": "rtl_609_ecole-de-l-agora",
+        "color": "#D90B3E",
+        "name": "RTL 609 École de l'Agora"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "613",
+        "slug": "rtl_613_ecoles-privees-college-champlain",
+        "color": "#D90B3E",
+        "name": "RTL 613 Écoles privées / Collège Champlain"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "614",
+        "slug": "rtl_614_ecoles-privees-college-champlain",
+        "color": "#D90B3E",
+        "name": "RTL 614 Écoles privées / Collège Champlain"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "616",
+        "slug": "rtl_616_ecole-gerard-filion",
+        "color": "#D90B3E",
+        "name": "RTL 616 École Gérard-Filion"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "618",
+        "slug": "rtl_618_ecoles-privees-college-champlain",
+        "color": "#D90B3E",
+        "name": "RTL 618 Écoles privées / Collège Champlain"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "620",
+        "slug": "rtl_620_college-francais",
+        "color": "#D90B3E",
+        "name": "RTL 620 Collège Français"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "624",
+        "slug": "rtl_624_ecole-st-jean-baptiste",
+        "color": "#D90B3E",
+        "name": "RTL 624 École St-Jean-Baptiste"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "640",
+        "slug": "rtl_640_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 640 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "644",
+        "slug": "rtl_644_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 644 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "650",
+        "slug": "rtl_650_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 650 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "653",
+        "slug": "rtl_653_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 653 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "656",
+        "slug": "rtl_656_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 656 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "660",
+        "slug": "rtl_660_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 660 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "664",
+        "slug": "rtl_664_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 664 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "665",
+        "slug": "rtl_665_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 665 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "670",
+        "slug": "rtl_670_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 670 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "671",
+        "slug": "rtl_671_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 671 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "672",
+        "slug": "rtl_672_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 672 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "673",
+        "slug": "rtl_673_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 673 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "674",
+        "slug": "rtl_674_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 674 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "675",
+        "slug": "rtl_675_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 675 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "676",
+        "slug": "rtl_676_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 676 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "677",
+        "slug": "rtl_677_ecole-gerard-filion",
+        "color": "#D90B3E",
+        "name": "RTL 677 École Gérard-Filion"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "678",
+        "slug": "rtl_678_ecole-jacques-rousseau",
+        "color": "#D90B3E",
+        "name": "RTL 678 École Jacques-Rousseau"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "683",
+        "slug": "rtl_683_cegep-edouard-montpetit",
+        "color": "#D90B3E",
+        "name": "RTL 683 Cégep Édouard-Montpetit"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "684",
+        "slug": "rtl_684_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 684 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "689",
+        "slug": "rtl_689_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 689 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "690",
+        "slug": "rtl_690_ecole-antoine-brossard",
+        "color": "#D90B3E",
+        "name": "RTL 690 École Antoine-Brossard"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "691",
+        "slug": "rtl_691_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 691 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "692",
+        "slug": "rtl_692_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 692 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "693",
+        "slug": "rtl_693_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 693 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "694",
+        "slug": "rtl_694_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 694 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "695",
+        "slug": "rtl_695_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 695 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "696",
+        "slug": "rtl_696_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 696 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "697",
+        "slug": "rtl_697_ecole-lucille-teasdale",
+        "color": "#D90B3E",
+        "name": "RTL 697 École Lucille-Teasdale"
+    },
+    {
+        "agencyAcronym": "RTL_2026",
+        "lineShortname": "901",
+        "slug": "rtl_901_ligne-metropolitaine-taschereau",
+        "color": "#00AB84",
+        "name": "RTL 901 Ligne métropolitaine Taschereau"
+    },
+    {
+        "agencyAcronym": "STC",
+        "lineShortname": "10",
+        "slug": "stc_10_ligne-10",
+        "color": "#00B2FF",
+        "name": "STC 10 Ligne 10"
+    },
+    {
+        "agencyAcronym": "STC",
+        "lineShortname": "750",
+        "slug": "stc_750_express-750",
+        "color": "#46858E",
+        "name": "STC 750 Express 750"
+    },
+    {
+        "agencyAcronym": "STC",
+        "lineShortname": "751",
+        "slug": "stc_751_express-751",
+        "color": "#60D656",
+        "name": "STC 751 Express 751"
+    },
+    {
+        "agencyAcronym": "STC",
+        "lineShortname": "752",
+        "slug": "stc_752_express-752",
+        "color": "#0019E6",
+        "name": "STC 752 Express 752"
+    },
+    {
+        "agencyAcronym": "STC",
+        "lineShortname": "753",
+        "slug": "stc_753_express-753",
+        "color": "#E01B1B",
+        "name": "STC 753 Express 753"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "2",
+        "slug": "stl_2_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 2 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "2",
+        "slug": "stl_2_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 2 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "12",
+        "slug": "stl_12_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 12 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "12",
+        "slug": "stl_12_pont-viau",
+        "color": "#151f6d",
+        "name": "STL 12 Pont-Viau"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "16",
+        "slug": "stl_16_laval-des-rapides-armand-frappier",
+        "color": "#151f6d",
+        "name": "STL 16 Laval-des-Rapides / Armand-Frappier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "16",
+        "slug": "stl_16_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 16 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "17",
+        "slug": "stl_17_auteuil",
+        "color": "#151f6d",
+        "name": "STL 17 Auteuil"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "17",
+        "slug": "stl_17_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 17 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "20",
+        "slug": "stl_20_chomedey",
+        "color": "#151f6d",
+        "name": "STL 20 Chomedey"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "20",
+        "slug": "stl_20_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 20 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "22",
+        "slug": "stl_22_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 22 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "22",
+        "slug": "stl_22_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 22 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "24",
+        "slug": "stl_24_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 24 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "24",
+        "slug": "stl_24_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 24 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "26",
+        "slug": "stl_26_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 26 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "26",
+        "slug": "stl_26_station-sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 26 Station Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "27",
+        "slug": "stl_27_gare-vimont",
+        "color": "#151f6d",
+        "name": "STL 27 Gare Vimont"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "27",
+        "slug": "stl_27_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 27 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "31",
+        "slug": "stl_31_auteuil",
+        "color": "#151f6d",
+        "name": "STL 31 Auteuil"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "31",
+        "slug": "stl_31_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 31 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "33",
+        "slug": "stl_33_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 33 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "33",
+        "slug": "stl_33_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 33 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "36",
+        "slug": "stl_36_chomedey",
+        "color": "#151f6d",
+        "name": "STL 36 Chomedey"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "36",
+        "slug": "stl_36_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 36 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "37",
+        "slug": "stl_37_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 37 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "37",
+        "slug": "stl_37_sainte-rose",
+        "color": "#151f6d",
+        "name": "STL 37 Sainte-Rose"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "39",
+        "slug": "stl_39_auteuil",
+        "color": "#151f6d",
+        "name": "STL 39 Auteuil"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "39",
+        "slug": "stl_39_terminus-le-carrefour",
+        "color": "#151f6d",
+        "name": "STL 39 Terminus Le Carrefour"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "40",
+        "slug": "stl_40_chomedey",
+        "color": "#151f6d",
+        "name": "STL 40 Chomedey"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "40",
+        "slug": "stl_40_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 40 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "42",
+        "slug": "stl_42_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 42 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "42",
+        "slug": "stl_42_terminus-le-carrefour",
+        "color": "#151f6d",
+        "name": "STL 42 Terminus Le Carrefour"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "43",
+        "slug": "stl_43_auteuil",
+        "color": "#151f6d",
+        "name": "STL 43 Auteuil"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "43",
+        "slug": "stl_43_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 43 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "45",
+        "slug": "stl_45_auteuil",
+        "color": "#151f6d",
+        "name": "STL 45 Auteuil"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "45",
+        "slug": "stl_45_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 45 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "46",
+        "slug": "stl_46_laval-ouest",
+        "color": "#151f6d",
+        "name": "STL 46 Laval-Ouest"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "46",
+        "slug": "stl_46_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 46 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "48",
+        "slug": "stl_48_gare-vimont",
+        "color": "#151f6d",
+        "name": "STL 48 Gare Vimont"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "48",
+        "slug": "stl_48_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 48 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "50",
+        "slug": "stl_50_saint-vincent-de-paul",
+        "color": "#151f6d",
+        "name": "STL 50 Saint-Vincent-De-Paul"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "50",
+        "slug": "stl_50_terminus-le-carrefour",
+        "color": "#151f6d",
+        "name": "STL 50 Terminus Le Carrefour"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "52",
+        "slug": "stl_52_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 52 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "52",
+        "slug": "stl_52_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 52 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "55",
+        "slug": "stl_55_laval-ouest",
+        "color": "#151f6d",
+        "name": "STL 55 Laval-Ouest"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "55",
+        "slug": "stl_55_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 55 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "56",
+        "slug": "stl_56_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 56 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "56",
+        "slug": "stl_56_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 56 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "58",
+        "slug": "stl_58_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 58 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "58",
+        "slug": "stl_58_saint-vincent-de-paul",
+        "color": "#151f6d",
+        "name": "STL 58 Saint-Vincent-De-Paul"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "60",
+        "slug": "stl_60_chomedey",
+        "color": "#151f6d",
+        "name": "STL 60 Chomedey"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "60",
+        "slug": "stl_60_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 60 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "61",
+        "slug": "stl_61_fabreville",
+        "color": "#151f6d",
+        "name": "STL 61 Fabreville"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "61",
+        "slug": "stl_61_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 61 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "63",
+        "slug": "stl_63_gare-sainte-rose",
+        "color": "#151f6d",
+        "name": "STL 63 Gare Sainte-Rose"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "63",
+        "slug": "stl_63_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 63 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "65",
+        "slug": "stl_65_gare-sainte-rose",
+        "color": "#151f6d",
+        "name": "STL 65 Gare Sainte-Rose"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "65",
+        "slug": "stl_65_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 65 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "66",
+        "slug": "stl_66_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 66 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "66",
+        "slug": "stl_66_terminus-le-carrefour",
+        "color": "#151f6d",
+        "name": "STL 66 Terminus Le Carrefour"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "70",
+        "slug": "stl_70_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 70 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "70",
+        "slug": "stl_70_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 70 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "73",
+        "slug": "stl_73_fabreville",
+        "color": "#151f6d",
+        "name": "STL 73 Fabreville"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "73",
+        "slug": "stl_73_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 73 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "74",
+        "slug": "stl_74_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 74 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "74",
+        "slug": "stl_74_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 74 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "76",
+        "slug": "stl_76_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 76 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "76",
+        "slug": "stl_76_station-sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 76 Station Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "144",
+        "slug": "stl_144_metro-cote-vertu",
+        "color": "#151f6d",
+        "name": "STL 144 Métro Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "144",
+        "slug": "stl_144_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 144 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "151",
+        "slug": "stl_151_metro-cote-vertu",
+        "color": "#151f6d",
+        "name": "STL 151 Métro Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "151",
+        "slug": "stl_151_sainte-rose",
+        "color": "#151f6d",
+        "name": "STL 151 Sainte-Rose"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "203",
+        "slug": "stl_203_fabreville",
+        "color": "#151f6d",
+        "name": "STL 203 Fabreville"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "203",
+        "slug": "stl_203_station-sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 203 Station Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "222",
+        "slug": "stl_222_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 222 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "222",
+        "slug": "stl_222_saint-vincent-de-paul",
+        "color": "#151f6d",
+        "name": "STL 222 Saint-Vincent-De-Paul"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "226",
+        "slug": "stl_226_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 226 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "226",
+        "slug": "stl_226_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 226 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "244",
+        "slug": "stl_244_montreal",
+        "color": "#151f6d",
+        "name": "STL 244 Montréal"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "244",
+        "slug": "stl_244_sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 244 Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "251",
+        "slug": "stl_251_montreal",
+        "color": "#151f6d",
+        "name": "STL 251 Montréal"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "251",
+        "slug": "stl_251_sainte-rose",
+        "color": "#151f6d",
+        "name": "STL 251 Sainte-Rose"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "252",
+        "slug": "stl_252_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 252 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "252",
+        "slug": "stl_252_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 252 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "255",
+        "slug": "stl_255_laval-ouest",
+        "color": "#151f6d",
+        "name": "STL 255 Laval-Ouest"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "255",
+        "slug": "stl_255_montreal",
+        "color": "#151f6d",
+        "name": "STL 255 Montréal"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "313",
+        "slug": "stl_313_chomedey",
+        "color": "#151f6d",
+        "name": "STL 313 Chomedey"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "313",
+        "slug": "stl_313_metro-cote-vertu",
+        "color": "#151f6d",
+        "name": "STL 313 Métro Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "322",
+        "slug": "stl_322_duvernay",
+        "color": "#151f6d",
+        "name": "STL 322 Duvernay"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "322",
+        "slug": "stl_322_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 322 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "335",
+        "slug": "stl_335_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 335 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "335",
+        "slug": "stl_335_vimont",
+        "color": "#151f6d",
+        "name": "STL 335 Vimont"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "345",
+        "slug": "stl_345_gare-vimont",
+        "color": "#151f6d",
+        "name": "STL 345 Gare Vimont"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "345",
+        "slug": "stl_345_metro-henri-bourassa",
+        "color": "#151f6d",
+        "name": "STL 345 Métro Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "713",
+        "slug": "stl_713_metro-cote-vertu",
+        "color": "#151f6d",
+        "name": "STL 713 Métro Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "713",
+        "slug": "stl_713_station-sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 713 Station Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "901",
+        "slug": "stl_901_metro-cartier",
+        "color": "#151f6d",
+        "name": "STL 901 Métro Cartier"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "901",
+        "slug": "stl_901_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 901 Saint-François"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "903",
+        "slug": "stl_903_metro-montmorency",
+        "color": "#151f6d",
+        "name": "STL 903 Métro Montmorency"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "903",
+        "slug": "stl_903_station-sainte-dorothee",
+        "color": "#151f6d",
+        "name": "STL 903 Station Sainte-Dorothée"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "925",
+        "slug": "stl_925_metro-radisson",
+        "color": "#151f6d",
+        "name": "STL 925 Métro Radisson"
+    },
+    {
+        "agencyAcronym": "STL_2026",
+        "lineShortname": "925",
+        "slug": "stl_925_saint-francois",
+        "color": "#151f6d",
+        "name": "STL 925 Saint-François"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "10",
+        "slug": "stm_10_de-lorimier",
+        "color": "#009EE0",
+        "name": "STM 10 De Lorimier"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "11",
+        "slug": "stm_11_parc-du-mont-royal",
+        "color": "#009EE0",
+        "name": "STM 11 Parc-du-Mont-Royal"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "12",
+        "slug": "stm_12_ile-des-soeurs",
+        "color": "#009EE0",
+        "name": "STM 12 Île-des-Soeurs"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "13",
+        "slug": "stm_13_christophe-colomb",
+        "color": "#009EE0",
+        "name": "STM 13 Christophe-Colomb"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "14",
+        "slug": "stm_14_atateken",
+        "color": "#009EE0",
+        "name": "STM 14 Atateken"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "16",
+        "slug": "stm_16_graham",
+        "color": "#009EE0",
+        "name": "STM 16 Graham"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "17",
+        "slug": "stm_17_decarie",
+        "color": "#009EE0",
+        "name": "STM 17 Décarie"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "18",
+        "slug": "stm_18_beaubien",
+        "color": "#781B7D",
+        "name": "STM 18 Beaubien"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "20",
+        "slug": "stm_20_cremazie-marche-central",
+        "color": "#009EE0",
+        "name": "STM 20 Crémazie / Marché Central"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "22",
+        "slug": "stm_22_notre-dame",
+        "color": "#009EE0",
+        "name": "STM 22 Notre-Dame"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "24",
+        "slug": "stm_24_sherbrooke",
+        "color": "#781B7D",
+        "name": "STM 24 Sherbrooke"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "25",
+        "slug": "stm_25_angus",
+        "color": "#009EE0",
+        "name": "STM 25 Angus"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "26",
+        "slug": "stm_26_mercier-est",
+        "color": "#009EE0",
+        "name": "STM 26 Mercier-Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "27",
+        "slug": "stm_27_saint-joseph",
+        "color": "#009EE0",
+        "name": "STM 27 Saint-Joseph"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "28",
+        "slug": "stm_28_honore-beaugrand",
+        "color": "#009EE0",
+        "name": "STM 28 Honoré-Beaugrand"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "29",
+        "slug": "stm_29_rachel",
+        "color": "#009EE0",
+        "name": "STM 29 Rachel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "31",
+        "slug": "stm_31_saint-denis",
+        "color": "#009EE0",
+        "name": "STM 31 Saint-Denis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "32",
+        "slug": "stm_32_lacordaire",
+        "color": "#781B7D",
+        "name": "STM 32 Lacordaire"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "33",
+        "slug": "stm_33_langelier",
+        "color": "#781B7D",
+        "name": "STM 33 Langelier"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "34",
+        "slug": "stm_34_sainte-catherine",
+        "color": "#009EE0",
+        "name": "STM 34 Sainte-Catherine"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "35",
+        "slug": "stm_35_griffintown",
+        "color": "#009EE0",
+        "name": "STM 35 Griffintown"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "36",
+        "slug": "stm_36_monk",
+        "color": "#009EE0",
+        "name": "STM 36 Monk"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "37",
+        "slug": "stm_37_jolicoeur",
+        "color": "#009EE0",
+        "name": "STM 37 Jolicoeur"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "38",
+        "slug": "stm_38_de-l-eglise",
+        "color": "#009EE0",
+        "name": "STM 38 De l'Église"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "39",
+        "slug": "stm_39_des-grandes-prairies",
+        "color": "#009EE0",
+        "name": "STM 39 Des Grandes-Prairies"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "40",
+        "slug": "stm_40_henri-bourassa-est",
+        "color": "#009EE0",
+        "name": "STM 40 Henri-Bourassa-Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "41",
+        "slug": "stm_41_saint-michel-ahuntsic",
+        "color": "#009EE0",
+        "name": "STM 41 Saint-Michel / Ahuntsic"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "43",
+        "slug": "stm_43_monselet",
+        "color": "#009EE0",
+        "name": "STM 43 Monselet"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "44",
+        "slug": "stm_44_armand-bombardier",
+        "color": "#781B7D",
+        "name": "STM 44 Armand-Bombardier"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "45",
+        "slug": "stm_45_papineau",
+        "color": "#781B7D",
+        "name": "STM 45 Papineau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "47",
+        "slug": "stm_47_masson",
+        "color": "#009EE0",
+        "name": "STM 47 Masson"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "48",
+        "slug": "stm_48_perras",
+        "color": "#781B7D",
+        "name": "STM 48 Perras"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "49",
+        "slug": "stm_49_maurice-duplessis",
+        "color": "#781B7D",
+        "name": "STM 49 Maurice-Duplessis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "50",
+        "slug": "stm_50_vieux-montreal-vieux-port",
+        "color": "#009EE0",
+        "name": "STM 50 Vieux-Montréal / Vieux-Port"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "51",
+        "slug": "stm_51_edouard-montpetit",
+        "color": "#781B7D",
+        "name": "STM 51 Édouard-Montpetit"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "52",
+        "slug": "stm_52_de-liege",
+        "color": "#009EE0",
+        "name": "STM 52 De Liège"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "54",
+        "slug": "stm_54_charland-chabanel",
+        "color": "#009EE0",
+        "name": "STM 54 Charland / Chabanel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "55",
+        "slug": "stm_55_saint-laurent",
+        "color": "#781B7D",
+        "name": "STM 55 Saint-Laurent"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "56",
+        "slug": "stm_56_st-hubert",
+        "color": "#009EE0",
+        "name": "STM 56 St-Hubert"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "57",
+        "slug": "stm_57_charlevoix",
+        "color": "#009EE0",
+        "name": "STM 57 Charlevoix"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "61",
+        "slug": "stm_61_wellington",
+        "color": "#009EE0",
+        "name": "STM 61 Wellington"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "63",
+        "slug": "stm_63_girouard",
+        "color": "#009EE0",
+        "name": "STM 63 Girouard"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "64",
+        "slug": "stm_64_grenet",
+        "color": "#781B7D",
+        "name": "STM 64 Grenet"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "66",
+        "slug": "stm_66_the-boulevard",
+        "color": "#009EE0",
+        "name": "STM 66 The Boulevard"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "67",
+        "slug": "stm_67_saint-michel",
+        "color": "#781B7D",
+        "name": "STM 67 Saint-Michel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "68",
+        "slug": "stm_68_pierrefonds",
+        "color": "#009EE0",
+        "name": "STM 68 Pierrefonds"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "69",
+        "slug": "stm_69_henri-bourassa",
+        "color": "#781B7D",
+        "name": "STM 69 Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "70",
+        "slug": "stm_70_poirier",
+        "color": "#009EE0",
+        "name": "STM 70 Poirier"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "71",
+        "slug": "stm_71_pointe-saint-charles",
+        "color": "#009EE0",
+        "name": "STM 71 Pointe-Saint-Charles"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "72",
+        "slug": "stm_72_alfred-nobel",
+        "color": "#009EE0",
+        "name": "STM 72 Alfred-Nobel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "73",
+        "slug": "stm_73_dalton",
+        "color": "#009EE0",
+        "name": "STM 73 Dalton"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "74",
+        "slug": "stm_74_bridge",
+        "color": "#009EE0",
+        "name": "STM 74 Bridge"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "79",
+        "slug": "stm_79_gouin",
+        "color": "#009EE0",
+        "name": "STM 79 Gouin"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "80",
+        "slug": "stm_80_du-parc",
+        "color": "#781B7D",
+        "name": "STM 80 Du Parc"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "81",
+        "slug": "stm_81_saint-jean-baptiste",
+        "color": "#009EE0",
+        "name": "STM 81 Saint-Jean-Baptiste"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "85",
+        "slug": "stm_85_hochelaga",
+        "color": "#009EE0",
+        "name": "STM 85 Hochelaga"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "86",
+        "slug": "stm_86_pointe-aux-trembles",
+        "color": "#009EE0",
+        "name": "STM 86 Pointe-aux-Trembles"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "90",
+        "slug": "stm_90_saint-jacques",
+        "color": "#781B7D",
+        "name": "STM 90 Saint-Jacques"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "92",
+        "slug": "stm_92_jean-talon-ouest",
+        "color": "#009EE0",
+        "name": "STM 92 Jean-Talon Ouest"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "93",
+        "slug": "stm_93_jean-talon",
+        "color": "#009EE0",
+        "name": "STM 93 Jean-Talon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "94",
+        "slug": "stm_94_d-iberville",
+        "color": "#009EE0",
+        "name": "STM 94 D'Iberville"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "95",
+        "slug": "stm_95_belanger",
+        "color": "#009EE0",
+        "name": "STM 95 Bélanger"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "97",
+        "slug": "stm_97_avenue-du-mont-royal",
+        "color": "#781B7D",
+        "name": "STM 97 Avenue-du-Mont-Royal"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "99",
+        "slug": "stm_99_villeray",
+        "color": "#009EE0",
+        "name": "STM 99 Villeray"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "100",
+        "slug": "stm_100_cremazie",
+        "color": "#009EE0",
+        "name": "STM 100 Crémazie"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "101",
+        "slug": "stm_101_saint-patrick",
+        "color": "#009EE0",
+        "name": "STM 101 Saint-Patrick"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "102",
+        "slug": "stm_102_somerled",
+        "color": "#009EE0",
+        "name": "STM 102 Somerled"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "103",
+        "slug": "stm_103_monkland",
+        "color": "#781B7D",
+        "name": "STM 103 Monkland"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "104",
+        "slug": "stm_104_cavendish",
+        "color": "#009EE0",
+        "name": "STM 104 Cavendish"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "105",
+        "slug": "stm_105_sherbrooke",
+        "color": "#781B7D",
+        "name": "STM 105 Sherbrooke"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "106",
+        "slug": "stm_106_newman",
+        "color": "#781B7D",
+        "name": "STM 106 Newman"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "107",
+        "slug": "stm_107_verdun",
+        "color": "#781B7D",
+        "name": "STM 107 Verdun"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "108",
+        "slug": "stm_108_bannantyne",
+        "color": "#009EE0",
+        "name": "STM 108 Bannantyne"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "110",
+        "slug": "stm_110_centrale",
+        "color": "#009EE0",
+        "name": "STM 110 Centrale"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "112",
+        "slug": "stm_112_airlie",
+        "color": "#781B7D",
+        "name": "STM 112 Airlie"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "113",
+        "slug": "stm_113_lapierre",
+        "color": "#009EE0",
+        "name": "STM 113 Lapierre"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "114",
+        "slug": "stm_114_angrignon",
+        "color": "#009EE0",
+        "name": "STM 114 Angrignon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "117",
+        "slug": "stm_117_o-brien",
+        "color": "#009EE0",
+        "name": "STM 117 O'Brien"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "119",
+        "slug": "stm_119_rockland",
+        "color": "#009EE0",
+        "name": "STM 119 Rockland"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "120",
+        "slug": "stm_120_royalmount",
+        "color": "#009EE0",
+        "name": "STM 120 Royalmount"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "121",
+        "slug": "stm_121_sauve-cote-vertu",
+        "color": "#781B7D",
+        "name": "STM 121 Sauvé / Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "123",
+        "slug": "stm_123_dollard-shevchenko",
+        "color": "#009EE0",
+        "name": "STM 123 Dollard / Shevchenko"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "124",
+        "slug": "stm_124_victoria",
+        "color": "#009EE0",
+        "name": "STM 124 Victoria"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "125",
+        "slug": "stm_125_ontario",
+        "color": "#009EE0",
+        "name": "STM 125 Ontario"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "127",
+        "slug": "stm_127_alexis-nihon",
+        "color": "#009EE0",
+        "name": "STM 127 Alexis-Nihon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "128",
+        "slug": "stm_128_saint-laurent",
+        "color": "#009EE0",
+        "name": "STM 128 Saint-Laurent"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "129",
+        "slug": "stm_129_cote-sainte-catherine",
+        "color": "#009EE0",
+        "name": "STM 129 Côte-Sainte-Catherine"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "131",
+        "slug": "stm_131_de-l-assomption",
+        "color": "#009EE0",
+        "name": "STM 131 De l'Assomption"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "136",
+        "slug": "stm_136_viau",
+        "color": "#781B7D",
+        "name": "STM 136 Viau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "138",
+        "slug": "stm_138_notre-dame-de-grace",
+        "color": "#009EE0",
+        "name": "STM 138 Notre-Dame-de-Grâce"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "139",
+        "slug": "stm_139_pie-ix",
+        "color": "#009EE0",
+        "name": "STM 139 Pie-IX"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "140",
+        "slug": "stm_140_fleury",
+        "color": "#009EE0",
+        "name": "STM 140 Fleury"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "141",
+        "slug": "stm_141_jean-talon-est",
+        "color": "#781B7D",
+        "name": "STM 141 Jean-Talon Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "144",
+        "slug": "stm_144_des-pins",
+        "color": "#009EE0",
+        "name": "STM 144 Des Pins"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "150",
+        "slug": "stm_150_rene-levesque",
+        "color": "#009EE0",
+        "name": "STM 150 René-Lévesque"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "155",
+        "slug": "stm_155_wilderton",
+        "color": "#009EE0",
+        "name": "STM 155 Wilderton"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "160",
+        "slug": "stm_160_barclay",
+        "color": "#781B7D",
+        "name": "STM 160 Barclay"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "161",
+        "slug": "stm_161_van-horne",
+        "color": "#781B7D",
+        "name": "STM 161 Van Horne"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "162",
+        "slug": "stm_162_westminster",
+        "color": "#009EE0",
+        "name": "STM 162 Westminster"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "164",
+        "slug": "stm_164_dudemaine",
+        "color": "#009EE0",
+        "name": "STM 164 Dudemaine"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "165",
+        "slug": "stm_165_cote-des-neiges",
+        "color": "#781B7D",
+        "name": "STM 165 Côte-des-Neiges"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "166",
+        "slug": "stm_166_queen-mary",
+        "color": "#009EE0",
+        "name": "STM 166 Queen-Mary"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "168",
+        "slug": "stm_168_cite-du-havre",
+        "color": "#009EE0",
+        "name": "STM 168 Cité-du-Havre"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "170",
+        "slug": "stm_170_keller",
+        "color": "#009EE0",
+        "name": "STM 170 Keller"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "171",
+        "slug": "stm_171_henri-bourassa",
+        "color": "#009EE0",
+        "name": "STM 171 Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "172",
+        "slug": "stm_172_du-golf",
+        "color": "#009EE0",
+        "name": "STM 172 Du Golf"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "174",
+        "slug": "stm_174_cote-vertu",
+        "color": "#009EE0",
+        "name": "STM 174 Côte-Vertu"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "175",
+        "slug": "stm_175_griffith",
+        "color": "#009EE0",
+        "name": "STM 175 Griffith"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "176",
+        "slug": "stm_176_berlioz",
+        "color": "#009EE0",
+        "name": "STM 176 Berlioz"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "177",
+        "slug": "stm_177_thimens",
+        "color": "#781B7D",
+        "name": "STM 177 Thimens"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "179",
+        "slug": "stm_179_de-l-acadie",
+        "color": "#009EE0",
+        "name": "STM 179 De l'Acadie"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "180",
+        "slug": "stm_180_de-salaberry",
+        "color": "#009EE0",
+        "name": "STM 180 De Salaberry"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "183",
+        "slug": "stm_183_gouin-est",
+        "color": "#009EE0",
+        "name": "STM 183 Gouin-Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "185",
+        "slug": "stm_185_sherbrooke",
+        "color": "#009EE0",
+        "name": "STM 185 Sherbrooke"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "186",
+        "slug": "stm_186_sherbrooke-est",
+        "color": "#009EE0",
+        "name": "STM 186 Sherbrooke-Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "187",
+        "slug": "stm_187_rene-levesque",
+        "color": "#781B7D",
+        "name": "STM 187 René-Lévesque"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "188",
+        "slug": "stm_188_couture",
+        "color": "#009EE0",
+        "name": "STM 188 Couture"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "189",
+        "slug": "stm_189_notre-dame",
+        "color": "#009EE0",
+        "name": "STM 189 Notre-Dame"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "190",
+        "slug": "stm_190_norman",
+        "color": "#009EE0",
+        "name": "STM 190 Norman"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "192",
+        "slug": "stm_192_robert",
+        "color": "#009EE0",
+        "name": "STM 192 Robert"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "193",
+        "slug": "stm_193_jarry",
+        "color": "#781B7D",
+        "name": "STM 193 Jarry"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "195",
+        "slug": "stm_195_dorval-angrignon",
+        "color": "#009EE0",
+        "name": "STM 195 Dorval / Angrignon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "196",
+        "slug": "stm_196_parc-industriel-lachine",
+        "color": "#781B7D",
+        "name": "STM 196 Parc-Industriel-Lachine"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "197",
+        "slug": "stm_197_rosemont",
+        "color": "#781B7D",
+        "name": "STM 197 Rosemont"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "198",
+        "slug": "stm_198_broadway",
+        "color": "#009EE0",
+        "name": "STM 198 Broadway"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "200",
+        "slug": "stm_200_sainte-anne-de-bellevue",
+        "color": "#009EE0",
+        "name": "STM 200 Sainte-Anne-de-Bellevue"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "201",
+        "slug": "stm_201_saint-charles",
+        "color": "#009EE0",
+        "name": "STM 201 Saint-Charles"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "202",
+        "slug": "stm_202_dawson",
+        "color": "#009EE0",
+        "name": "STM 202 Dawson"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "203",
+        "slug": "stm_203_carson",
+        "color": "#009EE0",
+        "name": "STM 203 Carson"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "204",
+        "slug": "stm_204_cardinal",
+        "color": "#009EE0",
+        "name": "STM 204 Cardinal"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "205",
+        "slug": "stm_205_gouin",
+        "color": "#009EE0",
+        "name": "STM 205 Gouin"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "206",
+        "slug": "stm_206_roger-pilon",
+        "color": "#009EE0",
+        "name": "STM 206 Roger-Pilon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "207",
+        "slug": "stm_207_jacques-bizard",
+        "color": "#009EE0",
+        "name": "STM 207 Jacques-Bizard"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "208",
+        "slug": "stm_208_brunswick",
+        "color": "#009EE0",
+        "name": "STM 208 Brunswick"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "209",
+        "slug": "stm_209_des-sources-yul-aeroport",
+        "color": "#009EE0",
+        "name": "STM 209 Des Sources / YUL Aéroport"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "210",
+        "slug": "stm_210_john-abbott",
+        "color": "#009EE0",
+        "name": "STM 210 John-Abbott"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "211",
+        "slug": "stm_211_bord-du-lac",
+        "color": "#781B7D",
+        "name": "STM 211 Bord-du-Lac"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "212",
+        "slug": "stm_212_sainte-anne",
+        "color": "#009EE0",
+        "name": "STM 212 Sainte-Anne"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "214",
+        "slug": "stm_214_stuart-graham-yul-aeroport",
+        "color": "#009EE0",
+        "name": "STM 214 Stuart-Graham / YUL Aéroport"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "215",
+        "slug": "stm_215_henri-bourassa-brunswick",
+        "color": "#009EE0",
+        "name": "STM 215 Henri-Bourassa / Brunswick"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "216",
+        "slug": "stm_216_transcanadienne",
+        "color": "#009EE0",
+        "name": "STM 216 Transcanadienne"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "218",
+        "slug": "stm_218_antoine-faucon",
+        "color": "#009EE0",
+        "name": "STM 218 Antoine-Faucon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "220",
+        "slug": "stm_220_kieran",
+        "color": "#009EE0",
+        "name": "STM 220 Kieran"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "221",
+        "slug": "stm_221_saint-jean",
+        "color": "#009EE0",
+        "name": "STM 221 Saint-Jean"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "222",
+        "slug": "stm_222_senneville",
+        "color": "#009EE0",
+        "name": "STM 222 Senneville"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "223",
+        "slug": "stm_223_parc-industriel-baie-d-urfe",
+        "color": "#009EE0",
+        "name": "STM 223 Parc-industriel Baie-d'Urfé"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "225",
+        "slug": "stm_225_hymus",
+        "color": "#009EE0",
+        "name": "STM 225 Hymus"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "227",
+        "slug": "stm_227_ile-bizard",
+        "color": "#009EE0",
+        "name": "STM 227 Île-Bizard"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "229",
+        "slug": "stm_229_transcanadienne-brunswick",
+        "color": "#009EE0",
+        "name": "STM 229 Transcanadienne / Brunswick"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "230",
+        "slug": "stm_230_saint-louis",
+        "color": "#009EE0",
+        "name": "STM 230 Saint-Louis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "350",
+        "slug": "stm_350_verdun-lasalle",
+        "color": "#009EE0",
+        "name": "STM 350 Verdun / LaSalle"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "353",
+        "slug": "stm_353_lacordaire-maurice-duplessis",
+        "color": "#009EE0",
+        "name": "STM 353 Lacordaire / Maurice-Duplessis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "354",
+        "slug": "stm_354_sainte-anne-de-bellevue-centre-ville",
+        "color": "#009EE0",
+        "name": "STM 354 Sainte-Anne-de-Bellevue / Centre-ville"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "355",
+        "slug": "stm_355_pie-ix",
+        "color": "#009EE0",
+        "name": "STM 355 Pie-IX"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "356",
+        "slug": "stm_356_lachine-yul-aeroport-des-sources",
+        "color": "#009EE0",
+        "name": "STM 356 Lachine / YUL Aéroport / Des Sources"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "357",
+        "slug": "stm_357_saint-michel",
+        "color": "#009EE0",
+        "name": "STM 357 Saint-Michel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "358",
+        "slug": "stm_358_rene-levesque",
+        "color": "#009EE0",
+        "name": "STM 358 René-Lévesque"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "359",
+        "slug": "stm_359_papineau",
+        "color": "#009EE0",
+        "name": "STM 359 Papineau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "360",
+        "slug": "stm_360_av-des-pins",
+        "color": "#009EE0",
+        "name": "STM 360 Av. des Pins"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "361",
+        "slug": "stm_361_saint-denis",
+        "color": "#009EE0",
+        "name": "STM 361 Saint-Denis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "362",
+        "slug": "stm_362_hochelaga-notre-dame",
+        "color": "#009EE0",
+        "name": "STM 362 Hochelaga / Notre-Dame"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "363",
+        "slug": "stm_363_saint-laurent",
+        "color": "#009EE0",
+        "name": "STM 363 Saint-Laurent"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "364",
+        "slug": "stm_364_sherbrooke-joseph-renaud",
+        "color": "#009EE0",
+        "name": "STM 364 Sherbrooke / Joseph-Renaud"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "365",
+        "slug": "stm_365_du-parc",
+        "color": "#009EE0",
+        "name": "STM 365 Du Parc"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "368",
+        "slug": "stm_368_avenue-du-mont-royal",
+        "color": "#009EE0",
+        "name": "STM 368 Avenue-du-Mont-Royal"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "369",
+        "slug": "stm_369_cote-des-neiges",
+        "color": "#009EE0",
+        "name": "STM 369 Côte-des-Neiges"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "370",
+        "slug": "stm_370_rosemont",
+        "color": "#009EE0",
+        "name": "STM 370 Rosemont"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "371",
+        "slug": "stm_371_decarie",
+        "color": "#009EE0",
+        "name": "STM 371 Décarie"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "372",
+        "slug": "stm_372_jean-talon",
+        "color": "#009EE0",
+        "name": "STM 372 Jean-Talon"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "376",
+        "slug": "stm_376_pierrefonds-centre-ville",
+        "color": "#009EE0",
+        "name": "STM 376 Pierrefonds / Centre-ville"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "378",
+        "slug": "stm_378_sauve-yul-aeroport",
+        "color": "#009EE0",
+        "name": "STM 378 Sauvé / YUL Aéroport"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "380",
+        "slug": "stm_380_henri-bourassa",
+        "color": "#009EE0",
+        "name": "STM 380 Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "382",
+        "slug": "stm_382_pierrefonds-saint-charles",
+        "color": "#009EE0",
+        "name": "STM 382 Pierrefonds / Saint-Charles"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "410",
+        "slug": "stm_410_express-notre-dame",
+        "color": "#009EE0",
+        "name": "STM 410 Express Notre-Dame"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "411",
+        "slug": "stm_411_express-lionel-groulx",
+        "color": "#009EE0",
+        "name": "STM 411 Express Lionel-Groulx"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "420",
+        "slug": "stm_420_express-notre-dame-de-grace",
+        "color": "#009EE0",
+        "name": "STM 420 Express Notre-Dame-de-Grâce"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "428",
+        "slug": "stm_428_express-parcs-industriels-de-l-est",
+        "color": "#009EE0",
+        "name": "STM 428 Express Parcs industriels de l'Est"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "430",
+        "slug": "stm_430_express-pointe-aux-trembles",
+        "color": "#009EE0",
+        "name": "STM 430 Express Pointe-aux-Trembles"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "432",
+        "slug": "stm_432_express-lacordaire",
+        "color": "#009EE0",
+        "name": "STM 432 Express Lacordaire"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "439",
+        "slug": "stm_439_express-pie-ix",
+        "color": "#781B7D",
+        "name": "STM 439 Express Pie-IX"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "440",
+        "slug": "stm_440_express-charleroi",
+        "color": "#009EE0",
+        "name": "STM 440 Express Charleroi"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "444",
+        "slug": "stm_444_express-cegep-marie-victorin",
+        "color": "#009EE0",
+        "name": "STM 444 Express Cégep Marie-Victorin"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "445",
+        "slug": "stm_445_express-papineau",
+        "color": "#009EE0",
+        "name": "STM 445 Express Papineau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "448",
+        "slug": "stm_448_express-maurice-duplessis",
+        "color": "#009EE0",
+        "name": "STM 448 Express Maurice-Duplessis"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "449",
+        "slug": "stm_449_express-riviere-des-prairies",
+        "color": "#009EE0",
+        "name": "STM 449 Express Rivière-des-Prairies"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "460",
+        "slug": "stm_460_express-metropolitaine",
+        "color": "#009EE0",
+        "name": "STM 460 Express Métropolitaine"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "467",
+        "slug": "stm_467_express-saint-michel",
+        "color": "#009EE0",
+        "name": "STM 467 Express Saint-Michel"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "468",
+        "slug": "stm_468_express-pierrefonds-gouin",
+        "color": "#009EE0",
+        "name": "STM 468 Express Pierrefonds / Gouin"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "469",
+        "slug": "stm_469_express-henri-bourassa",
+        "color": "#009EE0",
+        "name": "STM 469 Express Henri-Bourassa"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "470",
+        "slug": "stm_470_express-pierrefonds",
+        "color": "#781B7D",
+        "name": "STM 470 Express Pierrefonds"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "475",
+        "slug": "stm_475_express-dollard-des-ormeaux",
+        "color": "#009EE0",
+        "name": "STM 475 Express Dollard-des-Ormeaux"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "480",
+        "slug": "stm_480_express-du-parc",
+        "color": "#009EE0",
+        "name": "STM 480 Express du Parc"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "486",
+        "slug": "stm_486_express-sherbrooke",
+        "color": "#009EE0",
+        "name": "STM 486 Express Sherbrooke"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "487",
+        "slug": "stm_487_express-bout-de-l-ile",
+        "color": "#009EE0",
+        "name": "STM 487 Express Bout-de-l'Île"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "491",
+        "slug": "stm_491_express-provost",
+        "color": "#009EE0",
+        "name": "STM 491 Express Provost"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "496",
+        "slug": "stm_496_express-victoria",
+        "color": "#781B7D",
+        "name": "STM 496 Express Victoria"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "711",
+        "slug": "stm_711_parc-du-mont-royal-oratoire",
+        "color": "#009EE0",
+        "name": "STM 711 Parc-du-Mont-Royal / Oratoire"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "747",
+        "slug": "stm_747_yul-aeroport-montreal-trudeau",
+        "color": "#009EE0",
+        "name": "STM 747 YUL Aéroport Montréal-Trudeau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "767",
+        "slug": "stm_767_la-ronde-station-jean-drapeau",
+        "color": "#009EE0",
+        "name": "STM 767 La Ronde / Station Jean-Drapeau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "769",
+        "slug": "stm_769_la-ronde-station-papineau",
+        "color": "#009EE0",
+        "name": "STM 769 La Ronde / Station Papineau"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "777",
+        "slug": "stm_777_jean-drapeau-casino-bonaventure",
+        "color": "#009EE0",
+        "name": "STM 777 Jean-Drapeau / Casino / Bonaventure"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "811",
+        "slug": "stm_811_navette-services-sante",
+        "color": "#009EE0",
+        "name": "STM 811 Navette Services santé"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "814",
+        "slug": "stm_814_jean-talon-est-belanger",
+        "color": "#009EE0",
+        "name": "STM 814 Jean-Talon Est / Bélanger"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "815",
+        "slug": "stm_815_rem-des-sources-yul-aeroport",
+        "color": "#009EE0",
+        "name": "STM 815 REM des Sources / YUL Aéroport"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "822",
+        "slug": "stm_822_navette-de-longue-pointe",
+        "color": "#009EE0",
+        "name": "STM 822 Navette de Longue-Pointe"
+    },
+    {
+        "agencyAcronym": "STM_2026",
+        "lineShortname": "872",
+        "slug": "stm_872_ile-des-soeurs",
+        "color": "#009EE0",
+        "name": "STM 872 Île-des-Soeurs"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_bellerive-centre-ville",
+        "color": "#FFFFFF",
+        "name": "STSV  Bellerive / Centre-ville"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_coteau-du-lac",
+        "color": "#FFFFFF",
+        "name": "STSV  Coteau-du-Lac"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_grande-ile",
+        "color": "#FFFFFF",
+        "name": "STSV  Grande-Île"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_la-baie",
+        "color": "#FFFFFF",
+        "name": "STSV  La Baie"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_les-coteaux",
+        "color": "#FFFFFF",
+        "name": "STSV  Les Coteaux"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_ligne-10",
+        "color": "#FFFFFF",
+        "name": "STSV  Ligne 10"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_ligne-30",
+        "color": "#FFFFFF",
+        "name": "STSV  Ligne 30"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_ligne-99",
+        "color": "#FFFFFF",
+        "name": "STSV  Ligne 99"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_parc-industriel",
+        "color": "#FFFFFF",
+        "name": "STSV  Parc Industriel"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_saint-polycarpe",
+        "color": "#FFFFFF",
+        "name": "STSV  Saint-Polycarpe"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_saint-timothee",
+        "color": "#FFFFFF",
+        "name": "STSV  Saint-Timothée"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "",
+        "slug": "stsv_saint-zotique",
+        "color": "#FFFFFF",
+        "name": "STSV  Saint-Zotique"
+    },
+    {
+        "agencyAcronym": "STSV",
+        "lineShortname": "338.0",
+        "slug": "stsv_338-0_ligne-338",
+        "color": "#FFFFFF",
+        "name": "STSV 338.0 Ligne 338"
+    },
+    {
+        "agencyAcronym": "TACL",
+        "lineShortname": "Inter",
+        "slug": "tacl_inter_inter",
+        "color": "#FF8000",
+        "name": "TACL Inter Inter"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "10",
+        "slug": "ville-de-saint-jean-sur-richelieu_10_ligne-bleue",
+        "color": "#0077B7",
+        "name": "Ville de Saint-Jean-sur-Richelieu 10 Ligne bleue"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "20",
+        "slug": "ville-de-saint-jean-sur-richelieu_20_ligne-jaune",
+        "color": "#E4BB1A",
+        "name": "Ville de Saint-Jean-sur-Richelieu 20 Ligne jaune"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "30",
+        "slug": "ville-de-saint-jean-sur-richelieu_30_ligne-orange",
+        "color": "#ED782F",
+        "name": "Ville de Saint-Jean-sur-Richelieu 30 Ligne orange"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "40",
+        "slug": "ville-de-saint-jean-sur-richelieu_40_ligne-rouge",
+        "color": "#C73632",
+        "name": "Ville de Saint-Jean-sur-Richelieu 40 Ligne rouge"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "50",
+        "slug": "ville-de-saint-jean-sur-richelieu_50_ligne-verte",
+        "color": "#3A9E43",
+        "name": "Ville de Saint-Jean-sur-Richelieu 50 Ligne verte"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "96A",
+        "slug": "ville-de-saint-jean-sur-richelieu_96a_96-a",
+        "color": "#6B6863",
+        "name": "Ville de Saint-Jean-sur-Richelieu 96A 96 A"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "96E",
+        "slug": "ville-de-saint-jean-sur-richelieu_96e_96-express",
+        "color": "#6B6863",
+        "name": "Ville de Saint-Jean-sur-Richelieu 96E 96 Express"
+    },
+    {
+        "agencyAcronym": "Ville de Saint-Jean-sur-Richelieu_2026",
+        "lineShortname": "96S",
+        "slug": "ville-de-saint-jean-sur-richelieu_96s_96-super-express",
+        "color": "#6B6863",
+        "name": "Ville de Saint-Jean-sur-Richelieu 96S 96 Super Express"
+    }
+]
