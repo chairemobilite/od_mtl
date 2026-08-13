@@ -29,6 +29,7 @@ export const householdMembersWidgetsNames: SectionConfig['widgets'] = [
     'personDisabilitiesFrequenciesTransit',
     'personStudentType',
     'personWorkerType',
+    'personJob',
     'personJobType',
     'personWorkPlaceType',
     'personWorkDays',

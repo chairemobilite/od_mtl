@@ -247,6 +247,10 @@ export const transitFareType: ChoiceType[] = [
         label: (t: TFunction) => t('choices:transitFareType.opusWithTicketsOnly')
     },
     {
+        value: 'employee',
+        label: (t: TFunction) => t('choices:transitFareType.employee')
+    },
+    {
         value: 'otherTerritory',
         label: (t: TFunction) => t('choices:transitFareType.otherTerritory')
     },

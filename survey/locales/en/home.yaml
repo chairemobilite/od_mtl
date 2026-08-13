@@ -14,8 +14,8 @@ wantToParticipateToDraw: >-
 contactInformationIntro: Please enter the email so we can contact you.
 contactEmail: <strong>Email address</strong>
 homeIntro: >-
-    Address pre-filled according to the access code.<br />Please check this information
-    or change it.
+    Your address has been pre-filled based on your access code.<br />Please verify
+    that the information is correct and update it if necessary.
 homeAddress: <strong>Address</strong>
 homeCity: <strong>City</strong> or <strong>municipality</strong>
 homePostalCode: <strong>Postal Code</strong>
@@ -82,13 +82,13 @@ popup:
         your household use for commuting or personal reasons<br /><span class="_red">Do
         not include:</span><br />- Mopeds, scooters, and motorcycles (gas or electric)<br
         />- Car-sharing vehicles<br />- A vehicle parked at the workplace and used
-        exclusively for work<br />- Stored or collector vehicles used rarely
+        exclusively for work<br />- Stored vehicles that are driven only rarely
     householdTwoWheelTitle: Which vehicles should be included?
     householdTwoWheelContent: >-
-        <span class="_green">Include:</span><br />- Mopeds, and motorcycles (gas or
+        <span class="_green">Include:</span><br />- Mopeds and motorcycles (gas or
         electric)<br /><span class="_red">Do not include:</span><br />- Cars, SUVs,
         light trucks, trucks, and vans<br />- Bicycles or electric bicycles<br />-
-        Scooters or electric scooters
+        Kick scooters or electric scooters
     accessCodeHelpPopupTitle: Where find my access code?
     accessCodeHelpPopupContent: >-
         capture de la lettre<br />If you have not received the invitation letter,

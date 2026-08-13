@@ -8,7 +8,7 @@ personTripsTitle_one: Trips you made on {{journeyDates}}
 personVisitedPlacesMap: 'Map of <strong>{{nickname}}</strong>’s trips on {{journeyDate}}:'
 personVisitedPlacesMap_one: 'Map of your trips on {{journeyDate}}:'
 segmentIntro: >-
-    Please indicate all modes of transport used for this trip (from {{originName}}
+    Please indicate all modes of transportation used for this trip (from {{originName}}
     to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}
 segments: Mode of transport
 segmentSameModeAsReverseTrip: Same mode as the previous trip ({{previousMode}})
@@ -20,9 +20,7 @@ segmentVehicleOccupancy: >-
 segmentDriver: Who drove?
 segmentSubwayStationStart: '<strong>Boarding station</strong>(when entering the metro):'
 segmentSubwayStationEnd: '<strong>Exit station</strong> (when leaving the metro):'
-segmentSubwayStationsTransfer: >-
-    <strong>Transfer station(s)</strong>:<br /><span class="_pale _oblique">Choose
-    ‘none’ if no transfer was made</span>
+segmentSubwayStationsTransfer: '<strong>Transfer station(s)</strong>:'
 segmentSubwayLine: <strong>Line taken</strong> between BerriUQAM and Lionel-Groulx
 segmentTrainStationStart: <strong>Boarding station</strong> (when getting onto the
     train)

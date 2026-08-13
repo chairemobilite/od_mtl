@@ -31,13 +31,13 @@ personUsualWorkPlaceCommuting: >-
     What mode of transportation does {{nickname}} usually use <strong>to travel to
     their workplace?</strong><br /><span class="_pale _oblique">If multiple modes
     are used, indicate the one that represents the largest share of distance traveled.<br
-    />If {{nickname}} works at multiple locations, respond based on the location visited
-    most frequently.</span>
+    />If {{nickname}} works at multiple locations, respond based on the location identified
+    above.</span>
 personUsualWorkPlaceCommuting_one: >-
     What mode of transportation do you usually use <strong>to travel to your workplace?</strong><br
     /><span class="_pale _oblique">If multiple modes are used, indicate the one that
     represents the largest share of distance traveled.<br />If you work at multiple
-    locations, respond based on the location visited most frequently.</span>
+    locations, respond based on the location identified above.</span>
 personNoSchoolTripIntro: >-
     <strong>You didn't report any study trips</strong> for {{nickname}} on {{journeyDate}}
 personNoSchoolTripIntro_one: <strong>You didn't report any study trips</strong> on

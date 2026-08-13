@@ -10,6 +10,7 @@ personNickname: >-
 personAge: >-
     <strong>Âge</strong> (en années)<br /><span class="_pale _oblique">Inscrire 0
     pour les bébés de moins de 1 an</span>
+personAge_one: <strong>Âge</strong> (en années)
 personGender: >-
     <strong>Genre</strong><br /><span class="_pale _oblique">Peut différer du sexe
     assigné à la naissance ou inscrit dans les documents légaux</span>
@@ -47,8 +48,7 @@ personUsedTransitInLast30Days: >-
 personTransitPass: >-
     <strong>Type de passe, abonnement</strong> utilisés pour le transport en commun
     dans les 30 derniers jours<br /><span class="_pale _oblique">Inclure les abonnements
-    gratuits.<br />Les titres de l’ARTM permettent de prendre les services de la STM
-    (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.</span>
+    gratuits.</span>
 personTransitFare: >-
     <strong>Type de passe</strong> utilisé en tant qu’<strong>abonnement</strong>
     valide pour le mois en cours<br /><span class="_pale _oblique">A, AB, ABC et ABCD
@@ -154,6 +154,12 @@ personWorkerType_male: >-
 personWorkerType_female: >-
     <strong>Travailleuse</strong><br /><span class="_pale _oblique">Incluant travailleuse
     autonome, artiste ou en congé de longue durée.</span>
+personJob: >-
+    <strong>Profession</strong> ou nom d'emploi de {{nickname}}<br /><span class="_pale
+    _oblique">Ex. : Boucher, avocate, livreur, infirmière, etc.</span>
+personJob_one: >-
+    <strong>Profession</strong> ou nom d'emploi<br /><span class="_pale _oblique">Ex.
+    : Boucher, avocate, livreur, infirmière, etc.</span>
 personJobType: <strong>Type d’emploi</strong> de {{nickname}}
 personJobType_one: <strong>Type d’emploi</strong>
 personWorkPlaceType: >-
@@ -164,18 +170,16 @@ personWorkPlaceType_one: >-
     dont vous <strong>travaillez</strong>?
 personWorkDays: >-
     Nombre de jour(s) par semaine où {{nickname}} travaille<br /><span class="_pale
-    _oblique">Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.</span>
+    _oblique">Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.</span>
 personWorkDays_one: >-
     Nombre de jour(s) par semaine où vous travaillez<br /><span class="_pale _oblique">Dans
-    une semaine typique. Qu’il y ait déplacement ou non pour le travail.</span>
+    une semaine typique, qu’il y ait déplacement ou non pour le travail.</span>
 personTravelToWorkDays: >-
     Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le
-    travail<br /><span class="_pale _oblique">Dans une semaine typique. Indiquer 0
-    si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile</span>
+    travail<br /><span class="_pale _oblique">Dans une semaine typique.</span>
 personTravelToWorkDays_one: >-
     Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail<br
-    /><span class="_pale _oblique">Dans une semaine typique. Indiquer 0 si vous n'avez
-    pas de lieu de travail ou ne travaillez que depuis votre domicile</span>
+    /><span class="_pale _oblique">Dans une semaine typique.</span>
 personOccupation: <strong>Occupation principale</strong>
 personEducationalAttainment: >-
     Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En

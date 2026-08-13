@@ -27,7 +27,7 @@ Veuillez saisir le courriel pour vous recontacter.
 Adresse courriel
 
 Votre adresse est pré-remplie en fonction du code d'accès.
-Merci de vérifier que les informations sont correctes ou les corriger
+Merci de vérifier que les informations sont correctes et les corriger si nécessaire.
 
 Adresse
 
@@ -132,11 +132,10 @@ Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo �
 
 Type de passe, abonnement utilisés pour le transport en commun dans les 30 derniers jours
 Inclure les abonnements gratuits.
-Les titres de l’ARTM permettent de prendre les services de la STM (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.
-- Passe / abonnement mensuel ou annuel de l’ARTM
-- Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
-- Titres ou billets individuels de l’ARTM
-- Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
+- Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM
+- Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM (incluant les passes pour aînés)
+- Titres ou billets individuels
+- Autre
 - Ne sait pas
 
 Type de passe utilisé en tant qu’abonnement valide pour le mois en cours
@@ -148,6 +147,7 @@ A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM.
 - Bus (ABC)
 - Bus hors territoire (CD)
 - Carte OPUS avec titres individuels seulement
+- Passe employé/retraité des sociétés de transport
 - Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
 - Autre (spécifiez)
 - Aucun pour le mois en cours
@@ -233,6 +233,9 @@ Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste ou 
 - Oui, à temps partiel (moins de 30h/semaine)
 - Non
 
+Profession ou nom d'emploi de {{nickname}}
+Ex. : Boucher, avocate, livreur, infirmière, etc.
+
 Type d’emploi de {{nickname}}
 - Professionnel(le)
 ingénieur·e, analyste, enseignant·e, chercheur·e, professionnel de la santé…
@@ -252,10 +255,10 @@ Parmi les situations suivantes, laquelle décrit le mieux la façon dont {{nickn
 - Travaille sur la route avec départ du domicile
 
 Nombre de jour(s) par semaine où {{nickname}} travaille
-Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.
+Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.
 
 Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
-Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile
+Dans une semaine typique.
 
 Occupation principale
 - Travail à temps plein (30h et plus/semaine)
@@ -308,7 +311,7 @@ Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou 
 
 
 Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
-Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.
+Inclure tous ses déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.
 - Oui
 - Non
 
@@ -317,7 +320,7 @@ Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erroné
 
 Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} 
 
-- <span class="_green">Inclure</span> les lieux visités jusqu'à 4:00 le lendemain matin.
+- <span class="_green">Inclure</span> tous les lieux visités jusqu'à 4:00 le lendemain matin.
 - <span class="_green">Inclure</span> même les petits arrêts (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
 - <span class="_green">Inclure</span> tous les lieux peu importe les modes de transport utilisés pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).
 - <span class="_red">Ne pas inclure</span> les lieux de transfert en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.
@@ -335,7 +338,7 @@ Où était {{nickname}} à 4h du matin?
 - Était à un ou revenait d'un restaurant ou bar
 - Hôtel ou autre lieu pour une conférence / travail
 - Hôtel ou autre lieu en vacances
-- Écoles / lieu d’études: terminait des travaux ou y couchait
+- École / lieu d’études: terminait des travaux ou y couchait
 - Autre
 
 Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile ({{address}}) la journée du {{journeyDate}}?
@@ -437,7 +440,6 @@ Station d'embarquement (au départ) :
 Station de débarquement (à l'arrivée) : 
 
 Station(s) de transfert :
-Choisir "aucune" si aucun transfert n'a été effectué
 
 
 Ligne empruntée entre Berri-UQAM et Lionel Groulx
@@ -583,7 +585,7 @@ Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant,
 
 Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
 Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
-Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus.
 - Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
 - Passager (voiture/moto/scooter)
 - Transport en commun
@@ -811,7 +813,7 @@ Confirmer
 
 Section: Fréquences par mode
 
-À quelle fréquence utilisez-vous les modes de transport suivants?
+À quelle fréquence utilisez-vous ({{nickname}}) les modes de transport suivants?
 Pour tous vos déplacements, peu importe l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).
 Pensez au mois en cours, hors tempêtes majeures.
 
@@ -856,56 +858,56 @@ Continuer
 
 Section: Questions attitudinales
 
-Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique 
+Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.
 
 L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 La voiture personnelle représente pour moi l’indépendance et l’autonomie.
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). 
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. 
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.
-- Pas du tout d'accord
-- Plutôt pas d'accord
-- Ni d'accord ni pas d'accord
-- Plutôt d'accord
-- Tout à fait d'accord
+- Totalement en désaccord
+- Plutôt en désaccord
+- Ni en accord ni en désaccord
+- Plutôt en accord
+- Totalement en accord
 
 Continuer
 
@@ -913,7 +915,7 @@ Continuer
 
 Section: Barrières
 
-Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+Déplacement de {{nickname}} pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}}
 
 Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun (bus, métro, train ou REM), pour ce déplacement.
 
@@ -1070,11 +1072,9 @@ Nous vous remercions d'avoir pris le temps de remplir ce questionnaire. Vos rép
 
 Les données que vous nous avez fournies contribueront aux efforts de planification de l'ARTM et de ses partenaires ainsi qu’à favoriser une meilleure compréhension des enjeux d'accès et de mobilité dans la grande région de Montréal.
 
-Vous vivez dans le territoire de l’ARTM et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (500 $) sont à gagner parmi les participants chaque mois et 1 000 $ par année. Veuillez cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité de l’ARTM :
+Vous vivez dans le <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">territoire de l’ARTM</a> et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (500 $) sont à gagner parmi les participants chaque mois et 1 000 $ par année. Veuillez cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité de l’ARTM. 
 
-Allez au panel « Parlons mobilité »
-
- <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" alt="Territoire ARTM" style="max-width:1000px;width:100%;height:auto;" /></div>
+S'inscrire au panel « Parlons mobilité »
 
 
 

@@ -58,11 +58,13 @@ jobTypes:
         Fabrication, métiers et autres emplois<br /><span class="_pale _oblique">usine,
         construction, métiers spécialisés, transport, entreposage…</span>
 transitPassType:
-    transitPassARTM: Passe / abonnement mensuel ou annuel de l’ARTM
+    transitPassARTM: Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL,
+        exo ou REM
     transitPassARTMWithElderly: >-
-        Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
-    tickets: Titres ou billets individuels de l’ARTM
-    other: Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
+        Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM
+        (incluant les passes pour aînés)
+    tickets: Titres ou billets individuels
+    other: Autre
 transitFareType:
     A: Tous modes A
     AB: Tous modes AB
@@ -71,6 +73,7 @@ transitFareType:
     bus: Bus (ABC)
     busCD: Bus hors territoire (CD)
     opusWithTicketsOnly: Carte OPUS avec titres individuels seulement
+    employee: Passe employé/retraité des sociétés de transport
     otherTerritory: Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc.
         …)
     none: Aucun pour le mois en cours
@@ -114,7 +117,7 @@ departurePlaceOtherChoices:
     restaurant: Était à un ou revenait d'un <strong>restaurant ou bar</strong>
     hotelForWork: Hôtel ou autre lieu pour une <strong>conférence / travail</strong>
     hotelForVacation: Hôtel ou autre lieu en <strong>vacances</strong>
-    studying: '<strong>Écoles / lieu d’études</strong>: terminait des travaux ou y
+    studying: '<strong>École / lieu d’études</strong>: terminait des travaux ou y
         couchait'
     other: Autre
 onDemandChoices:
@@ -306,11 +309,11 @@ anyTripModeFrequenciesChoices:
     2to4daysPerWeek: 2 à 4 jours/sem.
     5DaysOrMorePerWeek: 5+ jours/sem.
 attitudinalChoices:
-    '-2': Pas du tout d'accord
-    '-1': Plutôt pas d'accord
-    '0': Ni d'accord ni pas d'accord
-    '1': Plutôt d'accord
-    '2': Tout à fait d'accord
+    '-2': Totalement en désaccord
+    '-1': Plutôt en désaccord
+    '0': Ni en accord ni en désaccord
+    '1': Plutôt en accord
+    '2': Totalement en accord
 barriersChoices:
     '0': >-
         <strong>Pas du tout un frein</strong> - Je n’ai pas évité le TC pour cette

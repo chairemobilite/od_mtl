@@ -3,6 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 anyTripModeFrequenciesIntro: >-
+    <strong>How often</strong> do you ({{nickname}}) use the following <strong>modes
+    of transportation?</strong><br /><span class="_pale _oblique">For all your trips,
+    regardless of the activity (work, studies, leisure, services, shopping, accompanying
+    someone, etc.).<br />Think about the current month, excluding major storms.</span>
+anyTripModeFrequenciesIntro_one: >-
     <strong>How often</strong> do you use the following <strong>modes of transportation?</strong><br
     /><span class="_pale _oblique">For all your trips, regardless of the activity
     (work, studies, leisure, services, shopping, accompanying someone, etc.).<br />Think

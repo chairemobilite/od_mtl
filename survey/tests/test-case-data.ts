@@ -23,6 +23,7 @@ export const femaleHybridWorker: commonUITestsHelpers.HouseholdMember = {
     useParatransitTransitFrequency: null,
     workerType: 'fullTime',
     studentType: 'no',
+    job: 'professionnelle de recherche',
     jobType: 'administration',
     workPlaceType: 'hybrid',
     workDays: '4',

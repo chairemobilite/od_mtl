@@ -11,6 +11,7 @@ personNickname: >-
 personAge: >-
     <strong>Age</strong> (in years)<br /><span class="_pale _oblique">Enter 0 for
     babies under the age of 1 year</span>
+personAge_one: <strong>Age</strong> (in years)
 personGender: >-
     <strong>Gender</strong><br /><span class="_pale _oblique">May differ from the
     sex assigned at birth or that which appears on legal documents.</span>
@@ -31,9 +32,7 @@ personUsedTransitInLast30Days: >-
     exo, etc.)</span>
 personTransitPass: >-
     <strong>Type of pass or subscription</strong> used for public transit in the past
-    30 days<br /><span class="_pale _oblique">Include free passes.<br />ARTM fare
-    products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and
-    the REM.</span>
+    30 days<br /><span class="_pale _oblique">Include free passes.</span>
 personTransitFare: >-
     <strong>Type of pass</strong> used as a valid <strong>monthly subscription</strong>
     for the current month<br /><span class="_pale _oblique">A, AB, ABC, and ABCD refer
@@ -87,6 +86,12 @@ personStudentType: <strong>Student</strong>
 personWorkerType: >-
     <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed
     workers, artists, or those on long-term leave.</span>
+personJob: >-
+    <strong>Profession</strong> or name of job of {{nickname}}<br /><span class="_pale
+    _oblique">Ex: Butcher, lawyer, delivery-person, nurse, etc.</span>
+personJob_one: >-
+    <strong>Profession</strong> or name of job of {{nickname}}<br /><span class="_pale
+    _oblique">Ex: Butcher, lawyer, delivery-person, nurse, etc.</span>
 personJobType: <strong>Type of employment</strong> of {{nickname}}
 personJobType_one: <strong>Type of employment</strong>
 personWorkPlaceType: >-
@@ -95,18 +100,16 @@ personWorkPlaceType_one: >-
     Which of the following best describes your <strong>work arrangement</strong>?
 personWorkDays: >-
     Number of days per week {{nickname}} works<br /><span class="_pale _oblique">In
-    a typical week. Whether or not travel is required for work.</span><br />
+    a typical week, whether or not there is any travel for work.</span>
 personWorkDays_one: >-
     Number of days per week you work<br /><span class="_pale _oblique">In a typical
-    week. Whether or not travel is required for work.</span>
+    week, whether or not there is any travel for work.</span>
 personTravelToWorkDays: >-
     Number of days per week {{nickname}} travels outside the home for work<br /><span
-    class="_pale _oblique">In a typical week. Enter 0 if the person does not have
-    a workplace or works exclusively from home.</span>
+    class="_pale _oblique">In a typical week.</span>
 personTravelToWorkDays_one: >-
     Number of days per week you travel outside the home for work<br /><span class="_pale
-    _oblique">In a typical week. Enter 0 if you do not have a workplace or you work
-    exclusively from home.</span>
+    _oblique">In a typical week.</span>
 personOccupation: <strong>Main occupation</strong>
 personEducationalAttainment: >-
     Highest level of <strong>educational attainment</strong><br /><span class="_pale

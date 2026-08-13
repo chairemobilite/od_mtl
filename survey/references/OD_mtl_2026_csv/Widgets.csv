@@ -13,8 +13,8 @@ __Only winners will be contacted and an entry for the prize draw requires a comp
 contactInformationIntro,InfoText,True,home,,contactInformationIntro,Veuillez saisir le courriel pour vous recontacter.,Please enter the email so we can contact you.,,,,,acceptsToBeContactedForHelp,,,,,,True,,,,,
 contactEmail,String,True,home,,contactEmail,**Adresse courriel**,**Email address**,,,,,acceptsToBeContactedForHelp,emailValidation,,,,,True,,,,,
 homeIntro,InfoText,True,home,,homeIntro,"Votre adresse est pré-remplie en fonction du code d'accès.
-Merci de vérifier que les informations sont correctes ou les corriger","Address pre-filled according to the access code.
-Please check this information or change it.",,,,,homeAddressIsPrefilledConditional,,,,,,True,,,,,
+Merci de vérifier que les informations sont correctes et les corriger si nécessaire.","Your address has been pre-filled based on your access code.
+Please verify that the information is correct and update it if necessary.",,,,,homeAddressIsPrefilledConditional,,,,,,True,,,,,
 homeAddress,String,True,home,,home.address,**Adresse**,**Address**,,,,,,,,,,,True,,,,,
 homeCity,String,True,home,,home.city,**Ville** ou **municipalité**,**City** or **municipality**,,,,,,,,,,,True,,,,,
 homePostalCode,String,True,home,,home.postalCode,**Code postal**,**Postal Code**,,,formatter=canadianPostalCodeFormatter,,,postalCodeValidation,,,,,True,,,,,
@@ -68,7 +68,7 @@ __Can be a nickname, initials, or who this person represents to you (ex: 'Me', '
 The name is only used to simplify the response process and will be removed from the final dataset.__",,,,,hasPersonCount2OrMoreCustomConditional,uniqueNicknameCustomValidation,,,,,True,,,,,
 personAge,Number,True,household,householdMembers,age,"**Âge** (en années)
 __Inscrire 0 pour les bébés de moins de 1 an__","**Age** (in years)
-__Enter 0 for babies under the age of 1 year__",,,,,,ageValidation,,,,,True,,,,,
+__Enter 0 for babies under the age of 1 year__",**Âge** (en années),**Age** (in years),,,,ageValidation,,,,,True,,,,,
 personGender,Radio,True,household,householdMembers,gender,"**Genre**
 __Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux__","**Gender**
 __May differ from the sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreConditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
@@ -86,10 +86,8 @@ personUsedTransitInLast30Days,Radio,True,household,householdMembers,usedTransitI
 __Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)__","**Public transit**: used in the past 30 days 
 __Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)__",,,,,ifAge5orMoreConditional,,yesNoDontKnow,,,,True,,,,,
 personTransitPass,Checkbox,True,household,householdMembers,transitPass,"**Type de passe, abonnement** utilisés pour le transport en commun dans les 30 derniers jours
-__Inclure les abonnements gratuits.
-Les titres de l’ARTM permettent de prendre les services de la STM (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM.__","**Type of pass or subscription** used for public transit in the past 30 days
-__Include free passes.
-ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM.__",,,,,transitPassConditional,,transitPassType,,,,True,,,,,
+__Inclure les abonnements gratuits.__","**Type of pass or subscription** used for public transit in the past 30 days
+__Include free passes.__",,,,,transitPassConditional,,transitPassType,,,,True,,,,,
 personTransitFare,Radio,True,household,householdMembers,transitFare,"**Type de passe** utilisé en tant qu’**abonnement** valide pour le mois en cours
 __A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM.__","**Type of pass** used as a valid **monthly subscription** for the current month
 __A, AB, ABC, and ABCD refer to ARTM fare zones.__",,,,,transitFareConditional,,transitFareType,transitFareHelpPopup,,,True,transitFareSpecify,other,,,personTransitFare : transitFareValidation · Issue #10 · chairemobilite/od_mtl
@@ -142,20 +140,24 @@ personStudentType,Radio,True,household,householdMembers,studentType,**Étudiant{
 personWorkerType,Radio,True,household,householdMembers,workerType,"**Travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}}**
 __Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste ou en congé de longue durée.__","**Worker**
 __Including self-employed workers, artists, or those on long-term leave.__",,,,,ifAge14orMoreConditional,,participationStatusWorker,workerHelpPopup,,,True,,,,,
+personJob,String,True,household,householdMembers,job,"**Profession** ou nom d'emploi de {{nickname}}
+__Ex. : Boucher, avocate, livreur, infirmière, etc.__","**Profession** or name of job of {{nickname}}
+__Ex: Butcher, lawyer, delivery-person, nurse, etc.__","**Profession** ou nom d'emploi
+__Ex. : Boucher, avocate, livreur, infirmière, etc.__","**Profession** or name of job of {{nickname}}
+__Ex: Butcher, lawyer, delivery-person, nurse, etc.__",,,isWorkerConditional,,,,,,True,,,,,
 personJobType,Radio,True,household,householdMembers,jobType,**Type d’emploi** de {{nickname}},**Type of employment** of {{nickname}},**Type d’emploi**,**Type of employment**,,,isWorkerConditional,,jobTypes,,,,True,,,,,
 personWorkPlaceType,Radio,True,household,householdMembers,workPlaceType,"Parmi les situations suivantes, laquelle décrit le mieux la **façon** dont {{nickname}} **travaille**?",Which of the following best describes {{nickname}}’s **work arrangement**?,"Parmi les situations suivantes, laquelle décrit le mieux la **façon** dont vous **travaillez**?",Which of the following best describes your **work arrangement**?,,,isWorkerConditional,,workPlaceTypeChoices,,,,True,,,,,
 personWorkDays,RadioNumber,True,household,householdMembers,workDays,"Nombre de jour(s) par semaine où {{nickname}} travaille
-__Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.__","Number of days per week {{nickname}} works
-__In a typical week. Whether or not travel is required for work.__
-","Nombre de jour(s) par semaine où vous travaillez
-__Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail.__","Number of days per week you work
-__In a typical week. Whether or not travel is required for work.__","min=0
+__Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.__","Number of days per week {{nickname}} works
+__In a typical week, whether or not there is any travel for work.__","Nombre de jour(s) par semaine où vous travaillez
+__Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.__","Number of days per week you work
+__In a typical week, whether or not there is any travel for work.__","min=0
 max=7",,personWorkDaysConditional,,,,,,True,,,,,
 personTravelToWorkDays,Custom,True,household,householdMembers,travelToWorkDays,"Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
-__Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile__","Number of days per week {{nickname}} travels outside the home for work
-__In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home.__","Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail
-__Dans une semaine typique. Indiquer 0 si vous n'avez pas de lieu de travail ou ne travaillez que depuis votre domicile__","Number of days per week you travel outside the home for work
-__In a typical week. Enter 0 if you do not have a workplace or you work exclusively from home.__","min=0
+__Dans une semaine typique.__","Number of days per week {{nickname}} travels outside the home for work
+__In a typical week.__","Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail
+__Dans une semaine typique.__","Number of days per week you travel outside the home for work
+__In a typical week.__","min=0
 max=${currentPerson}.travelToWorkDays",,personWorkTripDaysConditional,,,,,,True,,,,,Custom because max of RadioNumber does not accept a path with ${currentPerson}
 personOccupation,Radio,True,household,householdMembers,occupation,**Occupation principale**,**Main occupation**,,,,,personOccupationCustomConditional,,personOccupation,,,,True,,,,,Custom conditional to set the default value depending on previous answers
 personEducationalAttainment,Radio,True,household,householdMembers,educationalAttainment,"Plus haut **niveau de scolarité**
@@ -179,32 +181,32 @@ personWhoWillAnswerForThisPerson,Radio,1,tripsIntro,,household.persons.{_activeP
 __Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou vous pouvez répondre pour {{gender:lui/elle/lui(-elle)}}__","Who is responding for {{nickname}}?
 __If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer on {{gender:his/her/their}} behalf.__",,,,,if2OrMorePersons14OrMoreYearsOldCustomConditional,,whoAnswersCustomChoices,,,,True,,,,,
 personDidTrips,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
-__Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.__","Did {{nickname}} make any trips on {{journeyDate}}?
-__Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.__","Vous êtes-vous déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
+__Inclure tous ses déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.__","Did {{nickname}} make any trips on {{journeyDate}}?
+__Include all their trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.__","Vous êtes-vous déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
 __Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.__","Did you make any trips on {{journeyDate}}?
 __Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.__",customLabels={{personDidTripsCustomLabel}},,,,yesNo,assignedDateHelpPopup,,,True,,,,,Custom label because has journey date. This widget should be in Evolution
 personDidTripsConfirm,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTripsConfirm,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que {{nickname}} ne s'est pas déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?,You previously reported trips. Can you confirm they were reported by mistake and that {{nickname}} did not travel on {{journeyDate}}?,Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et que vous n'avez fait aucun déplacement le {{journeyDate}}?,You previously reported trips. Do you confirm they were reported by mistake and that you did not travel on {{journeyDate}}?,customLabels={{personDidTripsConfirmCustomLabel}},,personDeclaredTripsCustomConditional,,personDidTripsConfirmCustomChoices,,,,,,,,,"Custom choices because of the presence of the assigned date in the string, conditional depends on trip count and main label has dates. This widget should be in Evolution"
 visitedPlacesIntro,InfoText,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.visitedPlacesIntro,"Nous allons vous demander d'indiquer les lieux où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} 
 
-- <span class=""_green"">Inclure</span> les lieux visités jusqu'à 4:00 le lendemain matin.
+- <span class=""_green"">Inclure</span> **tous les lieux visités** jusqu'à 4:00 le lendemain matin.
 - <span class=""_green"">Inclure</span> même **les petits arrêts** (station-service, garderie/école, dépanneur ou tout lieu où {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
 - <span class=""_green"">Inclure</span> **tous les lieux peu importe les modes de transport utilisés** pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).
 - <span class=""_red"">Ne pas inclure</span> **les lieux de transfert** en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si {{nickname}} est all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.","Please specify the places {{nickname}} went on {{journeyDate}}
 
-- <span class=""_green"">include</span> all places visited until 4 AM the following morning.
-<span class=""_green"">- **Include short stops and errands** (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
-- **Include all places** regardless of the mode of transportation used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
-<span class=""_red"">- **Do not include transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>","Nous allons vous demander d'indiquer les lieux où vous êtes all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} 
+- <span class=""_green"">Include</span> **all places visited** until 4 AM the following morning.
+- <span class=""_green"">Include</span>  **short stops and errands** (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- <span class=""_green"">Include</span> ** all places regardless of the mode of transportation** used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).
+- <span class=""_red"">Do not include</span> **transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.","Nous allons vous demander d'indiquer les lieux où vous êtes all{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}} 
 
-- <span class=""_green"">Inclure</span> les lieux visités jusqu'à 4:00 le lendemain matin.
+- <span class=""_green"">Inclure</span> **tous les lieux visités** jusqu'à 4:00 le lendemain matin.
 - <span class=""_green"">Inclure</span> même **les petits arrêts** (station-service, garderie/école, dépanneur ou tout lieu où vous êtes all{{gender:é/ée/é(e)/é(e)}} chercher ou reconduire quelqu'un).
 - <span class=""_green"">Inclure</span> **tous les lieux peu importe les modes de transport utilisés** pour s'y rendre (marche, vélo, voiture, transport collectif, taxi, avion, bateau, etc.).
 - <span class=""_red"">Ne pas inclure</span> **les lieux de transfert** en cours de déplacement (arrêts de bus, gares, terminus, lieux de stationnement, etc.) sauf si vous êtes all{{gender:é/ée/é(e)/é(e)}} reconduire ou chercher quelqu'un à cet endroit.","Please specify the places you went on {{journeyDate}}
 
-- <span class=""_green"">include</span> all places visited until 4 AM the following morning.
-<span class=""_green"">- **Include short stops and errands** (gas station, daycare/school, convenience store or any place where you picked someone up or dropped someone off).
-- **Include all places** regardless of the mode of transportation used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
-<span class=""_red"">- **Do not include transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless you went there to drop someone off or pick someone up.</span>",customLabels={{visitedPlacesIntroCustomLabel}},,personDidTripsConditional,,,,,,True,,,,,Custom label because has journey date. This widget should be in Evolution
+- <span class=""_green"">Include</span> **all places visited** until 4 AM the following morning.
+- <span class=""_green"">Include</span>  **short stops and errands** (gas station, daycare/school, convenience store or any place where you picked someone up or dropped someone off).
+- <span class=""_green"">Include</span> ** all places regardless of the mode of transportation** used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).
+- <span class=""_red"">Do not include</span> **transfer locations** (bus stops, train stations, terminals, parking lots, etc.) unless you went there to drop someone off or pick someone up.",customLabels={{visitedPlacesIntroCustomLabel}},,personDidTripsConditional,,,,,,True,,,,,Custom label because has journey date. This widget should be in Evolution
 personDeparturePlaceIsHome,Radio,1,tripsIntro,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceIsHome,"Est-ce que {{nickname}} a **commencé sa journée au domicile** ({{address}})?
 __Répondre 'Non' uniquement si {{nickname}} n'a pas dormi au domicile (nuit du {{dayOne}} au {{dayTwo}}), ou y est rentré{{gender:/e/(e)/(e)}} après 4h du matin (par ex. : travail de nuit).__","Did {{nickname}} **start their day at home** ({{address}})?
 __Answer 'No' only if {{nickname}} did not sleep at home (night of {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).__","Avez-vous **commencé votre journée au domicile** ({{address}})?
@@ -267,7 +269,7 @@ buttonSwitchPerson,Builtin,1,segments,,buttonSwitchPerson,Changer de personne,Ch
 personTripsTitle,Builtin,1,segments,,personTripsTitle,Déplacements de {{nickname}} le {{journeyDates}},Trips made by {{nickname}} on {{journeyDates}},Vos déplacements le {{journeyDates}},Trips you made on {{journeyDates}},,,,,,,,,True,,,,,
 personVisitedPlacesMap,Builtin,1,segments,,segmentsMap,Carte des déplacements de **{{nickname}}** le {{journeyDate}}:,Map of **{{nickname}}**’s trips on {{journeyDate}}:,Carte de vos déplacements le {{journeyDate}}:,Map of your trips on {{journeyDate}}:,,,,,,,,,,,,,,
 personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.trips,,,,,,,,,,,,,,,,,,
-segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}","Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}",,,,,,,,,,,,,,,,
+segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}","Please indicate all modes of transportation used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}",,,,,,,,,,,,,,,,
 segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,
 segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,Même mode que le déplacement précédent ({{previousMode}}),Same mode as the previous trip ({{previousMode}}),,,,,,,,,,,,,,,,
 segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
@@ -281,9 +283,7 @@ overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
 segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
 segmentSubwayStationStart,Custom,True,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationEnd,Custom,True,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
-segmentSubwayStationsTransfer,Radio,True,segments,segments,subwayStationsTransfer,"**Station(s) de transfert** :
-__Choisir ""aucune"" si aucun transfert n'a été effectué__","**Transfer station(s)**:
-__Choose ‘none’ if no transfer was made__",,,,,subwayTransferCustomConditional,,subwayStationsTransferCustomChoices,,,,True,,,,,
+segmentSubwayStationsTransfer,Radio,True,segments,segments,subwayStationsTransfer,**Station(s) de transfert** :,**Transfer station(s)**:,,,,,subwayTransferCustomConditional,,subwayStationsTransferCustomChoices,,,,True,,,,,
 segmentSubwayLine,Radio,1,segments,segments,subwayLine,**Ligne empruntée** entre Berri-UQAM et Lionel Groulx,**Line taken** between BerriUQAM and Lionel-Groulx,,,,,subwayLineConditional,,subwayLineChoices,,,,True,,,,,
 segmentTrainStationStart,Custom,1,segments,segments,trainStationStart,**Gare d'embarquement** (au départ) : ,**Boarding station** (when getting onto the train),,,,,trainConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentTrainStationEnd,Custom,1,segments,segments,trainStationEnd,**Gare de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the train),,,,,trainConditional,trainCustomValidation,,,,,True,,,,,"Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
@@ -335,13 +335,13 @@ __Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguan
 __Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.__",,,,,hasWorkingLocationNotSetCustomConditional,,,,,,True,,,,,Custom because it's a map
 personUsualWorkPlaceCommuting,Radio,True,travelBehavior,,household.persons.{_activePersonId}.usualWorkPlaceCommuting,"Quel moyen de transport utilise habituellement {{nickname}} pour** se rendre à son lieu de travail?** 
 __Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
-Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.__","What mode of transportation does {{nickname}} usually use **to travel to their workplace?**
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus.__","What mode of transportation does {{nickname}} usually use **to travel to their workplace?**
 __If multiple modes are used, indicate the one that represents the largest share of distance traveled.
-If {{nickname}} works at multiple locations, respond based on the location visited most frequently.__","Quel moyen de transport utilisez-vous habituellement pour** vous rendre à votre lieu de travail?** 
+If {{nickname}} works at multiple locations, respond based on the location identified above.__","Quel moyen de transport utilisez-vous habituellement pour** vous rendre à votre lieu de travail?** 
 __Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
-Si vous fréquentez plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité.__","What mode of transportation do you usually use **to travel to your workplace?**
+Si vous fréquentez plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus.__","What mode of transportation do you usually use **to travel to your workplace?**
 __If multiple modes are used, indicate the one that represents the largest share of distance traveled.
-If you work at multiple locations, respond based on the location visited most frequently.__",customLabels={{personUsualWorkPlaceCommutingCustomLabel}},,hasWorkingLocationNotSetCustomConditional,,usualWorkPlaceCommutingModes,usualWorkPlaceCommutingHelpPopup,,,True,,,,,Custom label for suffix by workplace type
+If you work at multiple locations, respond based on the location identified above.__",customLabels={{personUsualWorkPlaceCommutingCustomLabel}},,hasWorkingLocationNotSetCustomConditional,,usualWorkPlaceCommutingModes,usualWorkPlaceCommutingHelpPopup,,,True,,,,,Custom label for suffix by workplace type
 personNoSchoolTripIntro,InfoText,1,travelBehavior,,household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoSchoolTripIntro,**Vous n'avez déclaré aucun déplacement pour les études** pour {{nickname}} le {{journeyDate}},**You didn't report any study trips** for {{nickname}} on {{journeyDate}},Vous avez déclaré n'avoir fait **aucun déplacement pour les études** le {{journeyDate}},**You didn't report any study trips** on {{journeyDate}},customLabels={{personNoSchoolTripIntroCustomLabel}},,shouldAskForNoSchoolTripFollowupCustomConditional,,,,,,True,,,,,Custom label because of the date placeholder
 personHasSchoolPlace,Radio,True,travelBehavior,,household.persons.{_activePersonId}.hasSchoolPlace,"Est-ce que {{nickname}} se rend dans un **établissement scolaire** pour étudier?
 __Répondre ‘Non’ seulement si {{nickname}} n’effectue que des cours à distance.__","Does {{nickname}} attend **a school or educational institution** for studies?
@@ -401,18 +401,22 @@ Elles sont posées à un seul répondant du ménage.","The following questions a
 They are asked to a single respondent in the household.",,,,,,,,,,,True,,,,,
 selectFreqPerson,Radio,True,selectFreqPerson,,_freqPersonId,Qui répondra à ces questions?,Who will answer those questions?,,,,,,,hhAge16PlusCustomChoices,,,,True,,,,,
 buttonCompleteSelectFreqPersonSection,NextButton,1,selectFreqPerson,,buttonCompleteSelectFreqPersonSection,Confirmer,Confirm,,,,,,,,,,,,,,,,
-anyTripModeFrequenciesIntro,InfoText,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesIntro,"À quelle **fréquence** utilisez-vous les **modes de transport** suivants?
+anyTripModeFrequenciesIntro,InfoText,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesIntro,"À quelle **fréquence** utilisez-vous ({{nickname}}) les **modes de transport** suivants?
+__Pour tous vos déplacements, peu importe l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).
+Pensez au mois en cours, hors tempêtes majeures.__","**How often** do you ({{nickname}}) use the following **modes of transportation?**
+__For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.).
+Think about the current month, excluding major storms.__","À quelle **fréquence** utilisez-vous les **modes de transport** suivants?
 __Pour tous vos déplacements, peu importe l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).
 Pensez au mois en cours, hors tempêtes majeures.__","**How often** do you use the following **modes of transportation?**
 __For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.).
-Think about the current month, excluding major storms.__",,,,,,,,,,,True,,,,,
+Think about the current month, excluding major storms.__",customLabels={{frequencyIntroCustomLabel}},,,,,,,,True,,,,,
 anyTripModeFrequenciesWalk,Radio,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesWalk,Fréquence d'utilisation du mode : **Marche** (pour la majorité du trajet),Frequency of use of the mode: **Walk** (for most of the trip),,,,,,optionalValidation,anyTripModeFrequenciesChoices,,,,True,,,,,
 anyTripModeFrequenciesBicycle,Radio,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesBicycle,"Fréquence d'utilisation du mode : **Vélo** et autres modes actifs (trottinette, patins ou planche à roulettes)","Frequency of use of the mode: **Bike** and other active modes (scooter, rollerblades, skateboard)",,,,,,optionalValidation,anyTripModeFrequenciesChoices,,,,True,,,,,
 anyTripModeFrequenciesTransit,Radio,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesTransit,"Fréquence d'utilisation du mode : **Transport en commun** (bus, métro, REM, train)","Frequency of use of the mode: **Public transit** (bus, metro, REM, train)",,,,,,optionalValidation,anyTripModeFrequenciesChoices,,,,True,,,,,
 anyTripModeFrequenciesCarPassenger,Radio,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesCarPassenger,Fréquence d'utilisation du mode : **Auto-passager**,Frequency of use of the mode: **Car passenger**,,,,,,optionalValidation,anyTripModeFrequenciesChoices,,,,True,,,,,
 anyTripModeFrequenciesCarDriver,Radio,1,frequencies,,freqAttitudinal.anyTripModeFrequenciesCarDriver,Fréquence d'utilisation du mode : **Auto-conducteur**,Frequency of use of the mode: **Car driver**,,,,,hasDrivingLicenseConditional,optionalValidation,anyTripModeFrequenciesChoices,,,,True,,,,,
 buttonCompleteFrequenciesSection,NextButton,1,frequencies,,buttonCompleteFrequenciesSection,Continuer,Continue,,,,,,,,,,,,,,,,
-attitudinalIntro,InfoText,1,attitudinal,,freqAttitudinal.attitudinalIntro,"Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique ","For this set of questions, we ask you to indicate how much you agree or disagree with a specific statement.",,,,,,,,,,,True,,,,,
+attitudinalIntro,InfoText,1,attitudinal,,freqAttitudinal.attitudinalIntro,"Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier dans **quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.**","For this set of questions, we ask you ({{nickname}}) to indicate **how much you agree or disagree with a specific statement**.","Pour cette série de questions, nous vous demandons de quantifier dans **quelle mesure vous êtes d’accord ou non avec une affirmation spécifique**.","For this set of questions, we ask you to indicate **how much you agree or disagree with a specific statement**.",customLabels={{attitudinalIntroCustomLabel}},,,,,,,,True,,,,,
 attitudinalOpinion,Radio,1,attitudinal,,freqAttitudinal.attitudinalOpinion,"L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.","The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips",,,,,,optionalValidation,attitudinalChoices,,,,True,,,,,
 attitudinalCar,Radio,1,attitudinal,,freqAttitudinal.attitudinalCar,La voiture personnelle représente pour moi l’indépendance et l’autonomie.,A personal car represents independence and autonomy for me.,,,,,,optionalValidation,attitudinalChoices,,,,True,,,,,
 attitudinalTransitGoodQuality,Radio,1,attitudinal,,freqAttitudinal.attitudinalTransitGoodQuality,"Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.","Overall, public transit in the region where I live is useful and of good quality.",,,,,,optionalValidation,attitudinalChoices,,,,True,,,,,
@@ -421,7 +425,7 @@ attitudinalRequireHighLevel,Radio,1,attitudinal,,freqAttitudinal.attitudinalRequ
 attitudinalEasyWithoutCar,Radio,1,attitudinal,,freqAttitudinal.attitudinalEasyWithoutCar,"Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. ","It would be easy for me to make most of my trips without a personal car, using public transit or active modes.",,,,,,optionalValidation,attitudinalChoices,,,,True,,,,,
 attitudinalGoodAccessImportant,Radio,1,attitudinal,,freqAttitudinal.attitudinalGoodAccessImportant,"Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.","When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me.",,,,,,optionalValidation,attitudinalChoices,,,,True,,,,,
 buttonCompleteAttitudinalSection,NextButton,1,attitudinal,,buttonCompleteAttitudinalSection,Continuer,Continue,,,,,,,,,,,,,,,,
-barriersTrip,InfoText,1,barriers,,barriersTrip,Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}},Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}},,,customLabels={{barriersTripCustomLabel}},,hasBarrierTripConditional,,,,,,True,,,,,
+barriersTrip,InfoText,1,barriers,,barriersTrip,Déplacement de {{nickname}} pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}},Trip of {{nickname}} for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}},Déplacement pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}},Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}},customLabels={{barriersTripCustomLabel}},,hasBarrierTripConditional,,,,,,True,,,,,
 barriersIntro,InfoText,1,barriers,,barriersIntro,"Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, **indiquez s’ils ont constitué un frein à l’utilisation du transport en commun** (bus, métro, train ou REM), pour ce **déplacement**.","For the trip shown above, you used a car. For each of the following items, **indicate whether they were a barrier to using public transit** (bus, metro, train, or REM) for this **trip**.",,,,,hasBarrierTripConditional,,,,,,True,,,,,
 barriersFrequency,Radio,1,barriers,,barriersFrequency,"La **fréquence de passage** du transport en commun ou TC (ex. : passages espacés, longue attente)","**Public transit frequency** (e.g., infrequent service, long waiting times)",,,,,hasBarrierTripConditional,optionalValidation,barriersChoices,,,,True,,,,,
 barriersReliability,Radio,1,barriers,,barriersReliability,"La **fiabilité** du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)","**Reliability** of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)",,,,,hasBarrierTripConditional,optionalValidation,barriersChoices,,,,True,,,,,
@@ -482,13 +486,13 @@ Nous vous remercions d'avoir pris le temps de remplir ce questionnaire. **Vos r�
 
 Les données que vous nous avez fournies contribueront aux efforts de planification de l'ARTM et de ses partenaires ainsi qu’à favoriser une meilleure compréhension des enjeux d'accès et de mobilité dans la grande région de Montréal.
 
-Vous vivez dans le territoire de l’ARTM et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (**500 $**) sont à gagner parmi les participants chaque mois et **1 000 $** par année. Veuillez **cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité** de l’ARTM :","**Thank you for your participation!**
+Vous vivez dans le <a href=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" target=""_blank"">territoire de l’ARTM</a> et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (**500 $**) sont à gagner parmi les participants chaque mois et **1 000 $** par année. Veuillez **cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité** de l’ARTM. ","**Thank you for your participation!**
 
 __You can modify your answers by clicking on the sections in the menu above.__
 Thank you for taking the time to complete this questionnaire. **Your responses have been successfully recorded**. If you provided an email address and checked the box indicating your interest in participating in the contest, you are eligible for the prize draw.
 
 The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of access and mobility issues in the Greater Montréal area.
 
-Live within the ARTM territory and interested in helping improve mobility by sharing your opinion regularly? **Click the button below to sign up for the ARTM's Let's talk mobility panel**. $500 monthly and $1,000 annual prize draws among participants.",,,,,,,,,,,True,,,,,
-buttonARTMPanel,Custom,1,completed,,buttonARTMPanel,Allez au panel « Parlons mobilité »,Go to « Let's talk mobility » panel,,,,,,,,,,,,,,,,
-mapARTMImage,InfoText,1,completed,,mapARTMImage," <div style=""text-align:center;""><img src=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" alt=""Territoire ARTM"" style=""max-width:1000px;width:100%;height:auto;"" /></div>"," <div style=""text-align:center;""><img src=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" alt=""ARTM territory"" style=""max-width:1000px;width:100%;height:auto;"" /></div>",,,,,,,,,,,True,,,,,
+Do you live within the <a href=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" target=""_blank"">ARTM territory</a> and are you interested in helping improve mobility by sharing your opinion on a regular basis? If so, click the button below to sign up for the ARTM’s Let's talk mobility panel. $500 monthly and $1,000 annual prizes up for grabs.",,,,,,,,,,,True,,,,,
+buttonARTMPanel,Custom,1,completed,,buttonARTMPanel,S'inscrire au panel « Parlons mobilité »,Join « Let's talk mobility » panel,,,,,,,,,,,,,,,,
+mapARTMImage,InfoText,False,completed,,mapARTMImage," <div style=""text-align:center;""><img src=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" alt=""Territoire ARTM"" style=""max-width:1000px;width:100%;height:auto;"" /></div>"," <div style=""text-align:center;""><img src=""https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"" alt=""ARTM territory"" style=""max-width:1000px;width:100%;height:auto;"" /></div>",,,,,,,,,,,True,,,,,

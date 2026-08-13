@@ -56,6 +56,7 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     useParatransitTransitFrequency: '1to3daysPerMonth', // Question won't show, need special ep
     workerType: 'fullTime',
     studentType: 'no',
+    job: 'préposée marketing',
     jobType: 'administration',
     workPlaceType: 'onLocation',
     workDays: null,
@@ -87,6 +88,7 @@ const person2: commonUITestsHelpers.HouseholdMember = {
     useParatransitTransitFrequency: null, // Question won't show, need special ep
     workerType: 'fullTime',
     studentType: 'no',
+    job: 'col blanc',
     jobType: 'administration',
     workPlaceType: 'hybrid',
     workDays: '4',

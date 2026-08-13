@@ -30,13 +30,13 @@ personUsualWorkPlaceCommuting: >-
     à son lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
     modes sont utilisés, indiquer le mode qui représente la plus grande partie de
     la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux, répondre
-    en fonction du lieu le plus fréquemment visité.</span>
+    en fonction du lieu déclaré ci-dessus.</span>
 personUsualWorkPlaceCommuting_one: >-
     Quel moyen de transport utilisez-vous habituellement pour<strong> vous rendre
     à votre lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
     modes sont utilisés, indiquer le mode qui représente la plus grande partie de
     la distance parcourue.<br />Si vous fréquentez plusieurs lieux, répondre en fonction
-    du lieu le plus fréquemment visité.</span>
+    du lieu déclaré ci-dessus.</span>
 personNoSchoolTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour les études</strong> pour {{nickname}}
     le {{journeyDate}}

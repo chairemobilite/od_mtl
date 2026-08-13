@@ -3,8 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 attitudinalIntro: >-
-    Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure
-    vous êtes d’accord ou non avec une affirmation spécifique 
+    Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier
+    dans <strong>quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.</strong>
+attitudinalIntro_one: >-
+    Pour cette série de questions, nous vous demandons de quantifier dans <strong>quelle
+    mesure vous êtes d’accord ou non avec une affirmation spécifique</strong>.
 attitudinalOpinion: >-
     L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence
     mes choix de mode de transport pour mes trajets habituels.

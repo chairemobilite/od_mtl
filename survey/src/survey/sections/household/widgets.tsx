@@ -35,7 +35,12 @@ export const personAge: WidgetConfig.InputStringType = {
     path: 'age',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('household:personAge'),
+    label: (t: TFunction, interview, path) => {
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personAge', {
+            count: countPersons
+        });
+    },
     conditional: defaultConditional,
     validations: validations.ageValidation
 };
@@ -324,6 +329,24 @@ export const personWorkerType: WidgetConfig.InputRadioType = {
     helpPopup: customHelpPopup.workerHelpPopup,
     choices: choices.participationStatusWorker,
     conditional: conditionals.ifAge14orMoreConditional,
+    validations: validations.requiredValidation
+};
+
+export const personJob: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'job',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction, interview, path) => {
+        const activePerson = odSurveyHelpers.getPerson({ interview, path });
+        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
+        const countPersons = odSurveyHelpers.countPersons({ interview });
+        return t('household:personJob', {
+            nickname,
+            count: countPersons
+        });
+    },
+    conditional: conditionals.isWorkerConditional,
     validations: validations.requiredValidation
 };
 
