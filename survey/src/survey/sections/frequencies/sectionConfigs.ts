@@ -7,7 +7,7 @@ import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types
 import { widgetsNames } from './widgetsNames';
 import { getPersonsOfDrivingAge, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { isPartialSample } from '../../common/commonHelpers';
+import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'frequencies';
 const previousSectionName: SectionConfig['previousSection'] = 'selectFreqPerson';
@@ -38,7 +38,7 @@ export const sectionConfig: SectionConfig = {
     completionConditional: function (interview) {
         // Completed if ep is not mtmd or actually completed
         return (
-            !isPartialSample(interview, visibleEps) ||
+            !preEndNoDisabilityConditional(interview, visibleEps) ||
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
     },
@@ -55,7 +55,7 @@ export const sectionConfig: SectionConfig = {
     },
     isSectionVisible: (interview) => {
         // Section visible seulement si ep exclusif est est l'un des 3 avec freq
-        return isPartialSample(interview, visibleEps);
+        return preEndNoDisabilityConditional(interview, visibleEps);
     }
 };
 

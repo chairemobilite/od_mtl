@@ -43,6 +43,25 @@ export const isPartialSample = (interview: InterviewAttributes, partialSample: s
     return typeof epExclusive === 'string' ? partialSamples.includes(epExclusive) : false;
 };
 
+/**
+ * Return if the home is in the artm territory
+ * @param interview The interview
+ * @returns boolean `true` if the home geography is in the artm territory
+ */
+export const isHomeInArtmTerritory = (interview: InterviewAttributes) =>
+    getResponse(interview, 'home.geography.properties.isArtmZone', false) === true;
+
+/**
+ * Conditional for the preEnd sections that require no disabilities and home in
+ * artm territory
+ * @param interview The interview
+ * @param partialSample The partial sample.s to confirm if this interview is
+ * part of
+ * @returns `true` if the condition is met
+ */
+export const preEndNoDisabilityConditional = (interview: InterviewAttributes, partialSample: string | string[]) =>
+    isPartialSample(interview, partialSample) && isHomeInArtmTerritory(interview);
+
 export const getCommonTripReferencePerson = (interview: InterviewAttributes) => {
     // Get the common trip reference person id
     const commonTripReferencePersonId = getResponse(interview, '_commonTripRefPersonId', null) as string | null;

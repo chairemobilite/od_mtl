@@ -7,7 +7,7 @@ import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types
 import { widgetsNames } from './widgetsNames';
 import { hasMoreThanOnePersonOfDrivingAge, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { isPartialSample } from '../../common/commonHelpers';
+import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'selectFreqPerson';
 const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
@@ -39,7 +39,7 @@ export const sectionConfig: SectionConfig = {
         // Completed if partial sample is not one of the frequencies or actually
         // completed or if the household has only one person of driving age
         return (
-            !isPartialSample(interview, visibleEps) ||
+            !preEndNoDisabilityConditional(interview, visibleEps) ||
             !hasMoreThanOnePersonOfDrivingAge(interview) ||
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
@@ -48,7 +48,7 @@ export const sectionConfig: SectionConfig = {
     isSectionVisible: (interview) => {
         // Section visible seulement si échantillon partiel exclusif est est
         // l'un des 3 avec freq et qu'il y a plus d'un membre en âge de conduire (16 ans)
-        return isPartialSample(interview, visibleEps) && hasMoreThanOnePersonOfDrivingAge(interview);
+        return preEndNoDisabilityConditional(interview, visibleEps) && hasMoreThanOnePersonOfDrivingAge(interview);
     }
 };
 
