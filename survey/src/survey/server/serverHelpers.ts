@@ -17,6 +17,8 @@ import onDemandZones from '../geojson/onDemandTransit_zone.json';
 // utils is very utile, so it should be moved elsewhere
 // (https://github.com/chairemobilite/evolution/issues/1792)
 import { getSurveyArea } from 'evolution-backend/lib/utils/surveyArea';
+import { questionnaireConfiguration } from '../questionnaireConfigBase';
+import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnaire';
 
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
@@ -343,4 +345,25 @@ export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature
             onDemandZonesFeatureCollection.features.find((f) => booleanPointInPolygon(geography, f)) !== undefined
     };
     return responses;
+};
+
+/**
+ * Call upon server startup, to make sure helpers are configured for the current
+ * questionnaire's configuration
+ *
+ * FIXME It does not make sense to have to do this, to call the factory with
+ * functions that do nothing. The configuration should depend on nothing
+ * frontend-only and it should somewhat be more automatic, when the
+ * questionnaire config is somewhere official in Evolution. Maybe in the project
+ * config itself. The API is not stable enough for now though. Ftr, we need this
+ * to enable the segment's next/previous location lookup from geojson
+ * stations/stops files.
+ */
+export const setupQuestionnaire = () => {
+    const questionnaireFactory = new QuestionnaireFactory(questionnaireConfiguration, {
+        getFormattedDate: (date) => date,
+        buttonActions: { validateButtonAction: () => true, validateButtonActionWithCompleteSection: () => true },
+        iconMapper: {}
+    });
+    questionnaireFactory.buildSectionsAndWidgets();
 };

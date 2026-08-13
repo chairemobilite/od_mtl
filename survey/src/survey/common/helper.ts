@@ -2,7 +2,6 @@ import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment-business-days';
-import { distance as turfDistance } from '@turf/turf';
 import { isFeature } from 'geojson-validation';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';

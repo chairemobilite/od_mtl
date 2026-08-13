@@ -11,6 +11,7 @@ import { setProjectConfig } from 'evolution-backend/lib/config/projectConfig';
 import { registerTranslationDir, addTranslationNamespace } from 'chaire-lib-backend/lib/config/i18next';
 import serverUpdateCallbacks from './survey/server/serverFieldUpdate';
 import serverValidations from './survey/server/serverValidations';
+import { setupQuestionnaire } from './survey/server/serverHelpers';
 
 const configureServer = () => {
     setProjectConfig({
@@ -20,6 +21,7 @@ const configureServer = () => {
 };
 
 setupServer(configureServer);
+setupQuestionnaire();
 
 // FIXME Project directory is for runtime, locales should be in the config file (See #420)
 registerTranslationDir(path.join(__dirname, '../locales/'));

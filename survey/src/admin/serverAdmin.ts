@@ -16,6 +16,7 @@ import roleDefinitions from './server/roleDefinitions';
 import { setupMonitoringView } from './monitoring';
 import adminRoutes from './routes/admin.routes';
 import { surveyObjectParsers } from './parsers';
+import { setupQuestionnaire } from '../survey/server/serverHelpers';
 
 // TODO Add validation list filter if necessary
 const configureServer = () => {
@@ -32,6 +33,7 @@ const configureServer = () => {
 };
 
 setupServer(configureServer);
+setupQuestionnaire();
 
 // FIXME Project directory is for runtime, locales should be in the config file (See #420)
 registerTranslationDir(path.join(__dirname, '../../locales/'));
