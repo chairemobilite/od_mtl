@@ -286,10 +286,10 @@ describe('access code update', () => {
     });
 
     test.each([
-        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
-    ])('test home region assignation with geometry $title', async ({ expectedRA, expectedZat, expectedInTerritory, geography }) => {
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, expectedArtmTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } }
+    ])('test home region assignation with geometry $title', async ({ expectedRA, expectedZat, expectedInTerritory, expectedArtmTerritory, geography }) => {
         const interview = _cloneDeep(baseInterview);
         interview.response.accessCode = '1111-1111';
 
@@ -308,6 +308,7 @@ describe('access code update', () => {
         expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
         expect(updateResult['home.geography.properties.zat']).toEqual(expectedZat);
         expect(updateResult['home.geography.properties.isInTerritory']).toEqual(expectedInTerritory)
+        expect(updateResult['home.geography.properties.isArtmZone']).toEqual(expectedArtmTerritory)
     });
 
 });
@@ -481,13 +482,13 @@ describe('home geography update', () => {
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'home.geography') as any).callback;
 
     test.each([
-        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'RA1', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'RA8', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, expectedArtmTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
         { title: 'not a point', geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
         { title: 'not a geojson feature', geography: 'a string value' },
         { title: 'undefined', geography: undefined }
-    ])('test home geography update: $title', async ({ expectedRA, geography, expectedZat, expectedInTerritory }) => {
+    ])('test home geography update: $title', async ({ expectedRA, geography, expectedZat, expectedInTerritory, expectedArtmTerritory }) => {
         const interview = _cloneDeep(baseInterview);
 
         const updateResult = await updateCallback(interview, geography);
@@ -505,11 +506,8 @@ describe('home geography update', () => {
             expect(updateResult['home.geography.properties.RA']).toEqual(expectedRA);
         }
 
-        if (expectedInTerritory === undefined) {
-            expect(updateResult['home.geography.properties.isInTerritory']).toBeUndefined();
-        } else {
-            expect(updateResult['home.geography.properties.isInTerritory']).toEqual(expectedInTerritory);
-        }
+        expect(updateResult['home.geography.properties.isInTerritory']).toEqual(expectedInTerritory);
+        expect(updateResult['home.geography.properties.isArtmZone']).toEqual(expectedArtmTerritory);
     });
 });
 
@@ -520,13 +518,13 @@ describe('visited place geography update', () => {
     const updateCallback = (updateCallbacks.find((callback) => (callback.field as {regex: string}).regex !== undefined && (callback.field as {regex: string}).regex.includes('visitedPlaces') && (callback.field as {regex: string}).regex.includes('geography')) as any).callback;
 
     test.each([
-        { title: 'zat 20', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
-        { title: 'zat 1295', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
-        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
+        { title: 'zat 20', expectedRA: 1, expectedZat: 20, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.5636531, 45.4998788] } } },
+        { title: 'zat 1295', expectedRA: 8, expectedZat: 1295, expectedInTerritory: true, expectedArtmTerritory: true, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-73.6890569, 45.2877987] } } },
+        { title: 'outside zone', expectedRA: null, expectedZat: null, expectedInTerritory: false, expectedArtmTerritory: false, geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'Point', coordinates: [-72.9151298, 45.2640302] } } },
         { title: 'not a point', geography: { type: 'Feature', properties: { lastAction: 'preGeocoded' }, geometry: { type: 'LineString', coordinates: [[-72.9151298, 45.2640302], [-72.92, 45.26], [-72.88, 45.44], [-72.234, 45.123]] } } },
         { title: 'not a geojson feature', geography: 'a string value' },
         { title: 'undefined', geography: undefined }
-    ])('test visited place geography update: $title', async ({ expectedRA, expectedZat, expectedInTerritory, geography }) => {
+    ])('test visited place geography update: $title', async ({ expectedRA, expectedZat, expectedInTerritory, expectedArtmTerritory, geography }) => {
         const interview = _cloneDeep(baseInterview);
         const basePath = 'household.persons.a12345.journeys.j1.visitedPlaces.p2.geography';
         const updateResult = await updateCallback(interview, geography, basePath);
@@ -544,11 +542,8 @@ describe('visited place geography update', () => {
             expect(updateResult[`${basePath}.properties.RA`]).toEqual(expectedRA);
         }
 
-        if (expectedInTerritory === undefined) {
-            expect(updateResult[`${basePath}.properties.isInTerritory`]).toBeUndefined();
-        } else {
-            expect(updateResult[`${basePath}.properties.isInTerritory`]).toEqual(expectedInTerritory);
-        }
+        expect(updateResult[`${basePath}.properties.isInTerritory`]).toEqual(expectedInTerritory);
+        expect(updateResult[`${basePath}.properties.isArtmZone`]).toEqual(expectedArtmTerritory);
     });
 });
 
