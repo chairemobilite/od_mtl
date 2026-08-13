@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - "main"
+      - "2026"
   workflow_dispatch:
 
 env:
