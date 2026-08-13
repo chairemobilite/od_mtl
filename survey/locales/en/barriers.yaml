@@ -3,6 +3,9 @@
 # Any changes made to this file will be overwritten.
 
 barriersTrip: >-
+    Trip of {{nickname}} for motive {{activity}}: {{origin}} to {{destination}} at
+    {{originDepartureTime}}
+barriersTrip_one: >-
     Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersIntro: >-
     For the trip shown above, you used a car. For each of the following items, <strong>indicate

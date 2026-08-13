@@ -207,17 +207,16 @@ Field,transitPass
 Question type,Checkbox input
 Conditional,transitPassConditional : age >= 12 && usedTransitInLast30Days === yes
 Question,"Type of pass or subscription used for public transit in the past 30 days
-Include free passes.
-ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM."
-Values,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : ARTM monthly or annual pass
-transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : ARTM monthly or annual pass (including senior passes)
-tickets : ARTM individual tickets or fares
-other : Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+Include free passes."
+Values,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : Monthly or annual pass valid with STM, RTL, STL, exo or REM
+transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior passes)
+tickets : Individual tickets or fares
+other : Other pass or fare
 dontKnow : Don't know"
 ""
 Field,transitFare
 Question type,Radio input
-Conditional,transitFareConditional : transitPass === transitPassARTM
+Conditional,transitFareConditional : transitPass === transitPassARTM || transitPass === transitPassARTMWithElderly
 Question,"Type of pass used as a valid monthly subscription for the current month
 A, AB, ABC, and ABCD refer to ARTM fare zones."
 Values,"A : All modes A
@@ -227,6 +226,7 @@ ABCD : All modes ABCD
 bus : Bus (ABC)
 busCD : Out-of-territory bus (CD)
 opusWithTicketsOnly : OPUS card with individual fares only
+employee : Employee/retiree transit agency pass
 otherTerritory : Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 other : Other (specify)
 none : None for the current month
@@ -241,7 +241,7 @@ Values,yes : I confirm
 ""
 Field,hasDisability
 Question type,Radio input
-Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : age >= 5 && (hh_atLeastOnePersonWithDisability === yes || hh_size === 1)
 Question,"Permanent physical, intellectual or other disability that affects or limits {{nickname}}’s daily travel?
 Ex: mobility-related, visual, other…"
 Values,"yes : Yes
@@ -347,6 +347,12 @@ Values,"fullTime : Yes, full time (30h and more/week)
 partTime : Yes, part time (less than 30h/week)
 no : No"
 ""
+Field,job
+Question type,Text input
+Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,"Profession or name of job of {{nickname}}
+Ex: Butcher, lawyer, delivery-person, nurse, etc."
+""
 Field,jobType
 Question type,Radio input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
@@ -375,14 +381,13 @@ Field,workDays
 Question type,RadioNumber
 Conditional,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Number of days per week {{nickname}} works
-In a typical week. Whether or not travel is required for work.
-"
+In a typical week, whether or not there is any travel for work."
 ""
 Field,travelToWorkDays
 Question type,Unknown input
 Conditional,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Number of days per week {{nickname}} travels outside the home for work
-In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home."
+In a typical week."
 ""
 Field,occupation
 Question type,Radio input
@@ -452,7 +457,7 @@ If {{nickname}} is available, {{gender:he/she/they}} can complete this section, 
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Question type,Radio input
 Question,"Did {{nickname}} make any trips on {{journeyDate}}?
-Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off."
+Include all their trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off."
 Values,"yes : Yes
 no : No"
 ""
@@ -616,7 +621,7 @@ Question,Map of {{nickname}}’s trips on {{journeyDate}}:
 ""
 Field,segmentsIntro
 Question type,Builtin
-Question,"Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}"
+Question,"Please indicate all modes of transportation used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}"
 ""
 Field,segments
 Question type,Builtin
@@ -659,8 +664,7 @@ Question,Exit station (when leaving the metro):
 Field,subwayStationsTransfer
 Question type,Radio input
 Conditional,subwayTransferCustomConditional
-Question,"Transfer station(s):
-Choose ‘none’ if no transfer was made"
+Question,Transfer station(s):
 ""
 Field,subwayLine
 Question type,Radio input
@@ -880,7 +884,7 @@ Question type,Radio input
 Conditional,hasWorkingLocationNotSetCustomConditional
 Question,"What mode of transportation does {{nickname}} usually use to travel to their workplace?
 If multiple modes are used, indicate the one that represents the largest share of distance traveled.
-If {{nickname}} works at multiple locations, respond based on the location visited most frequently."
+If {{nickname}} works at multiple locations, respond based on the location identified above."
 Values,"carDriver : Personal car (can belong to self, friend, family, etc)
 carPassenger : Passenger (car/motorcycle/moped)
 transit : Public transit
@@ -1510,4 +1514,4 @@ Abbreviation,c_
 ""
 Field,buttonARTMPanel
 Question type,Unknown input
-Question,Go to « Let's talk mobility » panel
+Question,Join « Let's talk mobility » panel

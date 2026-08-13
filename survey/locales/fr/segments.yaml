@@ -21,9 +21,7 @@ segmentVehicleOccupancy: >-
 segmentDriver: Qui conduisait ?
 segmentSubwayStationStart: "<strong>Station d'embarquement</strong> (au départ) : "
 segmentSubwayStationEnd: "<strong>Station de débarquement</strong> (à l'arrivée) : "
-segmentSubwayStationsTransfer: >-
-    <strong>Station(s) de transfert</strong> :<br /><span class="_pale _oblique">Choisir
-    "aucune" si aucun transfert n'a été effectué</span>
+segmentSubwayStationsTransfer: '<strong>Station(s) de transfert</strong> :'
 segmentSubwayLine: <strong>Ligne empruntée</strong> entre Berri-UQAM et Lionel Groulx
 segmentTrainStationStart: "<strong>Gare d'embarquement</strong> (au départ) : "
 segmentTrainStationEnd: "<strong>Gare de débarquement</strong> (à l'arrivée) : "

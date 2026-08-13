@@ -20,8 +20,8 @@ homeIsMain:
         No, it is my secondary residence and my household mainly lives at another
         address
 maleFemalePreferNotAnswer:
-    female: Female
-    male: Male
+    female: Woman
+    male: Man
 maleFemaleCustomPreferNotToAnswer:
     female: Woman
     male: Man
@@ -58,10 +58,12 @@ jobTypes:
         Manufacturing, trades and other jobs<br /><span class="_pale _oblique">factory,
         construction, skilled trades, transportation, warehousing…</span>
 transitPassType:
-    transitPassARTM: ARTM monthly or annual pass
-    transitPassARTMWithElderly: ARTM monthly or annual pass (including senior passes)
-    tickets: ARTM individual tickets or fares
-    other: Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+    transitPassARTM: Monthly or annual pass valid with STM, RTL, STL, exo or REM
+    transitPassARTMWithElderly: >-
+        Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior
+        passes)
+    tickets: Individual tickets or fares
+    other: Other pass or fare
 transitFareType:
     A: All modes A
     AB: All modes AB
@@ -70,6 +72,7 @@ transitFareType:
     bus: Bus (ABC)
     busCD: Out-of-territory bus (CD)
     opusWithTicketsOnly: OPUS card with individual fares only
+    employee: Employee/retiree transit agency pass
     otherTerritory: Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
     none: None for the current month
 transitFareWarning:

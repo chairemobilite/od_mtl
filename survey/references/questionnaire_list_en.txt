@@ -26,8 +26,8 @@ Please enter the email so we can contact you.
 
 Email address
 
-Address pre-filled according to the access code.
-Please check this information or change it.
+Your address has been pre-filled based on your access code.
+Please verify that the information is correct and update it if necessary.
 
 Address
 
@@ -134,11 +134,10 @@ Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)
 
 Type of pass or subscription used for public transit in the past 30 days
 Include free passes.
-ARTM fare products allow access to STM (metro and bus), STL, RTL, exo (train and bus), and the REM.
-- ARTM monthly or annual pass
-- ARTM monthly or annual pass (including senior passes)
-- ARTM individual tickets or fares
-- Other pass or fare (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
+- Monthly or annual pass valid with STM, RTL, STL, exo or REM
+- Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior passes)
+- Individual tickets or fares
+- Other pass or fare
 - Don't know
 
 Type of pass used as a valid monthly subscription for the current month
@@ -150,6 +149,7 @@ A, AB, ABC, and ABCD refer to ARTM fare zones.
 - Bus (ABC)
 - Out-of-territory bus (CD)
 - OPUS card with individual fares only
+- Employee/retiree transit agency pass
 - Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 - Other (specify)
 - None for the current month
@@ -235,6 +235,9 @@ Including self-employed workers, artists, or those on long-term leave.
 - Yes, part time (less than 30h/week)
 - No
 
+Profession or name of job of {{nickname}}
+Ex: Butcher, lawyer, delivery-person, nurse, etc.
+
 Type of employment of {{nickname}}
 - Professional
 engineer, analyst, teacher, researcher, health professional…
@@ -254,11 +257,10 @@ Which of the following best describes {{nickname}}’s work arrangement?
 - Works on the road, starting from home
 
 Number of days per week {{nickname}} works
-In a typical week. Whether or not travel is required for work.
-
+In a typical week, whether or not there is any travel for work.
 
 Number of days per week {{nickname}} travels outside the home for work
-In a typical week. Enter 0 if the person does not have a workplace or works exclusively from home.
+In a typical week.
 
 Main occupation
 - Employed full-time (30h and more/week)
@@ -311,7 +313,7 @@ If {{nickname}} is available, {{gender:he/she/they}} can complete this section, 
 
 
 Did {{nickname}} make any trips on {{journeyDate}}?
-Include all your trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.
+Include all their trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.
 - Yes
 - No
 
@@ -320,10 +322,10 @@ You previously reported trips. Can you confirm they were reported by mistake and
 
 Please specify the places {{nickname}} went on {{journeyDate}}
 
-- <span class="_green">include</span> all places visited until 4 AM the following morning.
-<span class="_green">- Include short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
-- Include all places regardless of the mode of transportation used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).</span>
-<span class="_red">- Do not include transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.</span>
+- <span class="_green">Include</span> all places visited until 4 AM the following morning.
+- <span class="_green">Include</span>  short stops and errands (gas station, daycare/school, convenience store or any place where {{nickname}} picked someone up or dropped someone off).
+- <span class="_green">Include</span>  all places regardless of the mode of transportation used to get there (walking, cycling, car, public transit, taxi, plane, boat, etc.).
+- <span class="_red">Do not include</span> transfer locations (bus stops, train stations, terminals, parking lots, etc.) unless {{nickname}} went there to drop someone off or pick someone up.
 
 Did {{nickname}} start their day at home ({{address}})?
 Answer 'No' only if {{nickname}} did not sleep at home (night of {{dayOne}} to {{dayTwo}}) or came home after 4 AM (ex: overnight work shift).
@@ -417,7 +419,7 @@ Trips made by {{nickname}} on {{journeyDates}}
 
 Map of {{nickname}}’s trips on {{journeyDate}}:
 
-Please indicate all modes of transport used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}
+Please indicate all modes of transportation used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}
 
 Mode of transport
 
@@ -440,7 +442,6 @@ Boarding station(when entering the metro):
 Exit station (when leaving the metro):
 
 Transfer station(s):
-Choose ‘none’ if no transfer was made
 
 
 Line taken between BerriUQAM and Lionel-Groulx
@@ -586,7 +587,7 @@ Locate the place by searching for its name or address, or by navigating, zooming
 
 What mode of transportation does {{nickname}} usually use to travel to their workplace?
 If multiple modes are used, indicate the one that represents the largest share of distance traveled.
-If {{nickname}} works at multiple locations, respond based on the location visited most frequently.
+If {{nickname}} works at multiple locations, respond based on the location identified above.
 - Personal car (can belong to self, friend, family, etc)
 - Passenger (car/motorcycle/moped)
 - Public transit
@@ -814,7 +815,7 @@ Confirm
 
 Section: Mode frequencies
 
-How often do you use the following modes of transportation?
+How often do you ({{nickname}}) use the following modes of transportation?
 For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.).
 Think about the current month, excluding major storms.
 
@@ -859,7 +860,7 @@ Continue
 
 Section: Attitudinal questions
 
-For this set of questions, we ask you to indicate how much you agree or disagree with a specific statement.
+For this set of questions, we ask you ({{nickname}}) to indicate how much you agree or disagree with a specific statement.
 
 The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips
 - Strongly disagree
@@ -916,7 +917,7 @@ Continue
 
 Section: Barriers
 
-Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
+Trip of {{nickname}} for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 
 For the trip shown above, you used a car. For each of the following items, indicate whether they were a barrier to using public transit (bus, metro, train, or REM) for this trip.
 
@@ -1073,11 +1074,9 @@ Thank you for taking the time to complete this questionnaire. Your responses hav
 
 The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of access and mobility issues in the Greater Montréal area.
 
-Live within the ARTM territory and interested in helping improve mobility by sharing your opinion regularly? Click the button below to sign up for the ARTM's Let's talk mobility panel. $500 monthly and $1,000 annual prize draws among participants.
+Do you live within the <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">ARTM territory</a> and are you interested in helping improve mobility by sharing your opinion on a regular basis? If so, click the button below to sign up for the ARTM’s Let's talk mobility panel. $500 monthly and $1,000 annual prizes up for grabs.
 
-Go to « Let's talk mobility » panel
-
- <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" alt="ARTM territory" style="max-width:1000px;width:100%;height:auto;" /></div>
+Join « Let's talk mobility » panel
 
 
 

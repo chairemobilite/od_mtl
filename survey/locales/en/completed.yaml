@@ -11,11 +11,12 @@ completedText: >-
     in the contest, you are eligible for the prize draw.<br /><br />The data you have
     provided will support the planning efforts of the ARTM and its partners, and help
     improve understanding of access and mobility issues in the Greater Montréal area.<br
-    /><br />Live within the ARTM territory and interested in helping improve mobility
-    by sharing your opinion regularly? <strong>Click the button below to sign up for
-    the ARTM's Let's talk mobility panel</strong>. $500 monthly and $1,000 annual
-    prize draws among participants.
-buttonARTMPanel: Go to « Let's talk mobility » panel
+    /><br />Do you live within the <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"
+    target="_blank">ARTM territory</a> and are you interested in helping improve mobility
+    by sharing your opinion on a regular basis? If so, click the button below to sign
+    up for the ARTM’s Let's talk mobility panel. $500 monthly and $1,000 annual prizes
+    up for grabs.
+buttonARTMPanel: Join « Let's talk mobility » panel
 mapARTMImage: >2-
      <div style="text-align:center;"><img src="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg"
     alt="ARTM territory" style="max-width:1000px;width:100%;height:auto;" /></div>

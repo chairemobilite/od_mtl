@@ -318,6 +318,31 @@ export const didNotRespondForCorrectDateReasonCustomLabel: I18nData = labelWithA
     'end:didNotRespondForCorrectAssignedDateReasons'
 );
 
+/**
+ * Nickname, count and gender for the person selected for frequency /
+ * attitudinal / barrier questions (`response._freqPersonId`).
+ * @param t i18n function
+ * @param interview current interview
+ */
+export const getFreqPersonLabelOptions = (t: TFunction, interview: InterviewAttributes) => {
+    const frequencyPersonId = getResponse(interview, '_freqPersonId', null) as string | null;
+    if (_isBlank(frequencyPersonId)) {
+        throw new Error('getFreqPersonLabelOptions: _freqPersonId not found');
+    }
+    const person = odHelpers.getPersons({ interview })[frequencyPersonId as string];
+    if (person === undefined) {
+        throw new Error('getFreqPersonLabelOptions: person not found for _freqPersonId');
+    }
+    // Return freq person's nickname and count the total number of persons for
+    // these label as they don't apply for self-respondent only (they are always
+    // self-respondent)
+    return {
+        nickname: odHelpers.getPersonIdentificationString({ person, t }),
+        count: odHelpers.countPersons({ interview }),
+        context: odHelpers.getPersonGenderContext({ person })
+    };
+};
+
 // Get a label with the details of a trip, from a trip's path available in some field
 const placeDescriptionOption = {
     withTimes: false,
@@ -326,7 +351,11 @@ const placeDescriptionOption = {
     allowHtml: false
 };
 export const labelWithTripData =
-    (translationKey: string, tripPathKey: string): I18nData =>
+    (
+        translationKey: string,
+        tripPathKey: string,
+        additionalOptionFunction?: (t: TFunction, interview: InterviewAttributes) => Record<string, unknown>
+    ): I18nData =>
         (t: TFunction, interview, path) => {
             const tripPath = getResponse(interview, tripPathKey) as string;
             if (_isBlank(tripPath)) {
@@ -340,6 +369,8 @@ export const labelWithTripData =
             const visitedPlaces = odHelpers.getVisitedPlaces({ journey });
             const origin = odHelpers.getOrigin({ trip, visitedPlaces });
             const destination = odHelpers.getDestination({ trip, visitedPlaces });
+
+            const additionalLabelOptions = additionalOptionFunction ? additionalOptionFunction(t, interview) : {};
 
             return t(translationKey, {
                 activity: t(`visitedPlaces:activities.${destination.activity}`),
@@ -357,11 +388,21 @@ export const labelWithTripData =
                     t,
                     options: placeDescriptionOption
                 }),
-                originDepartureTime: secondsSinceMidnightToTimeStrWithSuffix(origin.departureTime)
+                originDepartureTime: secondsSinceMidnightToTimeStrWithSuffix(origin.departureTime),
+                ...additionalLabelOptions
             });
         };
 
-export const barriersTripCustomLabel: I18nData = labelWithTripData('barriers:barriersTrip', '_barriersTripPath');
+export const barriersTripCustomLabel: I18nData = labelWithTripData(
+    'barriers:barriersTrip',
+    '_barriersTripPath',
+    getFreqPersonLabelOptions
+);
+
+export const attitudinalIntroCustomLabel: I18nData = (t: TFunction, interview: InterviewAttributes) =>
+    t('attitudinal:attitudinalIntro', getFreqPersonLabelOptions(t, interview));
+export const frequencyIntroCustomLabel: I18nData = (t: TFunction, interview: InterviewAttributes) =>
+    t('frequencies:anyTripModeFrequenciesIntro', getFreqPersonLabelOptions(t, interview));
 
 export const barriersDisabilityTripCustomLabel: I18nData = labelWithTripData(
     'barriersDisability:barriersDisabilityTrip',

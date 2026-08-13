@@ -205,17 +205,16 @@ Champ,transitPass
 Type de question,Case à cocher
 Conditionnel,transitPassConditional : age >= 12 && usedTransitInLast30Days === yes
 Question,"Type de passe, abonnement utilisés pour le transport en commun dans les 30 derniers jours
-Inclure les abonnements gratuits.
-Les titres de l’ARTM permettent de prendre les services de la STM (métro et bus), de la STL, du RTL, d’exo (train et bus) et le REM."
-Valeurs,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : Passe / abonnement mensuel ou annuel de l’ARTM
-transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : Passe / abonnement mensuel ou annuel de l’ARTM (incluant les passes pour ainés)
-tickets : Titres ou billets individuels de l’ARTM
-other : Autre abonnement ou titre (SJSR, STC Sorel-Tracy, MRC Joliette, etc …)
+Inclure les abonnements gratuits."
+Valeurs,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM
+transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM (incluant les passes pour aînés)
+tickets : Titres ou billets individuels
+other : Autre
 dontKnow : Ne sait pas"
 ""
 Champ,transitFare
 Type de question,Bouton radio
-Conditionnel,transitFareConditional : transitPass === transitPassARTM
+Conditionnel,transitFareConditional : transitPass === transitPassARTM || transitPass === transitPassARTMWithElderly
 Question,"Type de passe utilisé en tant qu’abonnement valide pour le mois en cours
 A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM."
 Valeurs,"A : Tous modes A
@@ -225,6 +224,7 @@ ABCD : Tous modes ABCD
 bus : Bus (ABC)
 busCD : Bus hors territoire (CD)
 opusWithTicketsOnly : Carte OPUS avec titres individuels seulement
+employee : Passe employé/retraité des sociétés de transport
 otherTerritory : Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
 other : Autre (spécifiez)
 none : Aucun pour le mois en cours
@@ -239,7 +239,7 @@ Valeurs,yes : Je confirme
 ""
 Champ,hasDisability
 Type de question,Bouton radio
-Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : hh_atLeastOnePersonWithDisability === yes || hh_size === 1
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : age >= 5 && (hh_atLeastOnePersonWithDisability === yes || hh_size === 1)
 Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite les déplacements quotidiens de {{nickname}}?
 Ex. : motrice, visuelle, autre, etc."
 Valeurs,"yes : Oui
@@ -345,6 +345,12 @@ Valeurs,"fullTime : Oui, à temps plein (30h et plus/semaine)
 partTime : Oui, à temps partiel (moins de 30h/semaine)
 no : Non"
 ""
+Champ,job
+Type de question,Champ de texte
+Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Question,"Profession ou nom d'emploi de {{nickname}}
+Ex. : Boucher, avocate, livreur, infirmière, etc."
+""
 Champ,jobType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
@@ -373,13 +379,13 @@ Champ,workDays
 Type de question,RadioNumber
 Conditionnel,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Nombre de jour(s) par semaine où {{nickname}} travaille
-Dans une semaine typique. Qu’il y ait déplacement ou non pour le travail."
+Dans une semaine typique, qu’il y ait déplacement ou non pour le travail."
 ""
 Champ,travelToWorkDays
 Type de question,Entrée inconnue
 Conditionnel,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
-Dans une semaine typique. Indiquer 0 si la personne n’a pas de lieu de travail ou ne travaille que depuis son domicile"
+Dans une semaine typique."
 ""
 Champ,occupation
 Type de question,Bouton radio
@@ -449,7 +455,7 @@ Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou 
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Type de question,Bouton radio
 Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
-Inclure tous vos déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un."
+Inclure tous ses déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un."
 Valeurs,"yes : Oui
 no : Non"
 ""
@@ -477,7 +483,7 @@ sleptAtFriends : Passait la nuit chez ami, copine/copain ou famille
 restaurant : Était à un ou revenait d'un restaurant ou bar
 hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hôtel ou autre lieu pour une conférence / travail
 hotelForVacation : Hôtel ou autre lieu en vacances
-studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : Écoles / lieu d’études: terminait des travaux ou y couchait
+studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : École / lieu d’études: terminait des travaux ou y couchait
 other : Autre"
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome
@@ -656,8 +662,7 @@ Question,Station de débarquement (à l'arrivée) :
 Champ,subwayStationsTransfer
 Type de question,Bouton radio
 Conditionnel,subwayTransferCustomConditional
-Question,"Station(s) de transfert :
-Choisir ""aucune"" si aucun transfert n'a été effectué"
+Question,Station(s) de transfert :
 ""
 Champ,subwayLine
 Type de question,Bouton radio
@@ -877,7 +882,7 @@ Type de question,Bouton radio
 Conditionnel,hasWorkingLocationNotSetCustomConditional
 Question,"Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
 Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
-Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu le plus fréquemment visité."
+Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus."
 Valeurs,"carDriver : Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
 carPassenger : Passager (voiture/moto/scooter)
 transit : Transport en commun
@@ -1221,65 +1226,65 @@ Abréviation,att_
 Champ,attitudinalOpinion
 Type de question,Bouton radio
 Question,"L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels."
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalCar
 Type de question,Bouton radio
 Question,La voiture personnelle représente pour moi l’indépendance et l’autonomie.
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalTransitGoodQuality
 Type de question,Bouton radio
 Question,"Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité."
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalFamiliarWithTransit
 Type de question,Bouton radio
 Question,"Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences)."
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalRequireHighLevel
 Type de question,Bouton radio
 Question,"Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). "
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalEasyWithoutCar
 Type de question,Bouton radio
 Question,"Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. "
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 Champ,attitudinalGoodAccessImportant
 Type de question,Bouton radio
 Question,"Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi."
-Valeurs,"-2 : Pas du tout d'accord
--1 : Plutôt pas d'accord
-0 : Ni d'accord ni pas d'accord
-1 : Plutôt d'accord
-2 : Tout à fait d'accord"
+Valeurs,"-2 : Totalement en désaccord
+-1 : Plutôt en désaccord
+0 : Ni en accord ni en désaccord
+1 : Plutôt en accord
+2 : Totalement en accord"
 ""
 ""
 ""
@@ -1507,4 +1512,4 @@ Abréviation,c_
 ""
 Champ,buttonARTMPanel
 Type de question,Entrée inconnue
-Question,Allez au panel « Parlons mobilité »
+Question,S'inscrire au panel « Parlons mobilité »

@@ -15,7 +15,7 @@ contactInformationIntro: Veuillez saisir le courriel pour vous recontacter.
 contactEmail: <strong>Adresse courriel</strong>
 homeIntro: >-
     Votre adresse est pré-remplie en fonction du code d'accès.<br />Merci de vérifier
-    que les informations sont correctes ou les corriger
+    que les informations sont correctes et les corriger si nécessaire.
 homeAddress: <strong>Adresse</strong>
 homeCity: <strong>Ville</strong> ou <strong>municipalité</strong>
 homePostalCode: <strong>Code postal</strong>

@@ -19,10 +19,4 @@ export const completedText: WidgetConfig.TextWidgetConfig = {
 
 export const buttonARTMPanel = customWidgets.buttonARTMPanel;
 
-export const mapARTMImage: WidgetConfig.TextWidgetConfig = {
-    ...defaultInputBase.infoTextBase,
-    path: 'mapARTMImage',
-    containsHtml: true,
-    text: (t: TFunction) => t('completed:mapARTMImage'),
-    conditional: defaultConditional
-};
+// Note: mapARTMImage widget is not active. This widget will not be displayed in the survey.

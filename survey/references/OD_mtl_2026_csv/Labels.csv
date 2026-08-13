@@ -29,7 +29,7 @@ home,popup.householdCarNumberContent,"<span class=""_green"">Inclure :</span>
 - Mopeds, scooters, and motorcycles (gas or electric)
 - Car-sharing vehicles
 - A vehicle parked at the workplace and used exclusively for work
-- Stored or collector vehicles used rarely",,
+- Stored vehicles that are driven only rarely",,
 home,popup.householdTwoWheelTitle,Quels véhicules inclure?,Which vehicles should be included?,,
 home,popup.householdTwoWheelContent,"<span class=""_green"">Inclure :</span> 
 - Les mobylettes, scooters et motos (à essence ou électriques)
@@ -37,11 +37,11 @@ home,popup.householdTwoWheelContent,"<span class=""_green"">Inclure :</span>
 - Les automobiles, VUS, camions légers, camions et fourgonnettes
 - Les vélos ou vélos électriques
 - Les trottinettes ou trottinettes électriques","<span class=""_green"">Include:</span>
-- Mopeds, and motorcycles (gas or electric)
+- Mopeds and motorcycles (gas or electric)
 <span class=""_red"">Do not include:</span>
 - Cars, SUVs, light trucks, trucks, and vans
 - Bicycles or electric bicycles
-- Scooters or electric scooters",,
+- Kick scooters or electric scooters",,
 household,popup.studentTitle,Qui considérer comme étudiant?,Who should be considered a student?,,
 household,popup.studentContent,"<span class=""_green"">Inclure :</span>
 - Tous les étudiants et élèves à partir de 15 ans, indépendamment du niveau d'enseignement.
@@ -129,7 +129,7 @@ visitedPlaces,activities.workUsual,Travail au lieu habituel,Work (out-of-home fi
 visitedPlaces,activities.workNotUsual,Travail dans un autre lieu,Work (other place),,
 visitedPlaces,activities.workOnTheRoad,Travail sur la route,Work on the road,,
 visitedPlaces,activities.volunteering,Bénévolat,Volunteering,,
-visitedPlaces,activities.schoolUsual,Études au lieu principal,"Studies ([établissement scolaire]/high school, college, university)",,
+visitedPlaces,activities.schoolUsual,Études au lieu principal,Studies at primary location,,
 visitedPlaces,activities.schoolNotUsual,Études dans un autre lieu,Studies (different location),,
 visitedPlaces,activities.shopping,"Magasinage (achats, station-service, épicerie, etc.)","Shopping (store, gas station, grocery)",,
 visitedPlaces,activities.restaurant,"Restaurant, café, bar","Restaurant, coffee shop, bar",,
@@ -219,7 +219,9 @@ household,workPlaceBeforeLeaveTypeChoicesRemote,{{nickname}} travaille toujours 
 household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithUsualPlace,"{{nickname}} travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","{{nickname}} works on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)","Je travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)","I work on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)"
 household,workPlaceBeforeLeaveTypeChoicesOnTheRoadWithoutUsualPlace,{{nickname}} travaille sur la route avec départ du domicile,"{{nickname}} works on the road, starting from home",Je travaille sur la route avec départ du domicile,"I work on the road, starting from home"
 tripsIntro,WhyThisDate,Pourquoi cette journée?,Why this day?,,
-tripsIntro,WhyThisDateExplanation,revoir le texte,review text,,
+tripsIntro,WhyThisDateExplanation,"Certaines personnes se déplaceront plus ou moins que d’habitude, voire n’effectueront aucun déplacement la journée assignée. D’autres utiliseront des modes différents qu’à l’habitude, selon la météo, les courses à faire ou d’autres responsabilités.
+**Merci d’indiquer vos déplacements réels pour la journée demandée** : c’est cette diversité de comportements qui nous aide à mieux comprendre la mobilité.","Some people will travel more or less than usual, or may not make any trips at all on their assigned day. Others will use different modes of transportation than they normally would, depending on the weather, errands they need to run, or other responsibilities.
+**Please report your actual trips for the requested day** : it is this diversity of travel behaviors that helps us better understand mobility.",,
 tripsIntro,personDidTripsConfirmChoiceNo,{{nickname}} n'a effectué aucun déplacement le {{journeyDate}},{{nickname}} did not make any trips on {{journeyDate}},Je n'ai effectué aucun déplacement le {{journeyDate}},I did not make any trips on {{journeyDate}}
 tripsIntro,personDidTripsConfirmChoiceYes,{{nickname}} a effectué au moins un déplacement le {{journeyDate}},{{nickname}} did make at least one trip on {{journeyDate}},J'ai effectué au moins un déplacement le {{journeyDate}},I did make at least one trip on {{journeyDate}}
 tripsIntro,returnedHomeChoiceNo,"Non, {{nickname}} est rest{{gender:é/ée/é(e)}} à cet endroit jusqu’au lendemain","No, {{nickname}} stayed at this place until the next day","Non, je suis rest{{gender:é/ée/é(e)}} à cet endroit jusqu’au lendemain","No, I stayed at this place until the next day"

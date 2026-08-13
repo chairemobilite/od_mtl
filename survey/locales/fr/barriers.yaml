@@ -3,7 +3,10 @@
 # Any changes made to this file will be overwritten.
 
 barriersTrip: >-
-    Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+    Déplacement de {{nickname}} pour motif {{activity}} : {{origin}} vers {{destination}}
+    à {{originDepartureTime}}
+barriersTrip_one: >-
+    Déplacement pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}}
 barriersIntro: >-
     Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun
     des éléments suivants, <strong>indiquez s’ils ont constitué un frein à l’utilisation

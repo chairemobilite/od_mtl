@@ -300,6 +300,11 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.workerType', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.workerType', value: '?' });
 
+    // Test string widget personJob with conditional isWorkerConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.job', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.job', value: '?' });
+
     // Test radio widget personJobType with conditional isWorkerConditional with choices jobTypes
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
@@ -1253,5 +1258,5 @@ export const fillCompletedSectionTests = ({ context, householdSize }: CommonTest
     // Implement custom test
 
     // Test infotext widget mapARTMImage
-    testHelpers.waitTextVisible({ context, text: '?' });
+    // Widget not active
 };

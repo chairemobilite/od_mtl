@@ -125,6 +125,7 @@ export type HouseholdMember = {
     useParatransitTransitFrequency?: string | null;
     studentType: string | null;
     workerType: string | null;
+    job: string | null;
     jobType: string | null;
     workPlaceType: string | null;
     workDays: string | null;
@@ -272,6 +273,7 @@ export const defaultPerson1: HouseholdMember = {
     useParatransitTransitFrequency: null,
     workerType: 'fullTime',
     studentType: 'partTime',
+    job: 'administration',
     jobType: 'administration',
     workPlaceType: 'hybrid',
     workDays: '4',
@@ -308,6 +310,7 @@ export const defaultPerson2: HouseholdMember = {
     useParatransitTransitFrequency: null, // Question won't show, need special ep
     workerType: 'fullTime',
     studentType: 'partTime',
+    job: 'commis comptable',
     jobType: 'administration',
     workPlaceType: 'onLocation',
     workDays: null, // Question won't show
@@ -514,7 +517,7 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
         // trying to change section
 
         // Test visibility of address inputs, without filling any values
-        testHelpers.waitTextVisible({ context, text: 'Address pre-filled according to the access code.' });
+        testHelpers.waitTextVisible({ context, text: 'Your address has been pre-filled based on your access code.' });
         testHelpers.inputVisibleTest({ context, path: 'home.address', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.city', isVisible: true });
         testHelpers.inputVisibleTest({ context, path: 'home.postalCode', isVisible: true });
@@ -1064,6 +1067,22 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.workerType`,
                 value: person.workerType
+            });
+        }
+
+        // Test string widget personJob with conditional isWorkerConditional
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        if (person.job === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.job`,
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputStringTest({
+                context,
+                path: `household.persons.${personIdString}.job`,
+                value: person.job
             });
         }
 
@@ -3394,7 +3413,7 @@ export const fillEndSectionTests = ({ context, endSection = defaultEnd }: EndTes
     }); */
 };
 
-const artmPanelButtonLabelEn = 'Go to « Let\'s talk mobility » panel';
+const artmPanelButtonLabelEn = 'Join « Let\'s talk mobility » panel';
 const artmPanelUrlEn = 'https://parlonsmobilite.quebec/en';
 const artmPanelTitleEn = /Let['\u2019]s talk mobility/i;
 
