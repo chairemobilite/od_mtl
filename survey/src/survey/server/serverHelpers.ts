@@ -11,6 +11,7 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
 import raZones from '../geojson/RA.json';
+import artmTerritory from '../geojson/artm.json';
 // FIXME We should not import from auditChecks here for the survey, but this
 // utils is very utile, so it should be moved elsewhere
 // (https://github.com/chairemobilite/evolution/issues/1792)
@@ -18,6 +19,9 @@ import { getSurveyArea } from 'evolution-backend/lib/services/audits/auditChecks
 
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
+const artmTerritoryFeatureCollection = artmTerritory as GeoJSON.FeatureCollection<
+    GeoJSON.MultiPolygon | GeoJSON.Polygon
+>;
 
 export const getZatForPoint = (geography: GeoJSON.Feature<GeoJSON.Point>): number | null => {
     const zat = zatZonesFeatureCollection.features.find((raZone) => booleanPointInPolygon(geography.geometry, raZone));
@@ -303,7 +307,9 @@ export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature
     const responses = {
         [`${path}.properties.RA`]: getPointZone(geography),
         [`${path}.properties.zat`]: getZatForPoint(geography),
-        [`${path}.properties.isInTerritory`]: booleanPointInPolygon(geography, surveyArea)
+        [`${path}.properties.isInTerritory`]: booleanPointInPolygon(geography, surveyArea),
+        [`${path}.properties.isArtmZone`]:
+            artmTerritoryFeatureCollection.features.find((f) => booleanPointInPolygon(geography, f)) !== undefined
     };
     return responses;
 };
