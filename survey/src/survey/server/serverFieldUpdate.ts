@@ -19,6 +19,10 @@ import {
     getUpdatedFieldsForCommonTrip,
     updatePathsWithZonesIntersectingPoint
 } from './serverHelpers';
+import {
+    getSegmentNextLocation,
+    getSegmentPreviousLocation
+} from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 
 // *** Code for the home address prefill **
 const HOME_ADDRESS_KEY = 'home.address';
@@ -566,12 +570,12 @@ export default [
             }
             try {
                 // Get the context objects from the path
-                const tripContext = odSurveyHelpers.getTripContextFromPath({ interview, path });
+                const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
                 const isoWeekDay = getResponse(interview, assignedWeekDayPath, null);
-                if (tripContext === null || isoWeekDay === null) {
+                if (segmentContext === null || isoWeekDay === null) {
                     return defaultResponse;
                 }
-                const { person, journey, trip } = tripContext;
+                const { journey, trip } = segmentContext;
                 const visitedPlaces = journey ? odSurveyHelpers.getVisitedPlaces({ journey }) : null;
 
                 // Find the scenario for the appropriate week day
@@ -587,32 +591,20 @@ export default [
 
                 // Get geography of places
                 const origin = odSurveyHelpers.getOrigin({ trip, visitedPlaces });
-                const destination = odSurveyHelpers.getDestination({ trip, visitedPlaces });
-                const originGeography = origin
-                    ? odSurveyHelpers.getVisitedPlaceGeography({
-                        visitedPlace: origin,
-                        person,
-                        interview
-                    })
-                    : null;
-                const destinationGeography = destination
-                    ? odSurveyHelpers.getVisitedPlaceGeography({
-                        visitedPlace: destination,
-                        person,
-                        interview
-                    })
-                    : null;
                 const timeOfTrip = origin?.departureTime;
+                // Get previous and next location within trip
+                const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
+                const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
 
-                if (originGeography === null || destinationGeography === null || typeof timeOfTrip !== 'number') {
+                if (previousLocation === null || nextLocation === null || typeof timeOfTrip !== 'number') {
                     return defaultResponse;
                 }
 
                 const executeTransitSummaryPromise = async () => {
                     try {
                         const summaryResponse = await getTransitSummary({
-                            origin: originGeography,
-                            destination: destinationGeography,
+                            origin: previousLocation,
+                            destination: nextLocation,
                             transitScenario: scenario,
                             departureSecondsSinceMidnight: timeOfTrip,
                             departureDateString: journey.startDate,
@@ -639,7 +631,7 @@ export default [
                 } else {
                     // Execute the operation in the backend so the result may be ready when needed, but without blocking the call
                     registerUpdateOperation({
-                        opName: `transitSummary${originGeography.geometry.coordinates[0]}${originGeography.geometry.coordinates[1]}${destinationGeography.geometry.coordinates[0]}${destinationGeography.geometry.coordinates[1]}`,
+                        opName: `transitSummary${previousLocation.geometry.coordinates[0]}${previousLocation.geometry.coordinates[1]}${nextLocation.geometry.coordinates[0]}${nextLocation.geometry.coordinates[1]}`,
                         opUniqueId: 1,
                         operation: async (_isCancelled: () => boolean) => {
                             return await executeTransitSummaryPromise();
