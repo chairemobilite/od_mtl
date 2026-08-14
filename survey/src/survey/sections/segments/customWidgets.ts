@@ -125,8 +125,12 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
                     throw new Error('segmentBusLines onDemand choice: segment context is undefined');
                 }
                 const { person } = segmentContext;
-                // Display if person age is 16 or below
-                if (typeof person.age === 'number' && person.age > 16) {
+                const occupation = person.occupation;
+                // Display if person is a student
+                if (
+                    typeof occupation !== 'string' ||
+                    !['fullTimeStudent', 'partTimeStudent', 'workerAndStudent'].includes(occupation)
+                ) {
                     return false;
                 }
                 // Make sure previous or next location are in RA 1 to 5
