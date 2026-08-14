@@ -404,7 +404,7 @@ export const barrierDisabilitySelectPersonCustomLabel: I18nData = (t, interview,
     if (person === null) {
         throw new Error('barrierDisabilitySelectPersonCustomLabel: no person found');
     }
-    return t('barriersDisability:barrierDisabilityIsPersonAvailable', {
+    return t('barriersDisability:barriersDisabilityIsPersonAvailable', {
         personWithDisabilityNickname: odHelpers.getPersonIdentificationString({ person, t })
     });
 };
