@@ -23,6 +23,11 @@ const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
+const isProxyRespondent = (interview: WidgetConfig.InterviewAttributes, path: string) => {
+    const person = odSurveyHelpers.getPerson({ interview });
+    return !odSurveyHelpers.isSelfDeclared({ person, interview });
+};
+
 export const segmentBusLines: WidgetConfig.InputMultiselectType = {
     type: 'question',
     path: 'busLines',
@@ -40,6 +45,16 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
         {
             value: 'dontKnow',
             label: (t: TFunction) => t('segments:busLinesDontKnow'),
+            color: 'grey'
+        },
+        {
+            value: 'onDemand',
+            label: (t: TFunction) => t('segments:busLinesOnDemand'),
+            color: 'grey'
+        },
+        {
+            value: 'schoolLine',
+            label: (t: TFunction) => t('segments:busLinesSchoolLine'),
             color: 'grey'
         }
     ],
@@ -76,7 +91,56 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
             value: 'dontKnow',
             color: '#666666',
             sortableName: 'zdontknow',
-            label: (t: TFunction) => t('segments:busLinesDontKnow')
+            label: (t: TFunction) => t('segments:busLinesDontKnow'),
+            conditional: isProxyRespondent
+        });
+        choices.push({
+            value: 'onDemand',
+            color: '#666666',
+            sortableName: 'zondemand',
+            label: (t: TFunction) => t('segments:busLinesOnDemand'),
+            conditional: (interview, path) => {
+                const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+                if (segmentContext === null) {
+                    throw new Error('segmentBusLines onDemand choice: segment context is undefined');
+                }
+                const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
+                const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
+                return (
+                    previousLocation !== null &&
+                    nextLocation !== null &&
+                    (previousLocation.properties.isOnDemandTransitZone === true ||
+                        nextLocation.properties.isOnDemandTransitZone === true)
+                );
+            }
+        });
+        choices.push({
+            value: 'schoolLine',
+            color: '#666666',
+            sortableName: 'zschoolline',
+            label: (t: TFunction) => t('segments:busLinesSchoolLine'),
+            conditional: (interview, path) => {
+                const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+                if (segmentContext === null) {
+                    throw new Error('segmentBusLines onDemand choice: segment context is undefined');
+                }
+                const { person } = segmentContext;
+                // Display if person age is 16 or below
+                if (typeof person.age === 'number' && person.age > 16) {
+                    return false;
+                }
+                // Make sure previous or next location are in RA 1 to 5
+                const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
+                const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
+                return (
+                    (previousLocation !== null &&
+                        typeof previousLocation.properties.RA === 'number' &&
+                        previousLocation.properties.RA <= 5) ||
+                    (nextLocation !== null &&
+                        typeof nextLocation.properties.RA === 'number' &&
+                        nextLocation.properties.RA <= 5)
+                );
+            }
         });
         return choices;
     },
@@ -169,10 +233,7 @@ const featureSelectAdditionalChoices = [
     {
         label: (t: TFunction) => t('segments:featureSelect.dontKnow'),
         value: 'dontknow',
-        conditional: (interview, path) => {
-            const person = odSurveyHelpers.getPerson({ interview });
-            return !odSurveyHelpers.isSelfDeclared({ person, interview });
-        }
+        conditional: isProxyRespondent
     }
 ];
 

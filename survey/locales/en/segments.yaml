@@ -77,6 +77,8 @@ onDemandChoicesJoinedStop: Yes, {{nickname}} went to a stop
 onDemandChoicesJoinedStop_one: Yes, I went to a stop
 busLinesOther: Other bus line(s)
 busLinesDontKnow: Unknown line(s)
+busLinesOnDemand: On demand transportation
+busLinesSchoolLine: School line
 busLinesAreCorrect: Bus lines are correct
 busLinesWarningRequired: Please validate the bus lines or confirm that lines are correct.
 segmentIntro_workOnTheRoad: >-
