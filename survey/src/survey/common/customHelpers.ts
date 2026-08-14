@@ -89,7 +89,9 @@ const validateTripForBarrierQuestionsByMode = validateTripSingleSegmentHasMode([
 const validateTripForBarrierQuestions = ({ trip }: { trip: Trip }) =>
     (trip as any)._isBarrierEligible === true && validateTripForBarrierQuestionsByMode({ trip });
 
-const validateTripForBarrierDisabilityQuestions = validateTripSingleSegmentHasMode(['paratransit']);
+const validateTripForBarrierDisabilityQuestionsByMode = validateTripSingleSegmentHasMode(['paratransit']);
+const validateTripForBarrierDisabilityQuestions = ({ trip }: { trip: Trip }) =>
+    (trip as any)._isBarrierEligible === true && validateTripForBarrierDisabilityQuestionsByMode({ trip });
 
 // Make sure the trip exists, is for the same person and is of the right mode
 const validatePersonTripPath = ({
