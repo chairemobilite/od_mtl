@@ -12,6 +12,7 @@ import { getCommonTripFromReferencePerson } from '../common/commonHelpers';
 import { zatXzatEligibilityMatrix } from '../config/zat_x_zat_matrix';
 import raZones from '../geojson/RA.json';
 import artmTerritory from '../geojson/artm.json';
+import onDemandZones from '../geojson/onDemandTransit_zone.json';
 // FIXME We should not import from auditChecks here for the survey, but this
 // utils is very utile, so it should be moved elsewhere
 // (https://github.com/chairemobilite/evolution/issues/1792)
@@ -20,6 +21,9 @@ import { getSurveyArea } from 'evolution-backend/lib/services/audits/auditChecks
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const artmTerritoryFeatureCollection = artmTerritory as GeoJSON.FeatureCollection<
+    GeoJSON.MultiPolygon | GeoJSON.Polygon
+>;
+const onDemandZonesFeatureCollection = onDemandZones as GeoJSON.FeatureCollection<
     GeoJSON.MultiPolygon | GeoJSON.Polygon
 >;
 
@@ -297,11 +301,15 @@ export const getUpdatedFieldsForBarriers = (
 };
 
 /**
- * Add to the geography properties the values of the zones intersecting the
- * geography for every data source in the database.
+ * Add to the geography properties which zones they are in for certain zone
+ * sets, or whether they are part of a zone/featureCollection for others.
  * @param geography The point for which to get the intersecting zones
  * @param path The path of this geography. The zones will be appended to the
  * `properties` of the geojson feature at the path.
+ * @return The properties paths to update with the given data. This includes
+ * `RA`, `zat` zone ids and boolean values for `isInTerritory` (surveyArea),
+ * `isArtmZone` (artm territory), `isOnDemandTransitZone` (if in a zone with on demand
+ * transport)
  */
 export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature<GeoJSON.Point>, path: string) => {
     const responses = {
@@ -309,7 +317,9 @@ export const updatePathsWithZonesIntersectingPoint = (geography: GeoJSON.Feature
         [`${path}.properties.zat`]: getZatForPoint(geography),
         [`${path}.properties.isInTerritory`]: booleanPointInPolygon(geography, surveyArea),
         [`${path}.properties.isArtmZone`]:
-            artmTerritoryFeatureCollection.features.find((f) => booleanPointInPolygon(geography, f)) !== undefined
+            artmTerritoryFeatureCollection.features.find((f) => booleanPointInPolygon(geography, f)) !== undefined,
+        [`${path}.properties.isOnDemandTransitZone`]:
+            onDemandZonesFeatureCollection.features.find((f) => booleanPointInPolygon(geography, f)) !== undefined
     };
     return responses;
 };

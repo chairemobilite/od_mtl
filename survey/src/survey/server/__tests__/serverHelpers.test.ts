@@ -21,7 +21,8 @@ describe('updatePathsWithZonesIntersectingPoint', () => {
             expectedRA: 1,
             expectedZat: 20,
             expectedInTerritory: true,
-            expectedArtmTerritory: true
+            expectedArtmTerritory: true,
+            expectedOnDemandTransitZone: false
         },
         {
             title: 'RA8',
@@ -33,7 +34,34 @@ describe('updatePathsWithZonesIntersectingPoint', () => {
             expectedRA: 8,
             expectedZat: 1295,
             expectedInTerritory: true,
-            expectedArtmTerritory: true
+            expectedArtmTerritory: true,
+            expectedOnDemandTransitZone: false
+        },
+        {
+            title: 'in on demand transit zone',
+            geography: {
+                type: 'Feature',
+                properties: { lastAction: 'preGeocoded' },
+                geometry: { type: 'Point', coordinates: [-73.3732819, 45.47785548458] }
+            },
+            expectedRA: 5,
+            expectedZat: 1751,
+            expectedInTerritory: true,
+            expectedArtmTerritory: true,
+            expectedOnDemandTransitZone: true
+        },
+        {
+            title: 'in territory but not artm',
+            geography: {
+                type: 'Feature',
+                properties: { lastAction: 'preGeocoded' },
+                geometry: { type: 'Point', coordinates: [-74.35752421, 45.61226747] }
+            },
+            expectedRA: 7,
+            expectedZat: null,
+            expectedInTerritory: true,
+            expectedArtmTerritory: false,
+            expectedOnDemandTransitZone: false
         },
         {
             title: 'outside zone',
@@ -45,15 +73,17 @@ describe('updatePathsWithZonesIntersectingPoint', () => {
             expectedRA: null,
             expectedZat: null,
             expectedInTerritory: false,
-            expectedArtmTerritory: false
+            expectedArtmTerritory: false,
+            expectedOnDemandTransitZone: false
         }
     ];
 
-    test.each(cases)('fills zone properties for $title', ({ geography, expectedRA, expectedZat, expectedInTerritory, expectedArtmTerritory }) => {
+    test.each(cases)('fills zone properties for $title', ({ geography, expectedRA, expectedZat, expectedInTerritory, expectedArtmTerritory, expectedOnDemandTransitZone }) => {
         const res = updatePathsWithZonesIntersectingPoint(geography as any, 'home.geography');
         expect(res['home.geography.properties.RA']).toBe(expectedRA);
         expect(res['home.geography.properties.zat']).toBe(expectedZat);
         expect(res['home.geography.properties.isInTerritory']).toBe(expectedInTerritory);
         expect(res['home.geography.properties.isArtmZone']).toBe(expectedArtmTerritory);
+        expect(res['home.geography.properties.isOnDemandTransitZone']).toBe(expectedOnDemandTransitZone);
     });
 });
