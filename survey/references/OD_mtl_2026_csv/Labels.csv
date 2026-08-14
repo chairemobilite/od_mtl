@@ -183,6 +183,8 @@ segments,onDemandChoicesPickupAtOrigin,"Oui, il est venu chercher {{nickname}} �
 segments,onDemandChoicesJoinedStop,"Oui, {{nickname}} a rejoint un arrêt","Yes, {{nickname}} went to a stop","Oui, j'ai rejoint un arrêt","Yes, I went to a stop"
 segments,busLinesOther,Autre(s) ligne(s) de bus,Other bus line(s),,
 segments,busLinesDontKnow,Ligne(s) inconnue(s),Unknown line(s),,
+segments,busLinesOnDemand,Transport à la demande,On demand transportation,,
+segments,busLinesSchoolLine,Ligne scolaire,School line,,
 segments,busLinesAreCorrect,Les lignes de bus sont correctes,Bus lines are correct,,
 segments,busLinesWarningRequired,Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.,Please validate the bus lines or confirm that lines are correct.,,
 segments,segmentIntro_workOnTheRoad,Veuillez indiquer le mode principal utilisé pour effectuer les déplacements sur la route :,Please specify the primary mode of transportation used for the trips on the road:,,

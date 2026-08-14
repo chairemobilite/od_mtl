@@ -77,6 +77,8 @@ onDemandChoicesJoinedStop: Oui, {{nickname}} a rejoint un arrêt
 onDemandChoicesJoinedStop_one: Oui, j'ai rejoint un arrêt
 busLinesOther: Autre(s) ligne(s) de bus
 busLinesDontKnow: Ligne(s) inconnue(s)
+busLinesOnDemand: Transport à la demande
+busLinesSchoolLine: Ligne scolaire
 busLinesAreCorrect: Les lignes de bus sont correctes
 busLinesWarningRequired: >-
     Veuillez valider les lignes de bus ou confirmer que ce sont les bonnes lignes.
