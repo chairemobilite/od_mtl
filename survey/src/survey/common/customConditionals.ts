@@ -26,30 +26,33 @@ export const hiddenWithCanadaAsDefaultValueCustomConditional: WidgetConditional 
 export const personOccupationCustomConditional: WidgetConditional = (interview, path) => {
     const person = surveyHelper.getResponse(interview, path, null, '../') as Person;
     const age: any = surveyHelper.getResponse(interview, path, null, '../age');
+    // If age is not a number, do not display
+    if (typeof age !== 'number') {
+        return [false, null];
+    }
     const isStudent: boolean = person.studentType === 'fullTime' || person.studentType === 'partTime';
-    const isYouthStudent: boolean = typeof age === 'number' && age < 16;
+    // Infer student status of youth depending on mandatory school age
+    const isYouthStudent: boolean = age <= config.ages.schoolMandatoryAge;
+    const isTooYoungToWork: boolean = age < config.ages.workingAge;
     const isWorker: boolean = person.workerType === 'fullTime' || person.workerType === 'partTime';
 
-    if (typeof age !== 'number' || _isBlank(person.workerType) || (!isYouthStudent && _isBlank(person.studentType))) {
-        return [false, null];
-    } else if (age < 14) {
-        // Person is too young for occupation tracking
+    if ((!isTooYoungToWork && _isBlank(person.workerType)) || (!isYouthStudent && _isBlank(person.studentType))) {
         return [false, null];
     } else if ((isStudent || isYouthStudent) && isWorker) {
         return [false, 'workerAndStudent'];
+    } else if (isYouthStudent) {
+        return [false, 'fullTimeStudent'];
     } else if (isStudent && person.studentType === 'fullTime') {
         return [false, 'fullTimeStudent'];
     } else if (isStudent && person.studentType === 'partTime') {
         return [false, 'partTimeStudent'];
-    } else if (isYouthStudent) {
-        return [false, 'fullTimeStudent'];
     } else if (isWorker && person.workerType === 'fullTime') {
         return [false, 'fullTimeWorker'];
     } else if (isWorker && person.workerType === 'partTime') {
         return [false, 'partTimeWorker'];
     }
-    // condition if not hidden choices
-    return [!_isBlank(age) && age >= 16 && age <= 69 && !isStudent && !isWorker, null];
+    // condition if not hidden choices. Assume retired if person is age 70+
+    return [age >= 16 && age <= 69 && !isStudent && !isWorker, age >= 70 ? 'retired' : null];
 };
 
 export const departurePlaceOtherCustomConditional: WidgetConditional = (interview, path) => {
