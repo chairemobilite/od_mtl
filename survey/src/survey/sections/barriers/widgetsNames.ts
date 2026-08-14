@@ -14,16 +14,5 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'barriersTransfer',
     'barriersSecurity',
     'barriersPlanning',
-    'barriersDisabilityTrip',
-    'barriersDisabilityIntro',
-    'barriersDisabilityFrequency',
-    'barriersDisabilityReliability',
-    'barriersDisabilityWalk',
-    'barriersDisabilityTime',
-    'barriersDisabilityTransfer',
-    'barriersDisabilitySecurity',
-    'barriersDisabilityUniversalAccessibility',
-    'barriersDisabilityPlanning',
-    'barriersDisabilityCourtesy',
     'buttonCompleteBarriersSection'
 ];

@@ -8,7 +8,11 @@ import {
     UserInterviewAttributes
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import { getChildrenAged1To4, getFormattedTripDateFromJourney } from './customHelpers';
+import {
+    getChildrenAged1To4,
+    getFormattedTripDateFromJourney,
+    getSelfRespondentWithDisabilitiesAndTrip
+} from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
 import {
@@ -360,7 +364,7 @@ export const labelWithTripData =
 export const barriersTripCustomLabel: I18nData = labelWithTripData('barriers:barriersTrip', '_barriersTripPath');
 
 export const barriersDisabilityTripCustomLabel: I18nData = labelWithTripData(
-    'barriers:barriersDisabilityTrip',
+    'barriersDisability:barriersDisabilityTrip',
     '_barriersDisabilityTripPath'
 );
 
@@ -388,5 +392,19 @@ export const commonTripCustomLabel: I18nData = (t, interview, path) => {
             t,
             options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
         })
+    });
+};
+
+export const barrierDisabilitySelectPersonCustomLabel: I18nData = (t, interview, path) => {
+    const barrierDisabilityPersonId = getResponse(interview, '_barriersDisabilityPersonId', null);
+    if (typeof barrierDisabilityPersonId !== 'string') {
+        throw new Error('barrierDisabilitySelectPersonCustomLabel: no person ID found');
+    }
+    const person = odHelpers.getPerson({ interview, personId: barrierDisabilityPersonId });
+    if (person === null) {
+        throw new Error('barrierDisabilitySelectPersonCustomLabel: no person found');
+    }
+    return t('barriersDisability:barrierDisabilityIsPersonAvailable', {
+        personWithDisabilityNickname: odHelpers.getPersonIdentificationString({ person, t })
     });
 };

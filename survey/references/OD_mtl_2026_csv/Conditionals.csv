@@ -135,7 +135,7 @@ householdTypeSpecifyConditional,,household.type,===,oneFamilyOnly,,,
 didRespondForCorrectAssignedDateConditional,,ep.exclusive,===,respect,,,si EP question respect jour assigné
 didNotRespondForCorrectAssignedDateConditional,,end.didRespondForCorrectAssignedDate,===,no,,,
 hasBarrierTripConditional,,_barriersTripPath,!==,null,,,
-hasBarrierDisabilityTripConditional,,_barriersDisabilityTripPath,!==,null,,,
+isBarriersDisabilityTripPersonAvailableConditional,,barriersDisabilityIsPersonAvailable,===,yes,,,
 educationalAttainmentConditional,,${currentPerson}.occupation,===,fullTimeWorker,,,
 educationalAttainmentConditional,||,${currentPerson}.occupation,===,partTimeWorker,,,
 educationalAttainmentConditional,||,${currentPerson}.occupation,===,workerAndStudent,,,

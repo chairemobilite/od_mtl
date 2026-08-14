@@ -116,18 +116,22 @@ const validatePersonTripPath = ({
     return validationFct({ trip });
 };
 
-const getBarriersTripPathForType = (
-    barrierTripPath: string,
-    interview: InterviewAttributes,
-    validationFct: (args: { trip: Trip }) => boolean
-) => {
-    const frequencyPersonId = getResponse(interview, '_freqPersonId', null) as string | null;
+const getBarriersTripPathForTypeAndPerson = ({
+    barrierTripPath,
+    interview,
+    person,
+    validationFct
+}: {
+    barrierTripPath: string;
+    interview: InterviewAttributes;
+    person: Person;
+    validationFct: (args: { trip: Trip }) => boolean;
+}) => {
     const barriersTripPath = getResponse(interview, barrierTripPath, null) as string | null;
     if (
-        frequencyPersonId !== null &&
         barriersTripPath !== null &&
         validatePersonTripPath({
-            frequencyPersonId,
+            frequencyPersonId: person._uuid,
             barriersTripPath,
             interview,
             validationFct
@@ -137,11 +141,6 @@ const getBarriersTripPathForType = (
         return barriersTripPath;
     }
     // See if any trip has the right characteristics
-    const person = odSurveyHelpers.getPersons({ interview })[frequencyPersonId];
-    if (person === undefined) {
-        // Person does not exist, return null
-        return null;
-    }
     // Look at each trip for each journey to see if there is one that respects the criterias
     const journeys = odSurveyHelpers.getJourneysArray({ person });
     for (let i = 0; i < journeys.length; i++) {
@@ -150,7 +149,7 @@ const getBarriersTripPathForType = (
         for (let j = 0; j < trips.length; j++) {
             const trip = trips[j];
             if (validationFct({ trip })) {
-                return `household.persons.${frequencyPersonId}.journeys.${journey._uuid}.trips.${trip._uuid}`;
+                return `household.persons.${person._uuid}.journeys.${journey._uuid}.trips.${trip._uuid}`;
             }
         }
     }
@@ -158,11 +157,44 @@ const getBarriersTripPathForType = (
     return null;
 };
 
-export const getBarriersTripPath = (interview: InterviewAttributes) =>
-    getBarriersTripPathForType('_barriersTripPath', interview, validateTripForBarrierQuestions);
+export const getBarriersTripPath = (interview: InterviewAttributes) => {
+    // Get the frequency person
+    const frequencyPersonId = getResponse(interview, '_freqPersonId', null) as string | null;
+    const person = odSurveyHelpers.getPersons({ interview })[frequencyPersonId];
+    if (person === undefined) {
+        // Person does not exist, return null
+        return null;
+    }
+    return getBarriersTripPathForTypeAndPerson({
+        barrierTripPath: '_barriersTripPath',
+        interview,
+        person,
+        validationFct: validateTripForBarrierQuestions
+    });
+};
 
-export const getBarriersDisabilityTripPath = (interview: InterviewAttributes) =>
-    getBarriersTripPathForType('_barriersDisabilityTripPath', interview, validateTripForBarrierDisabilityQuestions);
+export const getSelfRespondentWithDisabilitiesAndTrip = (
+    interview: InterviewAttributes
+): { personId: string; tripPath: string }[] => {
+    const selfRespondentsWithDisabilities = odSurveyHelpers
+        .getPersonsArray({ interview })
+        .filter(
+            (person) =>
+                odSurveyHelpers.isSelfDeclared({ interview, person }) &&
+                odSurveyHelpers.personMayHaveDisability({ person })
+        );
+    return selfRespondentsWithDisabilities
+        .map((person) => {
+            const applicableTripPath = getBarriersTripPathForTypeAndPerson({
+                barrierTripPath: '_barriersDisabilityTripPath',
+                interview,
+                person,
+                validationFct: validateTripForBarrierDisabilityQuestions
+            });
+            return applicableTripPath === null ? null : { personId: person._uuid, tripPath: applicableTripPath };
+        })
+        .filter((pandt) => pandt !== null);
+};
 
 export const getChildrenAged1To4 = (interview) =>
     odSurveyHelpers
