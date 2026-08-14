@@ -1423,14 +1423,14 @@ export const hasBarrierTripConditional: WidgetConditional = (interview) => {
     });
 };
 
-export const hasBarrierDisabilityTripConditional: WidgetConditional = (interview) => {
+export const isBarriersDisabilityTripPersonAvailableConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,
         conditionals: [
             {
-                path: '_barriersDisabilityTripPath',
-                comparisonOperator: '!==',
-                value: null
+                path: 'barriersDisabilityIsPersonAvailable',
+                comparisonOperator: '===',
+                value: 'yes'
             }
         ]
     });

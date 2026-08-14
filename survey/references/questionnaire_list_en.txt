@@ -710,6 +710,96 @@ Continue
 
 
 
+Section: Barriers
+
+The following questions aim to better understand mobility behaviours beyond the trips already reported.
+
+They are asked to a single respondent in the household, if this person is available to answer themselves.
+
+Is {{personWithDisabilityNickname}} available ?
+- Yes
+- No
+
+Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
+
+For the trip shown above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
+
+Public transit frequency (e.g., infrequent service, long waiting times)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Walking time to a stop or station (at departure or arrival)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Number of transfers required (changes of line or mode)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Trip planning (ease of finding information, accessible website, etc.)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)
+- Not a barrier at all - I did not avoid public transit for this reason.
+- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
+- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
+- Strong barrier - This reason strongly led me to avoid public transit.
+- Decisive barrier - I avoided public transit mainly because of this reason.
+- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
+
+Continue
+
+
+
 Section: Frequencies respondent selection
 
 The following questions aim to better understand mobility behaviours beyond the trips already reported.
@@ -879,82 +969,6 @@ Safety (e.g., poor lighting in terminals and stations, lack of staff in the netw
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
 Trip planning (ease of finding information, accessible website, etc.)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
-
-For the trip shown above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
-
-Public transit frequency (e.g., infrequent service, long waiting times)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Walking time to a stop or station (at departure or arrival)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Number of transfers required (changes of line or mode)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Trip planning (ease of finding information, accessible website, etc.)
-- Not a barrier at all - I did not avoid public transit for this reason.
-- Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
-- Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
-- Strong barrier - This reason strongly led me to avoid public transit.
-- Decisive barrier - I avoided public transit mainly because of this reason.
-- Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
-
-Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.

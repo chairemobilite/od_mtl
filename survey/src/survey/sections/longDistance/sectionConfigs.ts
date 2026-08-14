@@ -11,7 +11,7 @@ import { isPartialSample } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'longDistance';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
-const nextSectionName: SectionConfig['nextSection'] = 'selectFreqPerson';
+const nextSectionName: SectionConfig['nextSection'] = 'barriersDisability';
 const parentSection = 'end';
 
 // Config for the section

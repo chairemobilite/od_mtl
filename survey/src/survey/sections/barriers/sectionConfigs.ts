@@ -5,7 +5,7 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { getBarriersDisabilityTripPath, getBarriersTripPath } from '../../common/customHelpers';
+import { getBarriersTripPath } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
@@ -44,10 +44,8 @@ export const sectionConfig: SectionConfig = {
     },
     onSectionEntry: (interview) => {
         const barrierTripPath = getBarriersTripPath(interview);
-        const barrierDisabilityTripPath = getBarriersDisabilityTripPath(interview);
         return {
-            'response._barriersTripPath': barrierTripPath,
-            'response._barriersDisabilityTripPath': barrierDisabilityTripPath
+            'response._barriersTripPath': barrierTripPath
         };
     },
     isSectionVisible: (interview) => {
@@ -56,8 +54,7 @@ export const sectionConfig: SectionConfig = {
             return false;
         }
         const barrierTripPath = getBarriersTripPath(interview);
-        const barrierDisabilityTripPath = getBarriersDisabilityTripPath(interview);
-        return barrierTripPath !== null || barrierDisabilityTripPath !== null;
+        return barrierTripPath !== null;
     }
 };
 

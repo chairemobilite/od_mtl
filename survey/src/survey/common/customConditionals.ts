@@ -564,3 +564,15 @@ export const toddlerDaycareCustomConditional: WidgetConditional = (interview) =>
     shouldShowToddlerDayCareQuestions(interview),
     null
 ];
+
+export const hasMoreThanOneSelfRespondentCustomConditional: WidgetConditional = (interview) =>
+    odSurveyHelper
+        .getPersonsArray({ interview })
+        .filter((person) => odSurveyHelper.isSelfDeclared({ interview, person })).length > 1;
+
+export const hasMoreThanOneSelfRespondentDefaultYesCustomConditional: WidgetConditional = (interview, path) => {
+    if (!hasMoreThanOneSelfRespondentCustomConditional(interview, path)) {
+        return [false, 'yes'];
+    }
+    return true;
+};

@@ -13,6 +13,7 @@ import * as segmentsWidgets from './sections/segments/widgets';
 import * as travelBehaviorWidgets from './sections/travelBehavior/widgets';
 import * as omissionsWidgets from './sections/omissions/widgets';
 import * as longDistanceWidgets from './sections/longDistance/widgets';
+import * as barriersDisabilityWidgets from './sections/barriersDisability/widgets';
 import * as selectFreqPersonWidgets from './sections/selectFreqPerson/widgets';
 import * as frequenciesWidgets from './sections/frequencies/widgets';
 import * as attitudinalWidgets from './sections/attitudinal/widgets';
@@ -36,6 +37,7 @@ const sectionsWidgets = [
     travelBehaviorWidgets,
     omissionsWidgets,
     longDistanceWidgets,
+    barriersDisabilityWidgets,
     selectFreqPersonWidgets,
     frequenciesWidgets,
     attitudinalWidgets,

@@ -10,7 +10,7 @@ import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'selectFreqPerson';
-const previousSectionName: SectionConfig['previousSection'] = 'longDistance';
+const previousSectionName: SectionConfig['previousSection'] = 'barriersDisability';
 const nextSectionName: SectionConfig['nextSection'] = 'frequencies';
 
 const visibleEps = ['freqAttitudinal', 'freqAttitudinalBarriers', 'freqBarriers'];
