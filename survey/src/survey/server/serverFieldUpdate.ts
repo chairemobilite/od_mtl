@@ -694,8 +694,7 @@ export default [
         callback: async (interview, value, path) => {
             try {
                 const isCommonTripSampleAndMatch = isCommonTripSampleMatch(interview);
-                const isBarriersSample = isPartialSample(interview, ['freqBarriers', 'freqAttitudinalBarriers']);
-                if (_isBlank(value) || (!isCommonTripSampleAndMatch && !isBarriersSample)) {
+                if (_isBlank(value)) {
                     // Nothing to do if no actual trip ID or if it is not a sample that needs further calculations
                     return {};
                 }
@@ -705,9 +704,7 @@ export default [
                 if (isCommonTripSampleAndMatch) {
                     Object.assign(updatedValuesByPath, getUpdatedFieldsForCommonTrip(interview, value));
                 }
-                if (isBarriersSample) {
-                    Object.assign(updatedValuesByPath, getUpdatedFieldsForBarriers(interview, value));
-                }
+                Object.assign(updatedValuesByPath, getUpdatedFieldsForBarriers(interview, value));
                 return updatedValuesByPath;
             } catch (error) {
                 console.error('error filling modes for active trip', error);
