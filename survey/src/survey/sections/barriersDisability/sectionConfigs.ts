@@ -5,7 +5,7 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { getSelfRespondentWithDisabilitiesAndTrip, hasMoreThanOnePersonOfDrivingAge } from '../../common/customHelpers';
+import { getSelfRespondentWithDisabilitiesAndTrip } from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { isPartialSample } from '../../common/commonHelpers';
 import { getResponse } from 'evolution-common/lib/utils/helpers';

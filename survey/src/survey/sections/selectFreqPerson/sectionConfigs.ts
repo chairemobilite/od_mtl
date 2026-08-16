@@ -5,9 +5,12 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { hasMoreThanOnePersonOfDrivingAge, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import {
+    hasMoreThanOneSelfRespondentOfDrivingAgeAndNoDisability,
+    preEndNoDisabilityConditional,
+    updateHouseholdSizeFromPersonCount
+} from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'selectFreqPerson';
 const previousSectionName: SectionConfig['previousSection'] = 'barriersDisability';
@@ -40,15 +43,19 @@ export const sectionConfig: SectionConfig = {
         // completed or if the household has only one person of driving age
         return (
             !preEndNoDisabilityConditional(interview, visibleEps) ||
-            !hasMoreThanOnePersonOfDrivingAge(interview) ||
+            !hasMoreThanOneSelfRespondentOfDrivingAgeAndNoDisability(interview) ||
             isSectionCompleted({ interview, sectionName: currentSectionName })
         );
     },
     onSectionEntry: updateHouseholdSizeFromPersonCount,
     isSectionVisible: (interview) => {
         // Section visible seulement si échantillon partiel exclusif est est
-        // l'un des 3 avec freq et qu'il y a plus d'un membre en âge de conduire (16 ans)
-        return preEndNoDisabilityConditional(interview, visibleEps) && hasMoreThanOnePersonOfDrivingAge(interview);
+        // l'un des 3 avec freq et qu'il y a plus d'un membre correspondant aux
+        // critères d'auto-répondant en âge de conduire
+        return (
+            preEndNoDisabilityConditional(interview, visibleEps) &&
+            hasMoreThanOneSelfRespondentOfDrivingAgeAndNoDisability(interview)
+        );
     }
 };
 

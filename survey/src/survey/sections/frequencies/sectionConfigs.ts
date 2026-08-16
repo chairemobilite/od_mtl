@@ -5,9 +5,13 @@
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { widgetsNames } from './widgetsNames';
-import { getPersonsOfDrivingAge, updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import {
+    getPersonsOfDrivingAge,
+    getSelfRespondentWithNoDisabilityAndDrivingAge,
+    preEndNoDisabilityConditional,
+    updateHouseholdSizeFromPersonCount
+} from '../../common/customHelpers';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
-import { preEndNoDisabilityConditional } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'frequencies';
 const previousSectionName: SectionConfig['previousSection'] = 'selectFreqPerson';
@@ -45,13 +49,13 @@ export const sectionConfig: SectionConfig = {
     onSectionEntry: (interview) => {
         // Set the _freqPersonId if there is only one person, otherwise, it was
         // set in another section
-        const hhMembersOfDrivingLicenseAge = getPersonsOfDrivingAge(interview);
-        if (hhMembersOfDrivingLicenseAge.length !== 1) {
+        const hhSelfRespondentsOfDrivingLicenseAge = getSelfRespondentWithNoDisabilityAndDrivingAge(interview);
+        if (hhSelfRespondentsOfDrivingLicenseAge.length !== 1) {
             // The response should have been set in the selectFreqPerson
             // section, just return empty values
             return {};
         }
-        return { 'response._freqPersonId': hhMembersOfDrivingLicenseAge[0]._uuid };
+        return { 'response._freqPersonId': hhSelfRespondentsOfDrivingLicenseAge[0]._uuid };
     },
     isSectionVisible: (interview) => {
         // Section visible seulement si ep exclusif est est l'un des 3 avec freq
