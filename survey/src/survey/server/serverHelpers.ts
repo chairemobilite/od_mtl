@@ -16,7 +16,7 @@ import onDemandZones from '../geojson/onDemandTransit_zone.json';
 // FIXME We should not import from auditChecks here for the survey, but this
 // utils is very utile, so it should be moved elsewhere
 // (https://github.com/chairemobilite/evolution/issues/1792)
-import { getSurveyArea } from 'evolution-backend/lib/services/audits/auditChecks/AuditCheckUtils';
+import { getSurveyArea } from 'evolution-backend/lib/utils/surveyArea';
 
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
