@@ -766,51 +766,51 @@ Continuer
 
 Section: Questions attitudinales
 
-Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique 
+Pour cette série de questions concernant {{nickname}}, nous vous demandons de quantifier dans quelle mesure {{nickname}} est d’accord ou non avec une affirmation spécifique
 
-L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.
+L’opinion des personnes qui comptent pour {{nickname}} (famille, amis, collègues) influence ses choix de mode de transport pour ses trajets habituels.
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+La voiture personnelle représente pour {{nickname}} l’indépendance et l’autonomie.
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.
+Globalement, le transport en commun dans la région où vous habitez est utile et de bonne qualité selon {{nickname}}.
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+{{nickname}} connaît bien les services de transport en commun qui desservent le domicile et ses lieux d’activité habituels (lignes, arrêts principaux, fréquences).
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). 
+Les activités habituelles de {{nickname}} exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.).
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. 
+Il serait facile pour {{nickname}} de réaliser la plupart de ses déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs.
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
 - Plutôt d'accord
 - Tout à fait d'accord
 
-Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.
+Dans le choix du lieu de résidence de {{nickname}}, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où {{nickname}} se déplace est important.
 - Pas du tout d'accord
 - Plutôt pas d'accord
 - Ni d'accord ni pas d'accord
@@ -823,9 +823,9 @@ Continuer
 
 Section: Barrières
 
-Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+Déplacement de {{nickname}} pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
 
-Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun (bus, métro, train ou REM), pour ce déplacement.
+Pour le déplacement indiqué ci-dessus, {{nickname}} a utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein…
 
 La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
@@ -883,9 +883,9 @@ La planification du déplacement (facilité de trouver l'information, site web a
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+Déplacement de {{nickname}} pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
 
-Pour le déplacement indiqué ci-dessus, vous avez utilisé le transport adapté. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun service régulier (bus, métro, train ou REM), pour ce déplacement.
+Pour le déplacement indiqué ci-dessus, {{nickname}} a utilisé le transport adapté. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun service régulier (bus, métro, train ou REM), pour ce déplacement.
 
 La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.

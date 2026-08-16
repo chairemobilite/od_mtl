@@ -3,10 +3,12 @@
 // Any changes made to this file will be overwritten.
 
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customLabels from '../../common/customLabels';
@@ -23,7 +25,7 @@ export const barriersIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'barriersIntro',
     containsHtml: true,
-    text: (t: TFunction) => t('barriers:barriersIntro'),
+    text: customLabels.barriersIntroCustomLabel,
     conditional: conditionals.hasBarrierTripConditional
 };
 
@@ -116,7 +118,7 @@ export const barriersDisabilityIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'barriersDisabilityIntro',
     containsHtml: true,
-    text: (t: TFunction) => t('barriers:barriersDisabilityIntro'),
+    text: customLabels.barriersDisabilityIntroCustomLabel,
     conditional: conditionals.hasBarrierDisabilityTripConditional
 };
 

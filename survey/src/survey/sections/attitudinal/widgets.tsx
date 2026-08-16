@@ -3,17 +3,20 @@
 // Any changes made to this file will be overwritten.
 
 import { TFunction } from 'i18next';
+import _escape from 'lodash/escape';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
+import * as customLabels from '../../common/customLabels';
 
 export const attitudinalIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'freqAttitudinal.attitudinalIntro',
     containsHtml: true,
-    text: (t: TFunction) => t('attitudinal:attitudinalIntro'),
+    text: customLabels.attitudinalIntroCustomLabel,
     conditional: defaultConditional
 };
 
@@ -22,7 +25,7 @@ export const attitudinalOpinion: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalOpinion',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalOpinion'),
+    label: customLabels.attitudinalOpinionCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -33,7 +36,7 @@ export const attitudinalCar: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalCar',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalCar'),
+    label: customLabels.attitudinalCarCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -44,7 +47,7 @@ export const attitudinalTransitGoodQuality: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalTransitGoodQuality',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalTransitGoodQuality'),
+    label: customLabels.attitudinalTransitGoodQualityCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -55,7 +58,7 @@ export const attitudinalFamiliarWithTransit: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalFamiliarWithTransit',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalFamiliarWithTransit'),
+    label: customLabels.attitudinalFamiliarWithTransitCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -66,7 +69,7 @@ export const attitudinalRequireHighLevel: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalRequireHighLevel',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalRequireHighLevel'),
+    label: customLabels.attitudinalRequireHighLevelCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -77,7 +80,7 @@ export const attitudinalEasyWithoutCar: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalEasyWithoutCar',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalEasyWithoutCar'),
+    label: customLabels.attitudinalEasyWithoutCarCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation
@@ -88,7 +91,7 @@ export const attitudinalGoodAccessImportant: WidgetConfig.InputRadioType = {
     path: 'freqAttitudinal.attitudinalGoodAccessImportant',
     twoColumns: false,
     containsHtml: true,
-    label: (t: TFunction) => t('attitudinal:attitudinalGoodAccessImportant'),
+    label: customLabels.attitudinalGoodAccessImportantCustomLabel,
     choices: choices.attitudinalChoices,
     conditional: defaultConditional,
     validations: validations.optionalValidation

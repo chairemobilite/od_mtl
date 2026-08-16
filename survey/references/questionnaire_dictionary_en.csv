@@ -1112,7 +1112,7 @@ Abbreviation,att_
 ""
 Field,attitudinalOpinion
 Question type,Radio input
-Question,"The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips"
+Question,"The opinions of people who matter to {{nickname}} (family, friends, colleagues) influence {{nickname}}'s choice of transportation mode for usual trips"
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1120,7 +1120,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalCar
 Question type,Radio input
-Question,A personal car represents independence and autonomy for me.
+Question,A personal car represents independence and autonomy for {{nickname}}.
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1128,7 +1128,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalTransitGoodQuality
 Question type,Radio input
-Question,"Overall, public transit in the region where I live is useful and of good quality."
+Question,"Overall, public transit in the region where you live is useful and of good quality according to {{nickname}}."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1136,7 +1136,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalFamiliarWithTransit
 Question type,Radio input
-Question,"I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)"
+Question,"{{nickname}} is familiar with the public transit services that serve home and their usual activity locations (lines, main stops, frequencies)"
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1144,7 +1144,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalRequireHighLevel
 Question type,Radio input
-Question,"My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
+Question,"{{nickname}}'s usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1152,7 +1152,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalEasyWithoutCar
 Question type,Radio input
-Question,"It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
+Question,"It would be easy for {{nickname}} to make most trips without a personal car, using public transit or active modes."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree
@@ -1160,7 +1160,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalGoodAccessImportant
 Question type,Radio input
-Question,"When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
+Question,"When choosing where {{nickname}} lives, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times {{nickname}} travels is important."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 1 : Somewhat agree

@@ -3,27 +3,53 @@
 # Any changes made to this file will be overwritten.
 
 attitudinalIntro: >-
-    Pour cette série de questions, nous vous demandons de quantifier dans quelle mesure
-    vous êtes d’accord ou non avec une affirmation spécifique 
+    Pour cette série de questions concernant {{nickname}}, nous vous demandons de
+    quantifier dans quelle mesure {{nickname}} est d’accord ou non avec une affirmation
+    spécifique
+attitudinalIntro_one: >-
+    Nous vous demandons de quantifier dans quelle mesure vous êtes d’accord ou non
+    avec une affirmation spécifique
 attitudinalOpinion: >-
-    L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence
-    mes choix de mode de transport pour mes trajets habituels.
-attitudinalCar: La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+    L’opinion des personnes qui comptent pour {{nickname}} (famille, amis, collègues)
+    influence ses choix de mode de transport pour ses trajets habituels.
+attitudinalOpinion_one: >-
+    L’opinion des personnes qui comptent pour vous (famille, amis, collègues) influence
+    vos choix de mode de transport pour vos trajets habituels.
+attitudinalCar: >-
+    La voiture personnelle représente pour {{nickname}} l’indépendance et l’autonomie.
+attitudinalCar_one: La voiture personnelle représente pour vous l’indépendance et
+    l’autonomie.
 attitudinalTransitGoodQuality: >-
-    Globalement, le transport en commun dans la région où j’habite est utile et de
-    bonne qualité.
+    Globalement, le transport en commun dans la région où vous habitez est utile et
+    de bonne qualité selon {{nickname}}.
+attitudinalTransitGoodQuality_one: >-
+    Globalement, le transport en commun dans la région où vous habitez est utile et
+    de bonne qualité.
 attitudinalFamiliarWithTransit: >-
-    Je connais bien les services de transport en commun qui desservent mon domicile
-    et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+    {{nickname}} connaît bien les services de transport en commun qui desservent le
+    domicile et ses lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+attitudinalFamiliarWithTransit_one: >-
+    Vous connaissez bien les services de transport en commun qui desservent votre
+    domicile et vos lieux d’activité habituels (lignes, arrêts principaux, fréquences).
 attitudinalRequireHighLevel: >-
-    Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité
+    Les activités habituelles de {{nickname}} exigent un niveau élevé de mobilité
+    et de flexibilité (nombreux déplacements, destinations diverses, variabilité des
+    horaires, etc.).
+attitudinalRequireHighLevel_one: >-
+    Vos activités habituelles exigent un niveau élevé de mobilité et de flexibilité
     (nombreux déplacements, destinations diverses, variabilité des horaires, etc.).
-    
 attitudinalEasyWithoutCar: >-
-    Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle,
-    en utilisant le transport en commun ou les modes actifs. 
+    Il serait facile pour {{nickname}} de réaliser la plupart de ses déplacements
+    sans voiture personnelle, en utilisant le transport en commun ou les modes actifs.
+attitudinalEasyWithoutCar_one: >-
+    Il serait facile pour vous de réaliser la plupart de ses déplacements sans voiture
+    personnelle, en utilisant le transport en commun ou les modes actifs.
 attitudinalGoodAccessImportant: >-
-    Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt
-    ou une station avec un service fréquent aux heures où je me déplace est important
-    pour moi.
+    Dans le choix du lieu de résidence de {{nickname}}, l’accès à pied (≈ 5–15 minutes)
+    à un arrêt ou une station avec un service fréquent aux heures où {{nickname}}
+    se déplace est important.
+attitudinalGoodAccessImportant_one: >-
+    Dans le choix de votre lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un
+    arrêt ou une station avec un service fréquent aux heures où vous vous déplacez
+    est important.
 buttonCompleteAttitudinalSection: Continuer

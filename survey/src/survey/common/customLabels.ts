@@ -314,6 +314,58 @@ export const didNotRespondForCorrectDateReasonCustomLabel: I18nData = labelWithA
     'end:didNotRespondForCorrectAssignedDateReasons'
 );
 
+/**
+ * Nickname, count and gender for the person selected for frequency /
+ * attitudinal / barrier questions (`response._freqPersonId`).
+ * @param t i18n function
+ * @param interview current interview
+ */
+export const getFreqPersonLabelOptions = (t: TFunction, interview: InterviewAttributes) => {
+    const frequencyPersonId = getResponse(interview, '_freqPersonId', null) as string | null;
+    if (_isBlank(frequencyPersonId)) {
+        throw new Error('getFreqPersonLabelOptions: _freqPersonId not found');
+    }
+    const person = odHelpers.getPersons({ interview })[frequencyPersonId as string];
+    if (person === undefined) {
+        throw new Error('getFreqPersonLabelOptions: person not found for _freqPersonId');
+    }
+    return {
+        nickname: odHelpers.getPersonIdentificationString({ person, t }),
+        count: odHelpers.getCountOrSelfDeclared({ interview, person }),
+        context: odHelpers.getPersonGenderContext({ person })
+    };
+};
+
+/**
+ * Label that interpolates the frequency person (`_freqPersonId`).
+ * @param translationKey i18n key (supports `_one` when the person answers for themselves)
+ */
+export const labelWithFreqPerson =
+    (translationKey: string): I18nData =>
+        (t: TFunction, interview) =>
+            t(translationKey, getFreqPersonLabelOptions(t, interview));
+
+export const attitudinalIntroCustomLabel: I18nData = labelWithFreqPerson('attitudinal:attitudinalIntro');
+export const attitudinalOpinionCustomLabel: I18nData = labelWithFreqPerson('attitudinal:attitudinalOpinion');
+export const attitudinalCarCustomLabel: I18nData = labelWithFreqPerson('attitudinal:attitudinalCar');
+export const attitudinalTransitGoodQualityCustomLabel: I18nData = labelWithFreqPerson(
+    'attitudinal:attitudinalTransitGoodQuality'
+);
+export const attitudinalFamiliarWithTransitCustomLabel: I18nData = labelWithFreqPerson(
+    'attitudinal:attitudinalFamiliarWithTransit'
+);
+export const attitudinalRequireHighLevelCustomLabel: I18nData = labelWithFreqPerson(
+    'attitudinal:attitudinalRequireHighLevel'
+);
+export const attitudinalEasyWithoutCarCustomLabel: I18nData = labelWithFreqPerson(
+    'attitudinal:attitudinalEasyWithoutCar'
+);
+export const attitudinalGoodAccessImportantCustomLabel: I18nData = labelWithFreqPerson(
+    'attitudinal:attitudinalGoodAccessImportant'
+);
+export const barriersIntroCustomLabel: I18nData = labelWithFreqPerson('barriers:barriersIntro');
+export const barriersDisabilityIntroCustomLabel: I18nData = labelWithFreqPerson('barriers:barriersDisabilityIntro');
+
 // Get a label with the details of a trip, from a trip's path available in some field
 const placeDescriptionOption = {
     withTimes: false,
@@ -338,6 +390,7 @@ export const labelWithTripData =
             const destination = odHelpers.getDestination({ trip, visitedPlaces });
 
             return t(translationKey, {
+                ...getFreqPersonLabelOptions(t, interview),
                 activity: t(`visitedPlaces:activities.${destination.activity}`),
                 origin: odHelpers.getVisitedPlaceDescription({
                     visitedPlace: origin,

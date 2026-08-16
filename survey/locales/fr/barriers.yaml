@@ -3,11 +3,16 @@
 # Any changes made to this file will be overwritten.
 
 barriersTrip: >-
-    Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+    Déplacement de {{nickname}} pour motif {{activity}}: {{origin}} vers {{destination}}
+    à {{originDepartureTime}}
+barriersTrip_one: >-
+    Votre déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
 barriersIntro: >-
+    Pour le déplacement indiqué ci-dessus, {{nickname}} a utilisé la voiture. Pour
+    chacun des éléments suivants, indiquez s’ils ont constitué un frein…
+barriersIntro_one: >-
     Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun
-    des éléments suivants, <strong>indiquez s’ils ont constitué un frein à l’utilisation
-    du transport en commun</strong> (bus, métro, train ou REM), pour ce <strong>déplacement</strong>.
+    des éléments suivants, indiquez s’ils ont constitué un frein…
 barriersFrequency: >-
     La <strong>fréquence de passage</strong> du transport en commun ou TC (ex. : passages
     espacés, longue attente)
@@ -30,8 +35,16 @@ barriersPlanning: >-
     La <strong>planification du déplacement</strong> (facilité de trouver l'information,
     site web accessible, etc.)
 barriersDisabilityTrip: >-
-    Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
+    Déplacement de {{nickname}} pour motif {{activity}}: {{origin}} vers {{destination}}
+    à {{originDepartureTime}}
+barriersDisabilityTrip_one: >-
+    Votre déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
 barriersDisabilityIntro: >-
+    Pour le déplacement indiqué ci-dessus, {{nickname}} a utilisé le transport adapté.
+    Pour chacun des éléments suivants, <strong>indiquez s’ils ont constitué un frein
+    à l’utilisation du transport en commun service régulier</strong> (bus, métro,
+    train ou REM), pour ce <strong>déplacement</strong>.
+barriersDisabilityIntro_one: >-
     Pour le déplacement indiqué ci-dessus, vous avez utilisé le transport adapté.
     Pour chacun des éléments suivants, <strong>indiquez s’ils ont constitué un frein
     à l’utilisation du transport en commun service régulier</strong> (bus, métro,

@@ -3,11 +3,16 @@
 # Any changes made to this file will be overwritten.
 
 barriersTrip: >-
-    Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
+    {{nickname}}'s trip for motive {{activity}}: {{origin}} to {{destination}} at
+    {{originDepartureTime}}
+barriersTrip_one: >-
+    Your trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersIntro: >-
-    For the trip shown above, you used a car. For each of the following items, <strong>indicate
-    whether they were a barrier to using public transit</strong> (bus, metro, train,
-    or REM) for this <strong>trip</strong>.
+    For the trip shown above, {{nickname}} used a car. For each of the following items, indicate
+    whether they were a barrier…
+barriersIntro_one: >-
+    For the trip shown above, you used a car. For each of the following items, indicate
+    whether they were a barrier…
 barriersFrequency: >-
     <strong>Public transit frequency</strong> (e.g., infrequent service, long waiting
     times)
@@ -28,8 +33,15 @@ barriersPlanning: >-
     <strong>Trip planning</strong> (ease of finding information, accessible website,
     etc.)
 barriersDisabilityTrip: >-
-    Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
+    {{nickname}}'s trip for motive {{activity}}: {{origin}} to {{destination}} at
+    {{originDepartureTime}}
+barriersDisabilityTrip_one: >-
+    You trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersDisabilityIntro: >-
+    For the trip shown above, {{nickname}} used paratransit. For each of the following
+    items, <strong>indicate whether they were a barrier to using regular public transit
+    service</strong> (bus, metro, train, or REM) for this <strong>trip</strong>.
+barriersDisabilityIntro_one: >-
     For the trip shown above, you used paratransit. For each of the following items,
     <strong>indicate whether they were a barrier to using regular public transit service</strong>
     (bus, metro, train, or REM) for this <strong>trip</strong>.
