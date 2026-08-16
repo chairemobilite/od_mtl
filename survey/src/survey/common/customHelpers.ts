@@ -22,6 +22,7 @@ import {
     getCommonTripFromReferencePerson,
     getCommonTripReferencePerson,
     isCommonTripSampleMatch,
+    isHomeInArtmTerritory,
     isPartialSample
 } from './commonHelpers';
 
@@ -67,8 +68,28 @@ export const getPersonsOfDrivingAge = (interview: InterviewAttributes) =>
         .getInterviewablePersonsArray({ interview })
         .filter((person) => person.age >= config.ages.drivingLicenseAge);
 
-export const hasMoreThanOnePersonOfDrivingAge = (interview: InterviewAttributes) =>
-    getPersonsOfDrivingAge(interview).length > 1;
+export const getSelfRespondentWithNoDisabilityAndDrivingAge = (interview: InterviewAttributes) =>
+    getPersonsOfDrivingAge(interview).filter(
+        (person) =>
+            odSurveyHelpers.isSelfDeclared({ interview, person }) &&
+            ['no', 'preferNotToAnswer'].includes(person.hasDisability)
+    );
+
+/**
+ * Conditional for the preEnd sections that require a self respondent no
+ * disabilities and home in artm territory
+ * @param interview The interview
+ * @param partialSample The partial sample.s to confirm if this interview is
+ * part of
+ * @returns `true` if the condition is met
+ */
+export const preEndNoDisabilityConditional = (interview: InterviewAttributes, partialSample: string | string[]) =>
+    isPartialSample(interview, partialSample) &&
+    isHomeInArtmTerritory(interview) &&
+    getSelfRespondentWithNoDisabilityAndDrivingAge(interview).length > 0;
+
+export const hasMoreThanOneSelfRespondentOfDrivingAgeAndNoDisability = (interview: InterviewAttributes) =>
+    getSelfRespondentWithNoDisabilityAndDrivingAge(interview).length > 1;
 
 const validateTripSingleSegmentHasMode =
     (modes: string[]) =>
