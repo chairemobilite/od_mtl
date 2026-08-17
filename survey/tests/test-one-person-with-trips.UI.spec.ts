@@ -58,8 +58,40 @@ const visitedPlaces: commonUITestsHelpers.VisitedPlace[] = [
         _previousArrivalTime: null, // Question won't show.
         _previousDepartureTime: null, // Question won't show.
         arrivalTime: 41400, // 11:30 AM
+        nextPlaceCategory: 'visitedAnotherPlace',
+        departureTime: 13 * 3600
+    },
+    {
+        activityCategory: 'work',
+        activity: 'workNotUsual',
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: false,
+        shortcut: null, // Question won't show.
+        name: 'McMaster University',
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: null, // Question won't show.
+        arrivalTime: 16 * 3600,
+        nextPlaceCategory: 'wentBackHome',
+        departureTime: 21 * 3600
+    },
+    {
+        activityCategory: 'home',
+        activity: null, // Question won't show
+        onTheRoadPreviousPlaceActivity: null, // Question won't show.
+        onTheRoadNextPlaceCategory: null, // Question won't show.
+        previousWorkPlaceName: null, // Question won't show.
+        alreadyVisitedBySelfOrAnotherHouseholdMember: null, // Question won't show.
+        shortcut: null, // Question won't show.
+        name: null, // Question won't show.
+        _previousPreviousDepartureTime: null, // Question won't show.
+        _previousArrivalTime: null, // Question won't show.
+        _previousDepartureTime: null, // Question won't show.
+        arrivalTime: 26 * 3600,
         nextPlaceCategory: 'stayedThereUntilTheNextDay',
-        departureTime: null // Question won't show.
+        departureTime: null // Question won't show
     }
 ];
 
@@ -77,6 +109,22 @@ const segments: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'bicycle',
         mode: 'bicycle',
+        hasNextMode: false
+    },
+    {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
+        segmentIndex: 0,
+        modePre: 'intercity',
+        mode: 'plane',
+        planeStationStart: 'YUL',
+        hasNextMode: false
+    },
+    {
+        ...commonUITestsHelpers.defaultSegmentNullValues,
+        segmentIndex: 0,
+        modePre: 'transitHeavy',
+        mode: 'intercityTrain',
+        intercityRailStationEnd: 'centralStation',
         hasNextMode: false
     }
 ];
@@ -130,7 +178,13 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 });
 
 /********** Tests travelBehavior section **********/
-const travelBehavior = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
+// There is a work trip
+const travelBehavior = {
+    ...commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip,
+    noWorkTripReason: null,
+    usualWorkPlace: null,
+    usualWorkPlaceCommuting: null
+};
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
     householdSize: 1,
