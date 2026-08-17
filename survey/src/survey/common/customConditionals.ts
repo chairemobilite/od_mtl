@@ -11,6 +11,10 @@ import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json
 import transitZones from '../geojson/zones_tarifaires.json';
 import { isCommonTripSampleMatch, isPartialSample } from './commonHelpers';
 import metroTransfers from '../config/metroTransfers.json';
+import {
+    getSegmentNextLocation,
+    getSegmentPreviousLocation
+} from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 
 // Don't show Question and give 'Québec' as default value
 export const hiddenWithQuebecAsDefaultValueCustomConditional: WidgetConditional = (_interview) => {
@@ -414,7 +418,6 @@ export const subwayTransferCustomConditional: WidgetConditional = (interview, pa
 // Custom conditional to validate if a segment is of a certain mode and if the
 // nearest bound (segment origin or destination) is in the territory of the
 // survey
-//  FIXME Implement correctly. See https://github.com/chairemobilite/od_mtl/issues/26, 27, 28, 30, 31, 32
 export const isModeAndSegmentLocationInTerritoryCustomConditional =
     (mode: string, location: 'origin' | 'destination'): WidgetConditional =>
         (interview, path) => {
@@ -429,8 +432,12 @@ export const isModeAndSegmentLocationInTerritoryCustomConditional =
             if (segment.mode !== mode) {
                 return [false, null];
             }
-            // FIXME Get the geography of the origin or destination
-            return [false, null];
+            // Get the segment's previous/next location and display if it is in territory
+            const locationGeography =
+            location === 'origin'
+                ? getSegmentPreviousLocation({ interview, ...segmentContext })
+                : getSegmentNextLocation({ interview, ...segmentContext });
+            return [locationGeography !== null && locationGeography.properties.isInTerritory === true, null];
         };
 
 export const isPlaneAndSegmentOriginInTerritoryCustomConditional: WidgetConditional =
