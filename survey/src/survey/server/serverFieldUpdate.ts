@@ -306,7 +306,7 @@ const copyReverseSegmentArray = (
     const originalSegmentsCount = originalSegments.length;
     for (let segmentIndex = 0; segmentIndex < originalSegmentsCount; segmentIndex++) {
         const copySegment = originalSegments[originalSegmentsCount - segmentIndex - 1];
-        // If segment already exists, copy the data to it
+        // If segment already exists, copy the data to it. Field by field copy is needed for UI to not reset the values when the widget becomes visible
         if (currentSegments[segmentIndex]) {
             const segmentPath = `${tripsPath}.${currentSegments[segmentIndex]._uuid}`;
             updatedSegmentData[`${segmentPath}.mode`] = copySegment.mode;
@@ -676,7 +676,6 @@ export default [
                 // Copy each of the previous trip segment's data into the new trip
                 const currentSegmentPath = getPath(path, '../');
                 if (previousTripSegments.length === 1) {
-                    console.log('should copy reverse segment');
                     // Fill the current segment's mode with same data as previous segment and reverse entry/exit stations if necessary
                     return copyReverseSegment(previousTripSegments[0], currentSegmentPath);
                 } else {
