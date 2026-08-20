@@ -89,7 +89,7 @@ export const getUpdatedFieldsForCommonTrip = (
     // make sure the prefilled flag is set to `false` if the
     // segments are not new (not confirmed yet)
     const segments = odSurveyHelpers.getSegmentsArray({ trip: currentTrip });
-    if (segments.length > 0) {
+    if (odSurveyHelpers.tripHasDefinedSegments({ trip: currentTrip })) {
         return segments.some((segment) => segment._isNew === false)
             ? {
                 [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]:
@@ -212,11 +212,19 @@ export const getUpdatedFieldsForCommonTrip = (
     // Copy segment, but special cases for carDriver/carPassenger and their specific fields (paidForParking, vehicleOccupancy, driver)
     const { _uuid, modePre, mode, paidForParking, vehicleOccupancy, driver, _isNew, ...segment } =
         referenceSegments[0] as any;
-    const newSegment = {
-        _uuid: uuidV4(),
-        _isNew: true,
-        ...segment
-    };
+
+    // Fill current empty segment or create a new one
+    const newSegment =
+        segments[0] !== undefined
+            ? {
+                ...segments[0],
+                ...segment
+            }
+            : {
+                _uuid: uuidV4(),
+                _isNew: true,
+                ...segment
+            };
 
     // If original mode is carPassenger and this person is the
     // driver, change to carDriver
@@ -242,10 +250,23 @@ export const getUpdatedFieldsForCommonTrip = (
 
     const updatedSegments: Record<string, unknown> = {
         [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]:
-            true,
-        [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}.segments.${newSegment._uuid}`]:
-            newSegment
+            true
     };
+    // If no previous segment, just assign the whole object, otherwise set field by field for UI to not reset the values when the widget becomes visible
+    if (segments[0] === undefined) {
+        updatedSegments[
+            `household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}.segments.${newSegment._uuid}`
+        ] = newSegment;
+    } else {
+        const previousSegment = segments[0];
+        Object.keys(newSegment).forEach((key) => {
+            if (previousSegment[key] !== newSegment[key]) {
+                updatedSegments[
+                    `household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}.segments.${newSegment._uuid}.${key}`
+                ] = newSegment[key];
+            }
+        });
+    }
     return updatedSegments;
 };
 

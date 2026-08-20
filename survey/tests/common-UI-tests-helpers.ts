@@ -1730,14 +1730,10 @@ const fillOneSegmentTests = ({
     const segmentIdString = `\${segmentId[${index}]}`;
 
     // Test the group object button, if the segment is not expected to exist already
-    if (!segment.expectedPrefilled) {
-        const nextSegmentText =
-            index === 0
-                ? 'Select the first (or only) mode of transport used during this trip'
-                : 'Select the next mode of transport';
+    if (!segment.expectedPrefilled && index > 0) {
         testHelpers.inputNextButtonTest({
             context,
-            text: nextSegmentText,
+            text: 'Select the next mode of transport',
             nextPageUrl: '/survey/segments'
         });
     }
