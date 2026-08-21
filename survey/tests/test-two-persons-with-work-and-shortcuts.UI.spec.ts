@@ -287,7 +287,7 @@ const segmentsP2: commonUITestsHelpers.Segment[] = [
 // Start the survey using the email provided
 surveyTestHelpers.startAndLoginWithEmail({
     context,
-    title: 'Perspectives Mobilité 2026',
+    title: 'Perspectives mobilité 2026',
     email,
     nextPageUrl: 'survey/accessCode'
 });

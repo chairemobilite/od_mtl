@@ -114,8 +114,8 @@ module.exports = {
         en: 'English'
     },
     title: {
-        fr: 'Perspectives Mobilité 2026',
-        en: '2026 Perspectives Mobilité'
+        fr: 'Perspectives mobilité 2026',
+        en: '2026 Perspectives mobilité'
     },
     defaultLocale: 'fr',
     timezone: 'America/Montreal',

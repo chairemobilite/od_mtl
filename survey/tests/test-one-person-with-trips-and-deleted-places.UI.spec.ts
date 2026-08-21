@@ -104,7 +104,7 @@ const email = 'one-person-with-trips-and-deleted-places@test.com';
 const accessCode = '735-711-113';
 surveyTestHelpers.startAndLoginWithEmail({
     context,
-    title: 'Perspectives Mobilité 2026',
+    title: 'Perspectives mobilité 2026',
     email,
     nextPageUrl: 'survey/accessCode'
 });
