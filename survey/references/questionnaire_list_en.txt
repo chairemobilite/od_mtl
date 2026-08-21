@@ -560,7 +560,7 @@ Was this trip (between {{origin}} and {{destination}}) made, in part or entirely
 
 Confirm this trip
 
-Confirm locations and continue
+Confirm modes of transportation and continue
 
 
 

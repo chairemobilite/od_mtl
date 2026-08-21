@@ -846,7 +846,7 @@ Question,Confirm this trip
 Field,s_save
 Question type,Builtin
 Conditional,lastPlaceEnteredCustomConditional
-Question,Confirm locations and continue
+Question,Confirm modes of transportation and continue
 ""
 ""
 ""

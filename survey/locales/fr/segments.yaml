@@ -56,7 +56,7 @@ personTripsCommonTripWith: >-
     Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout
     ou en partie, <strong>avec un autre membre du ménage</strong>?
 buttonSaveTrip: Confirmer ce déplacement
-buttonConfirmNextSection: Confirmer les lieux et continuer
+buttonConfirmNextSection: Confirmer les modes de transport et continuer
 junctionGeographyRefreshGeocodingLabel: Chercher le lieu de jonction à partir du nom
     ou de l'adresse
 driverFamily: Ami ou famille

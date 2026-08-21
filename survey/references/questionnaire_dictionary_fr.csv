@@ -844,7 +844,7 @@ Question,Confirmer ce déplacement
 Champ,s_save
 Type de question,Builtin
 Conditionnel,lastPlaceEnteredCustomConditional
-Question,Confirmer les lieux et continuer
+Question,Confirmer les modes de transport et continuer
 ""
 ""
 ""
