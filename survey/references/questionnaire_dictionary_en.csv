@@ -882,11 +882,11 @@ Locate the place by searching for its name or address, or by navigating, zooming
 Field,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
 Question type,Radio input
 Conditional,hasWorkingLocationNotSetCustomConditional
-Question,"What mode of transportation does {{nickname}} usually use to travel to their workplace?
+Question,"What mode of transportation does {{nickname}} usually use to travel to their workplace, in automn?
 If multiple modes are used, indicate the one that represents the largest share of distance traveled.
 If {{nickname}} works at multiple locations, respond based on the location identified above."
-Values,"carDriver : Personal car (can belong to self, friend, family, etc)
-carPassenger : Passenger (car/motorcycle/moped)
+Values,"carDriver : Car as driver
+carPassenger : Car as passenger
 transit : Public transit
 walk : Walking
 bike : Bicycle

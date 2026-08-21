@@ -880,11 +880,11 @@ Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant,
 Champ,hh_persons.{_activePersonId}.usualWorkPlaceCommuting
 Type de question,Bouton radio
 Conditionnel,hasWorkingLocationNotSetCustomConditional
-Question,"Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
+Question,"Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail, en automne?
 Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
 Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus."
-Valeurs,"carDriver : Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
-carPassenger : Passager (voiture/moto/scooter)
+Valeurs,"carDriver : Auto en tant que conducteur
+carPassenger : Auto en tant que passager
 transit : Transport en commun
 walk : Marche
 bike : Vélo

@@ -199,9 +199,8 @@ intercityBusStationChoices:
     terminusKirkland: Kirkland
     terminusLongueuil: Longueuil Intermodal Terminal
 usualWorkPlaceCommutingModes:
-    carDriver: <strong>Personal car</strong> (can belong to self, friend, family,
-        etc)
-    carPassenger: <strong>Passenger</strong> (car/motorcycle/moped)
+    carDriver: Car as <strong>driver</strong>
+    carPassenger: Car as <strong>passenger</strong>
     transit: Public <strong>transit</strong>
     walk: <strong>Walking</strong>
     bike: <strong>Bicycle</strong>
