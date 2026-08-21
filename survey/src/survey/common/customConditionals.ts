@@ -586,3 +586,22 @@ export const hasMoreThanOneSelfRespondentDefaultYesCustomConditional: WidgetCond
     }
     return true;
 };
+
+export const hasOnePersonWithDisabilityOrHhSize1CustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview, path });
+    const householdSize = surveyHelper.getResponse(interview, 'household.size');
+    const hhAtLeastOnePersonWithDisability = surveyHelper.getResponse(
+        interview,
+        'household.atLeastOnePersonWithDisability'
+    );
+
+    // Show if household size is 1
+    if (typeof householdSize === 'number' && householdSize === 1) {
+        return true;
+    }
+    // Show only if the person is aged above interviewable age and there's persons with disabilities in the household
+    if (typeof person.age === 'number' && person.age < config.ages.interviewableAge) {
+        return [false, null];
+    }
+    return hhAtLeastOnePersonWithDisability === 'yes' ? true : [false, hhAtLeastOnePersonWithDisability];
+};

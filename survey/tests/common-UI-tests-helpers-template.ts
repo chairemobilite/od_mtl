@@ -236,7 +236,7 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.transitFareWarning', isVisible: true });
     testHelpers.inputCheckboxTest({ context, path: 'household.persons.${personId[0]}.transitFareWarning', values: ['?'] });
 
-    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1Conditional with choices yesNoPreferNotToAnswer
+    // Test radio widget personHasDisability with conditional hasOnePersonWithDisabilityOrHhSize1CustomConditional with choices yesNoPreferNotToAnswer
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.hasDisability', isVisible: true });
