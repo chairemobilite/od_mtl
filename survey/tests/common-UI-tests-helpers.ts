@@ -1697,7 +1697,7 @@ export const fillSegmentsSectionTests = ({
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputNextButtonTest({
         context,
-        text: 'Confirm locations and continue',
+        text: 'Confirm modes of transportation and continue',
         nextPageUrl: `/survey/${expectedNextSection}`
     });
 };
