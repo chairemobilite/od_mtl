@@ -239,7 +239,7 @@ Valeurs,yes : Je confirme
 ""
 Champ,hasDisability
 Type de question,Bouton radio
-Conditionnel,hasOnePersonWithDisabilityOrHhSize1Conditional : age >= 5 && (hh_atLeastOnePersonWithDisability === yes || hh_size === 1)
+Conditionnel,hasOnePersonWithDisabilityOrHhSize1CustomConditional
 Question,"Incapacité permanente d'ordre physique, intellectuelle ou autre qui influence ou limite les déplacements quotidiens de {{nickname}}?
 Ex. : motrice, visuelle, autre, etc."
 Valeurs,"yes : Oui

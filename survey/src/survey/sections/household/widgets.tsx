@@ -167,7 +167,7 @@ export const personHasDisability: WidgetConfig.InputRadioType = {
         });
     },
     choices: choices.yesNoPreferNotToAnswer,
-    conditional: conditionals.hasOnePersonWithDisabilityOrHhSize1Conditional,
+    conditional: customConditionals.hasOnePersonWithDisabilityOrHhSize1CustomConditional,
     validations: validations.requiredValidation
 };
 

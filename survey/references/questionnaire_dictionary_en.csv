@@ -241,7 +241,7 @@ Values,yes : I confirm
 ""
 Field,hasDisability
 Question type,Radio input
-Conditional,hasOnePersonWithDisabilityOrHhSize1Conditional : age >= 5 && (hh_atLeastOnePersonWithDisability === yes || hh_size === 1)
+Conditional,hasOnePersonWithDisabilityOrHhSize1CustomConditional
 Question,"Permanent physical, intellectual or other disability that affects or limits {{nickname}}’s daily travel?
 Ex: mobility-related, visual, other…"
 Values,"yes : Yes
