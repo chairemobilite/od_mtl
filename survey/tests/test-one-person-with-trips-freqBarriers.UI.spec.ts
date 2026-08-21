@@ -77,7 +77,6 @@ const segments: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'carDriver',
         mode: 'carDriver',
-        vehicleOccupancy: 2,
         hasNextMode: false
     }
 ];

@@ -175,7 +175,6 @@ const segmentsP1: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'carDriver',
         mode: 'carDriver',
-        vehicleOccupancy: 4,
         hasNextMode: false,
         commonTrip: ['${otherPerson[0]}'] // Set the commonTrip to the other person
     },
@@ -340,7 +339,6 @@ const segmentsP2: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: undefined,
         mode: undefined,
-        vehicleOccupancy: 4,
         hasNextMode: false,
         commonTrip: null
     }
