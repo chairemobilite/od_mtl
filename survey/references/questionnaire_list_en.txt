@@ -346,7 +346,7 @@ Where was {{nickname}} at 4 AM?
 Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
 
 
-Were other household members also outside home all day?
+Which other household members were also away from home all day?
 
 
 Continue

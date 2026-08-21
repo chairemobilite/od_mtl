@@ -344,7 +344,7 @@ Où était {{nickname}} à 4h du matin?
 Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile ({{address}}) la journée du {{journeyDate}}?
 
 
-D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
+Quels autres membres du ménage étaient eux-aussi absents du domicile toute la journée ?
 
 
 Continuer

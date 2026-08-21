@@ -192,7 +192,8 @@ personReturnedHome_male_one: >-
 personReturnedHome_female_one: >-
     Est-ce que vous êtes retournée au domicile ({{address}}) la journée du {{journeyDate}}?
 personOutOfTerritoryMembers: >-
-    D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
+    Quels autres membres du ménage étaient eux-aussi absents du domicile toute la
+    journée ?
 tripsIntro_save: Continuer
 tripsIntroOutro: >-
     <span class="_pale _oblique">Vos réponses serviront à évaluer l'usage et l'achalandage
