@@ -126,7 +126,6 @@ export const personTransitPass: WidgetConfig.InputCheckboxType = {
     validations: validations.requiredValidation
 };
 
-// personTransitFare : transitFareValidation · Issue #10 · chairemobilite/od_mtl
 export const personTransitFare: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'transitFare',
@@ -225,8 +224,6 @@ export const personMobilityAssistiveDevicesSpecify: WidgetConfig.InputStringType
     validations: validations.optionalValidation
 };
 
-// personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomConditional · Issue #42 · chairemobilite/od_mtl
-// personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomChoices · Issue #48 · chairemobilite/od_mtl
 export const personMostUsedMobilityAssistiveDevice: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'mostUsedMobilityAssistiveDevice',

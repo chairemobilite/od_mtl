@@ -33,7 +33,6 @@ import * as customLabels from '../../common/customLabels';
 
 // segmentSameModeAsReverseTrip
 
-// FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
 // segmentModePre
 
 // segmentMode
@@ -64,7 +63,6 @@ export const segmentVehicleOccupancy: WidgetConfig.InputRadioNumberType = {
     validations: validations.requiredValidation
 };
 
-// FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
 // segmentDriver
 
 // Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
@@ -108,7 +106,6 @@ export const segmentRemStationStart = customWidgets.segmentRemStationStart;
 // Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 export const segmentRemStationEnd = customWidgets.segmentRemStationEnd;
 
-// FIXME segmentPlaneStationStart : planeStationStartCustomConditional · Issue #26 · chairemobilite/od_mtl
 export const segmentPlaneStationStart: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'planeStationStart',
@@ -120,7 +117,6 @@ export const segmentPlaneStationStart: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentIntercityRailStationStart : intercityRailStationStartCustomConditional · Issue #27 · chairemobilite/od_mtl
 export const segmentIntercityRailStationStart: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'intercityRailStationStart',
@@ -132,7 +128,6 @@ export const segmentIntercityRailStationStart: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentIntercityBusStationStart : intercityBusStationStartCustomConditional · Issue #28 · chairemobilite/od_mtl
 export const segmentIntercityBusStationStart: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'intercityBusStationStart',
@@ -144,7 +139,6 @@ export const segmentIntercityBusStationStart: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentPlaneStationEnd : planeStationEndCustomConditional · Issue #30 · chairemobilite/od_mtl
 export const segmentPlaneStationEnd: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'planeStationEnd',
@@ -156,7 +150,6 @@ export const segmentPlaneStationEnd: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentIntercityRailStationEnd : intercityRailStationEndCustomConditional · Issue #31 · chairemobilite/od_mtl
 export const segmentIntercityRailStationEnd: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'intercityRailStationEnd',
@@ -168,7 +161,6 @@ export const segmentIntercityRailStationEnd: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME segmentIntercityBusStationEnd : intercityBusStationEndCustomConditional · Issue #32 · chairemobilite/od_mtl
 export const segmentIntercityBusStationEnd: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'intercityBusStationEnd',
@@ -182,8 +174,7 @@ export const segmentIntercityBusStationEnd: WidgetConfig.InputRadioType = {
 
 // Custom because of the choices that include available bus routes and it's a multiselect
 //
-// FIXME segmentBusLines : choix · Issue #24 · chairemobilite/od_mtl
-// segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl
+// FIXME  segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl
 export const segmentBusLines = customWidgets.segmentBusLines;
 
 // Note: segmentBusLinesWarning widget is not active. This widget will not be displayed in the survey.

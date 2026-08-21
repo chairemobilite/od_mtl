@@ -205,7 +205,6 @@ export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType =
 };
 
 // Custom label because of the car number plural
-// home_carParkingsAvailableVehicleHousehold : label · Issue #7 · chairemobilite/od_mtl
 export const homeCarParkingsAvailableVehicleHousehold: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,
     path: 'home.carParkingAvailableVehicleHousehold',
