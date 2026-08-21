@@ -585,11 +585,11 @@ Name or address of {{nickname}}'s usual workplace
 Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.
 
-What mode of transportation does {{nickname}} usually use to travel to their workplace?
+What mode of transportation does {{nickname}} usually use to travel to their workplace, in automn?
 If multiple modes are used, indicate the one that represents the largest share of distance traveled.
 If {{nickname}} works at multiple locations, respond based on the location identified above.
-- Personal car (can belong to self, friend, family, etc)
-- Passenger (car/motorcycle/moped)
+- Car as driver
+- Car as passenger
 - Public transit
 - Walking
 - Bicycle

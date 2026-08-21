@@ -27,16 +27,16 @@ personUsualWorkPlaceGeography: >-
     la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.</span>
 personUsualWorkPlaceCommuting: >-
     Quel moyen de transport utilise habituellement {{nickname}} pour<strong> se rendre
-    à son lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
-    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
-    la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux, répondre
-    en fonction du lieu déclaré ci-dessus.</span>
+    à son lieu de travail</strong>, en automne?<br /><span class="_pale _oblique">Si
+    plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande
+    partie de la distance parcourue.<br />Si {{nickname}} fréquente plusieurs lieux,
+    répondre en fonction du lieu déclaré ci-dessus.</span>
 personUsualWorkPlaceCommuting_one: >-
     Quel moyen de transport utilisez-vous habituellement pour<strong> vous rendre
-    à votre lieu de travail?</strong> <br /><span class="_pale _oblique">Si plusieurs
-    modes sont utilisés, indiquer le mode qui représente la plus grande partie de
-    la distance parcourue.<br />Si vous fréquentez plusieurs lieux, répondre en fonction
-    du lieu déclaré ci-dessus.</span>
+    à votre lieu de travail</strong>, en automne? <br /><span class="_pale _oblique">Si
+    plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande
+    partie de la distance parcourue.<br />Si vous fréquentez plusieurs lieux, répondre
+    en fonction du lieu déclaré ci-dessus.</span>
 personNoSchoolTripIntro: >-
     <strong>Vous n'avez déclaré aucun déplacement pour les études</strong> pour {{nickname}}
     le {{journeyDate}}

@@ -583,11 +583,11 @@ Nom ou adresse du lieu habituel de travail de {{nickname}}
 Position sur la carte
 Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.
 
-Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail? 
+Quel moyen de transport utilise habituellement {{nickname}} pour se rendre à son lieu de travail, en automne?
 Si plusieurs modes sont utilisés, indiquer le mode qui représente la plus grande partie de la distance parcourue.
 Si {{nickname}} fréquente plusieurs lieux, répondre en fonction du lieu déclaré ci-dessus.
-- Voiture personnelle (appartenant à soi, un.e ami.e, la famille, etc.)
-- Passager (voiture/moto/scooter)
+- Auto en tant que conducteur
+- Auto en tant que passager
 - Transport en commun
 - Marche
 - Vélo
