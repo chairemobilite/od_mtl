@@ -94,12 +94,12 @@ Save and continue
 
 Section: Household
 
+Age (in years)
+Enter 0 for babies under the age of 1 year
+
 Name or nickname that will allow you to identify this person for the remainder of the interview
 Can be a nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum', 'JT').
 The name is only used to simplify the response process and will be removed from the final dataset.
-
-Age (in years)
-Enter 0 for babies under the age of 1 year
 
 Gender
 May differ from the sex assigned at birth or that which appears on legal documents.

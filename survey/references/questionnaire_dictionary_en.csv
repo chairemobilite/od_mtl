@@ -145,6 +145,11 @@ preferNotToAnswer : Prefer not to answer"
 Section,Household
 Abbreviation,hh_
 ""
+Field,age
+Question type,Number input
+Question,"Age (in years)
+Enter 0 for babies under the age of 1 year"
+""
 Field,nickname
 Question type,Text input
 Conditional,hasPersonCount2OrMoreCustomConditional
@@ -152,14 +157,9 @@ Question,"Name or nickname that will allow you to identify this person for the r
 Can be a nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum', 'JT').
 The name is only used to simplify the response process and will be removed from the final dataset."
 ""
-Field,age
-Question type,Number input
-Question,"Age (in years)
-Enter 0 for babies under the age of 1 year"
-""
 Field,gender
 Question type,Radio input
-Conditional,ifAge5orMoreConditional : age >= 5
+Conditional,ifAge5orMoreOrHhSize1Conditional : age >= 5 || hh_size === 1
 Question,"Gender
 May differ from the sex assigned at birth or that which appears on legal documents."
 Values,"female : Woman

@@ -145,6 +145,11 @@ preferNotToAnswer : Préfère ne pas répondre"
 Section,Ménage
 Abréviation,hh_
 ""
+Champ,age
+Type de question,Champ numérique
+Question,"Âge (en années)
+Inscrire 0 pour les bébés de moins de 1 an"
+""
 Champ,nickname
 Type de question,Champ de texte
 Conditionnel,hasPersonCount2OrMoreCustomConditional
@@ -152,14 +157,9 @@ Question,"Nom ou surnom pour identifier cette personne pour la suite de l'entrev
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé."
 ""
-Champ,age
-Type de question,Champ numérique
-Question,"Âge (en années)
-Inscrire 0 pour les bébés de moins de 1 an"
-""
 Champ,gender
 Type de question,Bouton radio
-Conditionnel,ifAge5orMoreConditional : age >= 5
+Conditionnel,ifAge5orMoreOrHhSize1Conditional : age >= 5 || hh_size === 1
 Question,"Genre
 Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux"
 Valeurs,"female : Femme

@@ -61,17 +61,17 @@ __Y compris vous-même__","Is there at least one person in your household that h
 __Including yourself__",,,,,hasHouseholdSize2OrMoreConditional,,yesNoPreferNotToAnswer,,,,True,,,,,
 home_save,NextButton,True,home,,home.save,Enregistrer et continuer,Save and continue,,,,,,,,,,,True,,,,,
 householdMembers,Custom,True,household,,,,,,,,,,,,,,,True,,,,,
+personAge,Number,True,household,householdMembers,age,"**Âge** (en années)
+__Inscrire 0 pour les bébés de moins de 1 an__","**Age** (in years)
+__Enter 0 for babies under the age of 1 year__",**Âge** (en années),**Age** (in years),,,,ageValidation,,,,,True,,,,,
 personNickname,String,True,household,householdMembers,nickname,"**Nom ou surnom** pour identifier cette personne pour la suite de l'entrevue
 __Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.__","**Name or nickname** that will allow you to identify this person for the remainder of the interview
 __Can be a nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum', 'JT').
 The name is only used to simplify the response process and will be removed from the final dataset.__",,,,,hasPersonCount2OrMoreCustomConditional,uniqueNicknameCustomValidation,,,,,True,,,,,
-personAge,Number,True,household,householdMembers,age,"**Âge** (en années)
-__Inscrire 0 pour les bébés de moins de 1 an__","**Age** (in years)
-__Enter 0 for babies under the age of 1 year__",**Âge** (en années),**Age** (in years),,,,ageValidation,,,,,True,,,,,
 personGender,Radio,True,household,householdMembers,gender,"**Genre**
 __Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux__","**Gender**
-__May differ from the sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreConditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
+__May differ from the sex assigned at birth or that which appears on legal documents.__",,,,,ifAge5orMoreOrHhSize1Conditional,,maleFemaleCustomPreferNotToAnswer,,,,True,genderCustom,custom,,,"If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender"
 personDrivingLicenseOwnership,Radio,True,household,householdMembers,drivingLicenseOwnership,"**Permis de conduire**
 __Inclure les permis d’apprenti{{gender:e}} conduct{{gender:eur/rice/eur(-rice)/eur(-rice)}} et probatoires, mais ne pas inclure les permis de cyclomoteur/scooter__","**Driver's licence**
 __Include learner's and probationary permits, but do not include moped (motorized scooter) permits__",,,,,ifAge16OrMoreConditional,,yesNoDontKnow,,,,True,,,,,

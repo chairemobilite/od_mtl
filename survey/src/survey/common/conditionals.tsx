@@ -325,6 +325,26 @@ export const ifAge65OrMoreConditional: WidgetConditional = (interview, path) => 
     });
 };
 
+export const ifAge5orMoreOrHhSize1Conditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '>=',
+                value: 5
+            },
+            {
+                logicalOperator: '||',
+                path: 'household.size',
+                comparisonOperator: '===',
+                value: 1
+            }
+        ]
+    });
+};
+
 export const hasDrivingLicenseConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     return checkConditionals({
