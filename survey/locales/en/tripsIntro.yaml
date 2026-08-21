@@ -72,7 +72,8 @@ personDeparturePlaceOther: Where was {{nickname}} at 4 AM?
 personDeparturePlaceOther_one: Where were you at 4 AM?
 personReturnedHome: Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
 personReturnedHome_one: Have you returned home ({{address}}) on {{journeyDate}}?
-personOutOfTerritoryMembers: Were other household members also outside home all day?
+personOutOfTerritoryMembers: Which other household members were also away from home
+    all day?
 tripsIntro_save: Continue
 tripsIntroOutro: >-
     <span class="_pale _oblique">Your answers will be used to assess how road and

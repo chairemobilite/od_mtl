@@ -494,7 +494,7 @@ Question,Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile 
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
 Type de question,Case à cocher
 Conditionnel,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && returnedHome === no
-Question,D’autres membres du ménage étaient aussi en dehors du domicile toute la journée?
+Question,Quels autres membres du ménage étaient eux-aussi absents du domicile toute la journée ?
 ""
 ""
 ""

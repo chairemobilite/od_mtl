@@ -496,7 +496,7 @@ Question,Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
 Question type,Checkbox input
 Conditional,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && returnedHome === no
-Question,Were other household members also outside home all day?
+Question,Which other household members were also away from home all day?
 ""
 ""
 ""
