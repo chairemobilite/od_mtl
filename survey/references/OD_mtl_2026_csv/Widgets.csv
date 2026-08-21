@@ -51,8 +51,7 @@ householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleN
 max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
 homeCarParkingsAvailableVehicleHousehold,Checkbox,True,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
 __Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.__","**Parking available at home** for your household's vehicles
-__You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,True,,,,,"Custom label because of the car number plural
-home_carParkingsAvailableVehicleHousehold : label · Issue #7 · chairemobilite/od_mtl"
+__You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,True,,,,,Custom label because of the car number plural
 homeCarParkingsAvailableNoVehicleHousehold,Radio,True,home,,home.carParkingAvailableNoVehicleHousehold,"Votre ménage a-t-il accès à une **entrée privée, garage ou place de stationnement réservée**?","Does your household have access to a **private driveway, garage, or reserved parking space?**",,,,,carParkingHomeWithoutVehicleConditional,,yesNo,,,,True,,,,,
 householdCarsharing,Radio,True,home,,household.carsharing,"**Autopartage** (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois","**Carshare** (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member",,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
 householdBikesharing,Radio,True,home,,household.bikesharing,**Vélo en libre-service** (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage,**Bikeshare** (BIXI): used in the last 30 days by at least one household member,,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,True,,,,,
@@ -90,7 +89,7 @@ __Inclure les abonnements gratuits.__","**Type of pass or subscription** used fo
 __Include free passes.__",,,,,transitPassConditional,,transitPassType,,,,True,,,,,
 personTransitFare,Radio,True,household,householdMembers,transitFare,"**Type de passe** utilisé en tant qu’**abonnement** valide pour le mois en cours
 __A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM.__","**Type of pass** used as a valid **monthly subscription** for the current month
-__A, AB, ABC, and ABCD refer to ARTM fare zones.__",,,,,transitFareConditional,,transitFareType,transitFareHelpPopup,,,True,transitFareSpecify,other,,,personTransitFare : transitFareValidation · Issue #10 · chairemobilite/od_mtl
+__A, AB, ABC, and ABCD refer to ARTM fare zones.__",,,,,transitFareConditional,,transitFareType,transitFareHelpPopup,,,True,transitFareSpecify,other,,,
 personTransitFareWarning,Checkbox,True,household,householdMembers,transitFareWarning,"Vous avez sélectionné un titre qui s'étend au delà de la zone tarifaire de votre lieu de résidence. Veuillez confirmer qu'il s'agit du bon titre ou modifiez votre réponse.
 **Le prix du {{transitFare}} mensuel s'élève à {{transitFarePrice, currency(currency: CAD)}} (ou {{transitFarePriceReduced, currency(currency: CAD)}} pour le tarif réduit).**","You selected a transit pass that extends beyond the fare zone of your place of residence. Please confirm that this is the correct fare or edit your answer.
 **The monthly price of the {{transitFare}} is {{transitFarePrice, currency(currency: CAD)}} (or {{transitFarePriceReduced, currency(currency: CAD)}} for reduced price).**",,,customLabels={{personTransitFareWarningCustomLabel}},,transitFareWarningCustomConditional,optionalValidation,transitFareWarning,,,,True,,,,,
@@ -111,8 +110,7 @@ __Optional__",,join_with=${personMobilityAssistiveDevicesSpecify},hasDisabilityC
 personMobilityAssistiveDevicesSpecify,String,True,household,householdMembers,mobilityAssistiveDevicesSpecify,Spécifiez,Specify,,,,,personAssistiveDevicesIsOtherConditional,optionalValidation,,,,,,,,,,Exists because checkbox does not handle specify the same way as radio buttons
 personMostUsedMobilityAssistiveDevice,Radio,True,household,householdMembers,mostUsedMobilityAssistiveDevice,"**Le plus utilisé**
 __Facultatif__","**Most used**
-__Optional__",,,,,mostUsedMobilityAssistiveDeviceCustomConditional,optionalValidation,mostUsedMobilityAssistiveDeviceCustomChoices,,,,True,,,,,"personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomConditional · Issue #42 · chairemobilite/od_mtl
-personMostUsedMobilityAssistiveDevice : mostMobilityAssistiveDeviceCustomChoices · Issue #48 · chairemobilite/od_mtl"
+__Optional__",,,,,mostUsedMobilityAssistiveDeviceCustomConditional,optionalValidation,mostUsedMobilityAssistiveDeviceCustomChoices,,,,True,,,,,
 personUseParatransit,Radio,True,household,householdMembers,useParatransit,"{{nickname}} est-{{gender:il/elle/iel}} **admis{{gender:/e/.e}} au transport adapté**? 
 __STM, RTL, STL, exo, etc.
 Facultatif__","Is {{nickname}} registered for **paratransit services?**
@@ -272,7 +270,7 @@ personTrips,Builtin,1,segments,,household.persons.{_activePersonId}.journeys.{_a
 segmentIntro,Builtin,1,segments,personTrips,segmentsIntro,"Veuillez indiquer tous les modes de transport utilisés pour effectuer ce déplacement (de {{originName}} vers {{destinationName}}), dans l'ordre chronologique:{{prefilledSegmentNote}}","Please indicate all modes of transportation used for this trip (from {{originName}} to {{destinationName}}), in chronological order:{{prefilledSegmentNote}}",,,,,,,,,,,,,,,,
 segments,Builtin,1,segments,personTrips,segments,Mode de transport,Mode of transport,,,,,,,,,,,,,,,,
 segmentSameModeAsReverseTrip,Builtin,1,segments,segments,sameModeAsReverseTrip,Même mode que le déplacement précédent ({{previousMode}}),Same mode as the previous trip ({{previousMode}}),,,,,,,,,,,,,,,,
-segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,FIXME Valider segmentMode · Issue #16 · chairemobilite/od_mtl
+segmentModePre,Builtin,1,segments,segments,modePre,,,,,,,,,,,,,,,,,,
 segmentMode,Builtin,1,segments,segments,mode,,,,,,,,,,,,,,,,,,
 segmentPaidForParking,Radio,VRAI,segments,segments,paidForParking,Stationnement payant?,Paid parking,,,,,isCarDriverAndShouldShowPaidParkingCustomConditional,,paidForParkingChoices,,,,True,,,,,
 segmentVehicleOccupancy,RadioNumber,VRAI,segments,segments,vehicleOccupancy,"Personne(s) dans le véhicule
@@ -280,7 +278,7 @@ __Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse par
 __Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).__",,,"min=1
 max=5
 overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
-segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,FIXME Valider traductions pour segmentDriver : driverCustomChoices · Issue #53 · chairemobilite/od_mtl
+segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,
 segmentSubwayStationStart,Custom,True,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationEnd,Custom,True,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationsTransfer,Radio,True,segments,segments,subwayStationsTransfer,**Station(s) de transfert** :,**Transfer station(s)**:,,,,,subwayTransferCustomConditional,,subwayStationsTransferCustomChoices,,,,True,,,,,
@@ -290,18 +288,17 @@ segmentTrainStationEnd,Custom,1,segments,segments,trainStationEnd,**Gare de déb
 FIXME Validations: segmentTrainStationEnd : trainValidation · Issue #20 · chairemobilite/od_mtl"
 segmentRemStationStart,Custom,1,segments,segments,remStationStart,**Station d'embarquement** (au départ) : ,**Boarding station** (when entering the REM),,,,,remConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentRemStationEnd,Custom,1,segments,segments,remStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the REM),,,,,remConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
-segmentPlaneStationStart,Radio,1,segments,segments,planeStationStart,Aéroport de départ,Departure airport,,,,,isPlaneAndSegmentOriginInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,FIXME segmentPlaneStationStart : planeStationStartCustomConditional · Issue #26 · chairemobilite/od_mtl
-segmentIntercityRailStationStart,Radio,1,segments,segments,intercityRailStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityRailAndSegmentOriginInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,FIXME segmentIntercityRailStationStart : intercityRailStationStartCustomConditional · Issue #27 · chairemobilite/od_mtl
-segmentIntercityBusStationStart,Radio,1,segments,segments,intercityBusStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityBusAndSegmentOriginInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,FIXME segmentIntercityBusStationStart : intercityBusStationStartCustomConditional · Issue #28 · chairemobilite/od_mtl
-segmentPlaneStationEnd,Radio,1,segments,segments,planeStationEnd,Aéroport d’arrivée,Arrival airport,,,,,isPlaneAndSegmentDestinationInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,FIXME segmentPlaneStationEnd : planeStationEndCustomConditional · Issue #30 · chairemobilite/od_mtl
-segmentIntercityRailStationEnd,Radio,1,segments,segments,intercityRailStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityRailAndSegmentDestinationInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,FIXME segmentIntercityRailStationEnd : intercityRailStationEndCustomConditional · Issue #31 · chairemobilite/od_mtl
-segmentIntercityBusStationEnd,Radio,1,segments,segments,intercityBusStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityBusAndSegmentDestinationInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,FIXME segmentIntercityBusStationEnd : intercityBusStationEndCustomConditional · Issue #32 · chairemobilite/od_mtl
+segmentPlaneStationStart,Radio,1,segments,segments,planeStationStart,Aéroport de départ,Departure airport,,,,,isPlaneAndSegmentOriginInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,
+segmentIntercityRailStationStart,Radio,1,segments,segments,intercityRailStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityRailAndSegmentOriginInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,
+segmentIntercityBusStationStart,Radio,1,segments,segments,intercityBusStationStart,Gare de départ,Boarding station (departure),,,,,isIntercityBusAndSegmentOriginInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,
+segmentPlaneStationEnd,Radio,1,segments,segments,planeStationEnd,Aéroport d’arrivée,Arrival airport,,,,,isPlaneAndSegmentDestinationInTerritoryCustomConditional,,planeStationChoices,,,,True,,,,,
+segmentIntercityRailStationEnd,Radio,1,segments,segments,intercityRailStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityRailAndSegmentDestinationInTerritoryCustomConditional,,intercityRailStationChoices,,,,True,,,,,
+segmentIntercityBusStationEnd,Radio,1,segments,segments,intercityBusStationEnd,Gare d'arrivée,Exit station (arrival),,,,,isIntercityBusAndSegmentDestinationInTerritoryCustomConditional,,intercityBusStationChoices,,,,True,,,,,
 segmentBusLines,Custom,VRAI,segments,segments,busLines,"**Ligne(s) de bus utilisée(s)** (dans l'ordre chronologique)
 __Pour chaque ligne utilisée, inscrire le numéro de la ligne ou son nom puis sélectionner-la dans la liste des résultats.__","**Bus line(s) taken** (in chronological order)
 __For each line, begin by typing the number or name, then select it from the results shown.__",,,,,busConditional,,,,,,True,,,,,"Custom because of the choices that include available bus routes and it's a multiselect
 
-FIXME segmentBusLines : choix · Issue #24 · chairemobilite/od_mtl
-segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl"
+FIXME  segmentBusLines : busValidation · Issue #43 · chairemobilite/od_mtl"
 segmentBusLinesWarning,Custom,False,segments,segments,busLinesWarning,Certaines lignes de bus sélectionnées semblent invalides pour ce trajet aux heures mentionnées. Veuillez valider les lignes.,Some bus line(s) seem invalid for this trip. Please validate the lines.,,,,,,,,,,,True,,,,,Custom because of the color and size of the choices
 segmentTransitAccessMode,Radio,1,segments,segments,transitAccessMode,**Mode** pour se rendre de {{origin}} **{{stopType}}**,**Mode** of transportation to get from {{origin}} to **{{stopType}}**,,,customLabels={{segmentTransitAccessModeCustomLabel}},,isTransitModeAndDistanceFromOriginCustomConditional,,transitModesChoices,,,,True,,,,,"Needs custom label because of interpolations and custom conditional because of distance calculations
 
