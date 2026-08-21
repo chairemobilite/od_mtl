@@ -187,7 +187,6 @@ const segmentsP1: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'carDriver',
         mode: 'carDriver',
-        vehicleOccupancy: 1,
         hasNextMode: false
     },
     {
@@ -195,7 +194,6 @@ const segmentsP1: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'carDriver',
         mode: 'carDriver',
-        vehicleOccupancy: 2,
         hasNextMode: false
     }
 ];

@@ -86,7 +86,7 @@ const peopleCountQuestionModes = ['carDriver', 'rentalCar', 'carDriverCarsharing
 export const isSelfDeclaredCarDriverCustomConditional: WidgetConditional = (interview, path) => {
     const segment: any = surveyHelper.getResponse(interview, path, null, '../');
     // Display for respondent car drivers (exlude motorcycle), only for mtmd sample
-    if (segment.modePre !== 'carDriver' && !isPartialSample(interview, 'mtmd')) {
+    if (segment.modePre !== 'carDriver' || !isPartialSample(interview, 'mtmd')) {
         return [false, null];
     }
     const person = odSurveyHelper.getActivePerson({ interview });
