@@ -142,7 +142,7 @@ educationalAttainment:
     postSecondaryBelowBachelorEducation: >-
         Diplôme d'apprenti, école de métiers, CÉGEP / collège ou certificat universitaire
         inférieur au baccalauréat
-    bachelorOrHigher: Certificat ou diplôme universitaire niveau baccalauréat ou supérieur
+    bachelorOrHigher: Baccalauréat ou supérieur
 workPlaceBeforeLeaveTypeChoices:
     onLocation: Oui, {{nickname}} travaillait au lieu fixe en présentiel en tout temps
     onLocation_one: Oui, je travaillais au lieu fixe en présentiel en tout temps
