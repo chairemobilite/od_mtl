@@ -471,38 +471,6 @@ export const formatTripDuration = function (startTime, endTime, language) {
 };
 
 /**
- * Get the distance in meters between the origin and destination of a trip
- * TODO Move to Evolution
- */
-export const getBirdDistanceMeters = function ({ trip, visitedPlaces, person, interview }) {
-    const origin = odSurveyHelper.getOrigin({ trip, visitedPlaces });
-    const destination = odSurveyHelper.getDestination({ trip, visitedPlaces });
-    if (_isBlank(origin) || _isBlank(destination)) {
-        return null;
-    }
-    const originGeography = odSurveyHelper.getVisitedPlaceGeography({ visitedPlace: origin, interview, person });
-    const destinationGeography = odSurveyHelper.getVisitedPlaceGeography({
-        visitedPlace: destination,
-        interview,
-        person
-    });
-    if (_isBlank(originGeography) || _isBlank(destinationGeography)) {
-        return null;
-    }
-    return turfDistance(originGeography.geometry, destinationGeography.geometry, {
-        units: 'meters'
-    });
-};
-
-export const getCurrentTripBirdDistanceMeters = ({ interview }) => {
-    const person = odSurveyHelper.getActivePerson({ interview });
-    const journey = odSurveyHelper.getActiveJourney({ interview });
-    const visitedPlaces = odSurveyHelper.getVisitedPlaces({ journey });
-    const trip = odSurveyHelper.getActiveTrip({ interview, journey });
-    return getBirdDistanceMeters({ trip, visitedPlaces, person, interview });
-};
-
-/**
  * TODO Move to Evolution
  * TODO Parameterize the modes here, this function is copy-pasted as is from 2024
  */

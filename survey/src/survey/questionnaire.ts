@@ -1,7 +1,7 @@
 import _merge from 'lodash/merge';
 import customSurveySections from './sections';
 import { widgets } from './widgetsConfigs';
-import { getBirdDistanceMeters, widgetFactoryOptions } from './common/helper';
+import { widgetFactoryOptions } from './common/helper';
 import {
     getAndValidateSurveySections,
     SectionConfig,
@@ -29,6 +29,7 @@ import {
     getVisitedPlaces
 } from 'evolution-common/lib/services/odSurvey/helpers';
 import projectConfig from 'evolution-common/lib/config/project.config';
+import { getTripBirdDistanceMetersFromPath } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
@@ -118,21 +119,9 @@ const questionnaireConfiguration: QuestionnaireConfiguration = {
                         modes: ['plane', 'intercityTrain', 'intercityBus'],
                         icon: 'plane',
                         conditional: (interview, path) => {
-                            const tripContext = getTripContextFromPath({ interview, path });
-                            if (tripContext === null) {
-                                throw new Error(
-                                    `intercity modePre conditional: Cannot find trip context for path ${path}`
-                                );
-                            }
-                            const { journey, trip, person } = tripContext;
-                            const birdDistance = getBirdDistanceMeters({
-                                trip,
-                                person,
-                                interview,
-                                visitedPlaces: getVisitedPlaces({ journey })
-                            });
+                            const birdDistance = getTripBirdDistanceMetersFromPath(interview, path);
                             // distance is greater than 50 km
-                            return birdDistance > 50 * 1000;
+                            return birdDistance !== undefined && birdDistance > 50 * 1000;
                         }
                     },
                     other: {
