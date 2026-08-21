@@ -227,6 +227,13 @@ describe('access code update', () => {
             expected: { 'home.preData': { 'ep.commonTrip': false }, 'ep.commonTrip': false, 'ep.sameMode': true }
         },
         {
+            title: 'test limit value of 0.5, which should be exclusive',
+            interviewResponseData: { ep: { exclusive: 'omission' }, _assignedWeekDayIso: 1 /* monday */ },
+            prefillData: { 'home.preData': { } },
+            randomValues: [0.5, 0.5],
+            expected: { 'home.preData': { }, 'ep.commonTrip': false, 'ep.sameMode': false }
+        },
+        {
             title: 'convert prefilled eps to valid booleish values',
             interviewResponseData: { ep: { exclusive: 'omission' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': 'no', 'ep.sameMode': 'true' } },
@@ -246,21 +253,7 @@ describe('access code update', () => {
             prefillData: { 'home.preData': { } },
             randomValues: [0.99998, 0.2, 0.7],
             expected: { 'home.preData': { }, 'ep.exclusive': 'householdType', 'ep.commonTrip': true, 'ep.sameMode': false }
-        },
-        {
-            title: 'sameMode and commonTrip 0 when exclusive is mtmd',
-            interviewResponseData: { _assignedWeekDayIso: 2 /* tuesday */ },
-            prefillData: { 'home.preData': { } },
-            randomValues: [0.9998, 0.2, 0.3],
-            expected: { 'home.preData': { }, 'ep.exclusive': 'mtmd', 'ep.commonTrip': false, 'ep.sameMode': false }
-        },
-        {
-            title: 'sameMode and commonTrip 0 when exclusive is mtmd',
-            interviewResponseData: { _assignedWeekDayIso: 2 /* tuesday */ },
-            prefillData: { 'home.preData': { } },
-            randomValues: [0.9998, 0, 0],
-            expected: { 'home.preData': { }, 'ep.exclusive': 'mtmd', 'ep.commonTrip': false, 'ep.sameMode': false }
-        },
+        }
     ])('test the partial sample initialization with case $title', async ({ interviewResponseData, prefillData, randomValues, expected }) => {
         // Assign the interview response data for the test case, after setting an arbitrary test access code
         const interview = _cloneDeep(baseInterview);
