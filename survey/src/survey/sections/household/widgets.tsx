@@ -20,16 +20,6 @@ import * as customLabels from '../../common/customLabels';
 
 export const householdMembers = customWidgets.householdMembers;
 
-export const personNickname: WidgetConfig.InputStringType = {
-    ...defaultInputBase.inputStringBase,
-    path: 'nickname',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('household:personNickname'),
-    conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
-    validations: customValidations.uniqueNicknameCustomValidation
-};
-
 export const personAge: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputNumberBase,
     path: 'age',
@@ -45,6 +35,16 @@ export const personAge: WidgetConfig.InputStringType = {
     validations: validations.ageValidation
 };
 
+export const personNickname: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'nickname',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('household:personNickname'),
+    conditional: customConditionals.hasPersonCount2OrMoreCustomConditional,
+    validations: customValidations.uniqueNicknameCustomValidation
+};
+
 // If this value is set and sexAssignedAtBirth is not ‘preferNotToAnswer’, it has been automatically set. It may not match the actual gender
 export const personGender: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
@@ -55,7 +55,7 @@ export const personGender: WidgetConfig.InputRadioType = {
     customChoice: 'custom',
     label: (t: TFunction) => t('household:personGender'),
     choices: choices.maleFemaleCustomPreferNotToAnswer,
-    conditional: conditionals.ifAge5orMoreConditional,
+    conditional: conditionals.ifAge5orMoreOrHhSize1Conditional,
     validations: validations.requiredValidation
 };
 

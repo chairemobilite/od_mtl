@@ -656,6 +656,13 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
         // Build a string for personId (e.g., "${personId[0]}") using a template literal to avoid immediate interpolation
         const personIdString = `\${personId[${index}]}`;
 
+        // Test number widget personAge
+        testHelpers.inputStringTest({
+            context,
+            path: `household.persons.${personIdString}.age`,
+            value: person.age.toString()
+        });
+
         // Test string widget personNickname with conditional hasHouseholdSize2OrMoreConditional
         /* @link file://./../src/survey/common/conditionals.tsx */
         if (householdMembers.length === 1) {
@@ -671,13 +678,6 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 value: person.nickname
             });
         }
-
-        // Test number widget personAge
-        testHelpers.inputStringTest({
-            context,
-            path: `household.persons.${personIdString}.age`,
-            value: person.age.toString()
-        });
 
         // Test radio widget personGender with conditional displayGenderIfSexAtBirthPreferNotAnswerCustomConditional with choices maleFemaleCustomPreferNotToAnswer
         /* @link file://./../src/survey/common/conditionals.tsx */

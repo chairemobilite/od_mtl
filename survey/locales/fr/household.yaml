@@ -2,15 +2,15 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+personAge: >-
+    <strong>Âge</strong> (en années)<br /><span class="_pale _oblique">Inscrire 0
+    pour les bébés de moins de 1 an</span>
+personAge_one: <strong>Âge</strong> (en années)
 personNickname: >-
     <strong>Nom ou surnom</strong> pour identifier cette personne pour la suite de
     l'entrevue<br /><span class="_pale _oblique">Peut être un surnom, des initiales,
     ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').<br
     />Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.</span>
-personAge: >-
-    <strong>Âge</strong> (en années)<br /><span class="_pale _oblique">Inscrire 0
-    pour les bébés de moins de 1 an</span>
-personAge_one: <strong>Âge</strong> (en années)
 personGender: >-
     <strong>Genre</strong><br /><span class="_pale _oblique">Peut différer du sexe
     assigné à la naissance ou inscrit dans les documents légaux</span>

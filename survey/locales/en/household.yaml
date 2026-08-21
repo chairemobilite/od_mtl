@@ -2,16 +2,16 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+personAge: >-
+    <strong>Age</strong> (in years)<br /><span class="_pale _oblique">Enter 0 for
+    babies under the age of 1 year</span>
+personAge_one: <strong>Age</strong> (in years)
 personNickname: >-
     <strong>Name or nickname</strong> that will allow you to identify this person
     for the remainder of the interview<br /><span class="_pale _oblique">Can be a
     nickname, initials, or who this person represents to you (ex: 'Me', 'Kiddo', 'Mum',
     'JT').<br />The name is only used to simplify the response process and will be
     removed from the final dataset.</span>
-personAge: >-
-    <strong>Age</strong> (in years)<br /><span class="_pale _oblique">Enter 0 for
-    babies under the age of 1 year</span>
-personAge_one: <strong>Age</strong> (in years)
 personGender: >-
     <strong>Gender</strong><br /><span class="_pale _oblique">May differ from the
     sex assigned at birth or that which appears on legal documents.</span>

@@ -94,12 +94,12 @@ Enregistrer et continuer
 
 Section: Ménage
 
+Âge (en années)
+Inscrire 0 pour les bébés de moins de 1 an
+
 Nom ou surnom pour identifier cette personne pour la suite de l'entrevue
 Peut être un surnom, des initiales, ou encore ce que cette personne est pour vous (ex. : 'Moi', 'Toto', 'Maman', 'PN').
 Ce nom est seulement utilisé pour faciliter l'enquête et sera ensuite supprimé.
-
-Âge (en années)
-Inscrire 0 pour les bébés de moins de 1 an
 
 Genre
 Peut différer du sexe assigné à la naissance ou inscrit dans les documents légaux
