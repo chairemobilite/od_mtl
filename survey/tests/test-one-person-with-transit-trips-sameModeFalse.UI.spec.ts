@@ -34,7 +34,7 @@ const email = 'one-person-with-transit-trips@test.com';
 const accessCode = '735-711-212';
 surveyTestHelpers.startAndLoginWithEmail({
     context,
-    title: 'Perspectives Mobilité 2026',
+    title: 'Perspectives mobilité 2026',
     email,
     nextPageUrl: 'survey/accessCode'
 });
