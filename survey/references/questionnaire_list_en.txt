@@ -437,7 +437,7 @@ Include the driver and any other person, whether or not they are part of your ho
 
 Who drove?
 
-Boarding station(when entering the metro):
+Boarding station (when entering the metro):
 
 Exit station (when leaving the metro):
 

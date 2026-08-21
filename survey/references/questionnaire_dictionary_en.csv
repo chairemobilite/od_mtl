@@ -654,7 +654,7 @@ Question,Who drove?
 Field,subwayStationStart
 Question type,Unknown input
 Conditional,subwayConditional : mode === transitRRT
-Question,Boarding station(when entering the metro):
+Question,Boarding station (when entering the metro):
 ""
 Field,subwayStationEnd
 Question type,Unknown input
