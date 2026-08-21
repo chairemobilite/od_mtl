@@ -18,7 +18,7 @@ segmentVehicleOccupancy: >-
     any other person, whether or not they are part of your household, regardless of
     their age (including children).</span>
 segmentDriver: Who drove?
-segmentSubwayStationStart: '<strong>Boarding station</strong>(when entering the metro):'
+segmentSubwayStationStart: '<strong>Boarding station</strong> (when entering the metro):'
 segmentSubwayStationEnd: '<strong>Exit station</strong> (when leaving the metro):'
 segmentSubwayStationsTransfer: '<strong>Transfer station(s)</strong>:'
 segmentSubwayLine: <strong>Line taken</strong> between BerriUQAM and Lionel-Groulx

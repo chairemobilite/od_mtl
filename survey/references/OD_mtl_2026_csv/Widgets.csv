@@ -279,7 +279,7 @@ __Include the driver and any other person, whether or not they are part of your 
 max=5
 overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
 segmentDriver,Builtin,1,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,
-segmentSubwayStationStart,Custom,True,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station**(when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+segmentSubwayStationStart,Custom,True,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station** (when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationEnd,Custom,True,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationsTransfer,Radio,True,segments,segments,subwayStationsTransfer,**Station(s) de transfert** :,**Transfer station(s)**:,,,,,subwayTransferCustomConditional,,subwayStationsTransferCustomChoices,,,,True,,,,,
 segmentSubwayLine,Radio,1,segments,segments,subwayLine,**Ligne empruntée** entre Berri-UQAM et Lionel Groulx,**Line taken** between BerriUQAM and Lionel-Groulx,,,,,subwayLineConditional,,subwayLineChoices,,,,True,,,,,
