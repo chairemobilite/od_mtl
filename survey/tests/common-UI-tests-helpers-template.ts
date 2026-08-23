@@ -651,15 +651,15 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.intercityEgressMode', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.intercityEgressMode', value: '?' });
 
-    // Test select widget tripJunctionPrivateBus with conditional junctionPrivateBusCustomConditional with choices tripJunctionCustomChoices
+    // Test custom widget tripJunctionPrivateBus with conditional junctionPrivateBusCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.junctionPrivateBus', isVisible: true });
+    // Implement custom test
 
-    // Test select widget tripJunctionBusPrivate with conditional junctionBusPrivateCustomConditional with choices tripJunctionCustomChoices
+    // Test custom widget tripJunctionBusPrivate with conditional junctionBusPrivateCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.junctionBusPrivate', isVisible: true });
+    // Implement custom test
 
     // Test radio widget tripJunctionPaidParking with conditional junctionPaidParkingCustomConditional with choices paidForParkingChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

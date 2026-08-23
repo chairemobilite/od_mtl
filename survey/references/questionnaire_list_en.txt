@@ -542,9 +542,7 @@ Mode of transportation to get {{stopType}} to {{destination}}
 
 Boarding location (getting on the bus)
 
-
 Exit location (getting off the bus)
-
 
 Parking upon arrival at {{stopType}}
 - No (free or paid by employer)

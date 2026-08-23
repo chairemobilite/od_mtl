@@ -38,19 +38,6 @@ export const onDemandCustomChoices: ChoiceType[] = [
     ...no
 ];
 
-// List the possible choices for the trip junction question, with a list of stationnements incitatifs
-// FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/36
-export const tripJunctionCustomChoices: ChoiceType[] = [
-    {
-        value: 'placeholder1',
-        label: 'placeholder1'
-    },
-    {
-        value: 'placeholder2',
-        label: 'placeholder2'
-    }
-];
-
 // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/21
 export const subwayStationsCustomChoices: ChoiceType[] = [
     {

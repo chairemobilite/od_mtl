@@ -809,12 +809,12 @@ transit : Transport en commun
 other : Autre"
 ""
 Champ,junctionPrivateBus
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,junctionPrivateBusCustomConditional
 Question,Lieu d’embarquement (montée dans le bus) 
 ""
 Champ,junctionBusPrivate
-Type de question,Liste déroulante
+Type de question,Entrée inconnue
 Conditionnel,junctionBusPrivateCustomConditional
 Question,Lieu de débarquement (descente du bus) 
 ""

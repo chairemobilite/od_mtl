@@ -811,12 +811,12 @@ transit : Public transit
 other : Other"
 ""
 Field,junctionPrivateBus
-Question type,Select input
+Question type,Unknown input
 Conditional,junctionPrivateBusCustomConditional
 Question,Boarding location (getting on the bus)
 ""
 Field,junctionBusPrivate
-Question type,Select input
+Question type,Unknown input
 Conditional,junctionBusPrivateCustomConditional
 Question,Exit location (getting off the bus)
 ""
