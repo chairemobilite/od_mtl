@@ -1265,6 +1265,8 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
 export type TripsIntroTestParameters = CommonTestParametersModify & {
     hasTrips: boolean;
     expectPopup?: boolean;
+    departurePlaceIsHome?: 'yes' | 'no';
+    departurePlaceOther?: string | null;
     expectedNextSection: string;
 };
 export const fillTripsintroSectionTests = ({
@@ -1272,6 +1274,8 @@ export const fillTripsintroSectionTests = ({
     householdSize = 1,
     hasTrips,
     expectPopup = false,
+    departurePlaceIsHome = 'yes',
+    departurePlaceOther = null,
     expectedNextSection
 }: TripsIntroTestParameters) => {
     // Verify the tripsIntro navigation is active
@@ -1322,7 +1326,7 @@ export const fillTripsintroSectionTests = ({
         testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceIsHome',
-            value: 'yes'
+            value: departurePlaceIsHome
         });
     } else {
         testHelpers.inputVisibleTest({
@@ -1335,11 +1339,19 @@ export const fillTripsintroSectionTests = ({
     // Test radio widget personDeparturePlaceOther with conditional departurePlaceOtherCustomConditional with choices departurePlaceOtherChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({
-        context,
-        path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
-        isVisible: false
-    });
+    if (!hasTrips || departurePlaceOther === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
+            value: departurePlaceOther
+        });
+    }
 
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({
