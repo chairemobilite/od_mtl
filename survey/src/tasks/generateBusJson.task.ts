@@ -12,7 +12,7 @@ import deburr from 'lodash/deburr';
 import { fileManager } from 'chaire-lib-backend/lib/utils/filesystem/fileManager';
 import { parseCsvFile } from 'chaire-lib-backend/lib/services/files/CsvFile';
 
-function slugify(...parts: Array<string | null | undefined>): string {
+export function slugify(...parts: Array<string | null | undefined>): string {
     // Join the strings with '_'
     const joined = parts.filter((p) => p !== null && p !== '').join('_');
     // Remove accents
