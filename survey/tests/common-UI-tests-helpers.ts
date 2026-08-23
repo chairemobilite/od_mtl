@@ -2097,7 +2097,7 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputCheckboxTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.busLines`,
             values: segment.busLines
@@ -2200,10 +2200,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionPrivateBus`,
-            value: segment.junctionPrivateBus
+            values: segment.junctionPrivateBus
         });
     }
 
@@ -2215,10 +2215,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputMultiSelectTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.junctionBusPrivate`,
-            value: segment.junctionBusPrivate
+            values: segment.junctionBusPrivate
         });
     }
 

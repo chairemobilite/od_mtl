@@ -12,16 +12,21 @@ import * as conditionals from '../../common/conditionals';
 import metroStations from '../../geojson/stations_metro.json';
 import remStations from '../../geojson/stations_rem.json';
 import trainStations from '../../geojson/gares_train.json';
+import junctions from '../../geojson/junctions.json';
 import {
+    getCurrentSegmentDestinationLocation,
+    getCurrentSegmentOriginLocation,
     getSegmentNextLocation,
     getSegmentPreviousLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 import * as customValidations from '../../common/customValidations';
+import * as customConditionals from '../../common/customConditionals';
 import busRoutes from '../../config/busRoutes.json';
 
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const junctionsFC = junctions as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
 const isProxyRespondent = (interview: WidgetConfig.InterviewAttributes, path: string) => {
     const person = odSurveyHelpers.getPerson({ interview });
@@ -384,5 +389,49 @@ export const segmentRemStationEnd: WidgetConfig.InputSelectFeatureType = {
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
     conditional: conditionals.remConditional,
+    validations: validations.requiredValidation
+};
+
+export const tripJunctionPrivateBus: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'junctionPrivateBus',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:tripJunctionPrivateBus'),
+    featureCollection: junctionsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('tripJunctionPrivateBus referenceGeography: segment context is undefined');
+        }
+        return getSegmentPreviousLocation({ interview, ...segmentContext });
+    },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
+    conditional: customConditionals.junctionPrivateBusCustomConditional,
+    validations: validations.requiredValidation
+};
+
+export const tripJunctionBusPrivate: WidgetConfig.InputSelectFeatureType = {
+    type: 'question',
+    inputType: 'selectFeature',
+    path: 'junctionBusPrivate',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('segments:tripJunctionBusPrivate'),
+    featureCollection: junctionsFC,
+    labelProperty: 'nom',
+    referenceGeography: (interview, path) => {
+        const segmentContext = odSurveyHelpers.getSegmentContextFromPath({ interview, path });
+        if (segmentContext === null) {
+            throw new Error('tripJunctionBusPrivate referenceGeography: segment context is undefined');
+        }
+        return getSegmentNextLocation({ interview, ...segmentContext });
+    },
+    additionalChoices: featureSelectAdditionalChoices,
+    shortcuts: featureSelectShortcuts,
+    conditional: customConditionals.junctionBusPrivateCustomConditional,
     validations: validations.requiredValidation
 };

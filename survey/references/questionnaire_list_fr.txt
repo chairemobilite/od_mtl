@@ -540,9 +540,7 @@ Mode pour se rendre {{stopType}} à {{destination}}
 
 Lieu d’embarquement (montée dans le bus) 
 
-
 Lieu de débarquement (descente du bus) 
-
 
 Stationnement en arrivant  {{stopType}}
 - Non (gratuit ou payé par l'employeur)

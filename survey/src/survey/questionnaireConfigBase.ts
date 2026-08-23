@@ -8,6 +8,7 @@ import { Mode } from 'evolution-common/lib/services/baseObjects/attributeTypes/S
 import metroStations from './geojson/stations_metro.json';
 import remStations from './geojson/stations_rem.json';
 import trainStations from './geojson/gares_train.json';
+import junctions from './geojson/junctions.json';
 import { getSegmentContextFromPath } from 'evolution-common/lib/services/odSurvey/helpers';
 import projectConfig from 'evolution-common/lib/config/project.config';
 import { getTripBirdDistanceMetersFromPath } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
@@ -15,6 +16,7 @@ import { getTripBirdDistanceMetersFromPath } from 'evolution-common/lib/services
 const metroStationsFC = metroStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const remStationsFC = remStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
 const trainStationsFC = trainStations as GeoJSON.FeatureCollection<GeoJSON.Point>;
+const junctionsFC = junctions as GeoJSON.FeatureCollection<GeoJSON.Point>;
 
 export const questionnaireConfiguration: QuestionnaireConfiguration = {
     tripDiary: {
@@ -128,6 +130,8 @@ export const questionnaireConfiguration: QuestionnaireConfiguration = {
                     { fieldName: 'subwayStationStart', type: 'fromCollection', featureCollection: metroStationsFC },
                     { fieldName: 'remStationStart', type: 'fromCollection', featureCollection: remStationsFC },
                     { fieldName: 'trainStationStart', type: 'fromCollection', featureCollection: trainStationsFC },
+                    { fieldName: 'junctionPrivateBus', type: 'fromCollection', featureCollection: junctionsFC },
+                    { fieldName: 'junctionBusPrivate', type: 'fromCollection', featureCollection: junctionsFC },
                     { fieldName: 'subwayStationEnd', type: 'fromCollection', featureCollection: metroStationsFC },
                     { fieldName: 'remStationEnd', type: 'fromCollection', featureCollection: remStationsFC },
                     { fieldName: 'trainStationEnd', type: 'fromCollection', featureCollection: trainStationsFC }

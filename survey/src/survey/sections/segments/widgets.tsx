@@ -235,28 +235,11 @@ export const segmentIntercityEgressMode: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// FIXME tripJunctionPrivateBus : choix · Issue #36 · chairemobilite/od_mtl
-export const tripJunctionPrivateBus: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'junctionPrivateBus',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:tripJunctionPrivateBus'),
-    choices: customChoices.tripJunctionCustomChoices,
-    conditional: customConditionals.junctionPrivateBusCustomConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const tripJunctionPrivateBus = customWidgets.tripJunctionPrivateBus;
 
-export const tripJunctionBusPrivate: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
-    path: 'junctionBusPrivate',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('segments:tripJunctionBusPrivate'),
-    choices: customChoices.tripJunctionCustomChoices,
-    conditional: customConditionals.junctionBusPrivateCustomConditional,
-    validations: validations.requiredValidation
-};
+// Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
+export const tripJunctionBusPrivate = customWidgets.tripJunctionBusPrivate;
 
 // Custom label because of placeholders
 //
