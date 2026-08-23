@@ -1,8 +1,15 @@
 import _get from 'lodash/get';
+import _isEqual from 'lodash/isEqual';
 import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
-import { Person, WidgetConditional } from 'evolution-common/lib/services/questionnaire/types';
+import type {
+    Person,
+    WidgetConditional,
+    Journey,
+    Trip,
+    Segment
+} from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from './helper';
@@ -333,6 +340,36 @@ export const isCarDriverAndShouldShowPaidParkingCustomConditional: WidgetConditi
     return [false, null];
 };
 
+const hasMirrorSegmentSequence = ({
+    journey,
+    trip,
+    segments
+}: {
+    journey: Journey;
+    trip: Trip;
+    segments: Segment[];
+}) => {
+    const allTrips = odSurveyHelper.getTripsArray({ journey });
+    const previousTrips = allTrips.filter((otherTrip) => otherTrip._sequence < trip._sequence);
+    // Get the reverse sequence of modes desired
+    const desiredModeSequence = segments.map((segment) => segment.mode).reverse();
+    // FIXME See if mirror trip shoud also account for proximities of geographies, but it can get complicated...
+    const mirrorTrip = previousTrips.find((prevTrip) => {
+        const tripSegments = odSurveyHelper.getSegmentsArray({ trip: prevTrip });
+        if (tripSegments.length < segments.length) {
+            return false;
+        }
+        // Find a sequence of modes in the current trip that are the same as the reverse sequence of modes in parameter
+        for (let i = 0; i <= tripSegments.length - segments.length; i++) {
+            const modeSequence = tripSegments.slice(i, i + segments.length).map((seg) => seg.mode);
+            if (_isEqual(modeSequence, desiredModeSequence)) {
+                return true;
+            }
+        }
+    });
+    return mirrorTrip !== undefined;
+};
+
 const publicModesForJunctions = ['transitBus'];
 const privateModesForJunctions = ['carDriver', 'rentalCar', 'carDriverCarsharing', 'motorcycle', 'carPassenger'];
 export const junctionBusPrivateCustomConditional: WidgetConditional = (interview, path) => {
@@ -340,7 +377,7 @@ export const junctionBusPrivateCustomConditional: WidgetConditional = (interview
     if (!segmentContext) {
         throw new Error('junctionBusPrivateCustomConditional label: Segment context not found');
     }
-    const { trip, segment } = segmentContext;
+    const { journey, trip, segment } = segmentContext;
     // Do not show if the current segment is not a private mode
     if (_isBlank(segment.mode) || !privateModesForJunctions.includes(segment.mode)) {
         return [false, null];
@@ -348,10 +385,13 @@ export const junctionBusPrivateCustomConditional: WidgetConditional = (interview
     // Show if the previous segment is a public mode
     const segments = odSurveyHelper.getSegmentsArray({ trip });
     const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
-    return [
-        previousSegment && !_isBlank(previousSegment.mode) && publicModesForJunctions.includes(previousSegment.mode),
-        null
-    ];
+    const maybeDisplayQuestion =
+        previousSegment && !_isBlank(previousSegment.mode) && publicModesForJunctions.includes(previousSegment.mode);
+    if (!maybeDisplayQuestion) {
+        return [false, null];
+    }
+    // If there is a mirror sequence in the previous trips, do not ask
+    return [!hasMirrorSegmentSequence({ journey, trip, segments: [previousSegment, segment] }), null];
 };
 
 export const junctionPrivateBusCustomConditional: WidgetConditional = (interview, path) => {
@@ -359,7 +399,7 @@ export const junctionPrivateBusCustomConditional: WidgetConditional = (interview
     if (!segmentContext) {
         throw new Error('junctionPrivateBusCustomConditional label: Segment context not found');
     }
-    const { trip, segment } = segmentContext;
+    const { journey, trip, segment } = segmentContext;
     // Do not show if the current segment is not a public mode
     if (_isBlank(segment.mode) || !publicModesForJunctions.includes(segment.mode)) {
         return [false, null];
@@ -367,10 +407,13 @@ export const junctionPrivateBusCustomConditional: WidgetConditional = (interview
     // Show if the previous segment is a private mode
     const segments = odSurveyHelper.getSegmentsArray({ trip });
     const previousSegment = segments.find((s) => s._sequence === segment._sequence - 1);
-    return [
-        previousSegment && !_isBlank(previousSegment.mode) && privateModesForJunctions.includes(previousSegment.mode),
-        null
-    ];
+    const maybeDisplayQuestion =
+        previousSegment && !_isBlank(previousSegment.mode) && privateModesForJunctions.includes(previousSegment.mode);
+    if (!maybeDisplayQuestion) {
+        return [false, null];
+    }
+    // If there is a mirror sequence in the previous trips, do not ask
+    return [!hasMirrorSegmentSequence({ journey, trip, segments: [previousSegment, segment] }), null];
 };
 
 // Custom conditional to show if current segment is transit and previous carDriver and no parking info yet
