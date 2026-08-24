@@ -85,8 +85,8 @@ visitedPlacePreviousDepartureTime: >-
     At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_one: >-
     At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
-visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:'
-visitedPlaceArrivalTime_one: 'You arrived {{atPlace}} at:'
+visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:{{reminderText}}'
+visitedPlaceArrivalTime_one: You arrived {{atPlace}} at:{{reminderText}}
 visitedPlaceNextPlaceCategory: >-
     After being {{atPlace}}, {{nickname}}…{{reminderText}}<br /><span class="_pale
     _oblique">If {{nickname}} left this place after 4 AM the following day, please
@@ -218,9 +218,9 @@ visitedPlacePreviousDepartureTime_home_schoolUsual: At what time did {{nickname}
 visitedPlacePreviousDepartureTime_home_schoolUsual_one: At what time did you leave
     home before going to school?
 visitedPlacePreviousDepartureTime_home_other: >-
-    At what time did {{nickname}} leave home before going to this place ({{visitedPlaceDescription}})?
+    At what time did {{nickname}} leave home before going to this place ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_one: >-
-    At what time did you leave home before going to this place ({{visitedPlaceDescription}})?
+    At what time did you leave home before going to this place ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_workOnTheRoad: >-
     At what time did {{nickname}} leave home before starting their on the road trips?
 visitedPlacePreviousDepartureTime_home_workOnTheRoad_male: >-
@@ -314,8 +314,9 @@ onTheRoadNextPlaceCategoryChoices:
     stayedThereUntilTheNextDay_female_one: I completed my work on the road trips after
         4AM the next day
 reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0;Reminder: trip with {{otherNickname}}
-    at {{time}} &#8594; {{origin}} to {{destination}}</span>
+    <br /><span class="_oblique _blue _pale"><span style="text-decoration: underline;">Reminder</span>:
+    trip with {{otherNickname}} departure from {{origin}} at {{originDeparture}} &#8594;
+    arrival at {{destination}} at {{destinationArrival}}</span>
 onTheRoadArrivalTypeHome: Home
 onTheRoadArrivalTypeUsualWorkPlace: Usual work place
 onTheRoadArrivalTypeOther: Other location

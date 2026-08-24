@@ -396,7 +396,7 @@ At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDes
 
 At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 
-{{nickname}} arrived {{atPlace}} at:
+{{nickname}} arrived {{atPlace}} at:{{reminderText}}
 
 After being {{atPlace}}, {{nickname}}…{{reminderText}}
 If {{nickname}} left this place after 4 AM the following day, please consider for the purposes of the survey that they stayed there until the next day and select the appropriate answer.

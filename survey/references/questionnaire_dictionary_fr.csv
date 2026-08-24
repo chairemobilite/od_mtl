@@ -576,7 +576,7 @@ Question,À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitt
 ""
 Champ,arrivalTime
 Type de question,Builtin
-Question,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:
+Question,{{nickname}} est arriv{{gender :é/ée/é(e)/é(e)}} {{atPlace}} à:{{reminderText}}
 ""
 Champ,nextPlaceCategory
 Type de question,Builtin

@@ -355,10 +355,14 @@ export const getCommonTripLabelOptions = ({
         trip: applicableCommonTrip,
         visitedPlaces: commonTripReferenceVisitedPlaces
     });
+    if (origin === null || destination === null) {
+        return defaultReminder;
+    }
     return {
         reminderText: t('visitedPlaces:reminderText', {
             otherNickname: odSurveyHelpers.getPersonIdentificationString({ person: commonTripReferencePerson, t }),
-            time: secondsSinceMidnightToTimeStr(origin.departureTime),
+            originDeparture: secondsSinceMidnightToTimeStr(origin.departureTime),
+            destinationArrival: secondsSinceMidnightToTimeStr(destination.arrivalTime),
             origin: odSurveyHelpers.getVisitedPlaceDescription({
                 visitedPlace: origin,
                 person: commonTripReferencePerson,
@@ -377,24 +381,37 @@ export const getCommonTripLabelOptions = ({
     };
 };
 
-export const getCommonTripReminderOptionsForVisitedPlaces: AdditionalSectionLabelOptionFct = ({
-    interview,
-    t,
-    path
-}) => {
-    const visitedPlaceContext = odSurveyHelpers.getVisitedPlaceContextFromPath({ interview, path });
-    if (visitedPlaceContext === null) {
-        throw new Error('Common trip reminder options: visited place context not found for path ' + path);
-    }
-    const { person, journey, visitedPlace } = visitedPlaceContext;
-    return getCommonTripLabelOptions({
-        t,
-        interview,
-        currentJourney: journey,
-        currentPerson: person,
-        currentVisitedPlace: visitedPlace
-    });
-};
+/**
+ * Configure the common trip reminder function with a list of fields that should not be blank for the labels to be displayed. If all fields in `answeredFields` are blank, the reminder will not be displayed.
+ * @param answeredFields an array of fields from which at least one should not be blank to be displayed
+ * @returns The aditional section label function
+ */
+export const getCommonTripReminderOptionsForVisitedPlaces: (
+    answeredFields?: string[]
+) => AdditionalSectionLabelOptionFct =
+    (answeredFields?: string[]) =>
+        ({ interview, t, path }) => {
+            const visitedPlaceContext = odSurveyHelpers.getVisitedPlaceContextFromPath({ interview, path });
+            if (visitedPlaceContext === null) {
+                throw new Error('Common trip reminder options: visited place context not found for path ' + path);
+            }
+            const { person, journey, visitedPlace } = visitedPlaceContext;
+            const currentResponse = getResponse(interview, path);
+            // Return default reminder if all fields in answeredFields are blank, or if the field is already answered
+            if (
+                !_isBlank(currentResponse) ||
+            (answeredFields !== undefined && !answeredFields.some((field) => !_isBlank(visitedPlace[field])))
+            ) {
+                return defaultReminder;
+            }
+            return getCommonTripLabelOptions({
+                t,
+                interview,
+                currentJourney: journey,
+                currentPerson: person,
+                currentVisitedPlace: visitedPlace
+            });
+        };
 
 /**
  * Return whether these 2 trips are part of a simple chain with a single mode,

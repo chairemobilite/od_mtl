@@ -124,12 +124,12 @@ visitedPlacePreviousDepartureTime_female_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_custom_one: >-
     À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
-visitedPlaceArrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:'
-visitedPlaceArrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:'
-visitedPlaceArrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:'
-visitedPlaceArrivalTime_one: 'Vous êtes arrivé(e) {{atPlace}} à:'
-visitedPlaceArrivalTime_male_one: 'Vous êtes arrivé {{atPlace}} à:'
-visitedPlaceArrivalTime_female_one: 'Vous êtes arrivée {{atPlace}} à:'
+visitedPlaceArrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:{{reminderText}}'
+visitedPlaceArrivalTime_one: Vous êtes arrivé(e) {{atPlace}} à:{{reminderText}}
+visitedPlaceArrivalTime_male_one: Vous êtes arrivé {{atPlace}} à:{{reminderText}}
+visitedPlaceArrivalTime_female_one: Vous êtes arrivée {{atPlace}} à:{{reminderText}}
 visitedPlaceNextPlaceCategory: >-
     Après avoir été {{atPlace}}, {{nickname}} est…{{reminderText}}<br /><span class="_pale
     _oblique">Si {{nickname}} a quitté le lieu après 4h du matin le lendemain, merci
@@ -328,24 +328,24 @@ visitedPlacePreviousDepartureTime_home_schoolUsual_custom_one: >-
     À quelle heure avez-vous quitté le domicile pour aller au lieu d'études/école?
 visitedPlacePreviousDepartureTime_home_other: >-
     À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile pour aller à cet
-    endroit ({{visitedPlaceDescription}})?
+    endroit ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_male: >-
     À quelle heure {{nickname}} a-t-il quitté le domicile pour aller à cet endroit
-    ({{visitedPlaceDescription}})?
+    ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_female: >-
     À quelle heure {{nickname}} a-t-elle quitté le domicile pour aller à cet endroit
-    ({{visitedPlaceDescription}})?
+    ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_custom: >-
     À quelle heure {{nickname}} a-t-iel quitté le domicile pour aller à cet endroit
-    ({{visitedPlaceDescription}})?
+    ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_one: >-
-    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
+    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_male_one: >-
-    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
+    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_female_one: >-
-    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
+    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_other_custom_one: >-
-    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?
+    À quelle heure avez-vous quitté le domicile pour aller à cet endroit ({{visitedPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_home_workOnTheRoad: >-
     À quelle heure {{nickname}} a-t-il(-elle) quitté le domicile avant de débuter
     ses déplacements sur la route?
@@ -451,8 +451,9 @@ onTheRoadNextPlaceCategoryChoices:
     stayedThereUntilTheNextDay_one: J'ai complété mes déplacements sur la route après
         4:00 du matin le lendemain
 reminderText: >-
-    <br /><span style="background-color:#fff6cc;">&#x26A0; Rappel : déplacement avec
-    {{otherNickname}} à {{time}} &#8594; {{origin}} vers {{destination}}</span>
+    <br /><span class="_oblique _blue _pale"><span style="text-decoration: underline;">Rappel</span>
+    : déplacement avec {{otherNickname}}, départ de {{origin}} à {{originDeparture}}
+    &#8594; arrivée à {{destination}} à {{destinationArrival}}</span>
 onTheRoadArrivalTypeHome: Domicile
 onTheRoadArrivalTypeUsualWorkPlace: Lieu de travail habituel
 onTheRoadArrivalTypeOther: Autre lieu

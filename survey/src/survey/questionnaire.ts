@@ -34,10 +34,14 @@ const questionnaireConfigFrontend: QuestionnaireConfiguration = {
             visitedPlaces: {
                 ...questionnaireConfiguration.tripDiary.sections.visitedPlaces,
                 additionalLabelOptionFunctions: {
-                    visitedPlaceActivityCategory: getCommonTripReminderOptionsForVisitedPlaces,
-                    visitedPlacePreviousDepartureTime: getCommonTripReminderOptionsForVisitedPlaces,
-                    visitedPlaceNextPlaceCategory: getCommonTripReminderOptionsForVisitedPlaces,
-                    visitedPlaceDepartureTime: getCommonTripReminderOptionsForVisitedPlaces
+                    visitedPlaceActivityCategory: getCommonTripReminderOptionsForVisitedPlaces(),
+                    visitedPlacePreviousDepartureTime: getCommonTripReminderOptionsForVisitedPlaces(['activity']),
+                    visitedPlaceArrivalTime: getCommonTripReminderOptionsForVisitedPlaces([
+                        'activity',
+                        'previousDepartureTime'
+                    ]),
+                    visitedPlaceNextPlaceCategory: getCommonTripReminderOptionsForVisitedPlaces(['arrivalTime']),
+                    visitedPlaceDepartureTime: getCommonTripReminderOptionsForVisitedPlaces(['nextPlaceCategory'])
                 }
             }
         }
