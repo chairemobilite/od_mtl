@@ -639,12 +639,6 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.intercityAccessMode', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.intercityAccessMode', value: '?' });
 
-    // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.transitEgressMode', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: '?.transitEgressMode', value: '?' });
-
     // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
@@ -668,6 +662,12 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputRadioTest({ context, path: '?.junctionPointPaidParking', value: '?' });
 
     // Test builtin widget segmentHasNextMode
+
+    // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.transitEgressMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.transitEgressMode', value: '?' });
 
     // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

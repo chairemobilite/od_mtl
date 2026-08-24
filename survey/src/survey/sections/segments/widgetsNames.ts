@@ -16,6 +16,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
 export const personTripsWidgetsNames: SectionConfig['widgets'] = [
     'segmentIntro',
     'segments',
+    'segmentTransitEgressMode',
     'personTripsCommonTripWith',
     'buttonSaveTrip'
 ];
@@ -45,7 +46,6 @@ export const segmentsWidgetsNames: SectionConfig['widgets'] = [
     // 'segmentBusLinesWarning',
     'segmentTransitAccessMode',
     'segmentIntercityAccessMode',
-    'segmentTransitEgressMode',
     'segmentIntercityEgressMode',
     'tripJunctionPrivateBus',
     'tripJunctionBusPrivate',

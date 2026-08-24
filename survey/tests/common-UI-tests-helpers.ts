@@ -186,7 +186,7 @@ export type Segment = {
     driver?: string | null;
     subwayStationStart?: string | null;
     subwayStationEnd?: string | null;
-    subwayStationsTransfer?: string[] | null;
+    subwayStationsTransfer?: string | null;
     subwayLine: string | null;
     trainStationStart?: string | null;
     trainStationEnd?: string | null;
@@ -1893,10 +1893,10 @@ const fillOneSegmentTests = ({
             isVisible: false
         });
     } else if (segment.subwayStationsTransfer !== undefined) {
-        testHelpers.inputCheckboxTest({
+        testHelpers.inputRadioTest({
             context,
             path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.subwayStationsTransfer`,
-            values: segment.subwayStationsTransfer
+            value: segment.subwayStationsTransfer
         });
     } else {
         testHelpers.inputVisibleTest({
@@ -2174,21 +2174,6 @@ const fillOneSegmentTests = ({
         });
     }
 
-    // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
-    if (segment.transitEgressMode === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitEgressMode`,
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.transitEgressMode`,
-            value: segment.transitEgressMode
-        });
-    }
-
     // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
     if (segment.intercityEgressMode === null) {
         testHelpers.inputVisibleTest({
@@ -2282,6 +2267,21 @@ const fillOneSegmentTests = ({
                 context,
                 path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
                 values: segment.commonTrip
+            });
+        }
+
+        // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
+        if (segment.transitEgressMode === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.transitEgressMode',
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.transitEgressMode',
+                value: segment.transitEgressMode
             });
         }
 

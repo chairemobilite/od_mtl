@@ -523,14 +523,6 @@ Mode pour se rendre de {{origin}} {{stopType}}
 
 Mode pour se rendre {{stopType}} à {{destination}}
 - Marche
-- Bus (STM, STL, RTL, exo, etc.)
-- Transport à la demande
-- Auto en tant que conducteur
-- Auto en tant que passager
-- Autre (spécifiez)
-
-Mode pour se rendre {{stopType}} à {{destination}}
-- Marche
 - Vélo
 - Auto en tant que conducteur
 - Auto en tant que passager
@@ -550,6 +542,14 @@ Stationnement en arrivant  {{stopType}}
 - Ne sait pas
 
 Autre mode utilisé pour le déplacement avant l'arrivée?
+
+Mode pour se rendre {{stopType}} à {{destination}}
+- Marche
+- Bus (STM, STL, RTL, exo, etc.)
+- Transport à la demande
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Autre (spécifiez)
 
 Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout ou en partie, avec un autre membre du ménage?
 

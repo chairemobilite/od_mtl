@@ -1,5 +1,6 @@
 import _get from 'lodash/get';
 import _isEqual from 'lodash/isEqual';
+import { isFeature } from 'geojson-validation';
 import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import config from 'evolution-common/lib/config/project.config';
@@ -20,8 +21,11 @@ import { isCommonTripSampleMatch, isPartialSample } from './commonHelpers';
 import metroTransfers from '../config/metroTransfers.json';
 import {
     getSegmentNextLocation,
-    getSegmentPreviousLocation
+    getSegmentPreviousLocation,
+    getCurrentSegmentOriginLocation,
+    getCurrentSegmentDestinationLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
+import { getBirdDistanceMeters } from 'evolution-common/lib/utils/PhysicsUtils';
 
 // Don't show Question and give 'Québec' as default value
 export const hiddenWithQuebecAsDefaultValueCustomConditional: WidgetConditional = (_interview) => {
@@ -210,31 +214,60 @@ const localTransitModes = [
     'transitTaxi',
     'transitFerry'
 ];
+const checkpointsThresholdMeters = 1500;
 export const isTransitModeAndDistanceFromOriginCustomConditional: WidgetConditional = (interview, path) => {
     const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
     if (!segmentContext) {
         throw new Error('isTransitModeAndDistanceFromOriginCustomConditional label: Segment context not found');
     }
-    const { person, journey, trip, segment } = segmentContext;
+    const { trip, segment } = segmentContext;
     const isTransitMode = localTransitModes.includes(segment.mode);
     if (!isTransitMode) {
         return [false, null];
     }
-    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/25
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const previousSegment = segments.findLast((seg) => seg._sequence < segment._sequence);
+    // Get the current segment origin
+    const currentOrigin = getCurrentSegmentOriginLocation({ segment });
+    // Get previous origin, which is the previous segment destination, if any (any private mode will return `null`), or the actual trip origin
+    const previousOrigin =
+        previousSegment === undefined
+            ? getSegmentPreviousLocation({ interview, ...segmentContext })
+            : getCurrentSegmentDestinationLocation({ segment: previousSegment });
+    if (isFeature(currentOrigin) && isFeature(previousOrigin)) {
+        if (getBirdDistanceMeters(currentOrigin, previousOrigin) > checkpointsThresholdMeters) {
+            return [true, null];
+        }
+    }
     return [false, null];
 };
 
 export const isTransitModeAndDistanceToDestinationCustomConditional: WidgetConditional = (interview, path) => {
-    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
-    if (!segmentContext) {
-        throw new Error('isTransitModeAndDistanceToDestinationCustomConditional label: Segment context not found');
+    const tripContext = odSurveyHelper.getTripContextFromPath({ interview, path });
+    if (!tripContext) {
+        throw new Error(
+            `isTransitModeAndDistanceToDestinationCustomConditional: Segment context not found for path ${path}`
+        );
     }
-    const { person, journey, trip, segment } = segmentContext;
-    const isTransitMode = localTransitModes.includes(segment.mode);
+    const { trip } = tripContext;
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const lastSegment = segments.length > 0 ? segments[segments.length - 1] : undefined;
+    // Do not display if no last segment or last segment is not the last one
+    if (lastSegment === undefined || lastSegment.hasNextMode !== false) {
+        return [false, null];
+    }
+    const isTransitMode = localTransitModes.includes(lastSegment.mode);
     if (!isTransitMode) {
         return [false, null];
     }
-    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/33
+    // Get the distance between the last segment destinatino, if known, and the actual destination of the trip (segment next location from the last segment will return trip destination)
+    const lastSegmentDestination = getCurrentSegmentDestinationLocation({ segment: lastSegment });
+    const destination = getSegmentNextLocation({ interview, ...tripContext, segment: lastSegment });
+    if (isFeature(lastSegmentDestination) && isFeature(destination)) {
+        if (getBirdDistanceMeters(lastSegmentDestination, destination) > checkpointsThresholdMeters) {
+            return [true, null];
+        }
+    }
     return [false, null];
 };
 
