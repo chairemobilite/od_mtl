@@ -4,9 +4,11 @@ import { _booleish, _isBlank } from 'chaire-lib-common/lib/utils/LodashExtension
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import type {
     ChoiceType,
+    InfoMapWidgetConfig,
     InterviewAttributes,
     Journey,
     Person,
+    SurveyMapObjectProperty,
     Trip,
     VisitedPlace
 } from 'evolution-common/lib/services/questionnaire/types';
@@ -25,6 +27,8 @@ import {
     isHomeInArtmTerritory,
     isPartialSample
 } from './commonHelpers';
+import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
+import { pointsToBezierCurve } from 'evolution-common/lib/services/geodata/SurveyGeographyUtils';
 
 const isSchoolEnrolledTrueValues = [
     'kindergarten',
@@ -682,4 +686,55 @@ export const addPrefilledSegmentNote: AdditionalSectionLabelOptionFct = ({ inter
         }
     }
     return defaultPrefilledSegmentNote;
+};
+
+const emptyGeojsons = {
+    points: { type: 'FeatureCollection' as const, features: [] },
+    linestrings: { type: 'FeatureCollection' as const, features: [] }
+};
+
+export const getGeojsonForSingleTrip = (
+    interview: InterviewAttributes,
+    tripPath: string
+): ReturnType<InfoMapWidgetConfig['geojsons']> => {
+    const tripContext = odSurveyHelpers.getTripContextFromPath({ interview, path: tripPath });
+    if (tripContext === null) {
+        throw new Error('barriersDisabilityTripMap: There is no trip for path ' + tripPath);
+    }
+    const { person, journey, trip } = tripContext;
+
+    // Display the current trip
+    const visitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey });
+    const origin = odSurveyHelpers.getOrigin({ trip, visitedPlaces });
+    const destination = odSurveyHelpers.getDestination({ trip, visitedPlaces });
+
+    const points: GeoJSON.Feature<GeoJSON.Point, SurveyMapObjectProperty>[] = [];
+    for (const visitedPlace of [origin, destination]) {
+        if (!visitedPlace) {
+            continue;
+        }
+        const geography = odSurveyHelpers.getVisitedPlaceGeography({ visitedPlace, interview, person });
+        if (!geography) {
+            continue;
+        }
+        geography.properties = {
+            ...geography.properties,
+            icon: { url: getActivityMarkerIcon(visitedPlace.activity), size: [40, 40] },
+            highlighted: false,
+            label: visitedPlace.name
+        };
+        points.push(geography as GeoJSON.Feature<GeoJSON.Point, SurveyMapObjectProperty>);
+    }
+    if (points.length < 2) {
+        return emptyGeojsons;
+    }
+
+    const linestring = pointsToBezierCurve([points[0].geometry, points[1].geometry], {
+        superposedSequence: 0
+    }) as GeoJSON.Feature<GeoJSON.LineString, SurveyMapObjectProperty>;
+
+    return {
+        points: { type: 'FeatureCollection', features: points },
+        linestrings: { type: 'FeatureCollection', features: [linestring] }
+    };
 };
