@@ -74,10 +74,21 @@ export const usualWorkPlaceCommutingHelpPopup: HelpPopup = {
     content: (t: TFunction) => t('travelBehavior:workCommutingHelpPopup.content')
 };
 
+const fareTbl = [
+    { fareName: 'A', regular: '110', reduced: '66' },
+    { fareName: 'AB', regular: '170', reduced: '102' },
+    { fareName: 'ABC', regular: '206', reduced: '123.50' },
+    { fareName: 'ABCD', regular: '281', reduced: '168.50' },
+    { fareName: 'bus', regular: '119', reduced: '71.50' },
+    { fareName: 'busCD', regular: '119', reduced: '71.50' }
+];
 export const transitFareHelpPopup: HelpPopup = {
     title: (t: TFunction) => t('household:popup.transitFareTitle'),
     containsHtml: true,
-    content: (t: TFunction, interview) => t('household:popup.transitFareContent')
+    content: (t: TFunction, interview) => {
+        const fareTblStr = fareTbl.map((fare) => t('household:popup.transitFareOneFareLine', fare)).join('<br/>');
+        return t('household:popup.transitFareContent', { fareTable: fareTblStr });
+    }
 };
 
 export const studentHelpPopup: HelpPopup = {
