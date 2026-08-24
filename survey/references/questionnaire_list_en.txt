@@ -525,14 +525,6 @@ Mode of transportation to get from {{origin}} to {{stopType}}
 
 Mode of transportation to get {{stopType}} to {{destination}}
 - Walking
-- Bus (STM, STL, RTL, exo, etc.)
-- On-demand transit
-- Car as driver
-- Car as passenger
-- Other (specify)
-
-Mode of transportation to get {{stopType}} to {{destination}}
-- Walking
 - Bicycle
 - Car as driver
 - Car as passenger
@@ -552,6 +544,14 @@ Parking upon arrival at {{stopType}}
 - Don't know
 
 Other mode of transportation used for the trip before arrival?
+
+Mode of transportation to get {{stopType}} to {{destination}}
+- Walking
+- Bus (STM, STL, RTL, exo, etc.)
+- On-demand transit
+- Car as driver
+- Car as passenger
+- Other (specify)
 
 Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, with another household member?
 

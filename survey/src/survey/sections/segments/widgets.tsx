@@ -180,8 +180,6 @@ export const segmentBusLines = customWidgets.segmentBusLines;
 // Note: segmentBusLinesWarning widget is not active. This widget will not be displayed in the survey.
 
 // Needs custom label because of interpolations and custom conditional because of distance calculations
-//
-// FIXME segmentTransitAccessMode : transitAccessCustomConditional · Issue #25 · chairemobilite/od_mtl
 export const segmentTransitAccessMode: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'transitAccessMode',
@@ -204,20 +202,6 @@ export const segmentIntercityAccessMode: WidgetConfig.InputRadioType = {
     label: customLabels.segmentIntercityAccessModeCustomLabel,
     choices: choices.intercityModesChoices,
     conditional: customConditionals.isIntercityAndOriginInTerritoryCustomConditional,
-    validations: validations.requiredValidation
-};
-
-// Needs custom label because of interpolations and custom conditional because of distance calculations
-//
-//  FIXME Needs custom label because of interpolations and custom conditional because of distance calculations
-export const segmentTransitEgressMode: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'transitEgressMode',
-    twoColumns: false,
-    containsHtml: true,
-    label: customLabels.segmentTransitEgressModeCustomLabel,
-    choices: choices.transitModesChoices,
-    conditional: customConditionals.isTransitModeAndDistanceToDestinationCustomConditional,
     validations: validations.requiredValidation
 };
 
@@ -256,6 +240,18 @@ export const tripJunctionPaidParking: WidgetConfig.InputRadioType = {
 };
 
 // segmentHasNextMode
+
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+export const segmentTransitEgressMode: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'transitEgressMode',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.segmentTransitEgressModeCustomLabel,
+    choices: choices.transitModesChoices,
+    conditional: customConditionals.isTransitModeAndDistanceToDestinationCustomConditional,
+    validations: validations.requiredValidation
+};
 
 export const personTripsCommonTripWith: WidgetConfig.InputCheckboxType = {
     ...defaultInputBase.inputCheckboxBase,

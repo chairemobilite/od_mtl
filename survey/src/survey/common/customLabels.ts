@@ -5,6 +5,7 @@ import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import {
     I18nData,
     InterviewAttributes,
+    Segment,
     UserInterviewAttributes
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
@@ -127,17 +128,19 @@ export const segmentIntercityAccessModeCustomLabel: I18nData = accessModeCustomL
 const egressModeCustomLabel =
     (labelKey: string): I18nData =>
         (t: TFunction, interview, path) => {
-            const segmentContext = odHelpers.getSegmentContextFromPath({ interview, path });
-            if (!segmentContext) {
-                throw new Error(`${labelKey} label: Segment context not found`);
+            const tripContext = odHelpers.getTripContextFromPath({ interview, path });
+            if (!tripContext) {
+                throw new Error(`${labelKey} label: Trip context not found`);
             }
-            const { person, journey, trip, segment } = segmentContext;
+            const { person, journey, trip } = tripContext;
+            // In the label, the segment should exist since the conditional returned `true`
+            const lastSegment = odHelpers.getSegmentsArray({ trip }).reverse()[0] as Segment;
             const visitedPlaces = odHelpers.getVisitedPlaces({ journey });
             const destination = odHelpers.getDestination({ trip, visitedPlaces });
             const destinationDescription = destination
                 ? odHelpers.getVisitedPlaceName({ t, visitedPlace: destination, interview })
                 : '';
-            const mode = segment.mode;
+            const mode = lastSegment.mode;
             return t(labelKey, {
                 context: odHelpers.getPersonGenderContext({ person }),
                 nickname: odHelpers.getPersonIdentificationString({ person, t }),

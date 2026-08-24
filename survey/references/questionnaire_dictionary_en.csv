@@ -787,17 +787,6 @@ taxi : Taxi or equivalent (e.g., Uber)
 transit : Public transit
 other : Other"
 ""
-Field,transitEgressMode
-Question type,Radio input
-Conditional,isTransitModeAndDistanceToDestinationCustomConditional
-Question,Mode of transportation to get {{stopType}} to {{destination}}
-Values,"walk : Walking
-transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
-transitOnDemand (stationServedByTADCustomConditional): On-demand transit
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
-carPassenger : Car as passenger
-other : Other (specify)"
-""
 Field,intercityEgressMode
 Question type,Radio input
 Conditional,isIntercityAndDestinationInTerritoryCustomConditional
@@ -833,6 +822,17 @@ dontKnow : Don't know"
 Field,hasNextMode
 Question type,Builtin
 Question,Other mode of transportation used for the trip before arrival?
+""
+Field,transitEgressMode
+Question type,Radio input
+Conditional,isTransitModeAndDistanceToDestinationCustomConditional
+Question,Mode of transportation to get {{stopType}} to {{destination}}
+Values,"walk : Walking
+transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitOnDemand (stationServedByTADCustomConditional): On-demand transit
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+other : Other (specify)"
 ""
 Field,commonTripWith
 Question type,Checkbox input
