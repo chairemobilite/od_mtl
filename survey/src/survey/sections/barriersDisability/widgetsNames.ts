@@ -9,6 +9,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'barriersDisabilitySectionIntro2',
     'barriersDisabilityIsPersonAvailable',
     'barriersDisabilityTrip',
+    'barriersDisabilityTripMap',
     'barriersDisabilityIntro',
     'barriersDisabilityFrequency',
     'barriersDisabilityReliability',

@@ -11,6 +11,7 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
+import * as customWidgets from './customWidgets';
 import * as customLabels from '../../common/customLabels';
 
 export const barriersTrip: WidgetConfig.TextWidgetConfig = {
@@ -20,6 +21,9 @@ export const barriersTrip: WidgetConfig.TextWidgetConfig = {
     text: customLabels.barriersTripCustomLabel,
     conditional: conditionals.hasBarrierTripConditional
 };
+
+// Custom because it is the map of a trip
+export const barriersTripMap = customWidgets.barriersTripMap;
 
 export const barriersIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,

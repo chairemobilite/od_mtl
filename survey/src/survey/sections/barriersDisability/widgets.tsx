@@ -10,6 +10,7 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as customConditionals from '../../common/customConditionals';
+import * as customWidgets from './customWidgets';
 import * as customLabels from '../../common/customLabels';
 
 export const barriersDisabilitySectionIntro: WidgetConfig.TextWidgetConfig = {
@@ -46,6 +47,9 @@ export const barriersDisabilityTrip: WidgetConfig.TextWidgetConfig = {
     text: customLabels.barriersDisabilityTripCustomLabel,
     conditional: conditionals.isBarriersDisabilityTripPersonAvailableConditional
 };
+
+// Custom because it is the map of a trip
+export const barriersDisabilityTripMap = customWidgets.barriersDisabilityTripMap;
 
 export const barriersDisabilityIntro: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,

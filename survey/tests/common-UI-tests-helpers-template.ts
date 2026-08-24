@@ -904,6 +904,11 @@ export const fillBarriersdisabilitySectionTests = ({ context, householdSize }: C
     testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTrip', isVisible: true });
     testHelpers.waitTextVisible({ context, text: '?' });
 
+    // Test custom widget barriersDisabilityTripMap with conditional isBarriersDisabilityTripPersonAvailableConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityTripMap', isVisible: true });
+    // Implement custom test
+
     // Test infotext widget barriersDisabilityIntro with conditional isBarriersDisabilityTripPersonAvailableConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'barriersDisabilityIntro', isVisible: true });
@@ -1090,6 +1095,11 @@ export const fillBarriersSectionTests = ({ context, householdSize }: CommonTestP
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'barriersTrip', isVisible: true });
     testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test custom widget barriersTripMap with conditional hasBarrierTripConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'barriersTripMap', isVisible: true });
+    // Implement custom test
 
     // Test infotext widget barriersIntro with conditional hasBarrierTripConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
