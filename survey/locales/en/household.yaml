@@ -140,7 +140,11 @@ popup:
     validateHouseholdAgesHelp_one: You must be at least 16 years old to respond to
         this survey.
     transitFareTitle: Fare zones?
-    transitFareContent: Carte + tableau des tarifs
+    transitFareContent: >-
+        <div class="center"><img src="/dist/images/zonesTarifaires_en.png" style="height:
+        25rem;" alt="carte des zones tarifaires" /></div><br />{{fareTable}}
+    transitFareOneFareLine: '{{fareName}}: {{regular}} $ (or {{reduced}} $ for reduced
+        fare)'
 errors:
     selectDontKnowWhenNoOtherChoiceSelected: Select "Don't know" only if no other
         choice is selected.

@@ -170,7 +170,10 @@ household,schoolTypeLessThan4,**Type de garde**,**Childcare type**,,
 household,schoolTypeBetween4And15,**Type d'école**,**School type**,,
 household,errors.nicknameMustBeUnique,Le nom ou surnom doit être unique,The name or nickname must be unique,,
 household,popup.transitFareTitle,Zones tarifaires?,Fare zones?,,
-household,popup.transitFareContent,Carte + tableau des tarifs,Carte + tableau des tarifs,,
+household,popup.transitFareContent,"<div class=""center""><img src=""/dist/images/zonesTarifaires_fr.png"" style=""height: 25rem;"" alt=""carte des zones tarifaires"" /></div>
+{{fareTable}}","<div class=""center""><img src=""/dist/images/zonesTarifaires_en.png"" style=""height: 25rem;"" alt=""carte des zones tarifaires"" /></div>
+{{fareTable}}",,
+household,popup.transitFareOneFareLine,{{fareName}}: {{regular}} $ (ou {{reduced}} $ pour le tarif réduit),{{fareName}}: {{regular}} $ (or {{reduced}} $ for reduced fare),,
 visitedPlaces,onTheRoadArrivalTypeHome,Domicile,Home,,
 visitedPlaces,onTheRoadArrivalTypeUsualWorkPlace,Lieu de travail habituel,Usual work place,,
 visitedPlaces,onTheRoadArrivalTypeOther,Autre lieu,Other location,,
