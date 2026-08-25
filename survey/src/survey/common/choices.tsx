@@ -175,26 +175,6 @@ export const personOccupation: ChoiceType[] = [
     ...preferNotToAnswer
 ];
 
-export const jobTypes: ChoiceType[] = [
-    {
-        value: 'professional',
-        label: (t: TFunction) => t('choices:jobTypes.professional')
-    },
-    {
-        value: 'administration',
-        label: (t: TFunction) => t('choices:jobTypes.administration')
-    },
-    {
-        value: 'salesAndServices',
-        label: (t: TFunction) => t('choices:jobTypes.salesAndServices')
-    },
-    {
-        value: 'manufacturing',
-        label: (t: TFunction) => t('choices:jobTypes.manufacturing')
-    },
-    ...dontKnow
-];
-
 export const transitPassType: ChoiceType[] = [
     {
         value: 'transitPassARTM',

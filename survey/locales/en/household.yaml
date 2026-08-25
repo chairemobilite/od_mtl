@@ -92,8 +92,6 @@ personJob: >-
 personJob_one: >-
     <strong>Profession</strong> or name of job of {{nickname}}<br /><span class="_pale
     _oblique">Ex: Butcher, lawyer, delivery-person, nurse, etc.</span>
-personJobType: <strong>Type of employment</strong> of {{nickname}}
-personJobType_one: <strong>Type of employment</strong>
 personWorkPlaceType: >-
     Which of the following best describes {{nickname}}’s <strong>work arrangement</strong>?
 personWorkPlaceType_one: >-

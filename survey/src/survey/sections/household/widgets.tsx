@@ -347,25 +347,6 @@ export const personJob: WidgetConfig.InputStringType = {
     validations: validations.requiredValidation
 };
 
-export const personJobType: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'jobType',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction, interview, path) => {
-        const activePerson = odSurveyHelpers.getPerson({ interview, path });
-        const nickname = _escape(activePerson?.nickname || t('survey:noNickname'));
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:personJobType', {
-            nickname,
-            count: countPersons
-        });
-    },
-    choices: choices.jobTypes,
-    conditional: conditionals.isWorkerConditional,
-    validations: validations.requiredValidation
-};
-
 export const personWorkPlaceType: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'workPlaceType',

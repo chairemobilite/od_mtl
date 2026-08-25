@@ -236,17 +236,6 @@ Incluant travaill{{gender:eur/euse/eur(-euse)/eur(-euse)}} autonome, artiste ou 
 Profession ou nom d'emploi de {{nickname}}
 Ex. : Boucher, avocate, livreur, infirmière, etc.
 
-Type d’emploi de {{nickname}}
-- Professionnel(le)
-ingénieur·e, analyste, enseignant·e, chercheur·e, professionnel de la santé…
-- Travail de bureau / administration
-commis, adjoint·e administratif·ve, secrétariat, soutien administratif…
-- Vente et services
-commerce de détail, service à la clientèle, restauration, soins personnels…
-- Fabrication, métiers et autres emplois
-usine, construction, métiers spécialisés, transport, entreposage…
-- Ne sait pas
-
 Parmi les situations suivantes, laquelle décrit le mieux la façon dont {{nickname}} travaille?
 - Travaille en présentiel en tout temps à un lieu fixe hors domicile
 - Travaille en mode hybride (télétravail et en présentiel)

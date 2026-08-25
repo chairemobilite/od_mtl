@@ -160,8 +160,6 @@ personJob: >-
 personJob_one: >-
     <strong>Profession</strong> ou nom d'emploi<br /><span class="_pale _oblique">Ex.
     : Boucher, avocate, livreur, infirmière, etc.</span>
-personJobType: <strong>Type d’emploi</strong> de {{nickname}}
-personJobType_one: <strong>Type d’emploi</strong>
 personWorkPlaceType: >-
     Parmi les situations suivantes, laquelle décrit le mieux la <strong>façon</strong>
     dont {{nickname}} <strong>travaille</strong>?

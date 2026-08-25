@@ -24,7 +24,6 @@ export const femaleHybridWorker: commonUITestsHelpers.HouseholdMember = {
     workerType: 'fullTime',
     studentType: 'no',
     job: 'professionnelle de recherche',
-    jobType: 'administration',
     workPlaceType: 'hybrid',
     workDays: '4',
     travelToWorkDays: '3',
