@@ -353,20 +353,6 @@ Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation ==
 Question,"Profession or name of job of {{nickname}}
 Ex: Butcher, lawyer, delivery-person, nurse, etc."
 ""
-Field,jobType
-Question type,Radio input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Type of employment of {{nickname}}
-Values,"professional : Professional
-engineer, analyst, teacher, researcher, health professional…
-administration : Office work / administration
-clerk, administrative assistant, secretariat, administrative support…
-salesAndServices : Sales and services
-retail, customer service, food services, personal services…
-manufacturing : Manufacturing, trades and other jobs
-factory, construction, skilled trades, transportation, warehousing…
-dontKnow : Don't know"
-""
 Field,workPlaceType
 Question type,Radio input
 Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent

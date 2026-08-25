@@ -126,7 +126,6 @@ export type HouseholdMember = {
     studentType: string | null;
     workerType: string | null;
     job: string | null;
-    jobType: string | null;
     workPlaceType: string | null;
     workDays: string | null;
     travelToWorkDays: string | null;
@@ -277,7 +276,6 @@ export const defaultPerson1: HouseholdMember = {
     workerType: 'fullTime',
     studentType: 'partTime',
     job: 'administration',
-    jobType: 'administration',
     workPlaceType: 'hybrid',
     workDays: '4',
     travelToWorkDays: '3',
@@ -314,7 +312,6 @@ export const defaultPerson2: HouseholdMember = {
     workerType: 'fullTime',
     studentType: 'partTime',
     job: 'commis comptable',
-    jobType: 'administration',
     workPlaceType: 'onLocation',
     workDays: null, // Question won't show
     travelToWorkDays: '5', // Question won't show
@@ -1086,23 +1083,6 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.job`,
                 value: person.job
-            });
-        }
-
-        // Test radio widget personJobType with conditional isWorkerConditional with choices jobTypes
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (person.jobType === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.jobType`,
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.jobType`,
-                value: person.jobType
             });
         }
 

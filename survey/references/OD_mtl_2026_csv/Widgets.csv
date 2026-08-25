@@ -143,7 +143,6 @@ __Ex. : Boucher, avocate, livreur, infirmière, etc.__","**Profession** or name 
 __Ex: Butcher, lawyer, delivery-person, nurse, etc.__","**Profession** ou nom d'emploi
 __Ex. : Boucher, avocate, livreur, infirmière, etc.__","**Profession** or name of job of {{nickname}}
 __Ex: Butcher, lawyer, delivery-person, nurse, etc.__",,,isWorkerConditional,,,,,,True,,,,,
-personJobType,Radio,True,household,householdMembers,jobType,**Type d’emploi** de {{nickname}},**Type of employment** of {{nickname}},**Type d’emploi**,**Type of employment**,,,isWorkerConditional,,jobTypes,,,,True,,,,,
 personWorkPlaceType,Radio,True,household,householdMembers,workPlaceType,"Parmi les situations suivantes, laquelle décrit le mieux la **façon** dont {{nickname}} **travaille**?",Which of the following best describes {{nickname}}’s **work arrangement**?,"Parmi les situations suivantes, laquelle décrit le mieux la **façon** dont vous **travaillez**?",Which of the following best describes your **work arrangement**?,,,isWorkerConditional,,workPlaceTypeChoices,,,,True,,,,,
 personWorkDays,RadioNumber,True,household,householdMembers,workDays,"Nombre de jour(s) par semaine où {{nickname}} travaille
 __Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.__","Number of days per week {{nickname}} works

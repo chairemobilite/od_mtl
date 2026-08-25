@@ -238,17 +238,6 @@ Including self-employed workers, artists, or those on long-term leave.
 Profession or name of job of {{nickname}}
 Ex: Butcher, lawyer, delivery-person, nurse, etc.
 
-Type of employment of {{nickname}}
-- Professional
-engineer, analyst, teacher, researcher, health professional…
-- Office work / administration
-clerk, administrative assistant, secretariat, administrative support…
-- Sales and services
-retail, customer service, food services, personal services…
-- Manufacturing, trades and other jobs
-factory, construction, skilled trades, transportation, warehousing…
-- Don't know
-
 Which of the following best describes {{nickname}}’s work arrangement?
 - Works in person at a fixed location away from home at all times
 - Works in a hybrid mode (remote and in-person)

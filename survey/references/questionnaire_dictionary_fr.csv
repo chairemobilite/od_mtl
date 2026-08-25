@@ -351,20 +351,6 @@ Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation =
 Question,"Profession ou nom d'emploi de {{nickname}}
 Ex. : Boucher, avocate, livreur, infirmière, etc."
 ""
-Champ,jobType
-Type de question,Bouton radio
-Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
-Question,Type d’emploi de {{nickname}}
-Valeurs,"professional : Professionnel(le)
-ingénieur·e, analyste, enseignant·e, chercheur·e, professionnel de la santé…
-administration : Travail de bureau / administration
-commis, adjoint·e administratif·ve, secrétariat, soutien administratif…
-salesAndServices : Vente et services
-commerce de détail, service à la clientèle, restauration, soins personnels…
-manufacturing : Fabrication, métiers et autres emplois
-usine, construction, métiers spécialisés, transport, entreposage…
-dontKnow : Ne sait pas"
-""
 Champ,workPlaceType
 Type de question,Bouton radio
 Conditionnel,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent

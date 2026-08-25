@@ -40,19 +40,6 @@ personOccupation,longTermDisability,Invalidité de longue durée,Long-term disab
 personOccupation,volunteer,Bénévole,Volunteer,,,,,
 personOccupation,,,,,,otherWithoutSpecify,,
 personOccupation,,,,,,preferNotToAnswer,,
-jobTypes,professional,"Professionnel(le)
-__ingénieur·e, analyste, enseignant·e, chercheur·e, professionnel de la santé…__","Professional
-__engineer, analyst, teacher, researcher, health professional…__",,,,,
-jobTypes,administration,"Travail de bureau / administration
-__commis, adjoint·e administratif·ve, secrétariat, soutien administratif…__","Office work / administration
-__clerk, administrative assistant, secretariat, administrative support…__",,,,,
-jobTypes,salesAndServices,"Vente et services
-__commerce de détail, service à la clientèle, restauration, soins personnels…__","Sales and services
-__retail, customer service, food services, personal services…__",,,,,
-jobTypes,manufacturing,"Fabrication, métiers et autres emplois
-__usine, construction, métiers spécialisés, transport, entreposage…__","Manufacturing, trades and other jobs
-__factory, construction, skilled trades, transportation, warehousing…__",,,,,
-jobTypes,,,,,,dontKnow,,
 transitPassType,transitPassARTM,"Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM","Monthly or annual pass valid with STM, RTL, STL, exo or REM",,,,ifAge64OrLessConditional,
 transitPassType,transitPassARTMWithElderly,"Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM (incluant les passes pour aînés)","Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior passes)",,,,ifAge65OrMoreConditional,
 transitPassType,tickets,Titres ou billets individuels,Individual tickets or fares,,,,,

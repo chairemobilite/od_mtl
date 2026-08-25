@@ -44,19 +44,6 @@ personOccupation:
     parentalOrSickLeave: Congé de maladie ou congé parental
     longTermDisability: Invalidité de longue durée
     volunteer: Bénévole
-jobTypes:
-    professional: >-
-        Professionnel(le)<br /><span class="_pale _oblique">ingénieur·e, analyste,
-        enseignant·e, chercheur·e, professionnel de la santé…</span>
-    administration: >-
-        Travail de bureau / administration<br /><span class="_pale _oblique">commis,
-        adjoint·e administratif·ve, secrétariat, soutien administratif…</span>
-    salesAndServices: >-
-        Vente et services<br /><span class="_pale _oblique">commerce de détail, service
-        à la clientèle, restauration, soins personnels…</span>
-    manufacturing: >-
-        Fabrication, métiers et autres emplois<br /><span class="_pale _oblique">usine,
-        construction, métiers spécialisés, transport, entreposage…</span>
 transitPassType:
     transitPassARTM: Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL,
         exo ou REM

@@ -44,19 +44,6 @@ personOccupation:
     parentalOrSickLeave: Sick leave or parental leave
     longTermDisability: Long-term disability
     volunteer: Volunteer
-jobTypes:
-    professional: >-
-        Professional<br /><span class="_pale _oblique">engineer, analyst, teacher,
-        researcher, health professional…</span>
-    administration: >-
-        Office work / administration<br /><span class="_pale _oblique">clerk, administrative
-        assistant, secretariat, administrative support…</span>
-    salesAndServices: >-
-        Sales and services<br /><span class="_pale _oblique">retail, customer service,
-        food services, personal services…</span>
-    manufacturing: >-
-        Manufacturing, trades and other jobs<br /><span class="_pale _oblique">factory,
-        construction, skilled trades, transportation, warehousing…</span>
 transitPassType:
     transitPassARTM: Monthly or annual pass valid with STM, RTL, STL, exo or REM
     transitPassARTMWithElderly: >-
