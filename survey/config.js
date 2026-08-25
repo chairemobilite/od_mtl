@@ -27,12 +27,11 @@ module.exports = {
     },
     countryCode: 'CA',
     // FIXME See if those dates are still useful or if startDateTimeWithTimezoneOffset supercedes them
-    startDate: '2026-09-08', // tuesday after Labor day
-    endDate: '2026-12-18',
+    startDate: '2026-09-01',
+    endDate: '2026-12-19',
     hasAccessCode: true,
-    // TODO Update with actual 2026 dates when available
-    startDateTimeWithTimezoneOffset: '2026-09-08T00:00:00-04:00', // tuesday after Labor day
-    endDateTimeWithTimezoneOffset: '2026-12-18T23:59:59-05:00',
+    startDateTimeWithTimezoneOffset: '2026-09-01T00:00:00-04:00', // tuesday before labor day
+    endDateTimeWithTimezoneOffset: '2026-12-19T23:59:59-05:00', // answers will be accepted until this date, even if front page says otherwise
     forceRecalculateTransitTrips: false,
     updateTransitRoutingIfCalculatedBefore: moment('2024-03-07').unix(), // timestamp, will recalculate transit trips if calculated before this date
     startButtonColor: 'turquoise', // styles for turquoise buttons are in the project's styles.scss file
