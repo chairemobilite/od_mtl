@@ -587,7 +587,7 @@ export const transitModesChoices: ChoiceType[] = [
     {
         value: 'transitBus',
         label: (t: TFunction) => t('choices:transitModesChoices.transitBus'),
-        conditional: conditionals.isCurrentSegmentNotTransitBusConditional
+        conditional: customConditionals.isCurrentSegmentNotTransitBusCustomConditional
     },
     {
         value: 'transitOnDemand',

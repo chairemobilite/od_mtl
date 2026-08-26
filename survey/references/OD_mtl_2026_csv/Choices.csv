@@ -116,7 +116,7 @@ workPlaceBeforeLeaveTypeChoices,onTheRoadWithUsualPlace,"Oui, {{nickname}} trava
 workPlaceBeforeLeaveTypeChoices,onTheRoadWithoutUsualPlace,"Non, {{nickname}} travaillait sur la route avec départ du domicile","No, {{nickname}} worked on the road departing from home","Non, je travaillais sur la route avec départ du domicile","No, I worked on the road departing from home",,,
 workPlaceBeforeLeaveTypeChoices,remote,"Non, {{nickname}} travaillait à partir du domicile ou à distance","No, {{nickname}} worked from home or from elsewhere","Non, je travaillais à partir du domicile ou à distance","No, I worked from home or from elsewhere",,,
 transitModesChoices,walk,Marche,Walking,,,,,
-transitModesChoices,transitBus,"Bus (STM, STL, RTL, exo, etc.)","Bus (STM, STL, RTL, exo, etc.)",,,,isCurrentSegmentNotTransitBusConditional,
+transitModesChoices,transitBus,"Bus (STM, STL, RTL, exo, etc.)","Bus (STM, STL, RTL, exo, etc.)",,,,isCurrentSegmentNotTransitBusCustomConditional,
 transitModesChoices,transitOnDemand,Transport à la demande,On-demand transit,,,,stationServedByTADCustomConditional,
 transitModesChoices,carDriver,Auto en tant que conducteur,Car as driver,,,,hasDrivingLicenseConditional,
 transitModesChoices,carPassenger,Auto en tant que passager,Car as passenger,,,,,

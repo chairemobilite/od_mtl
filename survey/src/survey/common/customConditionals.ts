@@ -681,3 +681,27 @@ export const hasOnePersonWithDisabilityOrHhSize1CustomConditional: WidgetConditi
     }
     return hhAtLeastOnePersonWithDisability === 'yes' ? true : [false, hhAtLeastOnePersonWithDisability];
 };
+
+/**
+ * Conditional for the bus choice in access/egress mode. The corresponding
+ * widget may be part of the trip or the segment, so if the "current segment" is
+ * not obtainable from the segment context, it should be the last segment of the
+ * trip.
+ */
+export const isCurrentSegmentNotTransitBusCustomConditional: WidgetConditional = (interview, path) => {
+    const getCurrentSegmentForMode = () => {
+        const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+        if (segmentContext !== null) {
+            return segmentContext.segment;
+        }
+        const tripContext = odSurveyHelper.getTripContextFromPath({ interview, path });
+        if (tripContext === null) {
+            throw new Error(
+                `isCurrentSegmentNotTransitBusCustomConditional: neither path nor trip context can be retrieved from path ${path}`
+            );
+        }
+        return odSurveyHelper.getSegmentsArray({ trip: tripContext.trip }).reverse()[0];
+    };
+    const currentSegment = getCurrentSegmentForMode();
+    return !_isBlank(currentSegment) && !_isBlank(currentSegment.mode) && currentSegment.mode !== 'transitBus';
+};
