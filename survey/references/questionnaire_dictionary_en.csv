@@ -773,18 +773,6 @@ taxi : Taxi or equivalent (e.g., Uber)
 transit : Public transit
 other : Other"
 ""
-Field,intercityEgressMode
-Question type,Radio input
-Conditional,isIntercityAndDestinationInTerritoryCustomConditional
-Question,Mode of transportation to get {{stopType}} to {{destination}}
-Values,"walk : Walking
-bicycle : Bicycle
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
-carPassenger : Car as passenger
-taxi : Taxi or equivalent (e.g., Uber)
-transit : Public transit
-other : Other"
-""
 Field,junctionPrivateBus
 Question type,Unknown input
 Conditional,junctionPrivateBusCustomConditional
@@ -819,6 +807,18 @@ transitOnDemand (stationServedByTADCustomConditional): On-demand transit
 carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
 other : Other (specify)"
+""
+Field,intercityEgressMode
+Question type,Radio input
+Conditional,isIntercityAndDestinationInTerritoryCustomConditional
+Question,Mode of transportation to get {{stopType}} to {{destination}}
+Values,"walk : Walking
+bicycle : Bicycle
+carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carPassenger : Car as passenger
+taxi : Taxi or equivalent (e.g., Uber)
+transit : Public transit
+other : Other"
 ""
 Field,commonTripWith
 Question type,Checkbox input

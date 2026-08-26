@@ -512,15 +512,6 @@ Mode of transportation to get from {{origin}} to {{stopType}}
 - Public transit
 - Other
 
-Mode of transportation to get {{stopType}} to {{destination}}
-- Walking
-- Bicycle
-- Car as driver
-- Car as passenger
-- Taxi or equivalent (e.g., Uber)
-- Public transit
-- Other
-
 Boarding location (getting on the bus)
 
 Exit location (getting off the bus)
@@ -541,6 +532,15 @@ Mode of transportation to get {{stopType}} to {{destination}}
 - Car as driver
 - Car as passenger
 - Other (specify)
+
+Mode of transportation to get {{stopType}} to {{destination}}
+- Walking
+- Bicycle
+- Car as driver
+- Car as passenger
+- Taxi or equivalent (e.g., Uber)
+- Public transit
+- Other
 
 Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, with another household member?
 

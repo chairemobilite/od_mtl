@@ -2154,21 +2154,6 @@ const fillOneSegmentTests = ({
         });
     }
 
-    // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
-    if (segment.intercityEgressMode === null) {
-        testHelpers.inputVisibleTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityEgressMode`,
-            isVisible: false
-        });
-    } else {
-        testHelpers.inputRadioTest({
-            context,
-            path: `household.persons.\${activePersonId}.journeys.\${activeJourneyId}.trips.\${activeTripId}.segments.${segmentIdString}.intercityEgressMode`,
-            value: segment.intercityEgressMode
-        });
-    }
-
     // Test radio widget segmentJunctionPrivateBus with conditional junctionPrivateBusCustomConditional with choices tripJunctionCustomChoices
     if (segment.junctionPrivateBus === null) {
         testHelpers.inputVisibleTest({
@@ -2250,6 +2235,21 @@ const fillOneSegmentTests = ({
             });
         }
 
+        // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
+        if (segment.intercityEgressMode === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.intercityEgressMode',
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.intercityEgressMode',
+                value: segment.intercityEgressMode
+            });
+        }
+
         // Test radio widget segmentTransitEgressMode with conditional isTransitModeAndDistanceToDestinationCustomConditional with choices transitModesChoices
         if (segment.transitEgressMode === null) {
             testHelpers.inputVisibleTest({
@@ -2266,6 +2266,23 @@ const fillOneSegmentTests = ({
         }
 
         testHelpers.inputNextButtonTest({ context, text: 'Confirm this trip', nextPageUrl: '/survey/segments' });
+    } else {
+        // Make sure end of trip questions are not visible
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.commonTripWith',
+            isVisible: false
+        });
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.intercityEgressMode',
+            isVisible: false
+        });
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.trips.${activeTripId}.transitEgressMode',
+            isVisible: false
+        });
     }
 };
 

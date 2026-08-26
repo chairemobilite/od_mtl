@@ -633,12 +633,6 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     testHelpers.inputVisibleTest({ context, path: '?.intercityAccessMode', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.intercityAccessMode', value: '?' });
 
-    // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: '?.intercityEgressMode', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: '?.intercityEgressMode', value: '?' });
-
     // Test custom widget tripJunctionPrivateBus with conditional junctionPrivateBusCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.junctionPrivateBus', isVisible: true });
@@ -662,6 +656,12 @@ export const fillSegmentsSectionTests = ({ context, householdSize }: CommonTestP
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: '?.transitEgressMode', isVisible: true });
     testHelpers.inputRadioTest({ context, path: '?.transitEgressMode', value: '?' });
+
+    // Test radio widget segmentIntercityEgressMode with conditional isIntercityAndDestinationInTerritoryCustomConditional with choices intercityModesChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    testHelpers.inputVisibleTest({ context, path: '?.intercityEgressMode', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: '?.intercityEgressMode', value: '?' });
 
     // Test checkbox widget personTripsCommonTripWith with conditional commonTripCustomConditional with choices commonTripCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */

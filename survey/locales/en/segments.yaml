@@ -43,14 +43,14 @@ segmentTransitAccessMode: >-
     <strong>Mode</strong> of transportation to get from {{origin}} to <strong>{{stopType}}</strong>
 segmentIntercityAccessMode: >-
     <strong>Mode</strong> of transportation to get from {{origin}} to <strong>{{stopType}}</strong>
-segmentIntercityEgressMode: >-
-    <strong>Mode</strong> of transportation to get <strong>{{stopType}}</strong> to
-    {{destination}}
 tripJunctionPrivateBus: <strong>Boarding location</strong> (getting on the bus)
 tripJunctionBusPrivate: <strong>Exit location</strong> (getting off the bus)
 tripJunctionPaidParking: <strong>Parking</strong> upon arrival at {{stopType}}
 segmentHasNextMode: Other mode of transportation used for the trip before arrival?
 segmentTransitEgressMode: >-
+    <strong>Mode</strong> of transportation to get <strong>{{stopType}}</strong> to
+    {{destination}}
+segmentIntercityEgressMode: >-
     <strong>Mode</strong> of transportation to get <strong>{{stopType}}</strong> to
     {{destination}}
 personTripsCommonTripWith: >-

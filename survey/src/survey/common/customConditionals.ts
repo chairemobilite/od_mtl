@@ -278,28 +278,38 @@ export const isIntercityAndOriginInTerritoryCustomConditional: WidgetConditional
     if (!segmentContext) {
         throw new Error('isIntercityAndOriginInTerritoryCustomConditional label: Segment context not found');
     }
-    const { person, journey, trip, segment } = segmentContext;
+    const { segment } = segmentContext;
     const isIntercityMode = intercityModes.includes(segment.mode);
-    if (!isIntercityMode) {
+    // Display only for intercity modes and first segment
+    if (!isIntercityMode || segment._sequence > 1) {
         return [false, null];
     }
-    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/29
-    return [false, null];
+    // Display if origin location is in the territory
+    const locationGeography = getSegmentPreviousLocation({ interview, ...segmentContext });
+    return [locationGeography !== null && locationGeography.properties.isInTerritory === true, null];
 };
 
 // Conditional to show if the current segment is an intercity mode and the destination is in the territory
 export const isIntercityAndDestinationInTerritoryCustomConditional: WidgetConditional = (interview, path) => {
-    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
-    if (!segmentContext) {
-        throw new Error('isIntercityAndDestinationInTerritoryCustomConditional label: Segment context not found');
+    const tripContext = odSurveyHelper.getTripContextFromPath({ interview, path });
+    if (!tripContext) {
+        throw new Error('isIntercityAndDestinationInTerritoryCustomConditional label: Trip context not found');
     }
-    const { person, journey, trip, segment } = segmentContext;
-    const isIntercityMode = intercityModes.includes(segment.mode);
+    const { trip } = tripContext;
+    const segments = odSurveyHelper.getSegmentsArray({ trip });
+    const lastSegment = segments.length > 0 ? segments[segments.length - 1] : undefined;
+    // Do not display if no last segment or last segment is not the last one
+    if (lastSegment === undefined || lastSegment.hasNextMode !== false) {
+        return [false, null];
+    }
+    // Do not display if last segment is not an intercity mode
+    const isIntercityMode = intercityModes.includes(lastSegment.mode);
     if (!isIntercityMode) {
         return [false, null];
     }
-    // FIXME Implement see https://github.com/chairemobilite/od_mtl/issues/34
-    return [false, null];
+    // Display if destination location is in the territory
+    const destinationGeography = getSegmentNextLocation({ interview, ...tripContext, segment: lastSegment });
+    return [destinationGeography !== null && destinationGeography.properties.isInTerritory === true, null];
 };
 
 // Conditional to show if the current trip destination is a usual workplace
