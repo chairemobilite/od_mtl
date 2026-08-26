@@ -85,8 +85,16 @@ const fareTbl = [
 export const transitFareHelpPopup: HelpPopup = {
     title: (t: TFunction) => t('household:popup.transitFareTitle'),
     containsHtml: true,
-    content: (t: TFunction, interview) => {
-        const fareTblStr = fareTbl.map((fare) => t('household:popup.transitFareOneFareLine', fare)).join('<br/>');
+    content: (t: TFunction) => {
+        const fareTblStr = fareTbl
+            .map(({ fareName, regular, reduced }) =>
+                t('household:popup.transitFareOneFareLine', {
+                    fareName: t(`choices:transitFareType.${fareName}`),
+                    regular,
+                    reduced
+                })
+            )
+            .join('<br/>');
         return t('household:popup.transitFareContent', { fareTable: fareTblStr });
     }
 };
