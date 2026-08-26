@@ -510,15 +510,6 @@ Mode pour se rendre de {{origin}} {{stopType}}
 - Transport en commun
 - Autre
 
-Mode pour se rendre {{stopType}} à {{destination}}
-- Marche
-- Vélo
-- Auto en tant que conducteur
-- Auto en tant que passager
-- Taxi ou équivalent (ex. : Uber)
-- Transport en commun
-- Autre
-
 Lieu d’embarquement (montée dans le bus) 
 
 Lieu de débarquement (descente du bus) 
@@ -539,6 +530,15 @@ Mode pour se rendre {{stopType}} à {{destination}}
 - Auto en tant que conducteur
 - Auto en tant que passager
 - Autre (spécifiez)
+
+Mode pour se rendre {{stopType}} à {{destination}}
+- Marche
+- Vélo
+- Auto en tant que conducteur
+- Auto en tant que passager
+- Taxi ou équivalent (ex. : Uber)
+- Transport en commun
+- Autre
 
 Ce déplacement (entre {{origin}} et {{destination}}) a-t-il été effectué, en tout ou en partie, avec un autre membre du ménage?
 

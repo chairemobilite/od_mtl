@@ -193,8 +193,6 @@ export const segmentTransitAccessMode: WidgetConfig.InputRadioType = {
 };
 
 // Needs custom label because of interpolations and custom conditional because of distance calculations
-//
-// FIXME segmentIntercityAccessMode : intercityAccessCustomConditional · Issue #29 · chairemobilite/od_mtl
 export const segmentIntercityAccessMode: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'intercityAccessMode',
@@ -203,20 +201,6 @@ export const segmentIntercityAccessMode: WidgetConfig.InputRadioType = {
     label: customLabels.segmentIntercityAccessModeCustomLabel,
     choices: choices.intercityModesChoices,
     conditional: customConditionals.isIntercityAndOriginInTerritoryCustomConditional,
-    validations: validations.requiredValidation
-};
-
-// Needs custom label because of interpolations and custom conditional because of distance calculations
-//
-// FIXME segmentIntercityEgressMode : intercityEgressCustomConditional · Issue #34 · chairemobilite/od_mtl
-export const segmentIntercityEgressMode: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'intercityEgressMode',
-    twoColumns: false,
-    containsHtml: true,
-    label: customLabels.segmentIntercityEgressModeCustomLabel,
-    choices: choices.intercityModesChoices,
-    conditional: customConditionals.isIntercityAndDestinationInTerritoryCustomConditional,
     validations: validations.requiredValidation
 };
 
@@ -252,6 +236,18 @@ export const segmentTransitEgressMode: WidgetConfig.InputRadioType = {
     label: customLabels.segmentTransitEgressModeCustomLabel,
     choices: choices.transitModesChoices,
     conditional: customConditionals.isTransitModeAndDistanceToDestinationCustomConditional,
+    validations: validations.requiredValidation
+};
+
+// Needs custom label because of interpolations and custom conditional because of distance calculations
+export const segmentIntercityEgressMode: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
+    path: 'intercityEgressMode',
+    twoColumns: false,
+    containsHtml: true,
+    label: customLabels.segmentIntercityEgressModeCustomLabel,
+    choices: choices.intercityModesChoices,
+    conditional: customConditionals.isIntercityAndDestinationInTerritoryCustomConditional,
     validations: validations.requiredValidation
 };
 

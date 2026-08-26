@@ -117,6 +117,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         modePre: 'intercity',
         mode: 'plane',
         planeStationStart: 'YUL',
+        intercityAccessMode: 'transit',
         hasNextMode: false
     },
     {
@@ -125,6 +126,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         modePre: 'transitHeavy',
         mode: 'intercityTrain',
         intercityRailStationEnd: 'centralStation',
+        intercityEgressMode: 'taxi',
         hasNextMode: false
     }
 ];
