@@ -208,7 +208,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         mode: 'transitRRT',
         subwayStationStart: 'other',
         subwayStationEnd: 'sherbrooke',
-        transitAccessMode: 'carPassenger',
+        transitAccessMode: 'other',
         hasNextMode: true
     },
     {
