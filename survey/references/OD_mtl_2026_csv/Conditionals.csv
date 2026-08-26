@@ -80,7 +80,6 @@ returnedHomeConditional,||,${currentJourney}.departurePlaceOther,===,hotelForVac
 outOfTerritoryMembersConditional,,${currentJourney}.departurePlaceOther,===,hotelForVacation,,,
 outOfTerritoryMembersConditional,&&,household.size,>=,2,,,
 outOfTerritoryMembersConditional,&&,${currentJourney}.returnedHome,===,no,,,
-isCurrentSegmentNotTransitBusConditional,,${currentSegment}.mode,!==,transitBus,,,
 subwayConditional,,${currentSegment}.mode,===,transitRRT,,,
 trainConditional,,${currentSegment}.mode,===,transitRegionalRail,,,
 remConditional,,${currentSegment}.mode,===,transitLRRT,,,

@@ -162,16 +162,16 @@ const segments: commonUITestsHelpers.Segment[] = [
         hasNextMode: false
     },
     {
-        // Third trip, REM, forgot bus access, comes out downtown, for an undeclared walk
+        // Third trip, REM, forgot bus access, comes out downtown, and takes the bus because the REM failed...
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
         modePre: 'transitHeavy',
         mode: 'transitLRRT',
         remStationStart: 'panama',
         remStationEnd: 'mcgill',
-        transitAccessMode: 'carPassenger',
+        transitAccessMode: 'transitBus',
         hasNextMode: false,
-        transitEgressMode: 'walk'
+        transitEgressMode: 'transitBus'
     },
     {
         // Fourth trip, cycle to downtown, then take the REM, then take the bus home, no access/egress should be asked
@@ -179,8 +179,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         segmentIndex: 0,
         modePre: 'bicycle',
         mode: 'bicycle',
-        hasNextMode: true,
-        transitEgressMode: 'walk'
+        hasNextMode: true
     },
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,

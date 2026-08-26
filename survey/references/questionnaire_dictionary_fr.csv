@@ -753,7 +753,7 @@ Type de question,Bouton radio
 Conditionnel,isTransitModeAndDistanceFromOriginCustomConditional
 Question,Mode pour se rendre de {{origin}} {{stopType}}
 Valeurs,"walk : Marche
-transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): Transport à la demande
 carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
 carPassenger : Auto en tant que passager
@@ -812,7 +812,7 @@ Type de question,Bouton radio
 Conditionnel,isTransitModeAndDistanceToDestinationCustomConditional
 Question,Mode pour se rendre {{stopType}} à {{destination}}
 Valeurs,"walk : Marche
-transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): Transport à la demande
 carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Auto en tant que conducteur
 carPassenger : Auto en tant que passager

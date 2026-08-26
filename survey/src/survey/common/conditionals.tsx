@@ -868,23 +868,6 @@ export const outOfTerritoryMembersConditional: WidgetConditional = (interview, p
     });
 };
 
-export const isCurrentSegmentNotTransitBusConditional: WidgetConditional = (interview, path) => {
-    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
-    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
-    const currentTripId = odSurveyHelpers.getCurrentTripId({ interview, path }); // Get the current trip id
-    const currentSegmentId = odSurveyHelpers.getCurrentSegmentId({ interview, path }); // Get the current segment id
-    return checkConditionals({
-        interview,
-        conditionals: [
-            {
-                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.trips.${currentTripId}.segments.${currentSegmentId}.mode`,
-                comparisonOperator: '!==',
-                value: 'transitBus'
-            }
-        ]
-    });
-};
-
 export const subwayConditional: WidgetConditional = (interview, path) => {
     const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
     const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id

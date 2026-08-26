@@ -755,7 +755,7 @@ Question type,Radio input
 Conditional,isTransitModeAndDistanceFromOriginCustomConditional
 Question,Mode of transportation to get from {{origin}} to {{stopType}}
 Values,"walk : Walking
-transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): On-demand transit
 carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
@@ -814,7 +814,7 @@ Question type,Radio input
 Conditional,isTransitModeAndDistanceToDestinationCustomConditional
 Question,Mode of transportation to get {{stopType}} to {{destination}}
 Values,"walk : Walking
-transitBus (isCurrentSegmentNotTransitBusConditional : mode !== transitBus) : Bus (STM, STL, RTL, exo, etc.)
+transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): On-demand transit
 carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
