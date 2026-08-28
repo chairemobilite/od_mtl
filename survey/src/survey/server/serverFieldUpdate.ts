@@ -115,14 +115,43 @@ try {
 const UPDATE_DELAY_FOR_TRIP_DATE_CHECK_MS = 12 * 60 * 60 * 1000; // 12 hours
 const DAYS_BEFORE_REVISING_DATE = 5;
 
-// Calculate the assigned day from the previous day, using the distribution of
-// assigned days so far to balance the assigned days. Exported for unit tests
-export const calculateAssignedDayFromPreviousDay = (previousDay: string): string => {
+// Probability vectors for the days before for each day. First level index is
+// the isoWeekday of the previous day minus 1. Index in each vector is the number
+// of days before previous day
+const daysBeforeProbabilityVectors = [
+    [1, 0, 0], // interviews started on tuesday (previous day monday, isoWeekday 1)
+    [0.74, 0.26, 0],
+    [0.6, 0.4, 0],
+    [0.39, 0.56, 0.05],
+    [0, 1, 0],
+    [0.15, 0.75, 0.1],
+    [0.135, 0.035, 0.83] // interviews started on monday (previous sunday, isoWeekday 7)
+];
+
+const getDaysBeforeProbabilityFromVector = (previousDay: string): number[] | undefined => {
+    const prevDay = moment(previousDay);
+    const dow = prevDay.isoWeekday() - 1;
+    const probabilityVectorForDay = daysBeforeProbabilityVectors[dow];
+    // Adjust for holidays that should be 0
+    const actualProbabilities = [];
+    for (let i = 0; i < probabilityVectorForDay.length; i++) {
+        actualProbabilities.push(
+            // Ignore holidays for this survey, probability of 0
+            prevDay.isHoliday() ? 0 : probabilityVectorForDay[i]
+        );
+        prevDay.subtract(1, 'days');
+    }
+    const totalProbability = actualProbabilities.reduce((total, prob) => total + prob, 0);
+    return totalProbability === 0 ? undefined : actualProbabilities;
+};
+
+const getDaysBeforeProbabilityFromTargetApproach = (previousDay: string): number[] => {
     const prevDay = moment(previousDay);
     const dow = prevDay.isoWeekday() - 1;
     const currentDayRates = getAssignedDayRates();
-    if (currentDayRates === undefined && assignedDayTarget[dow] !== 0) {
-        return previousDay;
+    if (currentDayRates === undefined && assignedDayTarget[dow] !== 0 && !prevDay.isHoliday()) {
+        // 100% for day before
+        return [100];
     }
     const probabilities = [];
     // Divide target by current rate and put to the power of 3, then multiply by default probability.
@@ -145,6 +174,16 @@ export const calculateAssignedDayFromPreviousDay = (previousDay: string): string
                       100
         );
         prevDay.subtract(1, 'days');
+    }
+    return probabilities;
+};
+
+// Calculate the assigned day from the previous day, using the distribution of
+// assigned days so far to balance the assigned days. Exported for unit tests
+export const calculateAssignedDayFromPreviousDay = (previousDay: string): string => {
+    let probabilities = getDaysBeforeProbabilityFromVector(previousDay);
+    if (probabilities === undefined) {
+        probabilities = getDaysBeforeProbabilityFromTargetApproach(previousDay);
     }
 
     const totalProbability = probabilities.reduce((total, prob) => total + prob, 0);
