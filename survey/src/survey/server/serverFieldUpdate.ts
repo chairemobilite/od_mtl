@@ -486,7 +486,8 @@ export default [
                 );
                 // Change the assigned day, but keep the original
                 return {
-                    [assignedDayPath]: formattedAssignedDay
+                    [assignedDayPath]: formattedAssignedDay,
+                    [assignedWeekDayPath]: getDayOfWeek(formattedAssignedDay)
                 };
             } catch (error) {
                 console.error('error evaluating if the assigned day needs to be modified', error);
