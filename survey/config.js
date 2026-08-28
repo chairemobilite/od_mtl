@@ -82,6 +82,37 @@ module.exports = {
         SA: '80da3027-8ad6-4f80-89d6-23d0ae3dec1c',
         SE: '23f9c86f-e161-4af3-9102-ecf81bedc473'
     },
+    randomOrderQuestions: {
+        barriers: [
+            'barriersFrequency',
+            'barriersReliability',
+            'barriersWalk',
+            'barriersTime',
+            'barriersTransfer',
+            'barriersSecurity',
+            'barriersPlanning',
+        ],
+        barriersDisability: [
+            'barriersDisabilityFrequency',
+            'barriersDisabilityReliability',
+            'barriersDisabilityWalk',
+            'barriersDisabilityTime',
+            'barriersDisabilityTransfer',
+            'barriersDisabilitySecurity',
+            'barriersDisabilityUniversalAccessibility',
+            'barriersDisabilityPlanning',
+            'barriersDisabilityCourtesy',
+        ],
+        attitudinal: [
+            'attitudinalOpinion',
+            'attitudinalCar',
+            'attitudinalTransitGoodQuality',
+            'attitudinalFamiliarWithTransit',
+            'attitudinalRequireHighLevel',
+            'attitudinalEasyWithoutCar',
+            'attitudinalGoodAccessImportant'
+        ]
+    },
     postalCodeRegion: 'quebec',
     separateAdminLoginPage: true,
     surveySupportForm: false,
