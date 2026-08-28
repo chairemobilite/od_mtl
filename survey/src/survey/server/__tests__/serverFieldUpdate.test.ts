@@ -122,7 +122,7 @@ describe('access code update', () => {
     });
 
     const updateCallback = (updateCallbacks.find((callback) => callback.field === 'accessCodeConfirm') as any).callback;
-    
+
     test('properly formatted access code, with data', async () => {
         const interview = _cloneDeep(baseInterview);
 
@@ -193,7 +193,7 @@ describe('access code update', () => {
     });
 
     test.each([
-        { 
+        {
             title: 'ep.exclusive, ep.commonTrip and ep.sameMode already set',
             interviewResponseData: { ep: { exclusive: 'freqBarriers', commonTrip: true, sameMode: false }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.address': '123 Main St' },
@@ -261,7 +261,7 @@ describe('access code update', () => {
         if (interviewResponseData !== undefined) {
             Object.assign(interview.response, interviewResponseData);
         }
-        
+
         // Mock the random function to return the specified values for the test case
         const randomMock = jest.spyOn(Math, 'random');
         randomValues.forEach((value, index) => {
@@ -277,7 +277,7 @@ describe('access code update', () => {
         expect(randomMock).toHaveBeenCalledTimes(randomValues.length);
         expect(updateResult).toEqual({ _accessCodeConfirmed: true, ...expected });
 
-        // Restore the original Math.random function        
+        // Restore the original Math.random function
         randomMock.mockRestore();
     });
 
@@ -331,11 +331,11 @@ describe('test survey day assignation', function () {
 
         // Validate call to get assigned day rates, the filter should be with a completed at data, for completed and not invalid interviews
         expect(getInterviewStreamMock).toHaveBeenCalledTimes(1);
-        expect(getInterviewStreamMock).toHaveBeenCalledWith({ 
+        expect(getInterviewStreamMock).toHaveBeenCalledWith({
             filters: { 'response._completedAt': expect.anything(), 'response._isCompleted': { value: true }, 'is_valid': { value: false, op: 'not' } },
             select: { responseType: 'correctedIfAvailable', includeAudits: false }
         });
-        
+
         // Do the update callback with those data
         const interview = _cloneDeep(baseInterview);
         expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': interview.response._previousDay, '_assignedWeekDayIso': 1 /* monday */ });
@@ -423,7 +423,7 @@ describe('test survey day assignation', function () {
         const interview = _cloneDeep(baseInterview);
         interview.response._previousDay = '2022-10-10';
         expect(await updateCallback(interview, interview.response._previousDay)).toEqual({ '_assignedDay': '2022-10-07', '_assignedWeekDayIso': 5 /* friday */ });
-       
+
         expect(randomMock).toHaveBeenCalledTimes(1);
         const randomParams = randomMock.mock.calls[0];
         // Monday should be 0 (holiday), sunday and saturday should have lower probabilities than friday (3 days ago)
@@ -557,7 +557,7 @@ describe('test transit summary generation', function () {
         summaryMock.mockResolvedValue(response);
         expect(await updateCallback(interview, 'transitHeavy', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
-        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({
             opName: `transitSummary-73.145.1-73.345`,
             opUniqueId: 1,
             operation: expect.anything()});
@@ -580,7 +580,7 @@ describe('test transit summary generation', function () {
         summaryMock.mockResolvedValue(response);
         expect(await updateCallback(interview, 'transitHeavy', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
-        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({
             opName: `transitSummary-73.145.1-73.345`,
             opUniqueId: 1,
             operation: expect.anything()});
@@ -599,7 +599,7 @@ describe('test transit summary generation', function () {
         summaryMock.mockRejectedValueOnce('Error');
         expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ });
-        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({
             opName: `transitSummary-73.145.1-73.345`,
             opUniqueId: 1,
             operation: expect.anything()});
@@ -650,7 +650,7 @@ describe('test transit summary generation', function () {
         });
         expect(await updateCallback(interview, 'bus', 'household.persons.a12345.journeys.j1.trips.t1.segments.s1.modePre', registerUpdateOperationMock))
             .toEqual({ ['household.persons.a12345.journeys.j1.trips.t1.segments.s1.trRoutingResult']: undefined });
-        expect(registerUpdateOperationMock).toHaveBeenCalledWith({ 
+        expect(registerUpdateOperationMock).toHaveBeenCalledWith({
             opName: `transitSummary-73.145.1-73.345`,
             opUniqueId: 1,
             operation: expect.anything()});
@@ -690,7 +690,7 @@ describe('test transit summary generation', function () {
         test('Valid modePre path with different UUID-like IDs should match regex', async () => {
             expect('household.persons.person_123.journeys.journey-456.trips.trip789.segments.segment_999.modePre'.match(regexToMatch)).not.toBeNull();
         });
-        
+
         test('Valid modePre path with actual UUID format should match regex ', async () => {
             expect('household.persons.550e8400-e29b-41d4-a716-446655440000.journeys.550e8400-e29b-41d4-a716-446655440002.trips.550e8400-e29b-41d4-a716-446655440003.segments.550e8400-e29b-41d4-a716-446655440004.modePre'.match(regexToMatch)).not.toBeNull();
         });
@@ -775,7 +775,7 @@ describe('Update trip date when interview paused', () => {
         jest.clearAllMocks();
         interview = _cloneDeep(baseInterview);
         mockedCalculateAssignedDay = jest.spyOn(
-            serverFieldUpdateFct, 
+            serverFieldUpdateFct,
             'calculateAssignedDayFromPreviousDay'
         ).mockImplementation((previousDay: string) => {console.log('in mock'); return previousDay});
     });
@@ -796,10 +796,11 @@ describe('Update trip date when interview paused', () => {
         interview.updated_at = undefined;
         interview.response._assignedDay = getFormattedAssignedDay(5);
         removeTripsFromInterview(interview);
-        const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
+        const yesterday = moment().subtract(1, 'days');
+        const formattedYesterday = yesterday.format('YYYY-MM-DD');
         expect(await updateCallback(interview, [], '_sections._actions'))
-            .toEqual({ '_assignedDay': yesterday });
-        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(yesterday);
+            .toEqual({ '_assignedDay': formattedYesterday, '_assignedWeekDayIso': yesterday.isoWeekday() });
+        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(formattedYesterday);
     });
 
     test('Undefined updated field, _assignedDay more than 5 days ago, with trips => no update', async () => {
@@ -836,10 +837,11 @@ describe('Update trip date when interview paused', () => {
         interview.updated_at = moment().subtract(15, 'hours').format();
         interview.response._assignedDay = getFormattedAssignedDay(5);
         removeTripsFromInterview(interview);
-        const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
+        const yesterday = moment().subtract(1, 'days');
+        const formattedYesterday = yesterday.format('YYYY-MM-DD');
         expect(await updateCallback(interview, [], '_sections._actions'))
-            .toEqual({ '_assignedDay': yesterday });
-        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(yesterday);
+            .toEqual({ '_assignedDay': formattedYesterday, '_assignedWeekDayIso': yesterday.isoWeekday() });
+        expect(mockedCalculateAssignedDay).toHaveBeenCalledWith(formattedYesterday);
     });
 
     test('Updated_at > 12 hours ago, _assignedDay more than 5 days ago, with trips => no update', async () => {
