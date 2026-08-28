@@ -9,11 +9,10 @@ import { getPreFilledResponseByPath } from 'evolution-backend/lib/services/inter
 import { randomFromDistribution } from 'chaire-lib-common/lib/utils/RandomUtils';
 import interviewsDbQueries from 'evolution-backend/lib/models/interviews.db.queries';
 import { accessCodeFormatter } from 'evolution-common/lib/utils/formatters';
-import { InterviewAttributes, Segment, Trip } from 'evolution-common/lib/services/questionnaire/types';
-import { postalCodeValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import { InterviewAttributes, Segment } from 'evolution-common/lib/services/questionnaire/types';
 import config from 'evolution-common/lib/config/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
-import { isCommonTripSampleMatch, isPartialSample } from '../common/commonHelpers';
+import { isCommonTripSampleMatch } from '../common/commonHelpers';
 import {
     getUpdatedFieldsForBarriers,
     getUpdatedFieldsForCommonTrip,
@@ -115,18 +114,6 @@ try {
 // Minimal time between updates to check if the trip date was too far in the past
 const UPDATE_DELAY_FOR_TRIP_DATE_CHECK_MS = 12 * 60 * 60 * 1000; // 12 hours
 const DAYS_BEFORE_REVISING_DATE = 5;
-
-// Use the postal code validation to validate the postal code
-// FIXME We can't use the postal code validation from the widget directly here because it's in a .tsx file and the `checkValidation` function from which this functionw as copy-pasted also is in the evolution-frontend package, so we can't use it in the backend.
-const validatePostalCode = (postalCode: string, interview: InterviewAttributes): boolean => {
-    const validationsGroup = postalCodeValidation(postalCode, undefined, interview, 'home.postalCode');
-    for (let i = 0; i < validationsGroup.length; i++) {
-        if (validationsGroup[i].validation === true) {
-            return false;
-        }
-    }
-    return true;
-};
 
 // Calculate the assigned day from the previous day, using the distribution of
 // assigned days so far to balance the assigned days. Exported for unit tests
