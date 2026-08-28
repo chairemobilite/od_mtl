@@ -34,26 +34,32 @@ householdCommentsOnSurvey: >-
     Vos <strong>commentaires et suggestions</strong> sur le questionnaire<br /><span
     class="_pale _oblique">Facultatif</span>
 optionalIntroText: >-
-    Les <strong>questions suivantes sont facultatives</strong> et sont ajoutées à
-    des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
+    <span class="_phone" aria-hidden="true">i </span>Les <strong>questions suivantes
+    sont facultatives</strong> et sont ajoutées à des fins de recherche. Vous pouvez
+    terminer l’enquête sans y répondre.
 endInterestOfTheSurvey: >-
-    Dans quelle mesure cette enquête a-t-elle été <strong>intéressante</strong> pour
-    vous?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Dans quelle mesure cette enquête
+    a-t-elle été <strong>intéressante</strong> pour vous?<br /><span class="_pale
+    _oblique">Facultatif</span>
 endTimeSpentAnswering: >-
-    Combien de <strong>temps</strong> pensez-vous avoir passé <strong>à répondre</strong>
-    à cette enquête (<strong>en minutes</strong>)?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Combien de <strong>temps</strong>
+    pensez-vous avoir passé <strong>à répondre</strong> à cette enquête (<strong>en
+    minutes</strong>)?<br /><span class="_pale _oblique">Facultatif</span>
 endDurationOfTheSurvey: >-
-    Pensez-vous que la <strong>durée de l'enquête était trop courte, correcte ou trop
-    longue</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Pensez-vous que la <strong>durée
+    de l'enquête était trop courte, correcte ou trop longue</strong>?<br /><span class="_pale
+    _oblique">Facultatif</span>
 endDifficultyOfTheSurvey: >-
-    Dans quelle mesure vous a-t-il été <strong>facile</strong> ou <strong>difficile</strong>
-    de répondre aux questions de cette enquête?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Dans quelle mesure vous a-t-il
+    été <strong>facile</strong> ou <strong>difficile</strong> de répondre aux questions
+    de cette enquête?<br /><span class="_pale _oblique">Facultatif</span>
 endBurdenOfTheSurvey: >-
-    Dans quelle mesure avez-vous trouvé cette enquête <strong>pénible (exigeante)</strong>?<br
-    /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Dans quelle mesure avez-vous
+    trouvé cette enquête <strong>pénible (exigeante)</strong>?<br /><span class="_pale
+    _oblique">Facultatif</span>
 endConsideredAbandoningSurvey: >-
-    Avez-vous pensé, à un moment ou un autre, <strong>abandonner l'enquête</strong>?<br
-    /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Avez-vous pensé, à un moment
+    ou un autre, <strong>abandonner l'enquête</strong>?<br /><span class="_pale _oblique">Facultatif</span>
 buttonCompleteInterviewWithCompleteSection: Terminer l’entrevue
 errors:
     inputRangeMustBePositiveOrZero: Veuillez placer le bouton à l'intérieur de la

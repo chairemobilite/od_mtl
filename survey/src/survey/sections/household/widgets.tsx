@@ -187,7 +187,7 @@ export const personDisabilitiesSpecify: WidgetConfig.InputStringType = {
     ...defaultInputBase.inputStringBase,
     path: 'disabilitiesSpecify',
     twoColumns: false,
-    containsHtml: false,
+    containsHtml: true,
     label: (t: TFunction) => t('household:personDisabilitiesSpecify'),
     conditional: conditionals.personDisabilityIsOtherConditional,
     validations: validations.optionalValidation
@@ -218,7 +218,7 @@ export const personMobilityAssistiveDevicesSpecify: WidgetConfig.InputStringType
     ...defaultInputBase.inputStringBase,
     path: 'mobilityAssistiveDevicesSpecify',
     twoColumns: false,
-    containsHtml: false,
+    containsHtml: true,
     label: (t: TFunction) => t('household:personMobilityAssistiveDevicesSpecify'),
     conditional: conditionals.personAssistiveDevicesIsOtherConditional,
     validations: validations.optionalValidation

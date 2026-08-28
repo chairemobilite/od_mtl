@@ -29,8 +29,8 @@ export const personNoWorkTripIntro: WidgetConfig.TextWidgetConfig = {
     conditional: customConditionals.shouldAskForNoWorkTripReasonCustomConditional
 };
 
-export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
+export const personNoWorkTripReason: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason',
     twoColumns: false,
     containsHtml: false,
@@ -38,6 +38,16 @@ export const personNoWorkTripReason: WidgetConfig.InputSelectType = {
     choices: choices.noWorkTripReasonChoices,
     conditional: customConditionals.shouldAskForNoWorkTripReasonCustomConditional,
     validations: validations.requiredValidation
+};
+
+export const personNoWorkTripReasonSpecify: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction) => t('travelBehavior:personNoWorkTripReasonSpecify'),
+    conditional: conditionals.shouldAskForNoWorkTripReasonSpecifyConditional,
+    validations: validations.optionalValidation
 };
 
 export const personUsualWorkPlaceIntro: WidgetConfig.TextWidgetConfig = {

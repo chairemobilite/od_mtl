@@ -3,30 +3,37 @@
 # Any changes made to this file will be overwritten.
 
 attitudinalIntro: >-
-    Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier
-    dans <strong>quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.</strong>
+    <span class="_phone" aria-hidden="true">i </span>Pour cette série de questions,
+    nous vous demandons ({{nickname}}) de quantifier dans <strong>quelle mesure vous
+    êtes d’accord ou non avec une affirmation spécifique.</strong>
 attitudinalIntro_one: >-
-    Pour cette série de questions, nous vous demandons de quantifier dans <strong>quelle
-    mesure vous êtes d’accord ou non avec une affirmation spécifique</strong>.
+    <span class="_phone" aria-hidden="true">i </span>Pour cette série de questions,
+    nous vous demandons de quantifier dans <strong>quelle mesure vous êtes d’accord
+    ou non avec une affirmation spécifique</strong>.
 attitudinalOpinion: >-
-    L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence
-    mes choix de mode de transport pour mes trajets habituels.
-attitudinalCar: La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+    <span class="_phone" aria-hidden="true">i </span>L’opinion des personnes qui comptent
+    pour moi (famille, amis, collègues) influence mes choix de mode de transport pour
+    mes trajets habituels.
+attitudinalCar: >-
+    <span class="_phone" aria-hidden="true">i </span>La voiture personnelle représente
+    pour moi l’indépendance et l’autonomie.
 attitudinalTransitGoodQuality: >-
-    Globalement, le transport en commun dans la région où j’habite est utile et de
-    bonne qualité.
+    <span class="_phone" aria-hidden="true">i </span>Globalement, le transport en
+    commun dans la région où j’habite est utile et de bonne qualité.
 attitudinalFamiliarWithTransit: >-
-    Je connais bien les services de transport en commun qui desservent mon domicile
-    et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+    <span class="_phone" aria-hidden="true">i </span>Je connais bien les services
+    de transport en commun qui desservent mon domicile et mes lieux d’activité habituels
+    (lignes, arrêts principaux, fréquences).
 attitudinalRequireHighLevel: >-
-    Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité
-    (nombreux déplacements, destinations diverses, variabilité des horaires, etc.).
-    
+    <span class="_phone" aria-hidden="true">i </span>Mes activités habituelles exigent
+    un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations
+    diverses, variabilité des horaires, etc.).
 attitudinalEasyWithoutCar: >-
-    Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle,
-    en utilisant le transport en commun ou les modes actifs. 
+    <span class="_phone" aria-hidden="true">i </span>Il me serait facile de réaliser
+    la plupart de mes déplacements sans voiture personnelle, en utilisant le transport
+    en commun ou les modes actifs.
 attitudinalGoodAccessImportant: >-
-    Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt
-    ou une station avec un service fréquent aux heures où je me déplace est important
-    pour moi.
+    <span class="_phone" aria-hidden="true">i </span>Dans le choix de mon lieu de
+    résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service
+    fréquent aux heures où je me déplace est important pour moi.
 buttonCompleteAttitudinalSection: Continuer

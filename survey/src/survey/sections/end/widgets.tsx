@@ -27,16 +27,7 @@ export const householdType: WidgetConfig.InputRadioType = {
     validations: validations.optionalValidation
 };
 
-export const householdTypeSpecify: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'household.typeSpecify',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('end:householdTypeSpecify'),
-    choices: choices.householdTypeSpecify,
-    conditional: conditionals.householdTypeSpecifyConditional,
-    validations: validations.optionalValidation
-};
+// Note: householdTypeSpecify widget is not active. This widget will not be displayed in the survey.
 
 export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
     ...defaultInputBase.inputRadioNumberBase,

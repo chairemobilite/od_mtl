@@ -9,6 +9,7 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'buttonSwitchPerson',
     'personNoWorkTripIntro',
     'personNoWorkTripReason',
+    'personNoWorkTripReasonSpecify',
     'personUsualWorkPlaceIntro',
     'personUsualWorkPlaceName',
     'personUsualWorkPlaceGeography',

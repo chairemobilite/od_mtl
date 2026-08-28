@@ -1076,7 +1076,7 @@ export const carParkingHomeWithVehicleConditional: WidgetConditional = (intervie
             {
                 path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
-                value: 4
+                value: 2
             },
             {
                 logicalOperator: '&&',
@@ -1089,13 +1089,13 @@ export const carParkingHomeWithVehicleConditional: WidgetConditional = (intervie
                 logicalOperator: '||',
                 path: 'ep.exclusive',
                 comparisonOperator: '===',
-                value: 'freqBrakes'
+                value: 'freqBarriers'
             },
             {
                 logicalOperator: '||',
                 path: 'ep.exclusive',
                 comparisonOperator: '===',
-                value: 'freqAttitudinalBrakes',
+                value: 'freqAttitudinalBarriers',
                 parentheses: ')'
             },
             {
@@ -1123,7 +1123,7 @@ export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (inter
             {
                 path: 'home.geography.properties.RA',
                 comparisonOperator: '<=',
-                value: 4
+                value: 2
             },
             {
                 logicalOperator: '&&',
@@ -1136,13 +1136,13 @@ export const carParkingHomeWithoutVehicleConditional: WidgetConditional = (inter
                 logicalOperator: '||',
                 path: 'ep.exclusive',
                 comparisonOperator: '===',
-                value: 'freqBrakes'
+                value: 'freqBarriers'
             },
             {
                 logicalOperator: '||',
                 path: 'ep.exclusive',
                 comparisonOperator: '===',
-                value: 'freqAttitudinalBrakes',
+                value: 'freqAttitudinalBarriers',
                 parentheses: ')'
             },
             {
@@ -1187,6 +1187,12 @@ export const carsharingConditional: WidgetConditional = (interview, path) => {
         interview,
         conditionals: [
             {
+                path: `household.persons.${currentPersonId}.age`,
+                comparisonOperator: '>=',
+                value: 19
+            },
+            {
+                logicalOperator: '&&',
                 path: `household.persons.${currentPersonId}.drivingLicenseOwnership`,
                 comparisonOperator: '===',
                 value: 'yes'
@@ -1517,6 +1523,21 @@ export const homeAddressIsPrefilledConditional: WidgetConditional = (interview) 
                 path: 'home._addressIsPrefilled',
                 comparisonOperator: '===',
                 value: true
+            }
+        ]
+    });
+};
+
+export const shouldAskForNoWorkTripReasonSpecifyConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.noWorkTripReason`,
+                comparisonOperator: '===',
+                value: 'other'
             }
         ]
     });

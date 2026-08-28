@@ -8,28 +8,31 @@ barriersTrip: >-
 barriersTrip_one: >-
     Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 barriersIntro: >-
-    For the trip shown above, you used a car. For each of the following items, <strong>indicate
-    whether they were a barrier to using public transit</strong> (bus, metro, train,
-    or REM) for this <strong>trip</strong>.
+    <span class="_phone" aria-hidden="true">i </span>For the trip shown above, you
+    used a car. For each of the following items, <strong>indicate whether they were
+    a barrier to using public transit</strong> (bus, metro, train, or REM) for this
+    <strong>trip</strong>.
 barriersFrequency: >-
-    <strong>Public transit frequency</strong> (e.g., infrequent service, long waiting
-    times)
+    <span class="_phone" aria-hidden="true">i </span><strong>Public transit frequency</strong>
+    (e.g., infrequent service, long waiting times)
 barriersReliability: >-
-    <strong>Reliability</strong> of public transit (e.g., unpredictable delays, cancellations,
-    fear of missed connections)
-barriersWalk: <strong>Walking time</strong> to a stop or station (at departure or
-    arrival)
+    <span class="_phone" aria-hidden="true">i </span><strong>Reliability</strong>
+    of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
+barriersWalk: >-
+    <span class="_phone" aria-hidden="true">i </span><strong>Walking time</strong>
+    to a stop or station (at departure or arrival)
 barriersTime: >-
-    <strong>Total travel time</strong>, door-to-door (walking + waiting + in-vehicle
-    time + transfers)
-barriersTransfer: <strong>Number of transfers</strong> required (changes of line or
-    mode)
+    <span class="_phone" aria-hidden="true">i </span><strong>Total travel time</strong>,
+    door-to-door (walking + waiting + in-vehicle time + transfers)
+barriersTransfer: >-
+    <span class="_phone" aria-hidden="true">i </span><strong>Number of transfers</strong>
+    required (changes of line or mode)
 barriersSecurity: >-
-    <strong>Safety</strong> (e.g., poor lighting in terminals and stations, lack of
-    staff in the network, etc.)
+    <span class="_phone" aria-hidden="true">i </span><strong>Safety</strong> (e.g.,
+    poor lighting in terminals and stations, lack of staff in the network, etc.)
 barriersPlanning: >-
-    <strong>Trip planning</strong> (ease of finding information, accessible website,
-    etc.)
+    <span class="_phone" aria-hidden="true">i </span><strong>Trip planning</strong>
+    (ease of finding information, accessible website, etc.)
 buttonCompleteBarriersSection: Continue
 barriersIntro_carDriver: >-
     For the trip indicated above, you used a car as a driver. For each of the following

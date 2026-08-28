@@ -3,11 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 acceptToBeContactedForHelp: >-
-    Je consens à être contacté(e) pour <strong>continuer ou préciser le questionnaire</strong><br
-    /><span class="_pale _oblique">Si je ne le termine pas ou si certains des renseignements
-    fournis sont incohérents.</span>
+    Consentez-vous à être contacté(e) pour <strong>poursuivre le questionnaire</strong>?<br
+    /><span class="_pale _oblique">Si vous ne le terminez pas ou si certains renseignements
+    fournis semblent incohérents.</span>
 wantToParticipateToDraw: >-
-    Je souhaite participer au <strong>tirage au sort</strong><br /><span class="_pale
+    Souhaitez-vous participer au <strong>tirage au sort</strong>?<br /><span class="_pale
     _oblique">Seuls les gagnants seront contactés. Il est nécessaire de terminer le
     questionnaire pour être retenu (<a href="https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf"
     target="_blank">Voir règlement</a>).</span>

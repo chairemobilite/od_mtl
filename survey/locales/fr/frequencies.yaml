@@ -3,25 +3,31 @@
 # Any changes made to this file will be overwritten.
 
 anyTripModeFrequenciesIntro: >-
-    À quelle <strong>fréquence</strong> utilisez-vous ({{nickname}}) les <strong>modes
-    de transport</strong> suivants?<br /><span class="_pale _oblique">Pour tous vos
-    déplacements, peu importe l'activité réalisée (travail, études, loisirs, services,
-    faire ses courses, accompagner quelqu'un, etc.).<br />Pensez au mois en cours,
-    hors tempêtes majeures.</span>
+    <span class="_phone" aria-hidden="true">i </span>À quelle <strong>fréquence</strong>
+    utilisez-vous ({{nickname}}) les <strong>modes de transport</strong> suivants?<br
+    /><span class="_pale _oblique">Pour tous vos déplacements, peu importe l'activité
+    réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un,
+    etc.).<br />Pensez au mois en cours, hors tempêtes majeures.</span>
 anyTripModeFrequenciesIntro_one: >-
-    À quelle <strong>fréquence</strong> utilisez-vous les <strong>modes de transport</strong>
-    suivants?<br /><span class="_pale _oblique">Pour tous vos déplacements, peu importe
-    l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner
-    quelqu'un, etc.).<br />Pensez au mois en cours, hors tempêtes majeures.</span>
+    <span class="_phone" aria-hidden="true">i </span>À quelle <strong>fréquence</strong>
+    utilisez-vous les <strong>modes de transport</strong> suivants?<br /><span class="_pale
+    _oblique">Pour tous vos déplacements, peu importe l'activité réalisée (travail,
+    études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).<br
+    />Pensez au mois en cours, hors tempêtes majeures.</span>
 anyTripModeFrequenciesWalk: >-
-    Fréquence d'utilisation du mode : <strong>Marche</strong> (pour la majorité du
-    trajet)
+    <span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode
+    : <strong>Marche</strong> (pour la majorité du trajet)
 anyTripModeFrequenciesBicycle: >-
-    Fréquence d'utilisation du mode : <strong>Vélo</strong> et autres modes actifs
-    (trottinette, patins ou planche à roulettes)
+    <span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode
+    : <strong>Vélo</strong> et autres modes actifs (trottinette, patins ou planche
+    à roulettes)
 anyTripModeFrequenciesTransit: >-
-    Fréquence d'utilisation du mode : <strong>Transport en commun</strong> (bus, métro,
-    REM, train)
-anyTripModeFrequenciesCarPassenger: "Fréquence d'utilisation du mode : <strong>Auto-passager</strong>"
-anyTripModeFrequenciesCarDriver: "Fréquence d'utilisation du mode : <strong>Auto-conducteur</strong>"
+    <span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode
+    : <strong>Transport en commun</strong> (bus, métro, REM, train)
+anyTripModeFrequenciesCarPassenger: >-
+    <span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode
+    : <strong>Auto-passager</strong>
+anyTripModeFrequenciesCarDriver: >-
+    <span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode
+    : <strong>Auto-conducteur</strong>
 buttonCompleteFrequenciesSection: Continuer
