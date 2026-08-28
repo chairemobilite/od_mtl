@@ -45,12 +45,11 @@ personOccupation:
     longTermDisability: Invalidité de longue durée
     volunteer: Bénévole
 transitPassType:
-    transitPassARTM: Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL,
-        exo ou REM
-    transitPassARTMWithElderly: >-
-        Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM
-        (incluant les passes pour aînés)
+    transitPassARTM: Passe mensuelle valide ou abonnement
+    transitPassARTMWithElderly: Passe mensuelle valide ou abonnement (incluant les
+        passes pour aînés)
     tickets: Titres ou billets individuels
+    employee: Passe employé/retraité des sociétés de transport
     other: Autre
 transitFareType:
     A: Tous modes A
@@ -60,7 +59,6 @@ transitFareType:
     bus: Bus (ABC)
     busCD: Bus hors territoire (CD)
     opusWithTicketsOnly: Carte OPUS avec titres individuels seulement
-    employee: Passe employé/retraité des sociétés de transport
     otherTerritory: Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc.
         …)
     none: Aucun pour le mois en cours
@@ -71,9 +69,11 @@ workPlaceTypeChoices:
     hybrid: Travaille en mode hybride (télétravail et en présentiel)
     remote: Travaille toujours au domicile ou à distance
     onTheRoadWithUsualPlace: >-
-        Travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste,
-        restaurant, etc.)
-    onTheRoadWithoutUsualPlace: Travaille sur la route avec départ du domicile
+        Travaille sur la route avec un point d’attache habituel (ex. : entrepôt, garage,
+        bureau, etc.)
+    onTheRoadWithoutUsualPlace: >-
+        Travaille sur la route sans point d’attache habituel (ex. : visites chez les
+        clients uniquement, etc.)
 longDistanceFrequencyChoices:
     '00_00': Jamais (0)
     '01_03': Quelques fois durant la période (1 à 3)
@@ -254,23 +254,18 @@ hasOmittedTripsModes:
     transit: Transport en commun (bus, métro, train, REM)
     other: Autre mode
 householdType:
-    oneFamilyOnly: Ménage comprenant <strong>une seule famille, sans autre personne</strong>
-    multigenerationalFamily: >-
-        Ménage <strong>multigénérationnel</strong> (ex. : parents, enfants et grands-parents
-        vivant ensemble)
+    multigenerationalFamily: Parents, enfants et grands-parents vivent ensemble
     manyFamilies: >-
-        Ménage comprenant <strong>plusieurs familles</strong> (ex. : deux couples
-        vivant ensemble)
-    oneFamilyWithOther: >-
-        Ménage comprenant <strong>une seule famille et autre(s) personne(s)</strong>
-        (ex. : couple avec enfant vivant avec un oncle)
+        Deux familles ou plus vivant ensemble (autre qu'un ménage comprenant des parents,
+        leurs enfants et des grands-parents; ex. : deux couples ou deux parents avec
+        leurs enfants respectifs)
+    oneFamilyWithOther: Couple ou parent avec enfant(s) et une ou plusieurs autres
+        personnes
+    coupleWithChild: Couple avec enfant(s)
+    coupleWithoutChild: Couple sans enfant
+    parentWithChild: Parent seul avec enfant(s)
     noFamily: >-
-        Ménage de <strong>deux personnes ou plus sans lien familial</strong> (ex.
-        : colocataire ou deux frères et sœurs vivant ensemble)
-householdTypeSpecify:
-    coupleWithChild: Ménage formé d’un <strong>couple avec enfant(s)</strong>
-    coupleWithoutChild: Ménage formé d’un <strong>couple sans enfant</strong>
-    parentWithChild: Ménage formé d’un <strong>parent seul avec enfant(s)</strong>
+        Aucune de ces situations (ex. colocataires, amis, frères et sœurs vivant ensemble)
 didRespondForCorrectAssignedDateChoices:
     yes: >-
         Oui, les réponses fournies décrivent bien les déplacements du {{assignedDate}}

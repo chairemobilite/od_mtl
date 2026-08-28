@@ -3,23 +3,30 @@
 # Any changes made to this file will be overwritten.
 
 anyTripModeFrequenciesIntro: >-
-    <strong>How often</strong> do you ({{nickname}}) use the following <strong>modes
-    of transportation?</strong><br /><span class="_pale _oblique">For all your trips,
-    regardless of the activity (work, studies, leisure, services, shopping, accompanying
-    someone, etc.).<br />Think about the current month, excluding major storms.</span>
-anyTripModeFrequenciesIntro_one: >-
-    <strong>How often</strong> do you use the following <strong>modes of transportation?</strong><br
+    <span class="_phone" aria-hidden="true">i </span><strong>How often</strong> do
+    you ({{nickname}}) use the following <strong>modes of transportation?</strong><br
     /><span class="_pale _oblique">For all your trips, regardless of the activity
     (work, studies, leisure, services, shopping, accompanying someone, etc.).<br />Think
     about the current month, excluding major storms.</span>
-anyTripModeFrequenciesWalk: 'Frequency of use of the mode: <strong>Walk</strong> (for
-    most of the trip)'
+anyTripModeFrequenciesIntro_one: >-
+    <span class="_phone" aria-hidden="true">i </span><strong>How often</strong> do
+    you use the following <strong>modes of transportation?</strong><br /><span class="_pale
+    _oblique">For all your trips, regardless of the activity (work, studies, leisure,
+    services, shopping, accompanying someone, etc.).<br />Think about the current
+    month, excluding major storms.</span>
+anyTripModeFrequenciesWalk: >-
+    <span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode:
+    <strong>Walk</strong> (for most of the trip)
 anyTripModeFrequenciesBicycle: >-
-    Frequency of use of the mode: <strong>Bike</strong> and other active modes (scooter,
-    rollerblades, skateboard)
+    <span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode:
+    <strong>Bike</strong> and other active modes (scooter, rollerblades, skateboard)
 anyTripModeFrequenciesTransit: >-
-    Frequency of use of the mode: <strong>Public transit</strong> (bus, metro, REM,
-    train)
-anyTripModeFrequenciesCarPassenger: 'Frequency of use of the mode: <strong>Car passenger</strong>'
-anyTripModeFrequenciesCarDriver: 'Frequency of use of the mode: <strong>Car driver</strong>'
+    <span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode:
+    <strong>Public transit</strong> (bus, metro, REM, train)
+anyTripModeFrequenciesCarPassenger: >-
+    <span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode:
+    <strong>Car passenger</strong>
+anyTripModeFrequenciesCarDriver: >-
+    <span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode:
+    <strong>Car driver</strong>
 buttonCompleteFrequenciesSection: Continue

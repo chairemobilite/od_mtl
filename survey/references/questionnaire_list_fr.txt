@@ -12,12 +12,12 @@ Confirmer
 
 Section: Domicile
 
-Je consens à être contacté(e) pour continuer ou préciser le questionnaire
-Si je ne le termine pas ou si certains des renseignements fournis sont incohérents.
+Consentez-vous à être contacté(e) pour poursuivre le questionnaire?
+Si vous ne le terminez pas ou si certains renseignements fournis semblent incohérents.
 - Oui
 - Non
 
-Je souhaite participer au tirage au sort
+Souhaitez-vous participer au tirage au sort?
 Seuls les gagnants seront contactés. Il est nécessaire de terminer le questionnaire pour être retenu (<a href="https://www.artm.quebec/wp-content/uploads/2026/07/Reglement-concours_Enquete-2026-Pm_FR.pdf" target="_blank">Voir règlement</a>).
 - Oui
 - Non
@@ -132,9 +132,10 @@ Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo �
 
 Type de passe, abonnement utilisés pour le transport en commun dans les 30 derniers jours
 Inclure les abonnements gratuits.
-- Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM
-- Passe / abonnement mensuel ou annuel valide pour STM, RTL, STL, exo ou REM (incluant les passes pour aînés)
+- Passe mensuelle valide ou abonnement
+- Passe mensuelle valide ou abonnement (incluant les passes pour aînés)
 - Titres ou billets individuels
+- Passe employé/retraité des sociétés de transport
 - Autre
 - Ne sait pas
 
@@ -147,7 +148,6 @@ A, AB, ABC et ABCD font référence aux zones tarifaires de l'ARTM.
 - Bus (ABC)
 - Bus hors territoire (CD)
 - Carte OPUS avec titres individuels seulement
-- Passe employé/retraité des sociétés de transport
 - Autre hors territoire (SJSR, STC Sorel-Tracy, MRC Joliette, etc. …)
 - Autre (spécifiez)
 - Aucun pour le mois en cours
@@ -163,7 +163,7 @@ Ex. : motrice, visuelle, autre, etc.
 - Non
 - Préfère ne pas répondre
 
-La ou lesquelles?
+<span class="_phone" aria-hidden="true">i </span>La ou lesquelles?
 Facultatif
 - Auditive 
 - Visuelle
@@ -177,9 +177,9 @@ Facultatif
 - Autre (spécifiez)
 - Préfère ne pas répondre
 
-Spécifiez
+<span class="_phone" aria-hidden="true">i </span>Spécifiez
 
-Type(s) d’aide à la mobilité utilisé(s) pour les déplacements de {{nickname}} en dehors de la maison
+<span class="_phone" aria-hidden="true">i </span>Type(s) d’aide à la mobilité utilisé(s) pour les déplacements de {{nickname}} en dehors de la maison
 Facultatif
 - Béquilles ou Canne
 - Canne blanche
@@ -192,20 +192,20 @@ Facultatif
 - Autre (spécifiez)
 - Préfère ne pas répondre
 
-Spécifiez
+<span class="_phone" aria-hidden="true">i </span>Spécifiez
 
-Le plus utilisé
+<span class="_phone" aria-hidden="true">i </span>Le plus utilisé
 Facultatif
 
 
-{{nickname}} est-{{gender:il/elle/iel}} admis{{gender:/e/.e}} au transport adapté? 
+<span class="_phone" aria-hidden="true">i </span>{{nickname}} est-{{gender:il/elle/iel}} admis{{gender:/e/.e}} au transport adapté? 
 STM, RTL, STL, exo, etc.
 Facultatif
 - Oui
 - Non
 - Préfère ne pas répondre
 
-Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé le transport adapté?
+<span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé le transport adapté?
 Facultatif
 - Jamais au cours des 12 derniers mois
 - 1 à quelques jours au cours des 12 derniers mois
@@ -213,7 +213,7 @@ Facultatif
 - 1 à 4 jours par semaine
 - 5 à 7 jours par semaine
 
-Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé les transport en commun (service régulier)?
+<span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-{{gender:il/elle/iel}} utilisé les transport en commun (service régulier)?
 Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)
 Facultatif
 - Jamais au cours des 12 derniers mois
@@ -240,8 +240,8 @@ Parmi les situations suivantes, laquelle décrit le mieux la façon dont {{nickn
 - Travaille en présentiel en tout temps à un lieu fixe hors domicile
 - Travaille en mode hybride (télétravail et en présentiel)
 - Travaille toujours au domicile ou à distance
-- Travaille sur la route avec départ d'un lieu fixe (ex: garage, bureau, poste, restaurant, etc.)
-- Travaille sur la route avec départ du domicile
+- Travaille sur la route avec un point d’attache habituel (ex. : entrepôt, garage, bureau, etc.)
+- Travaille sur la route sans point d’attache habituel (ex. : visites chez les clients uniquement, etc.)
 
 Nombre de jour(s) par semaine où {{nickname}} travaille
 Dans une semaine typique, qu’il y ait déplacement ou non pour le travail.
@@ -563,6 +563,8 @@ Pour quelle raison?
 - Autre
 - Ne sait pas
 
+Spécifier
+
 {{nickname}} n'a pas fait de déplacement vers son lieu de travail habituel. Pouvez-vous le localiser?
 
 Nom ou adresse du lieu habituel de travail de {{nickname}}
@@ -698,7 +700,7 @@ Continuer
 
 Section: Barrières
 
-Les questions suivantes visent à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà déclarés.
+<span class="_phone" aria-hidden="true">i </span>Les questions suivantes visent à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà déclarés.
 
 Elles sont posées à un seul répondant du ménage, si cette personne est disponible pour répondre elle-même.
 
@@ -708,9 +710,9 @@ Est-ce que {{personWithDisabilityNickname}} est disponible?
 
 Déplacement pour motif {{activity}}: {{origin}} vers {{destination}} à {{originDepartureTime}}
 
-Pour le déplacement indiqué ci-dessus, vous avez utilisé le transport adapté. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun service régulier (bus, métro, train ou REM), pour ce déplacement.
+<span class="_phone" aria-hidden="true">i </span>Pour le déplacement indiqué ci-dessus, vous avez utilisé le transport adapté. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun service régulier (bus, métro, train ou REM), pour ce déplacement.
 
-La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
+<span class="_phone" aria-hidden="true">i </span>La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -718,7 +720,7 @@ La fréquence de passage du transport en commun ou TC (ex. : passages espacés, 
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
+<span class="_phone" aria-hidden="true">i </span>La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -726,7 +728,7 @@ La fiabilité du transport en commun (ex. : retards imprévisibles, annulations,
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+<span class="_phone" aria-hidden="true">i </span>La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -734,7 +736,7 @@ La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’ar
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
+<span class="_phone" aria-hidden="true">i </span>La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -742,7 +744,7 @@ La durée totale du déplacement, de porte-à-porte (marche + attente + temps à
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+<span class="_phone" aria-hidden="true">i </span>Le nombre de correspondances nécessaires (changements de ligne ou de mode)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -750,7 +752,7 @@ Le nombre de correspondances nécessaires (changements de ligne ou de mode)
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
+<span class="_phone" aria-hidden="true">i </span>La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -758,7 +760,7 @@ La sécurité (manque de luminosité dans les terminus et stations, absence de p
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-Le manque d’accessibilité (ascenseurs, rampes, sièges réservés, bancs, affichage visuel, information sonore, etc.)
+<span class="_phone" aria-hidden="true">i </span>Le manque d’accessibilité (ascenseurs, rampes, sièges réservés, bancs, affichage visuel, information sonore, etc.)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -766,7 +768,7 @@ Le manque d’accessibilité (ascenseurs, rampes, sièges réservés, bancs, aff
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
+<span class="_phone" aria-hidden="true">i </span>La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -774,7 +776,7 @@ La planification du déplacement (facilité de trouver l'information, site web a
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-Le manque de civilité (céder son siège, enlever son sac, gens qui bloquent l’accès à un poteau pour se tenir ou devant les portes) et/ou la présence d’attitude discriminatoire (regard hostile) 
+<span class="_phone" aria-hidden="true">i </span>Le manque de civilité (céder son siège, enlever son sac, gens qui bloquent l’accès à un poteau pour se tenir ou devant les portes) et/ou la présence d’attitude discriminatoire (regard hostile) 
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -788,10 +790,10 @@ Continuer
 
 Section: Sélection du répondant aux fréquences
 
-Les questions suivantes visent à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà déclarés.
+<span class="_phone" aria-hidden="true">i </span>Les questions suivantes visent à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà déclarés.
 Elles sont posées à un seul répondant du ménage.
 
-Qui répondra à ces questions?
+<span class="_phone" aria-hidden="true">i </span>Qui répondra à ces questions?
 
 
 Confirmer
@@ -800,39 +802,39 @@ Confirmer
 
 Section: Fréquences par mode
 
-À quelle fréquence utilisez-vous ({{nickname}}) les modes de transport suivants?
+<span class="_phone" aria-hidden="true">i </span>À quelle fréquence utilisez-vous ({{nickname}}) les modes de transport suivants?
 Pour tous vos déplacements, peu importe l'activité réalisée (travail, études, loisirs, services, faire ses courses, accompagner quelqu'un, etc.).
 Pensez au mois en cours, hors tempêtes majeures.
 
-Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
+<span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode : Marche (pour la majorité du trajet)
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
-Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planche à roulettes)
+<span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode : Vélo et autres modes actifs (trottinette, patins ou planche à roulettes)
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
-Fréquence d'utilisation du mode : Transport en commun (bus, métro, REM, train)
+<span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode : Transport en commun (bus, métro, REM, train)
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
-Fréquence d'utilisation du mode : Auto-passager
+<span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode : Auto-passager
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
 - 2 à 4 jours/sem.
 - 5+ jours/sem.
 
-Fréquence d'utilisation du mode : Auto-conducteur
+<span class="_phone" aria-hidden="true">i </span>Fréquence d'utilisation du mode : Auto-conducteur
 - Jamais/Rarement
 - 1 à 3 jours/mois
 - 1 jour/sem.
@@ -845,51 +847,51 @@ Continuer
 
 Section: Questions attitudinales
 
-Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.
+<span class="_phone" aria-hidden="true">i </span>Pour cette série de questions, nous vous demandons ({{nickname}}) de quantifier dans quelle mesure vous êtes d’accord ou non avec une affirmation spécifique.
 
-L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.
+<span class="_phone" aria-hidden="true">i </span>L’opinion des personnes qui comptent pour moi (famille, amis, collègues) influence mes choix de mode de transport pour mes trajets habituels.
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-La voiture personnelle représente pour moi l’indépendance et l’autonomie.
+<span class="_phone" aria-hidden="true">i </span>La voiture personnelle représente pour moi l’indépendance et l’autonomie.
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.
+<span class="_phone" aria-hidden="true">i </span>Globalement, le transport en commun dans la région où j’habite est utile et de bonne qualité.
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
+<span class="_phone" aria-hidden="true">i </span>Je connais bien les services de transport en commun qui desservent mon domicile et mes lieux d’activité habituels (lignes, arrêts principaux, fréquences).
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.). 
+<span class="_phone" aria-hidden="true">i </span>Mes activités habituelles exigent un niveau élevé de mobilité et de flexibilité (nombreux déplacements, destinations diverses, variabilité des horaires, etc.).
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs. 
+<span class="_phone" aria-hidden="true">i </span>Il me serait facile de réaliser la plupart de mes déplacements sans voiture personnelle, en utilisant le transport en commun ou les modes actifs.
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
 - Plutôt en accord
 - Totalement en accord
 
-Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.
+<span class="_phone" aria-hidden="true">i </span>Dans le choix de mon lieu de résidence, l’accès à pied (≈ 5–15 minutes) à un arrêt ou une station avec un service fréquent aux heures où je me déplace est important pour moi.
 - Totalement en désaccord
 - Plutôt en désaccord
 - Ni en accord ni en désaccord
@@ -904,9 +906,9 @@ Section: Barrières
 
 Déplacement de {{nickname}} pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}}
 
-Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun (bus, métro, train ou REM), pour ce déplacement.
+<span class="_phone" aria-hidden="true">i </span>Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour chacun des éléments suivants, indiquez s’ils ont constitué un frein à l’utilisation du transport en commun (bus, métro, train ou REM), pour ce déplacement.
 
-La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
+<span class="_phone" aria-hidden="true">i </span>La fréquence de passage du transport en commun ou TC (ex. : passages espacés, longue attente)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -914,7 +916,7 @@ La fréquence de passage du transport en commun ou TC (ex. : passages espacés, 
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
+<span class="_phone" aria-hidden="true">i </span>La fiabilité du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances manquées)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -922,7 +924,7 @@ La fiabilité du transport en commun (ex. : retards imprévisibles, annulations,
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+<span class="_phone" aria-hidden="true">i </span>La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -930,7 +932,7 @@ La durée de marche jusqu’à un arrêt ou une station (au départ ou à l’ar
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
+<span class="_phone" aria-hidden="true">i </span>La durée totale du déplacement, de porte-à-porte (marche + attente + temps à bord + correspondances)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -938,7 +940,7 @@ La durée totale du déplacement, de porte-à-porte (marche + attente + temps à
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-Le nombre de correspondances nécessaires (changements de ligne ou de mode)
+<span class="_phone" aria-hidden="true">i </span>Le nombre de correspondances nécessaires (changements de ligne ou de mode)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -946,7 +948,7 @@ Le nombre de correspondances nécessaires (changements de ligne ou de mode)
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
+<span class="_phone" aria-hidden="true">i </span>La sécurité (manque de luminosité dans les terminus et stations, absence de personnel dans le réseau, etc.)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -954,7 +956,7 @@ La sécurité (manque de luminosité dans les terminus et stations, absence de p
 - Frein décisif - J’ai évité le TC principalement pour cette raison.
 - Je ne sais pas - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.
 
-La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
+<span class="_phone" aria-hidden="true">i </span>La planification du déplacement (facilité de trouver l'information, site web accessible, etc.)
 - Pas du tout un frein - Je n’ai pas évité le TC pour cette raison.
 - Frein léger - Cette raison a un peu contribué à ce que je n’utilise pas le TC, sans changer mon choix.
 - Frein modéré - Cette raison a compté dans ma décision d’éviter le TC, parmi d’autres facteurs.
@@ -969,16 +971,13 @@ Continuer
 Section: Fin
 
 Laquelle des situations suivantes décrit le mieux votre ménage?
-- Ménage comprenant une seule famille, sans autre personne
-- Ménage multigénérationnel (ex. : parents, enfants et grands-parents vivant ensemble)
-- Ménage comprenant plusieurs familles (ex. : deux couples vivant ensemble)
-- Ménage comprenant une seule famille et autre(s) personne(s) (ex. : couple avec enfant vivant avec un oncle)
-- Ménage de deux personnes ou plus sans lien familial (ex. : colocataire ou deux frères et sœurs vivant ensemble)
-
-Plus spécifiquement?
-- Ménage formé d’un couple avec enfant(s)
-- Ménage formé d’un couple sans enfant
-- Ménage formé d’un parent seul avec enfant(s)
+- Parents, enfants et grands-parents vivent ensemble
+- Deux familles ou plus vivant ensemble (autre qu'un ménage comprenant des parents, leurs enfants et des grands-parents; ex. : deux couples ou deux parents avec leurs enfants respectifs)
+- Couple ou parent avec enfant(s) et une ou plusieurs autres personnes
+- Couple avec enfant(s)
+- Couple sans enfant
+- Parent seul avec enfant(s)
+- Aucune de ces situations (ex. colocataires, amis, frères et sœurs vivant ensemble)
 
 Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif
@@ -1023,24 +1022,24 @@ Veuillez fournir une adresse courriel de contact pour participer à ces études
 Vos commentaires et suggestions sur le questionnaire
 Facultatif
 
-Les questions suivantes sont facultatives et sont ajoutées à des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
+<span class="_phone" aria-hidden="true">i </span>Les questions suivantes sont facultatives et sont ajoutées à des fins de recherche. Vous pouvez terminer l’enquête sans y répondre.
 
-Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
+<span class="_phone" aria-hidden="true">i </span>Dans quelle mesure cette enquête a-t-elle été intéressante pour vous?
 Facultatif
 
-Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
+<span class="_phone" aria-hidden="true">i </span>Combien de temps pensez-vous avoir passé à répondre à cette enquête (en minutes)?
 Facultatif
 
-Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
+<span class="_phone" aria-hidden="true">i </span>Pensez-vous que la durée de l'enquête était trop courte, correcte ou trop longue?
 Facultatif
 
-Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
+<span class="_phone" aria-hidden="true">i </span>Dans quelle mesure vous a-t-il été facile ou difficile de répondre aux questions de cette enquête?
 Facultatif
 
-Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
+<span class="_phone" aria-hidden="true">i </span>Dans quelle mesure avez-vous trouvé cette enquête pénible (exigeante)?
 Facultatif
 
-Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
+<span class="_phone" aria-hidden="true">i </span>Avez-vous pensé, à un moment ou un autre, abandonner l'enquête?
 Facultatif
 - Oui
 - Non
@@ -1059,7 +1058,7 @@ Nous vous remercions d'avoir pris le temps de remplir ce questionnaire. Vos rép
 
 Les données que vous nous avez fournies contribueront aux efforts de planification de l'ARTM et de ses partenaires ainsi qu’à favoriser une meilleure compréhension des enjeux d'accès et de mobilité dans la grande région de Montréal.
 
-Vous vivez dans le <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">territoire de l’ARTM</a> et vous êtes intéressé(e) à contribuer à l’amélioration de la mobilité en donnant votre avis de manière périodique? Cinq cents dollars (500 $) sont à gagner parmi les participants chaque mois et 1 000 $ par année. Veuillez cliquer sur le bouton suivant pour vous inscrire au panel Parlons mobilité de l’ARTM. 
+Vous habitez sur le <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">territoire de l'ARTM</a>? Contribuez à améliorer la mobilité en partageant votre opinion via nos sondages. Courez la chance de gagner 500$ chaque mois et un grand prix de 1 000$ par année. Inscrivez-vous dès maintenant au panel Parlons mobilité de l'ARTM en cliquant sur le bouton ci-dessous.
 
 S'inscrire au panel « Parlons mobilité »
 

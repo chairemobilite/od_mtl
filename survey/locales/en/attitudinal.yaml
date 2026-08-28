@@ -3,27 +3,35 @@
 # Any changes made to this file will be overwritten.
 
 attitudinalIntro: >-
-    For this set of questions, we ask you ({{nickname}}) to indicate <strong>how much
-    you agree or disagree with a specific statement</strong>.
+    <span class="_phone" aria-hidden="true">i </span>For this set of questions, we
+    ask you ({{nickname}}) to indicate <strong>how much you agree or disagree with
+    a specific statement</strong>.
 attitudinalIntro_one: >-
-    For this set of questions, we ask you to indicate <strong>how much you agree or
-    disagree with a specific statement</strong>.
+    <span class="_phone" aria-hidden="true">i </span>For this set of questions, we
+    ask you to indicate <strong>how much you agree or disagree with a specific statement</strong>.
 attitudinalOpinion: >-
-    The opinions of people who matter to me (family, friends, colleagues) influence
-    my choice of transportation mode for my usual trips
-attitudinalCar: A personal car represents independence and autonomy for me.
+    <span class="_phone" aria-hidden="true">i </span>The opinions of people who matter
+    to me (family, friends, colleagues) influence my choice of transportation mode
+    for my usual trips.
+attitudinalCar: >-
+    <span class="_phone" aria-hidden="true">i </span>A personal car represents independence
+    and autonomy for me.
 attitudinalTransitGoodQuality: >-
-    Overall, public transit in the region where I live is useful and of good quality.
+    <span class="_phone" aria-hidden="true">i </span>Overall, public transit in the
+    region where I live is useful and of good quality.
 attitudinalFamiliarWithTransit: >-
-    I am familiar with the public transit services that serve my home and my usual
-    activity locations (lines, main stops, frequencies)
+    <span class="_phone" aria-hidden="true">i </span>I am familiar with the public
+    transit services that serve my home and my usual activity locations (lines, main
+    stops, frequencies).
 attitudinalRequireHighLevel: >-
-    My usual activities require a high level of mobility and flexibility (frequent
-    trips, diverse destinations, variable schedules, etc.).
+    <span class="_phone" aria-hidden="true">i </span>My usual activities require a
+    high level of mobility and flexibility (frequent trips, diverse destinations,
+    variable schedules, etc.).
 attitudinalEasyWithoutCar: >-
-    It would be easy for me to make most of my trips without a personal car, using
-    public transit or active modes.
+    <span class="_phone" aria-hidden="true">i </span>It would be easy for me to make
+    most of my trips without a personal car, using public transit or active modes.
 attitudinalGoodAccessImportant: >-
-    When choosing where to live, having walking access (≈ 5–15 minutes) to a stop
-    or station with frequent service during the times I travel is important to me.
+    <span class="_phone" aria-hidden="true">i </span>When choosing where to live,
+    having walking access (≈ 5–15 minutes) to a stop or station with frequent service
+    during the times I travel is important to me.
 buttonCompleteAttitudinalSection: Continue

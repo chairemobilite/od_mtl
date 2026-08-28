@@ -122,6 +122,7 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 // Define travel behavior data
 const travelBehaviorP2 = _cloneDeep(commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip);
 travelBehaviorP2.noWorkTripReason = 'other';
+travelBehaviorP2.noWorkTripReasonSpecify = 'dégât d\'eau au travail';
 travelBehaviorP2.usualWorkPlace = {
     name: 'Hôtel de ville de Brossard'
 };
@@ -137,8 +138,7 @@ commonUITestsHelpers.fillTravelBehaviorSectionTests({
 /********** Tests end section **********/
 const endSection = {
     ...commonUITestsHelpers.defaultEnd,
-    householdType: 'oneFamilyOnly',
-    householdTypeSpecify: 'coupleWithoutChild'
+    householdType: 'coupleWithoutChild'
 };
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2, endSection });
 

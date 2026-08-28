@@ -12,12 +12,12 @@ Confirm
 
 Section: Home
 
-I consent to be contacted to continue or clarify the survey
-If I do not complete it or if some of the information provided appears inconsistent.
+Do you consent to being contacted to continue the survey?
+If you do not complete it or if some of the information provided appears to be inconsistent.
 - Yes
 - No
 
-I would like to participate in the prize draw
+Would you like to participate in the prize draw?
 Only winners will be contacted and an entry for the prize draw requires a complete and valid survey response (<a href="https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf" target="_blank">View rules</a>).
 - Yes
 - No
@@ -36,7 +36,7 @@ City or municipality
 Postal Code
 
 Home location
-Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is located, you can move the point for greater precision.
+Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is identified, you can move the point for greater precision.
 
 Is {{address}} your usual place of residence?
 The usual place of residence is the dwelling where your household lives most of the time (at least 50%).
@@ -134,9 +134,10 @@ Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)
 
 Type of pass or subscription used for public transit in the past 30 days
 Include free passes.
-- Monthly or annual pass valid with STM, RTL, STL, exo or REM
-- Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior passes)
+- Monthly or annual pass valid
+- Monthly or annual pass valid (including senior passes)
 - Individual tickets or fares
+- Employee/retiree transit agency pass
 - Other pass or fare
 - Don't know
 
@@ -149,7 +150,6 @@ A, AB, ABC, and ABCD refer to ARTM fare zones.
 - Bus (ABC)
 - Out-of-territory bus (CD)
 - OPUS card with individual fares only
-- Employee/retiree transit agency pass
 - Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
 - Other (specify)
 - None for the current month
@@ -165,7 +165,7 @@ Ex: mobility-related, visual, other…
 - No
 - Prefer not to answer
 
-Which one(s)?
+<span class="_phone" aria-hidden="true">i </span>Which one(s)?
 Optional
 - Hearing
 - Visual
@@ -179,9 +179,9 @@ Optional
 - Other (specify)
 - Prefer not to answer
 
-Specify
+<span class="_phone" aria-hidden="true">i </span>Specify
 
-Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
+<span class="_phone" aria-hidden="true">i </span>Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
 Optional
 - Crutches or cane
 - White cane
@@ -194,20 +194,20 @@ Optional
 - Other (specify)
 - Prefer not to answer
 
-Specify
+<span class="_phone" aria-hidden="true">i </span>Specify
 
-Most used
+<span class="_phone" aria-hidden="true">i </span>Most used
 Optional
 
 
-Is {{nickname}} registered for paratransit services?
+<span class="_phone" aria-hidden="true">i </span>Is {{nickname}} registered for paratransit services?
 STM, RTL, STL, exo, etc.
 Optional
 - Yes
 - No
 - Prefer not to answer
 
-In the past 12 months, how often has {{nickname}} used paratransit services?
+<span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often has {{nickname}} used paratransit services?
 Optional
 - Never in the last 12 months
 - 1 to a few days in the last 12 months
@@ -215,7 +215,7 @@ Optional
 - 1 to 4 days per week
 - 5 to 7 days per week
 
-In the past 12 months, how often has {{nickname}} used public transit (regular service)?
+<span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often has {{nickname}} used public transit (regular service)?
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
 Optional
 - Never in the last 12 months
@@ -242,8 +242,8 @@ Which of the following best describes {{nickname}}’s work arrangement?
 - Works in person at a fixed location away from home at all times
 - Works in a hybrid mode (remote and in-person)
 - Always works from home or remotely
-- Works on the road, starting from a fixed location (e.g., garage, office, station, restaurant, etc.)
-- Works on the road, starting from home
+- Works on the road with a regular base of operations (e.g., warehouse, garage, office, etc.)
+- Works on the road without a regular base of operations (e.g., client visits only, etc.)
 
 Number of days per week {{nickname}} works
 In a typical week, whether or not there is any travel for work.
@@ -381,7 +381,7 @@ Locate the place by searching for its name or address, or by navigating, zooming
 
 At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 
-At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} on the road trips?
+At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} trips on the road?
 
 At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
 
@@ -565,6 +565,8 @@ Why?
 - Other
 - Don't know
 
+Specify
+
 {{nickname}} did not travel to {{gender: his/her/their/their}} usual workplace. Can you locate it?
 
 Name or address of {{nickname}}'s usual workplace
@@ -700,7 +702,7 @@ Continue
 
 Section: Barriers
 
-The following questions aim to better understand mobility behaviours beyond the trips already reported.
+<span class="_phone" aria-hidden="true">i </span>The following questions aim to better understand mobility behaviours beyond the trips already reported.
 
 They are asked to a single respondent in the household, if this person is available to answer themselves.
 
@@ -710,9 +712,9 @@ Is {{personWithDisabilityNickname}} available ?
 
 Trip for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 
-For the trip shown above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
+<span class="_phone" aria-hidden="true">i </span>For the trip shown above, you used paratransit. For each of the following items, indicate whether they were a barrier to using regular public transit service (bus, metro, train, or REM) for this trip.
 
-Public transit frequency (e.g., infrequent service, long waiting times)
+<span class="_phone" aria-hidden="true">i </span>Public transit frequency (e.g., infrequent service, long waiting times)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -720,7 +722,7 @@ Public transit frequency (e.g., infrequent service, long waiting times)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
+<span class="_phone" aria-hidden="true">i </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -728,7 +730,7 @@ Reliability of public transit (e.g., unpredictable delays, cancellations, fear o
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Walking time to a stop or station (at departure or arrival)
+<span class="_phone" aria-hidden="true">i </span>Walking time to a stop or station (at departure or arrival)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -736,7 +738,7 @@ Walking time to a stop or station (at departure or arrival)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
+<span class="_phone" aria-hidden="true">i </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -744,7 +746,7 @@ Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Number of transfers required (changes of line or mode)
+<span class="_phone" aria-hidden="true">i </span>Number of transfers required (changes of line or mode)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -752,7 +754,7 @@ Number of transfers required (changes of line or mode)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
+<span class="_phone" aria-hidden="true">i </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -760,7 +762,7 @@ Safety (e.g., poor lighting in terminals and stations, lack of staff in the netw
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)
+<span class="_phone" aria-hidden="true">i </span>Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -768,7 +770,7 @@ Lack of accessibility (elevators, ramps, reserved seating, benches, visual displ
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Trip planning (ease of finding information, accessible website, etc.)
+<span class="_phone" aria-hidden="true">i </span>Trip planning (ease of finding information, accessible website, etc.)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -776,7 +778,7 @@ Trip planning (ease of finding information, accessible website, etc.)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)
+<span class="_phone" aria-hidden="true">i </span>Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -790,10 +792,10 @@ Continue
 
 Section: Frequencies respondent selection
 
-The following questions aim to better understand mobility behaviours beyond the trips already reported.
+<span class="_phone" aria-hidden="true">i </span>The following questions aim to better understand mobility behaviours beyond the trips already reported.
 They are asked to a single respondent in the household.
 
-Who will answer those questions?
+<span class="_phone" aria-hidden="true">i </span>Who will answer those questions?
 
 
 Confirm
@@ -802,39 +804,39 @@ Confirm
 
 Section: Mode frequencies
 
-How often do you ({{nickname}}) use the following modes of transportation?
+<span class="_phone" aria-hidden="true">i </span>How often do you ({{nickname}}) use the following modes of transportation?
 For all your trips, regardless of the activity (work, studies, leisure, services, shopping, accompanying someone, etc.).
 Think about the current month, excluding major storms.
 
-Frequency of use of the mode: Walk (for most of the trip)
+<span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode: Walk (for most of the trip)
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
 - 2 to 4 days/week
 - 5+ days/week
 
-Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)
+<span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
 - 2 to 4 days/week
 - 5+ days/week
 
-Frequency of use of the mode: Public transit (bus, metro, REM, train)
+<span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode: Public transit (bus, metro, REM, train)
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
 - 2 to 4 days/week
 - 5+ days/week
 
-Frequency of use of the mode: Car passenger
+<span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode: Car passenger
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
 - 2 to 4 days/week
 - 5+ days/week
 
-Frequency of use of the mode: Car driver
+<span class="_phone" aria-hidden="true">i </span>Frequency of use of the mode: Car driver
 - Never/Rarely
 - 1 to 3 days/month
 - 1 day/week
@@ -847,51 +849,51 @@ Continue
 
 Section: Attitudinal questions
 
-For this set of questions, we ask you ({{nickname}}) to indicate how much you agree or disagree with a specific statement.
+<span class="_phone" aria-hidden="true">i </span>For this set of questions, we ask you ({{nickname}}) to indicate how much you agree or disagree with a specific statement.
 
-The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips
+<span class="_phone" aria-hidden="true">i </span>The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-A personal car represents independence and autonomy for me.
+<span class="_phone" aria-hidden="true">i </span>A personal car represents independence and autonomy for me.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-Overall, public transit in the region where I live is useful and of good quality.
+<span class="_phone" aria-hidden="true">i </span>Overall, public transit in the region where I live is useful and of good quality.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)
+<span class="_phone" aria-hidden="true">i </span>I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies).
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.).
+<span class="_phone" aria-hidden="true">i </span>My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.).
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-It would be easy for me to make most of my trips without a personal car, using public transit or active modes.
+<span class="_phone" aria-hidden="true">i </span>It would be easy for me to make most of my trips without a personal car, using public transit or active modes.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
 - Somewhat agree
 - Strongly agree
 
-When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me.
+<span class="_phone" aria-hidden="true">i </span>When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me.
 - Strongly disagree
 - Somewhat disagree
 - Neither agree nor disagree
@@ -906,9 +908,9 @@ Section: Barriers
 
 Trip of {{nickname}} for motive {{activity}}: {{origin}} to {{destination}} at {{originDepartureTime}}
 
-For the trip shown above, you used a car. For each of the following items, indicate whether they were a barrier to using public transit (bus, metro, train, or REM) for this trip.
+<span class="_phone" aria-hidden="true">i </span>For the trip shown above, you used a car. For each of the following items, indicate whether they were a barrier to using public transit (bus, metro, train, or REM) for this trip.
 
-Public transit frequency (e.g., infrequent service, long waiting times)
+<span class="_phone" aria-hidden="true">i </span>Public transit frequency (e.g., infrequent service, long waiting times)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -916,7 +918,7 @@ Public transit frequency (e.g., infrequent service, long waiting times)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
+<span class="_phone" aria-hidden="true">i </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -924,7 +926,7 @@ Reliability of public transit (e.g., unpredictable delays, cancellations, fear o
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Walking time to a stop or station (at departure or arrival)
+<span class="_phone" aria-hidden="true">i </span>Walking time to a stop or station (at departure or arrival)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -932,7 +934,7 @@ Walking time to a stop or station (at departure or arrival)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
+<span class="_phone" aria-hidden="true">i </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -940,7 +942,7 @@ Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Number of transfers required (changes of line or mode)
+<span class="_phone" aria-hidden="true">i </span>Number of transfers required (changes of line or mode)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -948,7 +950,7 @@ Number of transfers required (changes of line or mode)
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
+<span class="_phone" aria-hidden="true">i </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -956,7 +958,7 @@ Safety (e.g., poor lighting in terminals and stations, lack of staff in the netw
 - Decisive barrier - I avoided public transit mainly because of this reason.
 - Don't know - I cannot say whether this reason led me to avoid public transit for this trip.
 
-Trip planning (ease of finding information, accessible website, etc.)
+<span class="_phone" aria-hidden="true">i </span>Trip planning (ease of finding information, accessible website, etc.)
 - Not a barrier at all - I did not avoid public transit for this reason.
 - Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 - Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -971,16 +973,13 @@ Continue
 Section: End
 
 Which of the following situations best describes your household?
-- Household consisting of one single family, with no other person
-- Multigenerational household (e.g. parents, children and grandparents living together)
-- Household consisting of multiple families (e.g. two couples living together)
-- Household consisting of one family and other person(s) (e.g. couple with a child living with an uncle)
-- Household of two or more people with no family relationship (e.g. roommates or two siblings living together)
-
-More specifically?
-- Household formed by a couple with child(ren)
-- Household formed by a couple without children
-- Household formed by a single parent with child(ren)
+- Parents, children and grandparents living together
+- Two or more families living together (other than a household consisting of parents, their children, and grandparents; e.g., two couples or two parents living with their respective children).
+- Couple or parent with child(ren) and one or more other people
+- Couple with child(ren)
+- Couple without children
+- Single parent with child(ren)
+- None of these situations (e.g., roommates, friends, or siblings living together)
 
 Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 Optional
@@ -1025,24 +1024,24 @@ Please provide the email address where you can be reached to participate in othe
 Your comments and suggestions about the survey
 Optional
 
-The next questions are optional and are added for research purposes. You can complete the interview without answering them.
+<span class="_phone" aria-hidden="true">i </span>The next questions are optional and are added for research purposes. You can complete the interview without answering them.
 
-How interesting was this survey to you?
+<span class="_phone" aria-hidden="true">i </span>How interesting was this survey to you?
 Optional
 
-How much time do you think you spent answering this survey (in minutes)?
+<span class="_phone" aria-hidden="true">i </span>How much time do you think you spent answering this survey (in minutes)?
 Optional
 
-Do you feel that the length of the survey was too short, about right, or too long?
+<span class="_phone" aria-hidden="true">i </span>Do you feel that the length of the survey was too short, about right, or too long?
 Optional
 
-How easy or difficult was it for you to answer the questions in this survey?
+<span class="_phone" aria-hidden="true">i </span>How easy or difficult was it for you to answer the questions in this survey?
 Optional
 
-How burdensome (demanding) did you find this survey to be?
+<span class="_phone" aria-hidden="true">i </span>How burdensome (demanding) did you find this survey to be?
 Optional
 
-Did you consider, at any point, abandoning the survey?
+<span class="_phone" aria-hidden="true">i </span>Did you consider, at any point, abandoning the survey?
 Optional
 - Yes
 - No
@@ -1061,9 +1060,9 @@ Thank you for taking the time to complete this questionnaire. Your responses hav
 
 The data you have provided will support the planning efforts of the ARTM and its partners, and help improve understanding of access and mobility issues in the Greater Montréal area.
 
-Do you live within the <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">ARTM territory</a> and are you interested in helping improve mobility by sharing your opinion on a regular basis? If so, click the button below to sign up for the ARTM’s Let's talk mobility panel. $500 monthly and $1,000 annual prizes up for grabs.
+Do you live within the <a href="https://www.artm.quebec/wp-content/uploads/2018/05/Carte_ARTM.jpg" target="_blank">ARTM territory</a>? Help improve mobility by sharing your opinion through our surveys. Get a chance to win $500 every month and a grand prize of $1,000 each year. Sign up now for the ARTM’s Let's Talk Mobility panel by clicking the button below.
 
-Join « Let's talk mobility » panel
+Join "Let's talk mobility" panel
 
 
 

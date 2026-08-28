@@ -45,11 +45,10 @@ personOccupation:
     longTermDisability: Long-term disability
     volunteer: Volunteer
 transitPassType:
-    transitPassARTM: Monthly or annual pass valid with STM, RTL, STL, exo or REM
-    transitPassARTMWithElderly: >-
-        Monthly or annual pass valid with STM, RTL, STL, exo or REM (including senior
-        passes)
+    transitPassARTM: Monthly or annual pass valid
+    transitPassARTMWithElderly: Monthly or annual pass valid (including senior passes)
     tickets: Individual tickets or fares
+    employee: Employee/retiree transit agency pass
     other: Other pass or fare
 transitFareType:
     A: All modes A
@@ -59,7 +58,6 @@ transitFareType:
     bus: Bus (ABC)
     busCD: Out-of-territory bus (CD)
     opusWithTicketsOnly: OPUS card with individual fares only
-    employee: Employee/retiree transit agency pass
     otherTerritory: Other out-of-territory (SJSR, STC Sorel-Tracy, MRC Joliette, etc.)
     none: None for the current month
 transitFareWarning:
@@ -72,13 +70,17 @@ workPlaceTypeChoices:
     remote: Always works from home or remotely
     remote_one: Always work from home or remotely
     onTheRoadWithUsualPlace: >-
-        Works on the road, starting from a fixed location (e.g., garage, office, station,
-        restaurant, etc.)
+        Works on the road with a regular base of operations (e.g., warehouse, garage,
+        office, etc.)
     onTheRoadWithUsualPlace_one: >-
-        Work on the road, starting from a fixed location (e.g., garage, office, station,
-        restaurant, etc.)
-    onTheRoadWithoutUsualPlace: Works on the road, starting from home
-    onTheRoadWithoutUsualPlace_one: Work on the road, starting from home
+        Work on the road with a regular base of operations (e.g., warehouse, garage,
+        office, etc.)
+    onTheRoadWithoutUsualPlace: >-
+        Works on the road without a regular base of operations (e.g., client visits
+        only, etc.)
+    onTheRoadWithoutUsualPlace_one: >-
+        Work on the road without a regular base of operations (e.g., client visits
+        only, etc.)
 longDistanceFrequencyChoices:
     '00_00': Never (0)
     '01_03': A few times during the period (1 to 3)
@@ -258,24 +260,17 @@ hasOmittedTripsModes:
     transit: Public transit (bus, metro, train, REM)
     other: Other mode
 householdType:
-    oneFamilyOnly: >-
-        Household consisting of <strong>one single family, with no other person</strong>
-    multigenerationalFamily: >-
-        <strong>Multigenerational</strong> household (e.g. parents, children and grandparents
-        living together)
+    multigenerationalFamily: Parents, children and grandparents living together
     manyFamilies: >-
-        Household consisting of <strong>multiple families</strong> (e.g. two couples
-        living together)
-    oneFamilyWithOther: >-
-        Household consisting of <strong>one family and other person(s)</strong> (e.g.
-        couple with a child living with an uncle)
+        Two or more families living together (other than a household consisting of
+        parents, their children, and grandparents; e.g., two couples or two parents
+        living with their respective children).
+    oneFamilyWithOther: Couple or parent with child(ren) and one or more other people
+    coupleWithChild: Couple with child(ren)
+    coupleWithoutChild: Couple without children
+    parentWithChild: Single parent with child(ren)
     noFamily: >-
-        Household of <strong>two or more people with no family relationship</strong>
-        (e.g. roommates or two siblings living together)
-householdTypeSpecify:
-    coupleWithChild: Household formed by a <strong>couple with child(ren)</strong>
-    coupleWithoutChild: Household formed by a <strong>couple without children</strong>
-    parentWithChild: Household formed by a <strong>single parent with child(ren)</strong>
+        None of these situations (e.g., roommates, friends, or siblings living together)
 didRespondForCorrectAssignedDateChoices:
     yes: Yes, the responses provided accurately describe travel on {{assignedDate}}
     no: No, the responses describe travel on a typical day or another day

@@ -68,80 +68,99 @@ personHasDisability_one: >-
     qui influence ou limite vos déplacements quotidiens?<br /><span class="_pale _oblique">Ex.
     : motrice, visuelle, autre, etc.</span>
 personDisabilities: >-
-    <strong>La ou lesquelles?</strong><br /><span class="_pale _oblique">Facultatif</span>
-personDisabilitiesSpecify: Spécifiez
+    <span class="_phone" aria-hidden="true">i </span><strong>La ou lesquelles?</strong><br
+    /><span class="_pale _oblique">Facultatif</span>
+personDisabilitiesSpecify: <span class="_phone" aria-hidden="true">i </span>Spécifiez
 personMobilityAssistiveDevices: >-
-    <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour les déplacements
-    de {{nickname}} en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span><strong>Type(s) d’aide à la mobilité
+    utilisé(s)</strong> pour les déplacements de {{nickname}} en dehors de la maison<br
+    /><span class="_pale _oblique">Facultatif</span>
 personMobilityAssistiveDevices_one: >-
-    <strong>Type(s) d’aide à la mobilité utilisé(s)</strong> pour vos déplacements
-    en dehors de la maison<br /><span class="_pale _oblique">Facultatif</span>
-personMobilityAssistiveDevicesSpecify: Spécifiez
+    <span class="_phone" aria-hidden="true">i </span><strong>Type(s) d’aide à la mobilité
+    utilisé(s)</strong> pour vos déplacements en dehors de la maison<br /><span class="_pale
+    _oblique">Facultatif</span>
+personMobilityAssistiveDevicesSpecify: <span class="_phone" aria-hidden="true">i </span>Spécifiez
 personMostUsedMobilityAssistiveDevice: >-
-    <strong>Le plus utilisé</strong><br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span><strong>Le plus utilisé</strong><br
+    /><span class="_pale _oblique">Facultatif</span>
 personUseParatransit: >-
-    {{nickname}} est-iel <strong>admis.e au transport adapté</strong>? <br /><span
-    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>{{nickname}} est-iel <strong>admis.e
+    au transport adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL,
+    exo, etc.<br />Facultatif</span>
 personUseParatransit_male: >-
-    {{nickname}} est-il <strong>admis au transport adapté</strong>? <br /><span class="_pale
-    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>{{nickname}} est-il <strong>admis
+    au transport adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL,
+    exo, etc.<br />Facultatif</span>
 personUseParatransit_female: >-
-    {{nickname}} est-elle <strong>admise au transport adapté</strong>? <br /><span
-    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>{{nickname}} est-elle <strong>admise
+    au transport adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL,
+    exo, etc.<br />Facultatif</span>
 personUseParatransit_one: >-
-    Êtes-vous admis.e au <strong>transport adapté</strong>? <br /><span class="_pale
-    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Êtes-vous admis.e au <strong>transport
+    adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL, exo, etc.<br
+    />Facultatif</span>
 personUseParatransit_male_one: >-
-    Êtes-vous admis au <strong>transport adapté</strong>? <br /><span class="_pale
-    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Êtes-vous admis au <strong>transport
+    adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL, exo, etc.<br
+    />Facultatif</span>
 personUseParatransit_female_one: >-
-    Êtes-vous admise au <strong>transport adapté</strong>? <br /><span class="_pale
-    _oblique">STM, RTL, STL, exo, etc.<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Êtes-vous admise au <strong>transport
+    adapté</strong>? <br /><span class="_pale _oblique">STM, RTL, STL, exo, etc.<br
+    />Facultatif</span>
 personDisabilitiesFrequenciesParatransit: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-iel utilisé
-    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-iel utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesParatransit_male: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-il utilisé
-    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-il utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesParatransit_female: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-elle utilisé
-    le <strong>transport adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-elle utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesParatransit_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
-    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesParatransit_male_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
-    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesParatransit_female_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé le <strong>transport
-    adapté</strong>?<br /><span class="_pale _oblique">Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé le <strong>transport adapté</strong>?<br
+    /><span class="_pale _oblique">Facultatif</span>
 personDisabilitiesFrequenciesTransit: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-iel utilisé
-    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
-    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
-    RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-iel utilisé les <strong>transport en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personDisabilitiesFrequenciesTransit_male: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-il utilisé
-    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
-    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
-    RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-il utilisé les <strong>transport en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personDisabilitiesFrequenciesTransit_female: >-
-    Au cours des 12 derniers mois, à quelle fréquence {{nickname}} a-t-elle utilisé
-    les <strong>transport en commun</strong> (service régulier)?<br /><span class="_pale
-    _oblique">Inclure métro, REM, train de banlieue, les autobus (ex. : STM, STL,
-    RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence {{nickname}} a-t-elle utilisé les <strong>transport en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personDisabilitiesFrequenciesTransit_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
-    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
-    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé les <strong>transports en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personDisabilitiesFrequenciesTransit_male_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
-    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
-    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé les <strong>transports en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personDisabilitiesFrequenciesTransit_female_one: >-
-    Au cours des 12 derniers mois, à quelle fréquence avez-vous utilisé les <strong>transports
-    en commun</strong> (service régulier)?<br /><span class="_pale _oblique">Inclure
-    métro, REM, train de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
+    <span class="_phone" aria-hidden="true">i </span>Au cours des 12 derniers mois,
+    à quelle fréquence avez-vous utilisé les <strong>transports en commun</strong>
+    (service régulier)?<br /><span class="_pale _oblique">Inclure métro, REM, train
+    de banlieue, les autobus (ex. : STM, STL, RTL, exo …)<br />Facultatif</span>
 personStudentType: <strong>Étudiant(e)</strong>
 personStudentType_male: <strong>Étudiant</strong>
 personStudentType_female: <strong>Étudiante</strong>

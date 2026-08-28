@@ -10,6 +10,7 @@ personNoWorkTripIntro_one: >-
     Vous avez déclaré n'avoir fait <strong>aucun déplacement pour le travail</strong>
     le {{journeyDate}}
 personNoWorkTripReason: Pour quelle raison?
+personNoWorkTripReasonSpecify: Spécifier
 personUsualWorkPlaceIntro: >-
     {{nickname}} n'a pas fait de déplacement vers son lieu de travail habituel. Pouvez-vous
     le localiser?

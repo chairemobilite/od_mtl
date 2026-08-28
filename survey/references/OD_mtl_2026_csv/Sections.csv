@@ -1,19 +1,19 @@
 section,abbreviation,title_fr,title_en,in_nav,template,has_preload,parent_section
-accessCode,ac_,Code d'accès,Access code,0,0,0,home
-home,h_,Domicile,Home,1,0,1,
-household,hh_,Ménage,Household,1,0,1,
-personsTrips,pt_,Déplacements,Trips introduction,1,0,1,
-selectPerson,sp_,Sélection du membre du ménage,Household member selection,0,0,1,personsTrips
-tripsIntro,ti_,Introduction aux déplacements,Trips introduction,0,0,1,personsTrips
-visitedPlaces,vp_,Déplacements,Déplacements,0,0,0,personsTrips
-segments,s_,Modes de transport,Modes of transport,0,0,0,personsTrips
-travelBehavior,tb_,Mobilité,Travel behavior,0,0,0,personsTrips
-omissions,o_,Oublis,Omissions,0,0,0,end
-longDistance,ld_,Déplacements longue distance,Long distance trips,0,0,0,end
-barriersDisability,barrd_,Barrières,Barriers,0,0,0,end
-selectFreqPerson,sfp_,Sélection du répondant aux fréquences,Frequencies respondent selection,0,0,0,end
-frequencies,freq_,Fréquences par mode,Mode frequencies,0,0,0,end
-attitudinal,att_,Questions attitudinales,Attitudinal questions,0,0,0,end
-barriers,barr_,Barrières,Barriers,0,0,0,end
-end,e_,Fin,End,1,0,0,
-completed,c_,Questionnaire complété,Survey completed,0,0,1,end
+accessCode,ac_,Code d'accès,Access code,False,False,False,home
+home,h_,Domicile,Home,True,False,True,
+household,hh_,Ménage,Household,True,False,True,
+personsTrips,pt_,Déplacements,Trips introduction,True,False,True,
+selectPerson,sp_,Sélection du membre du ménage,Household member selection,False,False,True,personsTrips
+tripsIntro,ti_,Introduction aux déplacements,Trips introduction,False,False,True,personsTrips
+visitedPlaces,vp_,Déplacements,Déplacements,False,False,False,personsTrips
+segments,s_,Modes de transport,Modes of transport,False,False,False,personsTrips
+travelBehavior,tb_,Mobilité,Travel behavior,False,False,False,personsTrips
+omissions,o_,Oublis,Omissions,False,False,False,end
+longDistance,ld_,Déplacements longue distance,Long distance trips,False,False,False,end
+barriersDisability,barrd_,Barrières,Barriers,False,False,False,end
+selectFreqPerson,sfp_,Sélection du répondant aux fréquences,Frequencies respondent selection,False,False,False,end
+frequencies,freq_,Fréquences par mode,Mode frequencies,False,False,False,end
+attitudinal,att_,Questions attitudinales,Attitudinal questions,False,False,False,end
+barriers,barr_,Barrières,Barriers,False,False,False,end
+end,e_,Fin,End,True,False,False,
+completed,c_,Questionnaire complété,Survey completed,False,False,True,end

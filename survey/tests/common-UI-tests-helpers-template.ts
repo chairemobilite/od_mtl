@@ -693,10 +693,16 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.personNoWorkTripIntro', isVisible: true });
     testHelpers.waitTextVisible({ context, text: '?' });
 
-    // Test select widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional with choices noWorkTripReasonChoices
+    // Test radio widget personNoWorkTripReason with conditional shouldAskForNoWorkTripReasonCustomConditional with choices noWorkTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReason', value: '?' });
+
+    // Test string widget personNoWorkTripReasonSpecify with conditional shouldAskForNoWorkTripReasonSpecifyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify', value: '?' });
 
     // Test infotext widget personUsualWorkPlaceIntro with conditional hasWorkingLocationNotSetCustomConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -1166,8 +1172,7 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     // Test radio widget householdTypeSpecify with conditional householdTypeSpecifyConditional with choices householdTypeSpecify
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    testHelpers.inputVisibleTest({ context, path: 'household.typeSpecify', isVisible: true });
-    testHelpers.inputRadioTest({ context, path: 'household.typeSpecify', value: '?' });
+    // Widget not active
 
     // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */

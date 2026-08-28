@@ -191,6 +191,10 @@ export const transitPassType: ChoiceType[] = [
         label: (t: TFunction) => t('choices:transitPassType.tickets')
     },
     {
+        value: 'employee',
+        label: (t: TFunction) => t('choices:transitPassType.employee')
+    },
+    {
         value: 'other',
         label: (t: TFunction) => t('choices:transitPassType.other')
     },
@@ -225,10 +229,6 @@ export const transitFareType: ChoiceType[] = [
     {
         value: 'opusWithTicketsOnly',
         label: (t: TFunction) => t('choices:transitFareType.opusWithTicketsOnly')
-    },
-    {
-        value: 'employee',
-        label: (t: TFunction) => t('choices:transitFareType.employee')
     },
     {
         value: 'otherTerritory',
@@ -1018,10 +1018,6 @@ export const hasOmittedTripsModes: ChoiceType[] = [
 
 export const householdType: ChoiceType[] = [
     {
-        value: 'oneFamilyOnly',
-        label: (t: TFunction) => t('choices:householdType.oneFamilyOnly')
-    },
-    {
         value: 'multigenerationalFamily',
         label: (t: TFunction) => t('choices:householdType.multigenerationalFamily'),
         conditional: conditionals.hasHouseholdSize3OrMoreConditional
@@ -1037,25 +1033,22 @@ export const householdType: ChoiceType[] = [
         conditional: conditionals.hasHouseholdSize3OrMoreConditional
     },
     {
-        value: 'noFamily',
-        label: (t: TFunction) => t('choices:householdType.noFamily')
-    }
-];
-
-export const householdTypeSpecify: ChoiceType[] = [
-    {
         value: 'coupleWithChild',
-        label: (t: TFunction) => t('choices:householdTypeSpecify.coupleWithChild'),
+        label: (t: TFunction) => t('choices:householdType.coupleWithChild'),
         conditional: conditionals.hasHouseholdSize3OrMoreConditional
     },
     {
         value: 'coupleWithoutChild',
-        label: (t: TFunction) => t('choices:householdTypeSpecify.coupleWithoutChild'),
+        label: (t: TFunction) => t('choices:householdType.coupleWithoutChild'),
         conditional: conditionals.hasHouseholdSize2Conditional
     },
     {
         value: 'parentWithChild',
-        label: (t: TFunction) => t('choices:householdTypeSpecify.parentWithChild')
+        label: (t: TFunction) => t('choices:householdType.parentWithChild')
+    },
+    {
+        value: 'noFamily',
+        label: (t: TFunction) => t('choices:householdType.noFamily')
     }
 ];
 

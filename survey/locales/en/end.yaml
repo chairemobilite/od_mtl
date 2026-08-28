@@ -32,26 +32,30 @@ householdCommentsOnSurvey: >-
     Your <strong>comments and suggestions</strong> about the survey<br /><span class="_pale
     _oblique">Optional</span>
 optionalIntroText: >-
-    The <strong>next questions are optional</strong> and are added for research purposes.
-    You can complete the interview without answering them.
+    <span class="_phone" aria-hidden="true">i </span>The <strong>next questions are
+    optional</strong> and are added for research purposes. You can complete the interview
+    without answering them.
 endInterestOfTheSurvey: >-
-    How <strong>interesting</strong> was this survey to you?<br /><span class="_pale
-    _oblique">Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>How <strong>interesting</strong>
+    was this survey to you?<br /><span class="_pale _oblique">Optional</span>
 endTimeSpentAnswering: >-
-    How much <strong>time</strong> do you think you <strong>spent answering</strong>
-    this survey (<strong>in minutes</strong>)?<br /><span class="_pale _oblique">Optional</span>
-endDurationOfTheSurvey: >-
-    Do you feel that the <strong>length of the survey was too short, about right,
-    or too long</strong>?<br /><span class="_pale _oblique">Optional</span>
-endDifficultyOfTheSurvey: >-
-    How <strong>easy</strong> or <strong>difficult</strong> was it for you to answer
-    the questions in this survey?<br /><span class="_pale _oblique">Optional</span>
-endBurdenOfTheSurvey: >-
-    How <strong>burdensome (demanding)</strong> did you find this survey to be?<br
+    <span class="_phone" aria-hidden="true">i </span>How much <strong>time</strong>
+    do you think you <strong>spent answering</strong> this survey (<strong>in minutes</strong>)?<br
     /><span class="_pale _oblique">Optional</span>
+endDurationOfTheSurvey: >-
+    <span class="_phone" aria-hidden="true">i </span>Do you feel that the <strong>length
+    of the survey was too short, about right, or too long</strong>?<br /><span class="_pale
+    _oblique">Optional</span>
+endDifficultyOfTheSurvey: >-
+    <span class="_phone" aria-hidden="true">i </span>How <strong>easy</strong> or
+    <strong>difficult</strong> was it for you to answer the questions in this survey?<br
+    /><span class="_pale _oblique">Optional</span>
+endBurdenOfTheSurvey: >-
+    <span class="_phone" aria-hidden="true">i </span>How <strong>burdensome (demanding)</strong>
+    did you find this survey to be?<br /><span class="_pale _oblique">Optional</span>
 endConsideredAbandoningSurvey: >-
-    Did you consider, at any point, <strong>abandoning the survey</strong>?<br /><span
-    class="_pale _oblique">Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>Did you consider, at any point,
+    <strong>abandoning the survey</strong>?<br /><span class="_pale _oblique">Optional</span>
 buttonCompleteInterviewWithCompleteSection: Complete the interview
 errors:
     inputRangeMustBePositiveOrZero: Make sure your slider button is inside the range.

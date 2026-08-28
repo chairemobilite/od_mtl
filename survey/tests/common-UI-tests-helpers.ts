@@ -341,6 +341,8 @@ export type VisitedPlace = {
 
 export type TravelBehavior = {
     noWorkTripReason: string | null;
+    // Leave undefined if visible, but no unanswered
+    noWorkTripReasonSpecify?: string | null;
     usualWorkPlace: {
         name: string;
     } | null;
@@ -354,6 +356,7 @@ export type TravelBehavior = {
 
 export const defaultTravelBehavior: TravelBehavior = {
     noWorkTripReason: null,
+    noWorkTripReasonSpecify: null,
     usualWorkPlace: null,
     usualWorkPlaceCommuting: null,
     hasSchoolPlace: null,
@@ -364,6 +367,7 @@ export const defaultTravelBehavior: TravelBehavior = {
 // Default person is worker and student and no trips, so we will those values
 export const defaultTravelBehaviorWhenNoTrip: TravelBehavior = {
     noWorkTripReason: 'noWork',
+    noWorkTripReasonSpecify: null,
     usualWorkPlace: { name: 'Bombardier' },
     usualWorkPlaceCommuting: 'walk',
     hasSchoolPlace: 'yes',
@@ -2307,10 +2311,31 @@ export const fillTravelBehaviorSectionTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReason',
             value: travelBehavior.noWorkTripReason
+        });
+    }
+
+    if (travelBehavior.noWorkTripReasonSpecify === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReasonSpecify',
+            isVisible: false
+        });
+    } else if (travelBehavior.noWorkTripReasonSpecify === undefined) {
+        // No answer to fill, just check visibility
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReasonSpecify',
+            isVisible: true
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noWorkTripReasonSpecify',
+            value: travelBehavior.noWorkTripReasonSpecify
         });
     }
 
@@ -3193,7 +3218,6 @@ export const fillBarriersSectionTests = ({
 /********** Tests end section **********/
 export type EndSection = {
     householdType: string | null;
-    householdTypeSpecify: string | null;
     householdPluginHybridCarNumber: string | null;
     householdElectricCarNumber: string | null;
     householdIncome: string;
@@ -3213,7 +3237,6 @@ export type EndSection = {
 
 export const defaultEnd: EndSection = {
     householdType: null,
-    householdTypeSpecify: null,
     householdIncome: '100000_149999',
     householdPluginHybridCarNumber: '2',
     householdElectricCarNumber: '0',
@@ -3248,15 +3271,6 @@ export const fillEndSectionTests = ({ context, endSection = defaultEnd }: EndTes
         testHelpers.inputVisibleTest({ context, path: 'household.type', isVisible: false });
     } else {
         testHelpers.inputRadioTest({ context, path: 'household.type', value: endSection.householdType });
-    }
-
-    // Test radio widget householdTypeSpecify with conditional householdTypeSpecifyConditional with choices householdTypeSpecify
-    /* @link file://./../src/survey/common/conditionals.tsx */
-    /* @link file://./../src/survey/common/choices.tsx */
-    if (endSection.householdTypeSpecify === null) {
-        testHelpers.inputVisibleTest({ context, path: 'household.typeSpecify', isVisible: false });
-    } else {
-        testHelpers.inputRadioTest({ context, path: 'household.typeSpecify', value: endSection.householdTypeSpecify });
     }
 
     // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
@@ -3497,8 +3511,7 @@ export const fillEndSectionTests = ({ context, endSection = defaultEnd }: EndTes
     }); */
 };
 
-const artmPanelButtonLabelEn = 'Join « Let\'s talk mobility » panel';
-const artmPanelUrlEn = 'https://parlonsmobilite.quebec/en';
+const artmPanelButtonLabelEn = 'Join "Let\'s talk mobility" panel';
 const artmPanelTitleEn = /Let['\u2019]s talk mobility/i;
 
 /** Opens the ARTM panel link in a new tab and checks the external page loads correctly. */
@@ -3511,11 +3524,8 @@ export const buttonARTMPanelTest = ({ context }: CommonTestParametersModify) => 
         await button.click();
         const popup = await popupPromise;
 
-        await popup.waitForURL(/parlonsmobilite\.quebec\/en\/?/, { timeout: 45000 });
+        await popup.waitForURL(/https:\/\/consultation\.parlonsmobilite\.quebec\/?/, { timeout: 45000 });
         await popup.waitForLoadState('domcontentloaded');
-
-        const documentResponse = await context.page.request.get(artmPanelUrlEn);
-        expect(documentResponse.status()).toBe(200);
 
         await expect(popup).toHaveTitle(artmPanelTitleEn);
 

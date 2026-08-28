@@ -3,11 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 acceptToBeContactedForHelp: >-
-    I consent to be contacted to <strong>continue or clarify the survey</strong><br
-    /><span class="_pale _oblique">If I do not complete it or if some of the information
-    provided appears inconsistent.</span>
+    Do you consent to being contacted to <strong>continue the survey</strong>?<br
+    /><span class="_pale _oblique">If you do not complete it or if some of the information
+    provided appears to be inconsistent.</span>
 wantToParticipateToDraw: >-
-    I would like to participate in the <strong>prize draw</strong><br /><span class="_pale
+    Would you like to participate in the <strong>prize draw</strong>?<br /><span class="_pale
     _oblique">Only winners will be contacted and an entry for the prize draw requires
     a complete and valid survey response (<a href="https://www.artm.quebec/wp-content/uploads/2026/08/Contest-Rules_2026-Pm_EN.pdf"
     target="_blank">View rules</a>).</span>
@@ -22,8 +22,8 @@ homePostalCode: <strong>Postal Code</strong>
 homeGeography: >-
     <strong>Home location</strong><br />Search for your home using its postal code
     or address by clicking the button below, or please position the location on the
-    map by navigating, zooming, and clicking. Once the location is located, you can
-    move the point for greater precision.
+    map by navigating, zooming, and clicking. Once the location is identified, you
+    can move the point for greater precision.
 homeIsMain: >-
     Is {{address}} your usual place of residence?<br /><span class="_pale _oblique">The
     usual place of residence is the dwelling where your household lives most of the

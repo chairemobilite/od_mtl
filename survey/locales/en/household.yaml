@@ -51,37 +51,45 @@ personHasDisability_one: >-
     or limits your daily travel?<br /><span class="_pale _oblique">Ex: mobility-related,
     visual, other…</span>
 personDisabilities: >-
-    <strong>Which one(s)</strong>?<br /><span class="_pale _oblique">Optional</span>
-personDisabilitiesSpecify: Specify
+    <span class="_phone" aria-hidden="true">i </span><strong>Which one(s)</strong>?<br
+    /><span class="_pale _oblique">Optional</span>
+personDisabilitiesSpecify: <span class="_phone" aria-hidden="true">i </span>Specify
 personMobilityAssistiveDevices: >-
-    <strong>Type(s) of mobility aid(s)</strong>, if any, used for {{nickname}}’s travel
-    outside the home<br /><span class="_pale _oblique">Optional</span>
-personMobilityAssistiveDevices_one: >-
-    <strong>Type(s) of mobility aid(s)</strong>, if any, used for your travel outside
-    the home<br /><span class="_pale _oblique">Optional</span>
-personMobilityAssistiveDevicesSpecify: Specify
-personMostUsedMobilityAssistiveDevice: <strong>Most used</strong><br /><span class="_pale
+    <span class="_phone" aria-hidden="true">i </span><strong>Type(s) of mobility aid(s)</strong>,
+    if any, used for {{nickname}}’s travel outside the home<br /><span class="_pale
     _oblique">Optional</span>
+personMobilityAssistiveDevices_one: >-
+    <span class="_phone" aria-hidden="true">i </span><strong>Type(s) of mobility aid(s)</strong>,
+    if any, used for your travel outside the home<br /><span class="_pale _oblique">Optional</span>
+personMobilityAssistiveDevicesSpecify: <span class="_phone" aria-hidden="true">i </span>Specify
+personMostUsedMobilityAssistiveDevice: >-
+    <span class="_phone" aria-hidden="true">i </span><strong>Most used</strong><br
+    /><span class="_pale _oblique">Optional</span>
 personUseParatransit: >-
-    Is {{nickname}} registered for <strong>paratransit services?</strong><br /><span
-    class="_pale _oblique">STM, RTL, STL, exo, etc.<br />Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>Is {{nickname}} registered for
+    <strong>paratransit services?</strong><br /><span class="_pale _oblique">STM,
+    RTL, STL, exo, etc.<br />Optional</span>
 personUseParatransit_one: >-
-    Are you registered for <strong>paratransit services?</strong><br /><span class="_pale
-    _oblique">STM, RTL, STL, exo, etc.<br />Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>Are you registered for <strong>paratransit
+    services?</strong><br /><span class="_pale _oblique">STM, RTL, STL, exo, etc.<br
+    />Optional</span>
 personDisabilitiesFrequenciesParatransit: >-
-    In the past 12 months, how often has {{nickname}} used <strong>paratransit services?</strong><br
-    /><span class="_pale _oblique">Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often
+    has {{nickname}} used <strong>paratransit services?</strong><br /><span class="_pale
+    _oblique">Optional</span>
 personDisabilitiesFrequenciesParatransit_one: >-
-    In the past 12 months, how often have you used <strong>paratransit services?</strong><br
-    /><span class="_pale _oblique">Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often
+    have you used <strong>paratransit services?</strong><br /><span class="_pale _oblique">Optional</span>
 personDisabilitiesFrequenciesTransit: >-
-    In the past 12 months, how often has {{nickname}} used <strong>public transit</strong>
-    (regular service)?<br /><span class="_pale _oblique">Include metro, REM, commuter
-    train, and buses (e.g., STM, STL, RTL, exo, etc.).<br />Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often
+    has {{nickname}} used <strong>public transit</strong> (regular service)?<br /><span
+    class="_pale _oblique">Include metro, REM, commuter train, and buses (e.g., STM,
+    STL, RTL, exo, etc.).<br />Optional</span>
 personDisabilitiesFrequenciesTransit_one: >-
-    In the past 12 months, how often have you used <strong>public transit</strong>
-    (regular service)?<br /><span class="_pale _oblique">Include metro, REM, commuter
-    train, and buses (e.g., STM, STL, RTL, exo, etc.).<br />Optional</span>
+    <span class="_phone" aria-hidden="true">i </span>In the past 12 months, how often
+    have you used <strong>public transit</strong> (regular service)?<br /><span class="_pale
+    _oblique">Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL,
+    exo, etc.).<br />Optional</span>
 personStudentType: <strong>Student</strong>
 personWorkerType: >-
     <strong>Worker</strong><br /><span class="_pale _oblique">Including self-employed

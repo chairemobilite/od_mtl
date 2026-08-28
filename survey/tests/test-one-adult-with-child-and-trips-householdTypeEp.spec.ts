@@ -218,8 +218,7 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 /********** Tests end section **********/
 const endSection = {
     ...commonUITestsHelpers.defaultEnd,
-    householdType: 'oneFamilyOnly',
-    householdTypeSpecify: 'parentWithChild'
+    householdType: 'parentWithChild'
 };
 commonUITestsHelpers.fillEndSectionTests({ context, householdSize: 2, endSection });
 

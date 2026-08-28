@@ -7,6 +7,7 @@ personNoWorkTripIntro: >-
     <strong>You didn't report any work trips</strong> by {{nickname}} on {{journeyDate}}
 personNoWorkTripIntro_one: <strong>You didn't report any work trips</strong> on {{journeyDate}}
 personNoWorkTripReason: Why?
+personNoWorkTripReasonSpecify: Specify
 personUsualWorkPlaceIntro: '{{nickname}} did not travel to their usual workplace.
     Can you locate it?'
 personUsualWorkPlaceIntro_male: '{{nickname}} did not travel to his usual workplace.

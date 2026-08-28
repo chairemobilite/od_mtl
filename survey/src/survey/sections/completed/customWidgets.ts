@@ -4,7 +4,9 @@ import { defaultConditional } from 'evolution-common/lib/services/widgets/condit
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 
 const artmPanelUrl = () =>
-    i18n.language === 'fr' ? 'https://parlonsmobilite.quebec/fr' : 'https://parlonsmobilite.quebec/en';
+    i18n.language === 'fr'
+        ? 'https://panel.parlonsmobilite.quebec/api/redirect/78/fr'
+        : 'https://panel.parlonsmobilite.quebec/api/redirect/78/en';
 
 export const buttonARTMPanel: WidgetConfig.ButtonWidgetConfig = {
     type: 'button',
