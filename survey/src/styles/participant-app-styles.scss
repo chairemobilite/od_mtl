@@ -13,3 +13,8 @@
         text-overflow: ellipsis;
     }
 }
+
+// Hide hints for phone interviewers
+._phone {
+    display: none;
+}

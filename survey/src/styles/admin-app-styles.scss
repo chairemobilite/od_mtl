@@ -1,4 +1,5 @@
 @use 'common-styles';
+@use "~evolution-frontend/lib/styles/survey/settings";
 @import '~font-awesome/css/font-awesome.min.css';
 
 
@@ -95,7 +96,7 @@
 
 
 
-// collapsible: 
+// collapsible:
 
 //The link which when clicked opens the collapsable area
 .Collapsible__trigger {
@@ -107,7 +108,7 @@
     position: relative;
     border: none;
     padding: 0.3rem;
-  
+
     &:before {
       font-family: 'FontAwesome';
       font-size: larger;
@@ -118,7 +119,7 @@
       display: block;
       transition: transform 300ms;
     }
-  
+
     &.is-open {
       &:before {
         transform: rotateZ(0deg); // Arrow points downwards
@@ -129,19 +130,19 @@
         transform: rotateZ(-90deg); // Arrow points to the right
       }
     }
-  
+
     &.is-disabled {
       opacity: 0.5;
       background-color: grey;
     }
   }
-  
+
   // FIXME react-collapsible's lazyRender requires the children to have at least a minimum height to be rendered on the first click.
   // See https://github.com/glennflanagan/react-collapsible/issues/36
   .Collapsible__contentInner {
     padding-top: 1px;
   }
-  
+
   ._list .Collapsible__trigger {
       background: none; // For list items (ex. list of lines in agency) we have our own background color, so we disable react-collapsible's.
   }
@@ -160,4 +161,10 @@
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+// Show watermark for interviewers to know not to ask this question
+._phone {
+    color: settings.$blue !important;
+    font-style: italic;
 }
