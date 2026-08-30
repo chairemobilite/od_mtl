@@ -235,7 +235,12 @@ export const isTransitModeAndDistanceFromOriginCustomConditional: WidgetConditio
             ? getSegmentPreviousLocation({ interview, ...segmentContext })
             : getCurrentSegmentDestinationLocation({ segment: previousSegment });
     if (isFeature(currentOrigin) && isFeature(previousOrigin)) {
-        if (getBirdDistanceMeters(currentOrigin, previousOrigin) > checkpointsThresholdMeters) {
+        if (
+            getBirdDistanceMeters(
+                currentOrigin as GeoJSON.Feature<GeoJSON.Point>,
+                previousOrigin as GeoJSON.Feature<GeoJSON.Point>
+            ) > checkpointsThresholdMeters
+        ) {
             return [true, null];
         }
     }
@@ -264,7 +269,12 @@ export const isTransitModeAndDistanceToDestinationCustomConditional: WidgetCondi
     const lastSegmentDestination = getCurrentSegmentDestinationLocation({ segment: lastSegment });
     const destination = getSegmentNextLocation({ interview, ...tripContext, segment: lastSegment });
     if (isFeature(lastSegmentDestination) && isFeature(destination)) {
-        if (getBirdDistanceMeters(lastSegmentDestination, destination) > checkpointsThresholdMeters) {
+        if (
+            getBirdDistanceMeters(
+                lastSegmentDestination as GeoJSON.Feature<GeoJSON.Point>,
+                destination as GeoJSON.Feature<GeoJSON.Point>
+            ) > checkpointsThresholdMeters
+        ) {
             return [true, null];
         }
     }
@@ -286,7 +296,12 @@ export const isIntercityAndOriginInTerritoryCustomConditional: WidgetConditional
     }
     // Display if origin location is in the territory
     const locationGeography = getSegmentPreviousLocation({ interview, ...segmentContext });
-    return [locationGeography !== null && locationGeography.properties.isInTerritory === true, null];
+    return [
+        locationGeography !== null &&
+            locationGeography !== 'unknown' &&
+            locationGeography.properties.isInTerritory === true,
+        null
+    ];
 };
 
 // Conditional to show if the current segment is an intercity mode and the destination is in the territory
@@ -309,7 +324,12 @@ export const isIntercityAndDestinationInTerritoryCustomConditional: WidgetCondit
     }
     // Display if destination location is in the territory
     const destinationGeography = getSegmentNextLocation({ interview, ...tripContext, segment: lastSegment });
-    return [destinationGeography !== null && destinationGeography.properties.isInTerritory === true, null];
+    return [
+        destinationGeography !== null &&
+            destinationGeography !== 'unknown' &&
+            destinationGeography.properties.isInTerritory === true,
+        null
+    ];
 };
 
 // Conditional to show if the current trip destination is a usual workplace
@@ -523,7 +543,12 @@ export const isModeAndSegmentLocationInTerritoryCustomConditional =
             location === 'origin'
                 ? getSegmentPreviousLocation({ interview, ...segmentContext })
                 : getSegmentNextLocation({ interview, ...segmentContext });
-            return [locationGeography !== null && locationGeography.properties.isInTerritory === true, null];
+            return [
+                locationGeography !== null &&
+                locationGeography !== 'unknown' &&
+                locationGeography.properties.isInTerritory === true,
+                null
+            ];
         };
 
 export const isPlaneAndSegmentOriginInTerritoryCustomConditional: WidgetConditional =

@@ -191,23 +191,22 @@ const segments: commonUITestsHelpers.Segment[] = [
         hasNextMode: true
     },
     {
-        // FIXME Should be 'transitBus' here, instead of 'transitTaix' but does not work because of https://github.com/chairemobilite/evolution/issues/1860
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 2,
         modePre: 'bus',
-        mode: 'transitTaxi',
+        mode: 'transitBus',
+        busLines: ['rtl_15_riverside-alexandra-churchill'],
         hasNextMode: false
     },
     {
         // Fifth trip has 'other' as first access and egress stations. Access and egress modes should not be asked
-        // FIXME Currently, they are asked because of this issue in Evolution: https://github.com/chairemobilite/evolution/issues/1862
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
         modePre: 'transitHeavy',
         mode: 'transitRRT',
         subwayStationStart: 'other',
         subwayStationEnd: 'sherbrooke',
-        transitAccessMode: 'other',
+        transitAccessMode: null,
         hasNextMode: true
     },
     {
@@ -217,7 +216,7 @@ const segments: commonUITestsHelpers.Segment[] = [
         mode: 'transitRRT',
         subwayStationStart: 'montRoyal',
         subwayStationEnd: 'other',
-        transitEgressMode: 'carPassenger',
+        transitEgressMode: null,
         hasNextMode: false
     },
     {

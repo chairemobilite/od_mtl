@@ -19,8 +19,8 @@ import {
     updatePathsWithZonesIntersectingPoint
 } from './serverHelpers';
 import {
-    getSegmentNextLocation,
-    getSegmentPreviousLocation
+    getSegmentNextKnownLocation,
+    getSegmentPreviousKnownLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 
 // *** Code for the home address prefill **
@@ -615,8 +615,8 @@ export default [
                 const origin = odSurveyHelpers.getOrigin({ trip, visitedPlaces });
                 const timeOfTrip = origin?.departureTime;
                 // Get previous and next location within trip
-                const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
-                const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
+                const previousLocation = getSegmentPreviousKnownLocation({ interview, ...segmentContext });
+                const nextLocation = getSegmentNextKnownLocation({ interview, ...segmentContext });
 
                 if (previousLocation === null || nextLocation === null || typeof timeOfTrip !== 'number') {
                     return defaultResponse;

@@ -14,9 +14,9 @@ import remStations from '../../geojson/stations_rem.json';
 import trainStations from '../../geojson/gares_train.json';
 import junctions from '../../geojson/junctions.json';
 import {
-    getCurrentSegmentDestinationLocation,
-    getCurrentSegmentOriginLocation,
+    getSegmentNextKnownLocation,
     getSegmentNextLocation,
+    getSegmentPreviousKnownLocation,
     getSegmentPreviousLocation
 } from 'evolution-common/lib/services/questionnaire/sections/segments/helpers';
 import * as customValidations from '../../common/customValidations';
@@ -109,11 +109,14 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
                 if (segmentContext === null) {
                     throw new Error('segmentBusLines onDemand choice: segment context is undefined');
                 }
+                // MAke sure previous and next lcoations are in on demand zones, ignore if locations are unknowns
                 const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
                 const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
                 return (
                     previousLocation !== null &&
+                    previousLocation !== 'unknown' &&
                     nextLocation !== null &&
+                    nextLocation !== 'unknown' &&
                     (previousLocation.properties.isOnDemandTransitZone === true ||
                         nextLocation.properties.isOnDemandTransitZone === true)
                 );
@@ -138,14 +141,16 @@ export const segmentBusLines: WidgetConfig.InputMultiselectType = {
                 ) {
                     return false;
                 }
-                // Make sure previous or next location are in RA 1 to 5
+                // Make sure previous or next location are in RA 1 to 5, ignore if locations are unknowns
                 const previousLocation = getSegmentPreviousLocation({ interview, ...segmentContext });
                 const nextLocation = getSegmentNextLocation({ interview, ...segmentContext });
                 return (
                     (previousLocation !== null &&
+                        previousLocation !== 'unknown' &&
                         typeof previousLocation.properties.RA === 'number' &&
                         previousLocation.properties.RA <= 5) ||
                     (nextLocation !== null &&
+                        nextLocation !== 'unknown' &&
                         typeof nextLocation.properties.RA === 'number' &&
                         nextLocation.properties.RA <= 5)
                 );
@@ -273,7 +278,7 @@ export const segmentSubwayStationStart: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentSubwayStationStart referenceGeography: segment context is undefined');
         }
-        return getSegmentPreviousLocation({ interview, ...segmentContext });
+        return getSegmentPreviousKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -295,7 +300,7 @@ export const segmentSubwayStationEnd: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentSubwayStationEnd referenceGeography: segment context is undefined');
         }
-        return getSegmentNextLocation({ interview, ...segmentContext });
+        return getSegmentNextKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -317,7 +322,7 @@ export const segmentTrainStationStart: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentTrainStationStart referenceGeography: segment context is undefined');
         }
-        return getSegmentPreviousLocation({ interview, ...segmentContext });
+        return getSegmentPreviousKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -340,7 +345,7 @@ export const segmentTrainStationEnd: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentTrainStationEnd referenceGeography: segment context is undefined');
         }
-        return getSegmentNextLocation({ interview, ...segmentContext });
+        return getSegmentNextKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -362,7 +367,7 @@ export const segmentRemStationStart: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentRemStationStart referenceGeography: segment context is undefined');
         }
-        return getSegmentPreviousLocation({ interview, ...segmentContext });
+        return getSegmentPreviousKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -384,7 +389,7 @@ export const segmentRemStationEnd: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('segmentRemStationEnd referenceGeography: segment context is undefined');
         }
-        return getSegmentNextLocation({ interview, ...segmentContext });
+        return getSegmentNextKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -406,7 +411,7 @@ export const tripJunctionPrivateBus: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('tripJunctionPrivateBus referenceGeography: segment context is undefined');
         }
-        return getSegmentPreviousLocation({ interview, ...segmentContext });
+        return getSegmentPreviousKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
@@ -428,7 +433,7 @@ export const tripJunctionBusPrivate: WidgetConfig.InputSelectFeatureType = {
         if (segmentContext === null) {
             throw new Error('tripJunctionBusPrivate referenceGeography: segment context is undefined');
         }
-        return getSegmentNextLocation({ interview, ...segmentContext });
+        return getSegmentNextKnownLocation({ interview, ...segmentContext });
     },
     additionalChoices: featureSelectAdditionalChoices,
     shortcuts: featureSelectShortcuts,
