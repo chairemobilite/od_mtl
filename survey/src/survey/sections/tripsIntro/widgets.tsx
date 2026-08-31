@@ -108,31 +108,9 @@ export const personDeparturePlaceOther: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
-// Custom choices because it has the departure place type in the labels
-//
-// FIXME: personOutOfTerritory : implication · Issue #45 · chairemobilite/od_mtl
-export const personReturnedHome: WidgetConfig.InputRadioType = {
-    ...defaultInputBase.inputRadioBase,
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome',
-    twoColumns: false,
-    containsHtml: false,
-    label: customLabels.personReturnedHomeCustomLabel,
-    choices: customChoices.returnedHomeCustomChoices,
-    conditional: conditionals.returnedHomeConditional,
-    validations: validations.requiredValidation
-};
+// Note: personReturnedHome widget is not active. This widget will not be displayed in the survey.
 
-// Custom choices because it is the household members
-export const personOutOfTerritoryMembers: WidgetConfig.InputCheckboxType = {
-    ...defaultInputBase.inputCheckboxBase,
-    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers',
-    twoColumns: false,
-    containsHtml: false,
-    label: (t: TFunction) => t('tripsIntro:personOutOfTerritoryMembers'),
-    choices: customChoices.outOfTerritoryMembersCustomChoices,
-    conditional: conditionals.outOfTerritoryMembersConditional,
-    validations: customValidations.personOutOfTerritoryMembersCustomValidation
-};
+// Note: personOutOfTerritoryMembers widget is not active. This widget will not be displayed in the survey.
 
 export const tripsIntro_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,

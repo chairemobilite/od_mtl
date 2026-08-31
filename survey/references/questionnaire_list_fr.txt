@@ -330,12 +330,6 @@ Où était {{nickname}} à 4h du matin?
 - École / lieu d’études: terminait des travaux ou y couchait
 - Autre
 
-Est-ce que {{nickname}} est retourn{{gender:é/ée/é(e)}} au domicile ({{address}}) la journée du {{journeyDate}}?
-
-
-Quels autres membres du ménage étaient eux-aussi absents du domicile toute la journée ?
-
-
 Continuer
 
 Vos réponses serviront à évaluer l'usage et l'achalandage des réseaux routiers et de transport collectif et demeureront entièrement confidentielles.
