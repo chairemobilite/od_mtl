@@ -48,7 +48,8 @@ __Include only bicycles belonging to teenagers or adults that are in usable cond
 Max=4
 overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
 householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
-max=household.bicycleNumber",,hasHouseholdBicycleConditional,bicycleNumberValidation,,,,,True,,,,,
+Max=4
+overMaxAllowed",,hasHouseholdBicycleConditional,electricBicycleNumberCustomValidation,,,,,True,,,,,
 homeCarParkingsAvailableVehicleHousehold,Checkbox,True,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
 __Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.__","**Parking available at home** for your household's vehicles
 __You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,True,,,,,Custom label because of the car number plural
