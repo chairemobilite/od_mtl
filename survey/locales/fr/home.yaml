@@ -114,3 +114,6 @@ home_carParkingsAvailableVehicleHousehold_one: >-
     <strong>Stationnement(s) disponible(s) au domicile</strong> pour le véhicule de
     votre ménage. <br /><span class="_pale _oblique">Vous pouvez laisser cette question
     vide si aucun choix ne s’applique à votre situation</span>
+home_electricBicycleExceedsTotal: >-
+    Le nombre de vélos électriques ne peut pas dépasser le nombre total de vélos possédés
+    par votre ménage.

@@ -109,3 +109,6 @@ home_carParkingsAvailableVehicleHousehold_one: >-
     <strong>Parking</strong> available at home for your household's vehicle<br /><span
     class="_pale _oblique">You may leave this question blank if none of the options
     apply to your situation.</span>
+home_electricBicycleExceedsTotal: >-
+    The number of electric bicycles cannot exceed the total number of bicycles owned
+    by your household.

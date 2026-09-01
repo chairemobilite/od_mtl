@@ -1,7 +1,10 @@
 import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
-import { requiredValidation } from 'evolution-common/lib/services/widgets/validations/validations';
+import {
+    requiredValidation,
+    bicycleNumberValidation
+} from 'evolution-common/lib/services/widgets/validations/validations';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
 import { phoneValidation, emailValidation } from 'evolution-common/lib/services/widgets/validations/validations';
@@ -258,6 +261,26 @@ export const accessCodeConfirmIsCheckedCustomValidation: ValidationFunction = (
         {
             validation: _isBlank(value),
             errorMessage: (t: TFunction) => t('accessCode:errors.accessCodeNeedConfirm')
+        }
+    ];
+};
+
+export const electricBicycleNumberCustomValidation: ValidationFunction = (
+    value,
+    _customValue,
+    interview,
+    path,
+    customPath
+) => {
+    const bicycleNumber = surveyHelperNew.getResponse(interview, 'household.bicycleNumber', 0) as number;
+
+    return [
+        ...bicycleNumberValidation(value, _customValue, interview, path, customPath),
+        // Check that the electric bicycle number is not greater than the total bicycle number
+        {
+            validation:
+                !_isBlank(value) && (typeof value === 'string' ? parseInt(value) : (value as number)) > bicycleNumber,
+            errorMessage: (t: TFunction) => t('home:home_electricBicycleExceedsTotal')
         }
     ];
 };

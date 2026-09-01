@@ -45,6 +45,7 @@ home,popup.householdTwoWheelContent,"<span class=""_green"">Inclure :</span>
 home,popup.homeNotInTerritoryPleaseValidate,"Le domicile que vous avez indiqué sur la carte est situé à l’extérieur du territoire de l’enquête. Veuillez d’abord vérifier que l’emplacement (le point sur la carte) correspond bien à votre domicile, car il peut arriver qu’il soit positionné par erreur.","The home location you indicated on the map is outside the survey area. Please first verify that the location (the pin on the map) correctly corresponds to your home, as it may sometimes be placed by mistake.",,
 home,popup.confirmHomeGeography,Je confirme que la localisation est correcte,I confirm geography is correct,,
 home,popup.validateHomeGeography,Revérifier la localisation,Reverify the geography,,
+home,home_electricBicycleExceedsTotal,Le nombre de vélos électriques ne peut pas dépasser le nombre total de vélos possédés par votre ménage.,The number of electric bicycles cannot exceed the total number of bicycles owned by your household.,,
 household,popup.studentTitle,Qui considérer comme étudiant?,Who should be considered a student?,,
 household,popup.studentContent,"<span class=""_green"">Inclure :</span>
 - Tous les étudiants et élèves à partir de 15 ans, indépendamment du niveau d'enseignement.

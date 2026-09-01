@@ -7,7 +7,6 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as formatters from 'evolution-common/lib/utils/formatters';
@@ -198,10 +197,11 @@ export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType =
     label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
     valueRange: {
         min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.bicycleNumber', 0) as any
+        max: 4
     },
+    overMaxAllowed: true,
     conditional: conditionals.hasHouseholdBicycleConditional,
-    validations: validations.bicycleNumberValidation
+    validations: customValidations.electricBicycleNumberCustomValidation
 };
 
 // Custom label because of the car number plural
