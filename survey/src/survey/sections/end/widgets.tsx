@@ -7,7 +7,6 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
-import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as inputRange from '../../common/inputRange';
@@ -37,8 +36,9 @@ export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType =
     label: (t: TFunction) => t('end:householdPluginHybridCarNumber'),
     valueRange: {
         min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
+        max: 4
     },
+    overMaxAllowed: true,
     conditional: conditionals.householdHasCars,
     validations: customValidations.householdHybridCarCountCustomValidation
 };
@@ -51,8 +51,9 @@ export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
     label: (t: TFunction) => t('end:householdElectricCarNumber'),
     valueRange: {
         min: 0,
-        max: (interview) => surveyHelper.getResponse(interview, 'household.carNumber', 0) as any
+        max: 4
     },
+    overMaxAllowed: true,
     conditional: conditionals.householdHasCars,
     validations: customValidations.householdElectricCarCountCustomValidation
 };

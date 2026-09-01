@@ -3,7 +3,8 @@ import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { type ValidationFunction } from 'evolution-common/lib/services/questionnaire/types';
 import {
     requiredValidation,
-    bicycleNumberValidation
+    bicycleNumberValidation,
+    carNumberValidation
 } from 'evolution-common/lib/services/widgets/validations/validations';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
@@ -102,27 +103,47 @@ export const getGeographyCustomValidation = ({ value, interview, path }) => {
     ];
 };
 
-export const householdElectricCarCountCustomValidation: ValidationFunction = (value, _customValue, interview) => {
-    const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as any;
-    const pluginHybridCarNumber = surveyHelperNew.getResponse(interview, 'household.pluginHybridCarNumber', 0) as any;
+export const householdElectricCarCountCustomValidation: ValidationFunction = (
+    value,
+    _customValue,
+    interview,
+    path,
+    customPath
+) => {
+    const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as number;
+    const pluginHybridCarNumber = surveyHelperNew.getResponse(
+        interview,
+        'household.pluginHybridCarNumber',
+        0
+    ) as number;
     return [
+        ...carNumberValidation(value, _customValue, interview, path, customPath),
+        // Check that the electric car number is not greater than the total car number minus the plugin hybrid car number
         {
             validation:
                 !_isBlank(value) &&
-                (typeof value === 'string' ? parseInt(value) : value) + pluginHybridCarNumber > carNumber,
+                (typeof value === 'string' ? parseInt(value) : (value as number)) + pluginHybridCarNumber > carNumber,
             errorMessage: (t: TFunction) => t('customLabel:HybridElectricExceedsTotal')
         }
     ];
 };
 
-export const householdHybridCarCountCustomValidation = (value, _customValue, interview) => {
+export const householdHybridCarCountCustomValidation: ValidationFunction = (
+    value,
+    _customValue,
+    interview,
+    path,
+    customPath
+) => {
     const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as number;
     const electricCarNumber = surveyHelperNew.getResponse(interview, 'household.electricCarNumber', 0) as number;
     return [
+        ...carNumberValidation(value, _customValue, interview, path, customPath),
+        // Check that the hybrid car number is not greater than the total car number minus the electric car number
         {
             validation:
                 !_isBlank(value) &&
-                (typeof value === 'string' ? parseInt(value) : value) + electricCarNumber > carNumber,
+                (typeof value === 'string' ? parseInt(value) : (value as number)) + electricCarNumber > carNumber,
             errorMessage: (t: TFunction) => t('customLabel:HybridElectricExceedsTotal')
         }
     ];

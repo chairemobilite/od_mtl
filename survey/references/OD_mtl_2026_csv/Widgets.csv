@@ -434,11 +434,13 @@ __Facultatif__
 __Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)__","Among the vehicles owned by your household, how many are **plug-in hybrid vehicles**?
 __Optional__
 __Only include vehicles that can be plugged in to recharge (do not include regular hybrids, e.g. Toyota Corolla Hybrid)__",,,"min=0
-max=household.carNumber",,householdHasCars,householdHybridCarCountCustomValidation,,,,,1,,,,,
+Max=4
+OverMaxAllowed",,householdHasCars,householdHybridCarCountCustomValidation,,,,,1,,,,,
 householdElectricCarNumber,RadioNumber,True,end,,household.electricCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules électriques**?
 __Facultatif__","Among the vehicles owned by your household, how many are **electric vehicles**?
 __Optional__",,,"min=0
-max=household.carNumber",,householdHasCars,householdElectricCarCountCustomValidation,,,,,1,,,,,
+Max=4
+OverMaxAllowed",,householdHasCars,householdElectricCarCountCustomValidation,,,,,1,,,,,
 householdIncome,Select,True,end,,household.income,"Tranche de revenu avant impôts (brut) du ménage, en 2025?
 __Facultatif__","What was your household's income range before taxes (gross income), in 2025?
 __Optional__",,,,,,optionalValidation,householdIncomeChoices,incomeHelpPopup,,,1,,,,,
