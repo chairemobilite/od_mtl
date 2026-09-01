@@ -4,7 +4,7 @@ import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers';
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
-// import { countPersons, getPersonsObject, selfResponseAge } from '../helperFunctions/helper';
+import { getHouseholdMinimumAgeConfirmPopup } from 'evolution-common/lib/services/questionnaire/sections/common/householdMinimumAgeConfirmPopup';
 
 // TODO: Use the assignedDate from the interview object instead of the date of the survey.
 // TODO: Update the assignedDate from serverFieldUpdate.ts and test it from serverFieldUpdate.test.ts
@@ -40,28 +40,7 @@ export const twoWheelNumberHelpPopup: HelpPopup = {
     content: (t: TFunction, interview) => t('home:popup.householdTwoWheelContent')
 };
 
-export const validateHouseholdAgesHelpPopup: ButtonWidgetConfig['confirmPopup'] = {
-    content: (t: TFunction, interview, path) => {
-        const countPersons = odSurveyHelpers.countPersons({ interview });
-        return t('household:popup.validateHouseholdAgesHelp', {
-            count: countPersons
-        });
-    },
-    showConfirmButton: false,
-    cancelButtonColor: 'blue',
-    cancelButtonLabel: {
-        fr: 'OK',
-        en: 'OK'
-    },
-    conditional: function (interview) {
-        const persons = odSurveyHelpers.getPersonsArray({ interview });
-        const allPersonsHaveAge = persons.find((person) => _isBlank(person.age)) === undefined;
-        // FIXME Why 16? In the config, we have selfResponseMinimumAge, interviewableAge, adultAge, drivingLicenseAge Can we use one of those instead?
-        const atLeastOnePersonOlderThan16 =
-            persons.find((person) => !_isBlank(person.age) && person.age >= 16) !== undefined;
-        return allPersonsHaveAge && !atLeastOnePersonOlderThan16;
-    }
-};
+export const validateHouseholdAgesHelpPopup: ButtonWidgetConfig['confirmPopup'] = getHouseholdMinimumAgeConfirmPopup();
 
 export const assignedDateHelpPopup: HelpPopup = {
     containsHtml: true,

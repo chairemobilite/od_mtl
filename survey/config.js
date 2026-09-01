@@ -44,7 +44,8 @@ module.exports = {
         schoolMandatoryAge: 15,
         maxPersonAge: 125,
         // Add warnings when household have members aged 100 or more
-        addAuditWarningVeryOldAge: 100
+        addAuditWarningVeryOldAge: 100,
+        householdMinimumAge: 16
     },
     accessCodeFormat: '000-000-000',
     singlePersonInterview: false,
@@ -90,7 +91,7 @@ module.exports = {
             'barriersTime',
             'barriersTransfer',
             'barriersSecurity',
-            'barriersPlanning',
+            'barriersPlanning'
         ],
         barriersDisability: [
             'barriersDisabilityFrequency',
@@ -101,7 +102,7 @@ module.exports = {
             'barriersDisabilitySecurity',
             'barriersDisabilityUniversalAccessibility',
             'barriersDisabilityPlanning',
-            'barriersDisabilityCourtesy',
+            'barriersDisabilityCourtesy'
         ],
         attitudinal: [
             'attitudinalOpinion',
@@ -125,12 +126,13 @@ module.exports = {
     mapMaxGeocodingResultsBounds: [
         {
             lat: 45.2229,
-            lng: -74.3230
+            lng: -74.323
         },
         {
             lat: 46.1181,
             lng: -72.9215
-        }],
+        }
+    ],
     mapAerialTilesUrl: undefined, // aerial imagery usually requires permission to use. Feel free to add your own url to this file in your local environment.
     detectLanguage: false,
     detectLanguageFromUrl: true,
