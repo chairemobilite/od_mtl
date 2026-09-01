@@ -89,6 +89,12 @@ popup:
         electric)<br /><span class="_red">Do not include:</span><br />- Cars, SUVs,
         light trucks, trucks, and vans<br />- Bicycles or electric bicycles<br />-
         Kick scooters or electric scooters
+    homeNotInTerritoryPleaseValidate: >-
+        The home location you indicated on the map is outside the survey area. Please
+        first verify that the location (the pin on the map) correctly corresponds
+        to your home, as it may sometimes be placed by mistake.
+    confirmHomeGeography: I confirm geography is correct
+    validateHomeGeography: Reverify the geography
     accessCodeHelpPopupTitle: Where find my access code?
     accessCodeHelpPopupContent: >-
         capture de la lettre<br />If you have not received the invitation letter,

@@ -458,10 +458,25 @@ export const fillAccessCodeSectionTests = ({
 
 /********** Tests home section **********/
 export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFilled = true }: HomeTestParameters) => {
-    const householdSize = home.householdSize;
-
     // Verify the home navigation is active
     testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'active', isDisabled: false });
+
+    fillHomeSectionWidgetsTests({ context, home, addressIsFilled });
+
+    // Test nextbutton widget home_save
+    testHelpers.inputNextButtonTest({ context, text: 'Save and continue', nextPageUrl: '/survey/household' });
+
+    // Verify the home navigation is completed
+    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'completed', isDisabled: false });
+};
+
+/** Fill the home section widgets only, no navigation or next button clicks */
+export const fillHomeSectionWidgetsTests = ({
+    context,
+    home = defaultHome,
+    addressIsFilled = true
+}: HomeTestParameters) => {
+    const householdSize = home.householdSize;
 
     // Test radio widget acceptToBeContactedForHelp with choices yesNo
     /* @link file://./../src/survey/common/choices.tsx */
@@ -619,12 +634,6 @@ export const fillHomeSectionTests = ({ context, home = defaultHome, addressIsFil
             value: home.householdAtLeastOnePersonWithDisability
         });
     }
-
-    // Test nextbutton widget home_save
-    testHelpers.inputNextButtonTest({ context, text: 'Save and continue', nextPageUrl: '/survey/household' });
-
-    // Verify the home navigation is completed
-    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'home', buttonStatus: 'completed', isDisabled: false });
 };
 
 /********** Tests household section **********/
@@ -3536,6 +3545,11 @@ export const buttonARTMPanelTest = ({ context }: CommonTestParametersModify) => 
 /********** Tests completed section **********/
 export const fillCompletedSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
     // Test infotext widget completedText
+    testHelpers.waitTextVisible({
+        context,
+        text: 'If you do not reside there, your responses cannot be used.',
+        isVisible: false
+    });
     testHelpers.waitTextVisible({ context, text: 'Thank you for your participation!' });
     testHelpers.waitTextVisible({
         context,

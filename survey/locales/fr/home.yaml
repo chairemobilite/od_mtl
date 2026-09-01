@@ -93,6 +93,13 @@ popup:
         <br />- Les automobiles, VUS, camions légers, camions et fourgonnettes<br
         />- Les vélos ou vélos électriques<br />- Les trottinettes ou trottinettes
         électriques
+    homeNotInTerritoryPleaseValidate: >-
+        Le domicile que vous avez indiqué sur la carte est situé à l’extérieur du
+        territoire de l’enquête. Veuillez d’abord vérifier que l’emplacement (le point
+        sur la carte) correspond bien à votre domicile, car il peut arriver qu’il
+        soit positionné par erreur.
+    confirmHomeGeography: Je confirme que la localisation est correcte
+    validateHomeGeography: Revérifier la localisation
     accessCodeHelpPopupTitle: Où trouver mon code d’accès?
     accessCodeHelpPopupContent: >-
         capture de la lettre<br />Si vous n'avez pas reçu de lettre d'invitation,

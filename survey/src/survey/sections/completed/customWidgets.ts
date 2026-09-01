@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
-import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
+import * as conditionals from '../../common/conditionals';
 
 const artmPanelUrl = () =>
     i18n.language === 'fr'
@@ -19,5 +19,5 @@ export const buttonARTMPanel: WidgetConfig.ButtonWidgetConfig = {
         window.open(artmPanelUrl(), '_blank', 'noopener');
     },
     align: 'left',
-    conditional: defaultConditional
+    conditional: conditionals.homeInTerritoryConditional
 };

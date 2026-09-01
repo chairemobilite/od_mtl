@@ -5,6 +5,7 @@ import * as odSurveyHelpers from 'evolution-common/lib/services/odSurvey/helpers
 import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { getHouseholdMinimumAgeConfirmPopup } from 'evolution-common/lib/services/questionnaire/sections/common/householdMinimumAgeConfirmPopup';
+import { homeNotInTerritoryConditional } from './conditionals';
 
 // TODO: Use the assignedDate from the interview object instead of the date of the survey.
 // TODO: Update the assignedDate from serverFieldUpdate.ts and test it from serverFieldUpdate.test.ts
@@ -100,4 +101,14 @@ export const incomeHelpPopup: HelpPopup = {
     title: (t: TFunction) => t('end:popup.incomeHelpPopupTitle'),
     containsHtml: true,
     content: (t: TFunction, interview) => t('end:popup.incomeHelpPopupContent')
+};
+
+export const homeNotInTerritoryConfirmPopup: ButtonWidgetConfig['confirmPopup'] = {
+    content: (t: TFunction) => t('home:popup.homeNotInTerritoryPleaseValidate'),
+    showConfirmButton: true,
+    cancelButtonColor: 'blue',
+    confirmButtonColor: 'blue',
+    cancelButtonLabel: (t: TFunction) => t('home:popup.validateHomeGeography'),
+    confirmButtonLabel: (t: TFunction) => t('home:popup.confirmHomeGeography'),
+    conditional: homeNotInTerritoryConditional
 };

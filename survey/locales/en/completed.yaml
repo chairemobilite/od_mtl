@@ -2,6 +2,11 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+completedTextOutOfTerritory: >-
+    <strong>Thank you for your interest in the Perspectives mobilité survey.</strong><br
+    /><br />This survey is intended for people currently living within the study area.<br
+    /><br />If you do not reside there, your responses cannot be used.<br /><br />Thank
+    you for your understanding.
 completedText: >-
     <strong>Thank you for your participation!</strong><br /><br /><span class="_pale
     _oblique">You can modify your answers by clicking on the sections in the menu

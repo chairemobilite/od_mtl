@@ -1542,3 +1542,29 @@ export const shouldAskForNoWorkTripReasonSpecifyConditional: WidgetConditional =
         ]
     });
 };
+
+export const homeInTerritoryConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'home.geography.properties.isInTerritory',
+                comparisonOperator: '!==',
+                value: false
+            }
+        ]
+    });
+};
+
+export const homeNotInTerritoryConditional: WidgetConditional = (interview) => {
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: 'home.geography.properties.isInTerritory',
+                comparisonOperator: '===',
+                value: false
+            }
+        ]
+    });
+};

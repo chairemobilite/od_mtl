@@ -1489,4 +1489,5 @@ Abbreviation,c_
 ""
 Field,buttonARTMPanel
 Question type,Unknown input
+Conditional,homeInTerritoryConditional : h_geography.properties.isInTerritory !== False
 Question,"Join ""Let's talk mobility"" panel"

@@ -7,14 +7,23 @@ import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defa
 import { defaultConditional } from 'evolution-common/lib/services/widgets/conditionals/defaultConditional';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
+import * as conditionals from '../../common/conditionals';
 import * as customWidgets from './customWidgets';
+
+export const completedTextOutOfTerritory: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'completedTextOutOfTerritory',
+    containsHtml: true,
+    text: (t: TFunction) => t('completed:completedTextOutOfTerritory'),
+    conditional: conditionals.homeNotInTerritoryConditional
+};
 
 export const completedText: WidgetConfig.TextWidgetConfig = {
     ...defaultInputBase.infoTextBase,
     path: 'completedText',
     containsHtml: true,
     text: (t: TFunction) => t('completed:completedText'),
-    conditional: defaultConditional
+    conditional: conditionals.homeInTerritoryConditional
 };
 
 export const buttonARTMPanel = customWidgets.buttonARTMPanel;

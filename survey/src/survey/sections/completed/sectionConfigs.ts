@@ -9,6 +9,7 @@ import { widgetsNames } from './widgetsNames';
 import { customPreload } from './customPreload';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import { updateHouseholdSizeFromPersonCount } from '../../common/customHelpers';
+import { isHomeOutsideTerritory } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'completed';
 const previousSectionName: SectionConfig['previousSection'] = 'end';
@@ -32,7 +33,7 @@ export const sectionConfig: SectionConfig = {
     preload: customPreload,
     // Allow to click on the section menu
     enableConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: previousSectionName });
+        return isSectionCompleted({ interview, sectionName: previousSectionName }) || isHomeOutsideTerritory(interview);
     },
     // Allow to click on the section menu
     completionConditional: function (interview) {
