@@ -5,6 +5,7 @@
 import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 
 export const widgetsNames: SectionConfig['widgets'] = [
+    'completedTextOutOfTerritory',
     'completedText',
     'buttonARTMPanel'
     // 'mapARTMImage'

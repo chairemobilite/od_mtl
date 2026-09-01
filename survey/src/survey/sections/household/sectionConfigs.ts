@@ -9,6 +9,7 @@ import { customPreload } from './customPreload';
 import { householdMembersSectionComplete } from '../../common/helper';
 import { getResponse } from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
+import { isHomeOutsideTerritory } from '../../common/commonHelpers';
 
 export const currentSectionName: string = 'household';
 const previousSectionName: SectionConfig['previousSection'] = 'home';
@@ -34,7 +35,9 @@ export const sectionConfig: SectionConfig = {
     preload: customPreload,
     // Allow to click on the section menu
     enableConditional: function (interview) {
-        return isSectionCompleted({ interview, sectionName: previousSectionName });
+        return (
+            isSectionCompleted({ interview, sectionName: previousSectionName }) && !isHomeOutsideTerritory(interview)
+        );
     },
     // Allow to click on the section menu
     completionConditional: function (interview) {

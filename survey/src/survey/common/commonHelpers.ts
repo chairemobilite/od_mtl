@@ -51,6 +51,18 @@ export const isPartialSample = (interview: InterviewAttributes, partialSample: s
 export const isHomeInArtmTerritory = (interview: InterviewAttributes) =>
     getResponse(interview, 'home.geography.properties.isArtmZone', false) === true;
 
+/**
+ * Return whether the home is outside the survey territory
+ *
+ * TODO This should be moved to evolution, as any survey with a survey
+ * area file should have this property
+ *
+ * @param interview The interview
+ * @returns boolean `true` if the home geography is not in the survey territory
+ */
+export const isHomeOutsideTerritory = (interview: InterviewAttributes) =>
+    getResponse(interview, 'home.geography.properties.isInTerritory') === false;
+
 export const getCommonTripReferencePerson = (interview: InterviewAttributes) => {
     // Get the common trip reference person id
     const commonTripReferencePersonId = getResponse(interview, '_commonTripRefPersonId', null) as string | null;

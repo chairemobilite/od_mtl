@@ -12,7 +12,7 @@ import { accessCodeFormatter } from 'evolution-common/lib/utils/formatters';
 import { InterviewAttributes, Segment } from 'evolution-common/lib/services/questionnaire/types';
 import config from 'evolution-common/lib/config/project.config';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
-import { isCommonTripSampleMatch } from '../common/commonHelpers';
+import { isCommonTripSampleMatch, isHomeOutsideTerritory } from '../common/commonHelpers';
 import {
     getUpdatedFieldsForBarriers,
     getUpdatedFieldsForCommonTrip,
@@ -731,6 +731,17 @@ export default [
                 console.error('error filling modes for active trip', error);
                 return {};
             }
+        }
+    },
+    {
+        field: '_sections.home._isCompleted',
+        callback: async (interview, value, _path) => {
+            // When the home section is completed, we redirect to the completed page if the home is not in the survey territory
+            // FIXME This could be moved to Evolution
+            if (value === true && isHomeOutsideTerritory(interview)) {
+                return [{}, '/survey/completed'];
+            }
+            return {};
         }
     }
 ];

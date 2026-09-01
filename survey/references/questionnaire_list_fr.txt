@@ -1045,6 +1045,14 @@ Terminer l’entrevue
 
 Section: Questionnaire complété
 
+Merci de votre intérêt pour l’enquête Perspectives mobilité.
+
+Cette enquête s’adresse uniquement aux personnes résidant sur le territoire étudié.
+
+Si vous n’y habitez pas actuellement, vos réponses ne pourront malheureusement pas être utilisées.
+
+Nous vous remercions pour votre compréhension.
+
 Merci pour votre participation!
 
 Vous pouvez modifier vos réponses en cliquant sur les sections dans le menu ci-dessus.

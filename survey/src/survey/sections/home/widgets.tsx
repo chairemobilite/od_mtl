@@ -263,6 +263,7 @@ export const householdAtLeastOnePersonWithDisability: WidgetConfig.InputRadioTyp
 export const home_save: WidgetConfig.ButtonWidgetConfig = {
     ...defaultInputBase.buttonNextBase,
     path: 'home.save',
+    confirmPopup: customHelpPopup.homeNotInTerritoryConfirmPopup,
     label: (t: TFunction) => t('home:home_save'),
     conditional: defaultConditional
 };

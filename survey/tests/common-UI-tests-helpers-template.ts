@@ -1258,10 +1258,19 @@ export const fillCompletedSectionTests = ({ context, householdSize }: CommonTest
     // Progress bar test for completed section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'completed', completionPercentage: 0 });
 
-    // Test infotext widget completedText
+    // Test infotext widget completedTextOutOfTerritory with conditional homeNotInTerritoryConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'completedTextOutOfTerritory', isVisible: true });
     testHelpers.waitTextVisible({ context, text: '?' });
 
-    // Test custom widget buttonARTMPanel
+    // Test infotext widget completedText with conditional homeInTerritoryConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'completedText', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
+    // Test custom widget buttonARTMPanel with conditional homeInTerritoryConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'buttonARTMPanel', isVisible: true });
     // Implement custom test
 
     // Test infotext widget mapARTMImage
