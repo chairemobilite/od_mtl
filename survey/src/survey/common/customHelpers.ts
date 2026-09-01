@@ -236,6 +236,12 @@ export const shouldShowToddlerDayCareQuestions = (interview: InterviewAttributes
         return false;
     }
 
+    // Do not show on weekends, use isoWeekday field for that, 6 and 7 are saturday and sunday
+    const isoWeekday = getResponse(interview, '_assignedWeekDayIso');
+    if (typeof isoWeekday === 'number' && isoWeekday > 5) {
+        return false;
+    }
+
     // Make sure the household has children
     const children = getChildrenAged1To4(interview);
     if (children.length === 0) {
