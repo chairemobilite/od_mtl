@@ -260,8 +260,9 @@ const segmentsP2: commonUITestsHelpers.Segment[] = [
     {
         ...commonUITestsHelpers.defaultSegmentNullValues,
         segmentIndex: 0,
-        modePre: 'walk',
-        mode: null, // Question won't show
+        modePre: 'carDriver',
+        mode: 'carDriver',
+        vehicleOccupancy: 'dontKnow', // proxy respondent can answer dontKnow
         hasNextMode: false
     },
     {
@@ -340,10 +341,12 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 });
 
 /********** Tests tripsIntro section for second person **********/
+// This person is a proxy respondent
 commonUITestsHelpers.fillTripsintroSectionTests({
     context,
     householdSize: 2,
     hasTrips: true,
+    whoAnswersFor: '${tripDiary[0].personId}',
     expectPopup: true,
     expectedNextSection: 'visitedPlaces'
 });
@@ -352,6 +355,7 @@ commonUITestsHelpers.fillTripsintroSectionTests({
 commonUITestsHelpers.fillVisitedPlacesSectionTests({
     context,
     householdSize: 2,
+    isSelfDeclared: false,
     visitedPlaces: visitedPlacesP2,
     journeyStartsAtHome: true
 });
