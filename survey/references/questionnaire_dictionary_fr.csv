@@ -96,7 +96,7 @@ Question,"Vélo(s) à la disposition de votre ménage
 Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants."
 ""
 Champ,hh_electricBicycleNumber
-Type de question,RadioNumber
+Type de question,Entrée inconnue
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Parmi ces vélos, combien sont des vélos à assistance électrique?"
 ""
@@ -1368,14 +1368,14 @@ parentWithChild : Parent seul avec enfant(s)
 noFamily : Aucune de ces situations (ex. colocataires, amis, frères et sœurs vivant ensemble)"
 ""
 Champ,hh_pluginHybridCarNumber
-Type de question,RadioNumber
+Type de question,Entrée inconnue
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif
 Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)"
 ""
 Champ,hh_electricCarNumber
-Type de question,RadioNumber
+Type de question,Entrée inconnue
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
 Facultatif"

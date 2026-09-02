@@ -1,7 +1,6 @@
 import { TFunction } from 'i18next';
 import config from 'chaire-lib-common/lib/config/shared/project.config';
 import * as defaultInputBase from 'evolution-frontend/lib/components/inputs/defaultInputBase';
-import { getFormattedDate } from 'evolution-frontend/lib/services/display/frontendHelper';
 import * as WidgetConfig from 'evolution-common/lib/services/questionnaire/types';
 import { getActivityMarkerIcon } from 'evolution-common/lib/services/questionnaire/sections/visitedPlaces/activityIconMapping';
 import * as surveyHelperNew from 'evolution-common/lib/utils/helpers';
@@ -9,7 +8,8 @@ import { defaultConditional } from 'evolution-common/lib/services/widgets/condit
 import * as validations from 'evolution-common/lib/services/widgets/validations/validations';
 import * as customValidations from '../../common/customValidations';
 import { defaultInvalidGeocodingResultTypes } from '../../common/customGeoData';
-import * as customHelpPopup from '../../common/customHelpPopup';
+import * as conditionals from '../../common/conditionals';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
 
 export const homeGeography: WidgetConfig.InputMapFindPlaceType = {
     ...defaultInputBase.inputMapFindPlaceBase,
@@ -55,4 +55,20 @@ export const homeGeography: WidgetConfig.InputMapFindPlaceType = {
             path
         })
     // conditional: conditionals.homeGeographyConditional
+};
+
+// Note: This is a custom widget, because we need to use a Math.min() function.
+export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType = {
+    ...defaultInputBase.inputRadioNumberBase,
+    path: 'household.electricBicycleNumber',
+    twoColumns: false,
+    containsHtml: true,
+    label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
+    valueRange: {
+        min: 0,
+        max: (interview) => Math.min(4, Number(getResponse(interview, 'household.bicycleNumber', 0)))
+    },
+    overMaxAllowed: true,
+    conditional: conditionals.hasHouseholdBicycleConditional,
+    validations: customValidations.electricBicycleNumberCustomValidation
 };

@@ -110,12 +110,8 @@ export const householdElectricCarCountCustomValidation: ValidationFunction = (
     path,
     customPath
 ) => {
-    const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as number;
-    const pluginHybridCarNumber = surveyHelperNew.getResponse(
-        interview,
-        'household.pluginHybridCarNumber',
-        0
-    ) as number;
+    const carNumber = Number(surveyHelperNew.getResponse(interview, 'household.carNumber', 0));
+    const pluginHybridCarNumber = Number(surveyHelperNew.getResponse(interview, 'household.pluginHybridCarNumber', 0));
     return [
         ...carNumberValidation(value, _customValue, interview, path, customPath),
         // Check that the electric car number is not greater than the total car number minus the plugin hybrid car number
