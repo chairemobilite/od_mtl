@@ -47,7 +47,7 @@ __Indiquer seulement les vélos des ados ou adultes dans un état utilisable, in
 __Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles.__",,,"min=0
 Max=4
 overMaxAllowed",,,bicycleNumberValidation,,,,,True,,,,,
-householdElectricBicycleNumber,RadioNumber,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
+householdElectricBicycleNumber,Custom,True,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
 Max=4
 overMaxAllowed",,hasHouseholdBicycleConditional,electricBicycleNumberCustomValidation,,,,,True,,,,,
 homeCarParkingsAvailableVehicleHousehold,Checkbox,True,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
@@ -429,14 +429,14 @@ barriersPlanning,Radio,True,barriers,,barriersPlanning,"<span class=""_phone"" a
 buttonCompleteBarriersSection,NextButton,True,barriers,,buttonCompleteBarriersSection,Continuer,Continue,,,,,,,,,,,,,,,,
 householdType,Radio,True,end,,household.type,Laquelle des situations suivantes décrit le mieux votre ménage?,Which of the following situations best describes your household?,,,,,householdTypeConditional,optionalValidation,householdType,,,,1,,,,,
 householdTypeSpecify,Radio,False,end,,household.typeSpecify,Plus spécifiquement?,More specifically?,,,,,householdTypeSpecifyConditional,optionalValidation,householdTypeSpecify,,,,1,,,,,
-householdPluginHybridCarNumber,RadioNumber,True,end,,household.pluginHybridCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules hybrides rechargeables**?
+householdPluginHybridCarNumber,Custom,True,end,,household.pluginHybridCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules hybrides rechargeables**?
 __Facultatif__
 __Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)__","Among the vehicles owned by your household, how many are **plug-in hybrid vehicles**?
 __Optional__
 __Only include vehicles that can be plugged in to recharge (do not include regular hybrids, e.g. Toyota Corolla Hybrid)__",,,"min=0
 Max=4
 OverMaxAllowed",,householdHasCars,householdHybridCarCountCustomValidation,,,,,1,,,,,
-householdElectricCarNumber,RadioNumber,True,end,,household.electricCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules électriques**?
+householdElectricCarNumber,Custom,True,end,,household.electricCarNumber,"Parmi les véhicules possédés par votre ménage, combien sont des **véhicules électriques**?
 __Facultatif__","Among the vehicles owned by your household, how many are **electric vehicles**?
 __Optional__",,,"min=0
 Max=4

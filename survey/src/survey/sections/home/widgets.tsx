@@ -189,20 +189,7 @@ export const householdBicycleNumber: WidgetConfig.InputRadioNumberType = {
     validations: validations.bicycleNumberValidation
 };
 
-export const householdElectricBicycleNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.electricBicycleNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('home:householdElectricBicycleNumber'),
-    valueRange: {
-        min: 0,
-        max: 4
-    },
-    overMaxAllowed: true,
-    conditional: conditionals.hasHouseholdBicycleConditional,
-    validations: customValidations.electricBicycleNumberCustomValidation
-};
+export const householdElectricBicycleNumber = customWidgets.householdElectricBicycleNumber;
 
 // Custom label because of the car number plural
 export const homeCarParkingsAvailableVehicleHousehold: WidgetConfig.InputCheckboxType = {

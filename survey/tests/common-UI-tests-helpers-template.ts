@@ -123,9 +123,10 @@ export const fillHomeSectionTests = ({ context, householdSize }: CommonTestParam
 
     // Test radionumber widget householdBicycleNumber
 
-    // Test radionumber widget householdElectricBicycleNumber with conditional hasHouseholdBicycleConditional
+    // Test custom widget householdElectricBicycleNumber with conditional hasHouseholdBicycleConditional
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.electricBicycleNumber', isVisible: true });
+    // Implement custom test
 
     // Test checkbox widget homeCarParkingsAvailableVehicleHousehold with conditional carParkingHomeWithVehicleConditional with choices carParkingsHome
     /* @link file://./../src/survey/common/conditionals.tsx */
@@ -1173,13 +1174,15 @@ export const fillEndSectionTests = ({ context, householdSize }: CommonTestParame
     /* @link file://./../src/survey/common/choices.tsx */
     // Widget not active
 
-    // Test radionumber widget householdPluginHybridCarNumber with conditional householdHasCars
+    // Test custom widget householdPluginHybridCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.pluginHybridCarNumber', isVisible: true });
+    // Implement custom test
 
-    // Test radionumber widget householdElectricCarNumber with conditional householdHasCars
+    // Test custom widget householdElectricCarNumber with conditional householdHasCars
     /* @link file://./../src/survey/common/conditionals.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.electricCarNumber', isVisible: true });
+    // Implement custom test
 
     // Test select widget householdIncome with choices householdIncomeChoices
     /* @link file://./../src/survey/common/choices.tsx */

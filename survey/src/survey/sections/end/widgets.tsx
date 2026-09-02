@@ -10,6 +10,7 @@ import * as validations from 'evolution-common/lib/services/widgets/validations/
 import * as choices from '../../common/choices';
 import * as conditionals from '../../common/conditionals';
 import * as inputRange from '../../common/inputRange';
+import * as customWidgets from './customWidgets';
 import * as customChoices from './customChoices';
 import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customValidations from '../../common/customValidations';
@@ -28,35 +29,9 @@ export const householdType: WidgetConfig.InputRadioType = {
 
 // Note: householdTypeSpecify widget is not active. This widget will not be displayed in the survey.
 
-export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.pluginHybridCarNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('end:householdPluginHybridCarNumber'),
-    valueRange: {
-        min: 0,
-        max: 4
-    },
-    overMaxAllowed: true,
-    conditional: conditionals.householdHasCars,
-    validations: customValidations.householdHybridCarCountCustomValidation
-};
+export const householdPluginHybridCarNumber = customWidgets.householdPluginHybridCarNumber;
 
-export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
-    ...defaultInputBase.inputRadioNumberBase,
-    path: 'household.electricCarNumber',
-    twoColumns: false,
-    containsHtml: true,
-    label: (t: TFunction) => t('end:householdElectricCarNumber'),
-    valueRange: {
-        min: 0,
-        max: 4
-    },
-    overMaxAllowed: true,
-    conditional: conditionals.householdHasCars,
-    validations: customValidations.householdElectricCarCountCustomValidation
-};
+export const householdElectricCarNumber = customWidgets.householdElectricCarNumber;
 
 export const householdIncome: WidgetConfig.InputSelectType = {
     ...defaultInputBase.inputSelectBase,
