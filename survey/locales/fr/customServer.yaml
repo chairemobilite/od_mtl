@@ -56,23 +56,37 @@ confirmedByAdminEmailText: >
 
   Votre accès à la plateforme d'enquête Evolution a été confirmé. Vous pouvez maintenant utiliser votre compte.
 
-magicLinkEmailSubject: Connexion à l’enquête mobilité
+magicLinkEmailSubject: Votre lien pour poursuivre l’Enquête mobilité // Your Link to Continue the Mobility Survey
 magicLinkEmailText: >-
-    Bienvenue!
-    
-    
     Vous avez demandé un lien de connexion pour accéder à votre questionnaire Perspectives mobilité.
-    
-    
+
+
     Pour vous connecter, cliquez sur le lien suivant: {{magicLinkUrl}}
-    
-    
-    Merci de votre contribution à l'amélioration de la planification des transports dans votre région!
-    
-    
+
+
+    Merci de votre contribution à l'amélioration de la planification des transports dans votre région.
+
+
     Veuillez ne pas répondre à ce message.
-    
-    
+
+
     Cordialement,
-    
+
     Bureau des enquêtes sur la mobilité de l’ARTM
+
+
+    --------------------------------
+
+
+    You requested a login link to access your Perspectives mobilité questionnaire.
+
+
+    To sign in, click the following link: {{magicLinkUrl}}
+
+
+    Thank you for contributing to better transportation planning in your region.
+
+
+    Kind regards,
+
+    ARTM Office of mobility surveys
