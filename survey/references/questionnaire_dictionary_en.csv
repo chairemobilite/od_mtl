@@ -474,6 +474,20 @@ hotelForVacation : Hotel or other place on vacation
 studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
 other : Other"
 ""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome
+Question type,Radio input
+Conditional,returnedHomeConditional : departurePlaceOther === hotelForWork || departurePlaceOther === hotelForVacation
+Question,Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers
+Question type,Checkbox input
+Conditional,outOfTerritoryMembersConditional : departurePlaceOther === hotelForVacation && hh_size >= 2 && returnedHome === no
+Question,Which other household members were also away from home all day?
+""
+Field,ti_save
+Question type,Unknown input
+Question,Continue
+""
 ""
 ""
 Section,Déplacements
