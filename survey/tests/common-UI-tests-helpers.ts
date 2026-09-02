@@ -181,7 +181,7 @@ export type Segment = {
     modePre?: string | null;
     mode?: string | null;
     paidForParking: string | null;
-    vehicleOccupancy: number | null;
+    vehicleOccupancy: number | string | null;
     driver?: string | null;
     subwayStationStart?: string | null;
     subwayStationEnd?: string | null;
