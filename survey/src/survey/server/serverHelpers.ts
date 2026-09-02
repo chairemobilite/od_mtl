@@ -19,6 +19,8 @@ import onDemandZones from '../geojson/onDemandTransit_zone.json';
 import { getSurveyArea } from 'evolution-backend/lib/utils/surveyArea';
 import { questionnaireConfiguration } from '../questionnaireConfigBase';
 import { QuestionnaireFactory } from 'evolution-common/lib/services/questionnaire';
+import config from 'evolution-common/lib/config/project.config';
+import moment from 'moment-timezone';
 
 const raZonesFeatureCollection = raZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
 const zatZonesFeatureCollection = zatZones as GeoJSON.FeatureCollection<GeoJSON.MultiPolygon | GeoJSON.Polygon>;
@@ -366,4 +368,28 @@ export const setupQuestionnaire = () => {
         iconMapper: {}
     });
     questionnaireFactory.buildSectionsAndWidgets();
+};
+
+/**
+ * Calculate actual previous day from now, in the project's configured timezone
+ * and using the trip diary's max time of day as rollover time instead of
+ * midnight.
+ *
+ * TODO Move to Evolution, correctly handling possibly missing trip diary times
+ * (now we know it is defined)
+ *
+ * @returns The previous day, in YYYY-MM-DD format
+ */
+export const getActualPreviousDay = () => {
+    const maxTimeOfDay = questionnaireConfiguration.tripDiary!.sections.visitedPlaces!.tripDiaryMaxTimeOfDay;
+    const now = moment.tz(new Date(), config.timezone || 'UTC');
+    // Get the seconds since midnight of the current time
+    const secondsSinceMidnight = now.hours() * 60 * 60 + now.minutes() * 60 + now.seconds() + now.milliseconds() / 1000;
+    // Get the rollover time, which is the module of a full day of the max time of day (would be 0 if max time of day is midnight)
+    const rolloverTimeOfDay = maxTimeOfDay % (24 * 60 * 60);
+    // If current seconds since midnight is below rollover time, the trip diary
+    // current day is not finished, so we go back 2 days.
+    const daysToSubtract = secondsSinceMidnight < rolloverTimeOfDay ? 2 : 1;
+
+    return now.subtract(daysToSubtract, 'days').format('YYYY-MM-DD');
 };

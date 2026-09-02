@@ -1,10 +1,13 @@
 import { updatePathsWithZonesIntersectingPoint } from '../serverHelpers';
+import { getActualPreviousDay } from '../serverHelpers';
+import config from 'evolution-common/lib/config/project.config';
 
 // Ensure survey area is loaded
 jest.mock('evolution-common/lib/config/project.config', () => ({
     __esModule: true,
     default: {
         ...jest.requireActual('evolution-common/lib/config/project.config').default,
+        timezone: 'America/Montreal',
         surveyAreaGeojsonPath: '../../../survey/src/survey/geojson/surveyArea.geojson'
     }
 }));
@@ -85,5 +88,43 @@ describe('updatePathsWithZonesIntersectingPoint', () => {
         expect(res['home.geography.properties.isInTerritory']).toBe(expectedInTerritory);
         expect(res['home.geography.properties.isArtmZone']).toBe(expectedArtmTerritory);
         expect(res['home.geography.properties.isOnDemandTransitZone']).toBe(expectedOnDemandTransitZone);
+    });
+});
+
+describe('getActualPreviousDay', () => {
+    const defaultTimezone = config.timezone;
+
+    beforeEach(() => {
+        jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+        jest.useRealTimers();
+        config.timezone = defaultTimezone;
+    });
+
+    test.each([
+        ['2026-09-02T02:00:00-04:00', '2026-08-31'],
+        ['2026-09-02T05:00:00-04:00', '2026-09-01'],
+        // 8am in America/Montreal
+        ['2026-09-02T03:00:00-09:00', '2026-09-01'],
+        // 8pm, september 1st in America/Montreal
+        ['2026-09-02T05:00:00+07:00', '2026-08-31'],
+        // 1am in America/Montreal
+        ['2026-09-02T05:00:00Z', '2026-08-31']
+    ])('uses the trip diary rollover for server time %s: %s', (currentServerTime, expectedPreviousDay) => {
+        jest.setSystemTime(new Date(currentServerTime));
+
+        expect(getActualPreviousDay()).toEqual(expectedPreviousDay);
+    });
+
+    test.each([
+        ['Asia/Tokyo', '2026-09-02T23:00:00Z', '2026-09-02'], // 8am in tokyo time
+        ['America/Vancouver', '2026-09-02T10:00:00Z', '2026-08-31'] // 3AM in vancouver time
+    ])('uses the configured %s timezone when determining the previous day', (timezone, currentServerTime, expectedPreviousDay) => {
+        config.timezone = timezone as typeof config.timezone;
+        jest.setSystemTime(new Date(currentServerTime));
+
+        expect(getActualPreviousDay()).toEqual(expectedPreviousDay);
     });
 });
