@@ -12,7 +12,7 @@ import participantsDbQueries from 'evolution-backend/lib/models/participants.db.
 import RandomUtils from 'chaire-lib-common/lib/utils/RandomUtils';
 import { getTransitSummary } from 'evolution-backend/lib/services/routing';
 import '../serverValidations'; // Make sure access code format validation is registered
-import { updatePathsWithZonesIntersectingPoint } from '../serverHelpers';
+import { getActualPreviousDay, updatePathsWithZonesIntersectingPoint } from '../serverHelpers';
 
 jest.useFakeTimers();
 
@@ -23,9 +23,11 @@ jest.mock('../serverHelpers', () => ({
         'home.geography.properties.zat': 20,
         'home.geography.properties.isInTerritory': true,
         'home.geography.properties.isArtmZone': true
-    })
+    }),
+    getActualPreviousDay: jest.fn().mockReturnValue('2026-09-02')
 }));
 const mockUpdatePathsWithZonesIntersectingPoints = updatePathsWithZonesIntersectingPoint as jest.MockedFunction<typeof updatePathsWithZonesIntersectingPoint>;
+const mockGetActualPreviousDay = getActualPreviousDay as jest.MockedFunction<typeof getActualPreviousDay>;
 
 jest.mock('evolution-backend/lib/models/interviews.db.queries', () => ({
     getInterviewsStream: jest.fn().mockImplementation(() => new ObjectReadableMock([]))
@@ -327,15 +329,18 @@ describe('test survey day assignation', function () {
         { name: 'sunday', previousDay: '2026-09-20', vector: [0.135, 0.035, 0.83], daysBefore: 2 }
     ])('uses the fixed probability vector when previous day is $name', async ({ previousDay, vector, daysBefore }) => {
         randomMock.mockReturnValue(daysBefore);
+        mockGetActualPreviousDay.mockReturnValueOnce(previousDay);
 
         const interview = _cloneDeep(baseInterview);
         const expectedAssignedDay = moment(previousDay).subtract(daysBefore, 'days').format('YYYY-MM-DD');
         expect(await updateCallback(interview, previousDay)).toEqual({
+            '_previousDay': previousDay,
             '_assignedDay': expectedAssignedDay,
             '_assignedWeekDayIso': moment(expectedAssignedDay).isoWeekday()
         });
 
         expect(randomMock).toHaveBeenCalledWith(vector, undefined, 1);
+        expect(mockGetActualPreviousDay).toHaveBeenCalled();
     });
 
     test('Monday holiday with no previous data, falls back to target day approach', async () => {
@@ -346,7 +351,10 @@ describe('test survey day assignation', function () {
         randomMock.mockReturnValue(3);
 
         const interview = _cloneDeep(baseInterview);
-        expect(await updateCallback(interview, '2022-10-10')).toEqual({
+        const previousDay = '2022-10-10';
+        mockGetActualPreviousDay.mockReturnValueOnce(previousDay);
+        expect(await updateCallback(interview, previousDay)).toEqual({
+            '_previousDay': previousDay,
             '_assignedDay': '2022-10-07',
             '_assignedWeekDayIso': 5 /* friday */
         });
@@ -386,7 +394,10 @@ describe('test survey day assignation', function () {
         await serverFieldUpdateFct.updateAssignedDayRates();
 
         const interview = _cloneDeep(baseInterview);
-        expect(await updateCallback(interview, '2022-10-10')).toEqual({
+        const previousDay = '2022-10-10';
+        mockGetActualPreviousDay.mockReturnValueOnce(previousDay);
+        expect(await updateCallback(interview, previousDay)).toEqual({
+            '_previousDay': previousDay,
             '_assignedDay': '2022-10-07',
             '_assignedWeekDayIso': 5 /* friday */
         });
