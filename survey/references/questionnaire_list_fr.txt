@@ -415,6 +415,7 @@ Stationnement payant?
 
 Personne(s) dans le véhicule
 Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).
+- Je ne sais pas
 
 Qui conduisait ?
 

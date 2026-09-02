@@ -276,7 +276,7 @@ segmentVehicleOccupancy,RadioNumber,VRAI,segments,segments,vehicleOccupancy,"Per
 __Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus).__","Persons in the vehicle
 __Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).__",,,"min=1
 max=5
-overMaxAllowed",,isSelfDeclaredCarDriverCustomConditional,,,,,,True,,,,,
+overMaxAllowed",,isCarDriverCustomConditional,,vehicleOccupancyExtraChoices,,,,True,,,,,
 segmentDriver,Builtin,True,segments,segments,driver,Qui conduisait ?,Who drove?,,,,,,,,,,,True,,,,,
 segmentSubwayStationStart,Custom,True,segments,segments,subwayStationStart,**Station d'embarquement** (au départ) : ,**Boarding station** (when entering the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique
 segmentSubwayStationEnd,Custom,True,segments,segments,subwayStationEnd,**Station de débarquement** (à l'arrivée) : ,**Exit station** (when leaving the metro):,,,,,subwayConditional,,,,,,True,,,,,Custom à cause de l'utilisation du nouveau widget `selectFeature` pour le tri par lieu géographique

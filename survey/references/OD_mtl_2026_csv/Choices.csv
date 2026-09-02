@@ -247,3 +247,4 @@ barriersChoices,3,**Frein fort** - Cette raison m’a fortement conduit à évit
 barriersChoices,4,**Frein décisif** - J’ai évité le TC principalement pour cette raison.,**Decisive barrier** - I avoided public transit mainly because of this reason.,,,,,
 barriersChoices,-1,**Je ne sais pas** - Je ne peux pas dire si cette raison m’a amené à éviter le TC pour ce déplacement.,**Don't know** - I cannot say whether this reason led me to avoid public transit for this trip.,,,,,
 accessCodeConfirmChoices,accessCodeConfirmOk,Je confirme que le code d'accès est correct,I confirm the access code is correct,,,,,
+vehicleOccupancyExtraChoices,dontKnow,Je ne sais pas,I don’t know,,,,isProxyCustomConditional,

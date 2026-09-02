@@ -316,3 +316,5 @@ barriersChoices:
         public transit for this trip.
 accessCodeConfirmChoices:
     accessCodeConfirmOk: I confirm the access code is correct
+vehicleOccupancyExtraChoices:
+    dontKnow: I don’t know

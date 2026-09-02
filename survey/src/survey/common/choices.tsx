@@ -1174,3 +1174,11 @@ export const accessCodeConfirmChoices: ChoiceType[] = [
         label: (t: TFunction) => t('choices:accessCodeConfirmChoices.accessCodeConfirmOk')
     }
 ];
+
+export const vehicleOccupancyExtraChoices: ChoiceType[] = [
+    {
+        value: 'dontKnow',
+        label: (t: TFunction) => t('choices:vehicleOccupancyExtraChoices.dontKnow'),
+        conditional: customConditionals.isProxyCustomConditional
+    }
+];
