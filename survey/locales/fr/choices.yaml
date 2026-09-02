@@ -315,3 +315,5 @@ barriersChoices:
         amené à éviter le TC pour ce déplacement.
 accessCodeConfirmChoices:
     accessCodeConfirmOk: Je confirme que le code d'accès est correct
+vehicleOccupancyExtraChoices:
+    dontKnow: Je ne sais pas

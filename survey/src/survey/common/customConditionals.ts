@@ -94,17 +94,17 @@ export const departurePlaceOtherCustomConditional: WidgetConditional = (intervie
 };
 
 const peopleCountQuestionModes = ['carDriver', 'rentalCar', 'carDriverCarsharing'];
-export const isSelfDeclaredCarDriverCustomConditional: WidgetConditional = (interview, path) => {
-    const segment: any = surveyHelper.getResponse(interview, path, null, '../');
+export const isCarDriverCustomConditional: WidgetConditional = (interview, path) => {
+    const segmentContext = odSurveyHelper.getSegmentContextFromPath({ interview, path });
+    if (segmentContext === null) {
+        throw new Error(`isCarDriverCustomConditional: segment context not found for path ${path}`);
+    }
+    const { segment } = segmentContext;
     // Display for respondent car drivers (exlude motorcycle), only for mtmd sample
     if (segment.modePre !== 'carDriver' || !isPartialSample(interview, 'mtmd')) {
         return [false, null];
     }
-    const person = odSurveyHelper.getActivePerson({ interview });
-    return [
-        odSurveyHelper.isSelfDeclared({ interview, person }) && peopleCountQuestionModes.includes(segment.mode),
-        null
-    ];
+    return [peopleCountQuestionModes.includes(segment.mode), null];
 };
 
 // Show if mode is transitTaxi, or if mode is transitBus (and not nationale variant) and busLines include 'dontKnow' or 'other'.
@@ -739,4 +739,12 @@ export const isCurrentSegmentNotTransitBusCustomConditional: WidgetConditional =
     };
     const currentSegment = getCurrentSegmentForMode();
     return !_isBlank(currentSegment) && !_isBlank(currentSegment.mode) && currentSegment.mode !== 'transitBus';
+};
+
+export const isProxyCustomConditional: WidgetConditional = (interview, path) => {
+    const person = odSurveyHelper.getPerson({ interview, path });
+    if (person === null) {
+        throw new Error(`isProxyCustomConditional: person context not found for path ${path}`);
+    }
+    return !odSurveyHelper.isSelfDeclared({ interview, person });
 };

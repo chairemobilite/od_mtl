@@ -417,6 +417,7 @@ Paid parking
 
 Persons in the vehicle
 Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children).
+- I don’t know
 
 Who drove?
 
