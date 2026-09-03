@@ -411,18 +411,17 @@ export const fillTripsintroSectionTests = ({ context, householdSize }: CommonTes
     // Test radio widget personReturnedHome with conditional returnedHomeConditional with choices returnedHomeCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    // Widget not active
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.returnedHome', value: '?' });
 
     // Test checkbox widget personOutOfTerritoryMembers with conditional outOfTerritoryMembersConditional with choices outOfTerritoryMembersCustomChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
-    // Widget not active
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers', isVisible: true });
+    testHelpers.inputCheckboxTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.outOfTerritoryMembers', values: ['?'] });
 
-    // Test nextbutton widget tripsIntro_save
-    testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
-
-    // Verify the tripsIntro navigation is completed
-    testHelpers.verifyNavBarButtonStatus({ context, buttonText: 'tripsIntro', buttonStatus: 'completed', isDisabled: false });
+    // Test custom widget tripsIntro_save
+    // Implement custom test
 
     // Test infotext widget tripsIntroOutro
     testHelpers.waitTextVisible({ context, text: '?' });

@@ -332,6 +332,12 @@ Where was {{nickname}} at 4 AM?
 - School / place of study: studied or slept there
 - Other
 
+Did {{nickname}} return home ({{address}}) on {{journeyDate}}?
+
+
+Which other household members were also away from home all day?
+
+
 Continue
 
 Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential.

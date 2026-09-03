@@ -27,7 +27,7 @@ const labelWithJourneyDate =
         (t: TFunction, interview, path) => {
             const journeyContext = odHelpers.getJourneyContextFromPath({ interview, path });
             if (!journeyContext) {
-                throw new Error(`${translationKey} label: Journey context not found`);
+                throw new Error(`${translationKey} label: Journey context not found for path ${path}`);
             }
             const { person, journey } = journeyContext;
             const journeyDate = getFormattedTripDateFromJourney(journey);

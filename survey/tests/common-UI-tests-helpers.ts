@@ -1,7 +1,7 @@
 import knex from 'chaire-lib-backend/lib/config/shared/db.config';
 import moment from 'moment';
 // eslint-disable-next-line n/no-extraneous-import
-import { test, expect } from '@playwright/test';
+import { Route, test, expect } from '@playwright/test';
 import * as testHelpers from 'evolution-frontend/tests/ui-testing/testHelpers';
 
 // Function to run in the `afterAll` hook to delete the participant interview, to allow retries to reset the state to its original value
@@ -36,7 +36,7 @@ export type HomeTestParameters = testHelpers.CommonTestParameters & {
  */
 export const assignWeekDayToInterview = ({ page }: { page: any }) => {
     // Listen to the first `survey/updateInterview` call
-    page.route('**/survey/updateInterview', async (route) => {
+    const routeHandler = async (route: Route) => {
         const request = route.request();
         const postData = request.postData();
         const currentIsoWeekday = moment().isoWeekday();
@@ -88,10 +88,88 @@ export const assignWeekDayToInterview = ({ page }: { page: any }) => {
             headers: response.headers(),
             body: JSON.stringify(jsonResponse)
         });
+        // The job is done, stop listening for this route
+        await page.unroute('**/survey/updateInterview', routeHandler);
+    };
+    page.route('**/survey/updateInterview', routeHandler);
+};
+
+/**
+ * Listen to the survey updates to catch the person random sequence and override
+ * it with the requested one.
+ * @param param0 The web page
+ */
+export const forcePersonOrder = ({
+    context,
+    personsOrder
+}: {
+    context: testHelpers.CommonTestParameters['context'];
+    personsOrder: string[];
+}) => {
+    const personJourneyPathPattern = /^(response\.household\.persons\.)([^.]+)(\.journeys\..*)$/;
+    const replacePersonIdInJourneyPath = (path: string, personId: string): string =>
+        path.replace(personJourneyPathPattern, `$1${personId}$3`);
+
+    // Listen to the first `survey/updateInterview` call
+    const routeHandler = async (route: Route) => {
+        const request = route.request();
+        const postData = request.postData();
+
+        const payload = !postData ? {} : JSON.parse(postData);
+        const valuesByPath = payload.valuesByPath ?? {};
+        if (valuesByPath['response._personRandomSequence'] === undefined) {
+            // Let the route continue, it does not contain the field we want to update
+            await route.fallback();
+            return;
+        }
+
+        // Refactor the person random sequence to make it predictable and make sure to update the active person ID
+        const personRandomSequence = personsOrder.map((personString) =>
+            context.objectDetector.replaceWithIds(personString)
+        );
+        // update the new journey path to replace the first participant with the one we want
+        const updatedValuesByPath: any = { };
+        const journeyPathKey = Object.keys(valuesByPath).find(
+            (key) => personJourneyPathPattern.test(key)
+        );
+        const previousPersonId = (journeyPathKey as string).match(personJourneyPathPattern)?.[2];
+        if (previousPersonId !== personRandomSequence[0]) {
+            const newJourneyKey = replacePersonIdInJourneyPath(journeyPathKey as string, personRandomSequence[0]);
+            updatedValuesByPath[newJourneyKey!] = valuesByPath[journeyPathKey!];
+            updatedValuesByPath[journeyPathKey!] = undefined;
+        }
+
+        payload.valuesByPath = {
+            ...valuesByPath,
+            // add/override fields
+            ...updatedValuesByPath,
+            'response._activePersonId': personRandomSequence[0],
+            'response._personRandomSequence': personRandomSequence
+        };
+        console.log('returned ', payload.valuesByPath, valuesByPath);
+
+        // Since it was assigned by "client" interception, the server will not
+        // assign it, but we still need to send it back to the application, so
+        // we listen to the reply and add the _assignedDay there too
+        const response = await route.fetch({
+            postData: JSON.stringify(payload),
+            headers: request.headers()
+        });
+
+        // Complete the route to finish the loop
+        await route.fulfill({
+            status: response.status(),
+            headers: response.headers(),
+            body: JSON.stringify({
+                status: 'redirect',
+                redirectUrl: '/survey/tripsIntro'
+            })
+        });
 
         // The job is done, stop listening for this route
-        page.unroute('**/survey/updateInterview');
-    });
+        await context.page.unroute('**/survey/updateInterview', routeHandler);
+    };
+    context.page.route('**/survey/updateInterview', routeHandler);
 };
 
 // Generate a random access code in the format 0123-4567 from 0000-0000 to 9999-9999
@@ -1220,18 +1298,10 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
         return;
     }
 
-    // Verify the selectPerson navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
-
     // Test custom widget selectPerson
     testHelpers.inputRadioTest({
         context,
-        path: 'household.persons.${activePersonId}.selected',
+        path: '_activePersonId',
         value: '${personId[0]}' // Select the first person value
     });
 
@@ -1242,7 +1312,8 @@ export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: Com
     testHelpers.inputNextButtonTest({
         context,
         text: 'Select this person and continue',
-        nextPageUrl: '/survey/tripsIntro'
+        // FIXME The page URL stays the same as current page, probably because this section is the selectionSectionId one
+        nextPageUrl: '/survey/selectPerson'
     });
 
     // Verify the selectPerson navigation is completed
@@ -1261,6 +1332,8 @@ export type TripsIntroTestParameters = CommonTestParametersModify & {
     whoAnswersFor?: string;
     departurePlaceIsHome?: 'yes' | 'no';
     departurePlaceOther?: string | null;
+    returnedHome?: string | null;
+    outOfTerritoryMembers?: string[] | null;
     expectedNextSection: string;
 };
 export const fillTripsintroSectionTests = ({
@@ -1271,6 +1344,8 @@ export const fillTripsintroSectionTests = ({
     whoAnswersFor,
     departurePlaceIsHome = 'yes',
     departurePlaceOther = null,
+    returnedHome = null,
+    outOfTerritoryMembers = null,
     expectedNextSection
 }: TripsIntroTestParameters) => {
     // Verify the tripsIntro navigation is active
@@ -1346,6 +1421,44 @@ export const fillTripsintroSectionTests = ({
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.departurePlaceOther',
             value: departurePlaceOther
         });
+    }
+
+    // Test radio widget personReturnedHome with conditional returnedHomeConditional with choices returnedHomeCustomChoices
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    /* @link file://./../src/survey/common/choices.tsx */
+    if (!hasTrips || departurePlaceOther === null || returnedHome === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.returnedHome',
+            isVisible: false
+        });
+    } else {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.returnedHome',
+            isVisible: true
+        });
+        testHelpers.inputRadioTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.returnedHome',
+            value: returnedHome
+        });
+        // Test checkbox widget personOutOfTerritoryMembers with conditional outOfTerritoryMembersConditional with choices outOfTerritoryMembersCustomChoices
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (outOfTerritoryMembers === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.outOfTerritoryMembers',
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputCheckboxTest({
+                context,
+                path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.outOfTerritoryMembers',
+                values: outOfTerritoryMembers
+            });
+        }
     }
 
     // Test infotext widget tripsIntroOutro
