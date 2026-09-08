@@ -41,8 +41,12 @@ to_char(to_date(effective_response->>'_assignedDay', 'YYYY-MM-DD'), 'ID') as ass
 to_char(to_date(effective_response->>'_assignedDay', 'YYYY-MM-DD'), 'Day') as assignedWeekDay,
 effective_response->'household'->>'size' as household_size,
 effective_response->'household'->>'commentsOnSurvey' as comments,
-intvw.interviewer_names
-from interview_data i 
+intvw.interviewer_names,
+case
+    when sp.email is null then 'anonymous'
+    else 'email'
+end as loginMethod
+from interview_data i
 inner join (
 select id, count(pid) as cntP, sum(didTripsRens) as pMobileRens, sum(didTrips) as pMobile, sum(noTrips) as pNoMobile, sum(cntTrips) as nb_trips_total, case when sum(didTrips) > 0 then sum(cntTrips) / sum(didTrips) else 0 end as tripsPerPerson from (
     select id, pid, age,
@@ -74,7 +78,8 @@ left join (
     inner join users as u on a.user_id = u.id
     where a.for_validation is not true
     group by svi.id
-) intvw on i.id = intvw.id`;
+) intvw on i.id = intvw.id
+left join sv_participants sp on sp.id = i.participant_id`;
 
 // FIXME Should we use effective_response like above here too? Or just the participant's own data?
 const sectionCompletionQuery = `select i.id, s.key as section_name, (s.value::json->>'_startedAt') as started_at, case when (s.value::json->>'_isCompleted')::boolean is not true then false else true end as is_completed
@@ -147,7 +152,7 @@ export const trackingData = async () => {
             id: res.id,
             uuid: res.uuid,
             accessCode: res.accesscode,
-            // loginMethod: res.authmethod, // Note: The login method is the same for all since we only have one
+            loginMethod: res.loginmethod,
             acceptToBeContacted: !_isBlank(res.accepttobecontacted)
                 ? _booleish(res.accepttobecontacted)
                     ? 1
