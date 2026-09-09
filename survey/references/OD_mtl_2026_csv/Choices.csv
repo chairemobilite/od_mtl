@@ -27,11 +27,11 @@ participationStatusWorker,,,,,,no,,
 participationStatusStudent,fullTime,"Oui, à temps plein","Yes, full time",,,,,
 participationStatusStudent,partTime,"Oui, à temps partiel","Yes, part time",,,,,
 participationStatusStudent,,,,,,no,,
-personOccupation,fullTimeWorker,Travail à temps plein (30h et plus/semaine),Employed full-time (30h and more/week),,,,,True
-personOccupation,partTimeWorker,Travail à temps partiel (moins de 30h/semaine),Employed part-time (less than 30h/week),,,,,True
-personOccupation,workerAndStudent,Travail et études,Work and studies,,,,,True
-personOccupation,fullTimeStudent,Études à temps plein,Full-time student,,,,,True
-personOccupation,partTimeStudent,Études à temps partiel,Part-time student,,,,,True
+personOccupation,fullTimeWorker,Travail à temps plein (30h et plus/semaine),Employed full-time (30h and more/week),,,,,TRUE
+personOccupation,partTimeWorker,Travail à temps partiel (moins de 30h/semaine),Employed part-time (less than 30h/week),,,,,TRUE
+personOccupation,workerAndStudent,Travail et études,Work and studies,,,,,TRUE
+personOccupation,fullTimeStudent,Études à temps plein,Full-time student,,,,,TRUE
+personOccupation,partTimeStudent,Études à temps partiel,Part-time student,,,,,TRUE
 personOccupation,retired,À la retraite,Retired,,,,ifAge40OrMoreConditional,
 personOccupation,atHome,À la maison,At home,,,,,
 personOccupation,unemployed,En chômage / en recherche d'emploi,Unemployed / searching for a job,,,,,
@@ -95,7 +95,7 @@ onDemandChoices,pickupAtOrigin,"Oui, il est venu chercher {{nickname}} à son li
 onDemandChoices,joinedStop,"Oui, {{nickname}} a rejoint un arrêt","Yes, {{nickname}} went to a stop","Oui, j'ai rejoint un arrêt","Yes, I went to a stop",,,
 onDemandChoices,no,Non,No,,,,,
 noWorkTripReasonChoices,remoteWorkOrWorkAtHome,Télétravail / travail à la maison,Remote work / work from home,,,,,
-noWorkTripReasonChoices,onStrike,En grève,On strike,,,,,True
+noWorkTripReasonChoices,onStrike,En grève,On strike,,,,,TRUE
 noWorkTripReasonChoices,leaveSicknessPersonalReason,"Congé (vacances, maladie, etc.)","Leave (holidays, sick, etc.)",,,,,
 noWorkTripReasonChoices,noWork,Pas de travail prévu,No work planned,,,,,
 noWorkTripReasonChoices,,,,,,otherWithoutSpecify,,
@@ -103,7 +103,7 @@ noWorkTripReasonChoices,,,,,,dontKnow,,
 noSchoolTripReasonChoices,distanceLearning,Cours à distance,Distance learning,,,,,
 noSchoolTripReasonChoices,schoolWasClosed,Pas de cours,No classes,,,,,
 noSchoolTripReasonChoices,leaveSicknessPersonalReason,"Congé (maladie, personnel, autre)","Leave (sick, personal, other)",,,,,
-noSchoolTripReasonChoices,strike,Grève,Strike,,,,,True
+noSchoolTripReasonChoices,strike,Grève,Strike,,,,,TRUE
 noSchoolTripReasonChoices,,,,,,otherWithoutSpecify,,
 noSchoolTripReasonChoices,,,,,,dontKnow,,
 educationalAttainment,secondaryEducationOrLess,"Diplôme d'études secondaires, attestation d'équivalence ou aucun","High school diploma, equivalency certificate, or none",,,,,
