@@ -168,6 +168,7 @@ module.exports = {
         schoolPlace: []
     },
     auditChecksGroup: 'travelSurvey', // custom by default so older surveys work.
+    reviewableSurveyObjects: ['interview', 'home', 'household', 'person', 'journey', 'trip'],
     surveyBase: 'householdBased',
     surveyAreaGeojsonPath: '../src/survey/geojson/surveyArea.geojson'
 };
