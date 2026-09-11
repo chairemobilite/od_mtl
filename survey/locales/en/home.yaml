@@ -46,8 +46,7 @@ householdElectricBicycleNumber: >-
     Among these bicycles, how many are <strong>electric bicycles</strong> (e-bikes)?
 homeCarParkingsAvailableVehicleHousehold: >-
     <strong>Parking available at home</strong> for your household's vehicles<br /><span
-    class="_pale _oblique">You may leave this question blank if none of the options
-    apply to your situation.</span>
+    class="_pale _oblique">Check all that apply.</span>
 homeCarParkingsAvailableNoVehicleHousehold: >-
     Does your household have access to a <strong>private driveway, garage, or reserved
     parking space?</strong>

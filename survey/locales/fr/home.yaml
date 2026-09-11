@@ -47,8 +47,7 @@ householdElectricBicycleNumber: >-
     Parmi ces vélos, combien sont des <strong>vélos à assistance électrique</strong>?
 homeCarParkingsAvailableVehicleHousehold: >-
     <strong>Stationnement(s) disponible(s) au domicile</strong> pour les véhicules
-    de votre ménage. <br /><span class="_pale _oblique">Vous pouvez laisser cette
-    question vide si aucun choix ne s’applique à votre situation.</span>
+    de votre ménage.<br /><span class="_pale _oblique">Cocher tous les choix qui s'appliquent</span>
 homeCarParkingsAvailableNoVehicleHousehold: >-
     Votre ménage a-t-il accès à une <strong>entrée privée, garage ou place de stationnement
     réservée</strong>?

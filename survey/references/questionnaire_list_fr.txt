@@ -63,10 +63,11 @@ Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incl
 
 Parmi ces vélos, combien sont des vélos à assistance électrique?
 
-Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
-Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.
+Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage.
+Cocher tous les choix qui s'appliquent
 - Entrée privée, garage ou place de stationnement réservée
 - Possession d’une vignette résidentielle 
+- Ni place privée, ni vignette résidentielle (ex. stationnement sur rue seulement)
 
 Votre ménage a-t-il accès à une entrée privée, garage ou place de stationnement réservée?
 - Oui

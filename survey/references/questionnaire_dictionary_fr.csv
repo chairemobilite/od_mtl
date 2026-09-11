@@ -103,10 +103,11 @@ Question,"Parmi ces vélos, combien sont des vélos à assistance électrique?"
 Champ,h_carParkingAvailableVehicleHousehold
 Type de question,Case à cocher
 Conditionnel,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 2 && (exclusive === freqAttitudinal || exclusive === freqBarriers || exclusive === freqAttitudinalBarriers) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
-Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage. 
-Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation."
+Question,"Stationnement(s) disponible(s) au domicile pour les véhicules de votre ménage.
+Cocher tous les choix qui s'appliquent"
 Valeurs,"private : Entrée privée, garage ou place de stationnement réservée
-stickers : Possession d’une vignette résidentielle "
+stickers : Possession d’une vignette résidentielle 
+onStreet : Ni place privée, ni vignette résidentielle (ex. stationnement sur rue seulement)"
 ""
 Champ,h_carParkingAvailableNoVehicleHousehold
 Type de question,Bouton radio

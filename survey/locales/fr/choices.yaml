@@ -193,6 +193,8 @@ usualWorkPlaceCommutingModes:
 carParkingsHome:
     private: Entrée privée, garage ou place de stationnement réservée
     stickers: Possession d’une vignette résidentielle 
+    onStreet: >-
+        Ni place privée, ni vignette résidentielle (ex. stationnement sur rue seulement)
 bikesharingMembership:
     yes: Oui (mensuel, saison)
     no: Non (paiement au déplacement)

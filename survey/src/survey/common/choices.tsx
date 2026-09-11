@@ -769,6 +769,10 @@ export const carParkingsHome: ChoiceType[] = [
     {
         value: 'stickers',
         label: (t: TFunction) => t('choices:carParkingsHome.stickers')
+    },
+    {
+        value: 'onStreet',
+        label: (t: TFunction) => t('choices:carParkingsHome.onStreet')
     }
 ];
 

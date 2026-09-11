@@ -49,10 +49,10 @@ Max=4
 overMaxAllowed",,,bicycleNumberValidation,,,,,TRUE,,,,,
 householdElectricBicycleNumber,Custom,TRUE,home,,household.electricBicycleNumber,"Parmi ces vélos, combien sont des **vélos à assistance électrique**?","Among these bicycles, how many are **electric bicycles** (e-bikes)?",,,"min=0
 Max=4
-overMaxAllowed",,hasHouseholdBicycleConditional,electricBicycleNumberCustomValidation,,,,,TRUE,,,,,
-homeCarParkingsAvailableVehicleHousehold,Checkbox,TRUE,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage. 
-__Vous pouvez laisser cette question vide si aucun choix ne s’applique à votre situation.__","**Parking available at home** for your household's vehicles
-__You may leave this question blank if none of the options apply to your situation.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,TRUE,,,,,Custom label because of the car number plural
+overMaxAllowed",,hasHouseholdBicycleConditional,,,,,,TRUE,,,,,
+homeCarParkingsAvailableVehicleHousehold,Checkbox,TRUE,home,,home.carParkingAvailableVehicleHousehold,"**Stationnement(s) disponible(s) au domicile** pour les véhicules de votre ménage.
+__Cocher tous les choix qui s'appliquent__","**Parking available at home** for your household's vehicles
+__Check all that apply.__",,,customLabels={{homeParkingAvailableCustomLabel}},,carParkingHomeWithVehicleConditional,,carParkingsHome,,,,TRUE,,,,,Custom label because of the car number plural
 homeCarParkingsAvailableNoVehicleHousehold,Radio,TRUE,home,,home.carParkingAvailableNoVehicleHousehold,"Votre ménage a-t-il accès à une **entrée privée, garage ou place de stationnement réservée**?","Does your household have access to a **private driveway, garage, or reserved parking space?**",,,,,carParkingHomeWithoutVehicleConditional,,yesNo,,,,TRUE,,,,,
 householdCarsharing,Radio,TRUE,home,,household.carsharing,"**Autopartage** (ex. : Communauto, Léo) : utilisé comme conducteur(-rice) par au moins une personne du ménage dans les 6 derniers mois","**Carshare** (ex. : Communauto, Leo): used as driver in the past 6 months by at least one household member",,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,TRUE,,,,,
 householdBikesharing,Radio,TRUE,home,,household.bikesharing,**Vélo en libre-service** (ex. : BIXI) : utilisation dans les 30 derniers jours par au moins une personne du ménage,**Bikeshare** (BIXI): used in the last 30 days by at least one household member,,,,,sharingMobilitiesConditional,,yesNoDontKnow,,,,TRUE,,,,,

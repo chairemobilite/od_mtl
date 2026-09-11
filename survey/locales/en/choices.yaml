@@ -198,6 +198,9 @@ usualWorkPlaceCommutingModes:
 carParkingsHome:
     private: Private driveway, garage or reserved parking space
     stickers: Residential parking permit
+    onStreet: >-
+        No private parking space or residential parking permit (e.g. street parking
+        only)
 bikesharingMembership:
     yes: Yes (monthly, seasonal)
     no: No (pay per trip)

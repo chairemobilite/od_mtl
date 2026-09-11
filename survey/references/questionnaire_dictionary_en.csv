@@ -104,9 +104,10 @@ Field,h_carParkingAvailableVehicleHousehold
 Question type,Checkbox input
 Conditional,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 2 && (exclusive === freqAttitudinal || exclusive === freqBarriers || exclusive === freqAttitudinalBarriers) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Parking available at home for your household's vehicles
-You may leave this question blank if none of the options apply to your situation."
+Check all that apply."
 Values,"private : Private driveway, garage or reserved parking space
-stickers : Residential parking permit"
+stickers : Residential parking permit
+onStreet : No private parking space or residential parking permit (e.g. street parking only)"
 ""
 Field,h_carParkingAvailableNoVehicleHousehold
 Question type,Radio input

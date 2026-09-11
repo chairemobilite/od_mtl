@@ -64,9 +64,10 @@ Include only bicycles belonging to teenagers or adults that are in usable condit
 Among these bicycles, how many are electric bicycles (e-bikes)?
 
 Parking available at home for your household's vehicles
-You may leave this question blank if none of the options apply to your situation.
+Check all that apply.
 - Private driveway, garage or reserved parking space
 - Residential parking permit
+- No private parking space or residential parking permit (e.g. street parking only)
 
 Does your household have access to a private driveway, garage, or reserved parking space?
 - Yes
