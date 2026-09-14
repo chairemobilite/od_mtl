@@ -61,69 +61,69 @@ visitedPlaceGeography: >-
     recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur
     la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision.</span>
 visitedPlacePreviousPreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{previousPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_male: >-
-    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{previousPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_female: >-
-    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{previousPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_custom: >-
-    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{previousPlaceDescription}})
     avant de se rendre à son lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_male_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_female_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
 visitedPlacePreviousPreviousDepartureTime_custom_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{visitedPlaceDescription}})
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})
     avant de vous rendre à votre lieu habituel de travail?
 visitedPlacePreviousArrivalTime: >-
-    À quelle heure {{nickname}} est-il(-elle) arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter ses déplacements sur la route?
+    À quelle heure {{nickname}} est-il(-elle) arrivé(e) au lieu précédent avant de
+    débuter ses déplacements sur la route?
 visitedPlacePreviousArrivalTime_male: >-
-    À quelle heure {{nickname}} est-il arrivé au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter ses déplacements sur la route?
+    À quelle heure {{nickname}} est-il arrivé au lieu précédent avant de débuter ses
+    déplacements sur la route?
 visitedPlacePreviousArrivalTime_female: >-
-    À quelle heure {{nickname}} est-elle arrivée au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter ses déplacements sur la route?
+    À quelle heure {{nickname}} est-elle arrivée au lieu précédent avant de débuter
+    ses déplacements sur la route?
 visitedPlacePreviousArrivalTime_custom: >-
-    À quelle heure {{nickname}} est-iel arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter ses déplacements sur la route?
+    À quelle heure {{nickname}} est-iel arrivé(e) au lieu précédent avant de débuter
+    ses déplacements sur la route?
 visitedPlacePreviousArrivalTime_one: >-
-    À quelle heure êtes-vous arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter vos déplacements sur la route?
+    À quelle heure êtes-vous arrivé(e) au lieu précédent avant de débuter vos déplacements
+    sur la route?
 visitedPlacePreviousArrivalTime_male_one: >-
-    À quelle heure êtes-vous arrivé au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter vos déplacements sur la route?
+    À quelle heure êtes-vous arrivé au lieu précédent avant de débuter vos déplacements
+    sur la route?
 visitedPlacePreviousArrivalTime_female_one: >-
-    À quelle heure êtes-vous arrivée au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter vos déplacements sur la route?
+    À quelle heure êtes-vous arrivée au lieu précédent avant de débuter vos déplacements
+    sur la route?
 visitedPlacePreviousArrivalTime_custom_one: >-
-    À quelle heure êtes-vous arrivé(e) au lieu précédent ({{visitedPlaceDescription}})
-    avant de débuter vos déplacements sur la route?
+    À quelle heure êtes-vous arrivé(e) au lieu précédent avant de débuter vos déplacements
+    sur la route?
 visitedPlacePreviousDepartureTime: >-
-    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure {{nickname}} a-t-il(-elle) quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_male: >-
-    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure {{nickname}} a-t-il quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_female: >-
-    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure {{nickname}} a-t-elle quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_custom: >-
-    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure {{nickname}} a-t-iel quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_male_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_female_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_custom_one: >-
-    À quelle heure avez-vous quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    À quelle heure avez-vous quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlaceArrivalTime: '{{nickname}} est arrivé(e) {{atPlace}} à:{{reminderText}}'
 visitedPlaceArrivalTime_male: '{{nickname}} est arrivé {{atPlace}} à:{{reminderText}}'
 visitedPlaceArrivalTime_female: '{{nickname}} est arrivée {{atPlace}} à:{{reminderText}}'

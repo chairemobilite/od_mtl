@@ -374,11 +374,11 @@ Name or address of the place
 Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy.
 
-At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 
-At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} trips on the road?
+At what time did {{nickname}} arrive at the previous location before starting {{gender :his/her/their/their}} trips on the road?
 
-At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
+At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})?{{reminderText}}
 
 {{nickname}} arrived {{atPlace}} at:{{reminderText}}
 

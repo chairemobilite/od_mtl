@@ -543,15 +543,15 @@ Locate the place by searching for its name or address, or by navigating, zooming
 ""
 Field,_previousPreviousDepartureTime
 Question type,Builtin
-Question,At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
+Question,At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}}) before going to {{gender:his/her/their/their}} usual work place?
 ""
 Field,_previousArrivalTime
 Question type,Builtin
-Question,At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}}) before starting {{gender :his/her/their/their}} trips on the road?
+Question,At what time did {{nickname}} arrive at the previous location before starting {{gender :his/her/their/their}} trips on the road?
 ""
 Field,_previousDepartureTime
 Question type,Builtin
-Question,At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
+Question,At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})?{{reminderText}}
 ""
 Field,arrivalTime
 Question type,Builtin
