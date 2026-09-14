@@ -541,15 +541,15 @@ Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant,
 ""
 Champ,_previousPreviousDepartureTime
 Type de question,Builtin
-Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{visitedPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
+Question,À quelle heure {{nickname}} a-t-{{gender :il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousPlaceDescription}}) avant de se rendre à son lieu habituel de travail?
 ""
 Champ,_previousArrivalTime
 Type de question,Builtin
-Question,À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent ({{visitedPlaceDescription}}) avant de débuter ses déplacements sur la route?
+Question,À quelle heure {{nickname}} est-{{gender :il/elle/iel/il(-elle)}} arriv{{gender :é/ée/é(e)/é(e)}} au lieu précédent avant de débuter ses déplacements sur la route?
 ""
 Champ,_previousDepartureTime
 Type de question,Builtin
-Question,À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousVisitedPlaceDescription}})?{{reminderText}}
+Question,À quelle heure {{nickname}} a-t-{{gender:il/elle/iel/il(-elle)}} quitté le lieu précédent ({{previousPlaceDescription}})?{{reminderText}}
 ""
 Champ,arrivalTime
 Type de question,Builtin

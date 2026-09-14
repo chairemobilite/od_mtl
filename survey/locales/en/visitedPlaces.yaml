@@ -46,45 +46,45 @@ visitedPlaceGeography: >-
     for its name or address, or by navigating, zooming and clicking on the map. Once
     located, you can move the pin for greater accuracy.</span>
 visitedPlacePreviousPreviousDepartureTime: >-
-    At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
+    At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})
     before going to their usual work place?
 visitedPlacePreviousPreviousDepartureTime_male: >-
-    At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
+    At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})
     before going to his usual work place?
 visitedPlacePreviousPreviousDepartureTime_female: >-
-    At what time did {{nickname}} leave the previous location ({{visitedPlaceDescription}})
+    At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})
     before going to her usual work place?
 visitedPlacePreviousPreviousDepartureTime_one: >-
-    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    At what time did you leave the previous location ({{previousPlaceDescription}})
     before going to your usual work place?
 visitedPlacePreviousPreviousDepartureTime_male_one: >-
-    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    At what time did you leave the previous location ({{previousPlaceDescription}})
     before going to your usual work place?
 visitedPlacePreviousPreviousDepartureTime_female_one: >-
-    At what time did you leave the previous location ({{visitedPlaceDescription}})
+    At what time did you leave the previous location ({{previousPlaceDescription}})
     before going to your usual work place?
 visitedPlacePreviousArrivalTime: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting their trips on the road?
+    At what time did {{nickname}} arrive at the previous location before starting
+    their trips on the road?
 visitedPlacePreviousArrivalTime_male: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting his trips on the road?
+    At what time did {{nickname}} arrive at the previous location before starting
+    his trips on the road?
 visitedPlacePreviousArrivalTime_female: >-
-    At what time did {{nickname}} arrive at the previous location ({{visitedPlaceDescription}})
-    before starting her trips on the road?
+    At what time did {{nickname}} arrive at the previous location before starting
+    her trips on the road?
 visitedPlacePreviousArrivalTime_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your trips on the road?
+    At what time did you arrive at the previous location before starting your trips
+    on the road?
 visitedPlacePreviousArrivalTime_male_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your trips on the road?
+    At what time did you arrive at the previous location before starting your trips
+    on the road?
 visitedPlacePreviousArrivalTime_female_one: >-
-    At what time did you arrive at the previous location ({{visitedPlaceDescription}})
-    before starting your trips on the road?
+    At what time did you arrive at the previous location before starting your trips
+    on the road?
 visitedPlacePreviousDepartureTime: >-
-    At what time did {{nickname}} leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    At what time did {{nickname}} leave the previous location ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlacePreviousDepartureTime_one: >-
-    At what time did you leave the previous location ({{previousVisitedPlaceDescription}})?{{reminderText}}
+    At what time did you leave the previous location ({{previousPlaceDescription}})?{{reminderText}}
 visitedPlaceArrivalTime: '{{nickname}} arrived {{atPlace}} at:{{reminderText}}'
 visitedPlaceArrivalTime_one: You arrived {{atPlace}} at:{{reminderText}}
 visitedPlaceNextPlaceCategory: >-
