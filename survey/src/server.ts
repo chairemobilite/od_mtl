@@ -7,20 +7,21 @@
 import path from 'path';
 
 import setupServer from 'evolution-backend/lib/apps/participant';
-import { setProjectConfig } from 'evolution-backend/lib/config/projectConfig';
 import { registerTranslationDir, addTranslationNamespace } from 'chaire-lib-backend/lib/config/i18next';
-import serverUpdateCallbacks from './survey/server/serverFieldUpdate';
-import serverValidations from './survey/server/serverValidations';
 import { setupQuestionnaire } from './survey/server/serverHelpers';
+import {
+    registerServerUpdateCallbacksModule,
+    registerServerValidationsModule
+} from 'evolution-backend/lib/config/serverConfigRegistry';
 
-const configureServer = () => {
-    setProjectConfig({
-        serverUpdateCallbacks,
-        serverValidations
-    });
-};
+registerServerUpdateCallbacksModule(require.resolve('./survey/server/serverFieldUpdate'));
+registerServerValidationsModule(require.resolve('./survey/server/serverValidations'));
 
-setupServer(configureServer);
+setupServer().catch((error) => {
+    console.error('Error starting the server: ', error);
+    // eslint-disable-next-line n/no-process-exit
+    process.exit(1);
+});
 setupQuestionnaire();
 
 // FIXME Project directory is for runtime, locales should be in the config file (See #420)
