@@ -8,6 +8,7 @@
 import { parseInterviewAttributes } from '../interview.parser';
 import { parseHomeAttributes } from '../home.parser';
 import { parseTripAttributes } from '../trip.parser';
+import { parseSegmentAttributes } from '../segment.parser';
 import { parseVisitedPlaceAttributes } from '../visitedPlace.parser';
 import { surveyObjectParsers } from '../index';
 import { CorrectedResponse } from 'evolution-common/lib/services/questionnaire/types';
@@ -15,27 +16,25 @@ import { ExtendedTripAttributes } from 'evolution-common/lib/services/baseObject
 import { ExtendedVisitedPlaceAttributes } from 'evolution-common/lib/services/baseObjects/VisitedPlace';
 
 describe('OD Nationale Quebec Survey Parsers', () => {
-
     describe('Survey-Specific Parser Configuration', () => {
         test.each([
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
             ['trip', parseTripAttributes],
-            ['visitedPlace', parseVisitedPlaceAttributes]
+            ['visitedPlace', parseVisitedPlaceAttributes],
+            ['segment', parseSegmentAttributes]
         ])('should have %s parser configured correctly', (parserName, expectedFunction) => {
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBeDefined();
             expect(typeof surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBe('function');
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBe(expectedFunction);
         });
 
-        test.each([
-            'household',
-            'person',
-            'journey',
-            'segment'
-        ])('should not have %s parser (unused in this survey)', (parserName) => {
-            expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBeUndefined();
-        });
+        test.each(['household', 'person', 'journey'])(
+            'should not have %s parser (unused in this survey)',
+            (parserName) => {
+                expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBeUndefined();
+            }
+        );
     });
 
     describe('Survey-Specific Parser Behavior', () => {
@@ -86,13 +85,13 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             const tripAttributes: ExtendedTripAttributes = {
                 _uuid: 'test-trip-uuid',
                 departureTime: 28800, // 8:00 AM
-                arrivalTime: 32400    // 9:00 AM
+                arrivalTime: 32400 // 9:00 AM
             };
 
             const visitedPlaceAttributes: ExtendedVisitedPlaceAttributes = {
                 _uuid: 'test-visited-place-uuid',
-                arrivalTime: 32400,   // 9:00 AM
-                departureTime: 36000  // 10:00 AM
+                arrivalTime: 32400, // 9:00 AM
+                departureTime: 36000 // 10:00 AM
             };
 
             // Parse objects as they would be in the survey
@@ -117,16 +116,17 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             ['interview', parseInterviewAttributes],
             ['home', parseHomeAttributes],
             ['trip', parseTripAttributes],
-            ['visitedPlace', parseVisitedPlaceAttributes]
+            ['visitedPlace', parseVisitedPlaceAttributes],
+            ['segment', parseSegmentAttributes]
         ])('should use correct parser implementation for %s', (parserName, expectedFunction) => {
             expect(surveyObjectParsers[parserName as keyof typeof surveyObjectParsers]).toBe(expectedFunction);
         });
 
         it('should have correct parser configuration for OD Nationale Quebec survey', () => {
             // Verify we have exactly the parsers we need for this survey
-            const expectedParsers = ['interview', 'home', 'trip', 'visitedPlace'];
-            const actualParsers = Object.keys(surveyObjectParsers).filter((key) =>
-                surveyObjectParsers[key as keyof typeof surveyObjectParsers] !== undefined
+            const expectedParsers = ['interview', 'home', 'trip', 'visitedPlace', 'segment'];
+            const actualParsers = Object.keys(surveyObjectParsers).filter(
+                (key) => surveyObjectParsers[key as keyof typeof surveyObjectParsers] !== undefined
             );
 
             expect(actualParsers.sort()).toEqual(expectedParsers.sort());
@@ -151,7 +151,7 @@ describe('OD Nationale Quebec Survey Parsers', () => {
             const tripAttributes: ExtendedTripAttributes = {
                 _uuid: 'od-trip-uuid',
                 departureTime: 25200, // 7:00 AM
-                arrivalTime: 27000,   // 7:30 AM
+                arrivalTime: 27000, // 7:30 AM
                 mode: 'transit',
                 purpose: 'work'
             };
