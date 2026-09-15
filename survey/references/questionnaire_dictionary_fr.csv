@@ -15,7 +15,7 @@ Question,Ce code d'accès ne semble pas valide. Veuillez vérifier l'information
 Valeurs,accessCodeConfirmOk : Je confirme que le code d'accès est correct
 ""
 Champ,ac_confirm
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Confirmer
 ""
 ""
@@ -55,7 +55,7 @@ Type de question,Champ de texte
 Question,Code postal
 ""
 Champ,h_geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Positionnement de votre domicile
 Recherchez votre domicile en utilisant son code postal ou son adresse en cliquant sur le bouton ci-dessous, ou veuillez positionner le lieu sur la carte en naviguant, zoomant et cliquant. Une fois le lieu localisé, vous pouvez déplacer le point pour plus de précision."
 ""
@@ -76,27 +76,52 @@ other : Autre
 preferNotToAnswer : Préfère ne pas répondre"
 ""
 Champ,hh_size
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Personnes habitant votre domicile ou logement
 Y compris vous-même et les enfants en garde partagée s'ils étaient à votre domicile le {{assignedDate}}"
+Valeurs,"1
+2
+3
+4
+5
+6
+7+"
 ""
 Champ,hh_carNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Automobiles, VUS, camions légers ou fourgonnettes, etc.
 À la disposition de votre ménage"
+Valeurs,"0
+1
+2
+3
+4
+5+"
 ""
 Champ,hh_twoWheelNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Motocyclettes ou scooters nécessitant un permis 
 Aussi appelé cyclomoteur ou mobylette"
+Valeurs,"0
+1
+2
+3
+4
+5+"
 ""
 Champ,hh_bicycleNumber
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Question,"Vélo(s) à la disposition de votre ménage 
 Indiquer seulement les vélos des ados ou adultes dans un état utilisable, incluant les vélos à assistance électrique. Ne pas inclure les vélos pour enfants."
+Valeurs,"0
+1
+2
+3
+4
+5+"
 ""
 Champ,hh_electricBicycleNumber
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Parmi ces vélos, combien sont des vélos à assistance électrique?"
 ""
@@ -363,13 +388,21 @@ onTheRoadWithUsualPlace : Travaille sur la route avec un point d’attache habit
 onTheRoadWithoutUsualPlace : Travaille sur la route sans point d’attache habituel (ex. : visites chez les clients uniquement, etc.)"
 ""
 Champ,workDays
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Nombre de jour(s) par semaine où {{nickname}} travaille
 Dans une semaine typique, qu’il y ait déplacement ou non pour le travail."
+Valeurs,"0
+1
+2
+3
+4
+5
+6
+7"
 ""
 Champ,travelToWorkDays
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Nombre de jour(s) par semaine où {{nickname}} se déplace hors domicile pour le travail
 Dans une semaine typique."
@@ -408,7 +441,7 @@ Section,Sélection du membre du ménage
 Abréviation,sp_
 ""
 Champ,_activePersonId
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,Pour quelle personne désirez-vous poursuivre l'entrevue?
 ""
 ""
@@ -426,7 +459,7 @@ Type de question,Builtin
 Question,Changer de personne
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}._showNewPersonPopupButton
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Question,"Nous allons vous demander de spécifier les déplacements de {{nickname}}.
 
 L’ordre des personnes interviewées est aléatoire.
@@ -617,23 +650,29 @@ noPark : Le véhicule n'a pas été stationné
 dontKnow : Ne sait pas"
 ""
 Champ,vehicleOccupancy
-Type de question,RadioNumber
+Type de question,Bouton radio numérique
 Conditionnel,isCarDriverCustomConditional
 Question,"Personne(s) dans le véhicule
 Inclure le ou la conducteur.trice et toute autre personne, qu’elle fasse partie ou non de votre ménage, peu importe leur âge (enfants inclus)."
-Valeurs,dontKnow (isProxyCustomConditional): Je ne sais pas
+Valeurs,"1
+2
+3
+4
+5
+6+
+dontKnow (isProxyCustomConditional): Je ne sais pas"
 ""
 Champ,driver
 Type de question,Builtin
 Question,Qui conduisait ?
 ""
 Champ,subwayStationStart
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,subwayConditional : mode === transitRRT
 Question,Station d'embarquement (au départ) : 
 ""
 Champ,subwayStationEnd
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,subwayConditional : mode === transitRRT
 Question,Station de débarquement (à l'arrivée) : 
 ""
@@ -651,22 +690,22 @@ stm_1 : 1-Verte
 dontKnow : Ne sait pas"
 ""
 Champ,trainStationStart
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,trainConditional : mode === transitRegionalRail
 Question,Gare d'embarquement (au départ) : 
 ""
 Champ,trainStationEnd
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,trainConditional : mode === transitRegionalRail
 Question,Gare de débarquement (à l'arrivée) : 
 ""
 Champ,remStationStart
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,remConditional : mode === transitLRRT
 Question,Station d'embarquement (au départ) : 
 ""
 Champ,remStationEnd
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,remConditional : mode === transitLRRT
 Question,Station de débarquement (à l'arrivée) : 
 ""
@@ -735,7 +774,7 @@ other : Autre
 dontKnow : Ne sait pas"
 ""
 Champ,busLines
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,busConditional : mode === transitBus
 Question,"Ligne(s) de bus utilisée(s) (dans l'ordre chronologique)
 Pour chaque ligne utilisée, inscrire le numéro de la ligne ou son nom puis sélectionner-la dans la liste des résultats."
@@ -764,12 +803,12 @@ transit : Transport en commun
 other : Autre"
 ""
 Champ,junctionPrivateBus
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,junctionPrivateBusCustomConditional
 Question,Lieu d’embarquement (montée dans le bus) 
 ""
 Champ,junctionBusPrivate
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,junctionBusPrivateCustomConditional
 Question,Lieu de débarquement (descente du bus) 
 ""
@@ -855,7 +894,7 @@ Conditionnel,hasWorkingLocationNotSetCustomConditional
 Question,Nom ou adresse du lieu habituel de travail de {{nickname}}
 ""
 Champ,hh_persons.{_activePersonId}.usualWorkPlace.geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,hasWorkingLocationNotSetCustomConditional
 Question,"Position sur la carte
 Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision."
@@ -888,7 +927,7 @@ Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,Nom ou adresse du lieu habituel d’études de {{nickname}}
 ""
 Champ,hh_persons.{_activePersonId}.usualSchoolPlace.geography
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,"Position sur la carte
 Localisez le lieu en le recherchant par son nom ou son adresse, ou en naviguant, zoomant et cliquant sur la carte. Une fois localisé, vous pouvez déplacer le point pour plus de précision."
@@ -1369,14 +1408,14 @@ parentWithChild : Parent seul avec enfant(s)
 noFamily : Aucune de ces situations (ex. colocataires, amis, frères et sœurs vivant ensemble)"
 ""
 Champ,hh_pluginHybridCarNumber
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules hybrides rechargeables?
 Facultatif
 Inclure uniquement les véhicules hybrides que l’on peut brancher (exclure les hybrides non rechargeables, ex. Toyota Corolla hybride)"
 ""
 Champ,hh_electricCarNumber
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,householdHasCars : hh_carNumber >= 1
 Question,"Parmi les véhicules possédés par votre ménage, combien sont des véhicules électriques?
 Facultatif"
@@ -1488,6 +1527,6 @@ Section,Questionnaire complété
 Abréviation,c_
 ""
 Champ,buttonARTMPanel
-Type de question,Entrée inconnue
+Type de question,Champ personnalisé
 Conditionnel,homeInTerritoryConditional : h_geography.properties.isInTerritory !== False
 Question,S'inscrire au panel « Parlons mobilité »
