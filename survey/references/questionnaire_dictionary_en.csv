@@ -15,7 +15,7 @@ Question,This access code does not appear to be valid. Please verify the informa
 Values,accessCodeConfirmOk : I confirm the access code is correct
 ""
 Field,ac_confirm
-Question type,Unknown input
+Question type,Custom input
 Question,Confirm
 ""
 ""
@@ -55,7 +55,7 @@ Question type,Text input
 Question,Postal Code
 ""
 Field,h_geography
-Question type,Unknown input
+Question type,Custom input
 Question,"Home location
 Search for your home using its postal code or address by clicking the button below, or please position the location on the map by navigating, zooming, and clicking. Once the location is identified, you can move the point for greater precision."
 ""
@@ -76,27 +76,52 @@ other : Other
 preferNotToAnswer : Prefer not to respond"
 ""
 Field,hh_size
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Persons living in your home
 Including yourself and children in shared custody if they were at your home on {{assignedDate}}"
+Values,"1
+2
+3
+4
+5
+6
+7+"
 ""
 Field,hh_carNumber
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Cars, SUVs, light-duty trucks or vans, etc.
 Available to one or more members of your household"
+Values,"0
+1
+2
+3
+4
+5+"
 ""
 Field,hh_twoWheelNumber
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Motorcycles or scooters requiring a licence
 Also known as mopeds or motorized scooters"
+Values,"0
+1
+2
+3
+4
+5+"
 ""
 Field,hh_bicycleNumber
-Question type,RadioNumber
+Question type,Radio number input
 Question,"Bicycles owned by household members
 Include only bicycles belonging to teenagers or adults that are in usable condition, including electric-assist bicycles. Do not include children’s bicycles."
+Values,"0
+1
+2
+3
+4
+5+"
 ""
 Field,hh_electricBicycleNumber
-Question type,Unknown input
+Question type,Custom input
 Conditional,hasHouseholdBicycleConditional : hh_bicycleNumber >= 1
 Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
@@ -365,13 +390,21 @@ onTheRoadWithUsualPlace : Works on the road with a regular base of operations (e
 onTheRoadWithoutUsualPlace : Works on the road without a regular base of operations (e.g., client visits only, etc.)"
 ""
 Field,workDays
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,personWorkDaysConditional : workPlaceType === hybrid
 Question,"Number of days per week {{nickname}} works
 In a typical week, whether or not there is any travel for work."
+Values,"0
+1
+2
+3
+4
+5
+6
+7"
 ""
 Field,travelToWorkDays
-Question type,Unknown input
+Question type,Custom input
 Conditional,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Number of days per week {{nickname}} travels outside the home for work
 In a typical week."
@@ -410,7 +443,7 @@ Section,Household member selection
 Abbreviation,sp_
 ""
 Field,_activePersonId
-Question type,Unknown input
+Question type,Custom input
 Question,Who do you want to continue the interview for?
 ""
 ""
@@ -428,7 +461,7 @@ Question type,Builtin
 Question,Change person
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}._showNewPersonPopupButton
-Question type,Unknown input
+Question type,Custom input
 Question,"We will ask you to specify {{nickname}}’s trips.
 
 The order of the interviewed persons was randomly selected.
@@ -619,23 +652,29 @@ noPark : The vehicle was not parked
 dontKnow : Don't know"
 ""
 Field,vehicleOccupancy
-Question type,RadioNumber
+Question type,Radio number input
 Conditional,isCarDriverCustomConditional
 Question,"Persons in the vehicle
 Include the driver and any other person, whether or not they are part of your household, regardless of their age (including children)."
-Values,dontKnow (isProxyCustomConditional): I don’t know
+Values,"1
+2
+3
+4
+5
+6+
+dontKnow (isProxyCustomConditional): I don’t know"
 ""
 Field,driver
 Question type,Builtin
 Question,Who drove?
 ""
 Field,subwayStationStart
-Question type,Unknown input
+Question type,Custom input
 Conditional,subwayConditional : mode === transitRRT
 Question,Boarding station (when entering the metro):
 ""
 Field,subwayStationEnd
-Question type,Unknown input
+Question type,Custom input
 Conditional,subwayConditional : mode === transitRRT
 Question,Exit station (when leaving the metro):
 ""
@@ -653,22 +692,22 @@ stm_1 : 1-Green
 dontKnow : Don't know"
 ""
 Field,trainStationStart
-Question type,Unknown input
+Question type,Custom input
 Conditional,trainConditional : mode === transitRegionalRail
 Question,Boarding station (when getting onto the train)
 ""
 Field,trainStationEnd
-Question type,Unknown input
+Question type,Custom input
 Conditional,trainConditional : mode === transitRegionalRail
 Question,Exit station (when leaving the train)
 ""
 Field,remStationStart
-Question type,Unknown input
+Question type,Custom input
 Conditional,remConditional : mode === transitLRRT
 Question,Boarding station (when entering the REM)
 ""
 Field,remStationEnd
-Question type,Unknown input
+Question type,Custom input
 Conditional,remConditional : mode === transitLRRT
 Question,Exit station (when leaving the REM)
 ""
@@ -737,7 +776,7 @@ other : Other
 dontKnow : Don't know"
 ""
 Field,busLines
-Question type,Unknown input
+Question type,Custom input
 Conditional,busConditional : mode === transitBus
 Question,"Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown."
@@ -766,12 +805,12 @@ transit : Public transit
 other : Other"
 ""
 Field,junctionPrivateBus
-Question type,Unknown input
+Question type,Custom input
 Conditional,junctionPrivateBusCustomConditional
 Question,Boarding location (getting on the bus)
 ""
 Field,junctionBusPrivate
-Question type,Unknown input
+Question type,Custom input
 Conditional,junctionBusPrivateCustomConditional
 Question,Exit location (getting off the bus)
 ""
@@ -857,7 +896,7 @@ Conditional,hasWorkingLocationNotSetCustomConditional
 Question,Name or address of {{nickname}}'s usual workplace
 ""
 Field,hh_persons.{_activePersonId}.usualWorkPlace.geography
-Question type,Unknown input
+Question type,Custom input
 Conditional,hasWorkingLocationNotSetCustomConditional
 Question,"Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
@@ -890,7 +929,7 @@ Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,Name or address of {{nickname}}'s school or main study location
 ""
 Field,hh_persons.{_activePersonId}.usualSchoolPlace.geography
-Question type,Unknown input
+Question type,Custom input
 Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,"Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
@@ -1371,14 +1410,14 @@ parentWithChild : Single parent with child(ren)
 noFamily : None of these situations (e.g., roommates, friends, or siblings living together)"
 ""
 Field,hh_pluginHybridCarNumber
-Question type,Unknown input
+Question type,Custom input
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are plug-in hybrid vehicles?
 Optional
 Only include vehicles that can be plugged in to recharge (do not include regular hybrids, e.g. Toyota Corolla Hybrid)"
 ""
 Field,hh_electricCarNumber
-Question type,Unknown input
+Question type,Custom input
 Conditional,householdHasCars : hh_carNumber >= 1
 Question,"Among the vehicles owned by your household, how many are electric vehicles?
 Optional"
@@ -1490,6 +1529,6 @@ Section,Survey completed
 Abbreviation,c_
 ""
 Field,buttonARTMPanel
-Question type,Unknown input
+Question type,Custom input
 Conditional,homeInTerritoryConditional : h_geography.properties.isInTerritory !== False
 Question,"Join ""Let's talk mobility"" panel"
