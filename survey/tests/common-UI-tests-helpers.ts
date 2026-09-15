@@ -325,6 +325,7 @@ export const defaultPerson2: HouseholdMember = {
 export type VisitedPlace = {
     activityCategory?: string | null;
     activity: string | null;
+    activityOtherSpecify?: string | null;
     onTheRoadPreviousPlaceActivity: string | null;
     onTheRoadNextPlaceCategory: string | null;
     previousWorkPlaceName: string | null;
@@ -1465,6 +1466,21 @@ const fillOneVisitedPlace = ({ context, place }: { context: any; place: VisitedP
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activity',
             value: place.activity
+        });
+    }
+
+    // Test custom widget visitedPlaceActivityOtherSpecify
+    if (place.activity !== 'other') {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityOtherSpecify',
+            isVisible: false
+        });
+    } else if (typeof place.activityOtherSpecify === 'string') {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.visitedPlaces.${activeVisitedPlaceId}.activityOtherSpecify',
+            value: place.activityOtherSpecify
         });
     }
 

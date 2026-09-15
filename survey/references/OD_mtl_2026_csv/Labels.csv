@@ -142,7 +142,7 @@ visitedPlaces,activities.medical,"Santé (hôpital, clinique, physiothérapie, e
 visitedPlaces,activities.veterinarian,Vétérinaire,Veterinary,,
 visitedPlaces,activities.worship,Lieu de culte,Place of worship,,
 visitedPlaces,activities.pickClassifiedPurchase,Récupérer un achat chez un particulier (petites annonces),Pick up an item from a private seller (online marketplace/classifieds),,
-visitedPlaces,activities.other,Autre,Other,,
+visitedPlaces,activities.other,Autre (spécifier),Other (specify),,
 visitedPlaces,activities.dropSomeone,Reconduire quelqu'un,Drop someone off,,
 visitedPlaces,activities.fetchSomeone,Aller chercher quelqu'un,Pick someone up,,
 visitedPlaces,activities.accompanySomeone,Accompagner quelqu'un,Accompany someone,,
