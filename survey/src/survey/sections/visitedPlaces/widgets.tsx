@@ -27,6 +27,8 @@ import * as customConditionals from '../../common/customConditionals';
 
 // visitedPlaceActivity
 
+// visitedPlaceActivityOtherSpecify
+
 // visitedPlaceOnTheRoadPreviousPlaceActivity
 
 // visitedPlacePreviousWorkPlaceName

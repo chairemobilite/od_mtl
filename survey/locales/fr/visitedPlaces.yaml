@@ -429,7 +429,7 @@ activities:
     veterinarian: Vétérinaire
     worship: Lieu de culte
     pickClassifiedPurchase: Récupérer un achat chez un particulier (petites annonces)
-    other: Autre
+    other: Autre (spécifier)
     dropSomeone: Reconduire quelqu'un
     fetchSomeone: Aller chercher quelqu'un
     accompanySomeone: Accompagner quelqu'un

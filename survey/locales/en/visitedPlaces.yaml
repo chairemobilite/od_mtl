@@ -285,7 +285,7 @@ activities:
     veterinarian: Veterinary
     worship: Place of worship
     pickClassifiedPurchase: Pick up an item from a private seller (online marketplace/classifieds)
-    other: Other
+    other: Other (specify)
     dropSomeone: Drop someone off
     fetchSomeone: Pick someone up
     accompanySomeone: Accompany someone

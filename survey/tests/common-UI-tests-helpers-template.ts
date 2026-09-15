@@ -452,6 +452,8 @@ export const fillVisitedplacesSectionTests = ({ context, householdSize }: Common
 
     // Test builtin widget visitedPlaceActivity
 
+    // Test builtin widget visitedPlaceActivityOtherSpecify
+
     // Test builtin widget visitedPlaceOnTheRoadPreviousPlaceActivity
 
     // Test builtin widget visitedPlacePreviousWorkPlaceName
