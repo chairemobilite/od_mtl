@@ -149,10 +149,9 @@ describe('parseInterviewAttributes', () => {
             expect(result.acceptToBeContactedForHelp).toBe(true);
             expect(result.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result.assignedDate).toBe('2025-01-15');
-            expect(result._languages).toEqual(['fr']);
+            expect(result._language).toBe('fr');
             expect(result.respondentComments).toBe('This is a test comment');
             expect(result._assignedDay).toBeUndefined();
-            expect(result._language).toBeUndefined();
             expect(result.end?.commentsOnSurvey).toBeUndefined();
             expect(result.end?.wouldLikeToParticipateInOtherSurveysChaireMobilite).toBeUndefined();
             expect(result.household?.size).toBe(3);
@@ -176,7 +175,7 @@ describe('parseInterviewAttributes', () => {
 
             expect(result3.acceptToBeContactedForHelp).toBe(true);
             expect(result3.wouldLikeToParticipateInOtherSurveys).toBe(false);
-            expect(result3._languages).toEqual(['fr']);
+            expect(result3._language).toBe('fr');
             expect(result3.respondentComments).toBe('This is a test comment');
         });
 
@@ -209,10 +208,9 @@ describe('parseInterviewAttributes', () => {
             expect(result2.acceptToBeContactedForHelp).toBe(true);
             expect(result2.wouldLikeToParticipateInOtherSurveys).toBe(false);
             expect(result2.assignedDate).toBe('2025-01-15');
-            expect(result2._languages).toEqual(['en']);
+            expect(result2._language).toBe('en');
             expect(result2.respondentComments).toBe('This is a test comment');
             expect(result2._assignedDay).toBeUndefined();
-            expect(result2._language).toBeUndefined();
             expect(result2.end?.commentsOnSurvey).toBeUndefined();
         });
     });

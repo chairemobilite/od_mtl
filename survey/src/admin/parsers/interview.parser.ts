@@ -34,12 +34,6 @@ export const parseInterviewAttributes: SurveyObjectParserInterview<CorrectedResp
         delete correctedResponse._assignedDay;
     }
 
-    // update the languages attribute:
-    if (correctedResponse._language && ['fr', 'en'].includes(correctedResponse._language)) {
-        correctedResponse._languages = [correctedResponse._language];
-        delete correctedResponse._language;
-    }
-
     const end =
         correctedResponse.end && typeof correctedResponse.end === 'object'
             ? (correctedResponse.end as Record<string, unknown>)
