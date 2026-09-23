@@ -103,7 +103,7 @@ export const getGeographyCustomValidation = ({ value, interview, path }) => {
     ];
 };
 
-export const householdElectricCarCountCustomValidation: ValidationFunction = (
+export const householdElectricCarCountOrOptionalCustomValidation: ValidationFunction = (
     value,
     _customValue,
     interview,
@@ -112,8 +112,10 @@ export const householdElectricCarCountCustomValidation: ValidationFunction = (
 ) => {
     const carNumber = Number(surveyHelperNew.getResponse(interview, 'household.carNumber', 0));
     const pluginHybridCarNumber = Number(surveyHelperNew.getResponse(interview, 'household.pluginHybridCarNumber', 0));
+    // First validation is the required validation that we drop
+    const carNumberValidations = carNumberValidation(value, _customValue, interview, path, customPath);
     return [
-        ...carNumberValidation(value, _customValue, interview, path, customPath),
+        ...carNumberValidations.slice(1),
         // Check that the electric car number is not greater than the total car number minus the plugin hybrid car number
         {
             validation:
@@ -124,7 +126,7 @@ export const householdElectricCarCountCustomValidation: ValidationFunction = (
     ];
 };
 
-export const householdHybridCarCountCustomValidation: ValidationFunction = (
+export const householdHybridCarCountOrOptionalCustomValidation: ValidationFunction = (
     value,
     _customValue,
     interview,
@@ -133,9 +135,11 @@ export const householdHybridCarCountCustomValidation: ValidationFunction = (
 ) => {
     const carNumber = surveyHelperNew.getResponse(interview, 'household.carNumber', 0) as number;
     const electricCarNumber = surveyHelperNew.getResponse(interview, 'household.electricCarNumber', 0) as number;
+    // First validation is the required validation that we drop
+    const carNumberValidations = carNumberValidation(value, _customValue, interview, path, customPath);
     return [
-        ...carNumberValidation(value, _customValue, interview, path, customPath),
-        // Check that the hybrid car number is not greater than the total car number minus the electric car number
+        ...carNumberValidations.slice(1),
+        // Check that the hybrid car number is not greater than the total car number minus the electric car number.
         {
             validation:
                 !_isBlank(value) &&
