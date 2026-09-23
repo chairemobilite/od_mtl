@@ -18,7 +18,7 @@ export const householdPluginHybridCarNumber: WidgetConfig.InputRadioNumberType =
     },
     overMaxAllowed: true,
     conditional: conditionals.householdHasCars,
-    validations: customValidations.householdHybridCarCountCustomValidation
+    validations: customValidations.householdHybridCarCountOrOptionalCustomValidation
 };
 
 // Note: This is a custom widget, because we need to use a Math.min() function.
@@ -34,5 +34,5 @@ export const householdElectricCarNumber: WidgetConfig.InputRadioNumberType = {
     },
     overMaxAllowed: true,
     conditional: conditionals.householdHasCars,
-    validations: customValidations.householdElectricCarCountCustomValidation
+    validations: customValidations.householdElectricCarCountOrOptionalCustomValidation
 };
