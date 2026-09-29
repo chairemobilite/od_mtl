@@ -1,4 +1,5 @@
 import _get from 'lodash/get';
+import moment from 'moment';
 import _isEqual from 'lodash/isEqual';
 import { isFeature } from 'geojson-validation';
 import { booleanPointInPolygon as turfBooleanPointInPolygon } from '@turf/turf';
@@ -13,7 +14,7 @@ import type {
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as surveyHelper from 'evolution-common/lib/utils/helpers';
 import * as odSurveyHelper from 'evolution-common/lib/services/odSurvey/helpers';
-import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason } from './helper';
+import { shouldAskForNoSchoolTripFollowup, shouldAskForNoWorkTripReason, shouldAskForUsualWorkPlace } from './helper';
 import { shouldShowToddlerDayCareQuestions } from './customHelpers';
 import sdrResidencesSecondaires from '../geojson/sdr_residences_secondaires.json';
 import transitZones from '../geojson/zones_tarifaires.json';
@@ -601,14 +602,26 @@ export const shouldAskForNoSchoolTripFollowupCustomConditional: WidgetConditiona
 };
 
 // Custom conditional: same as shouldAskForNoWorkTripReasonCustomConditional, but additional check for work place type
-const workPlaceTypesWithFixedLocation = ['onLocation', 'hybrid', 'onTheRoadWithUsualPlace'];
+// FIXME Make sure the date is correct, update if necessary
+const conditionalSwitchDate = moment('2026-09-29');
 export const hasWorkingLocationNotSetCustomConditional: WidgetConditional = (interview, path) => {
     const person = odSurveyHelper.getPerson({ interview, path });
     if (!person) {
         return [false, null];
     }
-    const shouldAskForNoWorkTripReasonValue = shouldAskForNoWorkTripReason({ interview, person });
-    return [shouldAskForNoWorkTripReasonValue && workPlaceTypesWithFixedLocation.includes(person.workPlaceType), null];
+    const startDate =
+        typeof interview.response._startedAt === 'number' ? moment.unix(interview.response._startedAt) : moment();
+    if (startDate < conditionalSwitchDate) {
+        const shouldAskForNoWorkTripReasonValue = shouldAskForNoWorkTripReason({ interview, person });
+        return [
+            shouldAskForNoWorkTripReasonValue &&
+                ['onLocation', 'hybrid', 'onTheRoadWithUsualPlace'].includes(person.workPlaceType),
+            null
+        ];
+    } else {
+        const shouldAskForUsualWorkPlaceValue = shouldAskForUsualWorkPlace({ interview, person });
+        return [shouldAskForUsualWorkPlaceValue, null];
+    }
 };
 
 // Custom conditional to show if the home geography is in one of the SDR zones with secondary residences
