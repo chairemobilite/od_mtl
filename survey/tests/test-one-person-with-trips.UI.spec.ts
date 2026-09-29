@@ -180,12 +180,12 @@ commonUITestsHelpers.fillSegmentsSectionTests({
 });
 
 /********** Tests travelBehavior section **********/
-// There is a work trip
+// There is a work trip, but not a usual location
 const travelBehavior = {
     ...commonUITestsHelpers.defaultTravelBehaviorWhenNoTrip,
     noWorkTripReason: null,
-    usualWorkPlace: null,
-    usualWorkPlaceCommuting: null
+    usualWorkPlace: { name: 'Polytechnique Montréal' },
+    usualWorkPlaceCommuting: 'bike'
 };
 commonUITestsHelpers.fillTravelBehaviorSectionTests({
     context,
