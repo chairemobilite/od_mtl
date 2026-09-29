@@ -403,6 +403,17 @@ export const personOccupation: WidgetConfig.InputRadioType = {
     validations: validations.requiredValidation
 };
 
+export const personOccupationOther: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'occupationSpecify',
+    twoColumns: false,
+    containsHtml: true,
+    joinWith: 'personOccupation',
+    label: (t: TFunction) => t('household:personOccupationOther'),
+    conditional: conditionals.personOccupationIsOther,
+    validations: validations.requiredValidation
+};
+
 export const personEducationalAttainment: WidgetConfig.InputRadioType = {
     ...defaultInputBase.inputRadioBase,
     path: 'educationalAttainment',

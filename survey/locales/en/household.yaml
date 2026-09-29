@@ -117,6 +117,7 @@ personTravelToWorkDays_one: >-
     Number of days per week you travel outside the home for work<br /><span class="_pale
     _oblique">In a typical week.</span>
 personOccupation: <strong>Main occupation</strong>
+personOccupationOther: Please describe this other occupation
 personEducationalAttainment: >-
     Highest level of <strong>educational attainment</strong><br /><span class="_pale
     _oblique">If in doubt, select the education level that most closely matches the

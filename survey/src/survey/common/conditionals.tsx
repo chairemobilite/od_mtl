@@ -1470,6 +1470,20 @@ export const educationalAttainmentConditional: WidgetConditional = (interview, p
     });
 };
 
+export const personOccupationIsOther: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.occupation`,
+                comparisonOperator: '===',
+                value: 'other'
+            }
+        ]
+    });
+};
+
 export const enmpConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,

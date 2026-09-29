@@ -265,6 +265,8 @@ Occupation principale
 - Autre
 - Préfère ne pas répondre
 
+Veuillez décrire cette autre occupation
+
 Plus haut niveau de scolarité
 En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.
 - Diplôme d'études secondaires, attestation d'équivalence ou aucun

@@ -267,6 +267,8 @@ Main occupation
 - Other
 - Prefer not to answer
 
+Please describe this other occupation
+
 Highest level of educational attainment
 If in doubt, select the education level that most closely matches the academic background.
 - High school diploma, equivalency certificate, or none

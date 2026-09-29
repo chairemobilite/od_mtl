@@ -149,7 +149,8 @@ const parent = {
     workDays: null,
     travelToWorkDays: null,
     educationalAttainment: null,
-    occupation: 'longTermDisability',
+    occupation: 'other',
+    occupationSpecify: 'temporary disability',
     bikesharingUsage: null,
     bikesharingMembership: null
 };
@@ -182,6 +183,7 @@ const child1 = {
     travelToWorkDays: null,
     educationalAttainment: null,
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null,
     bikesharingMembership: null
 };

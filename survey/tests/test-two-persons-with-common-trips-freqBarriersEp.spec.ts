@@ -64,12 +64,13 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     travelToWorkDays: null,
     educationalAttainment: null,
     occupation: null,
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null
 };
 const person2: commonUITestsHelpers.HouseholdMember = {
     personIndex: 1,
     nickname: 'Fleurette',
-    age: 82,
+    age: 65,
     gender: 'female',
     genderCustom: null,
     drivingLicenseOwnership: 'yes',
@@ -94,7 +95,8 @@ const person2: commonUITestsHelpers.HouseholdMember = {
     workDays: null,
     travelToWorkDays: null,
     educationalAttainment: null,
-    occupation: null,
+    occupation: 'retired',
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null
 };
 

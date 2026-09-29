@@ -425,6 +425,11 @@ volunteer : Bénévole
 other : Autre
 preferNotToAnswer : Préfère ne pas répondre"
 ""
+Champ,occupationSpecify
+Type de question,Champ de texte
+Conditionnel,personOccupationIsOther : occupation === other
+Question,Veuillez décrire cette autre occupation
+""
 Champ,educationalAttainment
 Type de question,Bouton radio
 Conditionnel,educationalAttainmentConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent || occupation === unemployed || occupation === parentalOrSickLeave
