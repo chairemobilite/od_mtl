@@ -130,6 +130,7 @@ export type HouseholdMember = {
     workDays: string | null;
     travelToWorkDays: string | null;
     occupation: string | null;
+    occupationSpecify: string | null;
     educationalAttainment: string | null;
 };
 
@@ -281,6 +282,7 @@ export const defaultPerson1: HouseholdMember = {
     travelToWorkDays: '3',
     educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     // FIXME For now the question is always shown, until https://github.com/chairemobilite/evolution/issues/1608 is resolved, or we actually have the `home.RA` field set
     bikesharingUsage: 'no'
     // bikesharingMembership: null
@@ -317,6 +319,7 @@ export const defaultPerson2: HouseholdMember = {
     travelToWorkDays: '5', // Question won't show
     educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     // FIXME For now the question is always shown, until https://github.com/chairemobilite/evolution/issues/1608 is resolved, or we actually have the `home.RA` field set
     bikesharingUsage: 'no'
     // bikesharingMembership: null
@@ -1180,6 +1183,22 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.occupation`,
                 value: person.occupation
+            });
+        }
+
+        // Test string widget personoccupationSpecify with conditional personOccupationIsOther
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        if (person.occupationSpecify === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.occupationSpecify`,
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputStringTest({
+                context,
+                path: `household.persons.${personIdString}.occupationSpecify`,
+                value: person.occupationSpecify
             });
         }
     });

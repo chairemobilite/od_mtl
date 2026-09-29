@@ -142,6 +142,7 @@ educationalAttainmentConditional,||,${currentPerson}.occupation,===,partTimeWork
 educationalAttainmentConditional,||,${currentPerson}.occupation,===,workerAndStudent,,,
 educationalAttainmentConditional,||,${currentPerson}.occupation,===,unemployed,,,
 educationalAttainmentConditional,||,${currentPerson}.occupation,===,parentalOrSickLeave,,,
+personOccupationIsOther,,${currentPerson}.occupation,===,other,,,
 enmpConditional,,ep.exclusive,===,mtmd,,,
 isAccessCodeInvalidConditional,,_accessCodeConfirmed,===,False,,,
 isAccessCodeNotValidConditional,,_accessCodeConfirmed,===,False,,,

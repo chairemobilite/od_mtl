@@ -427,6 +427,11 @@ volunteer : Volunteer
 other : Other
 preferNotToAnswer : Prefer not to answer"
 ""
+Field,occupationSpecify
+Question type,Text input
+Conditional,personOccupationIsOther : occupation === other
+Question,Please describe this other occupation
+""
 Field,educationalAttainment
 Question type,Radio input
 Conditional,educationalAttainmentConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent || occupation === unemployed || occupation === parentalOrSickLeave
