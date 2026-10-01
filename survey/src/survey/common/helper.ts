@@ -169,6 +169,37 @@ export const shouldAskForNoWorkTripReason = ({
     return tripsDateIsBusinessDay && getVisitedPlacesForCategory(journey, 'work').length === 0;
 };
 
+const workPlaceTypesWithFixedLocation = ['onLocation', 'hybrid', 'onTheRoadWithUsualPlace'];
+export const shouldAskForUsualWorkPlace = ({
+    person,
+    interview
+}: {
+    person: Person;
+    interview: UserInterviewAttributes;
+}) => {
+    // Ask only for all workers with fixed location
+    const journey = odSurveyHelper.getJourneysArray({ person })[0];
+    if (!person || !journey) {
+        return false;
+    }
+    const workerType = person.workerType;
+    const workPlaceType = person.workPlaceType;
+
+    const workPlaceTypeIsCompatible =
+        workPlaceTypesWithFixedLocation.includes(workPlaceType) && ['fullTime', 'partTime'].includes(workerType);
+    if (!workPlaceTypeIsCompatible) {
+        return false;
+    }
+
+    // Ask if the assigned day is a business day and there is no location marked as workUsual
+    const tripsDate = getResponse(interview, '_assignedDay', null);
+    const tripsDateIsBusinessDay = moment(tripsDate).isBusinessDay();
+    return (
+        tripsDateIsBusinessDay &&
+        getVisitedPlacesForCategory(journey, 'work').filter((vp) => vp.activity === 'workUsual').length === 0
+    );
+};
+
 export const shouldAskForNoSchoolTripFollowup = ({
     person,
     interview

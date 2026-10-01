@@ -95,6 +95,7 @@ const child1 = {
     travelToWorkDays: null,
     educationalAttainment: null,
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null,
     bikesharingMembership: null
 };
@@ -127,6 +128,7 @@ const child2 = {
     travelToWorkDays: null,
     educationalAttainment: null,
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null,
     bikesharingMembership: null
 };

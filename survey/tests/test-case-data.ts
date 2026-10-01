@@ -29,6 +29,7 @@ export const femaleHybridWorker: commonUITestsHelpers.HouseholdMember = {
     travelToWorkDays: '3',
     educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     // FIXME For now the question is always shown, until https://github.com/chairemobilite/evolution/issues/1608 is resolved, or we actually have the `home.RA` field set
     bikesharingUsage: 'no'
 };

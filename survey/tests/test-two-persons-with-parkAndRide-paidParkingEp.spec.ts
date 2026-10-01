@@ -64,6 +64,7 @@ const person1: commonUITestsHelpers.HouseholdMember = {
     travelToWorkDays: '5',
     educationalAttainment: 'bachelorOrHigher',
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null // not asked in RA
 };
 const person2: commonUITestsHelpers.HouseholdMember = {
@@ -95,6 +96,7 @@ const person2: commonUITestsHelpers.HouseholdMember = {
     travelToWorkDays: '5',
     educationalAttainment: 'postSecondaryBelowBachelorEducation',
     occupation: null, // Question won't show.
+    occupationSpecify: null, // Question won't show.
     bikesharingUsage: null // not asked in RA
 };
 

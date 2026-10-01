@@ -16,6 +16,50 @@ import { SurveyObjectParser } from 'evolution-backend/lib/services/audits/types'
 
 const isDriverType = (value: string): value is Driver => (driverValues as readonly string[]).includes(value);
 
+type StationFieldNames = {
+    start: string;
+    end: string;
+    transfer?: string;
+};
+
+/** Widget fields that hold this survey's stations, by the mode that shows them. */
+const stationFieldsByMode: { [mode: string]: StationFieldNames } = {
+    transitRRT: {
+        start: 'subwayStationStart',
+        end: 'subwayStationEnd',
+        transfer: 'subwayStationsTransfer'
+    },
+    transitLRRT: { start: 'remStationStart', end: 'remStationEnd' },
+    transitRegionalRail: { start: 'trainStationStart', end: 'trainStationEnd' }
+};
+
+const asStationId = (value: unknown): string | undefined =>
+    typeof value === 'string' && value !== '' ? value : undefined;
+
+/**
+ * Intermediate subway transfers are stored as one choice: `none`, a station id,
+ * or several ids joined by `&`.
+ */
+const transferStations = (value: unknown): string[] => {
+    if (typeof value !== 'string' || value === '' || value === 'none') {
+        return [];
+    }
+    return value.split('&').filter((station) => station !== '');
+};
+
+const stationsFromSurveyFields = (
+    attributes: ExtendedSegmentAttributes,
+    fields: StationFieldNames
+): string[] | undefined => {
+    const start = asStationId(attributes[fields.start]);
+    const end = asStationId(attributes[fields.end]);
+    const transfers = fields.transfer === undefined ? [] : transferStations(attributes[fields.transfer]);
+    if (start === undefined && end === undefined && transfers.length === 0) {
+        return undefined;
+    }
+    return [...(start === undefined ? [] : [start]), ...transfers, ...(end === undefined ? [] : [end])];
+};
+
 /**
  * The answer each choice of the parking question stands for. This survey asks
  * about the kind of parking rather than only whether it was paid, so the
@@ -38,7 +82,9 @@ const paidForParkingByChoice: { [choice: string]: AnswerStatus<boolean> } = {
  * custom attribute, as it says more than the boolean it maps to. The driver
  * question holds either the uuid of a household member or the kind of driver,
  * which the segment keeps in two attributes, so the answer is read into the
- * one it belongs to.
+ * one it belongs to. Metro, REM and train stations are collected into the
+ * single `stations` array Evolution expects, from entry through transfers to
+ * exit.
  *
  * @param originalCorrectedSegmentAttributes - The segment attributes to parse
  * @param _correctedResponse - The corrected response
@@ -73,6 +119,16 @@ export const parseSegmentAttributes: SurveyObjectParser<ExtendedSegmentAttribute
             segmentAttributes.driverUuid = driverChoice;
         } else if (isDriverType(driverChoice)) {
             segmentAttributes.driverType = driverChoice;
+        }
+    }
+
+    if (!Array.isArray(segmentAttributes.stations) && typeof segmentAttributes.mode === 'string') {
+        const stationFields = stationFieldsByMode[segmentAttributes.mode];
+        if (stationFields !== undefined) {
+            const stations = stationsFromSurveyFields(segmentAttributes, stationFields);
+            if (stations !== undefined) {
+                segmentAttributes.stations = stations;
+            }
         }
     }
 

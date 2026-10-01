@@ -7,7 +7,7 @@ import {
     tripsForPersonComplete
 } from '../../common/helper';
 import { checkConditional } from 'evolution-frontend/lib/actions/utils/Conditional';
-import { personNoWorkTripReason, personNoSchoolTripReason, personNoSchoolTripIntro } from './widgets';
+import { personNoWorkTripReason, personUsualWorkPlaceIntro, personNoSchoolTripIntro } from './widgets';
 
 export const currentSectionName: string = 'travelBehavior';
 const previousSectionName: SectionConfig['previousSection'] = 'segments';
@@ -48,12 +48,22 @@ export const sectionConfig: SectionConfig = {
             interview,
             `household.persons.${person._uuid}.journeys.${journey._uuid}.noWorkTripReason`
         );
+        const [personUsualWorkPlaceNotSetConditional] = checkConditional(
+            personUsualWorkPlaceIntro.conditional as any,
+            interview,
+            `household.persons.${person._uuid}.journeys.${journey._uuid}.noWorkTripReason`
+        );
         const [personNoSchoolTripConditional] = checkConditional(
             personNoSchoolTripIntro.conditional as any,
             interview,
             `household.persons.${person._uuid}.journeys.${journey._uuid}.noSchoolTripReason`
         );
-        return person && (personNoWorkTripConditional === true || personNoSchoolTripConditional === true);
+        return (
+            person &&
+            (personNoWorkTripConditional === true ||
+                personNoSchoolTripConditional === true ||
+                personUsualWorkPlaceNotSetConditional === true)
+        );
     }
 };
 

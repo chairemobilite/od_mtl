@@ -327,6 +327,11 @@ export const fillHouseholdSectionTests = ({ context, householdSize }: CommonTest
     testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupation', isVisible: true });
     testHelpers.inputRadioTest({ context, path: 'household.persons.${personId[0]}.occupation', value: '?' });
 
+    // Test string widget personOccupationOther with conditional personOccupationIsOther
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.${personId[0]}.occupationSpecify', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.${personId[0]}.occupationSpecify', value: '?' });
+
     // Test radio widget personEducationalAttainment with conditional educationalAttainmentConditional with choices educationalAttainment
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */

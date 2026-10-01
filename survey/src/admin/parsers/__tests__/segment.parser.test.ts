@@ -78,4 +78,104 @@ describe('parseSegmentAttributes', () => {
         expect(result.driverUuid).toBeUndefined();
         expect(result.driver).toBe('neighbor');
     });
+
+    test.each([
+        [
+            'metro without a transfer',
+            {
+                mode: 'transitRRT',
+                subwayStationStart: 'edouardMontpetit',
+                subwayStationEnd: 'longueuilUniversiteDeSherbrooke'
+            },
+            ['edouardMontpetit', 'longueuilUniversiteDeSherbrooke']
+        ],
+        [
+            'metro with no transfer recorded as none',
+            {
+                mode: 'transitRRT',
+                subwayStationStart: 'placeDArmes',
+                subwayStationEnd: 'jeanTalon',
+                subwayStationsTransfer: 'none'
+            },
+            ['placeDArmes', 'jeanTalon']
+        ],
+        [
+            'metro with one transfer',
+            {
+                mode: 'transitRRT',
+                subwayStationStart: 'beaubien',
+                subwayStationEnd: 'cadillac',
+                subwayStationsTransfer: 'berriUqam'
+            },
+            ['beaubien', 'berriUqam', 'cadillac']
+        ],
+        [
+            'metro with two transfers',
+            {
+                mode: 'transitRRT',
+                subwayStationStart: 'edouardMontpetit',
+                subwayStationEnd: 'longueuilUniversiteDeSherbrooke',
+                subwayStationsTransfer: 'snowdon&berriUqam'
+            },
+            ['edouardMontpetit', 'snowdon', 'berriUqam', 'longueuilUniversiteDeSherbrooke']
+        ],
+        [
+            'metro with an other entry station',
+            {
+                mode: 'transitRRT',
+                subwayStationStart: 'other',
+                subwayStationEnd: 'sherbrooke'
+            },
+            ['other', 'sherbrooke']
+        ],
+        [
+            'REM',
+            {
+                mode: 'transitLRRT',
+                remStationStart: 'panama',
+                remStationEnd: 'mcgill'
+            },
+            ['panama', 'mcgill']
+        ],
+        [
+            'train',
+            {
+                mode: 'transitRegionalRail',
+                trainStationStart: 'centrale',
+                trainStationEnd: 'dorval'
+            },
+            ['centrale', 'dorval']
+        ],
+        [
+            'metro with only the entry station',
+            { mode: 'transitRRT', subwayStationStart: 'montRoyal' },
+            ['montRoyal']
+        ]
+    ])('should convert the stations for %s', (_description, answers, expected) => {
+        const result = parse(answers);
+
+        expect(result.stations).toEqual(expected);
+    });
+
+    it('should leave an already parsed stations array as it is', () => {
+        const stations = ['guyConcordia', 'berriUqam', 'montmorency'];
+        const result = parse({
+            mode: 'transitRRT',
+            subwayStationStart: 'guyConcordia',
+            subwayStationEnd: 'montmorency',
+            stations
+        });
+
+        expect(result.stations).toEqual(stations);
+    });
+
+    it('should ignore leftover subway stations when the mode is not transit', () => {
+        const result = parse({
+            mode: 'carDriver',
+            subwayStationStart: 'jeanTalon',
+            subwayStationEnd: 'guyConcordia'
+        });
+
+        expect(result.stations).toBeUndefined();
+    });
 });

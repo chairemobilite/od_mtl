@@ -158,6 +158,7 @@ __Dans une semaine typique.__","Number of days per week you travel outside the h
 __In a typical week.__","min=0
 max=${currentPerson}.travelToWorkDays",,personWorkTripDaysConditional,,,,,,TRUE,,,,,Custom because max of RadioNumber does not accept a path with ${currentPerson}
 personOccupation,Radio,TRUE,household,householdMembers,occupation,**Occupation principale**,**Main occupation**,,,,,personOccupationCustomConditional,,personOccupation,,,,TRUE,,,,,Custom conditional to set the default value depending on previous answers
+personOccupationOther,String,TRUE,household,householdMembers,occupationSpecify,Veuillez décrire cette autre occupation,Please describe this other occupation,,,,join_with=${personOccupation},personOccupationIsOther,,,,,,TRUE,,,,,
 personEducationalAttainment,Radio,TRUE,household,householdMembers,educationalAttainment,"Plus haut **niveau de scolarité**
 __En cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du parcours.__","Highest level of **educational attainment**
 __If in doubt, select the education level that most closely matches the academic background.__",,,,,educationalAttainmentConditional,,educationalAttainment,,,,TRUE,,,,,

@@ -198,6 +198,7 @@ personTravelToWorkDays_one: >-
     Nombre de jour(s) par semaine où vous vous déplacez hors domicile pour le travail<br
     /><span class="_pale _oblique">Dans une semaine typique.</span>
 personOccupation: <strong>Occupation principale</strong>
+personOccupationOther: Veuillez décrire cette autre occupation
 personEducationalAttainment: >-
     Plus haut <strong>niveau de scolarité</strong><br /><span class="_pale _oblique">En
     cas de doute, sélectionnez le niveau de scolarité qui se rapproche le plus du
