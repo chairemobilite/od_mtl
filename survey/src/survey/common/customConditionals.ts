@@ -602,8 +602,8 @@ export const shouldAskForNoSchoolTripFollowupCustomConditional: WidgetConditiona
 };
 
 // Custom conditional: same as shouldAskForNoWorkTripReasonCustomConditional, but additional check for work place type
-// FIXME Make sure the date is correct, update if necessary
-const conditionalSwitchDate = moment('2026-09-29');
+// The new condition will apply only to interviews started after 3am on october 6th (around the time of the restart)
+const conditionalSwitchDate = moment('2026-10-06T03:00:00-04:00');
 export const hasWorkingLocationNotSetCustomConditional: WidgetConditional = (interview, path) => {
     const person = odSurveyHelper.getPerson({ interview, path });
     if (!person) {
