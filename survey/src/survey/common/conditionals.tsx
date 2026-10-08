@@ -1557,6 +1557,21 @@ export const shouldAskForNoWorkTripReasonSpecifyConditional: WidgetConditional =
     });
 };
 
+export const shouldAskForNoSchoolTripReasonSpecifyConditional: WidgetConditional = (interview, path) => {
+    const currentPersonId = odSurveyHelpers.getCurrentPersonId({ interview, path }); // Get the current person id
+    const currentJourneyId = odSurveyHelpers.getCurrentJourneyId({ interview, path }); // Get the current journey id
+    return checkConditionals({
+        interview,
+        conditionals: [
+            {
+                path: `household.persons.${currentPersonId}.journeys.${currentJourneyId}.noSchoolTripReason`,
+                comparisonOperator: '===',
+                value: 'other'
+            }
+        ]
+    });
+};
+
 export const homeInTerritoryConditional: WidgetConditional = (interview) => {
     return checkConditionals({
         interview,

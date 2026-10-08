@@ -356,6 +356,8 @@ export type TravelBehavior = {
         name: string;
     } | null;
     noSchoolTripReason: string | null;
+    // Leave undefined if visible, but no unanswered
+    noSchoolTripReasonSpecify?: string | null;
 };
 
 export const defaultTravelBehavior: TravelBehavior = {
@@ -365,7 +367,8 @@ export const defaultTravelBehavior: TravelBehavior = {
     usualWorkPlaceCommuting: null,
     hasSchoolPlace: null,
     usualSchoolPlace: null,
-    noSchoolTripReason: null
+    noSchoolTripReason: null,
+    noSchoolTripReasonSpecify: null
 };
 
 // Default person is worker and student and no trips, so we will those values
@@ -378,7 +381,8 @@ export const defaultTravelBehaviorWhenNoTrip: TravelBehavior = {
     usualSchoolPlace: {
         name: 'Université de Montréal, Campus de la Montagne'
     },
-    noSchoolTripReason: 'distanceLearning'
+    noSchoolTripReason: 'distanceLearning',
+    noSchoolTripReasonSpecify: null
 };
 
 export type LongDistanceSection = {
@@ -2495,10 +2499,33 @@ export const fillTravelBehaviorSectionTests = ({
             isVisible: false
         });
     } else {
-        testHelpers.inputSelectTest({
+        testHelpers.inputRadioTest({
             context,
             path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReason',
             value: travelBehavior.noSchoolTripReason
+        });
+    }
+
+    // Test string widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripReasonSpecifyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    if (travelBehavior.noSchoolTripReasonSpecify === null) {
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReasonSpecify',
+            isVisible: false
+        });
+    } else if (travelBehavior.noSchoolTripReasonSpecify === undefined) {
+        // No answer to fill, just check visibility
+        testHelpers.inputVisibleTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReasonSpecify',
+            isVisible: true
+        });
+    } else {
+        testHelpers.inputStringTest({
+            context,
+            path: 'household.persons.${activePersonId}.journeys.${activeJourneyId}.noSchoolTripReasonSpecify',
+            value: travelBehavior.noSchoolTripReasonSpecify
         });
     }
 

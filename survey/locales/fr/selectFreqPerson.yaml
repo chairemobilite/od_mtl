@@ -3,9 +3,11 @@
 # Any changes made to this file will be overwritten.
 
 selectFreqPersonIntro: >-
-    <span class="_phone" aria-hidden="true">i </span>Les questions suivantes visent
-    à mieux comprendre les comportements de mobilité au‑delà des déplacements déjà
-    déclarés.<br />Elles sont posées à un seul répondant du ménage.
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>Les questions suivantes visent à mieux comprendre les comportements de
+    mobilité au‑delà des déplacements déjà déclarés.<br />Elles sont posées à un seul
+    répondant du ménage.
 selectFreqPerson: >-
-    <span class="_phone" aria-hidden="true">i </span>Qui répondra à ces questions?
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>Qui répondra à ces questions?
 buttonCompleteSelectFreqPersonSection: Confirmer

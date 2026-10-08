@@ -277,7 +277,7 @@ preferNotToAnswer : Prefer not to answer"
 Field,disabilities
 Question type,Checkbox input
 Conditional,hasDisabilityConditional : hasDisability === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Which one(s)?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Which one(s)?
 Optional"
 Values,"hearing (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Hearing
 visual (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Visual
@@ -294,12 +294,12 @@ preferNotToAnswer : Prefer not to answer"
 Field,disabilitiesSpecify
 Question type,Text input
 Conditional,personDisabilityIsOtherConditional : disabilities === other
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Specify"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Specify"
 ""
 Field,mobilityAssistiveDevices
 Question type,Checkbox input
 Conditional,hasDisabilityConditional : hasDisability === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
 Optional"
 Values,"crutchOrCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Crutches or cane
 whiteCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : White cane
@@ -315,18 +315,18 @@ preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === nu
 Field,mobilityAssistiveDevicesSpecify
 Question type,Text input
 Conditional,personAssistiveDevicesIsOtherConditional : mobilityAssistiveDevices === other
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Specify"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Specify"
 ""
 Field,mostUsedMobilityAssistiveDevice
 Question type,Radio input
 Conditional,mostUsedMobilityAssistiveDeviceCustomConditional
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Most used
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Most used
 Optional"
 ""
 Field,useParatransit
 Question type,Radio input
 Conditional,hasDisabilityConditional : hasDisability === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Is {{nickname}} registered for paratransit services?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Is {{nickname}} registered for paratransit services?
 STM, RTL, STL, exo, etc.
 Optional"
 Values,"yes : Yes
@@ -336,7 +336,7 @@ preferNotToAnswer : Prefer not to answer"
 Field,disabilitiesFrequenciesParatransit
 Question type,Radio input
 Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>In the past 12 months, how often has {{nickname}} used paratransit services?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>In the past 12 months, how often has {{nickname}} used paratransit services?
 Optional"
 Values,"never : Never in the last 12 months
 1orMorePerYear : 1 to a few days in the last 12 months
@@ -347,7 +347,7 @@ Values,"never : Never in the last 12 months
 Field,disabilitiesFrequenciesTransit
 Question type,Radio input
 Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>In the past 12 months, how often has {{nickname}} used public transit (regular service)?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>In the past 12 months, how often has {{nickname}} used public transit (regular service)?
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
 Optional"
 Values,"never (doesNotUseTransitConditional : usedTransitInLast30Days === no) : Never in the last 12 months
@@ -940,7 +940,7 @@ Question,"Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
-Question type,Select input
+Question type,Radio input
 Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
 Question,Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 Values,"distanceLearning : Distance learning
@@ -949,6 +949,11 @@ leaveSicknessPersonalReason : Leave (sick, personal, other)
 strike : Strike
 other : Other
 dontKnow : Don't know"
+""
+Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
+Question type,Text input
+Conditional,shouldAskForNoSchoolTripReasonSpecifyConditional : noSchoolTripReason === other
+Question,Specify
 ""
 ""
 ""
@@ -1091,7 +1096,7 @@ no : No"
 Field,barriersDisabilityFrequency
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Public transit frequency (e.g., infrequent service, long waiting times)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Public transit frequency (e.g., infrequent service, long waiting times)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1102,7 +1107,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityReliability
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1113,7 +1118,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityWalk
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Walking time to a stop or station (at departure or arrival)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Walking time to a stop or station (at departure or arrival)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1124,7 +1129,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityTime
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1135,7 +1140,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityTransfer
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Number of transfers required (changes of line or mode)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Number of transfers required (changes of line or mode)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1146,7 +1151,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilitySecurity
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1157,7 +1162,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityUniversalAccessibility
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Lack of accessibility (elevators, ramps, reserved seating, benches, visual displays, audio information, etc.)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1168,7 +1173,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityPlanning
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Trip planning (ease of finding information, accessible website, etc.)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Trip planning (ease of finding information, accessible website, etc.)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1179,7 +1184,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersDisabilityCourtesy
 Question type,Radio input
 Conditional,isBarriersDisabilityTripPersonAvailableConditional : barriersDisabilityIsPersonAvailable === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Lack of civility (giving up one’s seat, removing one’s bag, people blocking access to a pole for support or standing in front of doors) and/or the presence of discriminatory attitudes (hostile stares)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1194,7 +1199,7 @@ Abbreviation,sfp_
 ""
 Field,_freqPersonId
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Who will answer those questions?"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Who will answer those questions?"
 ""
 ""
 ""
@@ -1203,7 +1208,7 @@ Abbreviation,freq_
 ""
 Field,anyTripModeFrequenciesWalk
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Frequency of use of the mode: Walk (for most of the trip)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Walk (for most of the trip)"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1212,7 +1217,7 @@ Values,"neverOrRarely : Never/Rarely
 ""
 Field,anyTripModeFrequenciesBicycle
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1221,7 +1226,7 @@ Values,"neverOrRarely : Never/Rarely
 ""
 Field,anyTripModeFrequenciesTransit
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Frequency of use of the mode: Public transit (bus, metro, REM, train)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Public transit (bus, metro, REM, train)"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1230,7 +1235,7 @@ Values,"neverOrRarely : Never/Rarely
 ""
 Field,anyTripModeFrequenciesCarPassenger
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Frequency of use of the mode: Car passenger"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Car passenger"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1240,7 +1245,7 @@ Values,"neverOrRarely : Never/Rarely
 Field,anyTripModeFrequenciesCarDriver
 Question type,Radio input
 Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Frequency of use of the mode: Car driver"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Car driver"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
 1dayPerWeek : 1 day/week
@@ -1254,7 +1259,7 @@ Abbreviation,att_
 ""
 Field,attitudinalOpinion
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1263,7 +1268,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalCar
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>A personal car represents independence and autonomy for me."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>A personal car represents independence and autonomy for me."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1272,7 +1277,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalTransitGoodQuality
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Overall, public transit in the region where I live is useful and of good quality."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Overall, public transit in the region where I live is useful and of good quality."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1281,7 +1286,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalFamiliarWithTransit
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1290,7 +1295,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalRequireHighLevel
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1299,7 +1304,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalEasyWithoutCar
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1308,7 +1313,7 @@ Values,"-2 : Strongly disagree
 ""
 Field,attitudinalGoodAccessImportant
 Question type,Radio input
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
 Values,"-2 : Strongly disagree
 -1 : Somewhat disagree
 0 : Neither agree nor disagree
@@ -1323,7 +1328,7 @@ Abbreviation,barr_
 Field,barriersFrequency
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Public transit frequency (e.g., infrequent service, long waiting times)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Public transit frequency (e.g., infrequent service, long waiting times)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1334,7 +1339,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersReliability
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Reliability of public transit (e.g., unpredictable delays, cancellations, fear of missed connections)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1345,7 +1350,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersWalk
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Walking time to a stop or station (at departure or arrival)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Walking time to a stop or station (at departure or arrival)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1356,7 +1361,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersTime
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Total travel time, door-to-door (walking + waiting + in-vehicle time + transfers)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1367,7 +1372,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersTransfer
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Number of transfers required (changes of line or mode)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Number of transfers required (changes of line or mode)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1378,7 +1383,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersSecurity
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Safety (e.g., poor lighting in terminals and stations, lack of staff in the network, etc.)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1389,7 +1394,7 @@ Values,"0 : Not a barrier at all - I did not avoid public transit for this reaso
 Field,barriersPlanning
 Question type,Radio input
 Conditional,hasBarrierTripConditional : _barriersTripPath !== null
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Trip planning (ease of finding information, accessible website, etc.)"
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Trip planning (ease of finding information, accessible website, etc.)"
 Values,"0 : Not a barrier at all - I did not avoid public transit for this reason.
 1 : Minor barrier - This reason slightly contributed to my not using public transit, without changing my choice.
 2 : Moderate barrier - This reason played a role in my decision to avoid public transit, among other factors.
@@ -1480,7 +1485,7 @@ Optional"
 Field,e_interestOfTheSurvey
 Question type,Range input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>How interesting was this survey to you?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How interesting was this survey to you?
 Optional"
 Values,"0 : Not at all
 50 : Neutral
@@ -1489,13 +1494,13 @@ Values,"0 : Not at all
 Field,e_timeSpentAnswering
 Question type,Number input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>How much time do you think you spent answering this survey (in minutes)?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How much time do you think you spent answering this survey (in minutes)?
 Optional"
 ""
 Field,e_durationOfTheSurvey
 Question type,Range input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Do you feel that the length of the survey was too short, about right, or too long?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Do you feel that the length of the survey was too short, about right, or too long?
 Optional"
 Values,"0 : Too short
 50 : Just right
@@ -1504,7 +1509,7 @@ Values,"0 : Too short
 Field,e_difficultyOfTheSurvey
 Question type,Range input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>How easy or difficult was it for you to answer the questions in this survey?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How easy or difficult was it for you to answer the questions in this survey?
 Optional"
 Values,"0 : Very easy
 50 : Moderately difficult
@@ -1513,7 +1518,7 @@ Values,"0 : Very easy
 Field,e_burdenOfTheSurvey
 Question type,Range input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>How burdensome (demanding) did you find this survey to be?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How burdensome (demanding) did you find this survey to be?
 Optional"
 Values,"0 : Not at all
 50 : Moderately burdensome
@@ -1522,7 +1527,7 @@ Values,"0 : Not at all
 Field,e_consideredAbandoningSurvey
 Question type,Radio input
 Conditional,enmpConditional : exclusive === mtmd
-Question,"<span class=""_phone"" aria-hidden=""true"">i </span>Did you consider, at any point, abandoning the survey?
+Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Did you consider, at any point, abandoning the survey?
 Optional"
 Values,"yes : Yes
 no : No

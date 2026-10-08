@@ -19,5 +19,6 @@ export const widgetsNames: SectionConfig['widgets'] = [
     'personUsualSchoolPlaceName',
     'personUsualSchoolPlaceGeography',
     'personNoSchoolTripReason',
+    'personNoSchoolTripReasonSpecify',
     'buttonTravelBehaviorConfirmNextSection'
 ];

@@ -753,10 +753,16 @@ export const fillTravelbehaviorSectionTests = ({ context, householdSize }: Commo
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.usualSchoolPlace.geography', isVisible: true });
     // Implement custom test
 
-    // Test select widget personNoSchoolTripReason with conditional hasSchoolLocationNotSetConditional with choices noSchoolTripReasonChoices
+    // Test radio widget personNoSchoolTripReason with conditional hasSchoolLocationNotSetConditional with choices noSchoolTripReasonChoices
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
     testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', isVisible: true });
+    testHelpers.inputRadioTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason', value: '?' });
+
+    // Test string widget personNoSchoolTripReasonSpecify with conditional shouldAskForNoSchoolTripReasonSpecifyConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify', isVisible: true });
+    testHelpers.inputStringTest({ context, path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify', value: '?' });
 
     // Test nextbutton widget buttonTravelBehaviorConfirmNextSection
     testHelpers.inputNextButtonTest({ context, text: '?', nextPageUrl: '?' });
