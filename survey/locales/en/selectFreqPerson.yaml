@@ -3,9 +3,10 @@
 # Any changes made to this file will be overwritten.
 
 selectFreqPersonIntro: >-
-    <span class="_phone" aria-hidden="true">i </span>The following questions aim to
-    better understand mobility behaviours beyond the trips already reported.<br />They
-    are asked to a single respondent in the household.
+    <span class="_phone" aria-hidden="true">Call center: skip this question  </span>The
+    following questions aim to better understand mobility behaviours beyond the trips
+    already reported.<br />They are asked to a single respondent in the household.
 selectFreqPerson: >-
-    <span class="_phone" aria-hidden="true">i </span>Who will answer those questions?
+    <span class="_phone" aria-hidden="true">Call center: skip this question  </span>Who
+    will answer those questions?
 buttonCompleteSelectFreqPersonSection: Confirm

@@ -67,6 +67,7 @@ personNoSchoolTripReason: >-
 personNoSchoolTripReason_one: >-
     Raison pour laquelle vous n'avez pas effectué de déplacement pour les études le
     {{journeyDate}}?
+personNoSchoolTripReasonSpecify: Spécifier
 buttonTravelBehaviorConfirmNextSection: Continuer
 personHasSchoolPlace_schoolchildcare: >-
     Est-ce que {{nickname}} fréquente un établissement scolaire, une garderie ou CPE?

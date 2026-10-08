@@ -70,6 +70,7 @@ personNoSchoolTripReason_one: Reason you did not travel for your studies on {{jo
 personNoSchoolTripReason_male_one: Reason you did not travel for your studies on {{journeyDate}}
 personNoSchoolTripReason_female_one: Reason you did not travel for your studies on
     {{journeyDate}}
+personNoSchoolTripReasonSpecify: Specify
 buttonTravelBehaviorConfirmNextSection: Continue
 personHasSchoolPlace_schoolchildcare: Does {{nickname}} attend a school, daycare or
     CPE?

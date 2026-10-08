@@ -143,8 +143,8 @@ export const personUsualSchoolPlaceName: WidgetConfig.InputStringType = {
 // Custom because it is a map
 export const personUsualSchoolPlaceGeography = customWidgets.personUsualSchoolPlaceGeography;
 
-export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
-    ...defaultInputBase.inputSelectBase,
+export const personNoSchoolTripReason: WidgetConfig.InputRadioType = {
+    ...defaultInputBase.inputRadioBase,
     path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason',
     twoColumns: false,
     containsHtml: false,
@@ -152,6 +152,16 @@ export const personNoSchoolTripReason: WidgetConfig.InputSelectType = {
     choices: choices.noSchoolTripReasonChoices,
     conditional: conditionals.hasSchoolLocationNotSetConditional,
     validations: validations.requiredValidation
+};
+
+export const personNoSchoolTripReasonSpecify: WidgetConfig.InputStringType = {
+    ...defaultInputBase.inputStringBase,
+    path: 'household.persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify',
+    twoColumns: false,
+    containsHtml: false,
+    label: (t: TFunction) => t('travelBehavior:personNoSchoolTripReasonSpecify'),
+    conditional: conditionals.shouldAskForNoSchoolTripReasonSpecifyConditional,
+    validations: validations.optionalValidation
 };
 
 export const buttonTravelBehaviorConfirmNextSection: WidgetConfig.ButtonWidgetConfig = {
