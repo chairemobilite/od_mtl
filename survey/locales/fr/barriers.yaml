@@ -8,33 +8,39 @@ barriersTrip: >-
 barriersTrip_one: >-
     Déplacement pour motif {{activity}} : {{origin}} vers {{destination}} à {{originDepartureTime}}
 barriersIntro: >-
-    <span class="_phone" aria-hidden="true">i </span>Pour le déplacement indiqué ci-dessus,
-    vous avez utilisé la voiture. Pour chacun des éléments suivants, <strong>indiquez
-    s’ils ont constitué un frein à l’utilisation du transport en commun</strong> (bus,
-    métro, train ou REM), pour ce <strong>déplacement</strong>.
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture. Pour
+    chacun des éléments suivants, <strong>indiquez s’ils ont constitué un frein à
+    l’utilisation du transport en commun</strong> (bus, métro, train ou REM), pour
+    ce <strong>déplacement</strong>.
 barriersFrequency: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>fréquence de passage</strong>
-    du transport en commun ou TC (ex. : passages espacés, longue attente)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>fréquence de passage</strong> du transport en commun ou TC (ex.
+    : passages espacés, longue attente)
 barriersReliability: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>fiabilité</strong>
-    du transport en commun (ex. : retards imprévisibles, annulations, crainte de correspondances
-    manquées)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>fiabilité</strong> du transport en commun (ex. : retards imprévisibles,
+    annulations, crainte de correspondances manquées)
 barriersWalk: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>durée de marche</strong>
-    jusqu’à un arrêt ou une station (au départ ou à l’arrivée)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>durée de marche</strong> jusqu’à un arrêt ou une station (au
+    départ ou à l’arrivée)
 barriersTime: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>durée totale du déplacement</strong>,
-    de porte-à-porte (marche + attente + temps à bord + correspondances)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>durée totale du déplacement</strong>, de porte-à-porte (marche
+    + attente + temps à bord + correspondances)
 barriersTransfer: >-
-    <span class="_phone" aria-hidden="true">i </span>Le <strong>nombre de correspondances</strong>
-    nécessaires (changements de ligne ou de mode)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>Le <strong>nombre de correspondances</strong> nécessaires (changements
+    de ligne ou de mode)
 barriersSecurity: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>sécurité</strong>
-    (manque de luminosité dans les terminus et stations, absence de personnel dans
-    le réseau, etc.)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>sécurité</strong> (manque de luminosité dans les terminus et
+    stations, absence de personnel dans le réseau, etc.)
 barriersPlanning: >-
-    <span class="_phone" aria-hidden="true">i </span>La <strong>planification du déplacement</strong>
-    (facilité de trouver l'information, site web accessible, etc.)
+    <span class="_phone" aria-hidden="true">Centre d'appel : sauter cette question
+    </span>La <strong>planification du déplacement</strong> (facilité de trouver l'information,
+    site web accessible, etc.)
 buttonCompleteBarriersSection: Continuer
 barriersIntro_carDriver: >-
     Pour le déplacement indiqué ci-dessus, vous avez utilisé la voiture comme conducteur.
