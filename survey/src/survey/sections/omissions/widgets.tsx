@@ -15,6 +15,14 @@ import * as customChoices from './customChoices';
 import * as customHelpPopup from '../../common/customHelpPopup';
 import * as customLabels from '../../common/customLabels';
 
+export const omissionsSectionIntro: WidgetConfig.TextWidgetConfig = {
+    ...defaultInputBase.infoTextBase,
+    path: 'omissionsSectionIntro',
+    containsHtml: true,
+    text: customLabels.withOmissionNicknameCustomLabel,
+    conditional: conditionals.hasHouseholdSize2OrMoreConditional
+};
+
 // Adapter la phrase si un seul enfant de 0-4ans avec le nickname et age.
 // Pour les conditions SI EP garderie ET au moins un enfant de 0-4ans ET aucun dép. reconduire/aller chercher à une garderie/CPE (shp)
 export const toddlerDaycare: WidgetConfig.InputRadioType = {

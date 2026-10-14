@@ -3,11 +3,14 @@
 // Any changes made to this file will be overwritten.
 
 import { isSectionCompleted } from 'evolution-common/lib/services/questionnaire/sections/navigationHelpers';
-import { SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
+import { Person, SectionConfig } from 'evolution-common/lib/services/questionnaire/types';
 import { allPersonsTripDiariesCompleted } from '../../common/helper';
 import { widgetsNames } from './widgetsNames';
-import { shouldShowToddlerDayCareQuestions } from '../../common/customHelpers';
+import { getSelfRespondents, shouldShowToddlerDayCareQuestions } from '../../common/customHelpers';
 import { isPartialSample } from '../../common/commonHelpers';
+import { getResponse } from 'evolution-common/lib/utils/helpers';
+import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
+import { getInterviewablePersonsArray, getPersons } from 'evolution-common/lib/services/odSurvey/helpers';
 
 export const currentSectionName: string = 'omissions';
 const previousSectionName: SectionConfig['previousSection'] = 'personsTrips';
@@ -17,6 +20,26 @@ const parentSection = 'end';
 const isSectionVisible = (interview) => {
     // Visible seulement si échantillon partiel est omission ou s'il faut montrer les questions de daycare
     return isPartialSample(interview, 'omission') || shouldShowToddlerDayCareQuestions(interview);
+};
+
+const getPersonForOmissions = (interview, selfRespondents: Person[]) => {
+    if (selfRespondents.length > 1) {
+        const randomSequence = getResponse(interview, '_personRandomSequence') as string[];
+        const lastSelfRespondentId = randomSequence.findLast((personId) =>
+            selfRespondents.find((selfResp) => selfResp._uuid === personId)
+        );
+        if (lastSelfRespondentId !== undefined) {
+            return lastSelfRespondentId;
+        }
+    } else if (selfRespondents.length === 1) {
+        return selfRespondents[0]._uuid;
+    } else {
+        console.warn('Interview has no self-respondents!');
+        // There is no self-respondents! Just take an interviewable person
+        const interviewablePersons = getInterviewablePersonsArray({ interview });
+        // There has to be an interviewable person
+        return interviewablePersons[0]._uuid;
+    }
 };
 
 // Config for the section
@@ -41,6 +64,26 @@ export const sectionConfig: SectionConfig = {
     completionConditional: function (interview) {
         // Complété si échantillon partiel n'est pas omission, ni si les questions d'omission de déplacement garderie ne doivent pas être montrées ou effectivement complété
         return !isSectionVisible(interview) || isSectionCompleted({ interview, sectionName: currentSectionName });
+    },
+    onSectionEntry: (interview) => {
+        const persons = getPersons({ interview });
+
+        // If there is already a person for this section, keep it, if it still
+        // exists, even if it is not a self-respondent, we'll know at export
+        // time if the person's status was changed.
+        const currentPerson = getResponse(interview, '_omissionsPersonId');
+        if (!_isBlank(currentPerson) && persons[currentPerson as string] !== undefined) {
+            return {};
+        }
+
+        const selfRespondents = getSelfRespondents(interview);
+        // Select the first person that applies. Unlike barriersDisability
+        // section, do not reset the answers as they may have been made at a
+        // previous moment.
+        const selectedPersonId = getPersonForOmissions(interview, selfRespondents);
+        return {
+            'response._omissionsPersonId': selectedPersonId
+        };
     },
     isSectionVisible
 };

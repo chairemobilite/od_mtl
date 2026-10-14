@@ -2,6 +2,9 @@
 # The Evolution Generator is used to automate the creation of consistent, reliable code.
 # Any changes made to this file will be overwritten.
 
+omissionsSectionIntro: >-
+    The following questions aim to better understand response behaviours to mobility
+    surveys.<br />They are asked only to {{omissionPersonNickname}}.
 toddlerDaycare: >-
     Did at least one of your children attend a childcare center (daycare or CPE) on
     {{assignedDate}}?
@@ -19,6 +22,14 @@ toddlerDaycarePickup_one: >-
     center
 toddlerDaycarePickupMode: What mode of transportation was used?
 hasOmittedTrips: >-
+    Did you ({{omissionPersonNickname}}) make at least one trip on {{assignedDate}}
+    that you did not report?<br /><span class="_pale _oblique">For example, a walk
+    to the convenience store, going out for coffee or dinner with friends, or a stroll
+    with the dog.<br />You will not need to go back and update anything. We just want
+    to know how often trips are missed.<br />This question is only asked to one person
+    in the household in order to improve our understanding of the limitations of the
+    data.</span>
+hasOmittedTrips_one: >-
     Did you make at least one trip on {{assignedDate}} that you did not report?<br
     /><span class="_pale _oblique">For example, a walk to the convenience store, going
     out for coffee or dinner with friends, or a stroll with the dog.<br />You will

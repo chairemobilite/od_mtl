@@ -779,6 +779,11 @@ export const fillOmissionsSectionTests = ({ context, householdSize }: CommonTest
     // Progress bar test for omissions section
     testHelpers.sectionProgressBarTest({ context, sectionName: 'omissions', completionPercentage: 0 });
 
+    // Test infotext widget omissionsSectionIntro with conditional hasHouseholdSize2OrMoreConditional
+    /* @link file://./../src/survey/common/conditionals.tsx */
+    testHelpers.inputVisibleTest({ context, path: 'omissionsSectionIntro', isVisible: true });
+    testHelpers.waitTextVisible({ context, text: '?' });
+
     // Test radio widget toddlerDaycare with conditional toddlerDaycareCustomConditional with choices yesNo
     /* @link file://./../src/survey/common/conditionals.tsx */
     /* @link file://./../src/survey/common/choices.tsx */
