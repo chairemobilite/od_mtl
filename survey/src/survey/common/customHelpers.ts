@@ -79,6 +79,9 @@ export const getSelfRespondentWithNoDisabilityAndDrivingAge = (interview: Interv
             ['no', 'preferNotToAnswer'].includes(person.hasDisability)
     );
 
+export const getSelfRespondents = (interview: InterviewAttributes) =>
+    getPersonsOfDrivingAge(interview).filter((person) => odSurveyHelpers.isSelfDeclared({ interview, person }));
+
 /**
  * Conditional for the preEnd sections that require a self respondent no
  * disabilities and home in artm territory

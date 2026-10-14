@@ -9,11 +9,7 @@ import {
     UserInterviewAttributes
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import {
-    getChildrenAged1To4,
-    getFormattedTripDateFromJourney,
-    getSelfRespondentWithDisabilitiesAndTrip
-} from './customHelpers';
+import { getChildrenAged1To4, getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
 import {
@@ -310,8 +306,25 @@ export const toddlerDaycarePickupCustomLabel: I18nData = labelWithChildName('omi
 // Custom because of the presence of the child information in the label
 export const toddlerDaycareDropoffCustomLabel: I18nData = labelWithChildName('omissions:toddlerDaycareDropoff');
 
+const getOmissionPersonNickname = (t: TFunction, interview: UserInterviewAttributes) => {
+    const omissionPersonId = getResponse(interview, '_omissionsPersonId');
+    if (typeof omissionPersonId !== 'string') {
+        throw new Error('getOmissionPersonNickname: omission person is not set');
+    }
+    const person = odHelpers.getPerson({ interview, personId: omissionPersonId });
+    return {
+        omissionPersonNickname: odHelpers.getPersonIdentificationString({ person, t }),
+        count: odHelpers.countPersons({ interview })
+    };
+};
 // Custom because of the presence of the journey date in the label
-export const hasOmittedTripsCustomLabel: I18nData = labelWithAssignedDate('omissions:hasOmittedTrips');
+export const hasOmittedTripsCustomLabel: I18nData = labelWithAssignedDate(
+    'omissions:hasOmittedTrips',
+    getOmissionPersonNickname
+);
+
+export const withOmissionNicknameCustomLabel: I18nData = (t: TFunction, interview: UserInterviewAttributes) =>
+    t('omissions:omissionsSectionIntro', getOmissionPersonNickname(t, interview));
 
 export const didRespondForCorrectDateCustomLabel: I18nData = labelWithAssignedDate(
     'end:didRespondForCorrectAssignedDate'
