@@ -1156,23 +1156,6 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
             });
         }
 
-        // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
-        /* @link file://./../src/survey/common/conditionals.tsx */
-        /* @link file://./../src/survey/common/choices.tsx */
-        if (person.educationalAttainment === null) {
-            testHelpers.inputVisibleTest({
-                context,
-                path: `household.persons.${personIdString}.educationalAttainment`,
-                isVisible: false
-            });
-        } else {
-            testHelpers.inputRadioTest({
-                context,
-                path: `household.persons.${personIdString}.educationalAttainment`,
-                value: person.educationalAttainment
-            });
-        }
-
         // Test radio widget personOccupation with conditional personOccupationCustomConditional with choices personOccupation
         /* @link file://./../src/survey/common/conditionals.tsx */
         /* @link file://./../src/survey/common/choices.tsx */
@@ -1187,6 +1170,23 @@ export const fillHouseholdSectionWithMembersTests = ({ context, householdMembers
                 context,
                 path: `household.persons.${personIdString}.occupation`,
                 value: person.occupation
+            });
+        }
+
+        // Test radio widget personEducationalAttainment with conditional ifAge15OrMoreConditional with choices educationalAttainment
+        /* @link file://./../src/survey/common/conditionals.tsx */
+        /* @link file://./../src/survey/common/choices.tsx */
+        if (person.educationalAttainment === null) {
+            testHelpers.inputVisibleTest({
+                context,
+                path: `household.persons.${personIdString}.educationalAttainment`,
+                isVisible: false
+            });
+        } else {
+            testHelpers.inputRadioTest({
+                context,
+                path: `household.persons.${personIdString}.educationalAttainment`,
+                value: person.educationalAttainment
             });
         }
 
@@ -1238,26 +1238,28 @@ const testTripDiaryHeaderVisibility = ({ context, householdSize = 1 }: CommonTes
 };
 
 /********** Tests selectPerson section **********/
-export const fillSelectPersonSectionTests = ({ context, householdSize = 1 }: CommonTestParametersModify) => {
+type SelectPersonParameters = {
+    selectedPerson?: string | null;
+};
+export const fillSelectPersonSectionTests = ({
+    context,
+    householdSize = 1,
+    selectedPerson
+}: CommonTestParametersModify & SelectPersonParameters) => {
     if (householdSize === 1) {
         // If household size is 1, skip the selectPerson section
         return;
     }
 
-    // Verify the selectPerson navigation is active
-    testHelpers.verifyNavBarButtonStatus({
-        context,
-        buttonText: 'selectPerson',
-        buttonStatus: 'active',
-        isDisabled: false
-    });
-
-    // Test custom widget selectPerson
-    testHelpers.inputRadioTest({
-        context,
-        path: 'household.persons.${activePersonId}.selected',
-        value: '${personId[0]}' // Select the first person value
-    });
+    // If the person is null, it means there should be a person selected and we don't change it
+    if (selectedPerson !== null) {
+        // Test custom widget selectPerson
+        testHelpers.inputRadioTest({
+            context,
+            path: '_activePersonId',
+            value: selectedPerson ?? '${personId[0]}' // Select the first person value if not set
+        });
+    }
 
     // TODO: Test custom widget personNewPerson
     // Implement custom test
@@ -1287,16 +1289,16 @@ export type TripsIntroTestParameters = CommonTestParametersModify & {
     departurePlaceOther?: string | null;
     expectedNextSection: string;
 };
-export const fillTripsintroSectionTests = ({
+
+export const fillTripsintroSectionTestsNoNextClick = ({
     context,
     householdSize = 1,
     hasTrips,
     expectPopup = false,
     whoAnswersFor,
     departurePlaceIsHome = 'yes',
-    departurePlaceOther = null,
-    expectedNextSection
-}: TripsIntroTestParameters) => {
+    departurePlaceOther = null
+}: Omit<TripsIntroTestParameters, 'expectedNextSection'>) => {
     // Verify the tripsIntro navigation is active
     testHelpers.verifyNavBarButtonStatus({
         context,
@@ -1377,6 +1379,10 @@ export const fillTripsintroSectionTests = ({
         context,
         text: 'Your answers will be used to assess how road and public transit networks are used and will remain entirely confidential'
     });
+};
+
+export const fillTripsintroSectionTests = ({ context, expectedNextSection, ...options }: TripsIntroTestParameters) => {
+    fillTripsintroSectionTestsNoNextClick({ context, ...options });
 
     // Test nextbutton widget tripsIntro_save
     testHelpers.inputNextButtonTest({ context, text: 'Continue', nextPageUrl: `/survey/${expectedNextSection}` });
@@ -1393,7 +1399,7 @@ export const fillTripsintroSectionTests = ({
 // TODO: We should use interviewablePersonCount and not householdSize
 // TODO: Because we can only get visited places of interviawablePerson.
 /********** Tests visitedPlaces section **********/
-export const fillVisitedPlacesSectionTests = ({
+export const fillVisitedPlacesSectionTestsNoNextClick = ({
     context,
     householdSize = 1,
     visitedPlaces,
@@ -1434,6 +1440,26 @@ export const fillVisitedPlacesSectionTests = ({
             const nextLocationSequence = journeyStartsAtHome ? index + 3 : index + 2;
             testHelpers.waitTextVisible({ context, text: `Location #${nextLocationSequence}` });
         }
+    });
+};
+
+export const fillVisitedPlacesSectionTests = ({
+    context,
+    householdSize = 1,
+    visitedPlaces,
+    isSelfDeclared = true,
+    journeyStartsAtHome = true
+}: CommonTestParametersModify & {
+    visitedPlaces: VisitedPlace[];
+    journeyStartsAtHome?: boolean;
+    isSelfDeclared?: boolean;
+}) => {
+    fillVisitedPlacesSectionTestsNoNextClick({
+        context,
+        householdSize,
+        visitedPlaces,
+        isSelfDeclared,
+        journeyStartsAtHome
     });
 
     // Test custom widget buttonCancelVisitedPlace
