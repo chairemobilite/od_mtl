@@ -105,6 +105,7 @@ export const sectionConfig: SectionConfig = {
             console.error('No journey found for person:', person._uuid);
             return undefined;
         }
+
         const personDidTrips = (journey as any).personDidTrips;
         const personDidTripsConfirm = (journey as any).personDidTripsConfirm;
         if (personDidTrips === 'no' && personDidTripsConfirm === 'yes') {
@@ -122,6 +123,21 @@ export const sectionConfig: SectionConfig = {
                 [`response.household.persons.${person._uuid}.journeys.${journey._uuid}.personDidTripsConfirm`]:
                     undefined
             };
+        }
+
+        // If the person did trips, save the initial departure place type once
+        if (personDidTrips === 'yes' && (journey as any)._initialDeparturePlace === undefined) {
+            if (journey.departurePlaceIsHome === 'yes') {
+                return {
+                    [`response.household.persons.${person._uuid}.journeys.${journey._uuid}._initialDeparturePlace`]:
+                        'home'
+                };
+            } else if (typeof journey.departurePlaceOther === 'string') {
+                return {
+                    [`response.household.persons.${person._uuid}.journeys.${journey._uuid}._initialDeparturePlace`]:
+                        journey.departurePlaceOther
+                };
+            }
         }
         return undefined;
     },
