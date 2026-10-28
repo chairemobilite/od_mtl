@@ -127,7 +127,7 @@ Question,"Among these bicycles, how many are electric bicycles (e-bikes)?"
 ""
 Field,h_carParkingAvailableVehicleHousehold
 Question type,Checkbox input
-Conditional,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 2 && (exclusive === freqAttitudinal || exclusive === freqBarriers || exclusive === freqAttitudinalBarriers) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
+Conditional,carParkingHomeWithVehicleConditional : h_geography.properties.RA <= 2 && (ep.exclusive === freqAttitudinal || ep.exclusive === freqBarriers || ep.exclusive === freqAttitudinalBarriers) && (hh_carNumber >= 1 || hh_twoWheelNumber >= 1)
 Question,"Parking available at home for your household's vehicles
 Check all that apply."
 Values,"private : Private driveway, garage or reserved parking space
@@ -136,7 +136,7 @@ onStreet : No private parking space or residential parking permit (e.g. street p
 ""
 Field,h_carParkingAvailableNoVehicleHousehold
 Question type,Radio input
-Conditional,carParkingHomeWithoutVehicleConditional : h_geography.properties.RA <= 2 && (exclusive === freqAttitudinal || exclusive === freqBarriers || exclusive === freqAttitudinalBarriers) && hh_carNumber === 0 && hh_twoWheelNumber === 0
+Conditional,carParkingHomeWithoutVehicleConditional : h_geography.properties.RA <= 2 && (ep.exclusive === freqAttitudinal || ep.exclusive === freqBarriers || ep.exclusive === freqAttitudinalBarriers) && hh_carNumber === 0 && hh_twoWheelNumber === 0
 Question,"Does your household have access to a private driveway, garage, or reserved parking space?"
 Values,"yes : Yes
 no : No"
@@ -185,7 +185,7 @@ The name is only used to simplify the response process and will be removed from 
 ""
 Field,gender
 Question type,Radio input
-Conditional,ifAge5orMoreOrHhSize1Conditional : age >= 5 || hh_size === 1
+Conditional,ifAge5orMoreOrHhSize1Conditional : ${currentPerson}.age >= 5 || hh_size === 1
 Question,"Gender
 May differ from the sex assigned at birth or that which appears on legal documents."
 Values,"female : Woman
@@ -195,7 +195,7 @@ preferNotToAnswer : Prefer not to answer"
 ""
 Field,drivingLicenseOwnership
 Question type,Radio input
-Conditional,ifAge16OrMoreConditional : age >= 16
+Conditional,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,"Driver's licence
 Include learner's and probationary permits, but do not include moped (motorized scooter) permits"
 Values,"yes : Yes
@@ -204,7 +204,7 @@ dontKnow : Don't know"
 ""
 Field,carsharingMember
 Question type,Radio input
-Conditional,carsharingConditional : age >= 19 && drivingLicenseOwnership === yes && (hh_carsharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
+Conditional,carsharingConditional : ${currentPerson}.age >= 19 && ${currentPerson}.drivingLicenseOwnership === yes && (hh_carsharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,"Carshare (ex. Communauto, Leo): used 
 as driver in the past 6 months"
 Values,"yes : Yes
@@ -213,7 +213,7 @@ dontKnow : Don't know"
 ""
 Field,bikesharingUsage
 Question type,Radio input
-Conditional,bikesharingConditional : age >= 14 && (hh_bikesharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
+Conditional,bikesharingConditional : ${currentPerson}.age >= 14 && (hh_bikesharing === yes || h_geography.properties.RA <= 6 && hh_size === 1)
 Question,"Bikeshare (ex. BIXI): used in the last 30 days
 "
 Values,"yes : Yes
@@ -222,7 +222,7 @@ dontKnow : Don't know"
 ""
 Field,usedTransitInLast30Days
 Question type,Radio input
-Conditional,ifAge5orMoreConditional : age >= 5
+Conditional,ifAge5orMoreConditional : ${currentPerson}.age >= 5
 Question,"Public transit: used in the past 30 days 
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.)"
 Values,"yes : Yes
@@ -231,11 +231,11 @@ dontKnow : Don't know"
 ""
 Field,transitPass
 Question type,Checkbox input
-Conditional,transitPassConditional : age >= 12 && usedTransitInLast30Days === yes
+Conditional,transitPassConditional : ${currentPerson}.age >= 12 && ${currentPerson}.usedTransitInLast30Days === yes
 Question,"Type of pass or subscription used for public transit in the past 30 days
 Include free passes."
-Values,"transitPassARTM (ifAge64OrLessConditional : age <= 64) : Monthly or annual pass valid
-transitPassARTMWithElderly (ifAge65OrMoreConditional : age >= 65) : Monthly or annual pass valid (including senior passes)
+Values,"transitPassARTM (ifAge64OrLessConditional : ${currentPerson}.age <= 64) : Monthly or annual pass valid
+transitPassARTMWithElderly (ifAge65OrMoreConditional : ${currentPerson}.age >= 65) : Monthly or annual pass valid (including senior passes)
 tickets : Individual tickets or fares
 employee : Employee/retiree transit agency pass
 other : Other pass or fare
@@ -243,7 +243,7 @@ dontKnow : Don't know"
 ""
 Field,transitFare
 Question type,Radio input
-Conditional,transitFareConditional : transitPass === transitPassARTM || transitPass === transitPassARTMWithElderly
+Conditional,transitFareConditional : ${currentPerson}.transitPass === transitPassARTM || ${currentPerson}.transitPass === transitPassARTMWithElderly
 Question,"Type of pass used as a valid monthly subscription for the current month
 A, AB, ABC, and ABCD refer to ARTM fare zones."
 Values,"A : All modes A
@@ -276,45 +276,45 @@ preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilities
 Question type,Checkbox input
-Conditional,hasDisabilityConditional : hasDisability === yes
+Conditional,hasDisabilityConditional : ${currentPerson}.hasDisability === yes
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Which one(s)?
 Optional"
-Values,"hearing (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Hearing
-visual (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Visual
-cognitiveOrPsychic (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Cognitive (e.g. memory, attention, comprehension, learning difficulty, etc.)
-mentalHealth (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Mental health (e.g. anxiety, depression, mental health disorder, etc.)
-intellectualOrTSA (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Intellectual disability or autism spectrum disorder (ASD)
-motor (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Motor (e.g. reduced mobility, flexibility, paralysis, amputation, etc.)
-chronicIllness (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Limitation related to a chronic illness or health condition (e.g. cardiac, respiratory, pain, etc.)
-speechOrLanguageDisorder (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Speech or language disorder
-fineMotorSkills (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Fine motor skills (e.g. dexterity, agility, etc.)
-other (personDisabilityIsNotPreferNotToAnswer : disabilities === null || disabilities !== preferNotToAnswer) : Other (specify)
+Values,"hearing (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Hearing
+visual (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Visual
+cognitiveOrPsychic (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Cognitive (e.g. memory, attention, comprehension, learning difficulty, etc.)
+mentalHealth (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Mental health (e.g. anxiety, depression, mental health disorder, etc.)
+intellectualOrTSA (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Intellectual disability or autism spectrum disorder (ASD)
+motor (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Motor (e.g. reduced mobility, flexibility, paralysis, amputation, etc.)
+chronicIllness (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Limitation related to a chronic illness or health condition (e.g. cardiac, respiratory, pain, etc.)
+speechOrLanguageDisorder (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Speech or language disorder
+fineMotorSkills (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Fine motor skills (e.g. dexterity, agility, etc.)
+other (personDisabilityIsNotPreferNotToAnswer : ${currentPerson}.disabilities === null || ${currentPerson}.disabilities !== preferNotToAnswer) : Other (specify)
 preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilitiesSpecify
 Question type,Text input
-Conditional,personDisabilityIsOtherConditional : disabilities === other
+Conditional,personDisabilityIsOtherConditional : ${currentPerson}.disabilities === other
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Specify"
 ""
 Field,mobilityAssistiveDevices
 Question type,Checkbox input
-Conditional,hasDisabilityConditional : hasDisability === yes
+Conditional,hasDisabilityConditional : ${currentPerson}.hasDisability === yes
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Type(s) of mobility aid(s), if any, used for {{nickname}}’s travel outside the home
 Optional"
-Values,"crutchOrCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Crutches or cane
-whiteCane (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : White cane
-serviceOrGuideDog (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Assistance dog or guide dog
-manualWheelchair (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Manual wheelchair (with or without electric assistance)
-motorisedWheelchair (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Powered wheelchair
-walkerOrRollator (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Walker or rollator
-threeOrFourwheeledScooter (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Three- or four-wheeled scooter
-noSpecificDevice (personMobilityDeviceNotPreferNotToAnswer : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== preferNotToAnswer) : No specific mobility aids
-other (personMobilityDeviceNotExclusiveAnswer : mobilityAssistiveDevices === null || (mobilityAssistiveDevices !== noSpecificDevice && mobilityAssistiveDevices !== preferNotToAnswer)) : Other (specify)
-preferNotToAnswer (personMobilityDeviceNotNone : mobilityAssistiveDevices === null || mobilityAssistiveDevices !== noSpecificDevice) : Prefer not to answer"
+Values,"crutchOrCane (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Crutches or cane
+whiteCane (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : White cane
+serviceOrGuideDog (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Assistance dog or guide dog
+manualWheelchair (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Manual wheelchair (with or without electric assistance)
+motorisedWheelchair (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Powered wheelchair
+walkerOrRollator (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Walker or rollator
+threeOrFourwheeledScooter (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Three- or four-wheeled scooter
+noSpecificDevice (personMobilityDeviceNotPreferNotToAnswer : ${currentPerson}.mobilityAssistiveDevices === null || ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer) : No specific mobility aids
+other (personMobilityDeviceNotExclusiveAnswer : ${currentPerson}.mobilityAssistiveDevices === null || (${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice && ${currentPerson}.mobilityAssistiveDevices !== preferNotToAnswer)) : Other (specify)
+preferNotToAnswer (personMobilityDeviceNotNone : ${currentPerson}.mobilityAssistiveDevices === null || ${currentPerson}.mobilityAssistiveDevices !== noSpecificDevice) : Prefer not to answer"
 ""
 Field,mobilityAssistiveDevicesSpecify
 Question type,Text input
-Conditional,personAssistiveDevicesIsOtherConditional : mobilityAssistiveDevices === other
+Conditional,personAssistiveDevicesIsOtherConditional : ${currentPerson}.mobilityAssistiveDevices === other
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Specify"
 ""
 Field,mostUsedMobilityAssistiveDevice
@@ -325,7 +325,7 @@ Optional"
 ""
 Field,useParatransit
 Question type,Radio input
-Conditional,hasDisabilityConditional : hasDisability === yes
+Conditional,hasDisabilityConditional : ${currentPerson}.hasDisability === yes
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Is {{nickname}} registered for paratransit services?
 STM, RTL, STL, exo, etc.
 Optional"
@@ -335,7 +335,7 @@ preferNotToAnswer : Prefer not to answer"
 ""
 Field,disabilitiesFrequenciesParatransit
 Question type,Radio input
-Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
+Conditional,paratransitFrequenciesConditional : ${currentPerson}.useParatransit === yes && (ep.exclusive === householdType || ep.exclusive === omission || ep.exclusive === paidParking || ep.exclusive === respect)
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>In the past 12 months, how often has {{nickname}} used paratransit services?
 Optional"
 Values,"never : Never in the last 12 months
@@ -346,11 +346,11 @@ Values,"never : Never in the last 12 months
 ""
 Field,disabilitiesFrequenciesTransit
 Question type,Radio input
-Conditional,paratransitFrequenciesConditional : useParatransit === yes && (exclusive === householdType || exclusive === omission || exclusive === paidParking || exclusive === respect)
+Conditional,paratransitFrequenciesConditional : ${currentPerson}.useParatransit === yes && (ep.exclusive === householdType || ep.exclusive === omission || ep.exclusive === paidParking || ep.exclusive === respect)
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>In the past 12 months, how often has {{nickname}} used public transit (regular service)?
 Include metro, REM, commuter train, and buses (e.g., STM, STL, RTL, exo, etc.).
 Optional"
-Values,"never (doesNotUseTransitConditional : usedTransitInLast30Days === no) : Never in the last 12 months
+Values,"never (doesNotUseTransitConditional : ${currentPerson}.usedTransitInLast30Days === no) : Never in the last 12 months
 1orMorePerYear : 1 to a few days in the last 12 months
 1to3daysPerMonth : 1 to 3 days per month
 1to4daysPerWeek : 1 to 4 days per week
@@ -358,7 +358,7 @@ Values,"never (doesNotUseTransitConditional : usedTransitInLast30Days === no) : 
 ""
 Field,studentType
 Question type,Radio input
-Conditional,ifAge16OrMoreConditional : age >= 16
+Conditional,ifAge16OrMoreConditional : ${currentPerson}.age >= 16
 Question,Student
 Values,"fullTime : Yes, full time
 partTime : Yes, part time
@@ -366,7 +366,7 @@ no : No"
 ""
 Field,workerType
 Question type,Radio input
-Conditional,ifAge14orMoreConditional : age >= 14
+Conditional,ifAge14orMoreConditional : ${currentPerson}.age >= 14
 Question,"Worker
 Including self-employed workers, artists, or those on long-term leave."
 Values,"fullTime : Yes, full time (30h and more/week)
@@ -375,13 +375,13 @@ no : No"
 ""
 Field,job
 Question type,Text input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditional,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,"Profession or name of job of {{nickname}}
 Ex: Butcher, lawyer, delivery-person, nurse, etc."
 ""
 Field,workPlaceType
 Question type,Radio input
-Conditional,isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent
+Conditional,isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent
 Question,Which of the following best describes {{nickname}}’s work arrangement?
 Values,"onLocation : Works in person at a fixed location away from home at all times
 hybrid : Works in a hybrid mode (remote and in-person)
@@ -391,7 +391,7 @@ onTheRoadWithoutUsualPlace : Works on the road without a regular base of operati
 ""
 Field,workDays
 Question type,Radio number input
-Conditional,personWorkDaysConditional : workPlaceType === hybrid
+Conditional,personWorkDaysConditional : ${currentPerson}.workPlaceType === hybrid
 Question,"Number of days per week {{nickname}} works
 In a typical week, whether or not there is any travel for work."
 Values,"0
@@ -405,7 +405,7 @@ Values,"0
 ""
 Field,travelToWorkDays
 Question type,Custom input
-Conditional,personWorkTripDaysConditional : (workPlaceType === hybrid && workDays > 0) || workPlaceType === onLocation || workPlaceType === onTheRoadWithUsualPlace || workPlaceType === onTheRoadWithoutUsualPlace
+Conditional,personWorkTripDaysConditional : (${currentPerson}.workPlaceType === hybrid && ${currentPerson}.workDays > 0) || ${currentPerson}.workPlaceType === onLocation || ${currentPerson}.workPlaceType === onTheRoadWithUsualPlace || ${currentPerson}.workPlaceType === onTheRoadWithoutUsualPlace
 Question,"Number of days per week {{nickname}} travels outside the home for work
 In a typical week."
 ""
@@ -418,7 +418,7 @@ partTimeWorker : Employed part-time (less than 30h/week)
 workerAndStudent : Work and studies
 fullTimeStudent : Full-time student
 partTimeStudent : Part-time student
-retired (ifAge40OrMoreConditional : age >= 40) : Retired
+retired (ifAge40OrMoreConditional : ${currentPerson}.age >= 40) : Retired
 atHome : At home
 unemployed : Unemployed / searching for a job
 parentalOrSickLeave : Sick leave or parental leave
@@ -429,12 +429,12 @@ preferNotToAnswer : Prefer not to answer"
 ""
 Field,occupationSpecify
 Question type,Text input
-Conditional,personOccupationIsOther : occupation === other
+Conditional,personOccupationIsOther : ${currentPerson}.occupation === other
 Question,Please describe this other occupation
 ""
 Field,educationalAttainment
 Question type,Radio input
-Conditional,educationalAttainmentConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent || occupation === unemployed || occupation === parentalOrSickLeave
+Conditional,educationalAttainmentConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent || ${currentPerson}.occupation === unemployed || ${currentPerson}.occupation === parentalOrSickLeave
 Question,"Highest level of educational attainment
 If in doubt, select the education level that most closely matches the academic background."
 Values,"secondaryEducationOrLess : High school diploma, equivalency certificate, or none
@@ -503,14 +503,14 @@ Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.departurePlaceOth
 Question type,Radio input
 Conditional,departurePlaceOtherCustomConditional
 Question,Where was {{nickname}} at 4 AM?
-Values,"otherParentHome (ifAge16OrLessConditional : age <= 16 && age !== null) : Home of the other parent or guardian
-workedOvernight (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Worked overnight
+Values,"otherParentHome (ifAge16OrLessConditional : ${currentPerson}.age <= 16 && ${currentPerson}.age !== null) : Home of the other parent or guardian
+workedOvernight (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Worked overnight
 secondaryHome : Secondary residence (cottage or other)
 sleptAtFriends : Stayed overnight at a friend’s, partner’s or family’s home
 restaurant : Was at or coming back from a restaurant or bar
-hotelForWork (isWorkerConditional : occupation === fullTimeWorker || occupation === partTimeWorker || occupation === workerAndStudent) : Hotel or other venue for a conference / work
+hotelForWork (isWorkerConditional : ${currentPerson}.occupation === fullTimeWorker || ${currentPerson}.occupation === partTimeWorker || ${currentPerson}.occupation === workerAndStudent) : Hotel or other venue for a conference / work
 hotelForVacation : Hotel or other place on vacation
-studying (isStudentConditional : occupation === fullTimeStudent || occupation === partTimeStudent || occupation === workerAndStudent) : School / place of study: studied or slept there
+studying (isStudentConditional : ${currentPerson}.occupation === fullTimeStudent || ${currentPerson}.occupation === partTimeStudent || ${currentPerson}.occupation === workerAndStudent) : School / place of study: studied or slept there
 other : Other"
 ""
 ""
@@ -548,11 +548,11 @@ Field,onTheRoadPreviousPlaceActivity
 Question type,Builtin
 Question,Where did {{nickname}} begin their work trip on the road?
 ""
-Field,name
+Field,previousWorkPlace.name
 Question type,Builtin
 Question,Name or address of {{nickname}}'s usual place of work
 ""
-Field,geography
+Field,previousWorkPlace.geography
 Question type,Builtin
 Question,"Please locate the usual place of work for {{nickname}}
 Navigate, zoom, and click on the map to identify the location. Once located, you can move the marker for greater precision.
@@ -675,12 +675,12 @@ Question,Who drove?
 ""
 Field,subwayStationStart
 Question type,Custom input
-Conditional,subwayConditional : mode === transitRRT
+Conditional,subwayConditional : ${currentSegment}.mode === transitRRT
 Question,Boarding station (when entering the metro):
 ""
 Field,subwayStationEnd
 Question type,Custom input
-Conditional,subwayConditional : mode === transitRRT
+Conditional,subwayConditional : ${currentSegment}.mode === transitRRT
 Question,Exit station (when leaving the metro):
 ""
 Field,subwayStationsTransfer
@@ -690,7 +690,7 @@ Question,Transfer station(s):
 ""
 Field,subwayLine
 Question type,Radio input
-Conditional,subwayLineConditional : subwayStationStart === berriUqam && subwayStationEnd === lionelGroulx || (subwayStationStart === lionelGroulx && subwayStationEnd === berriUqam) || (subwayStationStart === jeanDrapeau && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === jeanDrapeau) || (subwayStationStart === longueuilUniversiteDeSherbrooke && subwayStationEnd === lionelGroulx) || (subwayStationStart === lionelGroulx && subwayStationEnd === longueuilUniversiteDeSherbrooke)
+Conditional,subwayLineConditional : ${currentSegment}.subwayStationStart === berriUqam && ${currentSegment}.subwayStationEnd === lionelGroulx || (${currentSegment}.subwayStationStart === lionelGroulx && ${currentSegment}.subwayStationEnd === berriUqam) || (${currentSegment}.subwayStationStart === jeanDrapeau && ${currentSegment}.subwayStationEnd === lionelGroulx) || (${currentSegment}.subwayStationStart === lionelGroulx && ${currentSegment}.subwayStationEnd === jeanDrapeau) || (${currentSegment}.subwayStationStart === longueuilUniversiteDeSherbrooke && ${currentSegment}.subwayStationEnd === lionelGroulx) || (${currentSegment}.subwayStationStart === lionelGroulx && ${currentSegment}.subwayStationEnd === longueuilUniversiteDeSherbrooke)
 Question,Line taken between BerriUQAM and Lionel-Groulx
 Values,"stm_2 : 2-Orange
 stm_1 : 1-Green
@@ -698,22 +698,22 @@ dontKnow : Don't know"
 ""
 Field,trainStationStart
 Question type,Custom input
-Conditional,trainConditional : mode === transitRegionalRail
+Conditional,trainConditional : ${currentSegment}.mode === transitRegionalRail
 Question,Boarding station (when getting onto the train)
 ""
 Field,trainStationEnd
 Question type,Custom input
-Conditional,trainConditional : mode === transitRegionalRail
+Conditional,trainConditional : ${currentSegment}.mode === transitRegionalRail
 Question,Exit station (when leaving the train)
 ""
 Field,remStationStart
 Question type,Custom input
-Conditional,remConditional : mode === transitLRRT
+Conditional,remConditional : ${currentSegment}.mode === transitLRRT
 Question,Boarding station (when entering the REM)
 ""
 Field,remStationEnd
 Question type,Custom input
-Conditional,remConditional : mode === transitLRRT
+Conditional,remConditional : ${currentSegment}.mode === transitLRRT
 Question,Exit station (when leaving the REM)
 ""
 Field,planeStationStart
@@ -782,7 +782,7 @@ dontKnow : Don't know"
 ""
 Field,busLines
 Question type,Custom input
-Conditional,busConditional : mode === transitBus
+Conditional,busConditional : ${currentSegment}.mode === transitBus
 Question,"Bus line(s) taken (in chronological order)
 For each line, begin by typing the number or name, then select it from the results shown."
 ""
@@ -793,7 +793,7 @@ Question,Mode of transportation to get from {{origin}} to {{stopType}}
 Values,"walk : Walking
 transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): On-demand transit
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carDriver (hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
 other : Other (specify)"
 ""
@@ -803,7 +803,7 @@ Conditional,isIntercityAndOriginInTerritoryCustomConditional
 Question,Mode of transportation to get from {{origin}} to {{stopType}}
 Values,"walk : Walking
 bicycle : Bicycle
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carDriver (hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
 taxi : Taxi or equivalent (e.g., Uber)
 transit : Public transit
@@ -840,7 +840,7 @@ Question,Mode of transportation to get {{stopType}} to {{destination}}
 Values,"walk : Walking
 transitBus (isCurrentSegmentNotTransitBusCustomConditional): Bus (STM, STL, RTL, exo, etc.)
 transitOnDemand (stationServedByTADCustomConditional): On-demand transit
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carDriver (hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
 other : Other (specify)"
 ""
@@ -850,7 +850,7 @@ Conditional,isIntercityAndDestinationInTerritoryCustomConditional
 Question,Mode of transportation to get {{stopType}} to {{destination}}
 Values,"walk : Walking
 bicycle : Bicycle
-carDriver (hasDrivingLicenseConditional : drivingLicenseOwnership === yes) : Car as driver
+carDriver (hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes) : Car as driver
 carPassenger : Car as passenger
 taxi : Taxi or equivalent (e.g., Uber)
 transit : Public transit
@@ -861,7 +861,7 @@ Question type,Checkbox input
 Conditional,commonTripCustomConditional
 Question,"Was this trip (between {{origin}} and {{destination}}) made, in part or entirely, with another household member?"
 ""
-Field,save
+Field,trip.save
 Question type,Builtin
 Question,Confirm this trip
 ""
@@ -892,7 +892,7 @@ dontKnow : Don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noWorkTripReasonSpecify
 Question type,Text input
-Conditional,shouldAskForNoWorkTripReasonSpecifyConditional : noWorkTripReason === other
+Conditional,shouldAskForNoWorkTripReasonSpecifyConditional : ${currentJourney}.noWorkTripReason === other
 Question,Specify
 ""
 Field,hh_persons.{_activePersonId}.usualWorkPlace.name
@@ -930,18 +930,18 @@ no : No"
 ""
 Field,hh_persons.{_activePersonId}.usualSchoolPlace.name
 Question type,Text input
-Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Conditional,hasSchoolLocationNotSetConditional : ${currentPerson}.hasSchoolPlace === yes
 Question,Name or address of {{nickname}}'s school or main study location
 ""
 Field,hh_persons.{_activePersonId}.usualSchoolPlace.geography
 Question type,Custom input
-Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Conditional,hasSchoolLocationNotSetConditional : ${currentPerson}.hasSchoolPlace === yes
 Question,"Location on the map
 Locate the place by searching for its name or address, or by navigating, zooming and clicking on the map. Once located, you can move the pin for greater accuracy."
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReason
 Question type,Radio input
-Conditional,hasSchoolLocationNotSetConditional : hasSchoolPlace === yes
+Conditional,hasSchoolLocationNotSetConditional : ${currentPerson}.hasSchoolPlace === yes
 Question,Reason {{nickname}} did not travel for {{gender: his/her/their/their}} studies on {{journeyDate}}
 Values,"distanceLearning : Distance learning
 schoolWasClosed : No classes
@@ -952,7 +952,7 @@ dontKnow : Don't know"
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.noSchoolTripReasonSpecify
 Question type,Text input
-Conditional,shouldAskForNoSchoolTripReasonSpecifyConditional : noSchoolTripReason === other
+Conditional,shouldAskForNoSchoolTripReasonSpecifyConditional : ${currentJourney}.noSchoolTripReason === other
 Question,Specify
 ""
 ""
@@ -999,7 +999,7 @@ other : Other"
 ""
 Field,o_hasOmittedTrips
 Question type,Radio input
-Conditional,hasOmittedTripsConditional : exclusive === omission
+Conditional,hasOmittedTripsConditional : ep.exclusive === omission
 Question,"Did you ({{omissionPersonNickname}}) make at least one trip on {{assignedDate}} that you did not report?
 For example, a walk to the convenience store, going out for coffee or dinner with friends, or a stroll with the dog.
 You will not need to go back and update anything. We just want to know how often trips are missed.
@@ -1206,7 +1206,7 @@ Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this que
 Section,Mode frequencies
 Abbreviation,freq_
 ""
-Field,anyTripModeFrequenciesWalk
+Field,freqAttitudinal.anyTripModeFrequenciesWalk
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Walk (for most of the trip)"
 Values,"neverOrRarely : Never/Rarely
@@ -1215,7 +1215,7 @@ Values,"neverOrRarely : Never/Rarely
 2to4daysPerWeek : 2 to 4 days/week
 5DaysOrMorePerWeek : 5+ days/week"
 ""
-Field,anyTripModeFrequenciesBicycle
+Field,freqAttitudinal.anyTripModeFrequenciesBicycle
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Bike and other active modes (scooter, rollerblades, skateboard)"
 Values,"neverOrRarely : Never/Rarely
@@ -1224,7 +1224,7 @@ Values,"neverOrRarely : Never/Rarely
 2to4daysPerWeek : 2 to 4 days/week
 5DaysOrMorePerWeek : 5+ days/week"
 ""
-Field,anyTripModeFrequenciesTransit
+Field,freqAttitudinal.anyTripModeFrequenciesTransit
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Public transit (bus, metro, REM, train)"
 Values,"neverOrRarely : Never/Rarely
@@ -1233,7 +1233,7 @@ Values,"neverOrRarely : Never/Rarely
 2to4daysPerWeek : 2 to 4 days/week
 5DaysOrMorePerWeek : 5+ days/week"
 ""
-Field,anyTripModeFrequenciesCarPassenger
+Field,freqAttitudinal.anyTripModeFrequenciesCarPassenger
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Car passenger"
 Values,"neverOrRarely : Never/Rarely
@@ -1242,9 +1242,9 @@ Values,"neverOrRarely : Never/Rarely
 2to4daysPerWeek : 2 to 4 days/week
 5DaysOrMorePerWeek : 5+ days/week"
 ""
-Field,anyTripModeFrequenciesCarDriver
+Field,freqAttitudinal.anyTripModeFrequenciesCarDriver
 Question type,Radio input
-Conditional,hasDrivingLicenseConditional : drivingLicenseOwnership === yes
+Conditional,hasDrivingLicenseConditional : ${currentPerson}.drivingLicenseOwnership === yes
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Frequency of use of the mode: Car driver"
 Values,"neverOrRarely : Never/Rarely
 1to3daysPerMonth : 1 to 3 days/month
@@ -1257,7 +1257,7 @@ Values,"neverOrRarely : Never/Rarely
 Section,Attitudinal questions
 Abbreviation,att_
 ""
-Field,attitudinalOpinion
+Field,freqAttitudinal.attitudinalOpinion
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>The opinions of people who matter to me (family, friends, colleagues) influence my choice of transportation mode for my usual trips."
 Values,"-2 : Strongly disagree
@@ -1266,7 +1266,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalCar
+Field,freqAttitudinal.attitudinalCar
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>A personal car represents independence and autonomy for me."
 Values,"-2 : Strongly disagree
@@ -1275,7 +1275,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalTransitGoodQuality
+Field,freqAttitudinal.attitudinalTransitGoodQuality
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Overall, public transit in the region where I live is useful and of good quality."
 Values,"-2 : Strongly disagree
@@ -1284,7 +1284,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalFamiliarWithTransit
+Field,freqAttitudinal.attitudinalFamiliarWithTransit
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>I am familiar with the public transit services that serve my home and my usual activity locations (lines, main stops, frequencies)."
 Values,"-2 : Strongly disagree
@@ -1293,7 +1293,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalRequireHighLevel
+Field,freqAttitudinal.attitudinalRequireHighLevel
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>My usual activities require a high level of mobility and flexibility (frequent trips, diverse destinations, variable schedules, etc.)."
 Values,"-2 : Strongly disagree
@@ -1302,7 +1302,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalEasyWithoutCar
+Field,freqAttitudinal.attitudinalEasyWithoutCar
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>It would be easy for me to make most of my trips without a personal car, using public transit or active modes."
 Values,"-2 : Strongly disagree
@@ -1311,7 +1311,7 @@ Values,"-2 : Strongly disagree
 1 : Somewhat agree
 2 : Strongly agree"
 ""
-Field,attitudinalGoodAccessImportant
+Field,freqAttitudinal.attitudinalGoodAccessImportant
 Question type,Radio input
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>When choosing where to live, having walking access (≈ 5–15 minutes) to a stop or station with frequent service during the times I travel is important to me."
 Values,"-2 : Strongly disagree
@@ -1409,7 +1409,7 @@ Abbreviation,e_
 ""
 Field,hh_type
 Question type,Radio input
-Conditional,householdTypeConditional : exclusive === householdType && hh_size >= 2
+Conditional,householdTypeConditional : ep.exclusive === householdType && hh_size >= 2
 Question,Which of the following situations best describes your household?
 Values,"multigenerationalFamily (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Parents, children and grandparents living together
 manyFamilies (hasHouseholdSize3OrMoreConditional : hh_size >= 3) : Two or more families living together (other than a household consisting of parents, their children, and grandparents; e.g., two couples or two parents living with their respective children).
@@ -1450,7 +1450,7 @@ refusal : Prefer not to respond"
 ""
 Field,e_didRespondForCorrectAssignedDate
 Question type,Radio input
-Conditional,didRespondForCorrectAssignedDateConditional : exclusive === respect
+Conditional,didRespondForCorrectAssignedDateConditional : ep.exclusive === respect
 Question,"Do the trips reported in the previous sections reflect your household’s travel on {{assignedDate}}?
 This question is for statistical purposes only. If you answer No, you will not be asked to go back or correct your responses, and your eligibility for the draw will not be affected."
 ""
@@ -1484,7 +1484,7 @@ Optional"
 ""
 Field,e_interestOfTheSurvey
 Question type,Range input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How interesting was this survey to you?
 Optional"
 Values,"0 : Not at all
@@ -1493,13 +1493,13 @@ Values,"0 : Not at all
 ""
 Field,e_timeSpentAnswering
 Question type,Number input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How much time do you think you spent answering this survey (in minutes)?
 Optional"
 ""
 Field,e_durationOfTheSurvey
 Question type,Range input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Do you feel that the length of the survey was too short, about right, or too long?
 Optional"
 Values,"0 : Too short
@@ -1508,7 +1508,7 @@ Values,"0 : Too short
 ""
 Field,e_difficultyOfTheSurvey
 Question type,Range input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How easy or difficult was it for you to answer the questions in this survey?
 Optional"
 Values,"0 : Very easy
@@ -1517,7 +1517,7 @@ Values,"0 : Very easy
 ""
 Field,e_burdenOfTheSurvey
 Question type,Range input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>How burdensome (demanding) did you find this survey to be?
 Optional"
 Values,"0 : Not at all
@@ -1526,7 +1526,7 @@ Values,"0 : Not at all
 ""
 Field,e_consideredAbandoningSurvey
 Question type,Radio input
-Conditional,enmpConditional : exclusive === mtmd
+Conditional,enmpConditional : ep.exclusive === mtmd
 Question,"<span class=""_phone"" aria-hidden=""true"">Call center: skip this question  </span>Did you consider, at any point, abandoning the survey?
 Optional"
 Values,"yes : Yes
