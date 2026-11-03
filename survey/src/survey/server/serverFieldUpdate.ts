@@ -120,13 +120,13 @@ const DAYS_BEFORE_REVISING_DATE = 5;
 // the isoWeekday of the previous day minus 1. Index in each vector is the number
 // of days before previous day
 const daysBeforeProbabilityVectors = [
-    [1, 0, 0], // interviews started on tuesday (previous day monday, isoWeekday 1)
-    [0.74, 0.26, 0],
-    [0.6, 0.4, 0],
-    [0.39, 0.56, 0.05],
-    [0, 1, 0],
-    [0.15, 0.75, 0.1],
-    [0.135, 0.035, 0.83] // interviews started on monday (previous sunday, isoWeekday 7)
+    [1.0, 0.0, 0.0], // interviews started on tuesday (previous day monday, isoWeekday 1)
+    [0.23, 0.77, 0.0],
+    [0.08, 0.91, 0.01],
+    [0.65, 0.35, 0.0],
+    [0.0, 0.0, 1.0],
+    [0.0, 0.0, 1.0],
+    [0, 0, 1] // interviews started on monday (previous sunday, isoWeekday 7)
 ];
 
 const getDaysBeforeProbabilityFromVector = (previousDay: string): number[] | undefined => {
