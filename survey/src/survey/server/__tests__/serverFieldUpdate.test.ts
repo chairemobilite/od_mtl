@@ -320,13 +320,13 @@ describe('test survey day assignation', function () {
     });
 
     test.each([
-        { name: 'monday', previousDay: '2026-09-14', vector: [1, 0, 0], daysBefore: 0 },
-        { name: 'tuesday', previousDay: '2026-09-15', vector: [0.74, 0.26, 0], daysBefore: 0 },
-        { name: 'wednesday', previousDay: '2026-09-16', vector: [0.6, 0.4, 0], daysBefore: 0 },
-        { name: 'thursday', previousDay: '2026-09-17', vector: [0.39, 0.56, 0.05], daysBefore: 1 },
-        { name: 'friday', previousDay: '2026-09-18', vector: [0, 1, 0], daysBefore: 1 },
-        { name: 'saturday', previousDay: '2026-09-19', vector: [0.15, 0.75, 0.1], daysBefore: 1 },
-        { name: 'sunday', previousDay: '2026-09-20', vector: [0.135, 0.035, 0.83], daysBefore: 2 }
+        { name: 'monday', previousDay: '2026-09-14', vector: [1.0, 0.0, 0.0], daysBefore: 0 },
+        { name: 'tuesday', previousDay: '2026-09-15', vector: [0.23, 0.77, 0.0], daysBefore: 0 },
+        { name: 'wednesday', previousDay: '2026-09-16', vector: [0.08, 0.91, 0.01], daysBefore: 1 },
+        { name: 'thursday', previousDay: '2026-09-17', vector: [0.65, 0.35, 0.0], daysBefore: 0 },
+        { name: 'friday', previousDay: '2026-09-18', vector: [0.0, 0.0, 1.0], daysBefore: 2 },
+        { name: 'saturday', previousDay: '2026-09-19', vector: [0.0, 0.0, 1.0], daysBefore: 2 },
+        { name: 'sunday', previousDay: '2026-09-20', vector: [0.0, 0.0, 1.0], daysBefore: 2 }
     ])('uses the fixed probability vector when previous day is $name', async ({ previousDay, vector, daysBefore }) => {
         randomMock.mockReturnValue(daysBefore);
         mockGetActualPreviousDay.mockReturnValueOnce(previousDay);
