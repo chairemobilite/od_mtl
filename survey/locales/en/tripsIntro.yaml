@@ -22,15 +22,15 @@ personWhoWillAnswerForThisPerson_female: >-
     Who is responding for {{nickname}}?<br /><span class="_pale _oblique">If {{nickname}}
     is available, she can complete this section, or you may answer on her behalf.</span>
 personDidTrips: >-
-    Did {{nickname}} make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
-    all their trips, regardless of the distance travelled or mode of transportation
-    used, whether for personal reasons (shopping, outings, leisure, etc.), for work
-    or school, or to pick up or drop someone off.</span>
+    Did {{nickname}} make any trips on {{journeyDate}}?{{reminderText}}<br /><span
+    class="_pale _oblique">Include all their trips, regardless of the distance travelled
+    or mode of transportation used, whether for personal reasons (shopping, outings,
+    leisure, etc.), for work or school, or to pick up or drop someone off.</span>
 personDidTrips_one: >-
-    Did you make any trips on {{journeyDate}}?<br /><span class="_pale _oblique">Include
-    all your trips, regardless of the distance travelled or mode of transportation
-    used, whether for personal reasons (shopping, outings, leisure, etc.), for work
-    or school, or to pick up or drop someone off.</span>
+    Did you make any trips on {{journeyDate}}?{{reminderText}}<br /><span class="_pale
+    _oblique">Include all your trips, regardless of the distance travelled or mode
+    of transportation used, whether for personal reasons (shopping, outings, leisure,
+    etc.), for work or school, or to pick up or drop someone off.</span>
 personDidTripsConfirm: >-
     You previously reported trips. Can you confirm they were reported by mistake and
     that {{nickname}} did not travel on {{journeyDate}}?

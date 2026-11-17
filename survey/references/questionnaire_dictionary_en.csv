@@ -481,7 +481,7 @@ If {{nickname}} is available, {{gender:he/she/they}} can complete this section, 
 ""
 Field,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Question type,Radio input
-Question,"Did {{nickname}} make any trips on {{journeyDate}}?
+Question,"Did {{nickname}} make any trips on {{journeyDate}}?{{reminderText}}
 Include all their trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off."
 Values,"yes : Yes
 no : No"

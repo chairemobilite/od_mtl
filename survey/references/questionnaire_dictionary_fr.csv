@@ -479,7 +479,7 @@ Si {{nickname}} est disponible, {{gender:il/elle/iel}} peut venir compléter ou 
 ""
 Champ,hh_persons.{_activePersonId}.journeys.{_activeJourneyId}.personDidTrips
 Type de question,Bouton radio
-Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?
+Question,"Est-ce que {{nickname}} s'est déplac{{gender:é/ée/é(e)/é(e)}} le {{journeyDate}}?{{reminderText}}
 Inclure tous ses déplacements, peu importe la distance parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un."
 Valeurs,"yes : Oui
 no : Non"

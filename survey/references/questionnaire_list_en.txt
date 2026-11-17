@@ -304,7 +304,7 @@ Who is responding for {{nickname}}?
 If {{nickname}} is available, {{gender:he/she/they}} can complete this section, or you may answer on {{gender:his/her/their}} behalf.
 
 
-Did {{nickname}} make any trips on {{journeyDate}}?
+Did {{nickname}} make any trips on {{journeyDate}}?{{reminderText}}
 Include all their trips, regardless of the distance travelled or mode of transportation used, whether for personal reasons (shopping, outings, leisure, etc.), for work or school, or to pick up or drop someone off.
 - Yes
 - No
