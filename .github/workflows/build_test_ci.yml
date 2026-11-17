@@ -48,6 +48,8 @@ jobs:
       run: yarn compile
     - name: Build Client bundle
       run: yarn build:prod
+    - name: Build Admin Client bundle
+      run: yarn build:admin:prod
     - name: Unit Test
       run: yarn test
 
