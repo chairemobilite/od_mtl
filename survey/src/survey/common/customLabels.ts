@@ -5,11 +5,12 @@ import { _isBlank } from 'chaire-lib-common/lib/utils/LodashExtensions';
 import {
     I18nData,
     InterviewAttributes,
+    Person,
     Segment,
     UserInterviewAttributes
 } from 'evolution-common/lib/services/questionnaire/types';
 import * as odHelpers from 'evolution-common/lib/services/odSurvey/helpers';
-import { getChildrenAged1To4, getFormattedTripDateFromJourney } from './customHelpers';
+import { getChildrenAged1To4, getFirstCommonTripLabelOptions, getFormattedTripDateFromJourney } from './customHelpers';
 import i18n from 'evolution-frontend/lib/config/i18n.config';
 import { getResponse, translateString } from 'evolution-common/lib/utils/helpers';
 import {
@@ -18,8 +19,21 @@ import {
 } from 'evolution-frontend/lib/services/display/frontendHelper';
 import { transitFareType } from './choices';
 
+/**
+ * Get a label function for a widget of a journey, with the journey date.
+ * @param translationKey The translation key of the label
+ * @param getAdditionalLabelOptions Function returning additional options for
+ * the translation of the label.
+ */
 const labelWithJourneyDate =
-    (translationKey: string): I18nData =>
+    (
+        translationKey: string,
+        getAdditionalLabelOptions?: (options: {
+            t: TFunction;
+            interview: UserInterviewAttributes;
+            currentPerson: Person;
+        }) => { [optionName: string]: string }
+    ): I18nData =>
         (t: TFunction, interview, path) => {
             const journeyContext = odHelpers.getJourneyContextFromPath({ interview, path });
             if (!journeyContext) {
@@ -31,12 +45,16 @@ const labelWithJourneyDate =
                 context: odHelpers.getPersonGenderContext({ person }),
                 nickname: odHelpers.getPersonIdentificationString({ person, t }),
                 journeyDate,
-                count: odHelpers.getCountOrSelfDeclared({ interview, person })
+                count: odHelpers.getCountOrSelfDeclared({ interview, person }),
+                ...getAdditionalLabelOptions?.({ t, interview, currentPerson: person })
             });
         };
 
-// Custom because of the presence of the journey date in the label
-export const personDidTripsCustomLabel: I18nData = labelWithJourneyDate('tripsIntro:personDidTrips');
+// Custom because of the presence of the journey date and of the common trip reminder in the label
+export const personDidTripsCustomLabel: I18nData = labelWithJourneyDate(
+    'tripsIntro:personDidTrips',
+    getFirstCommonTripLabelOptions
+);
 
 // Custom because of the presence of the journey date in the label
 export const personDidTripsConfirmCustomLabel: I18nData = labelWithJourneyDate('tripsIntro:personDidTripsConfirm');

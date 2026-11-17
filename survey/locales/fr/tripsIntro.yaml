@@ -23,38 +23,41 @@ personWhoWillAnswerForThisPerson_female: >-
     Qui répond pour {{nickname}}?<br /><span class="_pale _oblique">Si {{nickname}}
     est disponible, elle peut venir compléter ou vous pouvez répondre pour elle</span>
 personDidTrips: >-
-    Est-ce que {{nickname}} s'est déplacé(e) le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous ses déplacements, peu importe la distance parcourue ou
-    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
-    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
-    ou reconduire quelqu’un.</span>
+    Est-ce que {{nickname}} s'est déplacé(e) le {{journeyDate}}?{{reminderText}}<br
+    /><span class="_pale _oblique">Inclure tous ses déplacements, peu importe la distance
+    parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles
+    (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller
+    chercher ou reconduire quelqu’un.</span>
 personDidTrips_male: >-
-    Est-ce que {{nickname}} s'est déplacé le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous ses déplacements, peu importe la distance parcourue ou
-    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
-    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
-    ou reconduire quelqu’un.</span>
+    Est-ce que {{nickname}} s'est déplacé le {{journeyDate}}?{{reminderText}}<br /><span
+    class="_pale _oblique">Inclure tous ses déplacements, peu importe la distance
+    parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles
+    (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller
+    chercher ou reconduire quelqu’un.</span>
 personDidTrips_female: >-
-    Est-ce que {{nickname}} s'est déplacée le {{journeyDate}}?<br /><span class="_pale
-    _oblique">Inclure tous ses déplacements, peu importe la distance parcourue ou
+    Est-ce que {{nickname}} s'est déplacée le {{journeyDate}}?{{reminderText}}<br
+    /><span class="_pale _oblique">Inclure tous ses déplacements, peu importe la distance
+    parcourue ou le mode de transport utilisé, que ce soit pour des activités personnelles
+    (achats, sorties, loisirs, etc.), pour le travail ou les études, ou pour aller
+    chercher ou reconduire quelqu’un.</span>
+personDidTrips_one: >-
+    Vous êtes-vous déplacé(e) le {{journeyDate}}?{{reminderText}}<br /><span class="_pale
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
     le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
     sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
     ou reconduire quelqu’un.</span>
-personDidTrips_one: >-
-    Vous êtes-vous déplacé(e) le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
-    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
-    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
 personDidTrips_male_one: >-
-    Vous êtes-vous déplacé le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
-    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
-    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
+    Vous êtes-vous déplacé le {{journeyDate}}?{{reminderText}}<br /><span class="_pale
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
+    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
+    ou reconduire quelqu’un.</span>
 personDidTrips_female_one: >-
-    Vous êtes-vous déplacée le {{journeyDate}}?<br /><span class="_pale _oblique">Inclure
-    tous vos déplacements, peu importe la distance parcourue ou le mode de transport
-    utilisé, que ce soit pour des activités personnelles (achats, sorties, loisirs,
-    etc.), pour le travail ou les études, ou pour aller chercher ou reconduire quelqu’un.</span>
+    Vous êtes-vous déplacée le {{journeyDate}}?{{reminderText}}<br /><span class="_pale
+    _oblique">Inclure tous vos déplacements, peu importe la distance parcourue ou
+    le mode de transport utilisé, que ce soit pour des activités personnelles (achats,
+    sorties, loisirs, etc.), pour le travail ou les études, ou pour aller chercher
+    ou reconduire quelqu’un.</span>
 personDidTripsConfirm: >-
     Vous avez déjà déclaré des déplacements. Confirmez-vous qu'ils sont erronés et
     que {{nickname}} ne s'est pas déplacé(e) le {{journeyDate}}?

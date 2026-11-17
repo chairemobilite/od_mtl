@@ -310,6 +310,94 @@ const getVisitedPlaceLatestTime = ({
 };
 
 const defaultReminder = { reminderText: '' };
+
+/**
+ * Get the label option with the reminder text for a trip that the common trip
+ * reference person declared as done with another person.
+ * @returns The `reminderText` label option, an empty string if the origin or
+ * the destination of the trip is not found.
+ */
+const getCommonTripReminder = ({
+    t,
+    interview,
+    commonTripReferencePerson,
+    commonTripReferenceJourney,
+    commonTrip
+}: {
+    t: TFunction;
+    interview: InterviewAttributes;
+    commonTripReferencePerson: Person;
+    commonTripReferenceJourney: Journey;
+    commonTrip: Trip;
+}) => {
+    const commonTripReferenceVisitedPlaces = odSurveyHelpers.getVisitedPlaces({ journey: commonTripReferenceJourney });
+    const origin = odSurveyHelpers.getOrigin({
+        trip: commonTrip,
+        visitedPlaces: commonTripReferenceVisitedPlaces
+    });
+    const destination = odSurveyHelpers.getDestination({
+        trip: commonTrip,
+        visitedPlaces: commonTripReferenceVisitedPlaces
+    });
+    if (origin === null || destination === null) {
+        return defaultReminder;
+    }
+    return {
+        reminderText: t('visitedPlaces:reminderText', {
+            otherNickname: odSurveyHelpers.getPersonIdentificationString({ person: commonTripReferencePerson, t }),
+            originDeparture: secondsSinceMidnightToTimeStr(origin.departureTime),
+            destinationArrival: secondsSinceMidnightToTimeStr(destination.arrivalTime),
+            origin: odSurveyHelpers.getVisitedPlaceDescription({
+                visitedPlace: origin,
+                person: commonTripReferencePerson,
+                interview,
+                t,
+                options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
+            }),
+            destination: odSurveyHelpers.getVisitedPlaceDescription({
+                visitedPlace: destination,
+                person: commonTripReferencePerson,
+                interview,
+                t,
+                options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
+            })
+        })
+    };
+};
+
+/**
+ * Get the label option with the reminder of the first trip that the common
+ * trip reference person declared as done with a person. It reminds that this
+ * person did trips, before any of them is declared.
+ * @returns The `reminderText` label option, an empty string if the interview
+ * is not in the common trip sample or if there is no common trip with this
+ * person.
+ */
+export const getFirstCommonTripLabelOptions = ({
+    t,
+    interview,
+    currentPerson
+}: {
+    t: TFunction;
+    interview: InterviewAttributes;
+    currentPerson: Person;
+}) => {
+    if (!isCommonTripSampleMatch(interview)) {
+        return defaultReminder;
+    }
+    const commonTripsData = getCommonTripFromReferencePerson(interview, currentPerson);
+    if (commonTripsData === null) {
+        return defaultReminder;
+    }
+    return getCommonTripReminder({
+        t,
+        interview,
+        commonTripReferencePerson: commonTripsData.person,
+        commonTripReferenceJourney: commonTripsData.journey,
+        commonTrip: commonTripsData.trips[0]
+    });
+};
+
 export const getCommonTripLabelOptions = ({
     t,
     interview,
@@ -356,38 +444,13 @@ export const getCommonTripLabelOptions = ({
     }
 
     // Finally, return the string that corresponds to the reminder for the common trip.
-    const origin = odSurveyHelpers.getOrigin({
-        trip: applicableCommonTrip,
-        visitedPlaces: commonTripReferenceVisitedPlaces
+    return getCommonTripReminder({
+        t,
+        interview,
+        commonTripReferencePerson,
+        commonTripReferenceJourney,
+        commonTrip: applicableCommonTrip
     });
-    const destination = odSurveyHelpers.getDestination({
-        trip: applicableCommonTrip,
-        visitedPlaces: commonTripReferenceVisitedPlaces
-    });
-    if (origin === null || destination === null) {
-        return defaultReminder;
-    }
-    return {
-        reminderText: t('visitedPlaces:reminderText', {
-            otherNickname: odSurveyHelpers.getPersonIdentificationString({ person: commonTripReferencePerson, t }),
-            originDeparture: secondsSinceMidnightToTimeStr(origin.departureTime),
-            destinationArrival: secondsSinceMidnightToTimeStr(destination.arrivalTime),
-            origin: odSurveyHelpers.getVisitedPlaceDescription({
-                visitedPlace: origin,
-                person: commonTripReferencePerson,
-                interview,
-                t,
-                options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
-            }),
-            destination: odSurveyHelpers.getVisitedPlaceDescription({
-                visitedPlace: destination,
-                person: commonTripReferencePerson,
-                interview,
-                t,
-                options: { withTimes: false, withActivity: false, withPersonIdentification: false, allowHtml: false }
-            })
-        })
-    };
 };
 
 /**
