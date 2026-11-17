@@ -222,6 +222,20 @@ describe('access code update', () => {
             expected: { 'ep.exclusive': 'paidParking', 'ep.commonTrip': true, 'ep.sameMode': false }
         },
         {
+            title: 'random value at the upper bound of the sample before a sample with 0% probability, should skip the 0% sample',
+            interviewResponseData: { accessCodeIsCorrect: ['accessCodeConfirmOk'], _assignedWeekDayIso: 1 /* monday */ },
+            prefillData: {},
+            randomValues: [0.492, 0.32, 0.64],
+            expected: { 'ep.exclusive': 'freqBarriers', 'ep.commonTrip': true, 'ep.sameMode': false }
+        },
+        {
+            title: 'ep.exclusive already set to a sample with 0% probability, should keep it',
+            interviewResponseData: { ep: { exclusive: 'freqAttitudinal', commonTrip: true, sameMode: false }, _assignedWeekDayIso: 1 /* monday */ },
+            prefillData: { 'home.address': '123 Main St' },
+            randomValues: [],
+            expected: { 'home.address': '123 Main St', 'home._addressIsPrefilled': true }
+        },
+        {
             title: 'some previous and prefilled eps',
             interviewResponseData: { ep: { exclusive: 'omission' }, _assignedWeekDayIso: 1 /* monday */ },
             prefillData: { 'home.preData': { 'ep.commonTrip': false } },
