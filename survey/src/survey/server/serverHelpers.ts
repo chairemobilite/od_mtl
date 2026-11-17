@@ -96,8 +96,7 @@ export const getUpdatedFieldsForCommonTrip = (
     if (odSurveyHelpers.tripHasDefinedSegments({ trip: currentTrip })) {
         return segments.some((segment) => segment._isNew === false)
             ? {
-                [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]:
-                      false
+                [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]: false
             }
             : {};
     }
@@ -253,8 +252,7 @@ export const getUpdatedFieldsForCommonTrip = (
     }
 
     const updatedSegments: Record<string, unknown> = {
-        [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]:
-            true
+        [`household.persons.${currentPerson._uuid}.journeys.${currentJourney._uuid}.trips.${currentTrip._uuid}._prefilledFromCommonTrip`]: true
     };
     // If no previous segment, just assign the whole object, otherwise set field by field for UI to not reset the values when the widget becomes visible
     if (segments[0] === undefined) {

@@ -4,7 +4,10 @@
 /runtime/
 /assets/images/
 /assets/documents/
-**/__tests__
+**/__tests__/
 jest.config.js
 webpack.config.js
 webpack.admin.config.js
+config.js
+# This file is too big and does not need to be prettified, it was generated in the first place.
+/src/survey/config/zat_x_zat_matrix.ts

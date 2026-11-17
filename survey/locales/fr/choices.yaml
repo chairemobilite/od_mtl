@@ -66,12 +66,21 @@ transitFareWarning:
     yes: Je confirme
 workPlaceTypeChoices:
     onLocation: Travaille en présentiel en tout temps à un lieu fixe hors domicile
+    onLocation_one: Travaille en présentiel en tout temps à un lieu fixe hors domicile
     hybrid: Travaille en mode hybride (télétravail et en présentiel)
+    hybrid_one: Travaille en mode hybride (télétravail et en présentiel)
     remote: Travaille toujours au domicile ou à distance
+    remote_one: Travaille toujours au domicile ou à distance
     onTheRoadWithUsualPlace: >-
         Travaille sur la route avec un point d’attache habituel (ex. : entrepôt, garage,
         bureau, etc.)
+    onTheRoadWithUsualPlace_one: >-
+        Travaille sur la route avec un point d’attache habituel (ex. : entrepôt, garage,
+        bureau, etc.)
     onTheRoadWithoutUsualPlace: >-
+        Travaille sur la route sans point d’attache habituel (ex. : visites chez les
+        clients uniquement, etc.)
+    onTheRoadWithoutUsualPlace_one: >-
         Travaille sur la route sans point d’attache habituel (ex. : visites chez les
         clients uniquement, etc.)
 longDistanceFrequencyChoices:
