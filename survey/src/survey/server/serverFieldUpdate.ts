@@ -206,8 +206,11 @@ const epExclusiveProbabilitiesWeekday: [number, string][] = [
     [0.062, 'omission'], // 5%
     [0.442, 'paidParking'], // 38%
     [0.492, 'respect'], // 5%
-    [0.592, 'freqAttitudinal'], // 10%
-    [0.692, 'freqBarriers'], // 10%
+    // 0%: same upper bound as the previous sample, so it is never drawn. It
+    // stays in the list because it is still a valid sample for the
+    // interviews that have it.
+    [0.492, 'freqAttitudinal'],
+    [0.692, 'freqBarriers'], // 20%
     [0.792, 'freqAttitudinalBarriers'], // 10%
     [1, 'mtmd'] // 20.8 %
 ];
