@@ -76,7 +76,7 @@ jobs:
       - name: Get Playwright config
         run: cp survey/playwright-example.config.ts survey/playwright.config.ts
       - name: Install Playwright Browsers # Use this to install the browsers needed for Playwright
-        run: yarn playwright install
+        run: yarn workspace od_mtl playwright install
       - name: Start application
         run: yarn start &
         env:
